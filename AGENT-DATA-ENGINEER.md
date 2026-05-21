@@ -1,5 +1,5 @@
 # AGENT — Data Engineer Expert
-> Fichier à placer dans : C:\Users\Guy HUIBONHOA\ClaudeCode\AGENT-DATA-ENGINEER.md
+> **Domaine :** Data Engineering — pipelines ETL, Spark, dbt, Airflow, Kafka
 
 ---
 

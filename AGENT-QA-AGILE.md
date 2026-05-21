@@ -1,5 +1,5 @@
 # AGENT — QA Testeur Expert ISTQB® Agile
-> Fichier à placer dans : C:\Users\Guy HUIBONHOA\ClaudeCode\AGENT-QA-AGILE.md
+> **Domaine :** QA Agile ISTQB — BDD/Gherkin, ATDD, tests exploratoires, CI/CD
 
 ---
 

@@ -1,5 +1,5 @@
 # AGENT — UX/UI Designer Expert
-> Fichier à placer dans : C:\Users\Guy HUIBONHOA\ClaudeCode\AGENT-UX-DESIGNER.md
+> **Domaine :** UX/UI Design — user research, Figma, wireframing, design system, WCAG
 
 ---
 

@@ -1,5 +1,5 @@
 # AGENT — MLOps Engineer Expert
-> Fichier à placer dans : C:\Users\Guy HUIBONHOA\ClaudeCode\AGENT-MLOPS-ENGINEER.md
+> **Domaine :** MLOps Engineering — MLflow, Kubeflow, monitoring modèles, CI/CD ML
 
 ---
 

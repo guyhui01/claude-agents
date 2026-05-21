@@ -1,5 +1,5 @@
 # AGENT — Dev TypeScript IA Expert
-> Fichier à placer dans : C:\Users\Guy HUIBONHOA\ClaudeCode\AGENT-DEV-TYPESCRIPT-IA.md
+> **Domaine :** Développement TypeScript & IA — Next.js, Vercel AI SDK, MCP, streaming
 
 ---
 

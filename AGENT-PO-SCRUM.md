@@ -1,5 +1,5 @@
 # AGENT — Product Owner Scrum Expert
-> Fichier à placer dans : C:\Users\Guy HUIBONHOA\ClaudeCode\AGENT-PO-SCRUM.md
+> **Domaine :** Product Owner Scrum — backlog, user stories, DoD, cérémonies Scrum
 
 ---
 

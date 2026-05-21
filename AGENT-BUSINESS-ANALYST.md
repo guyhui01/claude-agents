@@ -1,5 +1,5 @@
 # AGENT — Business Analyst / MOA Expert
-> Fichier à placer dans : C:\Users\Guy HUIBONHOA\ClaudeCode\AGENT-BUSINESS-ANALYST.md
+> **Domaine :** Business Analysis & MOA — élicitation, BPMN, spécifications, recette
 
 ---
 

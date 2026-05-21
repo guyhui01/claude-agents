@@ -1,5 +1,5 @@
 # AGENT — Scrum Master Expert
-> Fichier à placer dans : C:\Users\Guy HUIBONHOA\ClaudeCode\AGENT-SCRUM-MASTER.md
+> **Domaine :** Scrum Master — facilitation, coaching équipe, métriques agiles, scaling
 
 ---
 

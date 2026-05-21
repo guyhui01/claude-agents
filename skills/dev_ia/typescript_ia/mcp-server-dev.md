@@ -1,0 +1,90 @@
+# Skill — Développement MCP Server
+> Certifications : Anthropic Claude Code in Action
+
+## Objectif
+Créer un MCP Server pour connecter Claude à des outils, APIs ou sources de données custom.
+
+## Structure d'un MCP Server TypeScript
+```typescript
+import { Server } from "@modelcontextprotocol/sdk/server/index.js"
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
+import { CallToolRequestSchema, ListToolsRequestSchema } from "@modelcontextprotocol/sdk/types.js"
+
+const server = new Server(
+  { name: "mon-mcp-server", version: "1.0.0" },
+  { capabilities: { tools: {} } }
+)
+
+// Déclarer les tools disponibles
+server.setRequestHandler(ListToolsRequestSchema, async () => ({
+  tools: [{
+    name: "search_jira",
+    description: "Recherche des tickets Jira par critères",
+    inputSchema: {
+      type: "object",
+      properties: {
+        query: { type: "string", description: "Texte de recherche" },
+        project: { type: "string", description: "Clé du projet Jira" },
+        maxResults: { type: "number", default: 10 }
+      },
+      required: ["query"]
+    }
+  }]
+}))
+
+// Implémenter les tools
+server.setRequestHandler(CallToolRequestSchema, async (request) => {
+  if (request.params.name === "search_jira") {
+    const { query, project, maxResults } = request.params.arguments as SearchArgs
+    const results = await jiraClient.search(query, project, maxResults)
+    return { content: [{ type: "text", text: JSON.stringify(results, null, 2) }] }
+  }
+  throw new Error(`Tool inconnu : ${request.params.name}`)
+})
+
+// Démarrer le serveur
+const transport = new StdioServerTransport()
+await server.connect(transport)
+```
+
+## Types de primitives MCP
+
+### Tools (actions)
+- Fonctions appelées par le LLM pour agir
+- Exemples : create_ticket, send_email, query_db, search_web
+
+### Resources (données read-only)
+```typescript
+server.setRequestHandler(ListResourcesRequestSchema, async () => ({
+  resources: [{ uri: "jira://projects", name: "Liste des projets Jira", mimeType: "application/json" }]
+}))
+```
+
+### Prompts (templates réutilisables)
+```typescript
+server.setRequestHandler(ListPromptsRequestSchema, async () => ({
+  prompts: [{ name: "create_user_story", description: "Génère une User Story complète" }]
+}))
+```
+
+## Configuration dans Claude Code (.claude/settings.json)
+```json
+{
+  "mcpServers": {
+    "jira": {
+      "command": "node",
+      "args": ["./mcp-servers/jira/dist/index.js"],
+      "env": { "JIRA_URL": "...", "JIRA_TOKEN": "..." }
+    }
+  }
+}
+```
+
+## Livrables
+- MCP Server fonctionnel (build + test)
+- Documentation des tools (nom, description, schéma)
+- Configuration Claude Code
+- Tests d'intégration des tools
+
+## Format de sortie
+Précise : outil/API à connecter · primitives nécessaires (tools/resources/prompts) · authentification requise

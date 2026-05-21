@@ -1,0 +1,29 @@
+# ============================================================
+# .gitignore — Claude Agents Library
+# Gouvernance : repo public/privé limité aux agents génériques
+# ============================================================
+
+# --- Données privées & configuration locale ---
+.claude/
+memory/
+sandbox/
+
+# --- Projets clients (données potentiellement sensibles) ---
+projects/
+
+# --- Fichiers setup & backup locaux ---
+TODO_GITHUB_SETUP.md
+backup/
+
+# --- Fichiers système & temporaires ---
+*.tmp
+*.log
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# --- Scripts d'automatisation locale ---
+sync-claude.ps1
+
+# --- Fichiers Claude internes ---
+.claudeignore

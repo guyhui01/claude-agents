@@ -1,5 +1,5 @@
 # AGENT — Formateur IA & Learning Designer Expert
-> Fichier à placer dans : C:\Users\Guy HUIBONHOA\ClaudeCode\AGENT-FORMATEUR-IA.md
+> **Domaine :** Formation IA — conception parcours, animation, e-learning, data literacy
 
 ---
 

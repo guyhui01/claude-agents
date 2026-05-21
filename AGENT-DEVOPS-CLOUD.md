@@ -1,5 +1,5 @@
 # AGENT — DevOps & Cloud Engineer Expert
-> Fichier à placer dans : C:\Users\Guy HUIBONHOA\ClaudeCode\AGENT-DEVOPS-CLOUD.md
+> **Domaine :** DevOps & Cloud — CI/CD, Kubernetes, Terraform, AWS/GCP/Azure
 
 ---
 

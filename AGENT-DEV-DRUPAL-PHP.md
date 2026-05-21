@@ -1,5 +1,5 @@
 # AGENT — Développeur Drupal PHP Expert
-> Fichier à placer dans : C:\Users\Guy HUIBONHOA\ClaudeCode\AGENT-DEV-DRUPAL-PHP.md
+> **Domaine :** Développement Drupal/PHP — modules custom, Commerce, Twig, PHPUnit
 
 ---
 

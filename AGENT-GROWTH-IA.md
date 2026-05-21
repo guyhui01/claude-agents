@@ -1,5 +1,5 @@
 # AGENT — Growth Hacker & Marketing IA Expert
-> Fichier à placer dans : C:\Users\Guy HUIBONHOA\ClaudeCode\AGENT-GROWTH-IA.md
+> **Domaine :** Growth & Marketing IA — acquisition, automation, SEO, analytics
 
 ---
 

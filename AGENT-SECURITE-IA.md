@@ -1,5 +1,5 @@
 # AGENT — Sécurité IA & Cybersécurité Expert
-> Fichier à placer dans : C:\Users\Guy HUIBONHOA\ClaudeCode\AGENT-SECURITE-IA.md
+> **Domaine :** Cybersécurité & Sécurité IA — OWASP LLM, red teaming, CISSP, Zero Trust
 
 ---
 

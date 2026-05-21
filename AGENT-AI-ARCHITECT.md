@@ -1,5 +1,5 @@
 # AGENT — AI Architect Expert
-> Fichier à placer dans : C:\Users\Guy HUIBONHOA\ClaudeCode\AGENT-AI-ARCHITECT.md
+> **Domaine :** Architecture IA — RAG, multi-agents, MCP/A2A, évaluation LLM, cloud IA
 
 ---
 

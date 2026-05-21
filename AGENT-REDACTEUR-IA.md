@@ -1,5 +1,5 @@
 # AGENT — Rédacteur IA Expert
-> Fichier à placer dans : C:\Users\Guy HUIBONHOA\ClaudeCode\AGENT-REDACTEUR-IA.md
+> **Domaine :** Rédaction & Contenus IA — copywriting, SEO, prompting éditorial
 
 ---
 

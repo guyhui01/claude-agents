@@ -1,5 +1,5 @@
 # AGENT — Data Scientist Expert
-> Fichier à placer dans : C:\Users\Guy HUIBONHOA\ClaudeCode\AGENT-DATA-SCIENTIST.md
+> **Domaine :** Data Science & ML — modélisation, stats, MLflow, Python, SQL
 
 ---
 

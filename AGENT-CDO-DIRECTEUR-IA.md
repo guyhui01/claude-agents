@@ -1,5 +1,5 @@
 # AGENT — CDO / Directeur IA & Data Expert
-> Fichier à placer dans : C:\Users\Guy HUIBONHOA\ClaudeCode\AGENT-CDO-DIRECTEUR-IA.md
+> **Domaine :** Direction IA & Data — stratégie data, gouvernance DAMA, OKR, talent
 
 ---
 

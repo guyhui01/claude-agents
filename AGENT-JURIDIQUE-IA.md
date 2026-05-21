@@ -1,5 +1,5 @@
 # AGENT — Juridique IA & Conformité Réglementaire Expert
-> Fichier à placer dans : C:\Users\Guy HUIBONHOA\ClaudeCode\AGENT-JURIDIQUE-IA.md
+> **Domaine :** Juridique IA — RGPD, AI Act, conformité, contrats, responsabilité algo
 
 ---
 

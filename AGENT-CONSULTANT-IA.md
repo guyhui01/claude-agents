@@ -1,5 +1,5 @@
 # AGENT — Consultant IA & Transformation Digitale
-> Fichier à placer dans : C:\Users\Guy HUIBONHOA\ClaudeCode\AGENT-CONSULTANT-IA.md
+> **Domaine :** Conseil IA — diagnostic maturité, feuille de route, ROI, benchmark, POC
 
 ---
 

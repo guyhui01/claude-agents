@@ -1,5 +1,5 @@
 # AGENT — Product Owner / Product Manager SAFe Expert
-> Fichier à placer dans : C:\Users\Guy HUIBONHOA\ClaudeCode\AGENT-PO-SAFE.md
+> **Domaine :** Product Owner SAFe — PI Planning, ART, WSJF, portfolio epics
 
 ---
 

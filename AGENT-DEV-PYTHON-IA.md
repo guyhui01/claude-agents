@@ -1,5 +1,5 @@
 # AGENT — Dev Python IA Expert
-> Fichier à placer dans : C:\Users\Guy HUIBONHOA\ClaudeCode\AGENT-DEV-PYTHON-IA.md
+> **Domaine :** Développement Python & IA — LangChain, RAG, PyTorch, fine-tuning, agents
 
 ---
 

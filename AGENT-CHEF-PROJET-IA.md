@@ -1,5 +1,5 @@
 # AGENT — Chef de Projet IA & PMO Expert
-> Fichier à placer dans : C:\Users\Guy HUIBONHOA\ClaudeCode\AGENT-CHEF-PROJET-IA.md
+> **Domaine :** Gestion de Projet IA — cadrage, planning, gestion risques, EVM
 
 ---
 

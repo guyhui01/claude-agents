@@ -138,12 +138,15 @@ FACTEURS BAISSIERS (-5 à -20%)
 
 | Type de client | Niveau de rémunération | Remarque |
 |---|---|---|
-| GAFA / Big Tech | +25-40% vs marché | Souvent full remote |
-| CAC40 / Grands groupes | Marché à +5-10% | Négociation longue |
-| Scale-up (Série B+) | Marché + equity | BSPCE si senior |
-| PME tech / startup early | -10-15% vs marché | Flexibilité & equity |
-| ESN / Cabinets conseil | En dessous marché | Progression rapide possible |
-| Secteur public / EPIC | -15-25% vs marché | Stabilité, 35h |
+| GAFA / Big Tech (Google, Meta, Apple, Amazon, Microsoft) | +25-40% vs marché | Full remote fréquent · processus recrutement long (6-8 tours) |
+| Licorne (valorisation > 1 Md€, ex : Mistral, Qonto, Alan, Contentsquare) | +15-30% vs marché | Package equity fort (BSPCE/AGA) · rythme scale-up intensif |
+| CAC40 / Grands groupes | Marché à +5-10% | Négociation longue · avantages (CE, retraite, intéressement) |
+| Scale-up (Série B/C, < licorne) | Marché + equity | BSPCE si senior · évolution rapide possible |
+| Startup Série A | -5-10% vs marché | Equity significatif · forte prise de risque · rôle large |
+| Startup early (pre-seed / seed) | -15-25% vs marché | Equity élevé · instabilité · profils très autonomes requis |
+| PME tech / ETI | -5-10% vs marché | Stabilité · rôles élargis · process RH légers |
+| ESN / Cabinets conseil | En dessous marché | Progression rapide · variable selon facturation client |
+| Secteur public / EPIC | -15-25% vs marché | Stabilité · 35h · télétravail limité |
 
 ## Outil d'analyse rémunération — Template
 

@@ -43,15 +43,37 @@ Score : 0-3
 
 NIVEAU 3 — Leadership & Design (seniors)
 ──────────────────────────────────────────────────────
-Q : Comment choisissez-vous entre les LLM disponibles (Claude Opus 4.7, Sonnet 4.6, GPT-4.1, GPT-4o, Gemini 2.5 Pro, Mistral Large 2, LLaMA 3.3) pour un use case donné ?
+Q : Comment choisissez-vous entre les LLM du marché pour un use case donné ? (Frontier 2026 : Claude Opus 4.7, GPT-5.5, Gemini 3.1 Pro, Grok 3…)
 Réponse attendue :
-  · Tâche complexe / raisonnement profond → Claude Opus 4.7 ou GPT-4.1 (premium, coût élevé)
-  · Équilibre qualité/coût production → Claude Sonnet 4.6, GPT-4o, Gemini 2.5 Flash
-  · Volume élevé / latence critique → Claude Haiku 4.5, GPT-4o-mini, Gemini 2.0 Flash
-  · On-premise / RGPD strict → Mistral Large 2 (self-hosted), LLaMA 3.3 (open-source)
-  · Critères clés : coût/token, latence, context window, performance tâche spécifique,
-    contraintes souveraineté data, benchmarks internes (evals)
-Score : 0-3 (0 = cite 1 modèle sans critère · 3 = grille multicritère + justification)
+
+  FRONTIER — Raisonnement complexe, agents, code avancé
+  · Claude Opus 4.7 (avr. 2026) : #1 SWE-bench Pro (64,3%) · #1 LM Arena (1504 Elo)
+    mode "max effort" · vision HR 3x · raisonnement adaptatif → tâches critiques
+  · GPT-5.5 (avr. 2026) : #1 classement général · SWE-bench Pro 58,6%
+    → génération de code, agents complexes, raisonnement multi-étapes
+  · Gemini 3.1 Pro : leader génération texte · fort sur LM Arena
+    → multimodal, intégration Google Workspace, contexte long
+
+  PRODUCTION — Équilibre qualité/coût
+  · Claude Sonnet 4.6 : frontier-class · 1M tokens contexte · meilleur ratio
+    qualité/prix Anthropic → production, RAG, assistants métier
+  · GPT-4o / o4-mini : multimodal mature · forte communauté d'intégrations
+  · Gemini 2.5 Flash : latence faible · coût réduit · Google Cloud natif
+
+  RÉACTIF / TEMPS RÉEL
+  · Grok 3 (xAI) : connecté en temps réel à X · fort sur actualité
+    → veille, analyse marché live, environnements réactifs
+
+  SOUVERAINETÉ / ON-PREMISE
+  · Mistral Large 2 : déployable on-premise · RGPD FR/EU · Mistral AI Paris
+  · LLaMA 3.3 405B (Meta) : open-source · self-hosted · coût infra uniquement
+
+  Critères clés du choix : coût/token · latence · context window ·
+  benchmark sur tâche spécifique (evals) · contraintes souveraineté data ·
+  disponibilité API régionale (EU)
+
+Score : 0-3 (0 = cite 1 modèle sans critère · 2 = tier + critères · 3 = grille multicritère
+         avec benchmarks + justification use case + contraintes RGPD)
 ```
 
 ### Questions comportementales STAR

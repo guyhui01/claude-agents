@@ -32,7 +32,7 @@ taille équipe tech, culture (remote-first, Agile, produit)]
 [Contexte du recrutement : création, remplacement, croissance]
 [Missions principales : 4-6 bullet points concrets]
 - Concevoir et déployer des pipelines RAG sur [stack]
-- Intégrer des modèles LLM (Claude Opus 4.7 / Sonnet 4.6, GPT-4.1 / GPT-4o, Gemini 2.5 Pro, Mistral Large 2) via API
+- Intégrer des modèles LLM Frontier (Claude Opus 4.7, GPT-5.5, Gemini 3.1 Pro) et production (Sonnet 4.6, GPT-4o, Mistral Large 2) via API
 - Collaborer avec les PM/PO pour affiner les critères d'acceptance
 - [...]
 

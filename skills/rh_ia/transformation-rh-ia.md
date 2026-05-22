@@ -9,7 +9,7 @@ Accompagner les équipes RH dans l'intégration de l'IA dans leurs processus : c
 ```
 RECRUTEMENT
 ──────────────────────────────────────────────────────
-Rédaction d'offres       → LLM (Claude Sonnet 4.6, GPT-4o, Gemini 2.5 Flash) sur brief RH structuré
+Rédaction d'offres       → LLM (Claude Sonnet 4.6, GPT-5.5, Gemini 3.1 Pro) sur brief RH structuré
 Sourcing booléen         → LinkedIn Recruiter, Seek Out, Hireez
 Screening CV             → ATS IA : Greenhouse, Lever, SmartRecruiters
 Qualification initiale   → Chatbot RH : MYA, Paradox (Olivia), Eightfold AI
@@ -22,7 +22,7 @@ FORMATION & DÉVELOPPEMENT
 ──────────────────────────────────────────────────────
 Détection gaps compétences → Analyse SIRH + LLM
 Recommandations parcours  → LMS IA : 360Learning, Cornerstone, Docebo AI
-Génération contenu formation → Claude Opus 4.7 / Sonnet 4.6, GPT-4.1 + LMS
+Génération contenu formation → Claude Opus 4.7 / Sonnet 4.6, GPT-5.5 + LMS
 Évaluation post-formation  → Quiz génératif + analyse résultats
 
 PEOPLE ANALYTICS
@@ -51,7 +51,7 @@ WORKFLOW RECRUTEMENT IA — 6 ÉTAPES
 ──────────────────────────────────────────────────────
 ÉTAPE 1 — BRIEF & OFFRE (IA générative)
   Input : Brief manager (poste, stack, contexte)
-  Outil : Claude Sonnet 4.6 / Opus 4.7 · GPT-4o · Gemini 2.5 Flash + template structuré
+  Outil : Claude Sonnet 4.6 / Opus 4.7 · GPT-5.5 · Gemini 3.1 Pro + template structuré
   Output: Offre rédigée, vérifiée, publiée automatiquement
 
 ÉTAPE 2 — SOURCING (IA de matching)
@@ -174,6 +174,26 @@ PHASE 4 — GÉNÉRALISATION (M5-M6)
 | Temps screening CV | 4h/poste | 45 min/poste | -81% |
 | Satisfaction manager | 3.6/5 | 4.2/5 | +17% |
 *Sources : LinkedIn Talent Trends 2024, Greenhouse State of Recruiting 2024*
+
+## Référentiel LLM Frontier — Avril 2026
+
+| Modèle | Éditeur | Tier | Points forts RH | SWE-bench Pro | LM Arena Elo |
+|---|---|---|---|---|---|
+| **Claude Opus 4.7** | Anthropic | Premium | Raisonnement adaptatif · vision HR · mode "max effort" | **64,3 %** | **1504** |
+| **GPT-5.5** | OpenAI | Premium | #1 classement général · code avancé · agents complexes | 58,6 % | — |
+| **Gemini 3.1 Pro** | Google | Premium | Génération texte · multimodal · Google Workspace natif | — | Top 3 |
+| **Grok 3** | xAI | Premium | Temps réel (X/Twitter) · actualité · veille marché | — | — |
+| Claude Sonnet 4.6 | Anthropic | Production | 1M tokens contexte · meilleur ratio qualité/prix | Frontier-class | — |
+| GPT-4o | OpenAI | Production | Multimodal mature · forte communauté intégrations | — | — |
+| Gemini 2.5 Flash | Google | Éco/rapide | Latence faible · coût réduit · Cloud natif | — | — |
+| Mistral Large 2 | Mistral AI | Souverain | On-premise · RGPD FR/EU · déployable en interne | — | — |
+| LLaMA 3.3 405B | Meta | Open-source | Self-hosted · coût infra uniquement · customisable | — | — |
+
+**Usage RH recommandé par tier :**
+- **Premium** → analyse CV complexe, génération d'offres premium, questions d'évaluation senior, agents de sourcing autonomes
+- **Production** → qualification initiale, scoring ATS IA, dashboards people analytics, chatbots RH
+- **Éco/Rapide** → volume élevé, screening de masse, réponses auto candidats
+- **Souverain/Open-source** → données RH sensibles, contexte RGPD strict, déploiement on-premise client
 
 ## Livrables
 - Audit de maturité RH IA (niveau 1-4) avec recommandations

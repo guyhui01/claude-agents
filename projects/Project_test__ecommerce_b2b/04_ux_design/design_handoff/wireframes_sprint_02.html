@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Handoff — Wireframes Sprint 2 — Company-Test B2B</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f2f5; color: #1a1a2e; font-size: 14px; }
+    :root {
+      --primary: #2563eb; --primary-light: #dbeafe; --border: #cbd5e1;
+      --bg-card: #ffffff; --bg-field: #f8fafc; --text-muted: #64748b;
+      --text-label: #374151; --error: #dc2626; --error-light: #fef2f2;
+      --success: #16a34a; --warning: #d97706; --warning-light: #fffbeb;
+      --shadow: 0 1px 4px rgba(0,0,0,0.10); --shadow-lg: 0 4px 16px rgba(0,0,0,0.12);
+      --radius: 6px; --wf-bg: #f8f9ff; --wf-border: #94a3b8;
+    }
+    .site-header { background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%); color: white; padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; box-shadow: var(--shadow-lg); }
+    .site-header h1 { font-size: 18px; font-weight: 600; letter-spacing: 0.3px; }
+    .site-header .meta { font-size: 12px; opacity: 0.8; margin-top: 3px; }
+    .badge-sprint { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); border-radius: 20px; padding: 5px 14px; font-size: 12px; font-weight: 600; }
+    .nav-tabs { display: flex; background: white; border-bottom: 2px solid var(--border); padding: 0 32px; gap: 4px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .tab-btn { padding: 14px 20px; border: none; background: transparent; cursor: pointer; font-size: 13px; font-weight: 500; color: var(--text-muted); border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.2s; }
+    .tab-btn:hover { color: var(--primary); }
+    .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); font-weight: 600; }
+    .tab-code { font-size: 10px; background: #e2e8f0; border-radius: 3px; padding: 1px 5px; margin-right: 6px; font-weight: 700; }
+    .tab-btn.active .tab-code { background: var(--primary-light); color: var(--primary); }
+    .main { padding: 28px 32px; max-width: 1400px; margin: 0 auto; }
+    .wf-section { display: none; }
+    .wf-section.active { display: block; }
+    .wf-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+    .wf-header h2 { font-size: 20px; font-weight: 700; color: #0f172a; }
+    .wf-header .us-ref { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+    .wf-header .us-ref strong { color: var(--primary); }
+    .state-switcher { display: flex; gap: 8px; flex-wrap: wrap; }
+    .state-btn { padding: 6px 14px; border-radius: 20px; border: 1.5px solid var(--border); background: white; cursor: pointer; font-size: 12px; font-weight: 500; color: var(--text-muted); transition: all 0.15s; }
+    .state-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .state-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+    .state-btn.error-btn.active { background: var(--error); border-color: var(--error); }
+    .state-btn.warn-btn.active { background: var(--warning); border-color: var(--warning); }
+    .state-btn.success-btn.active { background: var(--success); border-color: var(--success); }
+    .viewport-toggle { display: flex; gap: 6px; margin-bottom: 16px; }
+    .vp-btn { padding: 5px 12px; border-radius: 4px; border: 1.5px solid var(--border); background: white; cursor: pointer; font-size: 12px; font-weight: 500; color: var(--text-muted); transition: all 0.15s; }
+    .vp-btn.active { background: #e2e8f0; color: #1e293b; border-color: #94a3b8; font-weight: 600; }
+    .canvas-wrap { display: flex; gap: 24px; align-items: flex-start; }
+    .canvas-main { flex: 1; }
+    .canvas-panel { width: 320px; flex-shrink: 0; }
+    .wf-frame { background: var(--wf-bg); border: 2px solid var(--wf-border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); }
+    .wf-header-bar { background: #e2e8f0; border-bottom: 2px solid #94a3b8; padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; }
+    .wf-logo { background: #475569; color: white; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 3px; letter-spacing: 1px; }
+    .wf-nav { display: flex; gap: 12px; align-items: center; }
+    .wf-nav-item { font-size: 11px; color: #475569; font-weight: 500; }
+    .wf-nav-item.active { color: var(--primary); border-bottom: 1px solid var(--primary); }
+    .wf-cart { background: var(--primary); color: white; font-size: 10px; padding: 3px 8px; border-radius: 3px; font-weight: 600; }
+    .wf-user { font-size: 11px; color: #475569; background: #f1f5f9; padding: 3px 8px; border-radius: 3px; }
+    .wf-breadcrumb { background: #f1f5f9; border-bottom: 1px solid var(--border); padding: 7px 16px; font-size: 11px; color: var(--text-muted); }
+    .wf-breadcrumb span { color: var(--primary); }
+    .wf-body { padding: 16px; }
+    .wf-body.two-col { display: flex; gap: 0; }
+    .wf-sidebar { width: 200px; flex-shrink: 0; border-right: 1px solid var(--border); padding: 12px; }
+    .wf-content { flex: 1; padding: 12px 16px; }
+    .wf-section-title { font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .annotation-panel { background: white; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .panel-header { background: #1e3a8a; color: white; padding: 10px 14px; font-size: 12px; font-weight: 600; }
+    .panel-body { padding: 12px; }
+    .annotation-item { background: #f8fafc; border-left: 3px solid var(--primary); border-radius: 3px; padding: 8px 10px; margin-bottom: 8px; }
+    .annotation-item.warn { border-left-color: var(--warning); }
+    .annotation-item.success { border-left-color: var(--success); }
+    .annotation-item.error { border-left-color: var(--error); }
+    .annotation-zone { font-size: 10px; font-weight: 700; color: #374151; }
+    .annotation-rule { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
+    .annotation-nielsen { font-size: 9px; color: var(--primary); margin-top: 2px; font-style: italic; }
+    .handoff-meta { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+    .meta-chip { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 5px 10px; font-size: 11px; color: var(--text-muted); display: flex; align-items: center; gap: 5px; }
+    .meta-chip strong { color: #1e293b; }
+    .section-divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+    .section-sub-title { font-size: 12px; font-weight: 700; color: #374151; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+    .section-sub-title::before { content: ''; display: inline-block; width: 3px; height: 14px; background: var(--primary); border-radius: 2px; }
+
+    /* TABLE ADMIN */
+    .admin-table { width: 100%; font-size: 10px; border-collapse: collapse; }
+    .admin-table th { background: #f1f5f9; padding: 7px 10px; text-align: left; font-weight: 700; color: #475569; border-bottom: 2px solid var(--border); font-size: 10px; text-transform: uppercase; letter-spacing: 0.3px; }
+    .admin-table td { padding: 7px 10px; border-bottom: 1px solid #f1f5f9; color: #374151; vertical-align: middle; }
+    .admin-table tr:hover td { background: #f8fafc; }
+    .badge { display: inline-flex; align-items: center; gap: 4px; border-radius: 20px; padding: 2px 8px; font-size: 9px; font-weight: 700; }
+    .badge-pending { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+    .badge-active { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+    .badge-refused { background: var(--error-light); color: #991b1b; border: 1px solid #fca5a5; }
+    .badge-new { background: #fef2f2; color: var(--error); border: 1px solid #fca5a5; }
+    .badge-prep { background: #fffbeb; color: #92400e; border: 1px solid #fcd34d; }
+    .badge-shipped { background: #eff6ff; color: #1d4ed8; border: 1px solid #93c5fd; }
+    .badge-delivered { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+    .btn-sm { display: inline-block; padding: 3px 8px; border-radius: 3px; font-size: 9px; font-weight: 600; cursor: pointer; border: 1px solid; }
+    .btn-validate { background: #dcfce7; color: #166534; border-color: #86efac; }
+    .btn-refuse { background: var(--error-light); color: #991b1b; border-color: #fca5a5; }
+    .btn-detail { background: var(--primary-light); color: var(--primary); border-color: #93c5fd; }
+
+    /* MODAL */
+    .modal-overlay { background: rgba(0,0,0,0.35); padding: 20px; display: flex; align-items: center; justify-content: center; min-height: 200px; }
+    .modal-card { background: white; border-radius: var(--radius); width: 100%; max-width: 420px; box-shadow: var(--shadow-lg); overflow: hidden; }
+    .modal-header { background: #f8fafc; border-bottom: 1px solid var(--border); padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; }
+    .modal-title { font-size: 13px; font-weight: 700; color: #0f172a; }
+    .modal-close { font-size: 16px; color: var(--text-muted); cursor: pointer; }
+    .modal-body { padding: 16px; }
+    .modal-footer { padding: 12px 16px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: 8px; }
+
+    /* FORM ELEMENTS */
+    .form-group { margin-bottom: 12px; }
+    .form-label { font-size: 10px; font-weight: 600; color: var(--text-label); margin-bottom: 4px; display: block; text-transform: uppercase; letter-spacing: 0.3px; }
+    .form-input { width: 100%; border: 1px solid var(--border); border-radius: 3px; padding: 7px 10px; font-size: 11px; background: var(--bg-field); color: var(--text-label); }
+    .form-input:focus-visible { outline: none; border-color: var(--primary); }
+    .form-select { width: 100%; border: 1px solid var(--border); border-radius: 3px; padding: 7px 10px; font-size: 11px; background: var(--bg-field); display: flex; justify-content: space-between; }
+    .form-textarea { width: 100%; border: 1px solid var(--border); border-radius: 3px; padding: 7px 10px; font-size: 11px; background: var(--bg-field); resize: none; min-height: 60px; }
+    .form-hint { font-size: 9px; color: var(--text-muted); margin-top: 3px; }
+    .optional-badge { font-size: 9px; color: var(--text-muted); font-weight: 400; margin-left: 4px; text-transform: none; letter-spacing: 0; }
+    .btn-primary { background: var(--primary); color: white; border: none; border-radius: 4px; padding: 8px 16px; font-size: 12px; font-weight: 600; cursor: pointer; }
+    .btn-secondary { background: white; color: var(--text-muted); border: 1.5px solid var(--border); border-radius: 4px; padding: 8px 16px; font-size: 12px; font-weight: 500; cursor: pointer; }
+    .btn-danger { background: var(--error); color: white; border: none; border-radius: 4px; padding: 8px 16px; font-size: 12px; font-weight: 600; cursor: pointer; }
+
+    /* CART */
+    .cart-table { width: 100%; font-size: 10px; border-collapse: collapse; }
+    .cart-table th { background: #f1f5f9; padding: 6px 10px; text-align: left; font-weight: 700; color: #475569; border-bottom: 2px solid var(--border); font-size: 9px; text-transform: uppercase; }
+    .cart-table td { padding: 8px 10px; border-bottom: 1px solid #f1f5f9; vertical-align: middle; }
+    .qty-ctrl { display: inline-flex; align-items: center; gap: 4px; border: 1px solid var(--border); border-radius: 3px; overflow: hidden; }
+    .qty-btn { width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; background: #f1f5f9; font-size: 12px; cursor: pointer; }
+    .qty-val { width: 32px; text-align: center; font-size: 11px; font-weight: 600; }
+    .cart-total-row { background: #f0f9ff; }
+    .cart-summary { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 12px; margin-top: 12px; }
+    .summary-row { display: flex; justify-content: space-between; font-size: 11px; padding: 4px 0; }
+    .summary-row.total { font-weight: 700; font-size: 13px; border-top: 1px solid var(--border); padding-top: 8px; margin-top: 4px; }
+    .summary-row.ht { color: var(--text-muted); }
+
+    /* CHECKOUT STEPS */
+    .checkout-steps { display: flex; align-items: center; gap: 0; margin-bottom: 20px; }
+    .step-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; position: relative; }
+    .step-item:not(:last-child)::after { content: ''; position: absolute; top: 14px; left: 50%; width: 100%; height: 2px; background: var(--border); z-index: 0; }
+    .step-item.done:not(:last-child)::after { background: var(--primary); }
+    .step-circle { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; background: white; z-index: 1; color: var(--text-muted); }
+    .step-item.active .step-circle { background: var(--primary); border-color: var(--primary); color: white; }
+    .step-item.done .step-circle { background: var(--success); border-color: var(--success); color: white; }
+    .step-label { font-size: 9px; color: var(--text-muted); font-weight: 500; text-align: center; }
+    .step-item.active .step-label { color: var(--primary); font-weight: 700; }
+
+    /* CONFIRMATION */
+    .confirm-wrap { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 32px 20px; }
+    .confirm-icon { font-size: 48px; margin-bottom: 12px; }
+    .confirm-title { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .confirm-sub { font-size: 12px; color: var(--text-muted); margin-bottom: 16px; }
+    .confirm-box { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 4px; padding: 12px 16px; font-size: 11px; text-align: left; max-width: 380px; width: 100%; }
+
+    /* BACK-OFFICE HEADER */
+    .bo-header-bar { background: #1e293b; color: white; padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; }
+    .bo-logo { font-size: 11px; font-weight: 700; letter-spacing: 1px; }
+    .bo-nav { display: flex; gap: 14px; font-size: 10px; }
+    .bo-nav-item { color: #94a3b8; }
+    .bo-nav-item.active { color: white; border-bottom: 1px solid white; }
+    .bo-body { display: flex; gap: 0; min-height: 300px; }
+    .bo-sidebar { width: 160px; flex-shrink: 0; background: #f8fafc; border-right: 1px solid var(--border); padding: 10px 0; }
+    .bo-menu-item { padding: 8px 14px; font-size: 10px; font-weight: 500; color: #475569; cursor: pointer; display: flex; align-items: center; gap: 6px; }
+    .bo-menu-item.active { background: var(--primary-light); color: var(--primary); font-weight: 700; border-right: 3px solid var(--primary); }
+    .bo-content { flex: 1; padding: 16px; }
+
+    /* STATUS BADGE COMMANDE */
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; margin-right: 4px; }
+    .status-dot.new { background: var(--error); }
+    .status-dot.prep { background: var(--warning); }
+    .status-dot.shipped { background: var(--primary); }
+    .status-dot.delivered { background: var(--success); }
+
+    /* ALERT */
+    .alert { border-radius: 4px; padding: 10px 12px; margin-bottom: 10px; font-size: 11px; display: flex; gap: 8px; align-items: flex-start; }
+    .alert-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+    .alert-success { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+    .alert-error { background: var(--error-light); border: 1px solid #fca5a5; color: #991b1b; }
+    .alert-warning { background: var(--warning-light); border: 1px solid #fcd34d; color: #92400e; }
+    .alert strong { display: block; font-weight: 700; }
+
+    /* KPI CARDS */
+    .kpi-row { display: flex; gap: 12px; margin-bottom: 16px; }
+    .kpi-card { flex: 1; background: white; border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; }
+    .kpi-value { font-size: 20px; font-weight: 700; color: #0f172a; }
+    .kpi-label { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
+    .kpi-card.urgent .kpi-value { color: var(--error); }
+
+    @media print {
+      .nav-tabs, .state-switcher, .viewport-toggle { display: none; }
+      .wf-section { display: block !important; page-break-before: always; }
+      .wf-section:first-child { page-break-before: avoid; }
+      .canvas-wrap { flex-direction: column; }
+      .canvas-panel { width: 100%; }
+      @page { size: A3 landscape; margin: 10mm; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SITE HEADER -->
+<div class="site-header">
+  <div>
+    <h1>Design Handoff — Wireframes Sprint 2</h1>
+    <div class="meta">Company-Test e-Commerce B2B · Drupal 10 + Commerce 2.x · Fidélité Lo-fi</div>
+  </div>
+  <div class="badge-sprint">Sprint 2 — 2026</div>
+</div>
+
+<!-- NAV TABS -->
+<div class="nav-tabs">
+  <button class="tab-btn active" onclick="showTab('wf007', this)">
+    <span class="tab-code">WF-007</span>Validation Compte B2B
+  </button>
+  <button class="tab-btn" onclick="showTab('wf009', this)">
+    <span class="tab-code">WF-009</span>Panier & Commande
+  </button>
+  <button class="tab-btn" onclick="showTab('wf011', this)">
+    <span class="tab-code">WF-011</span>Confirmation Commande
+  </button>
+  <button class="tab-btn" onclick="showTab('wf013', this)">
+    <span class="tab-code">WF-013</span>Dashboard Back-office
+  </button>
+</div>
+
+<div class="main">
+
+  <!-- ============================================================ -->
+  <!-- WF-007 — VALIDATION COMPTE B2B (admin)                       -->
+  <!-- ============================================================ -->
+  <div id="wf007" class="wf-section active">
+    <div class="wf-header">
+      <div>
+        <h2>WF-007 — Validation Compte B2B (Admin)</h2>
+        <div class="us-ref">US : <strong>US-007</strong> — Validation/rejet manuel compte B2B &nbsp;·&nbsp; Breakpoint : Desktop 1280px</div>
+      </div>
+      <div class="state-switcher">
+        <button class="state-btn active" onclick="showState('wf007', 'list', this)">Liste en attente</button>
+        <button class="state-btn success-btn" onclick="showState('wf007', 'validate', this)">Modal Validation</button>
+        <button class="state-btn error-btn" onclick="showState('wf007', 'refuse', this)">Modal Refus</button>
+      </div>
+    </div>
+
+    <div class="handoff-meta">
+      <div class="meta-chip">🖥 <strong>Breakpoint :</strong> 1280px (admin back-office)</div>
+      <div class="meta-chip">🔗 <strong>US liées :</strong> US-007</div>
+      <div class="meta-chip">⚙️ <strong>Drupal :</strong> Views + User Management + Rules</div>
+      <div class="meta-chip">👤 <strong>Persona :</strong> Admin Company-Test</div>
+    </div>
+
+    <!-- STATE : LISTE EN ATTENTE -->
+    <div id="wf007-list" class="canvas-wrap">
+      <div class="canvas-main">
+        <div class="wf-frame">
+          <!-- Back-office header -->
+          <div class="bo-header-bar">
+            <div class="bo-logo">COMPANY-TEST · ADMIN</div>
+            <div class="bo-nav">
+              <span class="bo-nav-item">Tableau de bord</span>
+              <span class="bo-nav-item active">Comptes clients</span>
+              <span class="bo-nav-item">Commandes</span>
+              <span class="bo-nav-item">Produits</span>
+              <span class="bo-nav-item">Admin ▾</span>
+            </div>
+          </div>
+          <div class="bo-body">
+            <!-- Sidebar BO -->
+            <div class="bo-sidebar">
+              <div class="bo-menu-item">📊 Tableau de bord</div>
+              <div class="bo-menu-item active">👥 Comptes B2B</div>
+              <div class="bo-menu-item" style="padding-left:26px;font-size:9px;">En attente (3)</div>
+              <div class="bo-menu-item" style="padding-left:26px;font-size:9px;">Actifs</div>
+              <div class="bo-menu-item" style="padding-left:26px;font-size:9px;">Refusés</div>
+              <div class="bo-menu-item">📦 Commandes</div>
+              <div class="bo-menu-item">🛍 Produits</div>
+            </div>
+            <!-- Contenu principal -->
+            <div class="bo-content">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+                <div>
+                  <div style="font-size:14px;font-weight:700;color:#0f172a;">Comptes B2B — En attente de validation</div>
+                  <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">3 demandes nécessitent votre action</div>
+                </div>
+                <div style="display:flex;gap:8px;">
+                  <div style="border:1px solid var(--border);border-radius:3px;padding:5px 10px;font-size:10px;background:white;display:flex;align-items:center;gap:5px;">
+                    🔍 <span style="color:var(--text-muted);">Rechercher…</span>
+                  </div>
+                  <div style="border:1px solid var(--border);border-radius:3px;padding:5px 10px;font-size:10px;background:white;">Tous les statuts ▾</div>
+                </div>
+              </div>
+
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Date demande</th>
+                    <th>Société</th>
+                    <th>SIRET</th>
+                    <th>Contact</th>
+                    <th>Email</th>
+                    <th>Statut</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2026-06-02</td>
+                    <td style="font-weight:600;">TELECO INSTALL SAS</td>
+                    <td style="font-family:monospace;font-size:9px;">42812340700023</td>
+                    <td>Marc DUVAL</td>
+                    <td style="color:var(--primary);">m.duval@teleco.fr</td>
+                    <td><span class="badge badge-pending">⏳ En attente</span></td>
+                    <td style="display:flex;gap:4px;">
+                      <span class="btn-sm btn-validate">✓ Valider</span>
+                      <span class="btn-sm btn-refuse">✕ Refuser</span>
+                      <span class="btn-sm btn-detail">Détail</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2026-06-01</td>
+                    <td style="font-weight:600;">FIBRA NETWORKS SARL</td>
+                    <td style="font-family:monospace;font-size:9px;">75491022100019</td>
+                    <td>Sophie LEMAIRE</td>
+                    <td style="color:var(--primary);">s.lemaire@fibra.fr</td>
+                    <td><span class="badge badge-pending">⏳ En attente</span></td>
+                    <td style="display:flex;gap:4px;">
+                      <span class="btn-sm btn-validate">✓ Valider</span>
+                      <span class="btn-sm btn-refuse">✕ Refuser</span>
+                      <span class="btn-sm btn-detail">Détail</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2026-05-30</td>
+                    <td style="font-weight:600;">OPTITEC PRO</td>
+                    <td style="font-family:monospace;font-size:9px;">38291047500031</td>
+                    <td>Jean-Luc MORIN</td>
+                    <td style="color:var(--primary);">jlmorin@optitec.fr</td>
+                    <td><span class="badge badge-pending">⏳ En attente</span></td>
+                    <td style="display:flex;gap:4px;">
+                      <span class="btn-sm btn-validate">✓ Valider</span>
+                      <span class="btn-sm btn-refuse">✕ Refuser</span>
+                      <span class="btn-sm btn-detail">Détail</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2026-05-28</td>
+                    <td>FAST CABLE SAS</td>
+                    <td style="font-family:monospace;font-size:9px;">51209384700044</td>
+                    <td>Hélène CROS</td>
+                    <td style="color:var(--primary);">h.cros@fastcable.fr</td>
+                    <td><span class="badge badge-active">✓ Actif</span></td>
+                    <td><span class="btn-sm btn-detail">Détail</span></td>
+                  </tr>
+                  <tr>
+                    <td>2026-05-25</td>
+                    <td>INSTALNET</td>
+                    <td style="font-family:monospace;font-size:9px;">29034871200012</td>
+                    <td>Pierre AUBIN</td>
+                    <td style="color:var(--primary);">p.aubin@instalnet.fr</td>
+                    <td><span class="badge badge-refused">✕ Refusé</span></td>
+                    <td><span class="btn-sm btn-detail">Détail</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">📋 Annotations — US-007</div>
+          <div class="panel-body">
+            <div class="annotation-item">
+              <div class="annotation-zone">Badge "En attente (N)"</div>
+              <div class="annotation-rule">Compteur dans le menu latéral, mis à jour en temps réel</div>
+              <div class="annotation-nielsen">Visibilité système — Nielsen #1</div>
+            </div>
+            <div class="annotation-item warn">
+              <div class="annotation-zone">Email notif admin</div>
+              <div class="annotation-rule">Drupal Rules envoie un email à admin@company-test.fr à chaque nouvelle demande</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Colonne SIRET</div>
+              <div class="annotation-rule">Vérification manuelle par l'admin avant validation (pas d'API INSEE en V1)</div>
+            </div>
+            <div class="annotation-item success">
+              <div class="annotation-zone">Actions rapides inline</div>
+              <div class="annotation-rule">Valider/Refuser directement depuis le tableau sans ouvrir le détail</div>
+              <div class="annotation-nielsen">Efficacité — flux admin optimisé</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATE : MODAL VALIDATION -->
+    <div id="wf007-validate" class="canvas-wrap" style="display:none;">
+      <div class="canvas-main">
+        <div class="wf-frame">
+          <div class="bo-header-bar">
+            <div class="bo-logo">COMPANY-TEST · ADMIN</div>
+            <div class="bo-nav"><span class="bo-nav-item active">Comptes B2B</span></div>
+          </div>
+          <div class="wf-body" style="filter:blur(1px);opacity:0.4;pointer-events:none;">
+            <div style="font-size:11px;color:var(--text-muted);">— fond : liste comptes en attente —</div>
+          </div>
+          <div class="modal-overlay">
+            <div class="modal-card">
+              <div class="modal-header">
+                <div class="modal-title">✓ Valider le compte B2B</div>
+                <div class="modal-close">×</div>
+              </div>
+              <div class="modal-body">
+                <div class="alert alert-success">
+                  <div class="alert-icon">✓</div>
+                  <div><strong>TELECO INSTALL SAS</strong> — Marc DUVAL (m.duval@teleco.fr)<br>SIRET : 42812340700023</div>
+                </div>
+                <p style="font-size:11px;color:#374151;margin-bottom:12px;">En validant ce compte, le client pourra se connecter et passer commande immédiatement.</p>
+                <div class="form-group">
+                  <label class="form-label">Message personnalisé <span class="optional-badge">(optionnel)</span></label>
+                  <div class="form-textarea" style="color:var(--text-muted);font-size:10px;">Bonjour Marc, votre compte professionnel est activé. Bienvenue sur Company-Test…</div>
+                  <div class="form-hint">Si vide, l'email par défaut sera envoyé</div>
+                </div>
+                <div style="background:#f0f9ff;border:1px solid #bae6fd;border-radius:4px;padding:8px 10px;font-size:10px;color:#075985;">
+                  📧 Email envoyé automatiquement à m.duval@teleco.fr : <strong>"Votre compte est activé"</strong>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn-secondary">Annuler</button>
+                <button class="btn-primary">✓ Confirmer la validation</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">✓ Modal Validation</div>
+          <div class="panel-body">
+            <div class="annotation-item success">
+              <div class="annotation-zone">Récapitulatif client</div>
+              <div class="annotation-rule">Affichage complet avant confirmation (prévention erreur)</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Message optionnel</div>
+              <div class="annotation-rule">L'admin peut personnaliser l'email d'activation. Email par défaut si champ vide</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Confirmation email</div>
+              <div class="annotation-rule">Rappel visuel de l'action automatique (SendGrid)</div>
+              <div class="annotation-nielsen">Prévention des erreurs — Nielsen #5</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATE : MODAL REFUS -->
+    <div id="wf007-refuse" class="canvas-wrap" style="display:none;">
+      <div class="canvas-main">
+        <div class="wf-frame">
+          <div class="bo-header-bar">
+            <div class="bo-logo">COMPANY-TEST · ADMIN</div>
+            <div class="bo-nav"><span class="bo-nav-item active">Comptes B2B</span></div>
+          </div>
+          <div class="wf-body" style="filter:blur(1px);opacity:0.4;">
+            <div style="font-size:11px;color:var(--text-muted);">— fond : liste comptes en attente —</div>
+          </div>
+          <div class="modal-overlay">
+            <div class="modal-card">
+              <div class="modal-header">
+                <div class="modal-title">✕ Refuser la demande de compte</div>
+                <div class="modal-close">×</div>
+              </div>
+              <div class="modal-body">
+                <div class="alert alert-error">
+                  <div class="alert-icon">⚠</div>
+                  <div><strong>TELECO INSTALL SAS</strong> — Marc DUVAL<br>Cette action est irréversible. Le client sera notifié par email.</div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Motif de refus <span style="color:var(--error);font-size:10px;">*</span></label>
+                  <div class="form-select" style="margin-bottom:6px;">Sélectionner un motif ▾</div>
+                  <div style="display:flex;flex-direction:column;gap:4px;background:white;border:1px solid var(--border);border-radius:3px;padding:6px;">
+                    <div style="padding:5px 8px;background:var(--primary-light);font-size:10px;color:var(--primary);border-radius:2px;">● SIRET non valide / introuvable</div>
+                    <div style="padding:5px 8px;font-size:10px;color:#374151;">○ Activité hors périmètre B2B</div>
+                    <div style="padding:5px 8px;font-size:10px;color:#374151;">○ Informations incomplètes</div>
+                    <div style="padding:5px 8px;font-size:10px;color:#374151;">○ Client déjà existant (doublon)</div>
+                    <div style="padding:5px 8px;font-size:10px;color:#374151;">○ Autre (préciser ci-dessous)</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Précision <span class="optional-badge">(optionnel)</span></label>
+                  <div class="form-textarea" style="color:var(--text-muted);font-size:10px;">Le SIRET renseigné ne correspond pas à une société active selon les registres…</div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn-secondary">Annuler</button>
+                <button class="btn-danger">✕ Confirmer le refus</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">✕ Modal Refus</div>
+          <div class="panel-body">
+            <div class="annotation-item error">
+              <div class="annotation-zone">Motif obligatoire</div>
+              <div class="annotation-rule">Le bouton "Confirmer" est désactivé si aucun motif n'est sélectionné</div>
+            </div>
+            <div class="annotation-item warn">
+              <div class="annotation-zone">Liste motifs prédéfinis</div>
+              <div class="annotation-rule">4 motifs standards + "Autre" pour personnalisation. Gain de temps admin</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Email automatique client</div>
+              <div class="annotation-rule">Motif inclus dans l'email de refus (SendGrid template). RGPD : motif tracé en base</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- WF-009 — PANIER & COMMANDE (US-009 + US-010)                 -->
+  <!-- ============================================================ -->
+  <div id="wf009" class="wf-section">
+    <div class="wf-header">
+      <div>
+        <h2>WF-009 — Panier & Validation Commande</h2>
+        <div class="us-ref">US : <strong>US-009</strong> Ajout panier &nbsp;·&nbsp; <strong>US-010</strong> N° bon de commande &nbsp;·&nbsp; Desktop 1280px</div>
+      </div>
+      <div class="state-switcher">
+        <button class="state-btn active" onclick="showState('wf009', 'cart', this)">Panier rempli</button>
+        <button class="state-btn" onclick="showState('wf009', 'checkout', this)">Validation commande</button>
+        <button class="state-btn warn-btn" onclick="showState('wf009', 'qtyerr', this)">Qté min. non atteinte</button>
+      </div>
+    </div>
+
+    <div class="handoff-meta">
+      <div class="meta-chip">🖥 <strong>Breakpoint :</strong> 1280px</div>
+      <div class="meta-chip">🔗 <strong>US liées :</strong> US-009, US-010</div>
+      <div class="meta-chip">⚙️ <strong>Drupal :</strong> Commerce Cart + Order</div>
+      <div class="meta-chip">👤 <strong>Persona :</strong> Thomas (acheteur B2B)</div>
+    </div>
+
+    <!-- STATE : PANIER REMPLI -->
+    <div id="wf009-cart" class="canvas-wrap">
+      <div class="canvas-main">
+        <div class="wf-frame">
+          <div class="wf-header-bar">
+            <div class="wf-logo">COMPANY-TEST</div>
+            <div class="wf-nav">
+              <span class="wf-nav-item">Catalogue</span>
+              <span class="wf-nav-item">Câbles FTTH</span>
+              <span class="wf-nav-item">Boîtiers</span>
+              <span class="wf-cart">🛒 Panier (3)</span>
+              <span class="wf-user">👤 Thomas D.</span>
+            </div>
+          </div>
+          <div class="wf-breadcrumb">
+            Accueil &rsaquo; <span>Mon panier</span>
+          </div>
+          <div class="wf-body">
+            <!-- Steps -->
+            <div class="checkout-steps" style="max-width:500px;margin-bottom:20px;">
+              <div class="step-item active">
+                <div class="step-circle">1</div>
+                <div class="step-label">Panier</div>
+              </div>
+              <div class="step-item">
+                <div class="step-circle">2</div>
+                <div class="step-label">Validation</div>
+              </div>
+              <div class="step-item">
+                <div class="step-circle">3</div>
+                <div class="step-label">Paiement</div>
+              </div>
+              <div class="step-item">
+                <div class="step-circle">4</div>
+                <div class="step-label">Confirmation</div>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:20px;align-items:flex-start;">
+              <!-- Cart table -->
+              <div style="flex:1;">
+                <table class="cart-table">
+                  <thead>
+                    <tr>
+                      <th style="width:40%;">Produit</th>
+                      <th>Réf.</th>
+                      <th>Prix HT unitaire</th>
+                      <th>Quantité</th>
+                      <th>Sous-total HT</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div style="font-size:10px;font-weight:600;color:#0f172a;">Câble FTTH LSZH 12 fibres OS2</div>
+                        <div style="font-size:9px;color:var(--text-muted);">Qté min. : 10 m</div>
+                      </td>
+                      <td style="font-size:9px;font-family:monospace;">CAB-FTTH-12</td>
+                      <td style="font-weight:600;color:var(--primary);">2,40 € / m</td>
+                      <td>
+                        <div class="qty-ctrl">
+                          <div class="qty-btn">−</div>
+                          <div class="qty-val">100</div>
+                          <div class="qty-btn">+</div>
+                        </div>
+                      </td>
+                      <td style="font-weight:700;">240,00 €</td>
+                      <td style="font-size:12px;color:var(--text-muted);cursor:pointer;">🗑</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div style="font-size:10px;font-weight:600;color:#0f172a;">Boîtier fibre FTTH 12 ports</div>
+                        <div style="font-size:9px;color:var(--text-muted);">Qté min. : 1</div>
+                      </td>
+                      <td style="font-size:9px;font-family:monospace;">BOI-FTTH-12P</td>
+                      <td style="font-weight:600;color:var(--primary);">18,50 € / u</td>
+                      <td>
+                        <div class="qty-ctrl">
+                          <div class="qty-btn">−</div>
+                          <div class="qty-val">5</div>
+                          <div class="qty-btn">+</div>
+                        </div>
+                      </td>
+                      <td style="font-weight:700;">92,50 €</td>
+                      <td style="font-size:12px;color:var(--text-muted);cursor:pointer;">🗑</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div style="font-size:10px;font-weight:600;color:#0f172a;">Connecteur SC/APC simplex</div>
+                        <div style="font-size:9px;color:var(--text-muted);">Qté min. : 10</div>
+                      </td>
+                      <td style="font-size:9px;font-family:monospace;">CON-SCAPC-SX</td>
+                      <td style="font-weight:600;color:var(--primary);">0,85 € / u</td>
+                      <td>
+                        <div class="qty-ctrl">
+                          <div class="qty-btn">−</div>
+                          <div class="qty-val">50</div>
+                          <div class="qty-btn">+</div>
+                        </div>
+                      </td>
+                      <td style="font-weight:700;">42,50 €</td>
+                      <td style="font-size:12px;color:var(--text-muted);cursor:pointer;">🗑</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div style="margin-top:10px;font-size:10px;color:var(--text-muted);">
+                  <span style="color:var(--primary);cursor:pointer;">← Continuer mes achats</span>
+                  &nbsp;·&nbsp;
+                  <span style="cursor:pointer;">🗑 Vider le panier</span>
+                </div>
+              </div>
+              <!-- Summary -->
+              <div style="width:240px;flex-shrink:0;">
+                <div class="cart-summary">
+                  <div class="wf-section-title">Récapitulatif</div>
+                  <div class="summary-row ht">
+                    <span>Sous-total HT</span><span>375,00 €</span>
+                  </div>
+                  <div class="summary-row ht">
+                    <span>TVA 20%</span><span>75,00 €</span>
+                  </div>
+                  <div class="summary-row ht">
+                    <span>Livraison estimée</span><span>À calculer</span>
+                  </div>
+                  <div class="summary-row total">
+                    <span>Total TTC estimé</span><span>450,00 €</span>
+                  </div>
+                  <div style="margin-top:10px;">
+                    <button class="btn-primary" style="width:100%;padding:10px;font-size:12px;">Valider → Étape suivante</button>
+                  </div>
+                  <div style="font-size:9px;color:var(--text-muted);text-align:center;margin-top:6px;">Livraison Chronopost — délai : J+2</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">🛒 Annotations — US-009</div>
+          <div class="panel-body">
+            <div class="annotation-item">
+              <div class="annotation-zone">Quantité minimum B2B</div>
+              <div class="annotation-rule">Affichée sous le nom produit. Contrôle en JS à la modification de la qté</div>
+              <div class="annotation-nielsen">Prévention erreurs — Nielsen #5</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Sous-total temps réel</div>
+              <div class="annotation-rule">Recalcul automatique à chaque modification de quantité (AJAX Drupal Commerce)</div>
+            </div>
+            <div class="annotation-item warn">
+              <div class="annotation-zone">Livraison "À calculer"</div>
+              <div class="annotation-rule">Frais calculés à l'étape suivante (adresse de livraison requise)</div>
+            </div>
+            <div class="annotation-item success">
+              <div class="annotation-zone">Récapitulatif sticky</div>
+              <div class="annotation-rule">Le bloc récapitulatif reste visible lors du scroll du tableau (position sticky)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATE : VALIDATION COMMANDE (avec N° BC) -->
+    <div id="wf009-checkout" class="canvas-wrap" style="display:none;">
+      <div class="canvas-main">
+        <div class="wf-frame">
+          <div class="wf-header-bar">
+            <div class="wf-logo">COMPANY-TEST</div>
+            <div class="wf-nav">
+              <span class="wf-cart">🛒 Panier (3)</span>
+              <span class="wf-user">👤 Thomas D.</span>
+            </div>
+          </div>
+          <div class="wf-breadcrumb">
+            Accueil &rsaquo; Mon panier &rsaquo; <span>Validation commande</span>
+          </div>
+          <div class="wf-body">
+            <div class="checkout-steps" style="max-width:500px;margin-bottom:20px;">
+              <div class="step-item done"><div class="step-circle">✓</div><div class="step-label">Panier</div></div>
+              <div class="step-item active"><div class="step-circle">2</div><div class="step-label">Validation</div></div>
+              <div class="step-item"><div class="step-circle">3</div><div class="step-label">Paiement</div></div>
+              <div class="step-item"><div class="step-circle">4</div><div class="step-label">Confirmation</div></div>
+            </div>
+            <div style="display:flex;gap:20px;align-items:flex-start;">
+              <div style="flex:1;">
+                <!-- Adresse livraison -->
+                <div style="margin-bottom:16px;">
+                  <div class="section-sub-title">Adresse de livraison</div>
+                  <div style="background:white;border:1px solid var(--border);border-radius:4px;padding:12px;font-size:11px;">
+                    <div style="font-weight:600;margin-bottom:4px;">TELECO INSTALL SAS</div>
+                    <div style="color:var(--text-muted);">24 rue des Câbleurs, Bâtiment B</div>
+                    <div style="color:var(--text-muted);">69008 Lyon — France</div>
+                    <div style="margin-top:6px;color:var(--primary);font-size:10px;cursor:pointer;">Modifier l'adresse</div>
+                  </div>
+                </div>
+                <!-- N° BC interne (US-010) -->
+                <div style="margin-bottom:16px;">
+                  <div class="section-sub-title">Bon de commande interne</div>
+                  <div style="background:white;border:1px solid var(--border);border-radius:4px;padding:12px;">
+                    <div class="form-group" style="margin:0;">
+                      <label class="form-label">N° Bon de commande <span class="optional-badge">(optionnel)</span></label>
+                      <div class="form-input" style="color:var(--text-muted);">Ex : BC-2026-00123</div>
+                      <div class="form-hint">Ce numéro figurera sur l'email de confirmation et la facture PDF</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Mode livraison -->
+                <div>
+                  <div class="section-sub-title">Mode de livraison</div>
+                  <div style="background:white;border:1px solid var(--border);border-radius:4px;padding:12px;">
+                    <div style="display:flex;align-items:center;gap:10px;padding:8px;border:1.5px solid var(--primary);border-radius:3px;background:var(--primary-light);">
+                      <div style="width:14px;height:14px;border-radius:50%;background:var(--primary);flex-shrink:0;"></div>
+                      <div>
+                        <div style="font-size:11px;font-weight:600;">Chronopost Express — 8,50 € HT</div>
+                        <div style="font-size:10px;color:var(--text-muted);">Livraison J+2 avant 13h</div>
+                      </div>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:10px;padding:8px;margin-top:6px;border:1px solid var(--border);border-radius:3px;">
+                      <div style="width:14px;height:14px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;"></div>
+                      <div>
+                        <div style="font-size:11px;font-weight:600;">Colissimo Standard — 5,90 € HT</div>
+                        <div style="font-size:10px;color:var(--text-muted);">Livraison J+3 à J+5</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Summary -->
+              <div style="width:240px;flex-shrink:0;">
+                <div class="cart-summary">
+                  <div class="wf-section-title">Récapitulatif commande</div>
+                  <div style="background:#f1f5f9;border-radius:3px;padding:8px;margin-bottom:10px;font-size:10px;">
+                    <div style="display:flex;justify-content:space-between;margin-bottom:3px;"><span>Câble FTTH 12F × 100m</span><span>240,00 €</span></div>
+                    <div style="display:flex;justify-content:space-between;margin-bottom:3px;"><span>Boîtier FTTH 12P × 5</span><span>92,50 €</span></div>
+                    <div style="display:flex;justify-content:space-between;"><span>Connecteur SC × 50</span><span>42,50 €</span></div>
+                  </div>
+                  <div class="summary-row ht"><span>Sous-total HT</span><span>375,00 €</span></div>
+                  <div class="summary-row ht"><span>Livraison HT</span><span>8,50 €</span></div>
+                  <div class="summary-row ht"><span>TVA 20%</span><span>76,70 €</span></div>
+                  <div class="summary-row total"><span>Total TTC</span><span>460,20 €</span></div>
+                  <div style="margin-top:10px;">
+                    <button class="btn-primary" style="width:100%;padding:10px;font-size:12px;">Continuer → Paiement</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">📋 N° BC — US-010</div>
+          <div class="panel-body">
+            <div class="annotation-item">
+              <div class="annotation-zone">Champ N° BC optionnel</div>
+              <div class="annotation-rule">Non bloquant : la commande peut être validée sans N° BC. Texte explicatif sous le champ</div>
+            </div>
+            <div class="annotation-item success">
+              <div class="annotation-zone">N° BC reporté partout</div>
+              <div class="annotation-rule">Si renseigné : email confirmation + facture PDF + vue back-office admin</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Récap. produits visible</div>
+              <div class="annotation-rule">Liste condensée dans le panneau droit pour confirmation avant paiement</div>
+              <div class="annotation-nielsen">Reconnaissance plutôt que rappel — Nielsen #6</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATE : ERREUR QUANTITÉ MINIMUM -->
+    <div id="wf009-qtyerr" class="canvas-wrap" style="display:none;">
+      <div class="canvas-main">
+        <div class="wf-frame">
+          <div class="wf-header-bar">
+            <div class="wf-logo">COMPANY-TEST</div>
+            <div class="wf-nav"><span class="wf-cart">🛒 Panier (2)</span><span class="wf-user">👤 Thomas D.</span></div>
+          </div>
+          <div class="wf-breadcrumb">Accueil &rsaquo; <span>Mon panier</span></div>
+          <div class="wf-body">
+            <div class="alert alert-error">
+              <div class="alert-icon">⚠</div>
+              <div><strong>Quantité minimum non atteinte</strong><br>Le produit "Câble FTTH LSZH 12 fibres" requiert une commande minimum de 10 m. Vous avez saisi 5 m.</div>
+            </div>
+            <table class="cart-table" style="margin-top:12px;">
+              <thead>
+                <tr><th>Produit</th><th>Réf.</th><th>Prix HT</th><th>Quantité</th><th>Sous-total</th><th></th></tr>
+              </thead>
+              <tbody>
+                <tr style="background:#fef2f2;">
+                  <td>
+                    <div style="font-size:10px;font-weight:600;color:#991b1b;">⚠ Câble FTTH LSZH 12 fibres OS2</div>
+                    <div style="font-size:9px;color:var(--error);font-weight:600;">Quantité minimum : 10 m</div>
+                  </td>
+                  <td style="font-size:9px;font-family:monospace;">CAB-FTTH-12</td>
+                  <td style="font-weight:600;color:var(--primary);">2,40 € / m</td>
+                  <td>
+                    <div class="qty-ctrl" style="border-color:var(--error);">
+                      <div class="qty-btn" style="background:#fef2f2;">−</div>
+                      <div class="qty-val" style="color:var(--error);">5</div>
+                      <div class="qty-btn" style="background:#fef2f2;">+</div>
+                    </div>
+                    <div style="font-size:9px;color:var(--error);margin-top:3px;">Min. : 10 m</div>
+                  </td>
+                  <td style="color:var(--error);font-weight:700;">12,00 €</td>
+                  <td style="font-size:12px;color:var(--text-muted);">🗑</td>
+                </tr>
+                <tr>
+                  <td><div style="font-size:10px;font-weight:600;">Boîtier FTTH 12 ports</div></td>
+                  <td style="font-size:9px;font-family:monospace;">BOI-FTTH-12P</td>
+                  <td style="font-weight:600;color:var(--primary);">18,50 € / u</td>
+                  <td><div class="qty-ctrl"><div class="qty-btn">−</div><div class="qty-val">5</div><div class="qty-btn">+</div></div></td>
+                  <td style="font-weight:700;">92,50 €</td>
+                  <td style="font-size:12px;color:var(--text-muted);">🗑</td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="margin-top:16px;display:flex;justify-content:flex-end;">
+              <button class="btn-primary" style="opacity:0.4;cursor:not-allowed;">Valider → Étape suivante</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">⚠ Erreur Qté Minimum</div>
+          <div class="panel-body">
+            <div class="annotation-item error">
+              <div class="annotation-zone">Ligne produit en erreur</div>
+              <div class="annotation-rule">Fond rouge, bordure champ quantité rouge, message min. sous le champ</div>
+              <div class="annotation-nielsen">Aide à la récupération d'erreur — Nielsen #9</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">CTA désactivé</div>
+              <div class="annotation-rule">Le bouton "Valider" est grisé tant qu'une erreur de quantité subsiste</div>
+            </div>
+            <div class="annotation-item warn">
+              <div class="annotation-zone">Banner d'alerte en tête</div>
+              <div class="annotation-rule">Message global en haut de page + signalement inline sur la ligne concernée</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- WF-011 — CONFIRMATION COMMANDE (US-011)                      -->
+  <!-- ============================================================ -->
+  <div id="wf011" class="wf-section">
+    <div class="wf-header">
+      <div>
+        <h2>WF-011 — Confirmation Commande</h2>
+        <div class="us-ref">US : <strong>US-011</strong> Email confirmation commande &nbsp;·&nbsp; Desktop 1280px + template email</div>
+      </div>
+      <div class="state-switcher">
+        <button class="state-btn active" onclick="showState('wf011', 'page', this)">Page confirmation</button>
+        <button class="state-btn" onclick="showState('wf011', 'email', this)">Template email</button>
+      </div>
+    </div>
+
+    <div class="handoff-meta">
+      <div class="meta-chip">🖥 <strong>Breakpoint :</strong> 1280px</div>
+      <div class="meta-chip">🔗 <strong>US liées :</strong> US-011</div>
+      <div class="meta-chip">⚙️ <strong>Drupal :</strong> Commerce Order + Rules + SendGrid</div>
+      <div class="meta-chip">👤 <strong>Persona :</strong> Thomas (acheteur B2B)</div>
+    </div>
+
+    <!-- STATE : PAGE DE CONFIRMATION -->
+    <div id="wf011-page" class="canvas-wrap">
+      <div class="canvas-main">
+        <div class="wf-frame">
+          <div class="wf-header-bar">
+            <div class="wf-logo">COMPANY-TEST</div>
+            <div class="wf-nav">
+              <span class="wf-cart">🛒 Panier (0)</span>
+              <span class="wf-user">👤 Thomas D.</span>
+            </div>
+          </div>
+          <div class="wf-breadcrumb">Accueil &rsaquo; <span>Confirmation commande</span></div>
+          <div class="wf-body">
+            <div class="checkout-steps" style="max-width:500px;margin-bottom:24px;">
+              <div class="step-item done"><div class="step-circle">✓</div><div class="step-label">Panier</div></div>
+              <div class="step-item done"><div class="step-circle">✓</div><div class="step-label">Validation</div></div>
+              <div class="step-item done"><div class="step-circle">✓</div><div class="step-label">Paiement</div></div>
+              <div class="step-item active"><div class="step-circle">✓</div><div class="step-label">Confirmation</div></div>
+            </div>
+            <div class="confirm-wrap">
+              <div class="confirm-icon">✅</div>
+              <div class="confirm-title">Commande confirmée !</div>
+              <div class="confirm-sub">Votre commande <strong>#CMD-2026-00847</strong> a été enregistrée avec succès.</div>
+              <div style="font-size:12px;font-weight:600;color:var(--primary);margin-bottom:16px;">📧 Un email de confirmation a été envoyé à thomas.duval@teleco.fr</div>
+              <div class="confirm-box" style="max-width:500px;">
+                <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                  <div>
+                    <div style="font-weight:700;margin-bottom:4px;">Détail commande</div>
+                    <div>N° commande : <strong>#CMD-2026-00847</strong></div>
+                    <div>N° BC interne : <strong>BC-2026-00123</strong></div>
+                    <div>Date : <strong>02/06/2026</strong></div>
+                  </div>
+                  <div style="text-align:right;">
+                    <div style="font-size:10px;color:var(--text-muted);">Total TTC</div>
+                    <div style="font-size:18px;font-weight:700;color:var(--primary);">460,20 €</div>
+                  </div>
+                </div>
+                <hr style="border:none;border-top:1px solid var(--border);margin:8px 0;">
+                <div style="font-size:10px;color:#374151;">
+                  <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span>Câble FTTH LSZH 12F × 100m</span><span>240,00 €</span></div>
+                  <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span>Boîtier FTTH 12P × 5</span><span>92,50 €</span></div>
+                  <div style="display:flex;justify-content:space-between;"><span>Connecteur SC × 50</span><span>42,50 €</span></div>
+                </div>
+                <hr style="border:none;border-top:1px solid var(--border);margin:8px 0;">
+                <div style="font-size:10px;color:var(--text-muted);">📦 Livraison Chronopost Express — délai estimé : <strong>J+2 avant 13h</strong></div>
+              </div>
+              <div style="display:flex;gap:12px;margin-top:20px;">
+                <button class="btn-primary">📦 Suivre ma commande</button>
+                <button class="btn-secondary">← Retour au catalogue</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">✅ Annotations — Confirmation</div>
+          <div class="panel-body">
+            <div class="annotation-item success">
+              <div class="annotation-zone">N° BC visible en confirmation</div>
+              <div class="annotation-rule">Rappelé si saisi — permet au client de vérifier la saisie</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Panier vidé à 0</div>
+              <div class="annotation-rule">Le compteur panier dans le header passe à 0 après confirmation</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">CTA "Suivre ma commande"</div>
+              <div class="annotation-rule">Redirige vers US-012 — Historique commandes (page "Mes commandes")</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATE : TEMPLATE EMAIL -->
+    <div id="wf011-email" class="canvas-wrap" style="display:none;">
+      <div class="canvas-main">
+        <div class="wf-frame" style="background:white;">
+          <div style="background:#f1f5f9;padding:10px 16px;border-bottom:1px solid var(--border);font-size:10px;color:var(--text-muted);">
+            📧 Email SendGrid — Objet : <strong>Confirmation de votre commande #CMD-2026-00847 — Company-Test</strong>
+          </div>
+          <div style="padding:20px;max-width:600px;margin:0 auto;">
+            <!-- Email header -->
+            <div style="background:linear-gradient(135deg,#1e3a8a,#1d4ed8);color:white;padding:20px 24px;border-radius:6px 6px 0 0;text-align:center;">
+              <div style="font-size:14px;font-weight:700;letter-spacing:1px;">COMPANY-TEST</div>
+              <div style="font-size:11px;opacity:0.8;margin-top:4px;">Câbles FTTH & Boîtiers fibres</div>
+            </div>
+            <!-- Email body -->
+            <div style="background:#ffffff;border:1px solid var(--border);border-top:none;padding:20px 24px;">
+              <div style="font-size:13px;font-weight:700;margin-bottom:6px;">Bonjour Thomas,</div>
+              <div style="font-size:11px;color:#374151;margin-bottom:16px;">Votre commande a bien été enregistrée. Voici le récapitulatif :</div>
+              <!-- Info block -->
+              <div style="background:#f0f9ff;border:1px solid #bae6fd;border-radius:4px;padding:12px;margin-bottom:14px;font-size:10px;">
+                <div style="display:flex;gap:24px;">
+                  <div><span style="color:var(--text-muted);">N° commande</span><br><strong>#CMD-2026-00847</strong></div>
+                  <div><span style="color:var(--text-muted);">N° BC interne</span><br><strong>BC-2026-00123</strong></div>
+                  <div><span style="color:var(--text-muted);">Date</span><br><strong>02/06/2026</strong></div>
+                  <div><span style="color:var(--text-muted);">Statut</span><br><span style="color:var(--success);font-weight:700;">✓ Confirmée</span></div>
+                </div>
+              </div>
+              <!-- Produits -->
+              <table style="width:100%;font-size:10px;border-collapse:collapse;margin-bottom:14px;">
+                <thead>
+                  <tr style="background:#f1f5f9;">
+                    <th style="padding:6px 8px;text-align:left;border-bottom:1px solid var(--border);">Produit</th>
+                    <th style="padding:6px 8px;text-align:right;border-bottom:1px solid var(--border);">Qté</th>
+                    <th style="padding:6px 8px;text-align:right;border-bottom:1px solid var(--border);">Prix unitaire HT</th>
+                    <th style="padding:6px 8px;text-align:right;border-bottom:1px solid var(--border);">Sous-total HT</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td style="padding:5px 8px;border-bottom:1px solid #f1f5f9;">Câble FTTH LSZH 12 fibres OS2</td><td style="padding:5px 8px;text-align:right;border-bottom:1px solid #f1f5f9;">100 m</td><td style="padding:5px 8px;text-align:right;border-bottom:1px solid #f1f5f9;">2,40 €</td><td style="padding:5px 8px;text-align:right;font-weight:600;border-bottom:1px solid #f1f5f9;">240,00 €</td></tr>
+                  <tr><td style="padding:5px 8px;border-bottom:1px solid #f1f5f9;">Boîtier FTTH 12 ports</td><td style="padding:5px 8px;text-align:right;border-bottom:1px solid #f1f5f9;">5 u</td><td style="padding:5px 8px;text-align:right;border-bottom:1px solid #f1f5f9;">18,50 €</td><td style="padding:5px 8px;text-align:right;font-weight:600;border-bottom:1px solid #f1f5f9;">92,50 €</td></tr>
+                  <tr><td style="padding:5px 8px;">Connecteur SC/APC simplex</td><td style="padding:5px 8px;text-align:right;">50 u</td><td style="padding:5px 8px;text-align:right;">0,85 €</td><td style="padding:5px 8px;text-align:right;font-weight:600;">42,50 €</td></tr>
+                </tbody>
+              </table>
+              <!-- Totaux -->
+              <div style="background:#f8fafc;border:1px solid var(--border);border-radius:3px;padding:10px 12px;margin-bottom:14px;font-size:10px;">
+                <div style="display:flex;justify-content:space-between;margin-bottom:3px;color:var(--text-muted);"><span>Sous-total HT</span><span>375,00 €</span></div>
+                <div style="display:flex;justify-content:space-between;margin-bottom:3px;color:var(--text-muted);"><span>Livraison HT (Chronopost)</span><span>8,50 €</span></div>
+                <div style="display:flex;justify-content:space-between;margin-bottom:3px;color:var(--text-muted);"><span>TVA 20%</span><span>76,70 €</span></div>
+                <div style="display:flex;justify-content:space-between;font-weight:700;font-size:12px;border-top:1px solid var(--border);padding-top:6px;margin-top:4px;"><span>Total TTC</span><span style="color:var(--primary);">460,20 €</span></div>
+              </div>
+              <!-- Livraison -->
+              <div style="font-size:10px;color:#374151;margin-bottom:16px;">📦 <strong>Adresse de livraison :</strong> TELECO INSTALL SAS — 24 rue des Câbleurs, 69008 Lyon<br>🚚 <strong>Transporteur :</strong> Chronopost Express — Livraison estimée le <strong>04/06/2026 avant 13h</strong></div>
+              <!-- CTA -->
+              <div style="text-align:center;margin-bottom:16px;">
+                <div style="display:inline-block;background:var(--primary);color:white;padding:10px 24px;border-radius:4px;font-size:12px;font-weight:600;">Suivre ma commande</div>
+              </div>
+              <div style="font-size:9px;color:var(--text-muted);border-top:1px solid var(--border);padding-top:10px;">Si vous n'êtes pas à l'origine de cette commande, contactez-nous à contact@company-test.fr<br>Company-Test SAS · 12 avenue de l'Industrie · 69001 Lyon · France</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">📧 Annotations — Email</div>
+          <div class="panel-body">
+            <div class="annotation-item">
+              <div class="annotation-zone">N° BC dans l'email</div>
+              <div class="annotation-rule">Visible dans le bloc info si renseigné (US-010). Champ masqué si vide</div>
+            </div>
+            <div class="annotation-item success">
+              <div class="annotation-zone">Tableau produits complet</div>
+              <div class="annotation-rule">Qté + prix unitaire HT + sous-total par ligne. Requis pour rapprochement comptable B2B</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Retéléchargement</div>
+              <div class="annotation-rule">Si email non reçu : accès depuis "Mes commandes" (US-012)</div>
+            </div>
+            <div class="annotation-item warn">
+              <div class="annotation-zone">Template SendGrid</div>
+              <div class="annotation-rule">ID template : order_confirmation_b2b. Variables Drupal : {{order_id}}, {{bc_number}}, {{items}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- WF-013 — DASHBOARD BACK-OFFICE COMMANDES (US-013 + US-014)   -->
+  <!-- ============================================================ -->
+  <div id="wf013" class="wf-section">
+    <div class="wf-header">
+      <div>
+        <h2>WF-013 — Dashboard Back-office Commandes</h2>
+        <div class="us-ref">US : <strong>US-013</strong> Dashboard commandes &nbsp;·&nbsp; <strong>US-014</strong> Mise à jour statut + notif client &nbsp;·&nbsp; Desktop 1280px</div>
+      </div>
+      <div class="state-switcher">
+        <button class="state-btn active" onclick="showState('wf013', 'dashboard', this)">Dashboard liste</button>
+        <button class="state-btn" onclick="showState('wf013', 'detail', this)">Détail commande</button>
+        <button class="state-btn success-btn" onclick="showState('wf013', 'status', this)">Mise à jour statut</button>
+      </div>
+    </div>
+
+    <div class="handoff-meta">
+      <div class="meta-chip">🖥 <strong>Breakpoint :</strong> 1280px (back-office admin)</div>
+      <div class="meta-chip">🔗 <strong>US liées :</strong> US-013, US-014</div>
+      <div class="meta-chip">⚙️ <strong>Drupal :</strong> Commerce Orders Views + Rules</div>
+      <div class="meta-chip">👤 <strong>Persona :</strong> Commercial Company-Test</div>
+    </div>
+
+    <!-- STATE : DASHBOARD LISTE -->
+    <div id="wf013-dashboard" class="canvas-wrap">
+      <div class="canvas-main">
+        <div class="wf-frame">
+          <div class="bo-header-bar">
+            <div class="bo-logo">COMPANY-TEST · ADMIN</div>
+            <div class="bo-nav">
+              <span class="bo-nav-item">Tableau de bord</span>
+              <span class="bo-nav-item">Comptes B2B</span>
+              <span class="bo-nav-item active">Commandes</span>
+              <span class="bo-nav-item">Produits</span>
+            </div>
+          </div>
+          <div class="bo-body">
+            <div class="bo-sidebar">
+              <div class="bo-menu-item">📊 Tableau de bord</div>
+              <div class="bo-menu-item">👥 Comptes B2B</div>
+              <div class="bo-menu-item active">📦 Commandes</div>
+              <div class="bo-menu-item" style="padding-left:26px;font-size:9px;color:var(--error);font-weight:700;">⚫ Nouvelles (4)</div>
+              <div class="bo-menu-item" style="padding-left:26px;font-size:9px;">En préparation (6)</div>
+              <div class="bo-menu-item" style="padding-left:26px;font-size:9px;">Expédiées (12)</div>
+              <div class="bo-menu-item" style="padding-left:26px;font-size:9px;">Livrées (38)</div>
+              <div class="bo-menu-item">🛍 Produits</div>
+            </div>
+            <div class="bo-content">
+              <!-- KPI -->
+              <div class="kpi-row">
+                <div class="kpi-card urgent">
+                  <div class="kpi-value">4</div>
+                  <div class="kpi-label">Nouvelles commandes</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-value">6</div>
+                  <div class="kpi-label">En préparation</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-value">12</div>
+                  <div class="kpi-label">Expédiées</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-value" style="font-size:14px;">3 820 €</div>
+                  <div class="kpi-label">CA aujourd'hui (HT)</div>
+                </div>
+              </div>
+
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                <div style="font-size:13px;font-weight:700;color:#0f172a;">Toutes les commandes</div>
+                <div style="display:flex;gap:8px;">
+                  <div style="border:1px solid var(--border);border-radius:3px;padding:5px 10px;font-size:10px;background:white;display:flex;align-items:center;gap:5px;">
+                    🔍 <span style="color:var(--text-muted);">Rechercher N° ou client…</span>
+                  </div>
+                  <div style="border:1px solid var(--border);border-radius:3px;padding:5px 10px;font-size:10px;background:white;">Tous statuts ▾</div>
+                  <div style="border:1px solid var(--border);border-radius:3px;padding:5px 10px;font-size:10px;background:white;">Période ▾</div>
+                </div>
+              </div>
+
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>N° commande</th>
+                    <th>Date</th>
+                    <th>Client (société)</th>
+                    <th>N° BC</th>
+                    <th>Montant HT</th>
+                    <th>Statut</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="background:#fef2f2;">
+                    <td style="font-family:monospace;font-size:10px;font-weight:700;color:var(--primary);">#CMD-2026-00851</td>
+                    <td>02/06/2026 14:22</td>
+                    <td style="font-weight:600;">TELECO INSTALL SAS</td>
+                    <td style="font-family:monospace;font-size:9px;">BC-2026-00126</td>
+                    <td style="font-weight:700;">1 240,00 €</td>
+                    <td><span class="badge badge-new"><span class="status-dot new"></span>Nouvelle</span></td>
+                    <td><span class="btn-sm btn-detail">Traiter →</span></td>
+                  </tr>
+                  <tr style="background:#fef2f2;">
+                    <td style="font-family:monospace;font-size:10px;font-weight:700;color:var(--primary);">#CMD-2026-00850</td>
+                    <td>02/06/2026 11:05</td>
+                    <td style="font-weight:600;">FIBRA NETWORKS SARL</td>
+                    <td style="font-family:monospace;font-size:9px;">—</td>
+                    <td style="font-weight:700;">460,20 €</td>
+                    <td><span class="badge badge-new"><span class="status-dot new"></span>Nouvelle</span></td>
+                    <td><span class="btn-sm btn-detail">Traiter →</span></td>
+                  </tr>
+                  <tr>
+                    <td style="font-family:monospace;font-size:10px;color:var(--primary);">#CMD-2026-00848</td>
+                    <td>01/06/2026 09:30</td>
+                    <td>OPTITEC PRO</td>
+                    <td style="font-family:monospace;font-size:9px;">BC-2026-00124</td>
+                    <td style="font-weight:700;">875,00 €</td>
+                    <td><span class="badge badge-prep"><span class="status-dot prep"></span>En préparation</span></td>
+                    <td><span class="btn-sm btn-detail">Détail</span></td>
+                  </tr>
+                  <tr>
+                    <td style="font-family:monospace;font-size:10px;color:var(--primary);">#CMD-2026-00847</td>
+                    <td>02/06/2026 08:14</td>
+                    <td>TELECO INSTALL SAS</td>
+                    <td style="font-family:monospace;font-size:9px;">BC-2026-00123</td>
+                    <td style="font-weight:700;">375,00 €</td>
+                    <td><span class="badge badge-prep"><span class="status-dot prep"></span>En préparation</span></td>
+                    <td><span class="btn-sm btn-detail">Détail</span></td>
+                  </tr>
+                  <tr>
+                    <td style="font-family:monospace;font-size:10px;color:var(--primary);">#CMD-2026-00845</td>
+                    <td>31/05/2026 16:48</td>
+                    <td>FAST CABLE SAS</td>
+                    <td style="font-family:monospace;font-size:9px;">—</td>
+                    <td style="font-weight:700;">2 150,00 €</td>
+                    <td><span class="badge badge-shipped"><span class="status-dot shipped"></span>Expédiée</span></td>
+                    <td><span class="btn-sm btn-detail">Détail</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">📦 Annotations — US-013</div>
+          <div class="panel-body">
+            <div class="annotation-item error">
+              <div class="annotation-zone">Nouvelles commandes mises en évidence</div>
+              <div class="annotation-rule">Fond rouge clair sur les lignes "Nouvelle" + badge rouge + compteur dans le menu</div>
+              <div class="annotation-nielsen">Visibilité système — Nielsen #1</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">KPI en tête de page</div>
+              <div class="annotation-rule">4 compteurs : Nouvelles / En préparation / Expédiées / CA du jour. Données temps réel</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Filtres par statut</div>
+              <div class="annotation-rule">Dropdown avec les 4 statuts : Nouvelle / En préparation / Expédiée / Livrée</div>
+            </div>
+            <div class="annotation-item success">
+              <div class="annotation-zone">N° BC visible en liste</div>
+              <div class="annotation-rule">Colonne N° BC directement dans le tableau pour correspondance comptable client</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATE : DÉTAIL COMMANDE -->
+    <div id="wf013-detail" class="canvas-wrap" style="display:none;">
+      <div class="canvas-main">
+        <div class="wf-frame">
+          <div class="bo-header-bar">
+            <div class="bo-logo">COMPANY-TEST · ADMIN</div>
+            <div class="bo-nav"><span class="bo-nav-item active">Commandes</span></div>
+          </div>
+          <div class="wf-breadcrumb">Admin &rsaquo; Commandes &rsaquo; <span>#CMD-2026-00851</span></div>
+          <div class="wf-body">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+              <div>
+                <div style="font-size:15px;font-weight:700;color:#0f172a;">Commande #CMD-2026-00851</div>
+                <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Reçue le 02/06/2026 à 14:22 · <strong>TELECO INSTALL SAS</strong></div>
+              </div>
+              <div style="display:flex;gap:8px;align-items:center;">
+                <span class="badge badge-new" style="font-size:11px;padding:4px 10px;"><span class="status-dot new"></span>Nouvelle</span>
+                <button class="btn-primary" style="font-size:11px;">Changer le statut ▾</button>
+              </div>
+            </div>
+            <div style="display:flex;gap:16px;">
+              <!-- Infos client + commande -->
+              <div style="flex:1;">
+                <div style="display:flex;gap:12px;margin-bottom:14px;">
+                  <div style="flex:1;background:#f8fafc;border:1px solid var(--border);border-radius:4px;padding:10px;">
+                    <div class="wf-section-title" style="margin-bottom:6px;">Client</div>
+                    <div style="font-size:11px;font-weight:600;">TELECO INSTALL SAS</div>
+                    <div style="font-size:10px;color:var(--text-muted);">SIRET : 42812340700023</div>
+                    <div style="font-size:10px;color:var(--primary);margin-top:4px;">m.duval@teleco.fr</div>
+                    <div style="font-size:10px;color:var(--text-muted);">+33 4 72 XX XX XX</div>
+                  </div>
+                  <div style="flex:1;background:#f8fafc;border:1px solid var(--border);border-radius:4px;padding:10px;">
+                    <div class="wf-section-title" style="margin-bottom:6px;">Livraison</div>
+                    <div style="font-size:10px;color:#374151;">TELECO INSTALL SAS</div>
+                    <div style="font-size:10px;color:var(--text-muted);">24 rue des Câbleurs, Bât. B</div>
+                    <div style="font-size:10px;color:var(--text-muted);">69008 Lyon</div>
+                    <div style="font-size:10px;margin-top:4px;"><strong>Chronopost Express</strong></div>
+                  </div>
+                  <div style="flex:1;background:#f0f9ff;border:1px solid #bae6fd;border-radius:4px;padding:10px;">
+                    <div class="wf-section-title" style="margin-bottom:6px;">Références</div>
+                    <div style="font-size:10px;color:#374151;">N° BC : <strong>BC-2026-00126</strong></div>
+                    <div style="font-size:10px;margin-top:4px;color:#374151;">Total HT : <strong>1 240,00 €</strong></div>
+                    <div style="font-size:10px;color:#374151;">TVA : <strong>248,00 €</strong></div>
+                    <div style="font-size:10px;font-weight:700;color:var(--primary);">Total TTC : 1 488,00 €</div>
+                  </div>
+                </div>
+                <!-- Lignes produits -->
+                <table class="admin-table">
+                  <thead><tr><th>Produit</th><th>Réf.</th><th>Qté</th><th>PU HT</th><th>Sous-total HT</th></tr></thead>
+                  <tbody>
+                    <tr><td><div style="font-weight:600;font-size:10px;">Câble FTTH LSZH 24 fibres OS2</div></td><td style="font-size:9px;font-family:monospace;">CAB-FTTH-24</td><td>500 m</td><td>2,10 €</td><td style="font-weight:700;">1 050,00 €</td></tr>
+                    <tr><td><div style="font-weight:600;font-size:10px;">Connecteur SC/APC × 10</div></td><td style="font-size:9px;font-family:monospace;">CON-SCAPC-SX</td><td>200 u</td><td>0,95 €</td><td style="font-weight:700;">190,00 €</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">📋 Détail commande</div>
+          <div class="panel-body">
+            <div class="annotation-item">
+              <div class="annotation-zone">N° BC visible en détail</div>
+              <div class="annotation-rule">Mis en valeur dans le bloc références (fond bleu clair)</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Info SIRET client</div>
+              <div class="annotation-rule">Permet vérification rapide sans quitter la page commande</div>
+            </div>
+            <div class="annotation-item success">
+              <div class="annotation-zone">CTA "Changer le statut"</div>
+              <div class="annotation-rule">Dropdown contextuel : En préparation / Expédiée / Livrée. Déclenche US-014</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATE : MISE À JOUR STATUT (US-014) -->
+    <div id="wf013-status" class="canvas-wrap" style="display:none;">
+      <div class="canvas-main">
+        <div class="wf-frame">
+          <div class="bo-header-bar">
+            <div class="bo-logo">COMPANY-TEST · ADMIN</div>
+            <div class="bo-nav"><span class="bo-nav-item active">Commandes</span></div>
+          </div>
+          <div class="wf-breadcrumb">Admin &rsaquo; Commandes &rsaquo; <span>#CMD-2026-00851</span></div>
+          <div class="wf-body">
+            <div class="alert alert-success" style="margin-bottom:16px;">
+              <div class="alert-icon">✓</div>
+              <div><strong>Statut mis à jour : Expédiée</strong><br>La commande #CMD-2026-00851 est passée de "En préparation" à "Expédiée". Un email de notification a été envoyé à m.duval@teleco.fr.</div>
+            </div>
+
+            <!-- Modal changement statut (overlay simulé) -->
+            <div style="border:2px dashed var(--border);border-radius:6px;padding:16px;background:#fafafa;margin-bottom:16px;">
+              <div style="font-size:11px;font-weight:600;color:#374151;margin-bottom:10px;">Modale "Changer le statut" — (refermée après confirmation)</div>
+              <div class="modal-card" style="max-width:400px;margin:0 auto;box-shadow:var(--shadow-lg);">
+                <div class="modal-header">
+                  <div class="modal-title">📦 Changer le statut de la commande</div>
+                  <div class="modal-close">×</div>
+                </div>
+                <div class="modal-body">
+                  <div style="font-size:11px;color:var(--text-muted);margin-bottom:10px;">Commande #CMD-2026-00851 — TELECO INSTALL SAS</div>
+                  <div class="form-group">
+                    <label class="form-label">Nouveau statut</label>
+                    <div style="display:flex;flex-direction:column;gap:6px;">
+                      <div style="padding:8px 10px;border:1px solid var(--border);border-radius:3px;font-size:11px;display:flex;align-items:center;gap:8px;"><span class="status-dot new"></span>Nouvelle</div>
+                      <div style="padding:8px 10px;border:1px solid var(--border);border-radius:3px;font-size:11px;display:flex;align-items:center;gap:8px;"><span class="status-dot prep"></span>En préparation</div>
+                      <div style="padding:8px 10px;border:1.5px solid var(--primary);border-radius:3px;font-size:11px;background:var(--primary-light);display:flex;align-items:center;gap:8px;font-weight:600;color:var(--primary);">● <span class="status-dot shipped" style="background:var(--primary);"></span>Expédiée ← sélectionné</div>
+                      <div style="padding:8px 10px;border:1px solid var(--border);border-radius:3px;font-size:11px;display:flex;align-items:center;gap:8px;"><span class="status-dot delivered"></span>Livrée</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">N° de suivi transporteur <span class="optional-badge">(optionnel)</span></label>
+                    <div class="form-input" style="color:var(--text-muted);">Ex : CP123456789FR</div>
+                    <div class="form-hint">Inclus dans l'email de notification client si renseigné</div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn-secondary">Annuler</button>
+                  <button class="btn-primary">✓ Confirmer le changement</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">📦 Annotations — US-014</div>
+          <div class="panel-body">
+            <div class="annotation-item success">
+              <div class="annotation-zone">Email auto au client</div>
+              <div class="annotation-rule">Déclenché par Drupal Rules à chaque changement de statut. Template SendGrid distinct par statut</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">N° suivi optionnel</div>
+              <div class="annotation-rule">Si renseigné, inclus dans l'email "Expédiée". Sinon email sans N° de suivi</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Confirmation visuelle</div>
+              <div class="annotation-rule">Banner vert en haut de page après fermeture de la modale</div>
+              <div class="annotation-nielsen">Feedback système — Nielsen #1</div>
+            </div>
+            <div class="annotation-item warn">
+              <div class="annotation-zone">Progression statuts</div>
+              <div class="annotation-rule">Sens unique : Nouvelle → En préparation → Expédiée → Livrée. Pas de retour arrière en V1</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<script>
+  function showTab(tabId, btn) {
+    document.querySelectorAll('.wf-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function showState(wfId, stateId, btn) {
+    const section = document.getElementById(wfId);
+    const allStates = section.querySelectorAll('[id^="' + wfId + '-"]');
+    allStates.forEach(el => {
+      if (!el.id.endsWith('-desktop') && !el.id.endsWith('-mobile')) {
+        el.style.display = 'none';
+      }
+    });
+    const target = document.getElementById(wfId + '-' + stateId);
+    if (target) target.style.display = '';
+    const switcher = btn.closest('.state-switcher');
+    if (switcher) {
+      switcher.querySelectorAll('.state-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  }
+
+  function showViewport(wfId, vp, btn) {
+    const desktopEl = document.getElementById(wfId + '-desktop');
+    const mobileEl = document.getElementById(wfId + '-mobile');
+    if (desktopEl) desktopEl.style.display = vp === 'desktop' ? '' : 'none';
+    if (mobileEl) mobileEl.style.display = vp === 'mobile' ? '' : 'none';
+    const toggle = btn.closest('.viewport-toggle');
+    if (toggle) {
+      toggle.querySelectorAll('.vp-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  }
+</script>
+</body>
+</html>

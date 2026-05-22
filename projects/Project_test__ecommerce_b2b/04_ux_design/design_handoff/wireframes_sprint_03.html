@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Handoff — Wireframes Sprint 3 — Company-Test B2B</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f2f5; color: #1a1a2e; font-size: 14px; }
+    :root {
+      --primary: #2563eb; --primary-light: #dbeafe; --border: #cbd5e1;
+      --bg-card: #ffffff; --bg-field: #f8fafc; --text-muted: #64748b;
+      --text-label: #374151; --error: #dc2626; --error-light: #fef2f2;
+      --success: #16a34a; --warning: #d97706; --warning-light: #fffbeb;
+      --shadow: 0 1px 4px rgba(0,0,0,0.10); --shadow-lg: 0 4px 16px rgba(0,0,0,0.12);
+      --radius: 6px; --wf-bg: #f8f9ff; --wf-border: #94a3b8;
+    }
+    .site-header { background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%); color: white; padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; box-shadow: var(--shadow-lg); }
+    .site-header h1 { font-size: 18px; font-weight: 600; letter-spacing: 0.3px; }
+    .site-header .meta { font-size: 12px; opacity: 0.8; margin-top: 3px; }
+    .badge-sprint { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); border-radius: 20px; padding: 5px 14px; font-size: 12px; font-weight: 600; }
+    .nav-tabs { display: flex; background: white; border-bottom: 2px solid var(--border); padding: 0 32px; gap: 4px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .tab-btn { padding: 14px 20px; border: none; background: transparent; cursor: pointer; font-size: 13px; font-weight: 500; color: var(--text-muted); border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.2s; }
+    .tab-btn:hover { color: var(--primary); }
+    .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); font-weight: 600; }
+    .tab-code { font-size: 10px; background: #e2e8f0; border-radius: 3px; padding: 1px 5px; margin-right: 6px; font-weight: 700; }
+    .tab-btn.active .tab-code { background: var(--primary-light); color: var(--primary); }
+    .main { padding: 28px 32px; max-width: 1400px; margin: 0 auto; }
+    .wf-section { display: none; }
+    .wf-section.active { display: block; }
+    .wf-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+    .wf-header h2 { font-size: 20px; font-weight: 700; color: #0f172a; }
+    .wf-header .us-ref { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+    .wf-header .us-ref strong { color: var(--primary); }
+    .state-switcher { display: flex; gap: 8px; flex-wrap: wrap; }
+    .state-btn { padding: 6px 14px; border-radius: 20px; border: 1.5px solid var(--border); background: white; cursor: pointer; font-size: 12px; font-weight: 500; color: var(--text-muted); transition: all 0.15s; }
+    .state-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .state-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+    .state-btn.error-btn.active { background: var(--error); border-color: var(--error); }
+    .state-btn.warn-btn.active { background: var(--warning); border-color: var(--warning); }
+    .state-btn.success-btn.active { background: var(--success); border-color: var(--success); }
+    .viewport-toggle { display: flex; gap: 6px; margin-bottom: 16px; }
+    .vp-btn { padding: 5px 12px; border-radius: 4px; border: 1.5px solid var(--border); background: white; cursor: pointer; font-size: 12px; font-weight: 500; color: var(--text-muted); transition: all 0.15s; }
+    .vp-btn.active { background: #e2e8f0; color: #1e293b; border-color: #94a3b8; font-weight: 600; }
+    .canvas-wrap { display: flex; gap: 24px; align-items: flex-start; }
+    .canvas-main { flex: 1; }
+    .canvas-panel { width: 320px; flex-shrink: 0; }
+    .wf-frame { background: var(--wf-bg); border: 2px solid var(--wf-border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); }
+    .wf-header-bar { background: #e2e8f0; border-bottom: 2px solid #94a3b8; padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; }
+    .wf-logo { background: #475569; color: white; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 3px; letter-spacing: 1px; }
+    .wf-nav { display: flex; gap: 12px; align-items: center; }
+    .wf-nav-item { font-size: 11px; color: #475569; font-weight: 500; }
+    .wf-nav-item.active { color: var(--primary); border-bottom: 1px solid var(--primary); }
+    .wf-cart { background: var(--primary); color: white; font-size: 10px; padding: 3px 8px; border-radius: 3px; font-weight: 600; }
+    .wf-user { font-size: 11px; color: #475569; background: #f1f5f9; padding: 3px 8px; border-radius: 3px; }
+    .wf-breadcrumb { background: #f1f5f9; border-bottom: 1px solid var(--border); padding: 7px 16px; font-size: 11px; color: var(--text-muted); }
+    .wf-breadcrumb span { color: var(--primary); }
+    .wf-body { padding: 16px; }
+    .wf-body.two-col { display: flex; gap: 0; }
+    .wf-sidebar { width: 220px; flex-shrink: 0; border-right: 1px solid var(--border); padding: 12px; }
+    .wf-content { flex: 1; padding: 12px 16px; }
+    .wf-section-title { font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .annotation-panel { background: white; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .panel-header { background: #1e3a8a; color: white; padding: 10px 14px; font-size: 12px; font-weight: 600; }
+    .panel-body { padding: 12px; }
+    .annotation-item { background: #f8fafc; border-left: 3px solid var(--primary); border-radius: 3px; padding: 8px 10px; margin-bottom: 8px; }
+    .annotation-item.warn { border-left-color: var(--warning); }
+    .annotation-item.success { border-left-color: var(--success); }
+    .annotation-item.error { border-left-color: var(--error); }
+    .annotation-zone { font-size: 10px; font-weight: 700; color: #374151; }
+    .annotation-rule { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
+    .annotation-nielsen { font-size: 9px; color: var(--primary); margin-top: 2px; font-style: italic; }
+    .handoff-meta { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+    .meta-chip { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 5px 10px; font-size: 11px; color: var(--text-muted); display: flex; align-items: center; gap: 5px; }
+    .meta-chip strong { color: #1e293b; }
+    .section-divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+    .section-sub-title { font-size: 12px; font-weight: 700; color: #374151; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+    .section-sub-title::before { content: ''; display: inline-block; width: 3px; height: 14px; background: var(--primary); border-radius: 2px; }
+
+    /* FORM ELEMENTS */
+    .form-group { margin-bottom: 12px; }
+    .form-label { font-size: 10px; font-weight: 600; color: var(--text-label); margin-bottom: 4px; display: block; text-transform: uppercase; letter-spacing: 0.3px; }
+    .form-input { width: 100%; border: 1px solid var(--border); border-radius: 3px; padding: 8px 10px; font-size: 11px; background: var(--bg-field); color: var(--text-label); }
+    .form-input.stripe { background: white; border-color: #94a3b8; font-family: monospace; letter-spacing: 2px; }
+    .form-hint { font-size: 9px; color: var(--text-muted); margin-top: 3px; }
+    .optional-badge { font-size: 9px; color: var(--text-muted); font-weight: 400; margin-left: 4px; text-transform: none; letter-spacing: 0; }
+    .btn-primary { background: var(--primary); color: white; border: none; border-radius: 4px; padding: 8px 16px; font-size: 12px; font-weight: 600; cursor: pointer; }
+    .btn-secondary { background: white; color: var(--text-muted); border: 1.5px solid var(--border); border-radius: 4px; padding: 8px 16px; font-size: 12px; font-weight: 500; cursor: pointer; }
+
+    /* CHECKOUT STEPS */
+    .checkout-steps { display: flex; align-items: center; gap: 0; margin-bottom: 20px; }
+    .step-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; position: relative; }
+    .step-item:not(:last-child)::after { content: ''; position: absolute; top: 14px; left: 50%; width: 100%; height: 2px; background: var(--border); z-index: 0; }
+    .step-item.done:not(:last-child)::after { background: var(--primary); }
+    .step-circle { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; background: white; z-index: 1; color: var(--text-muted); }
+    .step-item.active .step-circle { background: var(--primary); border-color: var(--primary); color: white; }
+    .step-item.done .step-circle { background: var(--success); border-color: var(--success); color: white; }
+    .step-label { font-size: 9px; color: var(--text-muted); font-weight: 500; text-align: center; }
+    .step-item.active .step-label { color: var(--primary); font-weight: 700; }
+
+    /* ALERT */
+    .alert { border-radius: 4px; padding: 10px 12px; margin-bottom: 10px; font-size: 11px; display: flex; gap: 8px; align-items: flex-start; }
+    .alert-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+    .alert-success { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+    .alert-error { background: var(--error-light); border: 1px solid #fca5a5; color: #991b1b; }
+    .alert-warning { background: var(--warning-light); border: 1px solid #fcd34d; color: #92400e; }
+    .alert-info { background: #f0f9ff; border: 1px solid #bae6fd; color: #075985; }
+    .alert strong { display: block; font-weight: 700; }
+
+    /* CONFIRM */
+    .confirm-wrap { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 32px 20px; }
+    .confirm-icon { font-size: 48px; margin-bottom: 12px; }
+    .confirm-title { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .confirm-sub { font-size: 12px; color: var(--text-muted); margin-bottom: 16px; }
+    .confirm-box { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 4px; padding: 12px 16px; font-size: 11px; text-align: left; max-width: 500px; width: 100%; }
+
+    /* TABLE */
+    .admin-table { width: 100%; font-size: 10px; border-collapse: collapse; }
+    .admin-table th { background: #f1f5f9; padding: 7px 10px; text-align: left; font-weight: 700; color: #475569; border-bottom: 2px solid var(--border); font-size: 10px; text-transform: uppercase; }
+    .admin-table td { padding: 7px 10px; border-bottom: 1px solid #f1f5f9; color: #374151; vertical-align: middle; }
+    .admin-table tr:hover td { background: #f8fafc; }
+
+    /* BADGE */
+    .badge { display: inline-flex; align-items: center; gap: 4px; border-radius: 20px; padding: 2px 8px; font-size: 9px; font-weight: 700; }
+    .badge-prep { background: #fffbeb; color: #92400e; border: 1px solid #fcd34d; }
+    .badge-shipped { background: #eff6ff; color: #1d4ed8; border: 1px solid #93c5fd; }
+    .badge-delivered { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+    .badge-pending { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; margin-right: 4px; }
+
+    /* STRIPE PAYMENT */
+    .stripe-frame { background: white; border: 1px solid #e2e8f0; border-radius: 6px; padding: 16px; }
+    .stripe-logo { display: inline-flex; align-items: center; gap: 6px; background: #635bff; color: white; border-radius: 4px; padding: 4px 10px; font-size: 10px; font-weight: 700; margin-bottom: 12px; }
+    .card-row { display: flex; gap: 12px; margin-bottom: 10px; }
+    .card-field { flex: 1; }
+    .card-field.small { flex: 0 0 100px; }
+    .secure-badge { display: flex; align-items: center; gap: 6px; font-size: 10px; color: var(--text-muted); margin-top: 8px; }
+    .lock-icon { font-size: 12px; }
+
+    /* 3DS MODAL */
+    .tds-overlay { background: rgba(0,0,0,0.5); padding: 20px; display: flex; align-items: center; justify-content: center; min-height: 280px; }
+    .tds-card { background: white; border-radius: var(--radius); width: 100%; max-width: 340px; overflow: hidden; box-shadow: var(--shadow-lg); }
+    .tds-header { background: #635bff; color: white; padding: 10px 14px; font-size: 11px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
+    .tds-body { padding: 16px; }
+    .bank-logo { width: 60px; height: 24px; background: #e2e8f0; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 9px; color: #475569; font-weight: 600; margin-bottom: 10px; }
+    .otp-input { display: flex; gap: 8px; justify-content: center; margin: 12px 0; }
+    .otp-digit { width: 36px; height: 42px; border: 2px solid var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; }
+    .otp-digit.filled { border-color: var(--primary); }
+
+    /* FACTURE PDF */
+    .invoice-frame { background: white; border: 1px solid #e2e8f0; max-width: 680px; margin: 0 auto; box-shadow: var(--shadow-lg); }
+    .invoice-header { display: flex; justify-content: space-between; align-items: flex-start; padding: 20px 24px; border-bottom: 3px solid var(--primary); }
+    .invoice-logo { font-size: 16px; font-weight: 700; color: #0f172a; }
+    .invoice-logo .sub { font-size: 10px; color: var(--text-muted); font-weight: 400; margin-top: 2px; }
+    .invoice-title { font-size: 14px; font-weight: 700; color: var(--primary); text-align: right; }
+    .invoice-num { font-size: 11px; color: var(--text-muted); text-align: right; margin-top: 4px; }
+    .invoice-body { padding: 20px 24px; }
+    .invoice-parties { display: flex; gap: 32px; margin-bottom: 20px; }
+    .invoice-party { flex: 1; font-size: 10px; }
+    .invoice-party-title { font-size: 9px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .invoice-table { width: 100%; font-size: 10px; border-collapse: collapse; margin-bottom: 16px; }
+    .invoice-table th { background: #0f172a; color: white; padding: 7px 10px; text-align: left; font-weight: 600; font-size: 9px; text-transform: uppercase; }
+    .invoice-table td { padding: 6px 10px; border-bottom: 1px solid #f1f5f9; }
+    .invoice-totals { width: 240px; margin-left: auto; font-size: 10px; }
+    .total-row { display: flex; justify-content: space-between; padding: 4px 0; color: var(--text-muted); }
+    .total-row.grand { font-weight: 700; font-size: 13px; color: #0f172a; border-top: 2px solid #0f172a; padding-top: 6px; margin-top: 4px; }
+    .invoice-footer { background: #f8fafc; border-top: 1px solid var(--border); padding: 12px 24px; font-size: 9px; color: var(--text-muted); }
+    .invoice-stamp { border: 2px solid var(--success); color: var(--success); font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 4px; display: inline-block; transform: rotate(-5deg); opacity: 0.7; }
+
+    /* ORDER HISTORY */
+    .account-wrap { display: flex; gap: 0; min-height: 320px; }
+    .account-sidebar { width: 200px; flex-shrink: 0; background: #f8fafc; border-right: 1px solid var(--border); padding: 10px 0; }
+    .account-menu-item { padding: 9px 16px; font-size: 11px; font-weight: 500; color: #475569; cursor: pointer; display: flex; align-items: center; gap: 7px; }
+    .account-menu-item.active { background: var(--primary-light); color: var(--primary); font-weight: 700; border-right: 3px solid var(--primary); }
+    .account-content { flex: 1; padding: 16px; }
+
+    @media print {
+      .nav-tabs, .state-switcher, .viewport-toggle { display: none; }
+      .wf-section { display: block !important; page-break-before: always; }
+      .wf-section:first-child { page-break-before: avoid; }
+      .canvas-wrap { flex-direction: column; }
+      .canvas-panel { width: 100%; }
+      @page { size: A3 landscape; margin: 10mm; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SITE HEADER -->
+<div class="site-header">
+  <div>
+    <h1>Design Handoff — Wireframes Sprint 3</h1>
+    <div class="meta">Company-Test e-Commerce B2B · Drupal 10 + Commerce 2.x + Stripe · Fidélité Lo-fi</div>
+  </div>
+  <div class="badge-sprint">Sprint 3 — 2026</div>
+</div>
+
+<!-- NAV TABS -->
+<div class="nav-tabs">
+  <button class="tab-btn active" onclick="showTab('wf016', this)">
+    <span class="tab-code">WF-016</span>Paiement CB 3D Secure
+  </button>
+  <button class="tab-btn" onclick="showTab('wf018', this)">
+    <span class="tab-code">WF-018</span>Facture PDF
+  </button>
+  <button class="tab-btn" onclick="showTab('wf012', this)">
+    <span class="tab-code">WF-012</span>Historique Commandes
+  </button>
+</div>
+
+<div class="main">
+
+  <!-- ============================================================ -->
+  <!-- WF-016 — PAIEMENT CB 3D SECURE (Stripe)                      -->
+  <!-- ============================================================ -->
+  <div id="wf016" class="wf-section active">
+    <div class="wf-header">
+      <div>
+        <h2>WF-016 — Paiement CB 3D Secure (Stripe)</h2>
+        <div class="us-ref">US : <strong>US-016</strong> — Paiement CB 3DS Stripe &nbsp;·&nbsp; 8 SP &nbsp;·&nbsp; Desktop 1280px</div>
+      </div>
+      <div class="state-switcher">
+        <button class="state-btn active" onclick="showState('wf016', 'form', this)">Formulaire CB</button>
+        <button class="state-btn warn-btn" onclick="showState('wf016', 'tds', this)">3D Secure (OTP)</button>
+        <button class="state-btn success-btn" onclick="showState('wf016', 'success', this)">Paiement réussi</button>
+        <button class="state-btn error-btn" onclick="showState('wf016', 'refused', this)">Paiement refusé</button>
+      </div>
+    </div>
+
+    <div class="handoff-meta">
+      <div class="meta-chip">🖥 <strong>Breakpoint :</strong> 1280px</div>
+      <div class="meta-chip">🔗 <strong>US liée :</strong> US-016</div>
+      <div class="meta-chip">⚙️ <strong>Stack :</strong> Drupal Commerce + Stripe Elements + Stripe.js</div>
+      <div class="meta-chip">🔒 <strong>Sécurité :</strong> PCI-DSS compliant — champs Stripe iFrame</div>
+      <div class="meta-chip">👤 <strong>Persona :</strong> Thomas (acheteur B2B)</div>
+    </div>
+
+    <!-- STATE : FORMULAIRE CB -->
+    <div id="wf016-form" class="canvas-wrap">
+      <div class="canvas-main">
+        <div class="wf-frame">
+          <div class="wf-header-bar">
+            <div class="wf-logo">COMPANY-TEST</div>
+            <div class="wf-nav">
+              <span class="wf-cart">🛒 Panier (3)</span>
+              <span class="wf-user">👤 Thomas D.</span>
+            </div>
+          </div>
+          <div class="wf-breadcrumb">Accueil &rsaquo; Panier &rsaquo; Validation &rsaquo; <span>Paiement</span></div>
+          <div class="wf-body">
+            <div class="checkout-steps" style="max-width:500px;margin-bottom:20px;">
+              <div class="step-item done"><div class="step-circle">✓</div><div class="step-label">Panier</div></div>
+              <div class="step-item done"><div class="step-circle">✓</div><div class="step-label">Validation</div></div>
+              <div class="step-item active"><div class="step-circle">3</div><div class="step-label">Paiement</div></div>
+              <div class="step-item"><div class="step-circle">4</div><div class="step-label">Confirmation</div></div>
+            </div>
+
+            <div style="display:flex;gap:20px;align-items:flex-start;">
+              <!-- Formulaire Stripe -->
+              <div style="flex:1;">
+                <div class="section-sub-title">Paiement sécurisé par carte bancaire</div>
+                <div class="stripe-frame">
+                  <div class="stripe-logo">
+                    <span>⚡</span>Powered by <strong>stripe</strong>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Nom sur la carte</label>
+                    <div class="form-input" style="color:var(--text-muted);">THOMAS DUVAL</div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Numéro de carte</label>
+                    <div class="form-input stripe">4242 •••• •••• ••••</div>
+                    <div style="position:relative;">
+                      <div style="position:absolute;right:0;top:-26px;font-size:18px;">💳</div>
+                    </div>
+                  </div>
+                  <div class="card-row">
+                    <div class="card-field">
+                      <label class="form-label">Date d'expiration</label>
+                      <div class="form-input stripe" style="text-align:center;">MM / AA</div>
+                    </div>
+                    <div class="card-field small">
+                      <label class="form-label">CVC</label>
+                      <div class="form-input stripe" style="text-align:center;">•••</div>
+                    </div>
+                  </div>
+                  <div class="secure-badge">
+                    <span class="lock-icon">🔒</span>
+                    <span>Paiement chiffré TLS 1.3 — Vos données ne sont jamais stockées sur nos serveurs (PCI-DSS)</span>
+                  </div>
+                </div>
+                <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;">
+                  <div style="background:#f1f5f9;border-radius:3px;padding:3px 8px;font-size:9px;color:#475569;">Visa</div>
+                  <div style="background:#f1f5f9;border-radius:3px;padding:3px 8px;font-size:9px;color:#475569;">Mastercard</div>
+                  <div style="background:#f1f5f9;border-radius:3px;padding:3px 8px;font-size:9px;color:#475569;">CB</div>
+                  <div style="background:#f1f5f9;border-radius:3px;padding:3px 8px;font-size:9px;color:#475569;">American Express</div>
+                </div>
+              </div>
+
+              <!-- Récap commande -->
+              <div style="width:240px;flex-shrink:0;">
+                <div style="background:white;border:1px solid var(--border);border-radius:4px;padding:14px;">
+                  <div class="wf-section-title">Récapitulatif</div>
+                  <div style="font-size:10px;color:#374151;margin-bottom:10px;">
+                    <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span>Câble FTTH × 100m</span><span>240,00 €</span></div>
+                    <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span>Boîtier FTTH × 5</span><span>92,50 €</span></div>
+                    <div style="display:flex;justify-content:space-between;"><span>Connecteur SC × 50</span><span>42,50 €</span></div>
+                  </div>
+                  <div style="border-top:1px solid var(--border);padding-top:8px;font-size:10px;">
+                    <div style="display:flex;justify-content:space-between;color:var(--text-muted);margin-bottom:3px;"><span>Sous-total HT</span><span>375,00 €</span></div>
+                    <div style="display:flex;justify-content:space-between;color:var(--text-muted);margin-bottom:3px;"><span>Livraison HT</span><span>8,50 €</span></div>
+                    <div style="display:flex;justify-content:space-between;color:var(--text-muted);margin-bottom:6px;"><span>TVA 20%</span><span>76,70 €</span></div>
+                    <div style="display:flex;justify-content:space-between;font-weight:700;font-size:14px;"><span>Total TTC</span><span style="color:var(--primary);">460,20 €</span></div>
+                  </div>
+                  <div style="margin-top:12px;">
+                    <button class="btn-primary" style="width:100%;padding:11px;font-size:13px;">🔒 Payer 460,20 €</button>
+                  </div>
+                  <div style="font-size:9px;color:var(--text-muted);text-align:center;margin-top:6px;">Vous serez peut-être redirigé(e) pour la vérification 3D Secure</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">💳 Annotations — Formulaire CB</div>
+          <div class="panel-body">
+            <div class="annotation-item">
+              <div class="annotation-zone">Stripe Elements (iFrame)</div>
+              <div class="annotation-rule">Les champs CB sont des iFrames Stripe — pas de données CB dans le DOM Drupal. PCI-DSS Level 1</div>
+            </div>
+            <div class="annotation-item warn">
+              <div class="annotation-zone">Dépendance technique</div>
+              <div class="annotation-rule">Spike Stripe à valider fin Sprint 1 avant démarrage. Clés API Stripe TEST / LIVE distinctes</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Cartes acceptées</div>
+              <div class="annotation-rule">Visa, Mastercard, CB, Amex. Affichage des logos sous le formulaire</div>
+            </div>
+            <div class="annotation-item success">
+              <div class="annotation-zone">Badge sécurité</div>
+              <div class="annotation-rule">Message TLS + PCI-DSS explicite pour rassurer les acheteurs B2B réticents</div>
+              <div class="annotation-nielsen">Confiance utilisateur — Nielsen #1</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATE : 3D SECURE OTP -->
+    <div id="wf016-tds" class="canvas-wrap" style="display:none;">
+      <div class="canvas-main">
+        <div class="wf-frame">
+          <div class="wf-header-bar">
+            <div class="wf-logo">COMPANY-TEST</div>
+            <div class="wf-nav"><span class="wf-user">👤 Thomas D.</span></div>
+          </div>
+          <div class="wf-body" style="filter:blur(1.5px);opacity:0.3;pointer-events:none;min-height:80px;">
+            <div style="font-size:11px;color:var(--text-muted);">— fond : formulaire paiement CB —</div>
+          </div>
+          <div class="tds-overlay">
+            <div class="tds-card">
+              <div class="tds-header">
+                <span>🔒 Authentification 3D Secure</span>
+                <span style="font-size:10px;opacity:0.7;">Sécurisé par votre banque</span>
+              </div>
+              <div class="tds-body">
+                <div class="bank-logo">BANQUE FR</div>
+                <div style="font-size:11px;font-weight:600;margin-bottom:4px;">Vérification de paiement</div>
+                <div style="font-size:10px;color:var(--text-muted);margin-bottom:10px;">
+                  Commande : <strong>460,20 € — Company-Test</strong><br>
+                  Un code SMS a été envoyé au <strong>+33 6 •• •• •• 47</strong>
+                </div>
+                <div style="font-size:10px;font-weight:600;color:#374151;text-align:center;margin-bottom:8px;">Entrez votre code à 6 chiffres</div>
+                <div class="otp-input">
+                  <div class="otp-digit filled">4</div>
+                  <div class="otp-digit filled">7</div>
+                  <div class="otp-digit filled">2</div>
+                  <div class="otp-digit" style="border-color:var(--primary);background:var(--primary-light);">_</div>
+                  <div class="otp-digit"></div>
+                  <div class="otp-digit"></div>
+                </div>
+                <div style="font-size:9px;color:var(--text-muted);text-align:center;margin-bottom:10px;">Code valide 5 minutes · <span style="color:var(--primary);">Renvoyer le code</span></div>
+                <button class="btn-primary" style="width:100%;">Confirmer →</button>
+                <div style="font-size:9px;color:var(--text-muted);text-align:center;margin-top:8px;">Annuler le paiement</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">🔒 3D Secure — Annotations</div>
+          <div class="panel-body">
+            <div class="annotation-item">
+              <div class="annotation-zone">Popup banque (Stripe)</div>
+              <div class="annotation-rule">La modale 3DS est gérée par Stripe.js — overlay automatique. Pas de dev custom</div>
+            </div>
+            <div class="annotation-item warn">
+              <div class="annotation-zone">Timeout 5 minutes</div>
+              <div class="annotation-rule">Si le code n'est pas saisi dans les 5 min, la session Stripe expire — recommencer le paiement</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Numéro masqué</div>
+              <div class="annotation-rule">Seuls les 2 derniers chiffres sont affichés (RGPD + sécurité)</div>
+            </div>
+            <div class="annotation-item success">
+              <div class="annotation-zone">Renvoi code</div>
+              <div class="annotation-rule">Lien "Renvoyer le code" actif après 30s d'attente</div>
+              <div class="annotation-nielsen">Aide et documentation — Nielsen #10</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATE : PAIEMENT RÉUSSI -->
+    <div id="wf016-success" class="canvas-wrap" style="display:none;">
+      <div class="canvas-main">
+        <div class="wf-frame">
+          <div class="wf-header-bar">
+            <div class="wf-logo">COMPANY-TEST</div>
+            <div class="wf-nav"><span class="wf-cart">🛒 Panier (0)</span><span class="wf-user">👤 Thomas D.</span></div>
+          </div>
+          <div class="wf-breadcrumb">Accueil &rsaquo; <span>Confirmation commande</span></div>
+          <div class="wf-body">
+            <div class="checkout-steps" style="max-width:500px;margin-bottom:24px;">
+              <div class="step-item done"><div class="step-circle">✓</div><div class="step-label">Panier</div></div>
+              <div class="step-item done"><div class="step-circle">✓</div><div class="step-label">Validation</div></div>
+              <div class="step-item done"><div class="step-circle">✓</div><div class="step-label">Paiement</div></div>
+              <div class="step-item active"><div class="step-circle">✓</div><div class="step-label">Confirmation</div></div>
+            </div>
+            <div class="confirm-wrap">
+              <div class="confirm-icon">✅</div>
+              <div class="confirm-title">Paiement accepté — Commande confirmée !</div>
+              <div class="confirm-sub">Votre commande <strong>#CMD-2026-00847</strong> est enregistrée.<br>Paiement de <strong>460,20 €</strong> débité avec succès.</div>
+              <div style="font-size:12px;font-weight:600;color:var(--primary);margin-bottom:16px;">📧 Email de confirmation + facture PDF envoyés à thomas.duval@teleco.fr</div>
+              <div class="confirm-box">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:10px;">
+                  <div><span style="color:var(--text-muted);">N° commande</span><br><strong>#CMD-2026-00847</strong></div>
+                  <div><span style="color:var(--text-muted);">N° BC</span><br><strong>BC-2026-00123</strong></div>
+                  <div><span style="color:var(--text-muted);">Montant payé TTC</span><br><strong style="color:var(--primary);font-size:13px;">460,20 €</strong></div>
+                  <div><span style="color:var(--text-muted);">Livraison estimée</span><br><strong>04/06/2026 avant 13h</strong></div>
+                </div>
+              </div>
+              <div style="display:flex;gap:12px;margin-top:20px;">
+                <button class="btn-primary">📄 Télécharger la facture PDF</button>
+                <button class="btn-secondary">📦 Mes commandes</button>
+                <button class="btn-secondary">← Retour catalogue</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">✅ Paiement réussi</div>
+          <div class="panel-body">
+            <div class="annotation-item success">
+              <div class="annotation-zone">Facture PDF disponible immédiatement</div>
+              <div class="annotation-rule">Générée par Drupal Commerce après confirmation Stripe webhook. CTA téléchargement direct</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Email + facture PDF joint</div>
+              <div class="annotation-rule">SendGrid envoie email de confirmation avec la facture PDF en pièce jointe (US-018)</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Panier vidé → 0</div>
+              <div class="annotation-rule">Drupal Commerce vide le panier après confirmation Stripe PaymentIntent succeeded</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATE : PAIEMENT REFUSÉ -->
+    <div id="wf016-refused" class="canvas-wrap" style="display:none;">
+      <div class="canvas-main">
+        <div class="wf-frame">
+          <div class="wf-header-bar">
+            <div class="wf-logo">COMPANY-TEST</div>
+            <div class="wf-nav"><span class="wf-cart">🛒 Panier (3)</span><span class="wf-user">👤 Thomas D.</span></div>
+          </div>
+          <div class="wf-breadcrumb">Accueil &rsaquo; Panier &rsaquo; Validation &rsaquo; <span>Paiement</span></div>
+          <div class="wf-body">
+            <div class="alert alert-error">
+              <div class="alert-icon">⚠</div>
+              <div><strong>Paiement refusé par votre banque</strong><br>Veuillez réessayer avec une autre carte ou contacter votre banque. Votre commande n'a pas été enregistrée.</div>
+            </div>
+            <div style="display:flex;gap:20px;align-items:flex-start;margin-top:12px;">
+              <div style="flex:1;">
+                <div class="stripe-frame" style="border-color:var(--error);">
+                  <div class="stripe-logo">⚡ stripe</div>
+                  <div style="background:var(--error-light);border:1px solid #fca5a5;border-radius:4px;padding:8px 10px;margin-bottom:12px;font-size:10px;color:#991b1b;">
+                    ⚠ Carte refusée (code : card_declined) — Contactez votre banque
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Numéro de carte</label>
+                    <div class="form-input stripe" style="border-color:var(--error);">4000 •••• •••• ••••</div>
+                  </div>
+                  <div class="card-row">
+                    <div class="card-field">
+                      <label class="form-label">Expiration</label>
+                      <div class="form-input stripe">MM / AA</div>
+                    </div>
+                    <div class="card-field small">
+                      <label class="form-label">CVC</label>
+                      <div class="form-input stripe">•••</div>
+                    </div>
+                  </div>
+                </div>
+                <div style="display:flex;gap:8px;margin-top:12px;">
+                  <button class="btn-primary" style="flex:1;">🔒 Réessayer le paiement</button>
+                  <button class="btn-secondary">← Modifier la commande</button>
+                </div>
+              </div>
+              <div style="width:240px;flex-shrink:0;">
+                <div style="background:white;border:1px solid var(--border);border-radius:4px;padding:14px;">
+                  <div class="wf-section-title">Total à payer</div>
+                  <div style="font-size:20px;font-weight:700;color:var(--primary);">460,20 €</div>
+                  <div style="font-size:9px;color:var(--text-muted);margin-top:4px;">Commande non enregistrée — aucun débit effectué</div>
+                  <div style="margin-top:12px;padding:10px;background:#f0f9ff;border-radius:4px;font-size:10px;color:#075985;">
+                    ℹ️ Vous pouvez aussi choisir de payer par virement bancaire. <span style="color:var(--primary);">Contacter notre service commercial →</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">⚠ Paiement refusé</div>
+          <div class="panel-body">
+            <div class="annotation-item error">
+              <div class="annotation-zone">Commande non enregistrée</div>
+              <div class="annotation-rule">Le Drupal Order reste au statut "draft" — aucune confirmation envoyée, aucun débit</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Code d'erreur Stripe</div>
+              <div class="annotation-rule">Affiché de façon lisible (pas le code technique brut). Codes : card_declined, insufficient_funds, expired_card</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Alternative virement</div>
+              <div class="annotation-rule">Lien vers contact commercial pour paiement B2B par virement (fallback hors scope V1)</div>
+              <div class="annotation-nielsen">Aide à la récupération d'erreur — Nielsen #9</div>
+            </div>
+            <div class="annotation-item warn">
+              <div class="annotation-zone">Panier conservé</div>
+              <div class="annotation-rule">Le panier reste intact après refus — l'acheteur ne saisit pas à nouveau ses produits</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- WF-018 — FACTURE PDF (US-018)                                -->
+  <!-- ============================================================ -->
+  <div id="wf018" class="wf-section">
+    <div class="wf-header">
+      <div>
+        <h2>WF-018 — Génération Facture PDF</h2>
+        <div class="us-ref">US : <strong>US-018</strong> — Génération facture PDF automatique par email &nbsp;·&nbsp; Template PDF + email</div>
+      </div>
+      <div class="state-switcher">
+        <button class="state-btn active" onclick="showState('wf018', 'pdf', this)">Template Facture PDF</button>
+        <button class="state-btn" onclick="showState('wf018', 'email', this)">Email avec facture jointe</button>
+      </div>
+    </div>
+
+    <div class="handoff-meta">
+      <div class="meta-chip">📄 <strong>Livrable :</strong> Template PDF A4</div>
+      <div class="meta-chip">🔗 <strong>US liée :</strong> US-018</div>
+      <div class="meta-chip">⚙️ <strong>Stack :</strong> Drupal Commerce + dompdf / wkhtmltopdf</div>
+      <div class="meta-chip">📧 <strong>Envoi :</strong> SendGrid pièce jointe après confirmation paiement</div>
+    </div>
+
+    <!-- STATE : TEMPLATE FACTURE PDF -->
+    <div id="wf018-pdf" class="canvas-wrap">
+      <div class="canvas-main">
+        <div class="wf-frame" style="background:white;padding:16px;">
+          <div style="font-size:10px;color:var(--text-muted);background:#f1f5f9;padding:6px 12px;border-radius:3px;margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+            📄 Rendu PDF A4 — module Drupal Commerce PDF / dompdf &nbsp;·&nbsp; Fichier : <code style="background:#e2e8f0;padding:1px 5px;border-radius:2px;font-size:9px;">FACT-2026-00847.pdf</code>
+          </div>
+          <div class="invoice-frame">
+            <!-- En-tête facture -->
+            <div class="invoice-header">
+              <div>
+                <div class="invoice-logo">COMPANY-TEST</div>
+                <div class="invoice-logo sub">Câbles FTTH & Boîtiers fibres</div>
+                <div style="font-size:9px;color:var(--text-muted);margin-top:8px;line-height:1.6;">
+                  12 avenue de l'Industrie · 69001 Lyon · France<br>
+                  SIRET : 50123456700017 · TVA : FR 12 501234567<br>
+                  contact@company-test.fr
+                </div>
+              </div>
+              <div>
+                <div class="invoice-title">FACTURE</div>
+                <div class="invoice-num">N° : FACT-2026-00847</div>
+                <div class="invoice-num">Date : 02/06/2026</div>
+                <div class="invoice-num">Commande : #CMD-2026-00847</div>
+                <div class="invoice-num">N° BC client : BC-2026-00123</div>
+                <div style="margin-top:8px;"><div class="invoice-stamp">PAYÉE</div></div>
+              </div>
+            </div>
+            <!-- Corps -->
+            <div class="invoice-body">
+              <!-- Parties -->
+              <div class="invoice-parties">
+                <div class="invoice-party">
+                  <div class="invoice-party-title">Vendeur</div>
+                  <div style="font-weight:700;margin-bottom:2px;">COMPANY-TEST SAS</div>
+                  <div style="color:var(--text-muted);">12 avenue de l'Industrie</div>
+                  <div style="color:var(--text-muted);">69001 Lyon — France</div>
+                  <div style="color:var(--text-muted);margin-top:4px;">SIRET : 50123456700017</div>
+                  <div style="color:var(--text-muted);">TVA Intracommunautaire : FR 12 501234567</div>
+                </div>
+                <div class="invoice-party">
+                  <div class="invoice-party-title">Acheteur</div>
+                  <div style="font-weight:700;margin-bottom:2px;">TELECO INSTALL SAS</div>
+                  <div style="color:var(--text-muted);">24 rue des Câbleurs, Bâtiment B</div>
+                  <div style="color:var(--text-muted);">69008 Lyon — France</div>
+                  <div style="color:var(--text-muted);margin-top:4px;">SIRET : 42812340700023</div>
+                  <div style="color:var(--text-muted);">Contact : Marc DUVAL — m.duval@teleco.fr</div>
+                </div>
+              </div>
+
+              <!-- Tableau lignes produits -->
+              <table class="invoice-table">
+                <thead>
+                  <tr>
+                    <th style="width:40%;">Désignation</th>
+                    <th>Réf.</th>
+                    <th style="text-align:right;">Qté</th>
+                    <th style="text-align:right;">PU HT</th>
+                    <th style="text-align:right;">TVA</th>
+                    <th style="text-align:right;">Montant HT</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Câble FTTH LSZH 12 fibres OS2</td>
+                    <td style="font-family:monospace;font-size:9px;">CAB-FTTH-12</td>
+                    <td style="text-align:right;">100 m</td>
+                    <td style="text-align:right;">2,40 €</td>
+                    <td style="text-align:right;">20%</td>
+                    <td style="text-align:right;font-weight:600;">240,00 €</td>
+                  </tr>
+                  <tr>
+                    <td>Boîtier fibre FTTH 12 ports</td>
+                    <td style="font-family:monospace;font-size:9px;">BOI-FTTH-12P</td>
+                    <td style="text-align:right;">5 u</td>
+                    <td style="text-align:right;">18,50 €</td>
+                    <td style="text-align:right;">20%</td>
+                    <td style="text-align:right;font-weight:600;">92,50 €</td>
+                  </tr>
+                  <tr>
+                    <td>Connecteur SC/APC simplex</td>
+                    <td style="font-family:monospace;font-size:9px;">CON-SCAPC-SX</td>
+                    <td style="text-align:right;">50 u</td>
+                    <td style="text-align:right;">0,85 €</td>
+                    <td style="text-align:right;">20%</td>
+                    <td style="text-align:right;font-weight:600;">42,50 €</td>
+                  </tr>
+                  <tr>
+                    <td>Frais de livraison — Chronopost Express</td>
+                    <td style="font-family:monospace;font-size:9px;">LIVRAISON</td>
+                    <td style="text-align:right;">1</td>
+                    <td style="text-align:right;">8,50 €</td>
+                    <td style="text-align:right;">20%</td>
+                    <td style="text-align:right;font-weight:600;">8,50 €</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- Totaux -->
+              <div class="invoice-totals">
+                <div class="total-row"><span>Total HT</span><span>383,50 €</span></div>
+                <div class="total-row"><span>TVA 20%</span><span>76,70 €</span></div>
+                <div class="total-row grand"><span>TOTAL TTC</span><span>460,20 €</span></div>
+              </div>
+
+              <!-- Infos paiement -->
+              <div style="margin-top:20px;padding:10px 12px;background:#f0f9ff;border:1px solid #bae6fd;border-radius:4px;font-size:9px;color:#075985;">
+                <strong>Mode de paiement :</strong> Carte bancaire (Stripe) — 3D Secure — Paiement du 02/06/2026 · Transaction ID : pi_3PfYeQ2eZvKYlo2C1234ABCD
+              </div>
+            </div>
+
+            <!-- Pied de page -->
+            <div class="invoice-footer">
+              COMPANY-TEST SAS — Capital : 50 000 € — RCS Lyon 501 234 567 — TVA : FR 12 501234567<br>
+              En cas de litige : contact@company-test.fr — Pénalités de retard : 3× taux légal — Escompte : néant<br>
+              <span style="color:var(--primary);">Facture générée automatiquement — company-test.fr</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">📄 Annotations — Facture PDF</div>
+          <div class="panel-body">
+            <div class="annotation-item">
+              <div class="annotation-zone">Tampon "PAYÉE"</div>
+              <div class="annotation-rule">Appliqué automatiquement si statut Stripe = succeeded. Absent si paiement en attente</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">N° BC client</div>
+              <div class="annotation-rule">Affiché dans l'en-tête si renseigné lors de la commande (US-010). Absent sinon</div>
+            </div>
+            <div class="annotation-item warn">
+              <div class="annotation-zone">Mentions légales obligatoires</div>
+              <div class="annotation-rule">TVA intracommunautaire, RCS, capital social, pénalités de retard — conformité CGV</div>
+            </div>
+            <div class="annotation-item success">
+              <div class="annotation-zone">Transaction ID Stripe</div>
+              <div class="annotation-rule">PaymentIntent ID tracé en bas de facture pour référence comptable et litiges</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Nom fichier PDF</div>
+              <div class="annotation-rule">Convention : FACT-{année}-{N°commande}.pdf — Téléchargeable depuis "Mes commandes" (US-012)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATE : EMAIL AVEC FACTURE JOINTE -->
+    <div id="wf018-email" class="canvas-wrap" style="display:none;">
+      <div class="canvas-main">
+        <div class="wf-frame" style="background:white;">
+          <div style="background:#f1f5f9;padding:10px 16px;border-bottom:1px solid var(--border);font-size:10px;color:var(--text-muted);">
+            📧 Email SendGrid — Objet : <strong>Votre facture FACT-2026-00847 — Company-Test</strong>
+          </div>
+          <div style="padding:20px;max-width:600px;margin:0 auto;">
+            <!-- Email header -->
+            <div style="background:linear-gradient(135deg,#1e3a8a,#1d4ed8);color:white;padding:20px 24px;border-radius:6px 6px 0 0;text-align:center;">
+              <div style="font-size:14px;font-weight:700;letter-spacing:1px;">COMPANY-TEST</div>
+              <div style="font-size:11px;opacity:0.8;margin-top:4px;">Câbles FTTH & Boîtiers fibres</div>
+            </div>
+            <!-- Corps email -->
+            <div style="background:#ffffff;border:1px solid var(--border);border-top:none;padding:20px 24px;">
+              <div style="font-size:13px;font-weight:700;margin-bottom:6px;">Bonjour Thomas,</div>
+              <div style="font-size:11px;color:#374151;margin-bottom:16px;">
+                Votre paiement a été validé. Vous trouverez ci-joint la facture correspondant à votre commande.
+              </div>
+              <!-- Bloc info -->
+              <div style="background:#dcfce7;border:1px solid #86efac;border-radius:4px;padding:12px;margin-bottom:14px;display:flex;align-items:center;gap:12px;">
+                <div style="font-size:24px;">✅</div>
+                <div style="font-size:10px;color:#166534;">
+                  <strong>Paiement accepté — 460,20 €</strong><br>
+                  Commande : #CMD-2026-00847 · N° BC : BC-2026-00123 · Date : 02/06/2026
+                </div>
+              </div>
+              <!-- Pièce jointe simulée -->
+              <div style="background:#f8fafc;border:1.5px dashed var(--border);border-radius:4px;padding:12px 16px;margin-bottom:14px;display:flex;align-items:center;gap:12px;">
+                <div style="font-size:28px;">📄</div>
+                <div>
+                  <div style="font-size:11px;font-weight:700;color:#0f172a;">FACT-2026-00847.pdf</div>
+                  <div style="font-size:10px;color:var(--text-muted);">Facture — 460,20 € TTC — 02/06/2026</div>
+                  <div style="font-size:10px;color:var(--text-muted);">PDF · ~120 Ko</div>
+                </div>
+                <div style="margin-left:auto;">
+                  <div style="background:var(--primary);color:white;padding:5px 12px;border-radius:3px;font-size:10px;font-weight:600;">Télécharger</div>
+                </div>
+              </div>
+              <!-- Résumé commande -->
+              <div style="font-size:10px;color:#374151;margin-bottom:14px;padding:10px 12px;background:#f8fafc;border-radius:4px;">
+                📦 <strong>Livraison :</strong> Chronopost Express — TELECO INSTALL SAS, 24 rue des Câbleurs, 69008 Lyon<br>
+                🚚 <strong>Délai estimé :</strong> 04/06/2026 avant 13h
+              </div>
+              <!-- CTA -->
+              <div style="text-align:center;margin-bottom:16px;display:flex;gap:10px;justify-content:center;">
+                <div style="display:inline-block;background:var(--primary);color:white;padding:10px 18px;border-radius:4px;font-size:12px;font-weight:600;">📦 Suivre ma commande</div>
+                <div style="display:inline-block;background:white;color:var(--primary);padding:10px 18px;border-radius:4px;font-size:12px;font-weight:600;border:1.5px solid var(--primary);">📄 Mes factures</div>
+              </div>
+              <div style="font-size:9px;color:var(--text-muted);border-top:1px solid var(--border);padding-top:10px;">
+                Si vous n'êtes pas à l'origine de cet achat, contactez-nous à contact@company-test.fr<br>
+                Company-Test SAS · 12 avenue de l'Industrie · 69001 Lyon · SIRET : 50123456700017
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">📧 Email + Facture — Annotations</div>
+          <div class="panel-body">
+            <div class="annotation-item success">
+              <div class="annotation-zone">PDF en pièce jointe</div>
+              <div class="annotation-rule">Généré par dompdf au moment du webhook Stripe. Attaché via SendGrid API (base64)</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Déclencheur</div>
+              <div class="annotation-rule">Drupal Rules écoute l'événement Stripe "payment_intent.succeeded" pour générer + envoyer</div>
+            </div>
+            <div class="annotation-item warn">
+              <div class="annotation-zone">Taille PDF limitée</div>
+              <div class="annotation-rule">Limiter à ~200 Ko. Si > 500 Ko (beaucoup de lignes) : lien de téléchargement sécurisé à la place</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">CTA "Mes factures"</div>
+              <div class="annotation-rule">Redirige vers la section factures de l'espace client (US-012 — Historique commandes)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- WF-012 — HISTORIQUE COMMANDES ACHETEUR (US-012)              -->
+  <!-- ============================================================ -->
+  <div id="wf012" class="wf-section">
+    <div class="wf-header">
+      <div>
+        <h2>WF-012 — Historique Commandes Acheteur</h2>
+        <div class="us-ref">US : <strong>US-012</strong> — Historique commandes avec statut &nbsp;·&nbsp; Desktop 1280px + Mobile 375px</div>
+      </div>
+      <div class="state-switcher">
+        <button class="state-btn active" onclick="showState('wf012', 'list', this)">Liste commandes</button>
+        <button class="state-btn" onclick="showState('wf012', 'detail', this)">Détail commande</button>
+        <button class="state-btn warn-btn" onclick="showState('wf012', 'empty', this)">Espace vide (1ère visite)</button>
+      </div>
+    </div>
+
+    <div class="handoff-meta">
+      <div class="meta-chip">🖥📱 <strong>Breakpoints :</strong> 1280px · 375px</div>
+      <div class="meta-chip">🔗 <strong>US liée :</strong> US-012</div>
+      <div class="meta-chip">⚙️ <strong>Drupal :</strong> Commerce Orders + Views + User Account</div>
+      <div class="meta-chip">👤 <strong>Persona :</strong> Thomas (acheteur B2B)</div>
+    </div>
+
+    <!-- STATE : LISTE COMMANDES -->
+    <div id="wf012-list" class="canvas-wrap">
+      <div class="canvas-main">
+        <div class="wf-frame">
+          <div class="wf-header-bar">
+            <div class="wf-logo">COMPANY-TEST</div>
+            <div class="wf-nav">
+              <span class="wf-nav-item">Catalogue</span>
+              <span class="wf-cart">🛒 Panier (0)</span>
+              <span class="wf-user">👤 Thomas D.</span>
+            </div>
+          </div>
+          <div class="wf-breadcrumb">Accueil &rsaquo; <span>Mon espace client</span> &rsaquo; Mes commandes</div>
+          <div class="wf-body two-col" style="padding:0;">
+            <!-- Sidebar espace client -->
+            <div class="account-sidebar">
+              <div class="account-menu-item">👤 Mon profil</div>
+              <div class="account-menu-item active">📦 Mes commandes</div>
+              <div class="account-menu-item">📄 Mes factures</div>
+              <div class="account-menu-item">📍 Mes adresses</div>
+              <div class="account-menu-item">🔒 Sécurité</div>
+              <div style="height:1px;background:var(--border);margin:8px 14px;"></div>
+              <div class="account-menu-item" style="color:var(--error);">⏏ Déconnexion</div>
+            </div>
+            <!-- Contenu -->
+            <div class="account-content">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                <div style="font-size:14px;font-weight:700;color:#0f172a;">Mes commandes</div>
+                <div style="display:flex;gap:8px;">
+                  <div style="border:1px solid var(--border);border-radius:3px;padding:5px 10px;font-size:10px;background:white;">Tous statuts ▾</div>
+                  <div style="border:1px solid var(--border);border-radius:3px;padding:5px 10px;font-size:10px;background:white;">3 derniers mois ▾</div>
+                </div>
+              </div>
+
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>N° commande</th>
+                    <th>Date</th>
+                    <th>N° BC interne</th>
+                    <th>Montant TTC</th>
+                    <th>Statut</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="font-family:monospace;font-size:10px;color:var(--primary);font-weight:600;">#CMD-2026-00851</td>
+                    <td>02/06/2026</td>
+                    <td style="font-family:monospace;font-size:9px;">BC-2026-00126</td>
+                    <td style="font-weight:700;">1 488,00 €</td>
+                    <td><span class="badge badge-prep"><span class="status-dot" style="background:var(--warning);"></span>En préparation</span></td>
+                    <td style="display:flex;gap:4px;">
+                      <span style="font-size:10px;color:var(--primary);cursor:pointer;">Voir →</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="font-family:monospace;font-size:10px;color:var(--primary);font-weight:600;">#CMD-2026-00847</td>
+                    <td>02/06/2026</td>
+                    <td style="font-family:monospace;font-size:9px;">BC-2026-00123</td>
+                    <td style="font-weight:700;">460,20 €</td>
+                    <td><span class="badge badge-delivered"><span class="status-dot" style="background:var(--success);"></span>Livrée</span></td>
+                    <td style="display:flex;gap:6px;">
+                      <span style="font-size:10px;color:var(--primary);cursor:pointer;">Voir →</span>
+                      <span style="font-size:10px;color:var(--text-muted);cursor:pointer;">📄 Facture</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="font-family:monospace;font-size:10px;color:var(--primary);">#CMD-2026-00831</td>
+                    <td>15/05/2026</td>
+                    <td style="font-family:monospace;font-size:9px;">—</td>
+                    <td style="font-weight:700;">872,40 €</td>
+                    <td><span class="badge badge-delivered"><span class="status-dot" style="background:var(--success);"></span>Livrée</span></td>
+                    <td style="display:flex;gap:6px;">
+                      <span style="font-size:10px;color:var(--primary);cursor:pointer;">Voir →</span>
+                      <span style="font-size:10px;color:var(--text-muted);cursor:pointer;">📄 Facture</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="font-family:monospace;font-size:10px;color:var(--primary);">#CMD-2026-00818</td>
+                    <td>28/04/2026</td>
+                    <td style="font-family:monospace;font-size:9px;">BC-2026-00108</td>
+                    <td style="font-weight:700;">245,60 €</td>
+                    <td><span class="badge badge-delivered"><span class="status-dot" style="background:var(--success);"></span>Livrée</span></td>
+                    <td style="display:flex;gap:6px;">
+                      <span style="font-size:10px;color:var(--primary);cursor:pointer;">Voir →</span>
+                      <span style="font-size:10px;color:var(--text-muted);cursor:pointer;">📄 Facture</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="font-family:monospace;font-size:10px;color:var(--primary);">#CMD-2026-00805</td>
+                    <td>10/04/2026</td>
+                    <td style="font-family:monospace;font-size:9px;">BC-2026-00097</td>
+                    <td style="font-weight:700;">1 124,00 €</td>
+                    <td><span class="badge badge-shipped"><span class="status-dot" style="background:var(--primary);"></span>Expédiée</span></td>
+                    <td style="display:flex;gap:6px;">
+                      <span style="font-size:10px;color:var(--primary);cursor:pointer;">Voir →</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div style="display:flex;justify-content:center;gap:6px;padding:14px 0;font-size:11px;">
+                <span style="padding:3px 8px;border:1px solid var(--border);border-radius:3px;cursor:pointer;">←</span>
+                <span style="padding:3px 8px;border:1px solid var(--primary);border-radius:3px;background:var(--primary);color:white;">1</span>
+                <span style="padding:3px 8px;border:1px solid var(--border);border-radius:3px;cursor:pointer;">2</span>
+                <span style="padding:3px 8px;border:1px solid var(--border);border-radius:3px;cursor:pointer;">→</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">📦 Annotations — US-012 Liste</div>
+          <div class="panel-body">
+            <div class="annotation-item">
+              <div class="annotation-zone">Tri par date décroissante</div>
+              <div class="annotation-rule">Commandes les plus récentes en premier (conforme scénario CA1)</div>
+            </div>
+            <div class="annotation-item success">
+              <div class="annotation-zone">Accès facture PDF inline</div>
+              <div class="annotation-rule">Lien "Facture" visible uniquement sur les commandes payées + livrées. Téléchargement direct</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Filtre statut + période</div>
+              <div class="annotation-rule">Dropdowns : Statuts (tous / En préparation / Expédiée / Livrée) + Période (3, 6, 12 mois)</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">N° BC visible en liste</div>
+              <div class="annotation-rule">Pour rapprochement comptable direct depuis l'historique</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATE : DÉTAIL COMMANDE -->
+    <div id="wf012-detail" class="canvas-wrap" style="display:none;">
+      <div class="canvas-main">
+        <div class="wf-frame">
+          <div class="wf-header-bar">
+            <div class="wf-logo">COMPANY-TEST</div>
+            <div class="wf-nav"><span class="wf-user">👤 Thomas D.</span></div>
+          </div>
+          <div class="wf-breadcrumb">Mon espace client &rsaquo; Mes commandes &rsaquo; <span>#CMD-2026-00847</span></div>
+          <div class="wf-body two-col" style="padding:0;">
+            <div class="account-sidebar">
+              <div class="account-menu-item">👤 Mon profil</div>
+              <div class="account-menu-item active">📦 Mes commandes</div>
+              <div class="account-menu-item">📄 Mes factures</div>
+              <div class="account-menu-item">📍 Mes adresses</div>
+            </div>
+            <div class="account-content">
+              <!-- Breadcrumb retour -->
+              <div style="margin-bottom:14px;">
+                <span style="font-size:11px;color:var(--primary);cursor:pointer;">← Retour à mes commandes</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+                <div>
+                  <div style="font-size:15px;font-weight:700;color:#0f172a;">Commande #CMD-2026-00847</div>
+                  <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Passée le 02/06/2026 · N° BC : BC-2026-00123</div>
+                </div>
+                <div style="display:flex;gap:8px;align-items:center;">
+                  <span class="badge badge-delivered" style="font-size:11px;padding:4px 10px;"><span class="status-dot" style="background:var(--success);"></span>Livrée</span>
+                  <button class="btn-secondary" style="font-size:11px;padding:6px 12px;">📄 Télécharger la facture</button>
+                </div>
+              </div>
+
+              <!-- Progression livraison -->
+              <div style="background:white;border:1px solid var(--border);border-radius:4px;padding:14px;margin-bottom:16px;">
+                <div class="wf-section-title" style="margin-bottom:10px;">Suivi commande</div>
+                <div style="display:flex;align-items:center;gap:0;">
+                  <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:4px;">
+                    <div style="width:28px;height:28px;border-radius:50%;background:var(--success);color:white;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;">✓</div>
+                    <div style="font-size:9px;font-weight:600;color:var(--success);">Confirmée</div>
+                    <div style="font-size:9px;color:var(--text-muted);">02/06 14:22</div>
+                  </div>
+                  <div style="flex:1;height:2px;background:var(--success);margin-bottom:18px;"></div>
+                  <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:4px;">
+                    <div style="width:28px;height:28px;border-radius:50%;background:var(--success);color:white;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;">✓</div>
+                    <div style="font-size:9px;font-weight:600;color:var(--success);">En préparation</div>
+                    <div style="font-size:9px;color:var(--text-muted);">02/06 16:00</div>
+                  </div>
+                  <div style="flex:1;height:2px;background:var(--success);margin-bottom:18px;"></div>
+                  <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:4px;">
+                    <div style="width:28px;height:28px;border-radius:50%;background:var(--success);color:white;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;">✓</div>
+                    <div style="font-size:9px;font-weight:600;color:var(--success);">Expédiée</div>
+                    <div style="font-size:9px;color:var(--text-muted);">03/06 08:30</div>
+                  </div>
+                  <div style="flex:1;height:2px;background:var(--success);margin-bottom:18px;"></div>
+                  <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:4px;">
+                    <div style="width:28px;height:28px;border-radius:50%;background:var(--success);color:white;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;">✓</div>
+                    <div style="font-size:9px;font-weight:600;color:var(--success);">Livrée</div>
+                    <div style="font-size:9px;color:var(--text-muted);">04/06 10:45</div>
+                  </div>
+                </div>
+                <div style="margin-top:10px;font-size:10px;color:var(--text-muted);">N° de suivi : <strong style="color:#374151;">CP789012345FR</strong> (Chronopost)</div>
+              </div>
+
+              <!-- Lignes produits -->
+              <table class="admin-table" style="margin-bottom:14px;">
+                <thead><tr><th>Produit</th><th>Réf.</th><th style="text-align:right;">Qté</th><th style="text-align:right;">PU HT</th><th style="text-align:right;">Sous-total TTC</th></tr></thead>
+                <tbody>
+                  <tr><td style="font-weight:600;font-size:10px;">Câble FTTH LSZH 12 fibres OS2</td><td style="font-size:9px;font-family:monospace;">CAB-FTTH-12</td><td style="text-align:right;">100 m</td><td style="text-align:right;">2,40 €</td><td style="text-align:right;font-weight:700;">288,00 €</td></tr>
+                  <tr><td style="font-weight:600;font-size:10px;">Boîtier FTTH 12 ports</td><td style="font-size:9px;font-family:monospace;">BOI-FTTH-12P</td><td style="text-align:right;">5 u</td><td style="text-align:right;">18,50 €</td><td style="text-align:right;font-weight:700;">111,00 €</td></tr>
+                  <tr><td style="font-weight:600;font-size:10px;">Connecteur SC/APC simplex</td><td style="font-size:9px;font-family:monospace;">CON-SCAPC-SX</td><td style="text-align:right;">50 u</td><td style="text-align:right;">0,85 €</td><td style="text-align:right;font-weight:700;">51,00 €</td></tr>
+                </tbody>
+              </table>
+              <div style="display:flex;justify-content:flex-end;">
+                <div style="font-size:11px;"><span style="color:var(--text-muted);">Total TTC : </span><strong style="color:var(--primary);font-size:14px;">460,20 €</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">📦 Détail — US-012</div>
+          <div class="panel-body">
+            <div class="annotation-item success">
+              <div class="annotation-zone">Timeline de suivi</div>
+              <div class="annotation-rule">4 étapes : Confirmée / En préparation / Expédiée / Livrée. Dates et heures affichées</div>
+              <div class="annotation-nielsen">Visibilité système — Nielsen #1</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">N° de suivi Chronopost</div>
+              <div class="annotation-rule">Affiché si renseigné par l'admin (US-014). Lien vers le site Chronopost en V2</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Téléchargement facture</div>
+              <div class="annotation-rule">CTA "Télécharger la facture" disponible dès que la commande est payée (scénario CA2)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATE : LISTE VIDE -->
+    <div id="wf012-empty" class="canvas-wrap" style="display:none;">
+      <div class="canvas-main">
+        <div class="wf-frame">
+          <div class="wf-header-bar">
+            <div class="wf-logo">COMPANY-TEST</div>
+            <div class="wf-nav"><span class="wf-cart">🛒 Panier (0)</span><span class="wf-user">👤 Marc D.</span></div>
+          </div>
+          <div class="wf-breadcrumb">Accueil &rsaquo; <span>Mon espace client</span> &rsaquo; Mes commandes</div>
+          <div class="wf-body two-col" style="padding:0;">
+            <div class="account-sidebar">
+              <div class="account-menu-item">👤 Mon profil</div>
+              <div class="account-menu-item active">📦 Mes commandes</div>
+              <div class="account-menu-item">📄 Mes factures</div>
+              <div class="account-menu-item">📍 Mes adresses</div>
+            </div>
+            <div class="account-content" style="display:flex;align-items:center;justify-content:center;min-height:280px;">
+              <div style="text-align:center;max-width:320px;">
+                <div style="font-size:48px;margin-bottom:14px;">📦</div>
+                <div style="font-size:15px;font-weight:700;color:#0f172a;margin-bottom:8px;">Aucune commande pour l'instant</div>
+                <div style="font-size:11px;color:var(--text-muted);margin-bottom:20px;line-height:1.6;">
+                  Votre historique de commandes apparaîtra ici après votre premier achat sur Company-Test.
+                </div>
+                <button class="btn-primary" style="padding:10px 24px;">Découvrir le catalogue →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">📭 État vide</div>
+          <div class="panel-body">
+            <div class="annotation-item success">
+              <div class="annotation-zone">Message encourageant</div>
+              <div class="annotation-rule">Pas de texte "Aucun résultat" générique — message contextuel + CTA vers le catalogue</div>
+              <div class="annotation-nielsen">Aide et documentation — Nielsen #10</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Cas d'usage</div>
+              <div class="annotation-rule">Affiché pour les comptes B2B récemment validés (US-007) qui n'ont pas encore commandé</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<script>
+  function showTab(tabId, btn) {
+    document.querySelectorAll('.wf-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function showState(wfId, stateId, btn) {
+    const section = document.getElementById(wfId);
+    const allStates = section.querySelectorAll('[id^="' + wfId + '-"]');
+    allStates.forEach(el => {
+      if (!el.id.endsWith('-desktop') && !el.id.endsWith('-mobile')) {
+        el.style.display = 'none';
+      }
+    });
+    const target = document.getElementById(wfId + '-' + stateId);
+    if (target) target.style.display = '';
+    const switcher = btn.closest('.state-switcher');
+    if (switcher) {
+      switcher.querySelectorAll('.state-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  }
+
+  function showViewport(wfId, vp, btn) {
+    const desktopEl = document.getElementById(wfId + '-desktop');
+    const mobileEl = document.getElementById(wfId + '-mobile');
+    if (desktopEl) desktopEl.style.display = vp === 'desktop' ? '' : 'none';
+    if (mobileEl) mobileEl.style.display = vp === 'mobile' ? '' : 'none';
+    const toggle = btn.closest('.viewport-toggle');
+    if (toggle) {
+      toggle.querySelectorAll('.vp-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  }
+</script>
+</body>
+</html>

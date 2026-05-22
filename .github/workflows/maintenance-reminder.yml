@@ -1,0 +1,140 @@
+name: Maintenance Catalogue claude-agents
+
+# ─── Déclencheurs ────────────────────────────────────────────────────────────
+on:
+  schedule:
+    # 1er janvier, avril, juillet, octobre à 9h UTC (= 10h Paris heure d'hiver)
+    - cron: '0 9 1 1 *'   # Q1 — 1er janvier
+    - cron: '0 9 1 4 *'   # Q2 — 1er avril    → + révision semestrielle
+    - cron: '0 9 1 7 *'   # Q3 — 1er juillet
+    - cron: '0 9 1 10 *'  # Q4 — 1er octobre  → + révision semestrielle + annuelle
+
+  # Déclenchement manuel depuis l'onglet Actions de GitHub
+  workflow_dispatch:
+    inputs:
+      force_annual:
+        description: 'Forcer la révision annuelle complète'
+        required: false
+        default: 'false'
+        type: boolean
+
+# ─── Job ─────────────────────────────────────────────────────────────────────
+jobs:
+  create-maintenance-issue:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+
+    steps:
+      - name: Créer l'issue de maintenance trimestrielle
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const now = new Date();
+            const month = now.getMonth() + 1;
+            const year  = now.getFullYear();
+            const quarter = Math.ceil(month / 3);
+
+            const isSemiAnnual = quarter === 2 || quarter === 4;
+            const isAnnual     = quarter === 4
+                                 || context.payload.inputs?.force_annual === 'true';
+
+            // ── Checklist trimestrielle (toujours) ───────────────────────────
+            const quarterly = `
+## ✅ Révision TRIMESTRIELLE — Modèles LLM (à faire chaque trimestre)
+
+- [ ] Vérifier les \`modele_recommande\` dans les 5 workflows (\`workflows/WF-00*.md\`)
+- [ ] Vérifier les model_id dans les 30 agents \`AGENT-*.md\`
+- [ ] Mettre à jour le benchmark LLM dans \`skills/veille_strategique/benchmark-outils-ia.md\`
+- [ ] Vérifier si un modèle Anthropic a été déprécié ou un nouveau annoncé
+      → Référence : https://docs.anthropic.com/en/docs/about-claude/models/overview
+- [ ] Grep "GPT-4" / "Gemini 1.5" / "claude-2" dans le repo pour repérer les refs obsolètes
+      \`\`\`
+      grep -r "GPT-4\\|Gemini 1.5\\|claude-2\\|claude-3-opus\\|claude-3-sonnet" --include="*.md" .
+      \`\`\`
+`;
+
+            // ── Checklist semestrielle (Q2 + Q4) ─────────────────────────────
+            const semiAnnual = isSemiAnnual ? `
+## 🔬 Révision SEMESTRIELLE — Skills IA & Techniques (Q2 + Q4)
+
+### Dossiers à relire en priorité
+- [ ] \`skills/prompt_engineer/\` — patterns CoT, RAG, multimodal toujours actuels ?
+- [ ] \`skills/dev_ia/\` — SDK Anthropic, LangChain, MCP : nouvelles versions majeures ?
+- [ ] \`skills/orchestrateur_workflow/\` — patterns multi-agents, LangGraph, CrewAI : évolutions ?
+- [ ] \`skills/securite_ia/\` — OWASP LLM Top 10 : nouvelle version publiée ?
+- [ ] \`skills/devops_cloud/\` — Terraform, Kubernetes, GitHub Actions : breaking changes ?
+
+### MCP Servers
+- [ ] Vérifier les dépendances npm dans les 3 serveurs MCP
+      \`\`\`
+      cd mcp-servers/mcp-jira && npm outdated
+      cd mcp-servers/mcp-confluence && npm outdated
+      cd mcp-servers/mcp-workflow-log && npm outdated
+      \`\`\`
+
+### Catalogue agents
+- [ ] Identifier si un nouvel agent est à créer (analyser les signaux WF-005 des 6 derniers mois)
+- [ ] Vérifier si un agent est devenu redondant ou obsolète
+- [ ] Mettre à jour \`README.md\` si les compteurs ont changé (agents, dossiers skills)
+` : '';
+
+            // ── Checklist annuelle (Q4 uniquement) ───────────────────────────
+            const annual = isAnnual ? `
+## 📋 Révision ANNUELLE — Certifications & Méthodologies (Q4)
+
+### Certifications Agile & Management
+- [ ] **SAFe** : nouvelle version disponible ?
+      → https://scaledagile.com/blog/safe-release-notes/
+      → Si SAFe 7+ : mettre à jour tous les agents RTE, PM-SAFE, PO-SAFE, SCRUM-MASTER, ORCHESTRATEUR
+- [ ] **PMI** (PMP, PMI-ACP, PMI-PBA) : révision majeure du référentiel PMBOK ?
+- [ ] **ISTQB** : nouvelle version du syllabus Foundation / Agile Tester ?
+- [ ] **PROSCI** : mise à jour du modèle ADKAR ou nouvelle certification ?
+- [ ] **SCIP** : évolution du référentiel CI ou nouvelles certifications ?
+
+### Certifications Techniques
+- [ ] **Anthropic** : nouvelles certifications disponibles ?
+      → https://www.anthropic.com/learn
+- [ ] **AWS / GCP / Azure** : nouvelles certifications SA, ML, Security ?
+- [ ] **CKA / CKAD** : nouvelle version du programme Kubernetes ?
+
+### Audit complet du catalogue
+- [ ] Relire les 5 workflows : compositions d'agents toujours optimales ?
+- [ ] Relire les 3 serveurs MCP : outils encore pertinents, manque-t-il une intégration ?
+- [ ] Audit README.md complet : sections, liens, compteurs, structure du repo
+- [ ] Archiver ou supprimer les agents/skills devenus obsolètes
+- [ ] Mettre à jour \`version:\` dans les fichiers YAML modifiés (ex: 1.1 → 1.2)
+` : '';
+
+            // ── Pied de page ──────────────────────────────────────────────────
+            const footer = `
+---
+
+**Déclenché par :** GitHub Actions schedule — Q${quarter} ${year}
+**Workflow de veille :** Lancer WF-005 si des signaux ont été captés depuis la dernière révision
+**Référence modèles :** https://docs.anthropic.com/en/docs/about-claude/models/overview
+**Durée estimée :** ${isAnnual ? '3-4h (révision annuelle complète)' : isSemiAnnual ? '2-3h (révision semestrielle)' : '15-30 min (révision modèles uniquement)'}
+`;
+
+            const issueType = isAnnual
+              ? '📋 Annuelle + Semestrielle + Trimestrielle'
+              : isSemiAnnual
+                ? '🔬 Semestrielle + Trimestrielle'
+                : '✅ Trimestrielle';
+
+            const title = `🔧 Maintenance catalogue — Q${quarter} ${year} (${issueType})`;
+
+            const body = `# ${title}
+
+> Issue créée automatiquement — À traiter dans les 2 semaines suivant la création.
+
+${quarterly}${semiAnnual}${annual}${footer}`;
+
+            const response = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo:  context.repo.repo,
+              title: title,
+              body:  body,
+            });
+
+            console.log(`Issue créée : ${response.data.html_url}`);

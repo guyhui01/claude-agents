@@ -112,12 +112,30 @@
 
 ---
 
+## Workflows disponibles (5)
+
+| ID | Workflow | Domaine | Agents | Durée |
+|---|---|---|---|---|
+| [WF-001](workflows/WF-001-cadrage-produit-ia.md) | Cadrage Produit IA | Agile & Produit | 4-6 | 45-90 min |
+| [WF-002](workflows/WF-002-delivery-safe.md) | Delivery Agile SAFe | Agile & Produit | 6 | 60-120 min |
+| [WF-003](workflows/WF-003-lancement-app-ia.md) | Lancement Application IA | Dev & Technique | 5-6 | 90-180 min |
+| [WF-004](workflows/WF-004-mission-conseil-ia.md) | Mission Conseil IA | Management & Conseil | 6 | 60-90 min |
+| [WF-005](workflows/WF-005-veille-growth.md) | Veille Stratégique & Growth | Management & Conseil | 3-4 | 30-60 min |
+
+Voir `workflows/README.md` pour le guide de sélection complet.
+
+---
+
 ## Démarrage rapide
 
 ```
-# Dans Claude Code, charge un agent :
+# Charger un agent seul :
 Lis le fichier AGENT-DEV-PYTHON-IA.md et adopte ce rôle.
 Confirme que tu es prêt en listant les skills disponibles.
+
+# Lancer un workflow complet :
+Lis le fichier AGENT-ORCHESTRATEUR-WORKFLOW.md et adopte le rôle d'orchestrateur.
+Charge ensuite workflows/WF-001-cadrage-produit-ia.md et lance le workflow.
 ```
 
 Voir `START.md` pour toutes les commandes de démarrage.
@@ -156,6 +174,13 @@ claude-agents/
 │   ├── financial_analyst/  # Analyse Financière · Business Case · EVM
 │   ├── veille_strategique/ # Veille IA · Signaux faibles · Benchmark
 │   └── orchestrateur_workflow/ # Orchestration workflows agentiques
+├── workflows/
+│   ├── README.md               # Index et grille de sélection
+│   ├── WF-001-cadrage-produit-ia.md
+│   ├── WF-002-delivery-safe.md
+│   ├── WF-003-lancement-app-ia.md
+│   ├── WF-004-mission-conseil-ia.md
+│   └── WF-005-veille-growth.md
 └── START.md
 ```
 

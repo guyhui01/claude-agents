@@ -15,6 +15,8 @@ declencheur: "Brief client reçu / idée produit à cadrer"
 resultat_final: "Backlog initial priorisé + critères d'acceptation Gherkin"
 duree_estimee: "45-90 min"
 modele_recommande: "claude-sonnet-4-6"
+modele_raison: "Workflow structuré et séquentiel — sorties balisées (US, Gherkin, wireframes). Sonnet 4.6 offre le meilleur rapport qualité/vitesse/coût pour ce type de production."
+modele_alternatif: "claude-opus-4-7"  # si brief client très ambigu ou contexte métier complexe (ex: réglementaire, niche sectorielle)
 agents_core: [BUSINESS-ANALYST, PO-SCRUM, UX-DESIGNER, QA-AGILE]
 agents_optionnels:
   - CHANGE-MANAGER       # si transformation organisationnelle impliquée

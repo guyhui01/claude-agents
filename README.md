@@ -5,7 +5,7 @@
 
 ---
 
-## Agents disponibles (23)
+## Agents disponibles (24)
 
 ### Développement & Technique
 
@@ -33,6 +33,12 @@
 | `AGENT-UX-DESIGNER.md` | UX / UI Designer | Research, Figma, wireframing, design system |
 | `AGENT-BUSINESS-ANALYST.md` | Business Analyst / MOA | Élicitation, BPMN, spécifications, recette MOA |
 
+### Orchestration & Workflows
+
+| Agent | Rôle | Skills |
+|---|---|---|
+| `AGENT-ORCHESTRATEUR-WORKFLOW.md` | Orchestrateur de Workflows Agentiques | Design BPMN, routage agents, context handoff, error recovery, monitoring |
+
 ### Management, Conseil & Contenus
 
 | Agent | Rôle | Skills |
@@ -47,7 +53,7 @@
 
 ---
 
-## Skills disponibles (19 dossiers)
+## Skills disponibles (20 dossiers)
 
 ### Développement & Technique
 
@@ -73,6 +79,12 @@
 | `skills/qa_testing/` | BDD/Gherkin, ATDD, plan de tests, UAT, performance, sécurité, CI/CD |
 | `skills/ux_design/` | User research, personas, wireframing, Figma, design system, WCAG, A/B |
 | `skills/business_analyst/` | Élicitation, BPMN, UML, spécifications fonctionnelles, recette MOA |
+
+### Orchestration & Workflows
+
+| Dossier | Contenu |
+|---|---|
+| `skills/orchestrateur_workflow/` | Workflow design, agent routing, context handoff, error recovery, dependency mapping, parallel orchestration, output validation, catalog, triggers, monitoring |
 
 ### Management, Conseil & Contenus
 
@@ -104,7 +116,7 @@ Voir `START.md` pour toutes les commandes de démarrage.
 
 ```
 claude-agents/
-├── AGENT-*.md              # 23 agents spécialisés
+├── AGENT-*.md              # 24 agents spécialisés
 ├── skills/
 │   ├── dev_ia/             # Python IA · TypeScript IA · Architect · MLOps
 │   ├── dev_drupal/         # Drupal / PHP
@@ -124,7 +136,8 @@ claude-agents/
 │   ├── formateur_ia/       # Formation IA
 │   ├── growth_ia/          # Growth & Marketing IA
 │   ├── redacteur_ia/       # Rédaction IA
-│   └── juridique_ia/       # Juridique IA
+│   ├── juridique_ia/       # Juridique IA
+│   └── orchestrateur_workflow/ # Orchestration workflows agentiques
 └── START.md
 ```
 

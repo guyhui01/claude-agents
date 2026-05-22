@@ -83,6 +83,77 @@ ClaudeCode/
 
 ---
 
+## Git workflow & versioning
+
+### Stratégie hybride (solo)
+
+| Type de travail | Branche ? | Tag ? | Release GitHub ? |
+|---|---|---|---|
+| Typo, fix mineur, sync README | `main` direct | Non | Non |
+| 1 skill ajouté ou modifié | `main` direct | Non | Non |
+| Nouveau workflow (WF-006…) | `feature/wf-<id>-<topic>` | Patch (vX.Y.**Z**) | Non |
+| Nouvel agent (AGENT-…) | `feature/agent-<name>` | Minor (vX.**Y**.0) | Optionnel |
+| Audit + recommandations | `audit/<topic>-<date>` | Major (v**X**.0.0) | **Oui** |
+| Refactor multi-agents (> 5 fichiers) | `refactor/<topic>` | Minor | Optionnel |
+
+### Convention de versioning (SemVer)
+
+- **Major (X.0.0)** — audit complet, refactoring structurel large, breaking change
+- **Minor (X.Y.0)** — nouvel agent, nouveau workflow, nouveau dossier de skills, enrichissement majeur
+- **Patch (X.Y.Z)** — corrections ponctuelles, renommages, ajustements mineurs
+
+### Convention de commits (Conventional Commits)
+
+```
+<type>(<scope>): <description>
+
+[corps optionnel]
+
+[footer optionnel — Co-Authored-By, refs CHANGELOG]
+```
+
+Types : `feat` · `fix` · `refactor` · `chore` · `docs` · `test` · `ci`
+
+### Tags annotés
+
+```bash
+git tag -a vX.Y.Z <commit> -m "Brève description correspondant au CHANGELOG"
+git push origin --tags
+```
+
+### GitHub Releases
+
+Pour chaque tag Major (et Minor important), créer une Release :
+```bash
+gh release create vX.Y.Z --title "vX.Y.Z — <titre>" --notes-file <extrait-changelog.md>
+```
+
+### Pre-commit checklist (manuel)
+
+- [ ] Compteurs cohérents (README, START.md, AGENT-ORCHESTRATEUR-WORKFLOW.md)
+- [ ] Aucune référence orpheline (grep des anciens chemins si refactor)
+- [ ] AGENT files mis à jour si skills ajoutés/déplacés/supprimés
+- [ ] CHANGELOG.md alimenté avec entrée datée
+- [ ] Backup local si refactor majeur (`backup/claudecode_backup_<date>.zip`)
+
+### Push & branches — règles d'or
+
+- Push sur `main` **uniquement après accord explicite** de l'utilisateur
+- Jamais de `git push --force` sur `main`
+- Jamais de `--no-verify` sans accord explicite
+- Squash merge par défaut sur les feature branches (1 commit propre sur main)
+- Branche locale supprimée après merge (`git branch -d feature/...`)
+
+### Branch protection (à configurer dans GitHub UI)
+
+Pour le repo `main` :
+- ✅ Require linear history (squash uniquement)
+- ✅ Do not allow force pushes
+- ✅ Do not allow deletions
+- ⚠️ Require pull request reviews → skip en solo (impossible self-review)
+
+---
+
 ## Activation rapide
 
 ```

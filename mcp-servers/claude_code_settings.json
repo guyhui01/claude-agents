@@ -1,0 +1,49 @@
+{
+  "_comment": "Exemple de configuration MCP pour Claude Code CLI.",
+  "_instructions": [
+    "1. Copier ce fichier dans : C:\\Users\\Guy HUIBONHOA\\.claude\\settings.json",
+    "2. Remplacer les valeurs entre <> par tes vraies valeurs",
+    "3. Adapter les chemins si le repo n'est pas dans C:\\Users\\Guy HUIBONHOA\\ClaudeCode\\",
+    "4. Redémarrer Claude Code CLI pour prendre en compte les changements",
+    "5. Vérifier avec : claude mcp list"
+  ],
+  "mcpServers": {
+    "jira": {
+      "command": "npx",
+      "args": [
+        "tsx",
+        "C:/Users/Guy HUIBONHOA/ClaudeCode/mcp-servers/mcp-jira/server.ts"
+      ],
+      "env": {
+        "JIRA_BASE_URL": "https://<ton-domaine>.atlassian.net",
+        "JIRA_EMAIL": "guy.hui@adservio.fr",
+        "JIRA_API_TOKEN": "<ton-api-token-jira>",
+        "JIRA_PROJECT_KEY": "<CLE-PROJET>",
+        "JIRA_STORY_POINTS_FIELD": "customfield_10016"
+      }
+    },
+    "confluence": {
+      "command": "npx",
+      "args": [
+        "tsx",
+        "C:/Users/Guy HUIBONHOA/ClaudeCode/mcp-servers/mcp-confluence/server.ts"
+      ],
+      "env": {
+        "CONFLUENCE_BASE_URL": "https://<ton-domaine>.atlassian.net",
+        "CONFLUENCE_EMAIL": "guy.hui@adservio.fr",
+        "CONFLUENCE_API_TOKEN": "<ton-api-token-confluence>",
+        "CONFLUENCE_DEFAULT_SPACE": "<CLE-ESPACE>"
+      }
+    },
+    "workflow-log": {
+      "command": "npx",
+      "args": [
+        "tsx",
+        "C:/Users/Guy HUIBONHOA/ClaudeCode/mcp-servers/mcp-workflow-log/server.ts"
+      ],
+      "env": {
+        "WORKFLOW_LOG_PATH": "C:/Users/Guy HUIBONHOA/ClaudeCode/mcp-servers/mcp-workflow-log/workflow_log.json"
+      }
+    }
+  }
+}

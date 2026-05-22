@@ -1,0 +1,2038 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Handoff — Wireframes Sprint 1 — Company-Test B2B</title>
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f2f5; color: #1a1a2e; font-size: 14px; }
+
+    /* ===== VARIABLES ===== */
+    :root {
+      --primary: #2563eb;
+      --primary-light: #dbeafe;
+      --border: #cbd5e1;
+      --bg-card: #ffffff;
+      --bg-field: #f8fafc;
+      --text-muted: #64748b;
+      --text-label: #374151;
+      --error: #dc2626;
+      --error-light: #fef2f2;
+      --success: #16a34a;
+      --warning: #d97706;
+      --warning-light: #fffbeb;
+      --shadow: 0 1px 4px rgba(0,0,0,0.10);
+      --shadow-lg: 0 4px 16px rgba(0,0,0,0.12);
+      --radius: 6px;
+      --wf-bg: #f8f9ff;
+      --wf-border: #94a3b8;
+    }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+      color: white;
+      padding: 18px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow-lg);
+    }
+    .site-header h1 { font-size: 18px; font-weight: 600; letter-spacing: 0.3px; }
+    .site-header .meta { font-size: 12px; opacity: 0.8; margin-top: 3px; }
+    .badge-sprint {
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* ===== NAV TABS ===== */
+    .nav-tabs {
+      display: flex;
+      background: white;
+      border-bottom: 2px solid var(--border);
+      padding: 0 32px;
+      gap: 4px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .tab-btn {
+      padding: 14px 20px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover { color: var(--primary); }
+    .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); font-weight: 600; }
+    .tab-code { font-size: 10px; background: #e2e8f0; border-radius: 3px; padding: 1px 5px; margin-right: 6px; font-weight: 700; }
+    .tab-btn.active .tab-code { background: var(--primary-light); color: var(--primary); }
+
+    /* ===== MAIN LAYOUT ===== */
+    .main { padding: 28px 32px; max-width: 1400px; margin: 0 auto; }
+    .wf-section { display: none; }
+    .wf-section.active { display: block; }
+
+    /* ===== WF HEADER ===== */
+    .wf-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .wf-header h2 { font-size: 20px; font-weight: 700; color: #0f172a; }
+    .wf-header .us-ref {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .wf-header .us-ref strong { color: var(--primary); }
+
+    /* ===== STATE SWITCHER ===== */
+    .state-switcher {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .state-btn {
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1.5px solid var(--border);
+      background: white;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: all 0.15s;
+    }
+    .state-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .state-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+    .state-btn.error-btn.active { background: var(--error); border-color: var(--error); }
+    .state-btn.warn-btn.active { background: var(--warning); border-color: var(--warning); }
+
+    /* ===== VIEWPORT TOGGLE ===== */
+    .viewport-toggle {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .vp-btn {
+      padding: 5px 12px;
+      border-radius: 4px;
+      border: 1.5px solid var(--border);
+      background: white;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: all 0.15s;
+    }
+    .vp-btn.active { background: #e2e8f0; color: #1e293b; border-color: #94a3b8; font-weight: 600; }
+
+    /* ===== CANVAS AREA ===== */
+    .canvas-wrap {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+    .canvas-main { flex: 1; }
+    .canvas-panel {
+      width: 320px;
+      flex-shrink: 0;
+    }
+
+    /* ===== WIREFRAME FRAME ===== */
+    .wf-frame {
+      background: var(--wf-bg);
+      border: 2px solid var(--wf-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .wf-frame.mobile-frame {
+      max-width: 390px;
+      margin: 0 auto;
+    }
+
+    /* ===== WF COMPONENTS ===== */
+    .wf-header-bar {
+      background: #e2e8f0;
+      border-bottom: 2px solid #94a3b8;
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .wf-logo {
+      background: #475569;
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 3px;
+      letter-spacing: 1px;
+    }
+    .wf-nav { display: flex; gap: 12px; align-items: center; }
+    .wf-nav-item {
+      font-size: 11px;
+      color: #475569;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+    }
+    .wf-nav-item.active { color: var(--primary); border-bottom-color: var(--primary); }
+    .wf-cart {
+      background: var(--primary);
+      color: white;
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-weight: 600;
+    }
+    .wf-user {
+      font-size: 11px;
+      color: #475569;
+      background: #f1f5f9;
+      padding: 3px 8px;
+      border-radius: 3px;
+    }
+    .wf-link {
+      font-size: 11px;
+      color: var(--primary);
+      text-decoration: underline;
+      cursor: default;
+    }
+    .wf-breadcrumb {
+      background: #f1f5f9;
+      border-bottom: 1px solid var(--border);
+      padding: 7px 16px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .wf-breadcrumb span { color: var(--primary); }
+    .wf-body { padding: 16px; }
+    .wf-body.two-col { display: flex; gap: 0; }
+    .wf-sidebar {
+      width: 180px;
+      flex-shrink: 0;
+      border-right: 1px solid var(--border);
+      padding: 12px;
+    }
+    .wf-content { flex: 1; padding: 12px 16px; }
+    .wf-section-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    /* ===== FILTER SIDEBAR ===== */
+    .filter-group { margin-bottom: 14px; }
+    .filter-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 6px;
+      border-radius: 4px;
+      font-size: 11px;
+      color: #374151;
+    }
+    .filter-item.active { background: var(--primary-light); color: var(--primary); font-weight: 600; }
+    .radio-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid #94a3b8;
+      flex-shrink: 0;
+    }
+    .radio-dot.checked {
+      border-color: var(--primary);
+      background: white;
+      box-shadow: inset 0 0 0 3px white, inset 0 0 0 5px var(--primary);
+    }
+    .filter-count { color: var(--text-muted); font-size: 10px; }
+
+    /* ===== PRODUCT GRID ===== */
+    .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .product-grid.two-col { grid-template-columns: repeat(2, 1fr); }
+    .product-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .product-img {
+      background: #e2e8f0;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #94a3b8;
+    }
+    .product-info { padding: 7px; }
+    .product-name { font-size: 10px; font-weight: 600; color: #1e293b; }
+    .product-ref { font-size: 9px; color: var(--text-muted); }
+    .product-price { font-size: 11px; font-weight: 700; color: var(--primary); margin-top: 4px; }
+    .product-price .unit { font-size: 9px; font-weight: 400; color: var(--text-muted); }
+    .btn-add {
+      display: block;
+      width: 100%;
+      margin-top: 5px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 3px;
+      padding: 4px;
+      font-size: 10px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    /* ===== EMPTY STATE ===== */
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+    }
+    .empty-icon { font-size: 36px; margin-bottom: 10px; }
+    .empty-state p { font-size: 12px; margin-bottom: 14px; }
+
+    /* ===== PAGINATION ===== */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      padding: 12px 0;
+      margin-top: 8px;
+    }
+    .page-item {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 3px;
+      font-size: 11px;
+      border: 1px solid var(--border);
+      cursor: default;
+    }
+    .page-item.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+    /* ===== PRODUCT DETAIL ===== */
+    .product-detail { display: flex; gap: 16px; }
+    .product-gallery { width: 220px; flex-shrink: 0; }
+    .gallery-main {
+      background: #e2e8f0;
+      height: 160px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #94a3b8;
+      border: 1px solid var(--border);
+    }
+    .gallery-thumbs { display: flex; gap: 6px; margin-top: 8px; }
+    .thumb {
+      width: 40px;
+      height: 40px;
+      background: #e2e8f0;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+    }
+    .thumb.active { border-color: var(--primary); }
+    .product-right { flex: 1; }
+    .product-title { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+    .product-refcode { font-size: 11px; color: var(--text-muted); margin-bottom: 10px; }
+
+    /* ===== VARIATION TABLE ===== */
+    .variation-table {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    .var-header {
+      display: grid;
+      grid-template-columns: 1fr 120px;
+      background: #f1f5f9;
+      padding: 6px 10px;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+    .var-row {
+      display: grid;
+      grid-template-columns: 1fr 120px;
+      padding: 7px 10px;
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      align-items: center;
+    }
+    .var-row.selected { background: var(--primary-light); }
+    .var-badge-pop {
+      font-size: 9px;
+      background: #fef3c7;
+      color: #92400e;
+      border-radius: 3px;
+      padding: 1px 5px;
+      margin-left: 6px;
+    }
+    .var-price { font-weight: 600; color: var(--primary); }
+
+    /* ===== QUANTITY ===== */
+    .qty-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+    .qty-label { font-size: 11px; color: var(--text-label); font-weight: 500; }
+    .qty-stepper {
+      display: flex;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .qty-btn {
+      width: 26px;
+      background: #f1f5f9;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #475569;
+    }
+    .qty-input {
+      width: 52px;
+      border: none;
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      text-align: center;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px;
+      background: white;
+    }
+    .qty-unit { font-size: 10px; color: var(--text-muted); }
+    .total-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 4px;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #166534;
+      margin-bottom: 10px;
+    }
+
+    /* ===== LOCKED PRICE ===== */
+    .price-locked {
+      background: #f8fafc;
+      border: 2px dashed var(--border);
+      border-radius: 4px;
+      padding: 14px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .price-locked .lock-icon { font-size: 22px; margin-bottom: 6px; }
+    .price-locked p { font-size: 11px; color: var(--text-muted); margin-bottom: 10px; font-weight: 500; }
+    .btn-dual { display: flex; gap: 8px; justify-content: center; }
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 7px 14px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-secondary {
+      background: white;
+      color: var(--primary);
+      border: 1.5px solid var(--primary);
+      padding: 7px 14px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-outline {
+      background: white;
+      color: #475569;
+      border: 1px solid var(--border);
+      padding: 7px 14px;
+      border-radius: 4px;
+      font-size: 11px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* ===== FORM ELEMENTS ===== */
+    .form-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    .form-section-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 7px;
+      margin-bottom: 12px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .form-group { margin-bottom: 10px; }
+    .form-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-label);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .form-label .req { color: var(--error); }
+    .form-label .info-icon {
+      width: 14px;
+      height: 14px;
+      background: #94a3b8;
+      color: white;
+      border-radius: 50%;
+      font-size: 9px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      cursor: help;
+    }
+    .form-input {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 7px 10px;
+      font-size: 11px;
+      background: var(--bg-field);
+      color: var(--text-muted);
+    }
+    .form-input.error { border-color: var(--error); background: var(--error-light); }
+    .form-input.valid { border-color: #86efac; background: #f0fdf4; }
+    .input-with-icon { position: relative; }
+    .input-with-icon .form-input { padding-right: 32px; }
+    .input-icon {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .error-msg {
+      font-size: 10px;
+      color: var(--error);
+      margin-top: 3px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ===== PASSWORD STRENGTH ===== */
+    .pwd-strength {
+      display: flex;
+      gap: 3px;
+      margin-top: 5px;
+      align-items: center;
+    }
+    .strength-bar {
+      height: 4px;
+      flex: 1;
+      border-radius: 2px;
+      background: #e2e8f0;
+    }
+    .strength-bar.weak { background: var(--error); }
+    .strength-bar.medium { background: var(--warning); }
+    .strength-bar.strong { background: var(--success); }
+    .strength-label { font-size: 10px; color: var(--text-muted); margin-left: 4px; }
+
+    /* ===== CHECKBOX ===== */
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--text-label);
+      margin: 10px 0;
+    }
+    .checkbox {
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 2px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .checkbox.checked { background: var(--primary); border-color: var(--primary); color: white; font-size: 9px; }
+
+    /* ===== CTA BUTTON ===== */
+    .btn-cta-full {
+      display: block;
+      width: 100%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+    }
+    .btn-cta-full:disabled, .btn-cta-full.disabled { background: #94a3b8; cursor: not-allowed; }
+
+    /* ===== ALERT BANNERS ===== */
+    .alert {
+      border-radius: 4px;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      font-size: 11px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .alert-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+    .alert-error { background: var(--error-light); border: 1px solid #fca5a5; color: #991b1b; }
+    .alert-warning { background: var(--warning-light); border: 1px solid #fcd34d; color: #92400e; }
+    .alert-info { background: #f0f9ff; border: 1px solid #bae6fd; color: #075985; }
+    .alert-locked { background: #fdf4ff; border: 1px solid #e9d5ff; color: #6b21a8; }
+    .alert strong { display: block; font-weight: 700; }
+
+    /* ===== LOGIN FORM ===== */
+    .login-wrap {
+      min-height: 340px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .login-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      width: 100%;
+      max-width: 380px;
+      box-shadow: var(--shadow);
+    }
+    .login-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .login-subtitle { font-size: 11px; color: var(--text-muted); margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+    .countdown {
+      background: #fef3c7;
+      border: 1px solid #fcd34d;
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #92400e;
+      display: inline-block;
+    }
+
+    /* ===== CONFIRMATION PAGE ===== */
+    .confirm-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 32px 20px;
+    }
+    .confirm-icon { font-size: 48px; margin-bottom: 12px; }
+    .confirm-title { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .confirm-sub { font-size: 12px; color: var(--text-muted); margin-bottom: 16px; }
+    .confirm-email { font-size: 12px; font-weight: 600; color: var(--primary); margin-bottom: 16px; }
+    .confirm-box {
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      border-radius: 4px;
+      padding: 12px 16px;
+      font-size: 11px;
+      text-align: left;
+      max-width: 380px;
+      width: 100%;
+    }
+
+    /* ===== MOBILE FRAME ===== */
+    .mobile-device {
+      background: #1e293b;
+      border-radius: 16px;
+      padding: 14px;
+      max-width: 300px;
+      margin: 0 auto;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    }
+    .mobile-screen {
+      background: var(--wf-bg);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .mobile-header {
+      background: #e2e8f0;
+      padding: 8px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-logo { font-size: 10px; font-weight: 700; color: #475569; }
+    .mobile-nav-icon { font-size: 14px; color: #475569; }
+    .mobile-body { padding: 10px; }
+    .mobile-section { margin-bottom: 10px; }
+    .mobile-label { font-size: 10px; font-weight: 600; color: var(--text-label); margin-bottom: 4px; }
+    .mobile-input {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 6px 8px;
+      font-size: 10px;
+      background: white;
+      color: var(--text-muted);
+    }
+    .mobile-select {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 6px 8px;
+      font-size: 10px;
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .mobile-btn {
+      display: block;
+      width: 100%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 3px;
+      padding: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 8px;
+    }
+    .mobile-product-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+    .mobile-img { background: #e2e8f0; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #94a3b8; }
+    .mobile-product-info { padding: 7px; }
+    .mobile-product-name { font-size: 10px; font-weight: 600; }
+    .mobile-product-price { font-size: 11px; font-weight: 700; color: var(--primary); }
+
+    /* ===== ANNOTATION PANEL ===== */
+    .annotation-panel {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .panel-header {
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border);
+      padding: 10px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #374151;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .panel-body { padding: 12px; }
+    .annotation-item {
+      padding: 8px 10px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+      background: #f8fafc;
+      border-left: 3px solid var(--primary);
+    }
+    .annotation-item.warn { border-left-color: var(--warning); }
+    .annotation-item.success { border-left-color: var(--success); }
+    .annotation-zone { font-size: 10px; font-weight: 700; color: #374151; }
+    .annotation-rule { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
+    .annotation-nielsen { font-size: 9px; color: var(--primary); margin-top: 2px; font-style: italic; }
+
+    .drupal-table { width: 100%; font-size: 10px; border-collapse: collapse; }
+    .drupal-table th {
+      background: #f1f5f9;
+      padding: 6px 8px;
+      text-align: left;
+      font-weight: 700;
+      color: #475569;
+      border-bottom: 1px solid var(--border);
+    }
+    .drupal-table td {
+      padding: 5px 8px;
+      border-bottom: 1px solid #f1f5f9;
+      color: #374151;
+      vertical-align: top;
+    }
+    .drupal-table code {
+      background: #f1f5f9;
+      padding: 1px 4px;
+      border-radius: 2px;
+      font-size: 9px;
+      font-family: 'Courier New', monospace;
+      color: #1e293b;
+    }
+
+    /* ===== SPRINT LEGEND ===== */
+    .handoff-meta {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .meta-chip {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 5px 10px;
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .meta-chip strong { color: #1e293b; }
+
+    /* ===== FOOTER ===== */
+    .wf-footer { margin-top: 8px; }
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 16px 0;
+    }
+    .section-sub-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #374151;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .section-sub-title::before {
+      content: '';
+      display: inline-block;
+      width: 3px;
+      height: 14px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    /* ===== PRINT ===== */
+    @media print {
+      .nav-tabs, .state-switcher, .viewport-toggle { display: none; }
+      .wf-section { display: block !important; page-break-before: always; }
+      .wf-section:first-child { page-break-before: avoid; }
+      .canvas-wrap { flex-direction: column; }
+      .canvas-panel { width: 100%; }
+      @page { size: A3 landscape; margin: 10mm; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SITE HEADER -->
+<div class="site-header">
+  <div>
+    <h1>Design Handoff — Wireframes Sprint 1</h1>
+    <div class="meta">Company-Test e-Commerce B2B · Drupal 10 + Commerce 2.x · Fidélité Lo-fi</div>
+  </div>
+  <div class="badge-sprint">Sprint 1 — 2026</div>
+</div>
+
+<!-- NAV TABS -->
+<div class="nav-tabs">
+  <button class="tab-btn active" onclick="showTab('wf001', this)">
+    <span class="tab-code">WF-001</span>Catalogue Catégories
+  </button>
+  <button class="tab-btn" onclick="showTab('wf002', this)">
+    <span class="tab-code">WF-002</span>Fiche Produit B2B
+  </button>
+  <button class="tab-btn" onclick="showTab('wf005', this)">
+    <span class="tab-code">WF-005</span>Inscription B2B
+  </button>
+  <button class="tab-btn" onclick="showTab('wf006', this)">
+    <span class="tab-code">WF-006</span>Connexion B2B
+  </button>
+</div>
+
+<div class="main">
+
+  <!-- ===================================================== -->
+  <!-- WF-001 — CATALOGUE CATÉGORIES                         -->
+  <!-- ===================================================== -->
+  <div id="wf001" class="wf-section active">
+    <div class="wf-header">
+      <div>
+        <h2>WF-001 — Catalogue par Catégorie</h2>
+        <div class="us-ref">US : <strong>US-001</strong> — Navigation catalogue par catégorie &nbsp;·&nbsp; Breakpoints : Desktop 1280px + Mobile 375px</div>
+      </div>
+      <div class="state-switcher">
+        <button class="state-btn active" onclick="showState('wf001', 'nominal', this)">État nominal</button>
+        <button class="state-btn warn-btn" onclick="showState('wf001', 'empty', this)">Catégorie vide</button>
+        <button class="state-btn" onclick="showState('wf001', 'anon', this)">Visiteur anonyme</button>
+      </div>
+    </div>
+
+    <div class="handoff-meta">
+      <div class="meta-chip">📱 <strong>Breakpoints :</strong> 1280px · 375px</div>
+      <div class="meta-chip">🔗 <strong>US liée :</strong> US-001</div>
+      <div class="meta-chip">⚙️ <strong>Drupal :</strong> Views Grid + Exposed Filters</div>
+      <div class="meta-chip">👤 <strong>Personas :</strong> Thomas (acheteur B2B)</div>
+    </div>
+
+    <div class="viewport-toggle">
+      <button class="vp-btn active" onclick="showViewport('wf001', 'desktop', this)">🖥 Desktop 1280px</button>
+      <button class="vp-btn" onclick="showViewport('wf001', 'mobile', this)">📱 Mobile 375px</button>
+    </div>
+
+    <!-- DESKTOP -->
+    <div id="wf001-desktop" class="canvas-wrap">
+      <div class="canvas-main">
+
+        <!-- STATE: NOMINAL -->
+        <div id="wf001-nominal" class="wf-frame">
+          <div class="wf-header-bar">
+            <div class="wf-logo">Company-Test</div>
+            <div class="wf-nav">
+              <span class="wf-nav-item active">Catalogue</span>
+              <span class="wf-nav-item">Mon compte ▾</span>
+              <span class="wf-cart">🛒 Panier (3)</span>
+              <span class="wf-user">Thomas M. ▾</span>
+            </div>
+          </div>
+          <div class="wf-breadcrumb">
+            <span>Accueil</span> › <span>Catalogue</span> › <strong>Câbles FTTH</strong>
+          </div>
+          <div class="wf-body two-col">
+            <div class="wf-sidebar">
+              <div class="wf-section-title">Catégories</div>
+              <div class="filter-group">
+                <div class="filter-item active">
+                  <div class="radio-dot checked"></div>
+                  <span>Câbles FTTH <span class="filter-count">(12)</span></span>
+                </div>
+                <div class="filter-item">
+                  <div class="radio-dot"></div>
+                  <span>Boîtiers fibres <span class="filter-count">(8)</span></span>
+                </div>
+                <div class="filter-item">
+                  <div class="radio-dot"></div>
+                  <span>Accessoires <span class="filter-count">(0)</span></span>
+                </div>
+              </div>
+            </div>
+            <div class="wf-content">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                <div style="font-size:13px;font-weight:700;">Câbles FTTH <span style="font-size:11px;color:var(--text-muted);font-weight:400;">(12 produits)</span></div>
+                <select style="font-size:11px;border:1px solid var(--border);padding:4px 8px;border-radius:4px;background:white;">
+                  <option>Trier par ▾</option>
+                </select>
+              </div>
+              <div class="product-grid">
+                <div class="product-card">
+                  <div class="product-img">IMG</div>
+                  <div class="product-info">
+                    <div class="product-name">Câble FTTH 4FO G657A2</div>
+                    <div class="product-ref">Réf: FTTH-04-G657A2</div>
+                    <div class="product-price">12,50 € <span class="unit">HT/m</span></div>
+                    <button class="btn-add">+ Panier</button>
+                  </div>
+                </div>
+                <div class="product-card">
+                  <div class="product-img">IMG</div>
+                  <div class="product-info">
+                    <div class="product-name">Câble FTTH 8FO G657A2</div>
+                    <div class="product-ref">Réf: FTTH-08-G657A2</div>
+                    <div class="product-price">18,90 € <span class="unit">HT/m</span></div>
+                    <button class="btn-add">+ Panier</button>
+                  </div>
+                </div>
+                <div class="product-card">
+                  <div class="product-img">IMG</div>
+                  <div class="product-info">
+                    <div class="product-name">Câble FTTH 12FO LSZH</div>
+                    <div class="product-ref">Réf: FTTH-12</div>
+                    <div class="product-price">24,50 € <span class="unit">HT/m</span></div>
+                    <button class="btn-add">+ Panier</button>
+                  </div>
+                </div>
+                <div class="product-card">
+                  <div class="product-img">IMG</div>
+                  <div class="product-info">
+                    <div class="product-name">Câble FTTH 24FO</div>
+                    <div class="product-ref">Réf: FTTH-24</div>
+                    <div class="product-price">32,00 € <span class="unit">HT/m</span></div>
+                    <button class="btn-add">+ Panier</button>
+                  </div>
+                </div>
+                <div class="product-card">
+                  <div class="product-img">IMG</div>
+                  <div class="product-info">
+                    <div class="product-name">Câble Drop Uni</div>
+                    <div class="product-ref">Réf: DROP-01</div>
+                    <div class="product-price">8,40 € <span class="unit">HT/m</span></div>
+                    <button class="btn-add">+ Panier</button>
+                  </div>
+                </div>
+                <div class="product-card">
+                  <div class="product-img">IMG</div>
+                  <div class="product-info">
+                    <div class="product-name">Câble armé ext.</div>
+                    <div class="product-ref">Réf: ARME-4FO</div>
+                    <div class="product-price">16,20 € <span class="unit">HT/m</span></div>
+                    <button class="btn-add">+ Panier</button>
+                  </div>
+                </div>
+              </div>
+              <div class="pagination">
+                <div class="page-item">‹</div>
+                <div class="page-item active">1</div>
+                <div class="page-item">2</div>
+                <div class="page-item">›</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STATE: EMPTY -->
+        <div id="wf001-empty" class="wf-frame" style="display:none;">
+          <div class="wf-header-bar">
+            <div class="wf-logo">Company-Test</div>
+            <div class="wf-nav">
+              <span class="wf-nav-item active">Catalogue</span>
+              <span class="wf-cart">🛒 Panier (3)</span>
+              <span class="wf-user">Thomas M. ▾</span>
+            </div>
+          </div>
+          <div class="wf-breadcrumb"><span>Accueil</span> › <span>Catalogue</span> › <strong>Accessoires</strong></div>
+          <div class="wf-body two-col">
+            <div class="wf-sidebar">
+              <div class="wf-section-title">Catégories</div>
+              <div class="filter-group">
+                <div class="filter-item">
+                  <div class="radio-dot checked" style="border-color:#94a3b8;box-shadow:none;"></div>
+                  <span>Câbles FTTH <span class="filter-count">(12)</span></span>
+                </div>
+                <div class="filter-item">
+                  <div class="radio-dot"></div>
+                  <span>Boîtiers fibres <span class="filter-count">(8)</span></span>
+                </div>
+                <div class="filter-item active">
+                  <div class="radio-dot checked"></div>
+                  <span>Accessoires <span class="filter-count">(0)</span></span>
+                </div>
+              </div>
+            </div>
+            <div class="wf-content">
+              <div class="empty-state">
+                <div class="empty-icon">📦</div>
+                <p>Aucun produit disponible dans cette catégorie.</p>
+                <button class="btn-secondary">← Retour au catalogue complet</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STATE: ANONYMOUS -->
+        <div id="wf001-anon" class="wf-frame" style="display:none;">
+          <div class="wf-header-bar">
+            <div class="wf-logo">Company-Test</div>
+            <div class="wf-nav">
+              <span class="wf-nav-item">Catalogue</span>
+              <span class="btn-primary" style="padding:4px 10px;font-size:10px;">Se connecter</span>
+              <span class="btn-secondary" style="padding:4px 10px;font-size:10px;">Créer un compte</span>
+            </div>
+          </div>
+          <div class="wf-breadcrumb"><span>Accueil</span> › <span>Catalogue</span> › <strong>Câbles FTTH</strong></div>
+          <div class="wf-body two-col">
+            <div class="wf-sidebar">
+              <div class="wf-section-title">Catégories</div>
+              <div class="filter-group">
+                <div class="filter-item active">
+                  <div class="radio-dot checked"></div>
+                  <span>Câbles FTTH <span class="filter-count">(12)</span></span>
+                </div>
+              </div>
+            </div>
+            <div class="wf-content">
+              <div class="product-grid">
+                <div class="product-card">
+                  <div class="product-img">IMG</div>
+                  <div class="product-info">
+                    <div class="product-name">Câble FTTH 4FO G657A2</div>
+                    <div class="product-ref">Réf: FTTH-04</div>
+                    <div style="background:#f1f5f9;border-radius:3px;padding:4px 6px;font-size:10px;color:#64748b;margin-top:4px;text-align:center;">
+                      🔒 Connectez-vous pour voir les tarifs
+                    </div>
+                  </div>
+                </div>
+                <div class="product-card">
+                  <div class="product-img">IMG</div>
+                  <div class="product-info">
+                    <div class="product-name">Câble FTTH 8FO G657A2</div>
+                    <div class="product-ref">Réf: FTTH-08</div>
+                    <div style="background:#f1f5f9;border-radius:3px;padding:4px 6px;font-size:10px;color:#64748b;margin-top:4px;text-align:center;">
+                      🔒 Connectez-vous pour voir les tarifs
+                    </div>
+                  </div>
+                </div>
+                <div class="product-card">
+                  <div class="product-img">IMG</div>
+                  <div class="product-info">
+                    <div class="product-name">Câble FTTH 12FO LSZH</div>
+                    <div class="product-ref">Réf: FTTH-12</div>
+                    <div style="background:#f1f5f9;border-radius:3px;padding:4px 6px;font-size:10px;color:#64748b;margin-top:4px;text-align:center;">
+                      🔒 Connectez-vous pour voir les tarifs
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">📝 Annotations UX</div>
+          <div class="panel-body">
+            <div class="annotation-item">
+              <div class="annotation-zone">Prix HT/unité</div>
+              <div class="annotation-rule">Toujours afficher HT + unité (€/m)</div>
+              <div class="annotation-nielsen">Nielsen #1 · Obligation B2B</div>
+            </div>
+            <div class="annotation-item warn">
+              <div class="annotation-zone">Prix masqué (anonyme)</div>
+              <div class="annotation-rule">Remplacer par "Connectez-vous"</div>
+              <div class="annotation-nielsen">Confidentialité tarifs négociés</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Sidebar — Radio buttons</div>
+              <div class="annotation-rule">Une seule catégorie active à la fois</div>
+              <div class="annotation-nielsen">Évite confusion filtrage multiple</div>
+            </div>
+            <div class="annotation-item success">
+              <div class="annotation-zone">Compteur résultats</div>
+              <div class="annotation-rule">"X produits" affiché sous le titre</div>
+              <div class="annotation-nielsen">Nielsen #1 — Visibilité système</div>
+            </div>
+            <div class="annotation-item warn">
+              <div class="annotation-zone">Catégorie vide</div>
+              <div class="annotation-rule">Message + lien retour catalogue</div>
+              <div class="annotation-nielsen">Éviter cul-de-sac navigation</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px;">
+          <div class="annotation-panel">
+            <div class="panel-header">⚙️ Composants Drupal</div>
+            <div class="panel-body">
+              <table class="drupal-table">
+                <tr><th>UI</th><th>Drupal</th></tr>
+                <tr><td>Grille produits</td><td><code>Views Grid</code></td></tr>
+                <tr><td>Sidebar filtres</td><td><code>Views exposed filters</code></td></tr>
+                <tr><td>Breadcrumb</td><td><code>Easy Breadcrumb</code></td></tr>
+                <tr><td>Compteur</td><td><code>Views summary</code></td></tr>
+                <tr><td>Pagination</td><td><code>Views built-in</code></td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE WF-001 -->
+    <div id="wf001-mobile" class="canvas-wrap" style="display:none;">
+      <div class="canvas-main" style="display:flex;justify-content:center;">
+        <div class="mobile-device">
+          <div class="mobile-screen">
+            <div class="mobile-header">
+              <span class="mobile-nav-icon">☰</span>
+              <span class="mobile-logo">Company-Test</span>
+              <span class="mobile-nav-icon">🛒 3</span>
+            </div>
+            <div class="mobile-body">
+              <div style="font-size:10px;color:var(--text-muted);margin-bottom:8px;">Accueil › Câbles FTTH</div>
+              <div style="display:flex;gap:6px;margin-bottom:8px;">
+                <div class="mobile-select" style="flex:1;">Filtrer ▾</div>
+                <div class="mobile-select" style="flex:1;">Trier ▾</div>
+              </div>
+              <div style="font-size:11px;font-weight:700;margin-bottom:8px;">Câbles FTTH (12)</div>
+              <div class="mobile-product-card">
+                <div class="mobile-img">IMG</div>
+                <div class="mobile-product-info">
+                  <div class="mobile-product-name">Câble FTTH 4FO G657</div>
+                  <div style="font-size:9px;color:var(--text-muted);">Réf: FTTH-04</div>
+                  <div class="mobile-product-price">12,50 € HT/m</div>
+                  <div class="mobile-btn">Ajouter au panier</div>
+                </div>
+              </div>
+              <div class="mobile-product-card">
+                <div class="mobile-img">IMG</div>
+                <div class="mobile-product-info">
+                  <div class="mobile-product-name">Câble FTTH 8FO G657</div>
+                  <div style="font-size:9px;color:var(--text-muted);">Réf: FTTH-08</div>
+                  <div class="mobile-product-price">18,90 € HT/m</div>
+                </div>
+              </div>
+              <div style="text-align:center;padding:8px;font-size:11px;color:var(--primary);font-weight:600;">Voir plus ↓</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">📱 Mobile — Spécificités</div>
+          <div class="panel-body">
+            <div class="annotation-item">
+              <div class="annotation-zone">Filtrer / Trier</div>
+              <div class="annotation-rule">Boutons dropdown en haut, sidebar masquée</div>
+              <div class="annotation-nielsen">Gain d'espace vertical mobile</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Liste verticale</div>
+              <div class="annotation-rule">1 colonne (grille desktop → liste mobile)</div>
+              <div class="annotation-nielsen">Lisibilité touch screen</div>
+            </div>
+            <div class="annotation-item success">
+              <div class="annotation-zone">Infinite scroll / Voir plus</div>
+              <div class="annotation-rule">Pagination remplacée par "Voir plus ↓"</div>
+              <div class="annotation-nielsen">UX mobile native</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===================================================== -->
+  <!-- WF-002 — FICHE PRODUIT B2B                            -->
+  <!-- ===================================================== -->
+  <div id="wf002" class="wf-section">
+    <div class="wf-header">
+      <div>
+        <h2>WF-002 — Fiche Produit B2B</h2>
+        <div class="us-ref">US : <strong>US-002</strong> — Fiche produit complète + tarif B2B</div>
+      </div>
+      <div class="state-switcher">
+        <button class="state-btn active" onclick="showState('wf002', 'b2b', this)">Acheteur B2B connecté</button>
+        <button class="state-btn warn-btn" onclick="showState('wf002', 'anon', this)">Visiteur anonyme</button>
+      </div>
+    </div>
+
+    <div class="handoff-meta">
+      <div class="meta-chip">📱 <strong>Breakpoints :</strong> 1280px · 375px</div>
+      <div class="meta-chip">🔗 <strong>US liée :</strong> US-002</div>
+      <div class="meta-chip">⚙️ <strong>Drupal :</strong> Commerce Variation + PriceSubscriber</div>
+    </div>
+
+    <div class="viewport-toggle">
+      <button class="vp-btn active" onclick="showViewport('wf002', 'desktop', this)">🖥 Desktop 1280px</button>
+      <button class="vp-btn" onclick="showViewport('wf002', 'mobile', this)">📱 Mobile 375px</button>
+    </div>
+
+    <div id="wf002-desktop" class="canvas-wrap">
+      <div class="canvas-main">
+
+        <!-- B2B STATE -->
+        <div id="wf002-b2b" class="wf-frame">
+          <div class="wf-header-bar">
+            <div class="wf-logo">Company-Test</div>
+            <div class="wf-nav">
+              <span class="wf-nav-item">Catalogue</span>
+              <span class="wf-nav-item">Mes commandes</span>
+              <span class="wf-cart">🛒 Panier (2)</span>
+              <span class="wf-user">Thomas M. ▾</span>
+            </div>
+          </div>
+          <div class="wf-breadcrumb"><span>Accueil</span> › <span>Catalogue</span> › <span>Câbles FTTH</span> › <strong>Câble FTTH 4FO G657A2</strong></div>
+          <div class="wf-body">
+            <div class="product-detail">
+              <div class="product-gallery">
+                <div class="gallery-main">IMAGE PRODUIT</div>
+                <div class="gallery-thumbs">
+                  <div class="thumb active"></div>
+                  <div class="thumb"></div>
+                  <div class="thumb"></div>
+                </div>
+              </div>
+              <div class="product-right">
+                <div class="product-title">Câble FTTH 4FO G657A2</div>
+                <div class="product-refcode">Référence : FTTH-04-G657A2</div>
+                <div class="variation-table">
+                  <div class="var-header">
+                    <div>Conditionnement</div>
+                    <div>Prix HT/m</div>
+                  </div>
+                  <div class="var-row">
+                    <div><span class="radio-dot" style="display:inline-block;vertical-align:middle;margin-right:6px;"></span>Bobine 100m</div>
+                    <div class="var-price">14,90 €</div>
+                  </div>
+                  <div class="var-row selected">
+                    <div><span class="radio-dot checked" style="display:inline-block;vertical-align:middle;margin-right:6px;border-color:var(--primary);box-shadow:inset 0 0 0 3px white, inset 0 0 0 5px var(--primary);"></span>Bobine 500m <span class="var-badge-pop">★ Pop</span></div>
+                    <div class="var-price">12,50 €</div>
+                  </div>
+                  <div class="var-row">
+                    <div><span class="radio-dot" style="display:inline-block;vertical-align:middle;margin-right:6px;"></span>Bobine 1000m</div>
+                    <div class="var-price">10,80 €</div>
+                  </div>
+                </div>
+                <div class="qty-row">
+                  <span class="qty-label">Quantité :</span>
+                  <div class="qty-stepper">
+                    <button class="qty-btn">−</button>
+                    <div class="qty-input">500</div>
+                    <button class="qty-btn">+</button>
+                  </div>
+                  <span class="qty-unit">m</span>
+                </div>
+                <div class="total-box">Prix total estimé : 6 250,00 € HT</div>
+                <button class="btn-cta-full" style="margin-bottom:10px;">Ajouter au panier</button>
+                <div style="display:flex;gap:8px;">
+                  <button class="btn-outline">📄 Fiche technique (PDF)</button>
+                  <button class="btn-outline">✉ Contacter un commercial</button>
+                </div>
+              </div>
+            </div>
+            <hr class="section-divider">
+            <div class="section-sub-title">Description technique</div>
+            <div style="font-size:11px;color:var(--text-muted);">Type de fibre : G657A2 · Gaine : LSZH · Rayon de courbure min : 5mm · Utilisation : intérieur/extérieur · Temp. -20°C à +70°C</div>
+            <hr class="section-divider">
+            <div class="section-sub-title">Produits complémentaires</div>
+            <div class="product-grid two-col" style="max-width:400px;">
+              <div class="product-card">
+                <div class="product-img" style="height:50px;">IMG</div>
+                <div class="product-info"><div class="product-name">Boîtier 4FO</div><div class="product-price">42,00 € <span class="unit">HT/u</span></div></div>
+              </div>
+              <div class="product-card">
+                <div class="product-img" style="height:50px;">IMG</div>
+                <div class="product-info"><div class="product-name">Connecteurs SC/APC</div><div class="product-price">2,80 € <span class="unit">HT/u</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ANONYMOUS STATE -->
+        <div id="wf002-anon" class="wf-frame" style="display:none;">
+          <div class="wf-header-bar">
+            <div class="wf-logo">Company-Test</div>
+            <div class="wf-nav">
+              <span class="wf-nav-item">Catalogue</span>
+              <span class="btn-primary" style="padding:4px 10px;font-size:10px;">Se connecter</span>
+            </div>
+          </div>
+          <div class="wf-breadcrumb"><span>Accueil</span> › <span>Câbles FTTH</span> › <strong>Câble FTTH 4FO G657A2</strong></div>
+          <div class="wf-body">
+            <div class="product-detail">
+              <div class="product-gallery">
+                <div class="gallery-main">IMAGE PRODUIT</div>
+                <div class="gallery-thumbs">
+                  <div class="thumb active"></div>
+                  <div class="thumb"></div>
+                </div>
+              </div>
+              <div class="product-right">
+                <div class="product-title">Câble FTTH 4FO G657A2</div>
+                <div class="product-refcode">Référence : FTTH-04-G657A2</div>
+                <div class="price-locked">
+                  <div class="lock-icon">🔒</div>
+                  <p>Tarifs réservés aux acheteurs B2B Company-Test</p>
+                  <div class="btn-dual">
+                    <button class="btn-primary">Créer un compte B2B</button>
+                    <button class="btn-secondary">Se connecter</button>
+                  </div>
+                </div>
+                <div style="margin-top:8px;">
+                  <button class="btn-outline">📄 Fiche technique (PDF)</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">📝 Annotations UX</div>
+          <div class="panel-body">
+            <div class="annotation-item">
+              <div class="annotation-zone">Sélecteur conditionnement</div>
+              <div class="annotation-rule">Radio buttons + prix par option visible</div>
+              <div class="annotation-nielsen">Comparaison immédiate — décision rapide</div>
+            </div>
+            <div class="annotation-item success">
+              <div class="annotation-zone">Prix total dynamique</div>
+              <div class="annotation-rule">Calculé en temps réel (quantité × prix)</div>
+              <div class="annotation-nielsen">Réduction friction cognitive B2B</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Badge "★ Pop"</div>
+              <div class="annotation-rule">Option la plus commandée mise en avant</div>
+              <div class="annotation-nielsen">Social proof — aide à la décision</div>
+            </div>
+            <div class="annotation-item warn">
+              <div class="annotation-zone">Prix masqué (anonyme)</div>
+              <div class="annotation-rule">CTA double : créer compte + connexion</div>
+              <div class="annotation-nielsen">Conversion nouveaux prospects</div>
+            </div>
+            <div class="annotation-item success">
+              <div class="annotation-zone">PDF fiche technique</div>
+              <div class="annotation-rule">Disponible même pour les anonymes</div>
+              <div class="annotation-nielsen">SEO + acquisition</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px;">
+          <div class="annotation-panel">
+            <div class="panel-header">⚙️ Composants Drupal</div>
+            <div class="panel-body">
+              <table class="drupal-table">
+                <tr><th>UI</th><th>Drupal</th></tr>
+                <tr><td>Galerie</td><td><code>Media + Slick slider</code></td></tr>
+                <tr><td>Variations</td><td><code>Commerce Variation widget</code></td></tr>
+                <tr><td>Prix total</td><td><code>JS + Ajax variation</code></td></tr>
+                <tr><td>PDF</td><td><code>Field File formatter</code></td></tr>
+                <tr><td>Produits liés</td><td><code>Views block</code></td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE WF-002 -->
+    <div id="wf002-mobile" class="canvas-wrap" style="display:none;">
+      <div class="canvas-main" style="display:flex;justify-content:center;">
+        <div class="mobile-device">
+          <div class="mobile-screen">
+            <div class="mobile-header">
+              <span class="mobile-nav-icon">☰</span>
+              <span class="mobile-logo">Company-Test</span>
+              <span class="mobile-nav-icon">🛒 2</span>
+            </div>
+            <div class="mobile-body">
+              <div style="font-size:10px;color:var(--text-muted);margin-bottom:6px;">› Câbles FTTH › Câble 4FO...</div>
+              <div class="mobile-img" style="height:120px;border-radius:4px;margin-bottom:8px;">IMAGE PRODUIT</div>
+              <div style="display:flex;gap:5px;justify-content:center;margin-bottom:8px;">
+                <div style="width:6px;height:6px;border-radius:50%;background:var(--primary);"></div>
+                <div style="width:6px;height:6px;border-radius:50%;background:#e2e8f0;"></div>
+                <div style="width:6px;height:6px;border-radius:50%;background:#e2e8f0;"></div>
+              </div>
+              <div style="font-size:12px;font-weight:700;margin-bottom:2px;">Câble FTTH 4FO G657A2</div>
+              <div style="font-size:10px;color:var(--text-muted);margin-bottom:8px;">Réf: FTTH-04-G657A2</div>
+              <div class="mobile-label">Conditionnement :</div>
+              <div class="mobile-select" style="margin-bottom:8px;">Bobine 500m &nbsp;▾</div>
+              <div style="font-size:12px;font-weight:700;color:var(--primary);margin-bottom:4px;">12,50 € HT/m</div>
+              <div class="mobile-label">Quantité :</div>
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+                <div class="qty-stepper">
+                  <button class="qty-btn">−</button>
+                  <div class="qty-input" style="font-size:11px;">500</div>
+                  <button class="qty-btn">+</button>
+                </div>
+                <span class="qty-unit">m</span>
+              </div>
+              <div style="font-size:11px;font-weight:700;color:#166534;margin-bottom:8px;">Total : 6 250 € HT</div>
+              <div class="mobile-btn">Ajouter au panier</div>
+              <div style="margin-top:8px;font-size:10px;color:var(--primary);text-align:center;">📄 Fiche technique</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">📱 Mobile — Spécificités</div>
+          <div class="panel-body">
+            <div class="annotation-item">
+              <div class="annotation-zone">Conditionnement</div>
+              <div class="annotation-rule">Radio buttons → Select dropdown mobile</div>
+              <div class="annotation-nielsen">Touch-friendly, moins d'espace occupé</div>
+            </div>
+            <div class="annotation-item success">
+              <div class="annotation-zone">Sticky CTA</div>
+              <div class="annotation-rule">"Ajouter au panier" fixe en bas de page</div>
+              <div class="annotation-nielsen">Accessibilité sans scroll (Sprint 2)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===================================================== -->
+  <!-- WF-005 — INSCRIPTION B2B                              -->
+  <!-- ===================================================== -->
+  <div id="wf005" class="wf-section">
+    <div class="wf-header">
+      <div>
+        <h2>WF-005 — Formulaire Inscription B2B</h2>
+        <div class="us-ref">US : <strong>US-005</strong> — Création compte professionnel B2B</div>
+      </div>
+      <div class="state-switcher">
+        <button class="state-btn active" onclick="showState('wf005', 'nominal', this)">Formulaire vide</button>
+        <button class="state-btn error-btn" onclick="showState('wf005', 'errors', this)">États d'erreur</button>
+        <button class="state-btn" onclick="showState('wf005', 'confirm', this)">Confirmation</button>
+      </div>
+    </div>
+
+    <div class="handoff-meta">
+      <div class="meta-chip">📱 <strong>Breakpoints :</strong> 1280px · 375px</div>
+      <div class="meta-chip">🔗 <strong>US liée :</strong> US-005</div>
+      <div class="meta-chip">⚙️ <strong>Drupal :</strong> user.register + SiretConstraintValidator</div>
+    </div>
+
+    <div class="canvas-wrap">
+      <div class="canvas-main">
+
+        <!-- NOMINAL -->
+        <div id="wf005-nominal" class="wf-frame">
+          <div class="wf-header-bar">
+            <div class="wf-logo">Company-Test</div>
+            <div class="wf-nav">
+              <span style="font-size:11px;color:#475569;">Déjà un compte ?</span>
+              <span class="btn-secondary" style="padding:4px 10px;font-size:10px;">Se connecter</span>
+            </div>
+          </div>
+          <div class="wf-body" style="max-width:700px;margin:0 auto;">
+            <div style="text-align:center;margin-bottom:20px;">
+              <div style="font-size:16px;font-weight:700;">Créer votre compte professionnel B2B</div>
+              <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">Accédez au catalogue et à vos tarifs négociés</div>
+            </div>
+
+            <div class="form-card">
+              <div class="form-section-title">Informations entreprise</div>
+              <div class="form-group">
+                <div class="form-label">Raison sociale <span class="req">*</span></div>
+                <div class="form-input" style="color:#94a3b8;">Ex : Fibre Sud-Est SARL</div>
+              </div>
+              <div class="form-group">
+                <div class="form-label">Numéro SIRET <span class="req">*</span> <span class="info-icon">i</span></div>
+                <div class="form-input" style="color:#94a3b8;">14 chiffres — ex : 12345678901234</div>
+                <div style="font-size:10px;color:var(--text-muted);margin-top:3px;padding:6px 8px;background:#f8fafc;border-radius:3px;border-left:3px solid #94a3b8;">
+                  ℹ Le SIRET est le numéro d'identification de votre établissement (14 chiffres, trouvable sur votre Kbis)
+                </div>
+              </div>
+            </div>
+
+            <div class="form-card">
+              <div class="form-section-title">Informations contact</div>
+              <div class="form-row">
+                <div class="form-group">
+                  <div class="form-label">Prénom <span class="req">*</span></div>
+                  <div class="form-input" style="color:#94a3b8;"> </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-label">Nom <span class="req">*</span></div>
+                  <div class="form-input" style="color:#94a3b8;"> </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-label">Email professionnel <span class="req">*</span></div>
+                <div class="form-input" style="color:#94a3b8;">prenom.nom@entreprise.fr</div>
+              </div>
+              <div class="form-group">
+                <div class="form-label">Téléphone</div>
+                <div class="form-input" style="color:#94a3b8;">+33 6 ...</div>
+              </div>
+            </div>
+
+            <div class="form-card">
+              <div class="form-section-title">Mot de passe</div>
+              <div class="form-group">
+                <div class="form-label">Mot de passe <span class="req">*</span></div>
+                <div class="input-with-icon">
+                  <div class="form-input" style="color:#94a3b8;">••••••••</div>
+                  <span class="input-icon">👁</span>
+                </div>
+                <div class="pwd-strength">
+                  <div class="strength-bar medium"></div>
+                  <div class="strength-bar medium"></div>
+                  <div class="strength-bar"></div>
+                  <div class="strength-bar"></div>
+                  <span class="strength-label">Moyen — Incluez une majuscule et un chiffre</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-label">Confirmer le mot de passe <span class="req">*</span></div>
+                <div class="input-with-icon">
+                  <div class="form-input" style="color:#94a3b8;">••••••••</div>
+                  <span class="input-icon">👁</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="checkbox-row">
+              <div class="checkbox checked">✓</div>
+              <span>J'accepte les <span class="wf-link">conditions générales d'utilisation</span></span>
+            </div>
+            <button class="btn-cta-full" style="margin:12px 0;">Créer mon compte professionnel</button>
+            <div style="text-align:center;font-size:11px;color:var(--text-muted);">Votre demande sera examinée sous 24h par notre équipe Company-Test.</div>
+          </div>
+        </div>
+
+        <!-- ERRORS -->
+        <div id="wf005-errors" class="wf-frame" style="display:none;">
+          <div class="wf-header-bar"><div class="wf-logo">Company-Test</div></div>
+          <div class="wf-body" style="max-width:700px;margin:0 auto;">
+            <div style="font-size:14px;font-weight:700;margin-bottom:16px;">États d'erreur — Validation inline</div>
+
+            <div class="form-card">
+              <div class="form-section-title" style="color:var(--error);">❌ SIRET invalide</div>
+              <div class="form-group">
+                <div class="form-label">Numéro SIRET <span class="req">*</span></div>
+                <div class="input-with-icon">
+                  <div class="form-input error">1234567</div>
+                  <span class="input-icon">❌</span>
+                </div>
+                <div class="error-msg">⚠ Le SIRET doit contenir exactement 14 chiffres</div>
+              </div>
+            </div>
+
+            <div class="form-card">
+              <div class="form-section-title" style="color:var(--error);">❌ Email déjà enregistré</div>
+              <div class="form-group">
+                <div class="form-label">Email professionnel <span class="req">*</span></div>
+                <div class="input-with-icon">
+                  <div class="form-input error">jean.dupont@dt.fr</div>
+                  <span class="input-icon">❌</span>
+                </div>
+                <div class="error-msg">⚠ Un compte existe déjà avec cet email.</div>
+                <div style="display:flex;gap:8px;margin-top:6px;">
+                  <button class="btn-primary" style="padding:5px 10px;font-size:10px;">Se connecter</button>
+                  <button class="btn-secondary" style="padding:5px 10px;font-size:10px;">Mot de passe oublié</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-card">
+              <div class="form-section-title" style="color:var(--error);">❌ Mot de passe trop faible</div>
+              <div class="form-group">
+                <div class="form-label">Mot de passe <span class="req">*</span></div>
+                <div class="input-with-icon">
+                  <div class="form-input error">••••••</div>
+                  <span class="input-icon">❌</span>
+                </div>
+                <div class="pwd-strength">
+                  <div class="strength-bar weak"></div>
+                  <div class="strength-bar"></div>
+                  <div class="strength-bar"></div>
+                  <div class="strength-bar"></div>
+                  <span class="strength-label" style="color:var(--error);">Faible</span>
+                </div>
+                <div class="error-msg">⚠ 8 caractères min · 1 majuscule · 1 chiffre</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONFIRMATION -->
+        <div id="wf005-confirm" class="wf-frame" style="display:none;">
+          <div class="wf-header-bar"><div class="wf-logo">Company-Test</div></div>
+          <div class="confirm-wrap">
+            <div class="confirm-icon">✅</div>
+            <div class="confirm-title">Votre demande est en cours de traitement</div>
+            <div class="confirm-sub">Merci Thomas ! Votre demande de compte B2B a bien été enregistrée.<br>Notre équipe va l'examiner dans les prochaines 24 heures.</div>
+            <div class="confirm-email">📧 Email de confirmation envoyé à : jean.dupont@dt.fr</div>
+            <div class="confirm-box">
+              <div style="font-size:11px;font-weight:600;margin-bottom:6px;">En attendant, vous pouvez consulter notre catalogue en ligne.</div>
+              <button class="btn-primary" style="width:100%;">Parcourir le catalogue</button>
+            </div>
+            <div style="margin-top:14px;font-size:11px;color:var(--text-muted);">Des questions ? <span class="wf-link">Contacter Company-Test</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">📝 Annotations UX</div>
+          <div class="panel-body">
+            <div class="annotation-item">
+              <div class="annotation-zone">Tooltip SIRET</div>
+              <div class="annotation-rule">Icône ℹ + explication + où trouver</div>
+              <div class="annotation-nielsen">Réduction friction — terme métier</div>
+            </div>
+            <div class="annotation-item warn">
+              <div class="annotation-zone">Validation inline</div>
+              <div class="annotation-rule">Erreur affichée à la perte de focus (blur)</div>
+              <div class="annotation-nielsen">Pas en temps réel — Nielsen #9</div>
+            </div>
+            <div class="annotation-item success">
+              <div class="annotation-zone">Indicateur force mdp</div>
+              <div class="annotation-rule">Barre colorée progressive (4 niveaux)</div>
+              <div class="annotation-nielsen">Feedback visuel immédiat</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Téléphone non obligatoire</div>
+              <div class="annotation-rule">Collecte différée post-inscription</div>
+              <div class="annotation-nielsen">Réduction friction inscription</div>
+            </div>
+            <div class="annotation-item success">
+              <div class="annotation-zone">Page confirmation</div>
+              <div class="annotation-rule">Email + délai 24h + CTA catalogue</div>
+              <div class="annotation-nielsen">Nielsen #1 — Gestion anxiété</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px;">
+          <div class="annotation-panel">
+            <div class="panel-header">⚙️ Composants Drupal</div>
+            <div class="panel-body">
+              <table class="drupal-table">
+                <tr><th>UI</th><th>Drupal</th></tr>
+                <tr><td>Formulaire</td><td><code>user.register</code> + hook_form_alter</td></tr>
+                <tr><td>Validation SIRET</td><td><code>SiretConstraintValidator</code></td></tr>
+                <tr><td>Force mdp</td><td><code>password policy module</code></td></tr>
+                <tr><td>Tooltip</td><td><code>#description field</code> + CSS</td></tr>
+                <tr><td>Confirmation</td><td><code>Company-TestsRegisterController</code></td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===================================================== -->
+  <!-- WF-006 — CONNEXION B2B                                -->
+  <!-- ===================================================== -->
+  <div id="wf006" class="wf-section">
+    <div class="wf-header">
+      <div>
+        <h2>WF-006 — Page Connexion B2B</h2>
+        <div class="us-ref">US : <strong>US-006</strong> — Connexion acheteur B2B</div>
+      </div>
+      <div class="state-switcher">
+        <button class="state-btn active" onclick="showState('wf006', 'nominal', this)">État nominal</button>
+        <button class="state-btn error-btn" onclick="showState('wf006', 'error1', this)">Identifiants incorrects</button>
+        <button class="state-btn warn-btn" onclick="showState('wf006', 'pending', this)">Compte en attente</button>
+        <button class="state-btn" onclick="showState('wf006', 'blocked', this)" style="background:#7c3aed;color:white;border-color:#7c3aed;">Compte bloqué</button>
+      </div>
+    </div>
+
+    <div class="handoff-meta">
+      <div class="meta-chip">📱 <strong>Breakpoints :</strong> 1280px · 375px</div>
+      <div class="meta-chip">🔗 <strong>US liée :</strong> US-006</div>
+      <div class="meta-chip">⚙️ <strong>Drupal :</strong> user.login + Flood API + B2bLoginSubscriber</div>
+    </div>
+
+    <div class="viewport-toggle">
+      <button class="vp-btn active" onclick="showViewport('wf006', 'desktop', this)">🖥 Desktop 1280px</button>
+      <button class="vp-btn" onclick="showViewport('wf006', 'mobile', this)">📱 Mobile 375px</button>
+    </div>
+
+    <div id="wf006-desktop" class="canvas-wrap">
+      <div class="canvas-main">
+
+        <!-- NOMINAL -->
+        <div id="wf006-nominal" class="wf-frame">
+          <div class="wf-header-bar">
+            <div class="wf-logo">Company-Test</div>
+            <div class="wf-nav">
+              <span style="font-size:11px;color:#475569;">Pas encore de compte ?</span>
+              <span class="btn-secondary" style="padding:4px 10px;font-size:10px;">Créer un compte</span>
+            </div>
+          </div>
+          <div class="login-wrap">
+            <div class="login-card">
+              <div class="login-title">Connectez-vous à votre espace B2B Company-Test</div>
+              <div class="login-subtitle"> </div>
+              <div class="form-group">
+                <div class="form-label">Email professionnel</div>
+                <div class="form-input" style="color:#94a3b8;">prenom.nom@entreprise.fr</div>
+              </div>
+              <div class="form-group">
+                <div class="form-label">Mot de passe</div>
+                <div class="input-with-icon">
+                  <div class="form-input" style="color:#94a3b8;">••••••••••••••</div>
+                  <span class="input-icon">👁</span>
+                </div>
+              </div>
+              <div class="checkbox-row">
+                <div class="checkbox checked">✓</div>
+                <span>Se souvenir de moi</span>
+                <span style="font-size:10px;color:var(--text-muted);">(coché par défaut desktop)</span>
+              </div>
+              <button class="btn-cta-full">Se connecter</button>
+              <div style="text-align:center;margin-top:10px;">
+                <span class="wf-link">Mot de passe oublié ?</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ERROR 1 — IDENTIFIANTS INCORRECTS -->
+        <div id="wf006-error1" class="wf-frame" style="display:none;">
+          <div class="wf-header-bar"><div class="wf-logo">Company-Test</div></div>
+          <div class="login-wrap">
+            <div class="login-card">
+              <div class="login-title">Connectez-vous à votre espace B2B</div>
+              <div class="login-subtitle"> </div>
+              <div class="alert alert-error">
+                <span class="alert-icon">⚠</span>
+                <div>
+                  <strong>Email ou mot de passe incorrect.</strong>
+                  Tentatives restantes : <strong>3/5</strong>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-label">Email professionnel</div>
+                <div class="input-with-icon">
+                  <div class="form-input error">jean.dupont@dt.fr</div>
+                  <span class="input-icon">❌</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-label">Mot de passe</div>
+                <div class="input-with-icon">
+                  <div class="form-input error">••••••••</div>
+                  <span class="input-icon">❌</span>
+                </div>
+              </div>
+              <button class="btn-cta-full">Se connecter</button>
+              <div style="text-align:center;margin-top:10px;"><span class="wf-link">Mot de passe oublié ?</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PENDING -->
+        <div id="wf006-pending" class="wf-frame" style="display:none;">
+          <div class="wf-header-bar"><div class="wf-logo">Company-Test</div></div>
+          <div class="login-wrap">
+            <div class="login-card">
+              <div class="login-title">Connectez-vous à votre espace B2B</div>
+              <div class="login-subtitle"> </div>
+              <div class="alert alert-warning">
+                <span class="alert-icon">🕐</span>
+                <div>
+                  <strong>Votre compte est en cours de validation (délai 24h).</strong>
+                  Vous recevrez un email dès que votre accès sera activé.
+                </div>
+              </div>
+              <button class="btn-secondary" style="width:100%;margin-top:8px;">Contacter Company-Test</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOCKED -->
+        <div id="wf006-blocked" class="wf-frame" style="display:none;">
+          <div class="wf-header-bar"><div class="wf-logo">Company-Test</div></div>
+          <div class="login-wrap">
+            <div class="login-card">
+              <div class="login-title">Connectez-vous à votre espace B2B</div>
+              <div class="login-subtitle"> </div>
+              <div class="alert alert-locked">
+                <span class="alert-icon">🔒</span>
+                <div>
+                  <strong>Compte temporairement bloqué (5 tentatives).</strong>
+                  Réessayez dans : <span class="countdown">14:32</span>
+                </div>
+              </div>
+              <div class="form-group" style="margin-top:10px;">
+                <div class="form-label">Email professionnel</div>
+                <div class="form-input" style="opacity:0.4;background:#f1f5f9;">jean.dupont@dt.fr</div>
+              </div>
+              <div class="form-group">
+                <div class="form-label">Mot de passe</div>
+                <div class="form-input" style="opacity:0.4;background:#f1f5f9;">••••••••</div>
+              </div>
+              <button class="btn-cta-full disabled" disabled>Se connecter (désactivé)</button>
+              <div style="text-align:center;margin-top:10px;"><span class="wf-link">Mot de passe oublié ?</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">📝 Annotations UX</div>
+          <div class="panel-body">
+            <div class="annotation-item warn">
+              <div class="annotation-zone">Compteur tentatives</div>
+              <div class="annotation-rule">Affiché dès la 2e erreur (pas la 1ère)</div>
+              <div class="annotation-nielsen">Nielsen #9 — Éviter anxiété prématurée</div>
+            </div>
+            <div class="annotation-item success">
+              <div class="annotation-zone">Compte à rebours blocage</div>
+              <div class="annotation-rule">Temps réel (mm:ss) depuis flood_window</div>
+              <div class="annotation-nielsen">Nielsen #1 — Visibilité de l'attente</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Message "en attente"</div>
+              <div class="annotation-rule">Ton rassurant + lien contact direct</div>
+              <div class="annotation-nielsen">Thomas ne comprend pas le délai</div>
+            </div>
+            <div class="annotation-item">
+              <div class="annotation-zone">Se souvenir de moi</div>
+              <div class="annotation-rule">Coché par défaut desktop · Décoché mobile</div>
+              <div class="annotation-nielsen">Sécurité — appareils partagés chantier</div>
+            </div>
+            <div class="annotation-item warn">
+              <div class="annotation-zone">Bouton désactivé (bloqué)</div>
+              <div class="annotation-rule">CTA grisé pendant le blocage actif</div>
+              <div class="annotation-nielsen">Éviter tentatives inutiles</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px;">
+          <div class="annotation-panel">
+            <div class="panel-header">⚙️ Composants Drupal</div>
+            <div class="panel-body">
+              <table class="drupal-table">
+                <tr><th>UI</th><th>Drupal</th></tr>
+                <tr><td>Formulaire</td><td><code>user.login</code> natif</td></tr>
+                <tr><td>Messages contextuels</td><td><code>B2bLoginSubscriber</code></td></tr>
+                <tr><td>Compteur tentatives</td><td><code>Flood API</code></td></tr>
+                <tr><td>Compte à rebours</td><td><code>JS</code> depuis flood_window config</td></tr>
+                <tr><td>Lien contact</td><td><code>Company-Test_b2b.settings.yml</code></td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE WF-006 -->
+    <div id="wf006-mobile" class="canvas-wrap" style="display:none;">
+      <div class="canvas-main" style="display:flex;justify-content:center;">
+        <div class="mobile-device">
+          <div class="mobile-screen">
+            <div class="mobile-header">
+              <span></span>
+              <span class="mobile-logo">Company-Test</span>
+              <span></span>
+            </div>
+            <div class="mobile-body">
+              <div style="font-size:12px;font-weight:700;margin-bottom:12px;">Connectez-vous<br>à votre espace B2B</div>
+              <div class="mobile-section">
+                <div class="mobile-label">Email</div>
+                <div class="mobile-input"> </div>
+              </div>
+              <div class="mobile-section">
+                <div class="mobile-label">Mot de passe</div>
+                <div style="display:flex;border:1px solid var(--border);border-radius:3px;overflow:hidden;">
+                  <div class="mobile-input" style="border:none;flex:1;"> </div>
+                  <div style="padding:6px 8px;font-size:12px;">👁</div>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:6px;margin:8px 0;font-size:10px;color:var(--text-label);">
+                <div class="checkbox" style="width:12px;height:12px;"></div>
+                <span>Se souvenir de moi</span>
+                <span style="font-size:9px;color:var(--text-muted);">(décoché mobile)</span>
+              </div>
+              <div class="mobile-btn">Se connecter</div>
+              <div style="text-align:center;margin-top:8px;font-size:10px;color:var(--primary);">Mot de passe oublié ?</div>
+              <div style="text-align:center;margin-top:4px;font-size:10px;color:var(--primary);">Créer un compte B2B</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">📱 Mobile — Spécificités</div>
+          <div class="panel-body">
+            <div class="annotation-item">
+              <div class="annotation-zone">"Se souvenir de moi"</div>
+              <div class="annotation-rule">Décoché par défaut sur mobile</div>
+              <div class="annotation-nielsen">Appareils partagés sur chantier</div>
+            </div>
+            <div class="annotation-item success">
+              <div class="annotation-zone">CTA "Créer un compte"</div>
+              <div class="annotation-rule">Visible dans le corps (header réduit)</div>
+              <div class="annotation-nielsen">Acquisition — accès garanti</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<script>
+  function showTab(tabId, btn) {
+    document.querySelectorAll('.wf-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function showState(wfId, stateId, btn) {
+    const section = document.getElementById(wfId);
+    const viewport = section.querySelector('[id$="-desktop"]:not([style*="display:none"]), [id$="-mobile"]:not([style*="display:none"])') || section;
+
+    // Find all state divs inside the active viewport
+    const allStates = section.querySelectorAll('[id^="' + wfId + '-"]');
+    allStates.forEach(el => {
+      if (!el.id.endsWith('-desktop') && !el.id.endsWith('-mobile')) {
+        el.style.display = 'none';
+      }
+    });
+
+    const target = document.getElementById(wfId + '-' + stateId);
+    if (target) target.style.display = '';
+
+    // Update buttons
+    const switcher = btn.closest('.state-switcher');
+    if (switcher) {
+      switcher.querySelectorAll('.state-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  }
+
+  function showViewport(wfId, vp, btn) {
+    const desktopEl = document.getElementById(wfId + '-desktop');
+    const mobileEl = document.getElementById(wfId + '-mobile');
+    if (desktopEl) desktopEl.style.display = vp === 'desktop' ? '' : 'none';
+    if (mobileEl) mobileEl.style.display = vp === 'mobile' ? '' : 'none';
+
+    const toggle = btn.closest('.viewport-toggle');
+    if (toggle) {
+      toggle.querySelectorAll('.vp-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  }
+</script>
+</body>
+</html>

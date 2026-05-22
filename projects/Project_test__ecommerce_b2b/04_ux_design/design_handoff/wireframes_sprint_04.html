@@ -1,0 +1,786 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Handoff — Wireframes Sprint 4 — Company-Test B2B</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f2f5; color: #1a1a2e; font-size: 14px; }
+    :root {
+      --primary: #2563eb; --primary-light: #dbeafe; --border: #cbd5e1;
+      --bg-card: #ffffff; --bg-field: #f8fafc; --text-muted: #64748b;
+      --text-label: #374151; --error: #dc2626; --error-light: #fef2f2;
+      --success: #16a34a; --warning: #d97706; --warning-light: #fffbeb;
+      --shadow: 0 1px 4px rgba(0,0,0,0.10); --shadow-lg: 0 4px 16px rgba(0,0,0,0.12);
+      --radius: 6px; --wf-bg: #f8f9ff; --wf-border: #94a3b8;
+    }
+    .site-header { background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%); color: white; padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; box-shadow: var(--shadow-lg); }
+    .site-header h1 { font-size: 18px; font-weight: 600; }
+    .site-header .meta { font-size: 12px; opacity: 0.8; margin-top: 3px; }
+    .badge-sprint { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); border-radius: 20px; padding: 5px 14px; font-size: 12px; font-weight: 600; }
+    .nav-tabs { display: flex; background: white; border-bottom: 2px solid var(--border); padding: 0 32px; gap: 4px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .tab-btn { padding: 14px 20px; border: none; background: transparent; cursor: pointer; font-size: 13px; font-weight: 500; color: var(--text-muted); border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.2s; }
+    .tab-btn:hover { color: var(--primary); }
+    .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); font-weight: 600; }
+    .tab-code { font-size: 10px; background: #e2e8f0; border-radius: 3px; padding: 1px 5px; margin-right: 6px; font-weight: 700; }
+    .tab-btn.active .tab-code { background: var(--primary-light); color: var(--primary); }
+    .main { padding: 28px 32px; max-width: 1400px; margin: 0 auto; }
+    .wf-section { display: none; }
+    .wf-section.active { display: block; }
+    .wf-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+    .wf-header h2 { font-size: 20px; font-weight: 700; color: #0f172a; }
+    .wf-header .us-ref { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+    .wf-header .us-ref strong { color: var(--primary); }
+    .state-switcher { display: flex; gap: 8px; flex-wrap: wrap; }
+    .state-btn { padding: 6px 14px; border-radius: 20px; border: 1.5px solid var(--border); background: white; cursor: pointer; font-size: 12px; font-weight: 500; color: var(--text-muted); transition: all 0.15s; }
+    .state-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .state-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+    .state-btn.error-btn.active { background: var(--error); border-color: var(--error); }
+    .state-btn.warn-btn.active { background: var(--warning); border-color: var(--warning); }
+    .viewport-toggle { display: flex; gap: 6px; margin-bottom: 16px; }
+    .vp-btn { padding: 5px 12px; border-radius: 4px; border: 1.5px solid var(--border); background: white; cursor: pointer; font-size: 12px; font-weight: 500; color: var(--text-muted); transition: all 0.15s; }
+    .vp-btn.active { background: #e2e8f0; color: #1e293b; border-color: #94a3b8; font-weight: 600; }
+    .canvas-wrap { display: flex; gap: 24px; align-items: flex-start; }
+    .canvas-main { flex: 1; }
+    .canvas-panel { width: 320px; flex-shrink: 0; }
+    .wf-frame { background: var(--wf-bg); border: 2px solid var(--wf-border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); }
+    .wf-frame.mobile-frame { max-width: 390px; margin: 0 auto; }
+    .wf-header-bar { background: #e2e8f0; border-bottom: 2px solid #94a3b8; padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; }
+    .wf-logo { background: #475569; color: white; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 3px; letter-spacing: 1px; }
+    .wf-nav { display: flex; gap: 12px; align-items: center; }
+    .wf-nav-item { font-size: 11px; color: #475569; font-weight: 500; }
+    .wf-nav-item.active { color: var(--primary); border-bottom: 1px solid var(--primary); }
+    .wf-cart { background: var(--primary); color: white; font-size: 10px; padding: 3px 8px; border-radius: 3px; font-weight: 600; }
+    .wf-user { font-size: 11px; color: #475569; background: #f1f5f9; padding: 3px 8px; border-radius: 3px; }
+    .wf-breadcrumb { background: #f1f5f9; border-bottom: 1px solid var(--border); padding: 7px 16px; font-size: 11px; color: var(--text-muted); }
+    .wf-breadcrumb span { color: var(--primary); }
+    .wf-body { padding: 16px; }
+    .wf-body.two-col { display: flex; gap: 0; }
+    .wf-sidebar { width: 200px; flex-shrink: 0; border-right: 1px solid var(--border); padding: 12px; }
+    .wf-content { flex: 1; padding: 12px 16px; }
+    .wf-section-title { font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .filter-group { margin-bottom: 14px; }
+    .filter-item { display: flex; align-items: center; gap: 7px; padding: 5px 6px; border-radius: 4px; font-size: 11px; color: #374151; }
+    .filter-item.active { background: var(--primary-light); color: var(--primary); font-weight: 600; }
+    .radio-dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid #94a3b8; flex-shrink: 0; }
+    .radio-dot.checked { border-color: var(--primary); background: white; box-shadow: inset 0 0 0 3px white, inset 0 0 0 5px var(--primary); }
+    .checkbox-box { width: 12px; height: 12px; border: 2px solid var(--primary); border-radius: 2px; background: var(--primary); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .checkbox-box.unchecked { background: white; border-color: #94a3b8; }
+    .filter-count { color: var(--text-muted); font-size: 10px; }
+    .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .product-card { background: white; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .product-img { background: #e2e8f0; height: 70px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #94a3b8; }
+    .product-info { padding: 7px; }
+    .product-name { font-size: 10px; font-weight: 600; color: #1e293b; }
+    .product-ref { font-size: 9px; color: var(--text-muted); }
+    .product-price { font-size: 11px; font-weight: 700; color: var(--primary); margin-top: 4px; }
+    .product-price .unit { font-size: 9px; font-weight: 400; color: var(--text-muted); }
+    .btn-add { display: block; width: 100%; margin-top: 5px; background: var(--primary); color: white; border: none; border-radius: 3px; padding: 4px; font-size: 10px; cursor: pointer; font-weight: 600; }
+    .chip { display: inline-flex; align-items: center; gap: 4px; background: var(--primary-light); color: var(--primary); border-radius: 20px; padding: 3px 10px; font-size: 10px; font-weight: 600; margin: 3px; }
+    .chip .remove { cursor: pointer; font-weight: 700; }
+    .chip.warn { background: var(--warning-light); color: var(--warning); }
+    .price-box { background: #f0fdf4; border: 1px solid #86efac; border-radius: 4px; padding: 10px 14px; margin-bottom: 10px; }
+    .price-old { text-decoration: line-through; color: var(--text-muted); font-size: 11px; }
+    .price-negotiated { font-size: 18px; font-weight: 700; color: var(--success); }
+    .price-savings { font-size: 10px; color: var(--success); margin-top: 2px; }
+    .checkout-steps { display: flex; gap: 0; margin-bottom: 16px; }
+    .step { flex: 1; padding: 8px 12px; text-align: center; font-size: 11px; background: #f1f5f9; border: 1px solid var(--border); font-weight: 500; color: var(--text-muted); }
+    .step.done { background: #dcfce7; color: var(--success); border-color: #86efac; }
+    .step.active { background: var(--primary); color: white; border-color: var(--primary); font-weight: 700; }
+    .step::before { display: block; font-weight: 700; margin-bottom: 2px; }
+    .delivery-option { border: 1.5px solid var(--border); border-radius: 4px; padding: 10px 14px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; font-size: 11px; }
+    .delivery-option.selected { border-color: var(--primary); background: var(--primary-light); }
+    .delivery-label { display: flex; align-items: center; gap: 8px; }
+    .delivery-price { font-weight: 700; color: var(--primary); }
+    .delivery-sub { font-size: 9px; color: var(--text-muted); margin-top: 2px; }
+    .summary-box { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 12px; }
+    .summary-row { display: flex; justify-content: space-between; font-size: 11px; padding: 3px 0; }
+    .summary-row.total { font-weight: 700; font-size: 13px; border-top: 1px solid var(--border); margin-top: 6px; padding-top: 6px; }
+    .btn-primary { background: var(--primary); color: white; border: none; border-radius: 4px; padding: 10px 18px; font-size: 12px; font-weight: 600; cursor: pointer; display: inline-block; }
+    .btn-secondary { background: white; color: var(--primary); border: 1.5px solid var(--primary); border-radius: 4px; padding: 10px 18px; font-size: 12px; font-weight: 600; cursor: pointer; display: inline-block; }
+    .alert { border-radius: 4px; padding: 10px 12px; margin-bottom: 10px; font-size: 11px; display: flex; gap: 8px; align-items: flex-start; }
+    .alert-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+    .alert-info { background: #f0f9ff; border: 1px solid #bae6fd; color: #075985; }
+    .alert-warning { background: var(--warning-light); border: 1px solid #fcd34d; color: #92400e; }
+    .alert-error { background: var(--error-light); border: 1px solid #fca5a5; color: #991b1b; }
+    .alert strong { display: block; font-weight: 700; }
+    .table-wf { width: 100%; border-collapse: collapse; font-size: 11px; }
+    .table-wf th { background: #f1f5f9; padding: 7px 10px; text-align: left; font-weight: 700; color: #475569; border-bottom: 1px solid var(--border); }
+    .table-wf td { padding: 6px 10px; border-bottom: 1px solid #f1f5f9; }
+    .badge { display: inline-block; padding: 2px 7px; border-radius: 10px; font-size: 9px; font-weight: 700; }
+    .badge-pending { background: #fef3c7; color: #92400e; }
+    .badge-shipped { background: #dbeafe; color: #1e40af; }
+    .badge-delivered { background: #dcfce7; color: #166534; }
+    .badge-cancelled { background: var(--error-light); color: var(--error); }
+    .mobile-device { background: #1e293b; border-radius: 16px; padding: 14px; max-width: 300px; margin: 0 auto; box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
+    .mobile-screen { background: var(--wf-bg); border-radius: 8px; overflow: hidden; }
+    .mobile-header { background: #e2e8f0; padding: 8px 10px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+    .mobile-logo { font-size: 10px; font-weight: 700; color: #475569; }
+    .mobile-body { padding: 10px; }
+    .mobile-section { margin-bottom: 10px; }
+    .mobile-label { font-size: 10px; font-weight: 600; color: var(--text-label); margin-bottom: 4px; }
+    .mobile-input { width: 100%; border: 1px solid var(--border); border-radius: 3px; padding: 6px 8px; font-size: 10px; background: white; color: var(--text-muted); }
+    .mobile-btn { display: block; width: 100%; background: var(--primary); color: white; border: none; border-radius: 3px; padding: 8px; font-size: 11px; font-weight: 600; text-align: center; margin-top: 8px; }
+    .mobile-card { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 8px 10px; margin-bottom: 6px; font-size: 10px; }
+    .annotation-panel { background: white; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .panel-header { background: #f8fafc; border-bottom: 1px solid var(--border); padding: 10px 14px; font-size: 12px; font-weight: 700; color: #374151; display: flex; align-items: center; gap: 6px; }
+    .panel-body { padding: 12px; }
+    .annotation-item { padding: 8px 10px; border-radius: 4px; margin-bottom: 6px; background: #f8fafc; border-left: 3px solid var(--primary); }
+    .annotation-item.warn { border-left-color: var(--warning); }
+    .annotation-item.success { border-left-color: var(--success); }
+    .annotation-zone { font-size: 10px; font-weight: 700; color: #374151; }
+    .annotation-rule { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
+    .annotation-nielsen { font-size: 9px; color: var(--primary); margin-top: 2px; font-style: italic; }
+    .drupal-table { width: 100%; font-size: 10px; border-collapse: collapse; }
+    .drupal-table th { background: #f1f5f9; padding: 6px 8px; text-align: left; font-weight: 700; color: #475569; border-bottom: 1px solid var(--border); }
+    .drupal-table td { padding: 5px 8px; border-bottom: 1px solid #f8fafc; }
+    .drupal-table td:first-child { font-weight: 600; color: #1e293b; }
+    .drupal-table td:last-child { color: #475569; font-family: monospace; font-size: 9px; }
+    .handoff-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .meta-chip { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 5px 10px; font-size: 11px; color: var(--text-muted); display: flex; align-items: center; gap: 5px; }
+    .meta-chip strong { color: #1e293b; }
+    .section-sub-title { font-size: 12px; font-weight: 700; color: #374151; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+    .section-sub-title::before { content: ''; display: inline-block; width: 3px; height: 14px; background: var(--primary); border-radius: 2px; }
+    .empty-state { text-align: center; padding: 40px 20px; color: var(--text-muted); }
+    .empty-icon { font-size: 36px; margin-bottom: 10px; }
+    .empty-state p { font-size: 12px; margin-bottom: 14px; }
+    .input-field { border: 1px solid var(--border); border-radius: 4px; padding: 6px 10px; font-size: 11px; color: var(--text-label); background: white; width: 100%; margin-bottom: 8px; }
+    .label-field { font-size: 10px; font-weight: 600; color: var(--text-muted); margin-bottom: 3px; }
+    .email-template { background: white; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .email-header-bar { background: #1e3a8a; color: white; padding: 14px 20px; font-size: 13px; font-weight: 700; }
+    .email-body { padding: 20px; font-size: 11px; }
+    .email-cta { display: inline-block; background: #1e3a8a; color: white; padding: 10px 20px; border-radius: 4px; font-weight: 600; font-size: 12px; text-decoration: none; margin: 12px 0; }
+    .tracking-box { background: #f0fdf4; border: 1px solid #86efac; border-radius: 6px; padding: 14px 18px; margin: 12px 0; }
+    .tracking-number { font-family: monospace; font-size: 14px; font-weight: 700; color: #166534; }
+    @media print {
+      .nav-tabs, .state-switcher, .viewport-toggle { display: none; }
+      .wf-section { display: block !important; page-break-before: always; }
+      .wf-section:first-child { page-break-before: avoid; }
+      .canvas-wrap { flex-direction: column; }
+      .canvas-panel { width: 100%; }
+      @page { size: A3 landscape; margin: 10mm; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="site-header">
+  <div>
+    <h1>Design Handoff — Wireframes Sprint 4</h1>
+    <div class="meta">Company-Test e-Commerce B2B · Drupal 10 + Commerce 2.x · Fidélité Lo-fi</div>
+  </div>
+  <div class="badge-sprint">Sprint 4 — 2026</div>
+</div>
+
+<div class="nav-tabs">
+  <button class="tab-btn active" onclick="showTab('wf003', this)"><span class="tab-code">WF-003</span>Filtres Catalogue</button>
+  <button class="tab-btn" onclick="showTab('wf008', this)"><span class="tab-code">WF-008</span>Tarifs Négociés</button>
+  <button class="tab-btn" onclick="showTab('wf019', this)"><span class="tab-code">WF-019</span>Frais Livraison</button>
+  <button class="tab-btn" onclick="showTab('wf021', this)"><span class="tab-code">WF-021</span>Suivi Transporteur</button>
+</div>
+
+<div class="main">
+
+  <!-- ======================== WF-003 — FILTRES CATALOGUE ======================== -->
+  <div id="wf003" class="wf-section active">
+    <div class="wf-header">
+      <div>
+        <h2>WF-003 — Filtres Catalogue Avancés (AJAX)</h2>
+        <div class="us-ref">US : <strong>US-003</strong> — Filtres produits par référence, type de câble et conditionnement · Breakpoints : 1280px + 375px</div>
+      </div>
+      <div class="state-switcher">
+        <button class="state-btn active" onclick="showState('wf003','nominal',this)">Filtres actifs</button>
+        <button class="state-btn warn-btn" onclick="showState('wf003','empty',this)">Aucun résultat</button>
+        <button class="state-btn" onclick="showState('wf003','loading',this)">Chargement AJAX</button>
+      </div>
+    </div>
+    <div class="handoff-meta">
+      <div class="meta-chip">📱 <strong>Breakpoints :</strong> 1280px · 375px</div>
+      <div class="meta-chip">🔗 <strong>US liée :</strong> US-003</div>
+      <div class="meta-chip">⚙️ <strong>Drupal :</strong> Views AJAX + Exposed Filters</div>
+      <div class="meta-chip">👤 <strong>Persona :</strong> Thomas Mercier (acheteur B2B)</div>
+    </div>
+    <div class="viewport-toggle">
+      <button class="vp-btn active" onclick="showViewport('wf003','desktop',this)">🖥 Desktop 1280px</button>
+      <button class="vp-btn" onclick="showViewport('wf003','mobile',this)">📱 Mobile 375px</button>
+    </div>
+
+    <div id="wf003-desktop" class="canvas-wrap">
+      <div class="canvas-main">
+        <div id="wf003-nominal" class="wf-frame">
+          <div class="wf-header-bar">
+            <div class="wf-logo">Company-Test</div>
+            <div class="wf-nav">
+              <span class="wf-nav-item active">Catalogue</span>
+              <span class="wf-nav-item">Mon compte ▾</span>
+              <span class="wf-cart">🛒 (2)</span>
+              <span class="wf-user">Thomas M. ▾</span>
+            </div>
+          </div>
+          <div class="wf-breadcrumb">Accueil › Catalogue › <strong>Câbles FTTH</strong></div>
+          <div class="wf-body two-col">
+            <div class="wf-sidebar">
+              <div class="wf-section-title">Filtres</div>
+              <div class="filter-group">
+                <div class="label-field">Référence produit</div>
+                <div class="input-field" style="color:#1e293b;">REF-AG-20...</div>
+              </div>
+              <div class="filter-group">
+                <div class="wf-section-title" style="font-size:10px;margin-bottom:6px;">Type de fibre</div>
+                <div class="filter-item"><div class="radio-dot"></div><span>Tous les types</span></div>
+                <div class="filter-item active"><div class="radio-dot checked"></div><span>OM4 50/125</span></div>
+                <div class="filter-item"><div class="radio-dot"></div><span>OM3 50/125</span></div>
+                <div class="filter-item"><div class="radio-dot"></div><span>OS1 9/125</span></div>
+              </div>
+              <div class="filter-group">
+                <div class="wf-section-title" style="font-size:10px;margin-bottom:6px;">Conditionnement</div>
+                <div class="filter-item"><div class="checkbox-box">✓</div><span>Bobine 100m</span></div>
+                <div class="filter-item"><div class="checkbox-box">✓</div><span>Bobine 300m</span></div>
+                <div class="filter-item"><div class="checkbox-box unchecked"></div><span>Bobine 500m</span></div>
+                <div class="filter-item"><div class="checkbox-box unchecked"></div><span>Câble à l'unité</span></div>
+              </div>
+              <button class="btn-primary" style="width:100%;font-size:11px;padding:7px;">Appliquer les filtres</button>
+            </div>
+            <div class="wf-content">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+                <div style="font-size:12px;font-weight:700;">12 produits trouvés</div>
+              </div>
+              <div style="margin-bottom:10px;">
+                <span style="font-size:10px;color:var(--text-muted);margin-right:6px;">Filtres actifs :</span>
+                <span class="chip">OM4 <span class="remove">×</span></span>
+                <span class="chip">Bobine 100m <span class="remove">×</span></span>
+                <span class="chip">Bobine 300m <span class="remove">×</span></span>
+                <span class="chip warn" style="cursor:pointer;">↺ Réinitialiser tout</span>
+              </div>
+              <div class="product-grid">
+                <div class="product-card"><div class="product-img">📦 IMG</div><div class="product-info"><div class="product-name">Câble OM4 50/125</div><div class="product-ref">REF-AG-2042 · Bobine 100m</div><div class="product-price">48,50 € <span class="unit">HT/bob.</span></div><button class="btn-add">+ Panier</button></div></div>
+                <div class="product-card"><div class="product-img">📦 IMG</div><div class="product-info"><div class="product-name">Câble OM4 50/125</div><div class="product-ref">REF-AG-2043 · Bobine 300m</div><div class="product-price">138,00 € <span class="unit">HT/bob.</span></div><button class="btn-add">+ Panier</button></div></div>
+                <div class="product-card"><div class="product-img">📦 IMG</div><div class="product-info"><div class="product-name">Câble OM4 LS0H</div><div class="product-ref">REF-AG-2048 · Bobine 100m</div><div class="product-price">52,00 € <span class="unit">HT/bob.</span></div><button class="btn-add">+ Panier</button></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="wf003-empty" class="wf-frame" style="display:none;">
+          <div class="wf-header-bar"><div class="wf-logo">Company-Test</div><div class="wf-nav"><span class="wf-cart">🛒 (0)</span><span class="wf-user">Thomas M. ▾</span></div></div>
+          <div class="wf-body two-col">
+            <div class="wf-sidebar" style="width:200px;">
+              <div class="filter-item active"><div class="radio-dot checked"></div><span>OM5 50/125</span></div>
+              <div class="filter-item"><div class="checkbox-box">✓</div><span>Bobine 500m</span></div>
+            </div>
+            <div class="wf-content">
+              <div class="empty-state">
+                <div class="empty-icon">🔍</div>
+                <p><strong>Aucun produit ne correspond à vos filtres.</strong><br>Essayez de modifier ou réinitialiser vos critères.</p>
+                <button class="btn-primary">↺ Réinitialiser tous les filtres</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="wf003-loading" class="wf-frame" style="display:none;">
+          <div class="wf-header-bar"><div class="wf-logo">Company-Test</div><div class="wf-nav"><span class="wf-cart">🛒 (2)</span><span class="wf-user">Thomas M. ▾</span></div></div>
+          <div class="wf-body">
+            <div class="alert alert-info"><div class="alert-icon">⟳</div><div><strong>Actualisation des résultats...</strong>Filtres AJAX appliqués — mise à jour en cours.</div></div>
+            <div style="opacity:0.4;">
+              <div class="product-grid">
+                <div class="product-card"><div class="product-img">⟳</div></div>
+                <div class="product-card"><div class="product-img">⟳</div></div>
+                <div class="product-card"><div class="product-img">⟳</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">📝 Annotations UX</div>
+          <div class="panel-body">
+            <div class="annotation-item"><div class="annotation-zone">Chips filtres actifs + suppression individuelle</div><div class="annotation-rule">Thomas supprime 1 filtre sans tout réinitialiser — gain de temps</div><div class="annotation-nielsen">Nielsen #3 — Contrôle utilisateur</div></div>
+            <div class="annotation-item"><div class="annotation-zone">AJAX sans rechargement de page</div><div class="annotation-rule">Résultats immédiats — position scroll et état accordéon préservés</div><div class="annotation-nielsen">Nielsen #1 — Visibilité + Performance</div></div>
+            <div class="annotation-item success"><div class="annotation-zone">Deep-linking URL query params</div><div class="annotation-rule">URL mise à jour → partage et retour navigateur fonctionnels</div><div class="annotation-nielsen">Accessibilité + partage lien</div></div>
+            <div class="annotation-item warn"><div class="annotation-zone">Accordéon mobile</div><div class="annotation-rule">Filtres repliés sur 375px — libère l'espace pour les résultats</div><div class="annotation-nielsen">Mobile best practice</div></div>
+          </div>
+        </div>
+        <div class="annotation-panel" style="margin-top:12px;">
+          <div class="panel-header">⚙️ Composants Drupal</div>
+          <div class="panel-body">
+            <table class="drupal-table">
+              <tr><th>Composant</th><th>Implémentation</th></tr>
+              <tr><td>Filtres exposés</td><td>Views — sku, fiber_type, packaging</td></tr>
+              <tr><td>AJAX Views</td><td>use_ajax: true · autosubmit: true</td></tr>
+              <tr><td>Chips actifs</td><td>catalog-filters.js — updateActiveFilterChips()</td></tr>
+              <tr><td>Deep-link URL</td><td>history.replaceState() sur ajaxSuccess</td></tr>
+              <tr><td>Taxonomies</td><td>fiber_type + packaging vocabularies</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="wf003-mobile" style="display:none;margin-top:16px;">
+      <div class="mobile-device">
+        <div class="mobile-screen">
+          <div class="mobile-header"><span class="mobile-logo">≡ Company-Test</span><span>🛒(2)</span></div>
+          <div class="mobile-body">
+            <div class="mobile-section"><strong style="font-size:11px;">Câbles FTTH</strong></div>
+            <div class="mobile-card" style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:10px;font-weight:600;">Filtres ▼</span>
+              <span style="font-size:9px;color:var(--primary);">2 actifs</span>
+            </div>
+            <div style="margin:6px 0;"><span class="chip" style="font-size:9px;">OM4 ×</span><span class="chip" style="font-size:9px;">100m ×</span></div>
+            <div class="mobile-card"><div style="font-size:9px;color:var(--text-muted);">REF-AG-2042</div><div style="font-size:10px;font-weight:600;">Câble OM4 50/125 Bobine 100m</div><div style="font-size:11px;font-weight:700;color:var(--primary);">48,50 € HT</div></div>
+            <div class="mobile-card"><div style="font-size:9px;color:var(--text-muted);">REF-AG-2043</div><div style="font-size:10px;font-weight:600;">Câble OM4 50/125 Bobine 300m</div><div style="font-size:11px;font-weight:700;color:var(--primary);">138,00 € HT</div></div>
+            <div style="text-align:center;font-size:10px;color:var(--text-muted);padding:8px;">12 produits — [1] [2] [3] [4]</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== WF-008 — TARIFS NÉGOCIÉS ======================== -->
+  <div id="wf008" class="wf-section">
+    <div class="wf-header">
+      <div>
+        <h2>WF-008 — Tarifs Négociés par Client B2B</h2>
+        <div class="us-ref">US : <strong>US-008</strong> — Prix négociés affichés sur fiche produit et panier · Breakpoints : 1280px + 375px</div>
+      </div>
+      <div class="state-switcher">
+        <button class="state-btn active" onclick="showState('wf008','negotiated',this)">Tarif négocié</button>
+        <button class="state-btn" onclick="showState('wf008','standard',this)">Tarif B2B standard</button>
+        <button class="state-btn" onclick="showState('wf008','backoffice',this)">Back-office admin</button>
+      </div>
+    </div>
+    <div class="handoff-meta">
+      <div class="meta-chip">📱 <strong>Breakpoints :</strong> 1280px · 375px</div>
+      <div class="meta-chip">🔗 <strong>US liée :</strong> US-008</div>
+      <div class="meta-chip">⚙️ <strong>Drupal :</strong> CustomerPriceSubscriber · Priority +10</div>
+      <div class="meta-chip">👤 <strong>Personas :</strong> Thomas (acheteur) · Isabelle (admin)</div>
+    </div>
+    <div class="viewport-toggle">
+      <button class="vp-btn active" onclick="showViewport('wf008','desktop',this)">🖥 Desktop 1280px</button>
+      <button class="vp-btn" onclick="showViewport('wf008','mobile',this)">📱 Mobile 375px</button>
+    </div>
+
+    <div id="wf008-desktop" class="canvas-wrap">
+      <div class="canvas-main">
+        <div id="wf008-negotiated" class="wf-frame">
+          <div class="wf-header-bar"><div class="wf-logo">Company-Test</div><div class="wf-nav"><span class="wf-nav-item active">Catalogue</span><span class="wf-cart">🛒 (0)</span><span class="wf-user">Thomas M. ▾</span></div></div>
+          <div class="wf-breadcrumb">Catalogue › Câbles FTTH › <strong>Câble NYY-J 4x16mm²</strong></div>
+          <div class="wf-body" style="display:flex;gap:20px;">
+            <div style="width:220px;flex-shrink:0;">
+              <div style="background:#e2e8f0;height:160px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#94a3b8;border:1px solid var(--border);">IMAGE PRODUIT</div>
+              <div style="font-size:9px;color:var(--text-muted);text-align:center;margin-top:6px;">REF-AG-4520</div>
+            </div>
+            <div style="flex:1;">
+              <div style="font-size:15px;font-weight:700;margin-bottom:2px;">Câble électrique NYY-J 4x16mm² — Bobine 100m</div>
+              <div style="font-size:11px;color:var(--text-muted);margin-bottom:14px;">REF-AG-4520 · Stock : disponible</div>
+              <div class="price-box">
+                <div style="font-size:10px;font-weight:700;color:var(--success);margin-bottom:6px;">💰 Votre tarif négocié</div>
+                <div class="price-old">Prix public HT : 58,50 €</div>
+                <div style="font-size:11px;color:var(--text-muted);text-decoration:line-through;margin-bottom:6px;">Prix B2B standard : 48,50 €</div>
+                <div class="price-negotiated">★ 38,90 € HT / bobine</div>
+                <div class="price-savings">Économie : -9,60 € vs tarif B2B (-19,8%)</div>
+              </div>
+              <div style="font-size:11px;font-weight:600;margin-bottom:6px;">Conditionnement :</div>
+              <div style="display:flex;gap:8px;margin-bottom:12px;">
+                <div style="border:2px solid var(--primary);background:var(--primary-light);border-radius:4px;padding:5px 12px;font-size:11px;font-weight:600;">Bobine 100m — 38,90 €</div>
+                <div style="border:1px solid var(--border);border-radius:4px;padding:5px 12px;font-size:11px;color:var(--text-muted);">Bobine 300m — 105,00 €</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+                <span style="font-size:11px;font-weight:600;">Quantité :</span>
+                <div style="border:1px solid var(--border);border-radius:4px;overflow:hidden;display:flex;">
+                  <button style="width:28px;background:#f1f5f9;border:none;font-size:14px;padding:4px;">−</button>
+                  <input style="width:52px;border:none;border-left:1px solid var(--border);border-right:1px solid var(--border);text-align:center;font-size:11px;font-weight:600;padding:4px;" value="1">
+                  <button style="width:28px;background:#f1f5f9;border:none;font-size:14px;padding:4px;">+</button>
+                </div>
+                <span style="font-size:10px;color:var(--text-muted);">bobines</span>
+              </div>
+              <button class="btn-primary" style="width:100%;padding:12px;font-size:13px;">Ajouter au panier — 38,90 € HT →</button>
+            </div>
+          </div>
+        </div>
+        <div id="wf008-standard" class="wf-frame" style="display:none;">
+          <div class="wf-header-bar"><div class="wf-logo">Company-Test</div><div class="wf-nav"><span class="wf-cart">🛒 (0)</span><span class="wf-user">Jean D. ▾</span></div></div>
+          <div class="wf-body" style="display:flex;gap:20px;">
+            <div style="width:220px;flex-shrink:0;"><div style="background:#e2e8f0;height:160px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#94a3b8;border:1px solid var(--border);">IMAGE PRODUIT</div></div>
+            <div style="flex:1;">
+              <div style="font-size:15px;font-weight:700;margin-bottom:2px;">Câble électrique NYY-J 4x16mm²</div>
+              <div style="font-size:11px;color:var(--text-muted);margin-bottom:14px;">REF-AG-4520</div>
+              <div style="font-size:14px;font-weight:700;color:var(--primary);margin-bottom:12px;">48,50 € HT / bobine 100m <span style="font-size:10px;color:var(--text-muted);font-weight:400;">(tarif B2B)</span></div>
+              <button class="btn-primary" style="width:100%;padding:12px;font-size:13px;">Ajouter au panier — 48,50 € HT →</button>
+            </div>
+          </div>
+        </div>
+        <div id="wf008-backoffice" class="wf-frame" style="display:none;">
+          <div class="wf-header-bar"><div class="wf-logo">Company-Test BACK-OFFICE</div><div class="wf-nav"><span class="wf-user">Isabelle R. (admin) ▾</span></div></div>
+          <div class="wf-body">
+            <div style="font-size:13px;font-weight:700;margin-bottom:4px;">Prix négociés — Thomas Mercier (ID#42) — Électricité Mercier SARL</div>
+            <div style="font-size:10px;color:var(--text-muted);margin-bottom:12px;">Administration › Utilisateurs › Thomas Mercier › Prix négociés</div>
+            <table class="table-wf" style="margin-bottom:12px;">
+              <tr><th>Variation produit</th><th>Produit</th><th>Prix HT (€)</th><th>Action</th></tr>
+              <tr><td><span style="font-family:monospace;font-size:10px;">REF-AG-4520</span></td><td style="font-size:11px;">Câble NYY-J 4x16mm² Bobine 100m</td><td><strong>38,90 €</strong></td><td><span style="color:var(--primary);font-size:10px;cursor:pointer;">Modifier</span> · <span style="color:var(--error);font-size:10px;cursor:pointer;">×</span></td></tr>
+              <tr><td><span style="font-family:monospace;font-size:10px;">REF-AG-4521</span></td><td style="font-size:11px;">Câble NYY-J 4x16mm² Bobine 300m</td><td><strong>105,00 €</strong></td><td><span style="color:var(--primary);font-size:10px;cursor:pointer;">Modifier</span> · <span style="color:var(--error);font-size:10px;cursor:pointer;">×</span></td></tr>
+              <tr><td><span style="font-family:monospace;font-size:10px;">REF-AG-7801</span></td><td style="font-size:11px;">Disjoncteur 40A 30mA Pièce</td><td><strong>18,50 €</strong></td><td><span style="color:var(--primary);font-size:10px;cursor:pointer;">Modifier</span> · <span style="color:var(--error);font-size:10px;cursor:pointer;">×</span></td></tr>
+              <tr style="background:#f8fafc;"><td colspan="2"><input style="border:1px solid var(--border);border-radius:3px;padding:4px 8px;font-size:10px;width:300px;" placeholder="Rechercher une variation produit..."></td><td><input style="border:1px solid var(--border);border-radius:3px;padding:4px 8px;font-size:10px;width:80px;" placeholder="0,00"></td><td><button class="btn-primary" style="font-size:10px;padding:4px 10px;">+ Ajouter</button></td></tr>
+            </table>
+            <button class="btn-primary">Enregistrer les prix négociés</button>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">📝 Annotations UX</div>
+          <div class="panel-body">
+            <div class="annotation-item success"><div class="annotation-zone">Bloc tarif négocié mis en évidence</div><div class="annotation-rule">Thomas identifie immédiatement son avantage — fond vert + étoile</div><div class="annotation-nielsen">Nielsen #1 — Visibilité + Motivation</div></div>
+            <div class="annotation-item"><div class="annotation-zone">Prix barré (standard) vs prix négocié</div><div class="annotation-rule">Valorise l'économie sans calcul — Thomas voit la différence en €/%</div><div class="annotation-nielsen">Convention e-commerce B2B</div></div>
+            <div class="annotation-item"><div class="annotation-zone">Fallback silencieux si pas de tarif négocié</div><div class="annotation-rule">Jean Dupont voit le tarif B2B standard sans message d'erreur</div><div class="annotation-nielsen">Nielsen #7 — Flexibilité</div></div>
+            <div class="annotation-item warn"><div class="annotation-zone">Autocomplete variation back-office</div><div class="annotation-rule">Isabelle saisit le début du SKU sans naviguer dans le catalogue</div><div class="annotation-nielsen">Efficacité admin</div></div>
+          </div>
+        </div>
+        <div class="annotation-panel" style="margin-top:12px;">
+          <div class="panel-header">⚙️ Composants Drupal</div>
+          <div class="panel-body">
+            <table class="drupal-table">
+              <tr><th>Composant</th><th>Implémentation</th></tr>
+              <tr><td>Prix négocié</td><td>CustomerPriceSubscriber — priority +10</td></tr>
+              <tr><td>Prix barré</td><td>commerce_price formatter + Twig custom</td></tr>
+              <tr><td>Calcul économie</td><td>Twig — ((std-neg)/std*100)|round(1)</td></tr>
+              <tr><td>Back-office form</td><td>NegotiatedPriceAdminForm — entity_autocomplete</td></tr>
+              <tr><td>Stockage JSON</td><td>field_prix_negocie — Map field sur User</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="wf008-mobile" style="display:none;margin-top:16px;">
+      <div class="mobile-device">
+        <div class="mobile-screen">
+          <div class="mobile-header"><span class="mobile-logo">≡ Company-Test</span><span>🛒(0)</span></div>
+          <div class="mobile-body">
+            <div class="mobile-section" style="background:#e2e8f0;height:80px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#94a3b8;border-radius:4px;">IMAGE</div>
+            <div class="mobile-section"><strong style="font-size:11px;">Câble NYY-J 4x16mm²</strong><br><span style="font-size:9px;color:var(--text-muted);">REF-AG-4520</span></div>
+            <div class="mobile-card" style="background:#f0fdf4;border:1px solid #86efac;">
+              <div style="font-size:9px;font-weight:700;color:var(--success);">💰 Votre tarif négocié</div>
+              <div style="font-size:9px;text-decoration:line-through;color:var(--text-muted);margin-top:3px;">48,50 €</div>
+              <div style="font-size:14px;font-weight:700;color:var(--success);">★ 38,90 € HT</div>
+              <div style="font-size:9px;color:var(--success);">Éco. -19,8%</div>
+            </div>
+            <div class="mobile-btn" style="position:sticky;bottom:0;">Ajouter au panier — 38,90 € HT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== WF-019 — FRAIS LIVRAISON ======================== -->
+  <div id="wf019" class="wf-section">
+    <div class="wf-header">
+      <div>
+        <h2>WF-019 — Calcul Frais de Livraison Automatique</h2>
+        <div class="us-ref">US : <strong>US-019</strong> — Calcul automatique des frais (Chronopost / Colissimo) · Breakpoints : 1280px + 375px</div>
+      </div>
+      <div class="state-switcher">
+        <button class="state-btn active" onclick="showState('wf019','nominal',this)">Méthodes affichées</button>
+        <button class="state-btn warn-btn" onclick="showState('wf019','loading',this)">Calcul en cours</button>
+        <button class="state-btn error-btn" onclick="showState('wf019','fallback',this)">Fallback grille locale</button>
+      </div>
+    </div>
+    <div class="handoff-meta">
+      <div class="meta-chip">📱 <strong>Breakpoints :</strong> 1280px · 375px</div>
+      <div class="meta-chip">🔗 <strong>US liée :</strong> US-019</div>
+      <div class="meta-chip">⚙️ <strong>Drupal :</strong> ShippingRateCalculatorService · Redis Cache</div>
+      <div class="meta-chip">👤 <strong>Persona :</strong> Thomas Mercier (acheteur B2B)</div>
+    </div>
+    <div class="viewport-toggle">
+      <button class="vp-btn active" onclick="showViewport('wf019','desktop',this)">🖥 Desktop 1280px</button>
+      <button class="vp-btn" onclick="showViewport('wf019','mobile',this)">📱 Mobile 375px</button>
+    </div>
+
+    <div id="wf019-desktop" class="canvas-wrap">
+      <div class="canvas-main">
+        <div id="wf019-nominal" class="wf-frame">
+          <div class="wf-header-bar"><div class="wf-logo">Company-Test</div><div class="wf-nav"><span class="wf-cart">🛒 (3)</span><span class="wf-user">Thomas M. ▾</span></div></div>
+          <div class="wf-body" style="display:flex;gap:20px;">
+            <div style="flex:1;">
+              <div style="display:flex;margin-bottom:16px;">
+                <div class="step done">✓ 1. Adresse</div>
+                <div class="step active">● 2. Livraison</div>
+                <div class="step">○ 3. Paiement</div>
+              </div>
+              <div style="font-size:12px;font-weight:600;margin-bottom:4px;">Livraison vers :</div>
+              <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">Chantier Porte de la Défense — 92400 Courbevoie</div>
+              <div style="font-size:11px;color:var(--text-muted);margin-bottom:14px;">Poids estimé : 4,2 kg &nbsp;·&nbsp; <span style="color:var(--primary);cursor:pointer;">Modifier l'adresse</span></div>
+              <hr style="border:none;border-top:1px solid var(--border);margin-bottom:14px;">
+              <div style="font-size:12px;font-weight:600;margin-bottom:10px;">Choisissez une méthode de livraison :</div>
+              <div class="delivery-option selected">
+                <div class="delivery-label"><div class="radio-dot checked"></div><div><div style="font-size:11px;font-weight:600;">🚚 Chronopost Express 24h</div><div class="delivery-sub">Livraison demain avant 13h · Recommandé</div></div></div>
+                <div class="delivery-price">12,00 € HT</div>
+              </div>
+              <div class="delivery-option">
+                <div class="delivery-label"><div class="radio-dot"></div><div><div style="font-size:11px;font-weight:600;">📦 Colissimo Standard 3-5 jours</div><div class="delivery-sub">Livraison estimée : 26/05/2026</div></div></div>
+                <div style="font-weight:700;color:var(--text-muted);">7,50 € HT</div>
+              </div>
+              <div class="alert alert-info" style="margin-top:12px;"><div class="alert-icon">ℹ</div><div>Tarifs calculés selon le poids (4,2 kg) et le code postal (92400). Les frais incluent le conditionnement des câbles.</div></div>
+              <div style="margin-top:16px;"><button class="btn-primary" style="padding:12px 24px;font-size:13px;">Continuer vers Paiement →</button></div>
+            </div>
+            <div class="summary-box" style="width:260px;flex-shrink:0;align-self:flex-start;">
+              <div class="section-sub-title">Récapitulatif</div>
+              <div class="summary-row"><span>Câble NYY-J ×3</span><span>145,50 € HT</span></div>
+              <div class="summary-row"><span>Gaine ICTA ×10</span><span>72,00 € HT</span></div>
+              <div class="summary-row"><span>Disjoncteur ×5</span><span>110,00 € HT</span></div>
+              <div class="summary-row"><span>Sous-total HT</span><span>327,50 €</span></div>
+              <div class="summary-row"><span>TVA (20%)</span><span>65,50 €</span></div>
+              <div class="summary-row"><span>Livraison Chronopost</span><span>12,00 €</span></div>
+              <div class="summary-row total"><span>TOTAL TTC</span><span>405,00 €</span></div>
+            </div>
+          </div>
+        </div>
+        <div id="wf019-loading" class="wf-frame" style="display:none;">
+          <div class="wf-header-bar"><div class="wf-logo">Company-Test</div><div class="wf-nav"><span class="wf-cart">🛒 (3)</span></div></div>
+          <div class="wf-body">
+            <div class="alert alert-info"><div class="alert-icon">⟳</div><div><strong>Calcul des frais de livraison en cours...</strong>Interrogation de l'API Chronopost pour 92400 Courbevoie · 4,2 kg</div></div>
+            <div style="opacity:0.3;">
+              <div class="delivery-option"><div class="delivery-label"><div class="radio-dot"></div><div style="font-size:11px;">Chronopost Express 24h</div></div><div style="width:60px;height:14px;background:#e2e8f0;border-radius:3px;"></div></div>
+              <div class="delivery-option"><div class="delivery-label"><div class="radio-dot"></div><div style="font-size:11px;">Colissimo Standard</div></div><div style="width:60px;height:14px;background:#e2e8f0;border-radius:3px;"></div></div>
+            </div>
+          </div>
+        </div>
+        <div id="wf019-fallback" class="wf-frame" style="display:none;">
+          <div class="wf-header-bar"><div class="wf-logo">Company-Test</div><div class="wf-nav"><span class="wf-cart">🛒 (3)</span></div></div>
+          <div class="wf-body">
+            <div class="alert alert-warning"><div class="alert-icon">⚠</div><div><strong>Tarifs indicatifs</strong>Le service en ligne est temporairement indisponible. Le tarif final sera confirmé à la validation.</div></div>
+            <div class="delivery-option selected"><div class="delivery-label"><div class="radio-dot checked"></div><div><div style="font-size:11px;font-weight:600;">🚚 Chronopost Express 24h</div><div class="delivery-sub">Délai indicatif : J+1</div></div></div><div class="delivery-price">12,00 € HT <span style="font-size:9px;">(estimé)</span></div></div>
+            <div class="delivery-option"><div class="delivery-label"><div class="radio-dot"></div><div><div style="font-size:11px;font-weight:600;">📦 Colissimo Standard</div><div class="delivery-sub">Délai indicatif : 3-5 jours</div></div></div><div style="font-weight:700;color:var(--text-muted);">7,50 € HT <span style="font-size:9px;">(estimé)</span></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">📝 Annotations UX</div>
+          <div class="panel-body">
+            <div class="annotation-item"><div class="annotation-zone">2 méthodes max au checkout</div><div class="annotation-rule">Évite la paralysie décisionnelle pour Thomas sous pression chantier</div><div class="annotation-nielsen">Nielsen #8 — Minimalisme</div></div>
+            <div class="annotation-item success"><div class="annotation-zone">Date concrète (22/05 avant 13h)</div><div class="annotation-rule">"Demain avant 13h" actionnable vs "J+1" abstrait — Thomas planifie ses réceptions</div><div class="annotation-nielsen">Nielsen #1 — Visibilité</div></div>
+            <div class="annotation-item"><div class="annotation-zone">Total TTC mis à jour dynamiquement</div><div class="annotation-rule">Récapitulatif recalculé quand Thomas change de méthode livraison</div><div class="annotation-nielsen">Nielsen #1 — Feedback système</div></div>
+            <div class="annotation-item warn"><div class="annotation-zone">Fallback non bloquant</div><div class="annotation-rule">API indisponible ≠ tunnel cassé — Thomas continue avec tarif estimé</div><div class="annotation-nielsen">Nielsen #9 — Aide à la récupération</div></div>
+          </div>
+        </div>
+        <div class="annotation-panel" style="margin-top:12px;">
+          <div class="panel-header">⚙️ Composants Drupal</div>
+          <div class="panel-body">
+            <table class="drupal-table">
+              <tr><th>Composant</th><th>Implémentation</th></tr>
+              <tr><td>Étape Livraison</td><td>commerce_checkout — ShippingInformationPane</td></tr>
+              <tr><td>Calcul tarifs</td><td>ShippingRateCalculatorService — Redis TTL 3600s</td></tr>
+              <tr><td>Plugin Chronopost</td><td>ChronopostShippingMethod plugin Commerce</td></tr>
+              <tr><td>Fallback</td><td>getFallbackRate() — catch API exception</td></tr>
+              <tr><td>Récapitulatif AJAX</td><td>ShippingRatesEvent → order summary recalc</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="wf019-mobile" style="display:none;margin-top:16px;">
+      <div class="mobile-device">
+        <div class="mobile-screen">
+          <div class="mobile-header"><span class="mobile-logo">≡ Company-Test</span><span>🛒(3)</span></div>
+          <div class="mobile-body">
+            <div style="display:flex;margin-bottom:10px;">
+              <div style="flex:1;text-align:center;font-size:8px;background:#dcfce7;color:var(--success);padding:4px;border-radius:2px;">✓ Adresse</div>
+              <div style="flex:1;text-align:center;font-size:8px;background:var(--primary);color:white;padding:4px;">● Livraison</div>
+              <div style="flex:1;text-align:center;font-size:8px;background:#f1f5f9;color:var(--text-muted);padding:4px;border-radius:2px;">○ Paiement</div>
+            </div>
+            <div class="mobile-card" style="border:2px solid var(--primary);background:var(--primary-light);">
+              <div style="display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:10px;font-weight:600;">🚚 Chronopost Express 24h</div><div style="font-size:9px;color:var(--text-muted);">Demain avant 13h</div></div><strong style="color:var(--primary);">12,00 €</strong></div>
+            </div>
+            <div class="mobile-card">
+              <div style="display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:10px;">📦 Colissimo 3-5 jours</div><div style="font-size:9px;color:var(--text-muted);">26/05/2026</div></div><span style="font-size:10px;color:var(--text-muted);">7,50 €</span></div>
+            </div>
+            <hr style="border:none;border-top:1px solid var(--border);margin:8px 0;">
+            <div class="summary-row"><span style="font-size:10px;">Sous-total HT</span><span style="font-size:10px;">327,50 €</span></div>
+            <div class="summary-row"><span style="font-size:10px;">Livraison</span><span style="font-size:10px;">12,00 €</span></div>
+            <div class="summary-row" style="border-top:1px solid var(--border);margin-top:6px;padding-top:6px;"><span style="font-size:11px;font-weight:700;">TOTAL TTC</span><span style="font-size:11px;font-weight:700;">407,40 €</span></div>
+            <div class="mobile-btn" style="position:sticky;bottom:0;">Continuer → 407,40 €</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== WF-021 — SUIVI TRANSPORTEUR ======================== -->
+  <div id="wf021" class="wf-section">
+    <div class="wf-header">
+      <div>
+        <h2>WF-021 — Suivi Transporteur et Email d'Expédition</h2>
+        <div class="us-ref">US : <strong>US-021</strong> — Email automatique + numéro de suivi après expédition · Breakpoints : 1280px + 375px</div>
+      </div>
+      <div class="state-switcher">
+        <button class="state-btn active" onclick="showState('wf021','email',this)">Email expédition</button>
+        <button class="state-btn" onclick="showState('wf021','account',this)">Espace client (suivi)</button>
+        <button class="state-btn" onclick="showState('wf021','backoffice',this)">Back-office (saisie)</button>
+      </div>
+    </div>
+    <div class="handoff-meta">
+      <div class="meta-chip">📱 <strong>Breakpoints :</strong> 1280px · 375px</div>
+      <div class="meta-chip">🔗 <strong>US liée :</strong> US-021</div>
+      <div class="meta-chip">⚙️ <strong>Drupal :</strong> OrderShippedSubscriber · SendGrid · Twig email</div>
+      <div class="meta-chip">👤 <strong>Personas :</strong> Thomas (acheteur) · Isabelle (admin)</div>
+    </div>
+    <div class="viewport-toggle">
+      <button class="vp-btn active" onclick="showViewport('wf021','desktop',this)">🖥 Desktop 1280px</button>
+      <button class="vp-btn" onclick="showViewport('wf021','mobile',this)">📱 Mobile 375px</button>
+    </div>
+
+    <div id="wf021-desktop" class="canvas-wrap">
+      <div class="canvas-main">
+        <div id="wf021-email" class="wf-frame">
+          <div class="wf-header-bar" style="background:#475569;"><div style="color:white;font-size:10px;">✉ <strong>De :</strong> noreply@Company-Test.fr &nbsp;·&nbsp; <strong>Objet :</strong> Votre commande CMD-1042 a été expédiée — Company-Test</div></div>
+          <div class="wf-body">
+            <div class="email-template">
+              <div class="email-header-bar">Company-Test — Votre commande est en route !</div>
+              <div class="email-body">
+                <p style="margin-bottom:10px;">Bonjour <strong>Thomas Mercier</strong>,</p>
+                <p style="margin-bottom:12px;">Bonne nouvelle ! Votre commande <strong>N° CMD-1042</strong> a bien été expédiée.</p>
+                <div class="tracking-box">
+                  <div style="font-size:11px;font-weight:700;margin-bottom:8px;">🚚 Informations d'expédition</div>
+                  <div style="font-size:10px;margin-bottom:4px;"><strong>Transporteur :</strong> Chronopost Express</div>
+                  <div style="font-size:10px;margin-bottom:4px;"><strong>Numéro de suivi :</strong> <span class="tracking-number">XK123456789FR</span></div>
+                  <div style="font-size:10px;margin-bottom:4px;"><strong>Expédition :</strong> 21/05/2026</div>
+                  <div style="font-size:10px;margin-bottom:12px;"><strong>Livraison estimée :</strong> 22/05/2026 avant 13h</div>
+                  <div style="font-size:10px;margin-bottom:8px;"><strong>Adresse :</strong> Chantier Porte de la Défense — 92400 Courbevoie</div>
+                  <a class="email-cta" href="#">🔍 Suivre ma livraison sur Chronopost</a>
+                </div>
+                <p style="font-size:10px;color:var(--text-muted);margin-top:10px;">Vous pouvez également suivre votre commande depuis votre <a href="#" style="color:var(--primary);">espace client →</a></p>
+                <p style="font-size:10px;margin-top:16px;">Merci pour votre confiance,<br><strong>L'équipe Company-Test</strong></p>
+                <hr style="border:none;border-top:1px solid var(--border);margin:14px 0;">
+                <p style="font-size:9px;color:var(--text-muted);">Company-Test SAS — 12 rue de la Fibre Optique — 75015 Paris · support@Company-Test.fr · +33 1 23 45 67 89</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="wf021-account" class="wf-frame" style="display:none;">
+          <div class="wf-header-bar"><div class="wf-logo">Company-Test</div><div class="wf-nav"><span class="wf-user">Thomas M. ▾</span></div></div>
+          <div class="wf-body two-col">
+            <div class="wf-sidebar" style="width:180px;"><div class="wf-section-title">Mon compte</div><div class="filter-item active"><div class="radio-dot checked"></div><span>Mes commandes</span></div><div class="filter-item"><div class="radio-dot"></div><span>Mon profil</span></div><div class="filter-item"><div class="radio-dot"></div><span>Mes adresses</span></div></div>
+            <div class="wf-content">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;"><div style="font-size:13px;font-weight:700;">Commande CMD-1042 — 20/05/2026</div><span class="badge badge-shipped">🚚 Expédiée</span></div>
+              <div style="margin-bottom:14px;">
+                <div style="font-size:11px;font-weight:700;margin-bottom:10px;">Suivi d'expédition</div>
+                <div style="display:flex;align-items:center;gap:0;margin-bottom:8px;">
+                  <div style="width:24px;height:24px;border-radius:50%;background:var(--success);display:flex;align-items:center;justify-content:center;color:white;font-size:10px;flex-shrink:0;">✓</div>
+                  <div style="flex:1;height:2px;background:var(--success);"></div>
+                  <div style="width:24px;height:24px;border-radius:50%;background:var(--success);display:flex;align-items:center;justify-content:center;color:white;font-size:10px;flex-shrink:0;">✓</div>
+                  <div style="flex:1;height:2px;background:var(--primary);"></div>
+                  <div style="width:24px;height:24px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;color:white;font-size:10px;flex-shrink:0;">●</div>
+                  <div style="flex:1;height:2px;background:var(--border);"></div>
+                  <div style="width:24px;height:24px;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;">○</div>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--text-muted);margin-bottom:10px;">
+                  <span>Confirmée<br>20/05</span><span style="text-align:center;">Préparation<br>21/05</span><span style="text-align:center;">Expédiée<br>21/05</span><span style="text-align:right;">Livrée<br>22/05 ≈</span>
+                </div>
+                <div class="alert alert-info"><div class="alert-icon">🚚</div><div><strong>Chronopost Express · XK123456789FR</strong><br><span style="font-size:9px;">Livraison estimée le 22/05/2026 avant 13h</span><br><a href="#" style="font-size:10px;color:var(--primary);">Suivre sur chronopost.fr →</a></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="wf021-backoffice" class="wf-frame" style="display:none;">
+          <div class="wf-header-bar"><div class="wf-logo">BACK-OFFICE</div><div class="wf-nav"><span class="wf-user">Isabelle R. (admin)</span></div></div>
+          <div class="wf-body">
+            <div style="font-size:13px;font-weight:700;margin-bottom:4px;">Commande CMD-1042 — Thomas Mercier</div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;"><span class="badge badge-pending">En préparation</span><span style="font-size:11px;color:var(--primary);cursor:pointer;">→ Passer à "Expédiée"</span></div>
+            <div style="font-size:12px;font-weight:600;margin-bottom:10px;">Expédition — Renseignez les informations avant de changer le statut :</div>
+            <div style="display:flex;gap:16px;margin-bottom:12px;">
+              <div style="flex:1;"><div class="label-field">Transporteur *</div><div style="display:flex;gap:10px;margin-top:4px;"><label style="display:flex;align-items:center;gap:4px;font-size:11px;"><input type="radio" checked name="carrier"> Chronopost Express</label><label style="display:flex;align-items:center;gap:4px;font-size:11px;"><input type="radio" name="carrier"> Colissimo Standard</label></div></div>
+              <div style="flex:1;"><div class="label-field">Numéro de suivi *</div><input class="input-field" value="XK123456789FR" style="margin-top:4px;"></div>
+            </div>
+            <div class="alert alert-info"><div class="alert-icon">✉</div><div><strong>Un email sera envoyé automatiquement à :</strong> thomas.mercier@mercier-elec.fr<br><span style="font-size:10px;">Le clic sur "Passer à Expédiée" déclenchera l'envoi via SendGrid.</span></div></div>
+            <button class="btn-primary" style="margin-top:12px;">Passer à "Expédiée" + Envoyer l'email →</button>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-panel">
+        <div class="annotation-panel">
+          <div class="panel-header">📝 Annotations UX</div>
+          <div class="panel-body">
+            <div class="annotation-item success"><div class="annotation-zone">CTA "Suivre ma livraison" bien visible</div><div class="annotation-rule">Thomas sur chantier — 1 clic vers Chronopost sans copier-coller</div><div class="annotation-nielsen">Nielsen #1 — Visibilité</div></div>
+            <div class="annotation-item"><div class="annotation-zone">Date de livraison concrète (22/05 avant 13h)</div><div class="annotation-rule">Thomas planifie la réception sur le chantier — pas de date vague</div><div class="annotation-nielsen">Nielsen #1 — Feedback</div></div>
+            <div class="annotation-item"><div class="annotation-zone">Double accès : email + espace client</div><div class="annotation-rule">Thomas peut perdre l'email — l'espace client est la source de vérité</div><div class="annotation-nielsen">Nielsen #7 — Flexibilité</div></div>
+            <div class="annotation-item warn"><div class="annotation-zone">Avertissement admin avant envoi email</div><div class="annotation-rule">Isabelle voit clairement que le clic déclenche l'email à Thomas</div><div class="annotation-nielsen">Nielsen #5 — Prévention erreurs</div></div>
+          </div>
+        </div>
+        <div class="annotation-panel" style="margin-top:12px;">
+          <div class="panel-header">⚙️ Composants Drupal</div>
+          <div class="panel-body">
+            <table class="drupal-table">
+              <tr><th>Composant</th><th>Implémentation</th></tr>
+              <tr><td>Déclencheur email</td><td>OrderShippedSubscriber — event ship.post_transition</td></tr>
+              <tr><td>Template email</td><td>expedition-tracking.html.twig via hook_mail()</td></tr>
+              <tr><td>Lien tracking</td><td>str_replace({tracking_number}, ...) → URL Chronopost</td></tr>
+              <tr><td>Champ suivi</td><td>field_tracking_number + field_tracking_carrier</td></tr>
+              <tr><td>Envoi</td><td>mailsystem + symfony_mailer — SendGrid SMTP</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="wf021-mobile" style="display:none;margin-top:16px;">
+      <div class="mobile-device">
+        <div class="mobile-screen">
+          <div style="background:#1e3a8a;color:white;padding:10px;font-size:11px;font-weight:700;">Company-Test</div>
+          <div class="mobile-body">
+            <div style="font-size:10px;margin-bottom:10px;">Bonjour <strong>Thomas</strong>,<br>Votre commande <strong>CMD-1042</strong> a été expédiée !</div>
+            <div class="mobile-card" style="background:#f0fdf4;border:1px solid #86efac;">
+              <div style="font-size:9px;font-weight:700;margin-bottom:6px;">🚚 Informations d'expédition</div>
+              <div style="font-size:9px;margin-bottom:3px;"><strong>Transporteur :</strong> Chronopost</div>
+              <div style="font-size:9px;margin-bottom:3px;"><strong>Suivi :</strong> <span style="font-family:monospace;font-weight:700;">XK123456789FR</span></div>
+              <div style="font-size:9px;margin-bottom:8px;"><strong>Livraison :</strong> 22/05 avant 13h</div>
+              <div class="mobile-btn" style="font-size:10px;padding:7px;">🔍 Suivre ma livraison</div>
+            </div>
+            <div style="text-align:center;margin-top:8px;"><a href="#" style="font-size:10px;color:var(--primary);">→ Mon espace client</a></div>
+            <div style="font-size:9px;color:var(--text-muted);margin-top:12px;">Merci,<br>L'équipe Company-Test</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.wf-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    const sec = document.getElementById(id);
+    if (sec) sec.classList.add('active');
+    if (btn) btn.classList.add('active');
+  }
+  function showState(wfId, stateId, btn) {
+    const wfSec = document.getElementById(wfId);
+    if (!wfSec) return;
+    const currentViewport = wfSec.querySelector('.vp-btn.active');
+    const isDesktop = !currentViewport || currentViewport.textContent.includes('Desktop');
+    if (isDesktop) {
+      wfSec.querySelectorAll('[id^="' + wfId + '-"]:not([id$="-desktop"]):not([id$="-mobile"])').forEach(el => { el.style.display = 'none'; });
+      const targetEl = document.getElementById(wfId + '-' + stateId);
+      if (targetEl) targetEl.style.display = '';
+    }
+    if (btn) {
+      btn.closest('.state-switcher').querySelectorAll('.state-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  }
+  function showViewport(wfId, viewport, btn) {
+    const desktopEl = document.getElementById(wfId + '-desktop');
+    const mobileEl = document.getElementById(wfId + '-mobile');
+    if (desktopEl) desktopEl.style.display = viewport === 'desktop' ? '' : 'none';
+    if (mobileEl) mobileEl.style.display = viewport === 'mobile' ? '' : 'none';
+    if (btn) {
+      btn.closest('.viewport-toggle').querySelectorAll('.vp-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  }
+</script>
+</body>
+</html>

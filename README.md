@@ -5,7 +5,7 @@
 
 ---
 
-## Agents disponibles (24)
+## Agents disponibles (30)
 
 ### Développement & Technique
 
@@ -20,6 +20,7 @@
 | `AGENT-DATA-SCIENTIST.md` | Data Scientist | ML, stats, modélisation, MLflow, Python |
 | `AGENT-DEVOPS-CLOUD.md` | DevOps / Cloud Engineer | CI/CD, Kubernetes, Terraform, AWS/GCP/Azure |
 | `AGENT-SECURITE-IA.md` | Expert Sécurité IA | Cybersécurité, OWASP LLM, red teaming, CISSP |
+| `AGENT-PROMPT-ENGINEER.md` | Prompt Engineer | System prompts, few-shot, CoT, RAG prompts, multimodal, evals |
 
 ### Agile, Produit & Qualité
 
@@ -32,6 +33,9 @@
 | `AGENT-QA-CYCLEV.md` | QA Cycle en V (ISTQB) | Plan de tests, recette, UAT, performance |
 | `AGENT-UX-DESIGNER.md` | UX / UI Designer | Research, Figma, wireframing, design system |
 | `AGENT-BUSINESS-ANALYST.md` | Business Analyst / MOA | Élicitation, BPMN, spécifications, recette MOA |
+| `AGENT-PRODUCT-MANAGER-SAFE.md` | Product Manager SAFe | Vision produit Programme, roadmap ART, go-to-market, WSJF |
+| `AGENT-RELEASE-TRAIN-ENGINEER.md` | Release Train Engineer | PI Planning, coordination ART, impediments, Flow Metrics, I&A |
+| `AGENT-CHANGE-MANAGER.md` | Change Manager | ADKAR, plan de communication, gestion résistances, adoption IA |
 
 ### Orchestration & Workflows
 
@@ -50,10 +54,12 @@
 | `AGENT-GROWTH-IA.md` | Growth / Marketing IA | Acquisition, automation marketing, analytics |
 | `AGENT-REDACTEUR-IA.md` | Rédacteur IA | Copywriting, SEO, prompting éditorial |
 | `AGENT-JURIDIQUE-IA.md` | Juridique IA | RGPD, AI Act, conformité, contrats IA |
+| `AGENT-FINANCIAL-ANALYST.md` | Financial Analyst | Business case IA, ROI transformation, TCO, EVM, reporting CODIR |
+| `AGENT-VEILLE-STRATEGIQUE.md` | Veille Stratégique | Veille IA/LLM, signaux faibles, benchmark outils, synthèses périodiques |
 
 ---
 
-## Skills disponibles (20 dossiers)
+## Skills disponibles (26 dossiers)
 
 ### Développement & Technique
 
@@ -79,6 +85,9 @@
 | `skills/qa_testing/` | BDD/Gherkin, ATDD, plan de tests, UAT, performance, sécurité, CI/CD |
 | `skills/ux_design/` | User research, personas, wireframing, Figma, design system, WCAG, A/B |
 | `skills/business_analyst/` | Élicitation, BPMN, UML, spécifications fonctionnelles, recette MOA |
+| `skills/product_manager_safe/` | Vision produit Programme, roadmap ART, customer-centricity, Lean Business Case, go-to-market |
+| `skills/release_train_engineer/` | Facilitation PI Planning, coordination ART, métriques Flow, Inspect & Adapt, Scrum of Scrums |
+| `skills/change_manager/` | ADKAR, analyse impact, plan de communication, gestion résistances, mesure adoption |
 
 ### Orchestration & Workflows
 
@@ -97,6 +106,9 @@
 | `skills/growth_ia/` | Acquisition, automation marketing, SEO IA, analytics, A/B testing |
 | `skills/redacteur_ia/` | Copywriting, SEO, prompting éditorial, contenus multiformat |
 | `skills/juridique_ia/` | RGPD, AI Act, conformité, contrats IA, responsabilité algorithmique |
+| `skills/financial_analyst/` | Business case IA, ROI transformation, TCO, EVM, budget projet, reporting CODIR |
+| `skills/veille_strategique/` | Veille IA/LLM, analyse tendances, signaux faibles, benchmark outils, synthèses périodiques |
+| `skills/prompt_engineer/` | System prompt design, few-shot, CoT, RAG prompts, multimodal, évaluation, optimisation coûts |
 
 ---
 
@@ -116,7 +128,7 @@ Voir `START.md` pour toutes les commandes de démarrage.
 
 ```
 claude-agents/
-├── AGENT-*.md              # 24 agents spécialisés
+├── AGENT-*.md              # 30 agents spécialisés
 ├── skills/
 │   ├── dev_ia/             # Python IA · TypeScript IA · Architect · MLOps
 │   ├── dev_drupal/         # Drupal / PHP
@@ -124,12 +136,16 @@ claude-agents/
 │   ├── data_scientist/     # Data Science & ML
 │   ├── devops_cloud/       # DevOps & Cloud
 │   ├── securite_ia/        # Cybersécurité IA
+│   ├── prompt_engineer/    # Prompt Engineering · System prompts · CoT · RAG
 │   ├── scrum/              # Product Owner Scrum
 │   ├── safe/               # Product Owner SAFe
 │   ├── scrum_master/       # Scrum Master
 │   ├── qa_testing/         # QA Agile & Cycle en V
 │   ├── ux_design/          # UX / UI Design
 │   ├── business_analyst/   # Business Analysis & MOA
+│   ├── product_manager_safe/ # Product Manager SAFe Programme
+│   ├── release_train_engineer/ # RTE · PI Planning · ART · I&A
+│   ├── change_manager/     # Change Management · ADKAR · Adoption IA
 │   ├── chef_projet_ia/     # Gestion de Projet IA
 │   ├── consultant_ia/      # Conseil IA
 │   ├── cdo_directeur_ia/   # Direction IA & Data
@@ -137,6 +153,8 @@ claude-agents/
 │   ├── growth_ia/          # Growth & Marketing IA
 │   ├── redacteur_ia/       # Rédaction IA
 │   ├── juridique_ia/       # Juridique IA
+│   ├── financial_analyst/  # Analyse Financière · Business Case · EVM
+│   ├── veille_strategique/ # Veille IA · Signaux faibles · Benchmark
 │   └── orchestrateur_workflow/ # Orchestration workflows agentiques
 └── START.md
 ```

@@ -1,0 +1,19 @@
+{
+  "name": "mcp-workflow-log",
+  "version": "1.0.0",
+  "description": "MCP Server Workflow Log — journal de bord des missions consultant (workflows, clients, livrables)",
+  "type": "module",
+  "scripts": {
+    "start": "npx tsx server.ts",
+    "build": "tsc",
+    "dev": "npx tsx --watch server.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
+}

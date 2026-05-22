@@ -27,3 +27,6 @@ sync-claude.ps1
 
 # --- Fichiers Claude internes ---
 .claudeignore
+
+# --- Brouillons release notes (temporaires) ---
+.release-notes-tmp/

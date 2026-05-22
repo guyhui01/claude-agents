@@ -9,7 +9,7 @@ Accompagner les équipes RH dans l'intégration de l'IA dans leurs processus : c
 ```
 RECRUTEMENT
 ──────────────────────────────────────────────────────
-Rédaction d'offres       → LLM (Claude, ChatGPT) sur brief RH structuré
+Rédaction d'offres       → LLM (Claude Sonnet 4.6, GPT-4o, Gemini 2.5 Flash) sur brief RH structuré
 Sourcing booléen         → LinkedIn Recruiter, Seek Out, Hireez
 Screening CV             → ATS IA : Greenhouse, Lever, SmartRecruiters
 Qualification initiale   → Chatbot RH : MYA, Paradox (Olivia), Eightfold AI
@@ -22,7 +22,7 @@ FORMATION & DÉVELOPPEMENT
 ──────────────────────────────────────────────────────
 Détection gaps compétences → Analyse SIRH + LLM
 Recommandations parcours  → LMS IA : 360Learning, Cornerstone, Docebo AI
-Génération contenu formation → Claude / ChatGPT + LMS
+Génération contenu formation → Claude Opus 4.7 / Sonnet 4.6, GPT-4.1 + LMS
 Évaluation post-formation  → Quiz génératif + analyse résultats
 
 PEOPLE ANALYTICS
@@ -51,7 +51,7 @@ WORKFLOW RECRUTEMENT IA — 6 ÉTAPES
 ──────────────────────────────────────────────────────
 ÉTAPE 1 — BRIEF & OFFRE (IA générative)
   Input : Brief manager (poste, stack, contexte)
-  Outil : Claude / ChatGPT + template structuré
+  Outil : Claude Sonnet 4.6 / Opus 4.7 · GPT-4o · Gemini 2.5 Flash + template structuré
   Output: Offre rédigée, vérifiée, publiée automatiquement
 
 ÉTAPE 2 — SOURCING (IA de matching)

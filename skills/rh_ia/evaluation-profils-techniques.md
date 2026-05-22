@@ -43,9 +43,15 @@ Score : 0-3
 
 NIVEAU 3 — Leadership & Design (seniors)
 ──────────────────────────────────────────────────────
-Q : Comment choisissez-vous entre Claude, GPT-4, Mistral pour un use case donné ?
-Réponse attendue : critères (coût, latence, context window, RGPD/on-premise, performance sur tâche)
-Score : 0-3
+Q : Comment choisissez-vous entre les LLM disponibles (Claude Opus 4.7, Sonnet 4.6, GPT-4.1, GPT-4o, Gemini 2.5 Pro, Mistral Large 2, LLaMA 3.3) pour un use case donné ?
+Réponse attendue :
+  · Tâche complexe / raisonnement profond → Claude Opus 4.7 ou GPT-4.1 (premium, coût élevé)
+  · Équilibre qualité/coût production → Claude Sonnet 4.6, GPT-4o, Gemini 2.5 Flash
+  · Volume élevé / latence critique → Claude Haiku 4.5, GPT-4o-mini, Gemini 2.0 Flash
+  · On-premise / RGPD strict → Mistral Large 2 (self-hosted), LLaMA 3.3 (open-source)
+  · Critères clés : coût/token, latence, context window, performance tâche spécifique,
+    contraintes souveraineté data, benchmarks internes (evals)
+Score : 0-3 (0 = cite 1 modèle sans critère · 3 = grille multicritère + justification)
 ```
 
 ### Questions comportementales STAR

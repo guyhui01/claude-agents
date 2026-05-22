@@ -1,6 +1,6 @@
 # Démarrage rapide — Claude Agents Library
 
-> 31 agents IA spécialisés · 27 dossiers de skills · 5 workflows · 3 serveurs MCP
+> 31 agents IA spécialisés · 30 dossiers de skills · 5 workflows · 3 serveurs MCP
 > Auteur : Guy HUIBONHOA — Adservio · [github.com/guyhui01](https://github.com/guyhui01)
 
 ---

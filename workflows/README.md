@@ -1,6 +1,6 @@
 # Workflows Agentiques — Catalogue
 
-> 5 workflows prêts à l'emploi orchestrant les 30 agents du catalogue  
+> 5 workflows prêts à l'emploi orchestrant les 31 agents du catalogue  
 > Auteur : [guyhui01](https://github.com/guyhui01) · Basé sur AGENT-ORCHESTRATEUR-WORKFLOW.md
 
 ---

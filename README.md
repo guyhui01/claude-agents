@@ -5,7 +5,7 @@
 
 ---
 
-## Agents disponibles (30)
+## Agents disponibles (31)
 
 ### Développement & Technique
 
@@ -57,18 +57,24 @@
 | `AGENT-FINANCIAL-ANALYST.md` | Financial Analyst | Business case IA, ROI transformation, TCO, EVM, reporting CODIR |
 | `AGENT-VEILLE-STRATEGIQUE.md` | Veille Stratégique | Veille IA/LLM, signaux faibles, benchmark outils, synthèses périodiques |
 
+### RH & Talent
+
+| Agent | Rôle | Skills |
+|---|---|---|
+| `AGENT-RH-IA.md` | RH IA & Talent Acquisition IT | Sourcing IT/IA, GEPP, anti-fraude CV/deepfake, ATS scoring, people analytics |
+
 ---
 
-## Skills disponibles (26 dossiers)
+## Skills disponibles (30 dossiers)
 
 ### Développement & Technique
 
 | Dossier | Contenu |
 |---|---|
-| `skills/dev_ia/python_ia/` | Python avancé, LangChain, RAG, Hugging Face, PyTorch, fine-tuning, agents |
-| `skills/dev_ia/typescript_ia/` | TypeScript IA, Next.js, Vercel AI SDK, MCP server, streaming, Edge Functions |
-| `skills/dev_ia/architect/` | Architecture RAG, multi-agents, MCP/A2A, évaluation LLM, choix stack IA |
-| `skills/dev_ia/mlops/` | MLflow, Kubeflow, DVC, monitoring drift, CI/CD ML, Feature Store |
+| `skills/dev_python_ia/` | Python avancé, LangChain, RAG, Hugging Face, PyTorch, fine-tuning, agents |
+| `skills/dev_typescript_ia/` | TypeScript IA, Next.js, Vercel AI SDK, MCP server, streaming, Edge Functions |
+| `skills/ai_architect/` | Architecture RAG, multi-agents, MCP/A2A, évaluation LLM, choix stack IA |
+| `skills/mlops_engineer/` | MLflow, Kubeflow, DVC, monitoring drift, CI/CD ML, Feature Store |
 | `skills/dev_drupal/` | Modules Drupal 10, Commerce 2.x, Twig, Config CMI, APIs REST, PHPUnit |
 | `skills/data_engineer/` | Pipelines ETL/ELT, Spark, dbt, Airflow, Kafka, Databricks, lakehouse |
 | `skills/data_scientist/` | ML supervisé/non supervisé, stats, modélisation, MLflow, Python, SQL |
@@ -110,6 +116,12 @@
 | `skills/veille_strategique/` | Veille IA/LLM, analyse tendances, signaux faibles, benchmark outils, synthèses périodiques |
 | `skills/prompt_engineer/` | System prompt design, few-shot, CoT, RAG prompts, multimodal, évaluation, optimisation coûts |
 
+### RH & Talent
+
+| Dossier | Contenu |
+|---|---|
+| `skills/rh_ia/` | Sourcing IT/IA, rédaction offres, évaluation profils, GEPP, people analytics, benchmark rémunération, transformation RH IA, anti-fraude CV/deepfake, vérification références, parsing ATS |
+
 ---
 
 ## Workflows disponibles (5)
@@ -146,9 +158,12 @@ Voir `START.md` pour toutes les commandes de démarrage.
 
 ```
 claude-agents/
-├── AGENT-*.md              # 30 agents spécialisés
+├── AGENT-*.md              # 31 agents spécialisés
 ├── skills/
-│   ├── dev_ia/             # Python IA · TypeScript IA · Architect · MLOps
+│   ├── ai_architect/       # Architecture IA · RAG · multi-agents · MCP/A2A
+│   ├── dev_python_ia/      # Python IA · LangChain · RAG · agents
+│   ├── dev_typescript_ia/  # TypeScript IA · Next.js · Vercel AI SDK · MCP
+│   ├── mlops_engineer/     # Docker · K8s · MLflow · model serving
 │   ├── dev_drupal/         # Drupal / PHP
 │   ├── data_engineer/      # Data Engineering
 │   ├── data_scientist/     # Data Science & ML
@@ -173,6 +188,7 @@ claude-agents/
 │   ├── juridique_ia/       # Juridique IA
 │   ├── financial_analyst/  # Analyse Financière · Business Case · EVM
 │   ├── veille_strategique/ # Veille IA · Signaux faibles · Benchmark
+│   ├── rh_ia/              # Recrutement IT/IA · GEPP · anti-fraude · ATS
 │   └── orchestrateur_workflow/ # Orchestration workflows agentiques
 ├── workflows/
 │   ├── README.md               # Index et grille de sélection
@@ -181,8 +197,27 @@ claude-agents/
 │   ├── WF-003-lancement-app-ia.md
 │   ├── WF-004-mission-conseil-ia.md
 │   └── WF-005-veille-growth.md
+├── mcp-servers/                # Intégrations MCP : Jira, Confluence, journal missions
+│   ├── README.md
+│   ├── mcp-jira/
+│   ├── mcp-confluence/
+│   └── mcp-workflow-log/
 └── START.md
 ```
+
+---
+
+## Intégrations MCP
+
+3 serveurs MCP permettent de pousser tes livrables directement depuis Claude Code :
+
+| Serveur | Usage |
+|---|---|
+| [mcp-jira](mcp-servers/mcp-jira/) | Créer User Stories, backlogs, epics depuis WF-001 / WF-002 |
+| [mcp-confluence](mcp-servers/mcp-confluence/) | Publier rapports et livrables depuis WF-004 |
+| [mcp-workflow-log](mcp-servers/mcp-workflow-log/) | Journal de bord missions et résumé mensuel |
+
+Installation et configuration : [mcp-servers/README.md](mcp-servers/README.md)
 
 ---
 

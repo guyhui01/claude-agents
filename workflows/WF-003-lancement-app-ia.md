@@ -14,7 +14,9 @@ domaine: "Dev & Technique"
 declencheur: "Business case validé, go-ahead pour développement d'une app IA"
 resultat_final: "Application IA déployée, pipeline CI/CD opérationnel, audit sécurité passé"
 duree_estimee: "90-180 min"
-modele_recommande: "claude-sonnet-4-6"
+modele_recommande: "claude-opus-4-7"
+modele_raison: "Workflow le plus dense du catalogue : 6 agents couvrant business case, architecture, code, CI/CD et audit sécurité sur 90-180 min. Requiert un raisonnement architectural profond et une cohérence technique bout en bout. Opus 4.7 obligatoire."
+modele_alternatif: "claude-sonnet-4-6"  # uniquement pour des apps très simples sans RAG ni agents (CRUD basique)
 agents_core:
   - FINANCIAL-ANALYST    # business case et ROI avant développement
   - PROMPT-ENGINEER      # conception des prompts LLM de l'application
@@ -55,7 +57,7 @@ CONTEXTE TECHNIQUE (à renseigner avant le démarrage)
 ──────────────────────────────────────────────────────
 Type d'app IA      : [Chatbot RAG / Agent autonome / App génération / Classification]
 Cloud provider     : [AWS / GCP / Azure / On-premise / Vercel]
-LLM cible          : [Claude Sonnet / GPT-4o / Mistral / Modèle local]
+LLM cible          : [Claude Sonnet 4.6 / Claude Opus 4.7 / Mistral Large 2 / Llama 3.1 local / Modèle on-premise]
 Stack tech         : [Python FastAPI / Next.js / LangChain / n8n / autre]
 Base de données    : [PostgreSQL / MongoDB / Pinecone / Qdrant / autre]
 Contraintes RGPD   : [Données personnelles : OUI/NON — Localisation données : EU/US]
@@ -161,7 +163,7 @@ etape:
   role: "Conception des prompts LLM de l'application"
   input:
     - "Cas d'usage principaux de l'app"
-    - "LLM cible (Claude, GPT, Mistral…)"
+    - "LLM cible (Claude Sonnet 4.6 / Opus 4.7 / Mistral Large 2 / modèle local)"
     - "Contraintes : ton, longueur réponse, langue, sécurité"
     - "Architecture envisagée (RAG / agents / chaîne simple)"
   output_attendu:

@@ -38,6 +38,7 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités de consultant IA freelance 
 - Implémentation technique → agents DEV ou MLOPS
 - Backlog produit → AGENT-PO-SCRUM.md ou AGENT-PO-SAFE.md
 - Rédaction pure → AGENT-REDACTEUR-IA.md
+- Veille IA approfondie → AGENT-VEILLE-STRATEGIQUE.md
 
 ---
 
@@ -65,7 +66,6 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités de consultant IA freelance 
 | Préparer une présentation C-level | `skills\consultant_ia\presentation-executif.md` | PROSCI · CAP IABAC |
 | Calculer le ROI d'un projet IA | `skills\consultant_ia\calcul-roi-ia.md` | PMI-ACP · CAP IABAC |
 | Cadrer un PoC IA | `skills\consultant_ia\cadrage-poc-ia.md` | Anthropic · CAP IABAC |
-| Assurer la veille IA (curation, synthèse) | `skills\consultant_ia\veille-ia.md` | Google GCDL · CAP IABAC |
 | Piloter une transformation digitale | `skills\consultant_ia\transformation-digitale.md` | PROSCI · PMI-ACP |
 
 ---

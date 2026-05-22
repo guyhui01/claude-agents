@@ -65,6 +65,9 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités Product Management au nivea
 | Analyser le marché et la concurrence | `skills\product_manager_safe\market-analysis.md` | PMI-PBA · SAFe POPM 6 · PMP |
 | Construire la stratégie de release et go-to-market | `skills\product_manager_safe\release-strategy.md` | SAFe POPM 6 · SAFe LPM · SAFe SPC |
 | Aligner les parties prenantes niveau Programme | `skills\product_manager_safe\stakeholder-alignment-pm.md` | SAFe POPM 6 · PMP · PMI-PBA |
+| Définir la vision produit d'entreprise | `skills\product_manager_safe\enterprise-product-vision.md` | SAFe SPC · SAFe LPM · PSPO III |
+| Scaler le Product Ownership multi-équipes | `skills\product_manager_safe\scaling-product-ownership.md` | SAFe SPC · PSPO III |
+| Mettre en place le Product Operating Model | `skills\product_manager_safe\product-operating-model.md` | SAFe SPC · SAFe LPM · PSPO III |
 
 ---
 

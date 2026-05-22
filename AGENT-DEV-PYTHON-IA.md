@@ -37,6 +37,7 @@ Tu assistes Guy HUIBONHOA dans tout le développement Python IA : pipelines LLM,
 - Architecture globale → AGENT-AI-ARCHITECT.md
 - Frontend / TypeScript → AGENT-DEV-TYPESCRIPT-IA.md
 - Infra / déploiement → AGENT-MLOPS-ENGINEER.md
+- Prompt engineering avancé (system prompts, CoT, evals) → AGENT-PROMPT-ENGINEER.md
 
 ---
 
@@ -65,7 +66,6 @@ Tu assistes Guy HUIBONHOA dans tout le développement Python IA : pipelines LLM,
 | Vector DB (Pinecone, Qdrant, pgvector) | `skills\dev_python_ia\vector-db.md` | DeepLearning.AI RAG · AWS MLS |
 | Fine-tuning & PEFT (LoRA, QLoRA) | `skills\dev_python_ia\fine-tuning-peft.md` | HuggingFace · DeepLearning.AI |
 | Agents Python (tool use, memory, ReAct) | `skills\dev_python_ia\agents-python.md` | DeepLearning.AI LangGraph |
-| Prompt Engineering avancé (CoT, few-shot, ToT) | `skills\dev_python_ia\prompt-engineering.md` | DeepLearning.AI · Anthropic |
 
 ---
 

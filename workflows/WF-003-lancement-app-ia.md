@@ -22,6 +22,7 @@ agents_core:
   - PROMPT-ENGINEER      # conception des prompts LLM de l'application
   - AI-ARCHITECT         # architecture système IA (RAG, agents, MCP)
   - DEV-PYTHON-IA        # développement backend / ML (ou DEV-TYPESCRIPT-IA)
+  - QA-AGILE             # tests fonctionnels & BDD avant déploiement
   - DEVOPS-CLOUD         # pipeline CI/CD, infrastructure cloud
   - SECURITE-IA          # audit sécurité, OWASP LLM Top 10
 agents_optionnels:
@@ -29,8 +30,9 @@ agents_optionnels:
   - MLOPS-ENGINEER       # si pipeline ML avec monitoring de modèle
   - JURIDIQUE-IA         # si données personnelles ou usage IA à risque
   - DATA-ENGINEER        # si ingestion données volumineuses requise
+  - PO-SCRUM             # si pilotage backlog application en cours de dev
 statut: "disponible"
-version: "1.1"
+version: "1.2"
 ```
 
 ---
@@ -43,8 +45,9 @@ version: "1.1"
 | 1 | PROMPT-ENGINEER | Conception system prompts et chaînes LLM | Prompts validés, stratégie tokens |
 | 2 | AI-ARCHITECT | Architecture système IA, choix stack | ADR, diagramme architecture |
 | 3 | DEV-PYTHON-IA | Développement backend, intégrations API | Code source, tests unitaires |
-| 4 | DEVOPS-CLOUD | Pipeline CI/CD, infra cloud, containers | Déploiement, pipeline GitHub Actions |
-| 5 | SECURITE-IA | Audit OWASP LLM, pen test, rapport sécurité | Rapport sécurité, remédiation |
+| 4 | QA-AGILE | Tests fonctionnels BDD + scénarios évaluation LLM | Plan de tests + scénarios Gherkin + evals LLM |
+| 5 | DEVOPS-CLOUD | Pipeline CI/CD, infra cloud, containers | Déploiement, pipeline GitHub Actions |
+| 6 | SECURITE-IA | Audit OWASP LLM, pen test, rapport sécurité | Rapport sécurité, remédiation |
 | opt | DEV-TYPESCRIPT-IA | Frontend Next.js / API TypeScript | UI déployée sur Vercel |
 | opt | MLOPS-ENGINEER | Monitoring modèle, MLflow, drift detection | Observabilité ML |
 
@@ -108,19 +111,30 @@ SLA cible          : [ex. 99.9% / < 2s latence]
 ═══════════════════════════
         │
         ▼
-[STEP-04 — DEVOPS-CLOUD]
+[STEP-04 — QA-AGILE]
+  Plan de tests fonctionnels,
+  scénarios Gherkin BDD,
+  evals LLM (golden dataset)
+        │
+        ▼
+<GATEWAY — Tests fonctionnels OK ?>
+  ├── NON ──▶ (Correction bugs → retour STEP-03)
+  └── OUI ──▶
+        │
+        ▼
+[STEP-05 — DEVOPS-CLOUD]
   Pipeline CI/CD,
   containerisation,
   déploiement cloud
         │
         ▼
-[STEP-05 — SECURITE-IA]
+[STEP-06 — SECURITE-IA]
   Audit OWASP LLM Top 10,
   pen test, rapport sécurité
         │
         ▼
 <GATEWAY — Audit sécurité passé ?>
-  ├── NON ──▶ (Remédiation → retour STEP-03 ou STEP-04)
+  ├── NON ──▶ (Remédiation → retour STEP-03, STEP-04 ou STEP-05)
   └── OUI ──▶
         │
         ▼
@@ -219,15 +233,38 @@ etape:
   execution: "parallèle possible avec DEV-TYPESCRIPT-IA"
 ```
 
-### STEP-04 — DEVOPS-CLOUD
+### STEP-04 — QA-AGILE
 
 ```yaml
 etape:
   id: "STEP-04"
+  agent: "AGENT-QA-AGILE"
+  role: "Tests fonctionnels & evals LLM avant déploiement"
+  input:
+    - "Code source développé (STEP-03)"
+    - "Cas d'usage principaux (STEP-01)"
+    - "System prompts production (STEP-01)"
+  output_attendu:
+    - "Scénarios Gherkin BDD pour cas nominaux + limites + erreurs"
+    - "Plan de tests fonctionnels (manuel + automatisé)"
+    - "Evals LLM : golden dataset 20-50 cas + métriques (faithfulness, relevancy)"
+    - "Tests d'acceptation des prompts (réussite ≥ 90% sur baseline)"
+    - "Rapport qualité fonctionnelle"
+  condition_passage: "Tests passants ≥ 90% + 0 bug Critical sur cas nominaux"
+  si_echec: "Retour STEP-03 (correction code) ou STEP-01 (ajustement prompts)"
+  duree_estimee: "15-25 min"
+  execution: "séquentielle après STEP-03"
+```
+
+### STEP-05 — DEVOPS-CLOUD
+
+```yaml
+etape:
+  id: "STEP-05"
   agent: "AGENT-DEVOPS-CLOUD"
   role: "Pipeline CI/CD et déploiement cloud"
   input:
-    - "Code source développé (STEP-03)"
+    - "Code source développé et testé (STEP-03 + STEP-04)"
     - "Architecture cible (STEP-02)"
     - "SLA et contraintes de déploiement"
   output_attendu:
@@ -237,14 +274,14 @@ etape:
     - "Monitoring et alertes (CloudWatch / Datadog)"
     - "Runbook déploiement et rollback"
   duree_estimee: "20-30 min"
-  execution: "séquentielle après STEP-03"
+  execution: "séquentielle après STEP-04"
 ```
 
-### STEP-05 — SECURITE-IA
+### STEP-06 — SECURITE-IA
 
 ```yaml
 etape:
-  id: "STEP-05"
+  id: "STEP-06"
   agent: "AGENT-SECURITE-IA"
   role: "Audit sécurité OWASP LLM et rapport"
   input:
@@ -274,6 +311,8 @@ CHECKLIST WF-003
 □ Architecture C4 Level 2 + ADR
 □ Code source documenté (Python et/ou TypeScript)
 □ Tests unitaires (coverage > 80%)
+□ Scénarios Gherkin BDD + plan de tests fonctionnels
+□ Evals LLM : golden dataset + métriques (faithfulness, relevancy)
 □ Dockerfile + docker-compose
 □ Pipeline CI/CD GitHub Actions opérationnel
 □ Infrastructure as Code déployée

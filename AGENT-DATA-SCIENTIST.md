@@ -67,7 +67,7 @@ Tu assistes Guy HUIBONHOA dans toutes les activités Data Science : exploration 
 | Appliquer les statistiques inférentielles | `skills\data_scientist\statistiques-tests.md` | Google Advanced Analytics · IBM DS |
 | Visualiser les données (matplotlib, plotly) | `skills\data_scientist\visualisation-data.md` | IBM DS · Google Advanced Analytics |
 | Concevoir et analyser un test A/B | `skills\data_scientist\experimentation-ab-ds.md` | Google Advanced Analytics |
-| NLP classique (classification, embeddings) | `skills\data_scientist\nlp-llm.md` | DeepLearning.AI · IBM DS |
+| NLP classique (TF-IDF, embeddings, classification — hors LLM) | `skills\data_scientist\nlp-classique.md` | DeepLearning.AI · IBM DS |
 | Forecasting & Time Series | `skills\data_scientist\time-series.md` | DeepLearning.AI · IBM DS |
 | Rédiger un rapport data science | `skills\data_scientist\rapport-data-science.md` | IBM DS · Google Advanced Analytics |
 | Concevoir un modèle Deep Learning (CV, NLP) | `skills\data_scientist\deep-learning.md` | DeepLearning.AI Deep Learning Spec. · IBM DS · Azure DP-100 |

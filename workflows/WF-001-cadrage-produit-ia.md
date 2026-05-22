@@ -22,8 +22,11 @@ agents_optionnels:
   - CHANGE-MANAGER       # si transformation organisationnelle impliquée
   - PRODUCT-MANAGER-SAFE # si contexte SAFe / multi-équipes
   - JURIDIQUE-IA         # si données personnelles ou AI Act concerné
+  - AI-ARCHITECT         # si produit IA-natif (RAG, agents, multi-modèles)
+  - PROMPT-ENGINEER      # si conception de prompts ou agents IA dans le périmètre
+  - FINANCIAL-ANALYST    # si business case et chiffrage ROI requis dès le cadrage
 statut: "disponible"
-version: "1.1"
+version: "1.2"
 ```
 
 ---
@@ -38,6 +41,9 @@ version: "1.1"
 | 4 | QA-AGILE | Critères d'acceptation + cas de test BDD | Scénarios Gherkin validés |
 | opt | CHANGE-MANAGER | Plan d'adoption si changement organisationnel | ADKAR assessment, plan comm |
 | opt | PRODUCT-MANAGER-SAFE | Alignement vision Programme si ART | Epic SAFe, Lean Business Case |
+| opt | AI-ARCHITECT | Esquisse d'architecture cible si produit IA-natif | Schéma archi C4 Level 1, choix LLM |
+| opt | PROMPT-ENGINEER | Conception baseline de prompts si IA | System prompt v0, stratégie tokens |
+| opt | FINANCIAL-ANALYST | Business case léger pour go/no-go | ROI estimé, payback, scénarios |
 
 ---
 

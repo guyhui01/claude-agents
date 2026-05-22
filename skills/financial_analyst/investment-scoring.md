@@ -1,0 +1,90 @@
+# Skill — Scoring et Priorisation des Investissements
+> Certifications : SAFe LPM (Scaled Agile), CFA Level I (CFA Institute), PMI-PBA (PMI), FRM (GARP)
+
+## Objectif
+Scorer et prioriser un portefeuille d'investissements IT/IA — grilles multicritères, WSJF portfolio, scoring risque/valeur — pour allouer les budgets aux projets à plus fort impact stratégique.
+
+## Grille de scoring multicritères — Template
+
+| Critère | Poids | Projet A | Projet B | Projet C |
+|---|---|---|---|---|
+| Alignement stratégique | 25% | 9 | 6 | 8 |
+| ROI estimé (3 ans) | 25% | 8 | 9 | 5 |
+| Faisabilité technique | 20% | 7 | 8 | 9 |
+| Time-to-Value | 15% | 6 | 9 | 7 |
+| Niveau de risque (inv.) | 15% | 7 | 6 | 8 |
+| **Score pondéré** | | **7.5** | **7.6** | **7.3** |
+| **Rang** | | **2** | **1** | **3** |
+
+## WSJF Portfolio — Niveau Epic
+
+```yaml
+wsjf_portfolio:
+  periode: "PI-12 à PI-14"
+  budget_disponible: 500_000
+  
+  epics:
+    - id: "EPIC-01"
+      titre: "Module Formation IA"
+      bv: 8
+      tc: 6
+      rr_oe: 5
+      taille_jours: 80
+      cod: 19
+      wsjf: 2.4
+      rang: 3
+      
+    - id: "EPIC-02"
+      titre: "Scoring CV IA"
+      bv: 10
+      tc: 9
+      rr_oe: 7
+      taille_jours: 50
+      cod: 26
+      wsjf: 5.2
+      rang: 1
+      budget_estime: 150_000
+      
+    - id: "EPIC-03"
+      titre: "Intégration SIRH"
+      bv: 7
+      tc: 8
+      rr_oe: 6
+      taille_jours: 60
+      cod: 21
+      wsjf: 3.5
+      rang: 2
+      budget_estime: 180_000
+      
+  sequence_recommandee: ["EPIC-02", "EPIC-03", "EPIC-01"]
+  budget_phases_1_2: 330_000  # Dans l'enveloppe
+```
+
+## Matrice Risque / Valeur
+
+```
+                    VALEUR ÉLEVÉE
+                         │
+  QUICK WIN             │    PROJET STRATÉGIQUE
+  (Faire rapidement)    │    (Investir prioritairement)
+  Risque faible,        │    Risque élevé, valeur élevée
+  valeur élevée         │
+────────────────────────┼────────────────────────────────
+  Risque FAIBLE         │    Risque ÉLEVÉ
+────────────────────────┼────────────────────────────────
+  REMPLISSAGE           │    ÉVITER
+  (Faire si capacité)   │    (Reporter ou ne pas faire)
+  Risque faible,        │    Risque élevé,
+  valeur faible         │    valeur faible
+                         │
+                    VALEUR FAIBLE
+```
+
+## Livrables
+- Grille de scoring multicritères complète
+- WSJF portfolio documenté
+- Matrice Risque / Valeur
+- Recommandation de priorisation motivée
+
+## Format de sortie
+Précise : liste des projets / epics à scorer, critères de décision stratégiques, budget disponible, contraintes de capacité.

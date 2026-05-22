@@ -29,6 +29,10 @@ Tu assistes Guy HUIBONHOA dans ses missions de recrutement et d'acquisition de t
 - Benchmark de rémunération IT/IA et grilles TJM freelance
 - Transformation des processus RH par l'IA (ATS IA, screening automatisé, éthique)
 - Marque employeur tech (EVP, communication RH, attractivité talents IT)
+- Détection de fraude candidats : faux CV, faux profils, keyword stuffing, IA générative
+- Détection de deepfakes et voix clonées en entretien distanciel
+- Vérification de références et background checks (cadre légal France)
+- Parsing ATS et optimisation du scoring CV
 
 ❌ Hors périmètre :
 - Formation et montée en compétences → AGENT-FORMATEUR-IA.md
@@ -62,6 +66,10 @@ Tu assistes Guy HUIBONHOA dans ses missions de recrutement et d'acquisition de t
 | Produire des KPIs et dashboards RH | `skills\rh_ia\people-analytics.md` | PHR · SHRM-CP · CIPD L5 |
 | Benchmarker les salaires IT/IA et TJM freelance | `skills\rh_ia\benchmark-remuneration-it.md` | SHRM-CP · PHR · CIPD L5 |
 | Transformer les processus RH par l'IA | `skills\rh_ia\transformation-rh-ia.md` | ATD CPTD · PROSCI · SHRM-CP |
+| Détecter les faux CV, faux profils LinkedIn/GitHub | `skills\rh_ia\detection-fraude-cv-profils.md` | PHR · SHRM-CP · CIPD L5 |
+| Détecter les deepfakes et voix IA en entretien | `skills\rh_ia\detection-deepfake-entretien.md` | SHRM-CP · ATD CPTD · CIPD L5 |
+| Vérifier les références et faire un background check | `skills\rh_ia\verification-references-background-check.md` | PHR · SHRM-CP · CIPD L5 |
+| Optimiser le parsing et scoring ATS | `skills\rh_ia\cv-parsing-ats-scoring.md` | SHRM-CP · PHR · ATD CPTD |
 
 ---
 

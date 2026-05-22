@@ -14,7 +14,9 @@ domaine: "Agile & Produit"
 declencheur: "Lancement d'un PI Planning ou démarrage d'un sprint ART"
 resultat_final: "PI Objectives validés + Program Backlog WSJF + Plan sprint + Reporting CODIR"
 duree_estimee: "60-120 min"
-modele_recommande: "claude-sonnet-4-6"
+modele_recommande: "claude-opus-4-7"
+modele_raison: "Workflow dense : 6 agents, orchestration ART multi-équipes, WSJF, PI Planning, dépendances croisées et reporting CODIR. Opus 4.7 est nécessaire pour la profondeur de raisonnement SAFe et la cohérence des outputs sur l'ensemble de la chaîne."
+modele_alternatif: "claude-sonnet-4-6"  # acceptable pour des contextes ART simples (1-2 équipes, PI connu)
 agents_core:
   - PRODUCT-MANAGER-SAFE  # vision Programme, roadmap ART
   - RELEASE-TRAIN-ENGINEER # facilitation PI Planning, coordination ART

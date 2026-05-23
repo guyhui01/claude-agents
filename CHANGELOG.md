@@ -5,6 +5,20 @@
 
 ---
 
+## [2.3.3] — 2026-05-23 — Skill dédié Planning Poker (Scrum Master)
+
+### 🎯 Contexte
+La méthode Planning Poker était mentionnée dans 5 fichiers (po-backlog, po-user-story, facilitation-ateliers-sm, feature-to-story-splitting, planification-hybride) sans skill dédié. Création d'un skill complet rattaché au SCRUM-MASTER (facilitateur officiel de l'atelier) avec cross-links depuis les agents PO.
+
+### ✨ Ajouté
+- `skills/scrum_master/planning-poker.md` — Fibonacci complet (avec ? ∞ ☕), procédure d'animation pas-à-pas, référentiel d'US d'ancrage, facilitation remote (Planning Poker Online, Scrum Poker, Miro), 5 alternatives (T-shirt, #NoEstimates, Affinity, Magic Estimation, Bucket System), anti-patterns (anchoring, HiPPO, conversion SP→heures), adaptation SAFe (NSP + PI Planning)
+
+### 🔧 Modifié
+- `AGENT-SCRUM-MASTER.md` — 1 ligne ajoutée dans la table skills
+- `skills/scrum/po-backlog.md` — Section estimation recentrée sur le rôle PO (4 lignes), renvoi vers le skill dédié pour les détails techniques (suppression doublon)
+
+---
+
 ## [2.3.2] — 2026-05-23 — Couverture SAFe Epic → Feature → Story
 
 ### 🎯 Contexte

@@ -72,6 +72,7 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités Scrum Master : facilitation
 | Suivre les métriques Agile | `skills\scrum_master\metriques-agiles.md` | PSM II · SAFe SASM |
 | Animer une rétrospective avancée | `skills\scrum_master\retrospective-avancee.md` | PSM II · A-CSM · ICAgile ICP-ATF |
 | Faciliter un atelier d'équipe | `skills\scrum_master\facilitation-ateliers-sm.md` | ICAgile ICP-ATF · A-CSM |
+| Animer un Planning Poker (estimation collective Fibonacci, alternatives, remote, adaptation SAFe) | `skills\scrum_master\planning-poker.md` | PSM I · CSM · A-CSM · SAFe SSM · ICAgile ICP-ATF |
 | Jouer le rôle SM en contexte SAFe | `skills\scrum_master\scaling-safe-ssm.md` | SAFe SSM · SAFe SASM |
 | Coacher le Product Owner | `skills\scrum_master\coaching-po-sm.md` | PSM II · PSM III · A-CSM |
 | Piloter l'amélioration continue | `skills\scrum_master\amelioration-continue.md` | PSM III · SAFe SASM |

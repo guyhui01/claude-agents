@@ -46,27 +46,13 @@ Une User Story est prête à entrer en sprint si :
 - [ ] Dépendances techniques / API identifiées
 - [ ] Données nécessaires accessibles (jeu de test)
 
-## Estimation — Planning Poker (Fibonacci)
+## Estimation — Rôle du PO
 
-```
-1 — 2 — 3 — 5 — 8 — 13 — 21 — ? (trop complexe → à découper)
-```
+Le PO **n'estime pas** : il clarifie l'US, répond aux questions de l'équipe pendant l'atelier et veille à ce que la DoR soit valide pour permettre l'estimation. L'équipe Dev estime collectivement, le Scrum Master facilite.
 
-### Règles d'animation
+**Méthode de référence : Planning Poker (Fibonacci 1, 2, 3, 5, 8, 13, 21, ?, ∞).**
 
-- L'équipe estime, **pas le PO** (le PO clarifie la US, c'est tout)
-- Vote simultané (révéler en même temps)
-- Discussion des écarts > 2 paliers Fibonacci
-- Re-vote jusqu'à convergence
-- 13+ → suspect : challenger la US (peut-être 2 US masquées)
-
-### Alternatives à connaître
-
-| Méthode | Quand l'utiliser |
-|---|---|
-| **T-shirt sizing (S/M/L/XL)** | Backlog grossier, early stage |
-| **#NoEstimates** | Équipe mature, US toujours découpées en ~1j |
-| **Affinity estimation** | > 30 US à estimer en bloc (atelier 90 min) |
+> 🔗 Détails facilitation + alternatives (T-shirt, #NoEstimates, Affinity, Magic Estimation, Bucket System) + adaptation SAFe + outils remote : voir `skills/scrum_master/planning-poker.md`
 
 ## Backlog Refinement (Grooming)
 

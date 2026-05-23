@@ -27,7 +27,7 @@
 
 | Agent | Rôle | Skills |
 |---|---|---|
-| `AGENT-PO-SCRUM.md` | Product Owner Scrum | Backlog, user stories, DoD, cérémonies Scrum |
+| `AGENT-PO-SCRUM.md` | Product Owner Scrum | Backlog, user stories, priorisation (MoSCoW/RICE/Kano), story mapping, DoD |
 | `AGENT-PO-SAFE.md` | Product Owner SAFe | PI Planning, ART, WSJF, portfolio epics |
 | `AGENT-SCRUM-MASTER.md` | Scrum Master | Facilitation, coaching équipe, métriques agiles |
 | `AGENT-QA-AGILE.md` | QA Agile (ISTQB) | BDD/Gherkin, ATDD, tests exploratoires, CI/CD |
@@ -86,7 +86,7 @@
 
 | Dossier | Contenu |
 |---|---|
-| `skills/scrum/` | User stories, backlog, sprint planning, review, rétrospective, KPI, EBM |
+| `skills/scrum/` | User stories, backlog, priorisation (MoSCoW/RICE/Kano), story mapping, DoR/DoD, KPI, EBM |
 | `skills/safe/` | PI Planning, WSJF, features, ART, portfolio epics, OKR SAFe |
 | `skills/scrum_master/` | Facilitation cérémonies, coaching équipe, métriques agiles, scaling |
 | `skills/qa_testing/` | BDD/Gherkin, ATDD, plan de tests, UAT, performance, sécurité, CI/CD |

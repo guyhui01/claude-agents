@@ -1,6 +1,6 @@
 # Démarrage rapide — Claude Agents Library
 
-> 31 agents IA spécialisés · 30 dossiers de skills · 5 workflows · 3 serveurs MCP
+> 31 agents IA spécialisés · 30 dossiers de skills · 7 workflows · 3 serveurs MCP
 > Auteur : Guy HUIBONHOA — Adservio · [github.com/guyhui01](https://github.com/guyhui01)
 
 ---
@@ -31,6 +31,8 @@ Charge ensuite workflows/WF-001-cadrage-produit-ia.md et lance le workflow.
 | [WF-003](workflows/WF-003-lancement-app-ia.md) | Lancement Application IA | Conception → déploiement | 90-180 min |
 | [WF-004](workflows/WF-004-mission-conseil-ia.md) | Mission Conseil IA | Audit + roadmap client | 60-90 min |
 | [WF-005](workflows/WF-005-veille-growth.md) | Veille & Growth | Veille marché + plan d'action | 30-60 min |
+| [WF-006](workflows/WF-006-avant-vente-proposition-commerciale.md) | Avant-vente / Proposition commerciale | RFP → proposition technico-commerciale | 75-120 min |
+| [WF-008](workflows/WF-008-audit-conformite-ia-act-rgpd.md) | Audit conformité IA Act / RGPD | Audit système IA + plan remédiation | 90-150 min |
 
 Index complet : [workflows/README.md](workflows/README.md)
 

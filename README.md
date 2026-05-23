@@ -124,7 +124,7 @@
 
 ---
 
-## Workflows disponibles (5)
+## Workflows disponibles (7)
 
 | ID | Workflow | Domaine | Agents | Durée |
 |---|---|---|---|---|
@@ -133,6 +133,8 @@
 | [WF-003](workflows/WF-003-lancement-app-ia.md) | Lancement Application IA | Dev & Technique | 5-6 | 90-180 min |
 | [WF-004](workflows/WF-004-mission-conseil-ia.md) | Mission Conseil IA | Management & Conseil | 6 | 60-90 min |
 | [WF-005](workflows/WF-005-veille-growth.md) | Veille Stratégique & Growth | Management & Conseil | 3-4 | 30-60 min |
+| [WF-006](workflows/WF-006-avant-vente-proposition-commerciale.md) | Avant-vente / Proposition commerciale | Management & Conseil | 6-9 | 75-120 min |
+| [WF-008](workflows/WF-008-audit-conformite-ia-act-rgpd.md) | Audit conformité IA Act / RGPD | Conformité & Gouvernance | 7-9 | 90-150 min |
 
 Voir `workflows/README.md` pour le guide de sélection complet.
 
@@ -196,7 +198,9 @@ claude-agents/
 │   ├── WF-002-delivery-safe.md
 │   ├── WF-003-lancement-app-ia.md
 │   ├── WF-004-mission-conseil-ia.md
-│   └── WF-005-veille-growth.md
+│   ├── WF-005-veille-growth.md
+│   ├── WF-006-avant-vente-proposition-commerciale.md
+│   └── WF-008-audit-conformite-ia-act-rgpd.md
 ├── mcp-servers/                # Intégrations MCP : Jira, Confluence, journal missions
 │   ├── README.md
 │   ├── mcp-jira/

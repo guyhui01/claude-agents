@@ -8,10 +8,33 @@
 ## [Non publié]
 
 ### Planifié
-- M1 — Workflow WF-006 Avant-vente / Proposition commerciale
-- M2 — Workflow WF-008 Audit conformité IA Act / RGPD
 - M3 — Tag méthodologie sur skills `qa_testing/`
+- M4 — Clarifier frontière PO-SAFE vs PM-SAFE
 - M5 — Enrichissement skills IA-spécifiques pour FORMATEUR-IA
+
+---
+
+## [2.1.0] — 2026-05-23 — Workflows avant-vente & conformité IA
+
+### 🎯 Contexte
+Exécution des recommandations M1 et M2 de l'audit stratégique du 2026-05-22. Création de deux nouveaux workflows à forte valeur commerciale et réglementaire, conçus avec Opus 4.7 pour garantir la qualité du raisonnement multi-dimensions (chiffrage commercial pour WF-006, qualification AI Act / RGPD pour WF-008).
+
+### ✨ Ajouté
+- `workflows/WF-006-avant-vente-proposition-commerciale.md` — RFP → qualification BANT → cadrage → architecture → planning → chiffrage → proposition commerciale (6 agents core + 3 optionnels, 75-120 min)
+- `workflows/WF-008-audit-conformite-ia-act-rgpd.md` — Cartographie obligations → audit architecture/sécurité/données → gouvernance cible → plan de remédiation (7 agents core + 2 optionnels, 90-150 min)
+
+### 🔧 Modifié
+- `README.md` — Compteur workflows 5 → 7 + tableau workflows + structure du repo
+- `START.md` — Compteur en-tête 5 → 7 workflows + tableau workflows disponibles
+- `workflows/README.md` — Compteur 5 → 7 + grille de sélection rapide + vue d'ensemble
+
+### 📊 Statistiques après ajout
+| Métrique | Avant | Après |
+|---|---|---|
+| Agents | 31 | 31 |
+| Dossiers de skills | 30 | 30 |
+| Workflows | 5 | 7 |
+| Domaines couverts | 3 | 4 (+ Conformité & Gouvernance) |
 
 ---
 

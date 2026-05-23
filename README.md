@@ -5,7 +5,7 @@
 
 ---
 
-## Agents disponibles (31)
+## Agents disponibles (32)
 
 ### Développement & Technique
 
@@ -15,6 +15,7 @@
 | `AGENT-DEV-TYPESCRIPT-IA.md` | Développeur TypeScript IA | Next.js, Vercel AI SDK, MCP, streaming |
 | `AGENT-DEV-DRUPAL-PHP.md` | Développeur Drupal / PHP | Modules custom, Commerce, Twig, PHPUnit |
 | `AGENT-AI-ARCHITECT.md` | Architecte IA | RAG, multi-agents, MCP/A2A, évaluation LLM |
+| `AGENT-SOLUTIONS-ARCHITECT.md` | Solutions Architect (Entreprise) | TOGAF, ArchiMate, urbanisme SI, BDAT, roadmap transformation |
 | `AGENT-MLOPS-ENGINEER.md` | MLOps Engineer | MLflow, Kubeflow, monitoring modèles, CI/CD ML |
 | `AGENT-DATA-ENGINEER.md` | Data Engineer | Pipelines ETL, Spark, dbt, Airflow, Kafka |
 | `AGENT-DATA-SCIENTIST.md` | Data Scientist | ML, stats, modélisation, MLflow, Python |
@@ -65,7 +66,7 @@
 
 ---
 
-## Skills disponibles (30 dossiers)
+## Skills disponibles (31 dossiers)
 
 ### Développement & Technique
 
@@ -121,10 +122,11 @@
 | Dossier | Contenu |
 |---|---|
 | `skills/rh_ia/` | Sourcing IT/IA, rédaction offres, évaluation profils, GEPP, people analytics, benchmark rémunération, transformation RH IA, anti-fraude CV/deepfake, vérification références, parsing ATS |
+| `skills/solutions_architect/` | TOGAF ADM, ArchiMate 3, urbanisme SI, architecture BDAT, patterns intégration, migration cloud, gouvernance ARB, roadmap transformation SI |
 
 ---
 
-## Workflows disponibles (7)
+## Workflows disponibles (10)
 
 | ID | Workflow | Domaine | Agents | Durée |
 |---|---|---|---|---|
@@ -134,7 +136,10 @@
 | [WF-004](workflows/WF-004-mission-conseil-ia.md) | Mission Conseil IA | Management & Conseil | 6 | 60-90 min |
 | [WF-005](workflows/WF-005-veille-growth.md) | Veille Stratégique & Growth | Management & Conseil | 3-4 | 30-60 min |
 | [WF-006](workflows/WF-006-avant-vente-proposition-commerciale.md) | Avant-vente / Proposition commerciale | Management & Conseil | 6-9 | 75-120 min |
+| [WF-007](workflows/WF-007-onboarding-mission-j1.md) | Onboarding Mission J1 | Management & Conseil | 4 | 45-75 min |
 | [WF-008](workflows/WF-008-audit-conformite-ia-act-rgpd.md) | Audit conformité IA Act / RGPD | Conformité & Gouvernance | 7-9 | 90-150 min |
+| [WF-009](workflows/WF-009-recrutement-it-ia.md) | Recrutement IT / IA | RH & Talent | 4-7 | 60-90 min |
+| [WF-010](workflows/WF-010-post-mortem-projet.md) | Post-mortem Projet | Management & Conseil | 4-7 | 45-75 min |
 
 Voir `workflows/README.md` pour le guide de sélection complet.
 
@@ -160,7 +165,7 @@ Voir `START.md` pour toutes les commandes de démarrage.
 
 ```
 claude-agents/
-├── AGENT-*.md              # 31 agents spécialisés
+├── AGENT-*.md              # 32 agents spécialisés
 ├── skills/
 │   ├── ai_architect/       # Architecture IA · RAG · multi-agents · MCP/A2A
 │   ├── dev_python_ia/      # Python IA · LangChain · RAG · agents
@@ -191,6 +196,7 @@ claude-agents/
 │   ├── financial_analyst/  # Analyse Financière · Business Case · EVM
 │   ├── veille_strategique/ # Veille IA · Signaux faibles · Benchmark
 │   ├── rh_ia/              # Recrutement IT/IA · GEPP · anti-fraude · ATS
+│   ├── solutions_architect/ # TOGAF · ArchiMate · Urbanisme SI · BDAT · roadmap transformation
 │   └── orchestrateur_workflow/ # Orchestration workflows agentiques
 ├── workflows/
 │   ├── README.md               # Index et grille de sélection
@@ -200,7 +206,10 @@ claude-agents/
 │   ├── WF-004-mission-conseil-ia.md
 │   ├── WF-005-veille-growth.md
 │   ├── WF-006-avant-vente-proposition-commerciale.md
-│   └── WF-008-audit-conformite-ia-act-rgpd.md
+│   ├── WF-007-onboarding-mission-j1.md
+│   ├── WF-008-audit-conformite-ia-act-rgpd.md
+│   ├── WF-009-recrutement-it-ia.md
+│   └── WF-010-post-mortem-projet.md
 ├── mcp-servers/                # Intégrations MCP : Jira, Confluence, journal missions
 │   ├── README.md
 │   ├── mcp-jira/

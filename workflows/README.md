@@ -1,6 +1,6 @@
 # Workflows Agentiques — Catalogue
 
-> 7 workflows prêts à l'emploi orchestrant les 31 agents du catalogue  
+> 10 workflows prêts à l'emploi orchestrant les 32 agents du catalogue  
 > Auteur : [guyhui01](https://github.com/guyhui01) · Basé sur AGENT-ORCHESTRATEUR-WORKFLOW.md
 
 ---
@@ -16,12 +16,15 @@ Quel est ton objectif principal ?
   Conseiller / transformer un client            → WF-004
   Veiller / communiquer / développer l'activité → WF-005
   Répondre à un RFP / construire une proposition → WF-006
+  Démarrer une nouvelle mission (J1-J5)          → WF-007
   Auditer la conformité IA Act / RGPD            → WF-008
+  Recruter un profil IT / IA                     → WF-009
+  Clôturer un projet / produire un REX           → WF-010
 ```
 
 ---
 
-## Vue d'ensemble des 7 workflows
+## Vue d'ensemble des 10 workflows
 
 | ID | Nom | Domaine | Agents | Durée |
 |---|---|---|---|---|
@@ -31,10 +34,10 @@ Quel est ton objectif principal ?
 | [WF-004](WF-004-mission-conseil-ia.md) | Mission Conseil IA | Management & Conseil | 6 | 60-90 min |
 | [WF-005](WF-005-veille-growth.md) | Veille Stratégique & Growth | Management & Conseil | 3-4 | 30-60 min |
 | [WF-006](WF-006-avant-vente-proposition-commerciale.md) | Avant-vente / Proposition commerciale | Management & Conseil | 6-9 | 75-120 min |
+| [WF-007](WF-007-onboarding-mission-j1.md) | Onboarding Mission J1 | Management & Conseil | 4 | 45-75 min |
 | [WF-008](WF-008-audit-conformite-ia-act-rgpd.md) | Audit conformité IA Act / RGPD | Conformité & Gouvernance | 7-9 | 90-150 min |
-
-> ℹ️ **WF-007 réservé** — Onboarding mission J1-J5 (CHEF-PROJET + BA + REDACTEUR + CHANGE).
-> Recommandation L5 de l'audit du 2026-05-22, non encore implémenté.
+| [WF-009](WF-009-recrutement-it-ia.md) | Recrutement IT / IA | RH & Talent | 4-7 | 60-90 min |
+| [WF-010](WF-010-post-mortem-projet.md) | Post-mortem Projet | Management & Conseil | 4-7 | 45-75 min |
 
 ---
 

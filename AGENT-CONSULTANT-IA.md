@@ -64,7 +64,7 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités de consultant IA freelance 
 | Construire une feuille de route IA | `skills\consultant_ia\feuille-route-ia.md` | CAP IABAC · Azure AI-900 |
 | Réaliser un benchmark de solutions IA | `skills\consultant_ia\benchmark-solutions-ia.md` | AWS CCP · Google GCDL · Azure AZ-900 |
 | Préparer une présentation C-level | `skills\consultant_ia\presentation-executif.md` | PROSCI · CAP IABAC |
-| Calculer le ROI d'un projet IA | `skills\consultant_ia\calcul-roi-ia.md` | PMI-ACP · CAP IABAC |
+| Estimer rapidement le ROI d'un projet IA | `skills\consultant_ia\estimation-roi-rapide.md` | PMI-ACP · CAP IABAC |
 | Cadrer un PoC IA | `skills\consultant_ia\cadrage-poc-ia.md` | Anthropic · CAP IABAC |
 | Piloter une transformation digitale | `skills\consultant_ia\transformation-digitale.md` | PROSCI · PMI-ACP |
 

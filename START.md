@@ -1,6 +1,6 @@
 # Démarrage rapide — Claude Agents Library
 
-> 31 agents IA spécialisés · 30 dossiers de skills · 7 workflows · 3 serveurs MCP
+> 32 agents IA spécialisés · 31 dossiers de skills · 10 workflows · 3 serveurs MCP
 > Auteur : Guy HUIBONHOA — Adservio · [github.com/guyhui01](https://github.com/guyhui01)
 
 ---
@@ -32,7 +32,10 @@ Charge ensuite workflows/WF-001-cadrage-produit-ia.md et lance le workflow.
 | [WF-004](workflows/WF-004-mission-conseil-ia.md) | Mission Conseil IA | Audit + roadmap client | 60-90 min |
 | [WF-005](workflows/WF-005-veille-growth.md) | Veille & Growth | Veille marché + plan d'action | 30-60 min |
 | [WF-006](workflows/WF-006-avant-vente-proposition-commerciale.md) | Avant-vente / Proposition commerciale | RFP → proposition technico-commerciale | 75-120 min |
+| [WF-007](workflows/WF-007-onboarding-mission-j1.md) | Onboarding Mission J1 | Prise de poste → kit d'intégration mission | 45-75 min |
 | [WF-008](workflows/WF-008-audit-conformite-ia-act-rgpd.md) | Audit conformité IA Act / RGPD | Audit système IA + plan remédiation | 90-150 min |
+| [WF-009](workflows/WF-009-recrutement-it-ia.md) | Recrutement IT / IA | Brief poste → shortlist profilée | 60-90 min |
+| [WF-010](workflows/WF-010-post-mortem-projet.md) | Post-mortem Projet | Clôture → rapport REX + actions | 45-75 min |
 
 Index complet : [workflows/README.md](workflows/README.md)
 
@@ -45,8 +48,9 @@ Lis le fichier AGENT-<NOM>.md et adopte ce rôle.
 Confirme que tu es prêt en listant les skills disponibles.
 ```
 
-### Dev & Technique (10)
+### Dev & Technique (11)
 - `AGENT-AI-ARCHITECT.md` — Architecture IA, RAG, multi-agents, MCP/A2A
+- `AGENT-SOLUTIONS-ARCHITECT.md` — Architecture d'entreprise, TOGAF, urbanisme SI, roadmap transformation
 - `AGENT-DEV-PYTHON-IA.md` — Python IA, LangChain, RAG, agents
 - `AGENT-DEV-TYPESCRIPT-IA.md` — TS IA, Next.js, Vercel AI SDK, MCP
 - `AGENT-DEV-DRUPAL-PHP.md` — Drupal 10, Commerce 2.x, modules custom

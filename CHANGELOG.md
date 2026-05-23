@@ -5,6 +5,49 @@
 
 ---
 
+## [2.3.0] — 2026-05-23 — Nouvel agent Solutions Architect + 10 nouveaux skills + 3 workflows RH/Ops
+
+### 🎯 Contexte
+Exécution des recommandations M6 et L1–L7 de l'audit stratégique du 2026-05-22.
+
+### ✨ Ajouté
+- `AGENT-SOLUTIONS-ARCHITECT.md` — Nouvel agent Architecture d'Entreprise (TOGAF 10, ArchiMate 3, AWS SAP-C02, AZ-305, CITA-A, CISSP)
+- `skills/solutions_architect/togaf-adm.md` — 9 phases ADM, Architecture Vision, principes d'architecture
+- `skills/solutions_architect/archimate-modeling.md` — 3 couches, viewpoints par audience, relations essentielles, outils
+- `skills/solutions_architect/urbanisme-si.md` — 3 vues (métier/fonctionnel/technique), référentiel applicatif, plan urbanisme
+- `skills/solutions_architect/architecture-bdat.md` — Couches B/D/A/T, check de traçabilité BDAT
+- `skills/solutions_architect/integration-patterns.md` — API Management, EDA, ESB→iPaaS, microservices
+- `skills/solutions_architect/migration-cloud.md` — Framework 6R, 4 phases, TCO, wave planning
+- `skills/solutions_architect/gouvernance-architecturale.md` — ARB, Tech Radar, métriques de gouvernance
+- `skills/solutions_architect/roadmap-transformation-si.md` — Horizon Now/Next/Later, 6 axes, grille de priorisation
+- `skills/prompt_engineer/evals-llm-observability.md` — 4 niveaux d'évals, LLM Ops stack, gestion du drift
+- `skills/devops_cloud/incident-response-llm.md` — Taxonomie P0-P3, runbook 5 phases, OWASP LLM Top 10
+- `workflows/WF-007-onboarding-mission-j1.md` — Prise de poste → kit d'intégration mission (4 agents, 45-75 min)
+- `workflows/WF-009-recrutement-it-ia.md` — Brief poste → shortlist profilée (4-7 agents, 60-90 min)
+- `workflows/WF-010-post-mortem-projet.md` — Clôture projet → rapport REX + plan d'actions (4-7 agents, 45-75 min)
+
+### 🔧 Modifié
+- `AGENT-CONSULTANT-IA.md` — Skill renommé `calcul-roi-ia` → `estimation-roi-rapide` (nom plus actionable)
+- `skills/consultant_ia/calcul-roi-ia.md` → `estimation-roi-rapide.md` — Renommage via `git mv`
+- `AGENT-PROMPT-ENGINEER.md` — Skill `evals-llm-observability.md` ajouté dans la table
+- `AGENT-DEVOPS-CLOUD.md` — Skill `incident-response-llm.md` ajouté dans la table
+- `AGENT-ORCHESTRATEUR-WORKFLOW.md` — SOLUTIONS-ARCHITECT ajouté au catalogue, compteur 30 → 32 agents
+- `README.md` — Compteurs 31→32 agents, 30→31 dossiers, 7→10 workflows + ajouts table agents/skills/workflows/tree
+- `START.md` — Compteurs mis à jour, Dev & Technique 10→11, workflows 7→10
+- `workflows/README.md` — 7→10 workflows, sélection rapide + vue d'ensemble mis à jour
+
+### 📊 Statistiques après M6/L1-L7
+| Métrique | Avant | Après |
+|---|---|---|
+| Agents | 31 | 32 |
+| Dossiers de skills | 30 | 31 |
+| Workflows | 7 | 10 |
+| Skills solutions_architect/ | 0 | 8 |
+| Skills prompt_engineer/ | 7 | 8 |
+| Skills devops_cloud/ | 10 | 11 |
+
+---
+
 ## [2.2.0] — 2026-05-23 — Tags QA, frontière SAFe, enrichissement FORMATEUR-IA
 
 ### 🎯 Contexte

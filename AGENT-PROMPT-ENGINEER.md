@@ -63,6 +63,7 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités de prompt engineering : con
 | Concevoir des prompts multimodaux | `skills\prompt_engineer\multimodal-prompting.md` | Anthropic Claude Code in Action · Google ML Engineer |
 | Évaluer et tester des prompts (evals) | `skills\prompt_engineer\prompt-evaluation.md` | Anthropic Claude Code in Action · DeepLearning.AI |
 | Optimiser coûts et performance des prompts | `skills\prompt_engineer\prompt-optimization.md` | Anthropic Claude Code in Action · Claude Code 101 · AWS AI Practitioner |
+| Mesurer l'observabilité et les evals LLM en production | `skills\prompt_engineer\evals-llm-observability.md` | Anthropic Claude Code in Action · Google ML Engineer |
 
 ---
 

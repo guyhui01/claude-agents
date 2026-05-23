@@ -70,6 +70,7 @@ Tu assistes Guy HUIBONHOA dans toute l'infrastructure cloud et les pratiques Dev
 | Architecturer sur Azure | `skills\devops_cloud\azure-architecture.md` | AZ-400 · AZ-305 |
 | Sécuriser le pipeline DevOps (DevSecOps) | `skills\devops_cloud\securite-devops.md` | CKS · AWS DevOps · AZ-400 |
 | Optimiser les coûts cloud (FinOps) | `skills\devops_cloud\finops-cloud.md` | AWS SA · Google Cloud Architect · AZ-305 |
+| Gérer les incidents LLM en production | `skills\devops_cloud\incident-response-llm.md` | ITIL 4 · CKS · AWS DevOps DOP-C02 |
 
 ---
 

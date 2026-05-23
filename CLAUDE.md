@@ -7,7 +7,7 @@
 
 ## Identité du projet
 
-Bibliothèque de **31 agents IA spécialisés** + **30 dossiers de skills** + **5 workflows agentiques** + **3 serveurs MCP**, utilisée par Guy HUIBONHOA (Product Owner IA freelance, Adservio) pour ses missions de conseil IT/IA chez ses clients CAC40, GAFA, licornes, scaleups et PME.
+Bibliothèque de **32 agents IA spécialisés** + **31 dossiers de skills** + **10 workflows agentiques** + **3 serveurs MCP**, utilisée par Guy HUIBONHOA (Product Owner IA freelance, Adservio) pour ses missions de conseil IT/IA chez ses clients CAC40, GAFA, licornes, scaleups et PME.
 
 ---
 

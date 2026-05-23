@@ -5,6 +5,19 @@
 
 ---
 
+## [2.3.4] — 2026-05-23 — Stories techniques Scrum (tech debt, spikes, infra)
+
+### 🎯 Contexte
+Les Enabler Stories étaient déjà couvertes côté SAFe (`feature-to-story-splitting.md` v2.3.2) mais rien côté Scrum pur. Ajout d'1 skill rattaché à PO-SCRUM pour combler le gap (missions PME / startups / ESN équipe unique) avec encadré de renvoi vers SAFe.
+
+### ✨ Ajouté
+- `skills/scrum/stories-techniques.md` — 3 types (Tech Debt, Spike, Infra), template de rédaction adapté (pas de Connextra), INVEST adapté par type, DoR spécifique, règle des 15-20% capacité, signaux d'alerte, anti-patterns + encadré "En contexte SAFe → Enabler Stories officielles" avec mapping vers les 4 types SAFe
+
+### 🔧 Modifié
+- `AGENT-PO-SCRUM.md` — 1 ligne ajoutée dans la table skills
+
+---
+
 ## [2.3.3] — 2026-05-23 — Skill dédié Planning Poker (Scrum Master)
 
 ### 🎯 Contexte

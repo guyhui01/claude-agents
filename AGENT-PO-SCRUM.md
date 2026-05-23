@@ -79,6 +79,7 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités de Product Owner Scrum : vi
 | Gérer le Product Backlog (structure, DoR, refinement) | `skills\scrum\po-backlog.md` | PSPO I · PSPO II |
 | Prioriser le backlog (MoSCoW, RICE, Kano, Value/Effort, Buy a Feature, 100$, Opportunity Scoring) | `skills\scrum\priorisation-techniques.md` | PSPO II · PSPO III · ICAgile ICP-APO |
 | Animer un atelier User Story Mapping (Jeff Patton) | `skills\scrum\story-mapping.md` | PSPO II · PSU-I · ICAgile ICP-APO |
+| Rédiger des stories techniques (tech debt, spikes, infra) | `skills\scrum\stories-techniques.md` | PSPO I · PSPO II · ICAgile ICP-APO |
 | Rédiger des tests d'acceptation | `skills\scrum\po-acceptance-tests.md` | PSPO I |
 | Définir la DoR et la DoD | `skills\scrum\dor-dod.md` | PSPO I · PSPO II · PSU-I |
 | Intégrer l'UX dans le sprint (Dual Track) | `skills\scrum\ux-sprint.md` | PSU-I |

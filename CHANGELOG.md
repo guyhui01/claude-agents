@@ -5,6 +5,45 @@
 
 ---
 
+## [2.3.2] — 2026-05-23 — Couverture SAFe Epic → Feature → Story
+
+### 🎯 Contexte
+Comblement de la lacune SAFe sur la cascade Epic → Feature → User Story. Alternative pragmatique à la création d'un agent EPIC-OWNER dédié : enrichissement de PO-SAFE + PM-SAFE avec 3 skills SAFe officiels, reflétant la réalité opérationnelle (Epic Owner = casquette ponctuelle PM/Architecte, pas un rôle plein-temps).
+
+### ✨ Ajouté
+- `skills/safe/epic-hypothesis-mvp.md` — Epic Hypothesis Statement (template SAFe officiel For/Who/The/Is a/That/Unlike/Our solution), rôle Epic Owner, MVP vs MMF, Build-Measure-Learn, décision Pivot/Persevere/Stop
+- `skills/safe/epic-to-feature-splitting.md` — 8 patterns officiels SAFe (Workflow, Business Rules, CRUD, Scenarios, Simple First, Variations, Data, Defer Performance) + atelier Continuous Exploration
+- `skills/safe/feature-to-story-splitting.md` — INVEST + SPIDR en contexte SAFe + 4 types d'Enabler Stories + AC Gherkin + input Program Board
+
+### 🔧 Modifié
+- `AGENT-PO-SAFE.md` — 3 nouveaux skills ajoutés dans la table (epic-hypothesis-mvp, epic-to-feature-splitting, feature-to-story-splitting)
+- `AGENT-PRODUCT-MANAGER-SAFE.md` — 2 skills ajoutés (epic-hypothesis-mvp, epic-to-feature-splitting), périmètre ✅ enrichi (rôle Epic Owner ponctuel + décomposition Epic→Features), périmètre ❌ clarifié (rédaction/raffinement Feature reste PO-SAFE)
+
+### 📊 Statistiques après v2.3.2
+| Métrique | Avant | Après |
+|---|---|---|
+| Skills `safe/` | 22 | 25 |
+| Skills PM-SAFE référencés | 10 | 12 |
+| Skills PO-SAFE référencés | 22 | 25 |
+
+---
+
+## [2.3.1] — 2026-05-23 — PO-Scrum enrichi : priorisation multi-techniques + Story Mapping
+
+### 🎯 Contexte
+Comblement des lacunes sur les méthodes de priorisation certifiantes PSPO et la méthode Jeff Patton (audit utilisateur direct).
+
+### ✨ Ajouté
+- `skills/scrum/priorisation-techniques.md` — MoSCoW détaillé, RICE, Kano, Value/Effort Matrix, Buy a Feature, 100$ test, Opportunity Scoring + grille de choix par contexte + anti-patterns
+- `skills/scrum/story-mapping.md` — Méthode Jeff Patton complète : 6 étapes, code couleur, atelier présentiel/remote (Miro), Walking Skeleton, conversion vers backlog
+
+### 🔧 Modifié
+- `skills/scrum/po-backlog.md` — Recentré sur gestion (structure, DoR INVEST, refinement, santé, roadmap), doublons MoSCoW/Story Mapping retirés avec renvois vers les nouveaux skills
+- `AGENT-PO-SCRUM.md` — Table skills : 2 nouvelles lignes (priorisation + story mapping), libellé po-backlog clarifié
+- `README.md` — Description AGENT-PO-SCRUM (retrait "cérémonies Scrum" obsolète depuis audit v2.0.0) + description `skills/scrum/`
+
+---
+
 ## [2.3.0] — 2026-05-23 — Nouvel agent Solutions Architect + 10 nouveaux skills + 3 workflows RH/Ops
 
 ### 🎯 Contexte

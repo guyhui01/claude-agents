@@ -69,6 +69,9 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités SAFe : PI Planning, Value S
 | Rédiger et décomposer des Capabilities | `skills\safe\capabilities.md` | SAFe POPM 6 · SAFe LPM |
 | Préparer / animer un PI Planning | `skills\safe\pi-planning.md` | SAFe POPM 6 |
 | Rédiger une Feature SAFe | `skills\safe\features.md` | SAFe POPM 6 |
+| Formuler un Epic Hypothesis Statement + piloter le MVP/MMF (rôle Epic Owner) | `skills\safe\epic-hypothesis-mvp.md` | SAFe POPM 6 · SAFe LPM · SAFe SPC |
+| Décomposer un Epic en Features (8 patterns SAFe) | `skills\safe\epic-to-feature-splitting.md` | SAFe POPM 6 · SAFe LPM · SAFe SPC |
+| Décomposer une Feature en User Stories (INVEST, SPIDR, Enabler Stories, Gherkin) | `skills\safe\feature-to-story-splitting.md` | SAFe POPM 6 · SAFe SDP · PSPO I |
 | Calculer et appliquer le WSJF | `skills\safe\wsjf.md` | SAFe POPM 6 |
 | Comprendre / structurer l'ART | `skills\safe\art.md` | SAFe POPM 6 · SAFe SA |
 | Rédiger des OKR SAFe | `skills\safe\okr.md` | SAFe POPM 6 · SAFe LPM |

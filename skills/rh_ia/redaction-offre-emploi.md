@@ -92,7 +92,7 @@ Délai total : [2-3 semaines max]
 - Statut : freelance / SASU / portage salarial accepté
 
 ## Contact
-[Guy HUIBONHOA — guy.hui@adservio.fr]
+[Prénom NOM — prenom.nom@email.com]
 ```
 
 ## Checklist inclusivité & biais

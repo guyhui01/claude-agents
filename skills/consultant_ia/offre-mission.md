@@ -44,7 +44,7 @@ Construire une offre de mission freelance complète et professionnelle pour les 
 | Comet | IT & Digital seniors | 15% |
 | Freelance.com | Tous profils | Variable |
 | Kicklox | Tech & Data | 15% |
-| Adservio (portage) | Portage salarial | Charges sociales |
+| Société de portage | Portage salarial | Charges sociales |
 
 ## Pitch LinkedIn pour attirer les missions
 ```

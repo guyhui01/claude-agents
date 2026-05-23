@@ -23,7 +23,7 @@ Devoteam             : Cloud + IA, certifications Google/MS
 TIER 3 — Indépendants / Boutiques IA (OPPORTUNITÉ)
 ─────────────────────────────────────────────────
 Freelances spécialisés IA
-ESN en portage (Adservio, Malt, Comet)
+ESN en portage (Malt, Comet)
 Boutiques GenAI < 50 personnes
 ```
 

@@ -5,7 +5,7 @@
 - 3 paragraphes max : contexte → message clé → action attendue
 - Pas de formules creuses
 - Toujours terminer par une action avec deadline
-- Signature : Guy HUIBONHOA | Product Owner | Adservio
+- Signature : Guy HUIBONHOA | Product Owner
 
 ## Templates
 

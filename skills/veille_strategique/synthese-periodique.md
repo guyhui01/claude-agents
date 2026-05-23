@@ -36,7 +36,7 @@ Lien : [URL]
 
 ```markdown
 # VEILLE STRATÉGIQUE IA — [MOIS ANNÉE]
-Préparée par Guy HUIBONHOA | Adservio | Consultant PO IA
+Préparée par Guy HUIBONHOA | Consultant PO IA
 
 ## 📊 CHIFFRES CLÉS DU MOIS
 - [Statistique 1 avec source]

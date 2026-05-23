@@ -90,7 +90,7 @@ model = mlflow.sklearn.load_model("models:/churn-predictor/Production")
 ```python
 import mlflow
 mlflow.set_tracking_uri("databricks")
-mlflow.set_experiment("/Users/guy@adservio.fr/churn-model")
+mlflow.set_experiment("/Users/prenom.nom@email.com/churn-model")
 # Le reste est identique — tracking sur Databricks
 ```
 

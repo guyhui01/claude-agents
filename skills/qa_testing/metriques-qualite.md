@@ -1,5 +1,7 @@
 # Skill QA Agile — Métriques Qualité Agile
 
+> **Méthodologie :** Agile
+
 ## Métriques sprint
 
 | Métrique | Formule | Cible |

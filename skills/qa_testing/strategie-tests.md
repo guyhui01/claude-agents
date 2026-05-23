@@ -1,5 +1,7 @@
 # Skill QA Cycle V — Stratégie de Tests
 
+> **Méthodologie :** Cycle en V
+
 ## Définition ISTQB
 La stratégie de tests définit l'approche générale : niveaux de tests, types de tests, critères d'entrée/sortie, outils et responsabilités.
 

@@ -1,5 +1,7 @@
 # Skill QA Cycle V — Tests de Sécurité (Bases ISTQB)
 
+> **Méthodologie :** Cycle en V
+
 ## Objectif
 Identifier les vulnérabilités fonctionnelles de sécurité testables par un QA (hors pentest spécialisé).
 

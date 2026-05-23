@@ -5,12 +5,28 @@
 
 ---
 
-## [Non publié]
+## [2.2.0] — 2026-05-23 — Tags QA, frontière SAFe, enrichissement FORMATEUR-IA
 
-### Planifié
-- M3 — Tag méthodologie sur skills `qa_testing/`
-- M4 — Clarifier frontière PO-SAFE vs PM-SAFE
-- M5 — Enrichissement skills IA-spécifiques pour FORMATEUR-IA
+### 🎯 Contexte
+Exécution des recommandations M3, M4 et M5 de l'audit stratégique du 2026-05-22.
+
+### ✨ Ajouté
+- `skills/formateur_ia/formation-agents-ia.md` — Former aux agents IA et architectures agentic (patterns, MCP/A2A, LangGraph vs CrewAI, TP)
+- `skills/formateur_ia/formation-claude-code.md` — Former à Claude Code et outils LLM pro (CLI, API Anthropic, SDK, gouvernance)
+- `skills/formateur_ia/conception-parcours-certifiant-ia.md` — Concevoir un parcours certifiant IA (catalogue 2026, plan 8 semaines, déploiement collectif)
+
+### 🔧 Modifié
+- `skills/qa_testing/` — Tag `> **Méthodologie :**` ajouté sur les 23 skills (10 Agile · 12 Cycle en V · 1 Mixte)
+- `AGENT-PO-SAFE.md` — Titre clarifié "Product Owner SAFe Expert" (suppression "/ Product Manager") + périmètre ❌ enrichi (renvois vers PRODUCT-MANAGER-SAFE)
+- `AGENT-PRODUCT-MANAGER-SAFE.md` — Périmètre ❌ enrichi (renvois explicites vers PO-SAFE pour PI Planning opérationnel, Features SAFe, I&A)
+- `AGENT-FORMATEUR-IA.md` — 3 nouveaux skills IA-spécifiques ajoutés dans la table (agents IA, Claude Code, parcours certifiant)
+
+### 📊 Statistiques après M3/M4/M5
+| Métrique | Avant | Après |
+|---|---|---|
+| Skills `formateur_ia/` | 8 | 11 |
+| Skills `qa_testing/` taggés | 0 | 23 |
+| Frontières PO-SAFE / PM-SAFE | Floues | Clarifiées (✅/❌ mis à jour) |
 
 ---
 

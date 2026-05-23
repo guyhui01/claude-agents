@@ -67,6 +67,9 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités de formation IA : analyse d
 | Sensibiliser des équipes à l'IA (non-tech) | `skills\formateur_ia\formation-ia-sensibilisation.md` | CAP IABAC · DeepLearning.AI · Anthropic |
 | Former au prompt engineering | `skills\formateur_ia\prompt-engineering-formation.md` | Anthropic · CAP IABAC |
 | Développer la Data Literacy des équipes | `skills\formateur_ia\data-literacy.md` | CPTD · CAP IABAC · DeepLearning.AI |
+| Former aux agents IA et architectures agentic | `skills\formateur_ia\formation-agents-ia.md` | Anthropic Claude Code in Action · CAP IABAC · AWS AIF-C01 |
+| Former à Claude Code et outils LLM pro | `skills\formateur_ia\formation-claude-code.md` | Anthropic Claude Code in Action · Claude Code 101 · Claude 101 |
+| Concevoir et piloter un parcours certifiant IA | `skills\formateur_ia\conception-parcours-certifiant-ia.md` | CPTD · CPTM · CAP IABAC · Anthropic Claude Code in Action |
 
 ---
 

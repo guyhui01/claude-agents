@@ -1,5 +1,7 @@
 # Skill QA Agile — Pyramide d'Automatisation
 
+> **Méthodologie :** Agile
+
 ## La pyramide de tests (Mike Cohn)
 
 ```

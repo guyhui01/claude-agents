@@ -1,5 +1,7 @@
 # Skill QA Cycle V — Reporting Qualité & Métriques
 
+> **Méthodologie :** Cycle en V
+
 ## Métriques clés (ISTQB)
 
 | Métrique | Formule | Cible |

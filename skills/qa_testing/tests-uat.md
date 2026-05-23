@@ -1,5 +1,7 @@
 # Skill QA Cycle V — Tests d'Acceptance (UAT)
 
+> **Méthodologie :** Cycle en V
+
 ## Définition ISTQB
 Les UAT (User Acceptance Tests) valident que le système est conforme aux besoins métier et prêt pour la mise en production. Réalisés par les utilisateurs finaux ou la MOA.
 

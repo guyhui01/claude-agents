@@ -1,5 +1,7 @@
 # Skill QA Agile — Tests Exploratoires
 
+> **Méthodologie :** Agile
+
 ## Définition ISTQB
 Les tests exploratoires combinent apprentissage, conception et exécution simultanément. Le testeur explore librement le système en documentant sa démarche.
 

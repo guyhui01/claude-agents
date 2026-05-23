@@ -1,5 +1,7 @@
 # Skill QA Cycle V — Tests de Performance
 
+> **Méthodologie :** Cycle en V
+
 ## Types de tests de performance (ISTQB)
 
 | Type | Objectif | Scénario |

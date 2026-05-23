@@ -1,5 +1,7 @@
 # Skill QA Cycle V — Plan de Tests (Master Test Plan IEEE 829)
 
+> **Méthodologie :** Cycle en V
+
 ## Structure IEEE 829
 
 ```

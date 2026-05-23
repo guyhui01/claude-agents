@@ -1,5 +1,7 @@
 # Skill QA Cycle V — Gestion des Anomalies
 
+> **Méthodologie :** Cycle en V
+
 ## Cycle de vie d'une anomalie
 
 ```

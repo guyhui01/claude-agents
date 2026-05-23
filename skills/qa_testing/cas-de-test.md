@@ -1,5 +1,7 @@
 # Skill QA Cycle V — Rédaction Cas de Test
 
+> **Méthodologie :** Cycle en V
+
 ## Structure d'un cas de test formel
 
 ```

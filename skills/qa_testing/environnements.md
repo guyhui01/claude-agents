@@ -1,5 +1,6 @@
 # Skill — Gestion des environnements de test
 
+> **Méthodologie :** Mixte (Agile + Cycle en V)
 > Certification : ISTQB® CTAL-TM · ISTQB® CTAL-TTA
 > Agent : AGENT-QA-CYCLEV.md
 

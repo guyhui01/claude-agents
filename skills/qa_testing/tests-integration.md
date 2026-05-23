@@ -1,5 +1,7 @@
 # Skill QA Cycle V — Tests d'Intégration
 
+> **Méthodologie :** Cycle en V
+
 ## Objectif ISTQB
 Vérifier les interfaces et interactions entre composants, modules ou systèmes.
 

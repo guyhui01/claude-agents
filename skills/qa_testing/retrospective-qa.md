@@ -1,5 +1,7 @@
 # Skill QA Agile — Rétrospective QA & Amélioration Continue
 
+> **Méthodologie :** Agile
+
 ## Contribution QA à la rétrospective Scrum
 
 Le QA apporte des données factuelles sur la qualité du sprint :

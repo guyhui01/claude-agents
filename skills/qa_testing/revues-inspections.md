@@ -1,5 +1,7 @@
 # Skill QA Cycle V — Revues & Inspections
 
+> **Méthodologie :** Cycle en V
+
 ## Types de revues (ISTQB)
 
 | Type | Formalisme | Participants | Objectif |

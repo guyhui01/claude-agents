@@ -1,5 +1,7 @@
 # Skill QA Agile — Régression Automatisée CI/CD
 
+> **Méthodologie :** Agile
+
 ## Principe
 En Agile, la régression est automatisée et intégrée au pipeline CI/CD pour garantir la qualité à chaque commit.
 

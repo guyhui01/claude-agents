@@ -1,5 +1,8 @@
 # Skill QA Agile — BDD & Scénarios Gherkin
 
+> **Méthodologie :** Agile
+
+
 ## BDD — Behavior Driven Development
 Approche collaborative (PO + DEV + QA) qui exprime les comportements attendus en langage naturel structuré, exécutable par des outils (Cucumber, SpecFlow, Behave).
 

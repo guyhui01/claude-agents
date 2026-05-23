@@ -1,5 +1,7 @@
 # Skill QA Agile — Tests IA (ISTQB® AI Testing)
 
+> **Méthodologie :** Agile
+
 ## Spécificités des systèmes IA à tester
 
 | Caractéristique | Impact sur les tests |

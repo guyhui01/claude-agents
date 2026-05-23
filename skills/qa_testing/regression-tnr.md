@@ -1,5 +1,7 @@
 # Skill QA Cycle V — Tests de Régression & TNR
 
+> **Méthodologie :** Cycle en V
+
 ## Définition ISTQB
 Les tests de régression vérifient qu'une modification (correction, évolution) n'a pas introduit de nouveaux défauts dans les fonctionnalités existantes.
 

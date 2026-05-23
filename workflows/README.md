@@ -33,6 +33,9 @@ Quel est ton objectif principal ?
 | [WF-006](WF-006-avant-vente-proposition-commerciale.md) | Avant-vente / Proposition commerciale | Management & Conseil | 6-9 | 75-120 min |
 | [WF-008](WF-008-audit-conformite-ia-act-rgpd.md) | Audit conformité IA Act / RGPD | Conformité & Gouvernance | 7-9 | 90-150 min |
 
+> ℹ️ **WF-007 réservé** — Onboarding mission J1-J5 (CHEF-PROJET + BA + REDACTEUR + CHANGE).
+> Recommandation L5 de l'audit du 2026-05-22, non encore implémenté.
+
 ---
 
 ## Démarrage rapide

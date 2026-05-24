@@ -13,6 +13,7 @@ projects/
 
 # --- Fichiers setup & backup locaux ---
 TODO_GITHUB_SETUP.md
+TODO-portable.md
 backup/
 
 # --- Fichiers système & temporaires ---

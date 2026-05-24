@@ -15,9 +15,9 @@ Bibliothèque de **32 agents IA spécialisés** + **31 dossiers de skills** + **
 
 ```
 ClaudeCode/
-├── AGENT-*.md          # 31 agents (rôles + skills associés)
-├── skills/             # 30 dossiers de skills actionnables (un par agent)
-├── workflows/          # 5 workflows BPMN orchestrés
+├── AGENT-*.md          # 32 agents (rôles + skills associés)
+├── skills/             # 31 dossiers de skills actionnables (un par agent)
+├── workflows/          # 10 workflows BPMN orchestrés
 ├── mcp-servers/        # Intégrations Jira / Confluence / journal missions
 ├── memory/             # Mémoire projet (CLAUDE.md local)
 ├── backup/             # Sauvegardes (gitignored)

@@ -55,6 +55,8 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités QA en projet Cycle en V : s
 
 ## Skills disponibles
 
+> ℹ️ **Dossier partagé** : les skills résident dans `skills\qa_testing\`, mutualisé avec AGENT-QA-AGILE.md. Cet agent ne pioche que dans les skills orientés **plan formel / niveaux de test / UAT / Cycle en V** listés ci-dessous.
+
 | Demande | Skill | Certification |
 |---|---|---|
 | Rédiger une stratégie de tests | `skills\qa_testing\strategie-tests.md` | CTAL-TM · CTFL |

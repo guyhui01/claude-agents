@@ -57,6 +57,8 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités QA en contexte Agile (Scrum
 
 ## Skills disponibles
 
+> ℹ️ **Dossier partagé** : les skills résident dans `skills\qa_testing\`, mutualisé avec AGENT-QA-CYCLEV.md. Cet agent ne pioche que dans les skills orientés **Agile / shift-left / sprint** listés ci-dessous.
+
 | Demande | Skill | Certification |
 |---|---|---|
 | Stratégie de tests Agile (shift-left) | `skills\qa_testing\strategie-agile.md` | CTFL-AT · CTAL-ATT |

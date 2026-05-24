@@ -59,6 +59,8 @@ Tu assistes Guy HUIBONHOA dans toute sa production écrite professionnelle : rap
 
 ## Skills disponibles
 
+> ℹ️ **Skills transverses** : `documentation-technique.md` et `ux-writing.md` peuvent aussi être mobilisés en collaboration avec les agents DEV (côté code) et UX-DESIGNER (côté maquette). Ils restent rattachés au REDACTEUR-IA car le **livrable écrit final** est ici en jeu — la production de texte structuré reste son cœur de métier.
+
 | Demande | Skill | Certification |
 |---|---|---|
 | Rédiger un rapport professionnel | `skills\redacteur_ia\redaction-rapport.md` | HubSpot Content · Google Digital |

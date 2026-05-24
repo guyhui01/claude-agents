@@ -5,6 +5,51 @@
 
 ---
 
+## [2.3.6] — 2026-05-24 — Audit qualité certifications & cohérence structurelle
+
+### 🎯 Contexte
+Audit complet (Opus 4.7) du catalogue selon 2 axes : (1) qualité & mise à jour des certifications, (2) cohérence de la structure agentique. Identifié 12 corrections à appliquer immédiatement (quick wins P1 + Anthropic 2026 P2 + réglementaires IA P3 + housekeeping P4).
+
+### 🔧 Modifié — Certifications obsolètes
+- `AGENT-AI-ARCHITECT.md` — `AWS MLS-C01` (Machine Learning Specialty, en dépréciation) remplacée par **`AWS MLA-C01`** (Machine Learning Engineer Associate, sortie 2024-08)
+- `AGENT-MLOPS-ENGINEER.md` — Retiré l'année figée `(2024)` du libellé GitHub Actions Certification
+- `AGENT-DATA-ENGINEER.md` — Retiré `— 2024` du libellé AWS DEA-C01
+- `AGENT-DEV-TYPESCRIPT-IA.md` — Retiré `(2025)` du libellé Vercel Next.js Certification
+
+### ✨ Ajouté — Certifications Anthropic 2026 propagées (P2)
+Pattern unifié `Claude 101 / Claude Code 101 / Anthropic Claude Code in Action — Certified AI Workflow Engineer` ajouté sur 6 agents prioritaires :
+- `AGENT-DEV-PYTHON-IA.md`
+- `AGENT-MLOPS-ENGINEER.md`
+- `AGENT-DATA-SCIENTIST.md`
+- `AGENT-CHEF-PROJET-IA.md`
+- `AGENT-PRODUCT-MANAGER-SAFE.md`
+- `AGENT-SOLUTIONS-ARCHITECT.md`
+
+### ✨ Ajouté — Certifications réglementaires IA 2024-2026 (P3)
+- `AGENT-JURIDIQUE-IA.md` — +**ISO/IEC 42001:2023** (AI Management System), +**NIST AI RMF 1.0**, +**ISO/IEC 23894:2023** (AI Risk Management)
+- `AGENT-SECURITE-IA.md` — +**ISO/IEC 42001:2023**, +**NIST AI RMF 1.0**
+- `AGENT-CDO-DIRECTEUR-IA.md` — +**ISO/IEC 42001:2023**
+
+### 🔧 Modifié — Cohérence structurelle (P1 + P4)
+- `CLAUDE.md` — Tree ASCII harmonisé : `31/30/5` → **32/31/10** (agents/skills/workflows)
+- `AGENT-QA-AGILE.md` — Note explicite sur le partage du dossier `skills/qa_testing/` avec QA-CYCLEV (orientation Agile)
+- `AGENT-QA-CYCLEV.md` — Note explicite sur le partage du dossier `skills/qa_testing/` avec QA-AGILE (orientation Cycle en V)
+- `AGENT-REDACTEUR-IA.md` — Note clarifiant le statut transverse de `documentation-technique.md` et `ux-writing.md` (L6 de l'audit 22-05 traité)
+
+### 📊 Statistiques après v2.3.6
+| Métrique | Avant | Après |
+|---|---|---|
+| Agents avec ≥1 cert Anthropic 2026 | 11/32 (34%) | **17/32 (53%)** |
+| Agents avec les 3 certs Anthropic | 2 (PROMPT-ENG, ORCHESTRATEUR) | **8** |
+| Agents avec ISO/NIST AI standards | 0 | **3** (JURIDIQUE, SECURITE, CDO) |
+| Fichiers modifiés | — | 12 (1 CLAUDE.md + 11 agents) |
+
+### 🔜 Reste à arbitrer
+- Aligner les 9 agents qui ont seulement "Claude Code in Action" sur le format 3-certs (cohérence)
+- Évaluer si d'autres agents méritent les certs ISO 42001 (FINANCIAL-ANALYST, CONSULTANT-IA pour conformité)
+
+---
+
 ## [2.3.4] — 2026-05-23 — Stories techniques Scrum (tech debt, spikes, infra)
 
 ### 🎯 Contexte

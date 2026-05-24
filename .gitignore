@@ -30,3 +30,14 @@ sync-claude.ps1
 
 # --- Brouillons release notes (temporaires) ---
 .release-notes-tmp/
+
+# --- Secrets & credentials (NE JAMAIS COMMITTER) ---
+token.txt
+*.token
+.env
+.env.*
+*.key
+*.pem
+credentials.json
+*_secret*
+*_credentials*

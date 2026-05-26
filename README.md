@@ -5,7 +5,7 @@
 
 ---
 
-## Agents disponibles (32)
+## Agents disponibles (35)
 
 ### Développement & Technique
 
@@ -14,6 +14,9 @@
 | `AGENT-DEV-PYTHON-IA.md` | Développeur Python IA | LangChain, RAG, PyTorch, fine-tuning, agents |
 | `AGENT-DEV-TYPESCRIPT-IA.md` | Développeur TypeScript IA | Next.js, Vercel AI SDK, MCP, streaming |
 | `AGENT-DEV-DRUPAL-PHP.md` | Développeur Drupal / PHP | Modules custom, Commerce, Twig, PHPUnit |
+| `AGENT-CMS-DIGITAL.md` | Expert CMS & Digital Platform Manager | AEM, Drupal 10, Headless CMS, migration, PIM/DAM, accessibilité, SEO |
+| `AGENT-TECH-LEAD.md` | Tech Lead / Lead Developer IA | Code review, architecture applicative, API design, CI/CD, mentoring, IA dev |
+| `AGENT-BI-ANALYST.md` | Business Intelligence Analyst | Power BI/Fabric, Tableau, Looker, modélisation dimensionnelle, KPIs, self-service |
 | `AGENT-AI-ARCHITECT.md` | Architecte IA | RAG, multi-agents, MCP/A2A, évaluation LLM |
 | `AGENT-SOLUTIONS-ARCHITECT.md` | Solutions Architect (Entreprise) | TOGAF, ArchiMate, urbanisme SI, BDAT, roadmap transformation |
 | `AGENT-MLOPS-ENGINEER.md` | MLOps Engineer | MLflow, Kubeflow, monitoring modèles, CI/CD ML |
@@ -66,7 +69,7 @@
 
 ---
 
-## Skills disponibles (31 dossiers)
+## Skills disponibles (34 dossiers)
 
 ### Développement & Technique
 
@@ -81,6 +84,9 @@
 | `skills/data_scientist/` | ML supervisé/non supervisé, stats, modélisation, MLflow, Python, SQL |
 | `skills/devops_cloud/` | CI/CD GitHub Actions, Kubernetes, Terraform, Docker, AWS, GCP, Azure |
 | `skills/securite_ia/` | Cybersécurité IA, OWASP LLM Top 10, red teaming, CISSP, Zero Trust |
+| `skills/cms_digital/` | AEM, Drupal 10, Headless CMS, migration, gouvernance éditoriale, PIM/DAM, accessibilité RGAA, SEO |
+| `skills/tech_lead/` | Code review, architecture applicative, API design, CI/CD, sécurité OWASP, dette technique, mentoring |
+| `skills/bi_analyst/` | Modélisation dimensionnelle, Power BI/Fabric, Tableau, Looker, SQL analytique, KPIs, self-service BI |
 
 ### Agile, Produit & Qualité
 
@@ -165,7 +171,7 @@ Voir `START.md` pour toutes les commandes de démarrage.
 
 ```
 claude-agents/
-├── AGENT-*.md              # 32 agents spécialisés
+├── AGENT-*.md              # 35 agents spécialisés
 ├── skills/
 │   ├── ai_architect/       # Architecture IA · RAG · multi-agents · MCP/A2A
 │   ├── dev_python_ia/      # Python IA · LangChain · RAG · agents
@@ -197,6 +203,9 @@ claude-agents/
 │   ├── veille_strategique/ # Veille IA · Signaux faibles · Benchmark
 │   ├── rh_ia/              # Recrutement IT/IA · GEPP · anti-fraude · ATS
 │   ├── solutions_architect/ # TOGAF · ArchiMate · Urbanisme SI · BDAT · roadmap transformation
+│   ├── cms_digital/        # CMS & Digital Platform · AEM · Drupal · Headless · migration
+│   ├── tech_lead/          # Tech Lead · Code review · API design · CI/CD · mentoring
+│   ├── bi_analyst/         # BI & Reporting · Power BI/Fabric · Tableau · KPIs · self-service
 │   └── orchestrateur_workflow/ # Orchestration workflows agentiques
 ├── workflows/
 │   ├── README.md               # Index et grille de sélection

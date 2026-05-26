@@ -153,25 +153,15 @@ Pour le repo `main` :
 - ✅ Secret scanning + push protection activés
 - ⚠️ Require pull request reviews → skip en solo (impossible self-review)
 
-### Authentification GitHub — Convention flux tendu
+### Authentification GitHub — SSH
 
-**Aucun fichier token persistant.** Token généré à la demande sur GitHub, passé en session uniquement :
+Remote configuré en SSH : `git@github.com:guyhui01/claude-agents.git`
+Aucun token nécessaire pour les opérations `git push` / `git pull`.
 
 ```powershell
-# Charger le token (fourni par Guy via le prompt)
-$env:GH_TOKEN = "ghp_xxxxxxxxxxxxxxxxxxxx"
-
-# ... opérations git push / gh api ...
-
-# Nettoyer immédiatement après usage
-Remove-Item Env:GH_TOKEN
+# Vérifier la connexion SSH
+ssh -T git@github.com
 ```
-
-- Token fine-grained : scope `Contents: Read & Write` + `Metadata: Read-only` sur `claude-agents` uniquement
-- **Durée de validité : 1 jour maximum** — générer un nouveau token à chaque session de push
-- **Ne jamais saisir le token en clair dans le prompt Claude Code** — toujours passer par un fichier `token_fine_grain.txt` déposé localement
-- Procédure : créer `token_fine_grain.txt` → dire "go" → Claude charge, push, supprime fichier + variable env
-- Révoquer le token sur github.com après usage
 
 ---
 

@@ -5,6 +5,37 @@
 
 ---
 
+## [2.5.0] — 2026-05-26 — 2 nouveaux agents : PIM-EXPERT, DAM-EXPERT
+
+### 🎯 Contexte
+Enrichissement du catalogue suite à l'analyse stratégique du triptyque CMS-PIM-DAM : les agents CMS-DIGITAL (v2.4.0) couvre la couche publication, mais les couches données produit (PIM) et assets (DAM) manquaient d'agents dédiés. 2 nouveaux agents créés avec 24 skills actionnables, des certifications 2024-2026 et les 3 certifications Anthropic 2026.
+
+### ✨ Ajouté — AGENT-PIM-EXPERT.md
+Expert PIM & Gestion du Catalogue Produit — Akeneo, Pimcore, inriver, SAP MDG, syndication multicanal, gouvernance données produit, enrichissement IA.
+- **13 certifications** : Akeneo Product Manager & Developer, Pimcore Dev, inriver, Salsify, SAP MDG Associate, Contentserv PIM, DAMA DMBOK2, CDMP, ISO/IEC 42001:2023, 3× Anthropic 2026
+- **12 skills** : `modelisation-catalogue` · `enrichissement-produit` · `gouvernance-donnees-produit` · `syndication-canaux` · `localisation-i18n` · `integration-erp-pim` · `scoring-qualite-produit` · `migration-pim` · `portail-fournisseurs` · `onboarding-donnees-produit` · `pim-augmente-ia` · `kpis-catalogue`
+
+### ✨ Ajouté — AGENT-DAM-EXPERT.md
+Expert DAM & Gestion des Assets Digitaux — Bynder, AEM Assets, Cloudinary, Canto, Widen, Brandfolder, brand portal, gouvernance, IA visuelle.
+- **13 certifications** : Bynder Certified Partner, AEM Assets Specialist, Cloudinary Dev Expert, Henry Stewart DAM Practitioner, Canto, Widen / Acquia, Brandfolder, IPTC, Adobe CC, ISO/IEC 42001:2023, 3× Anthropic 2026
+- **12 skills** : `taxonomie-assets` · `workflow-validation-assets` · `gestion-droits-licences` · `distribution-multicanal` · `transformation-formats` · `integration-dam-cms` · `brand-portal` · `gouvernance-dam` · `migration-dam` · `dam-augmente-ia` · `analytics-assets` · `naming-convention`
+
+### 🔧 Modifié — Compteurs catalogue
+- `README.md` — 35 → **37 agents**, 34 → **36 dossiers skills**
+- `CLAUDE.md` — Compteurs 35/34 → **37/36**
+- `START.md` — Compteur 35/34 → **37/36**
+- `AGENT-ORCHESTRATEUR-WORKFLOW.md` — Catalogue 35 → 37, PIM-EXPERT et DAM-EXPERT ajoutés
+
+### 📊 Statistiques après v2.5.0
+| Métrique | Avant | Après |
+|---|---|---|
+| Agents | 35 | **37** |
+| Dossiers de skills | 34 | **36** |
+| Skills nouveaux | — | **+24** |
+| Fichiers créés/modifiés | — | 30 (2 agents + 24 skills + 4 mises à jour) |
+
+---
+
 ## [2.4.1] — 2026-05-26 — Finalisation audit 24/05 : alignement 3-certs Anthropic & ISO 42001
 
 ### 🎯 Contexte

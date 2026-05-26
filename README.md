@@ -5,7 +5,7 @@
 
 ---
 
-## Agents disponibles (35)
+## Agents disponibles (37)
 
 ### Développement & Technique
 
@@ -17,6 +17,8 @@
 | `AGENT-CMS-DIGITAL.md` | Expert CMS & Digital Platform Manager | AEM, Drupal 10, Headless CMS, migration, PIM/DAM, accessibilité, SEO |
 | `AGENT-TECH-LEAD.md` | Tech Lead / Lead Developer IA | Code review, architecture applicative, API design, CI/CD, mentoring, IA dev |
 | `AGENT-BI-ANALYST.md` | Business Intelligence Analyst | Power BI/Fabric, Tableau, Looker, modélisation dimensionnelle, KPIs, self-service |
+| `AGENT-PIM-EXPERT.md` | Expert PIM & Catalogue Produit | Modélisation catalogue, enrichissement, syndication, gouvernance données produit, PIM IA |
+| `AGENT-DAM-EXPERT.md` | Expert DAM & Assets Digitaux | Taxonomie, droits, distribution multicanal, brand portal, DAM augmenté IA |
 | `AGENT-AI-ARCHITECT.md` | Architecte IA | RAG, multi-agents, MCP/A2A, évaluation LLM |
 | `AGENT-SOLUTIONS-ARCHITECT.md` | Solutions Architect (Entreprise) | TOGAF, ArchiMate, urbanisme SI, BDAT, roadmap transformation |
 | `AGENT-MLOPS-ENGINEER.md` | MLOps Engineer | MLflow, Kubeflow, monitoring modèles, CI/CD ML |
@@ -69,7 +71,7 @@
 
 ---
 
-## Skills disponibles (34 dossiers)
+## Skills disponibles (36 dossiers)
 
 ### Développement & Technique
 
@@ -87,6 +89,8 @@
 | `skills/cms_digital/` | AEM, Drupal 10, Headless CMS, migration, gouvernance éditoriale, PIM/DAM, accessibilité RGAA, SEO |
 | `skills/tech_lead/` | Code review, architecture applicative, API design, CI/CD, sécurité OWASP, dette technique, mentoring |
 | `skills/bi_analyst/` | Modélisation dimensionnelle, Power BI/Fabric, Tableau, Looker, SQL analytique, KPIs, self-service BI |
+| `skills/pim_expert/` | Modélisation catalogue, enrichissement produit, gouvernance MDM, syndication canaux, localisation, ETL ERP→PIM, scoring qualité, migration PIM, portail fournisseurs, PIM IA |
+| `skills/dam_expert/` | Taxonomie assets, workflow validation, droits & licences, distribution multicanal, renditions, intégration DAM-CMS, brand portal, gouvernance DAM, migration DAM, DAM IA, analytics assets, naming convention |
 
 ### Agile, Produit & Qualité
 

@@ -91,7 +91,7 @@ Après avoir exécuté le workflow WF-004 :
 
 ```
 Publie ce rapport de mission dans Confluence avec confluence_publish_report,
-espace: CONSULT, client: Orange, statut: Brouillon :
+espace: CONSULT, client: ClientA, statut: Brouillon :
 [coller ici le rapport produit par WF-004]
 ```
 
@@ -100,7 +100,7 @@ espace: CONSULT, client: Orange, statut: Brouillon :
 ```
 Enregistre cette mission dans le journal avec log_workflow_run :
 - Workflow : WF-004
-- Client : Crédit Agricole CIB
+- Client : Grand Groupe CAC40
 - Livrables : Audit maturité IA, Roadmap 12 mois, Plan formation
 - Durée : 75 min
 - Jira : CA-142, CA-143

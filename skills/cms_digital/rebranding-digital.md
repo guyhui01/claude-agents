@@ -87,9 +87,9 @@ def rebrand_content(text: str, mapping: dict) -> str:
     return text
 
 BRAND_MAPPING = {
-    "Accorhotels":    "Accor",
-    "accorhotels.com": "all.accor.com",
-    "AccorHotels ALL": "ALL - Accor Live Limitless",
+    "AncienneMarque":       "NouvelleMarque",
+    "anciennemarque.com":   "nouvellemarque.com",
+    "AncienneMarque Group": "NouvelleMarque Alliance",
     # logos
     "/dam/logos/old-logo.svg": "/dam/logos/new-logo.svg",
 }

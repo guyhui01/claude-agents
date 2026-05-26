@@ -22,7 +22,7 @@ release_strategy:
       date_cible: "2026-06-15"
       features_incluses: ["F-01", "F-02"]
       audiences:
-        - "Pilote 3 clients CAC40 (Orange, CA, Accor)"
+        - "Pilote 3 clients CAC40 (telecom, finance, hôtellerie)"
       criteres_go_live:
         - "Performance scoring : précision > 85%"
         - "RGPD / AIPD validée DPO"
@@ -46,7 +46,7 @@ PLAN GTM — Release R2.0 — Module Scoring IA
 
 SEGMENT CIBLE
 ─────────────────────────────────────────────────────────
-Clients pilotes    : 3 grands groupes (Orange, CA, Accor)
+Clients pilotes    : 3 grands groupes CAC40 (telecom, finance, hôtellerie)
 Critère sélection  : > 500 recrutements / an, budget validé
 
 PROPOSITION DE VALEUR

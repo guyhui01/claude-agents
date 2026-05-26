@@ -39,6 +39,34 @@ token.txt
 .env.*
 *.key
 *.pem
+*.p12
+*.pfx
 credentials.json
 *_secret*
 *_credentials*
+*_password*
+*_api_key*
+config.local.*
+secrets/
+
+# --- IDE & outils locaux ---
+.vscode/
+.idea/
+*.suo
+*.user
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# --- Node ---
+node_modules/
+.npm/
+
+# --- Fichiers temporaires & backup ---
+*.bak
+*.swp
+*~

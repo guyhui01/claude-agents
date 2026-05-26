@@ -34,7 +34,7 @@ Construire une offre de mission freelance complète et professionnelle pour les 
 6. Profil du prestataire (Guy HUIBONHOA)
    - 20 ans d'expérience MOA / PO
    - Certifications (PSPO1, SAFe6, Claude Code)
-   - Références clients (Orange, CHANEL, Accor, CA-CIB)
+   - Références clients (grands groupes CAC40 — telecom, luxe, finance, hôtellerie)
 ```
 
 ## Plateformes de mission (France 2026)

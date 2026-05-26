@@ -22,7 +22,7 @@ Headless      CMS = pure API Content Platform       Omnicanal, IoT, kiosques, ap
               (Contentful, Sanity, Prismic)
 
 Composable    MACH Architecture                     E-commerce complexe, grande échelle
-(MACH)        Microservices + API + Cloud-native    Ex : Accor ALL, CHANEL e-commerce
+(MACH)        Microservices + API + Cloud-native    Ex : plateforme hôtelière mondiale, e-commerce luxe international
               + Headless (Contentful + Commercetools
               + Algolia + Cloudflare)
 ```

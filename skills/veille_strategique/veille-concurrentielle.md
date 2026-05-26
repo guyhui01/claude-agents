@@ -44,7 +44,7 @@ AVANTAGES CONCURRENTIELS GUY HUIBONHOA
 ✅ Triple expertise rare : PO Agile + IA générative + Change
 ✅ Certifié Anthropic Claude Code in Action 2026
 ✅ Certifié SAFe 6 — adapté aux contextes ART CAC40
-✅ 20 ans expérience CAC40 (Orange, CHANEL, CA, Accor)
+✅ 20 ans expérience CAC40 (telecom, luxe, finance, hôtellerie)
 ✅ Vibe-coding et workflow IA : démo live possible
 
 ⚠ Points d'amélioration

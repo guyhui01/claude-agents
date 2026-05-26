@@ -5,6 +5,39 @@
 
 ---
 
+## [2.4.1] — 2026-05-26 — Finalisation audit 24/05 : alignement 3-certs Anthropic & ISO 42001
+
+### 🎯 Contexte
+Complétion des tâches restantes de l'audit qualité v2.3.6 (2026-05-24) : alignement de tous les agents sur le format 3-certifications Anthropic 2026 et ajout des certifications réglementaires IA manquantes.
+
+### 🔧 Modifié — Tâche 1 : Alignement 3-certs Anthropic (9 agents)
+Tous les agents avaient une certification Anthropic partielle ou non standardisée. Format cible :
+`Claude 101 (Anthropic 2026)` · `Claude Code 101 (Anthropic 2026)` · `Anthropic Claude Code in Action — Certified AI Workflow Engineer (Anthropic 2026)`
+
+Agents mis à jour :
+- `AGENT-AI-ARCHITECT.md` — `Anthropic — Claude Code in Action` → 3 certifications complètes
+- `AGENT-CDO-DIRECTEUR-IA.md` — `Anthropic — Claude Code in Action (2026)` → 3 certifications complètes
+- `AGENT-CONSULTANT-IA.md` — `Anthropic — Claude Code in Action (2026)` → 3 certifications complètes
+- `AGENT-DEV-TYPESCRIPT-IA.md` — `Claude Code 101 & Claude Code in Action` → 3 certifications complètes
+- `AGENT-FORMATEUR-IA.md` — `Anthropic — Claude Code in Action (2026)` → 3 certifications complètes
+- `AGENT-GROWTH-IA.md` — `Anthropic — Claude Code in Action (2026)` → 3 certifications complètes
+- `AGENT-REDACTEUR-IA.md` — `Anthropic — Claude Code in Action (2026)` → 3 certifications complètes
+- `AGENT-SECURITE-IA.md` — `Anthropic — Claude Code in Action (2026)` → 3 certifications complètes
+- `AGENT-VEILLE-STRATEGIQUE.md` — format non standard → 3 certifications complètes
+
+### 🔧 Modifié — Tâche 2 : ISO/IEC 42001:2023 (2 agents)
+- `AGENT-CONSULTANT-IA.md` — ajout `ISO/IEC 42001:2023 — AI Management System (AIMS) Lead Implementer (PECB)`
+- `AGENT-FINANCIAL-ANALYST.md` — ajout `ISO/IEC 42001:2023 — AI Management System (AIMS) Lead Implementer (PECB)` + 3 certifications Anthropic 2026
+
+### 📊 Statistiques après v2.4.1
+| Métrique | Avant | Après |
+|---|---|---|
+| Agents avec 3 certs Anthropic 2026 | 11 | **20** |
+| Agents avec ISO/IEC 42001:2023 | 3 | **5** |
+| Fichiers modifiés | — | 10 |
+
+---
+
 ## [2.4.0] — 2026-05-26 — 3 nouveaux agents : CMS-DIGITAL, TECH-LEAD, BI-ANALYST
 
 ### 🎯 Contexte

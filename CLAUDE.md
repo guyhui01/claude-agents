@@ -167,9 +167,11 @@ $env:GH_TOKEN = "ghp_xxxxxxxxxxxxxxxxxxxx"
 Remove-Item Env:GH_TOKEN
 ```
 
-- Token fine-grained recommandé : scope `Contents: Read & Write` sur `claude-agents` uniquement
-- Durée : 1 jour (usage ponctuel) ou 90 jours max
-- Révocation sur github.com après usage si token éphémère
+- Token fine-grained : scope `Contents: Read & Write` + `Metadata: Read-only` sur `claude-agents` uniquement
+- **Durée de validité : 1 jour maximum** — générer un nouveau token à chaque session de push
+- **Ne jamais saisir le token en clair dans le prompt Claude Code** — toujours passer par un fichier `token_fine_grain.txt` déposé localement
+- Procédure : créer `token_fine_grain.txt` → dire "go" → Claude charge, push, supprime fichier + variable env
+- Révoquer le token sur github.com après usage
 
 ---
 

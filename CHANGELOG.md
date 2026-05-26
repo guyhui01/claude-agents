@@ -5,6 +5,37 @@
 
 ---
 
+## [2.5.1] — 2026-05-26 — Sécurité : anonymisation repo public + convention token
+
+### 🔒 Sécurité — Anonymisation données repo public
+Suppression de tous les noms de clients nominatifs dans les fichiers publics du repo.
+Remplacés par secteurs génériques (telecom, luxe, finance, hôtellerie) pour préserver
+le positionnement professionnel sans exposer les relations clients.
+
+Fichiers corrigés :
+- `AGENT-CMS-DIGITAL.md`, `AGENT-DAM-EXPERT.md`, `AGENT-BI-ANALYST.md`
+- `mcp-servers/README.md`
+- `skills/consultant_ia/offre-mission.md`, `skills/veille_strategique/veille-concurrentielle.md`
+- `skills/cms_digital/architecture-cms.md`, `skills/cms_digital/rebranding-digital.md`
+- `skills/product_manager_safe/release-strategy.md`
+
+### 🔒 Sécurité — GitHub hardening (activé via API 2026-05-26)
+- Branch protection `main` : no force push · no delete · linear history ✅
+- Secret scanning activé ✅
+- Push protection activé (bloque les commits contenant des secrets) ✅
+
+### 🔒 Sécurité — Convention token GitHub (documentée dans CLAUDE.md)
+- **Token fine-grained uniquement** : scope `Contents: Read & Write` + `Metadata: Read-only`
+- **Durée 1 jour maximum** — générer un nouveau token à chaque session de push
+- **Jamais de token en clair dans le prompt** — passage obligatoire par fichier local temporaire
+- Suppression automatique du fichier et de la variable d'env après chaque usage
+
+### 🔧 Modifié — `.gitignore` renforcé
+Ajout : `*.p12`, `*.pfx`, `*_password*`, `*_api_key*`, `config.local.*`, `secrets/`,
+`.vscode/`, `.idea/`, `__pycache__/`, `.venv/`, `node_modules/`, `*.bak`
+
+---
+
 ## [2.5.0] — 2026-05-26 — 2 nouveaux agents : PIM-EXPERT, DAM-EXPERT
 
 ### 🎯 Contexte

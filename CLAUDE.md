@@ -144,13 +144,32 @@ gh release create vX.Y.Z --title "vX.Y.Z — <titre>" --notes-file <extrait-chan
 - Squash merge par défaut sur les feature branches (1 commit propre sur main)
 - Branche locale supprimée après merge (`git branch -d feature/...`)
 
-### Branch protection (à configurer dans GitHub UI)
+### Branch protection (configuré via API — 2026-05-26)
 
 Pour le repo `main` :
 - ✅ Require linear history (squash uniquement)
 - ✅ Do not allow force pushes
 - ✅ Do not allow deletions
+- ✅ Secret scanning + push protection activés
 - ⚠️ Require pull request reviews → skip en solo (impossible self-review)
+
+### Authentification GitHub — Convention flux tendu
+
+**Aucun fichier token persistant.** Token généré à la demande sur GitHub, passé en session uniquement :
+
+```powershell
+# Charger le token (fourni par Guy via le prompt)
+$env:GH_TOKEN = "ghp_xxxxxxxxxxxxxxxxxxxx"
+
+# ... opérations git push / gh api ...
+
+# Nettoyer immédiatement après usage
+Remove-Item Env:GH_TOKEN
+```
+
+- Token fine-grained recommandé : scope `Contents: Read & Write` sur `claude-agents` uniquement
+- Durée : 1 jour (usage ponctuel) ou 90 jours max
+- Révocation sur github.com après usage si token éphémère
 
 ---
 

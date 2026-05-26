@@ -33,7 +33,7 @@ sync-claude.ps1
 .release-notes-tmp/
 
 # --- Secrets & credentials (NE JAMAIS COMMITTER) ---
-token.txt
+# Pas de token.txt — convention flux tendu (token passé en session, jamais persisté)
 *.token
 .env
 .env.*

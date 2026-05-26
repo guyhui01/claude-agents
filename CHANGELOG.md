@@ -5,6 +5,43 @@
 
 ---
 
+## [2.4.0] — 2026-05-26 — 3 nouveaux agents : CMS-DIGITAL, TECH-LEAD, BI-ANALYST
+
+### 🎯 Contexte
+Analyse évolutive du catalogue (2026-05-26) : identification de 3 gaps métier majeurs absents du catalogue malgré leur pertinence pour les missions clients CAC40. Chaque agent est livré avec 12 skills actionnables (36 skills au total), des certifications 2024-2026 et les 3 certifications Anthropic 2026.
+
+### ✨ Ajouté — AGENT-CMS-DIGITAL.md
+Expert CMS & Digital Platform Manager — comble le gap de l'expertise CMS forte de Guy (AEM, Drupal, Headless, ABE, Noheto) absente du catalogue.
+- **17 certifications** : Adobe Certified Expert AEM Sites Developer & Business Practitioner, Acquia Certified Developer & Site Builder Drupal 10, Contentful Certified Professional, Sitecore XM Cloud Developer, **TYPO3 CMS Certified Integrator (TCI)**, **Optimizely CMS Certified Developer**, **HubSpot CMS for Developers**, **Shopify Theme Development**, Yoast SEO, TOGAF 10 Foundation, WCAG 2.2 / RGAA 4.1, 3× Anthropic 2026
+- **12 skills** : `architecture-cms`, `aem-sites-assets`, `drupal-developpement`, `cms-headless`, `migration-cms`, `gouvernance-editoriale`, `integration-pim-dam`, `performance-web`, `accessibilite-numerique`, `seo-technique-cms`, `rebranding-digital`, `personnalisation-segmentation`
+
+### ✨ Ajouté — AGENT-TECH-LEAD.md
+Tech Lead / Lead Developer IA — comble le gap entre les agents DEV-* (exécution) et SOLUTIONS-ARCHITECT (architecture d'entreprise).
+- **11 certifications** : AWS DVA-C02, Google Professional Cloud Developer, Azure AZ-204, CKAD Linux Foundation, **GitHub Actions Certifications**, MongoDB Certified Developer Professional, **ISTQB FL v4.0**, **Postman API Fundamentals Expert**, 3× Anthropic 2026
+- **12 skills** : `code-review`, `architecture-applicative`, `api-design`, `strategie-tests`, `cicd-pipeline`, `securite-applicative`, `dette-technique`, `documentation-technique`, `performance-applicative`, `mentoring-equipe-dev`, `ia-workflows-dev`, `branching-release`
+
+### ✨ Ajouté — AGENT-BI-ANALYST.md
+Business Intelligence Analyst Expert — comble le gap BI pur (DATA-SCIENTIST couvre le ML mais pas Power BI, Tableau, Looker, reporting CODIR).
+- **11 certifications** : **PL-300 Power BI Data Analyst Associate**, **DP-600 Fabric Analytics Engineer**, **Tableau Certified Data Analyst**, Google Data Analytics, **Databricks Data Analyst Associate**, **dbt Certified Analytics Engineer**, Looker BI & Data Analytics, AWS DEA-C01, 3× Anthropic 2026
+- **12 skills** : `modelisation-dimensionnelle`, `power-bi-reporting`, `tableau-dashboard`, `looker-lookml`, `sql-analytique`, `catalogue-kpis`, `reporting-codir`, `gouvernance-bi`, `self-service-bi`, `microsoft-fabric`, `monitoring-alertes-bi`, `bi-augmentee-ia`
+
+### 🔧 Modifié — Compteurs catalogue
+- `README.md` — 32 → **35 agents**, 31 → **34 dossiers skills** + 3 agents et 3 dossiers ajoutés aux tables
+- `CLAUDE.md` — Compteurs harmonisés 32/31 → **35/34**
+- `START.md` — Compteur mis à jour 32 → **35 agents**, 31 → **34 dossiers**
+- `AGENT-ORCHESTRATEUR-WORKFLOW.md` — Catalogue mis à jour (32 → 35), 3 agents ajoutés à la table Dev & Technique
+
+### 📊 Statistiques après v2.4.0
+| Métrique | Avant | Après |
+|---|---|---|
+| Agents | 32 | **35** |
+| Dossiers de skills | 31 | **34** |
+| Skills nouveaux | — | **+36** |
+| Agents avec 3 certs Anthropic 2026 | 8 | **11** |
+| Fichiers modifiés/créés | — | 43 (3 agents + 36 skills + 4 mise à jour) |
+
+---
+
 ## [2.3.6] — 2026-05-24 — Audit qualité certifications & cohérence structurelle
 
 ### 🎯 Contexte

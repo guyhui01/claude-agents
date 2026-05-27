@@ -24,11 +24,9 @@ Fichiers corrigés :
 - Secret scanning activé ✅
 - Push protection activé (bloque les commits contenant des secrets) ✅
 
-### 🔒 Sécurité — Convention token GitHub (documentée dans CLAUDE.md)
-- **Token fine-grained uniquement** : scope `Contents: Read & Write` + `Metadata: Read-only`
-- **Durée 1 jour maximum** — générer un nouveau token à chaque session de push
-- **Jamais de token en clair dans le prompt** — passage obligatoire par fichier local temporaire
-- Suppression automatique du fichier et de la variable d'env après chaque usage
+### 🔒 Connexion SSH
+Remote basculé en SSH (git@github.com:guyhui01/claude-agents.git).
+Aucun token d'authentification nécessaire pour les opérations git push / git pull.
 
 ### 🔧 Modifié — `.gitignore` renforcé
 Ajout : `*.p12`, `*.pfx`, `*_password*`, `*_api_key*`, `config.local.*`, `secrets/`,

@@ -25,12 +25,12 @@ EXEMPLE 1 :
 Problème : Calculer le WSJF d'une feature.
 Raisonnement :
   1. Identifier la Valeur Business (BV = 8)
-  2. Identifier le Time Criticality (TC = 6)
+  2. Identifier le Time Criticality (TC = 5)
   3. Identifier le RR/OE (= 5)
-  4. Calculer le Cost of Delay : BV + TC + RR/OE = 19
+  4. Calculer le Cost of Delay : BV + TC + RR/OE = 18
   5. Identifier la taille (Job Size = 3)
-  6. WSJF = 19 / 3 = 6.3
-Réponse finale : WSJF = 6.3
+  6. WSJF = 18 / 3 = 6.0
+Réponse finale : WSJF = 6.0
 
 MAINTENANT : [TON PROBLÈME]
 ```

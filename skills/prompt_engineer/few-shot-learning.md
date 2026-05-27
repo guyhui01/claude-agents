@@ -59,15 +59,16 @@ US     :
 ```
 ---EXEMPLE 1---
 Feature : "Module scoring prospects"
-BV=8, TC=7, RR=5, Job Size=5 → CoD=20, WSJF=4.0 → Priorité HAUTE
+BV=8, TC=5, RR=3, Job Size=5 → CoD=16, WSJF=3.2 → Priorité MOYENNE
 
 ---EXEMPLE 2---
 Feature : "Export CSV reporting"
-BV=4, TC=3, RR=2, Job Size=2 → CoD=9, WSJF=4.5 → Priorité HAUTE (petite taille)
+BV=3, TC=2, RR=1, Job Size=1 → CoD=6, WSJF=6.0 → Priorité HAUTE (petite taille)
 
 ---À TON TOUR---
 Feature : "[FEATURE]"
 BV=[?], TC=[?], RR=[?], Job Size=[?] → CoD=[?], WSJF=[?] →
+(cotation relative, plus petit = 1 par colonne, Fibonacci — cf. skills/safe/wsjf.md)
 ```
 
 ## Sélection des exemples — Stratégie

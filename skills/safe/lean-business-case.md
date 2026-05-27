@@ -38,9 +38,9 @@ Hypothèse de bénéfice (Benefit Hypothesis) :
    Coût estimé : [€ HT]
    Time to market estimé : [PI(s) nécessaires]
 
-5. WSJF SCORE
-   CoD (Cost of Delay) : [score 1-20]
-   Job Size : [score 1-20]
+5. WSJF SCORE (cotation relative, plus petit = 1 par colonne — cf. skills/safe/wsjf.md)
+   CoD = Business Value + Time Criticality + RR/OE (Fibonacci 1·2·3·5·8·13·20)
+   Job Size : [Fibonacci]
    WSJF = CoD / Job Size = [score final]
 
 6. RISQUES CLÉS
@@ -70,18 +70,20 @@ Idée Epic → Analyse LBC → Revue LPM → Approbation → En cours → Termin
 
 ## Calcul du WSJF pour un Epic
 
-### Cost of Delay (CoD) — 4 composantes
-| Composante | Description | Score |
-|---|---|---|
-| Business Value | Impact direct sur revenu/client | 1-20 |
-| Time Criticality | Fenêtre d'opportunité (pénalité si tard) | 1-20 |
-| Risk Reduction | Réduction risque tech/marché | 1-20 |
-| Opportunity Enablement | Ouvre de nouvelles opportunités | 1-20 |
+### Cost of Delay (CoD) — 3 composantes (cf. skills/safe/wsjf.md)
 
-**CoD = Business Value + Time Criticality + (Risk Reduction + Opportunity Enablement)**
+> Cotation **relative**, **plus petit = 1 par colonne**, colonnes indépendantes, Fibonacci (1·2·3·5·8·13·20).
+
+| Composante | Description |
+|---|---|
+| Business Value | Impact direct sur revenu/client |
+| Time Criticality | Fenêtre d'opportunité (pénalité si tard) |
+| Risk Reduction / Opportunity Enablement | Réduit un risque ou ouvre une opportunité |
+
+**CoD = Business Value + Time Criticality + RR/OE**
 
 ```
-WSJF = CoD / Job Size (taille estimée en T-shirt : XS=1, S=2, M=3, L=5, XL=8, XXL=13)
+WSJF = CoD / Job Size (taille relative T-shirt : XS=1, S=2, M=3, L=5, XL=8, XXL=13)
 ```
 
 ## Présentation au Portfolio Sync

@@ -18,11 +18,11 @@ class Initiative:
     id: str
     title: str
     # Composantes de la valeur économique
-    user_business_value: int        # 1, 2, 3, 5, 8, 13, 20
-    time_criticality: int           # Urgence (1-20)
-    risk_reduction_opportunity: int  # Réduction risque ou opportunité (1-20)
+    user_business_value: int        # Fibonacci 1·2·3·5·8·13·20
+    time_criticality: int           # Fibonacci — coté relativement
+    risk_reduction_opportunity: int  # Fibonacci — RR/OE combinés
     # Taille (effort)
-    job_size: int                   # Story points ou T-shirt sizing (1-20)
+    job_size: int                   # Fibonacci (T-shirt) — plus petit = 1 par colonne (cf. skills/safe/wsjf.md)
     # Métadonnées
     team: str = ""
     status: str = "PROPOSED"
@@ -52,18 +52,18 @@ def print_wsjf_table(initiatives: List[Initiative]):
               f"{init.job_size:<6} {init.wsjf:<6} {init.status}")
 
 
-# Exemple portefeuille IA 2026 Q3
+# Exemple portefeuille IA 2026 Q3 — coté relativement, plus petit = 1 par colonne (cf. wsjf.md)
 portfolio = [
-    Initiative("IA-01", "Chatbot support client (LLM)",     user_business_value=13, time_criticality=8,  risk_reduction_opportunity=5,  job_size=8),
-    Initiative("IA-02", "Scoring fraude en temps réel",      user_business_value=20, time_criticality=13, risk_reduction_opportunity=13, job_size=13),
-    Initiative("IA-03", "Recommandations produits",          user_business_value=8,  time_criticality=5,  risk_reduction_opportunity=3,  job_size=5),
-    Initiative("IA-04", "Prévision de churn",                user_business_value=8,  time_criticality=5,  risk_reduction_opportunity=8,  job_size=8),
-    Initiative("IA-05", "OCR traitement de documents",       user_business_value=5,  time_criticality=3,  risk_reduction_opportunity=2,  job_size=3),
-    Initiative("IA-06", "Optimisation prix dynamique",       user_business_value=13, time_criticality=8,  risk_reduction_opportunity=5,  job_size=20),
+    Initiative("IA-01", "Chatbot support client (LLM)",     user_business_value=5, time_criticality=3, risk_reduction_opportunity=3, job_size=3),
+    Initiative("IA-02", "Scoring fraude en temps réel",      user_business_value=8, time_criticality=5, risk_reduction_opportunity=8, job_size=5),
+    Initiative("IA-03", "Recommandations produits",          user_business_value=3, time_criticality=2, risk_reduction_opportunity=2, job_size=2),
+    Initiative("IA-04", "Prévision de churn",                user_business_value=3, time_criticality=2, risk_reduction_opportunity=5, job_size=3),
+    Initiative("IA-05", "OCR traitement de documents",       user_business_value=1, time_criticality=1, risk_reduction_opportunity=1, job_size=1),
+    Initiative("IA-06", "Optimisation prix dynamique",       user_business_value=5, time_criticality=3, risk_reduction_opportunity=3, job_size=8),
 ]
 
 print_wsjf_table(portfolio)
-# Résultat : IA-02 (Scoring fraude) en tête — CoD 46, WSJF 3.54
+# Résultat : IA-02 (Scoring fraude) en tête — CoD 21, WSJF 4.2
 ```
 
 ### Scoring Multicritères — Matrice de Décision

@@ -68,14 +68,23 @@ et lance le workflow avec le contexte suivant : [décrire le contexte client]
 
 ```
 workflows/
-├── WF-00X-*.md     ← Définitions des workflows (this folder)
-├── use_cases/      ← Outputs complets curatés — qualité showcase
-│                      Brief + exécution complète documentée
-│                      Ex: WF-001-uc01-sinistres-assurance-ia.md
-└── briefs/         ← Inputs rédigés — lancement live
-                       Brief seul, prêt à coller dans Claude Code
-                       Peut évoluer en use_case après validation
+├── WF-00X-*.md     ← Définitions des workflows (immuables)
+├── briefs/         ← Inputs purs rédigés — prêts à lancer (immuables après commit)
+├── outputs/        ← Résultats bruts de runs — traçables, non curatés
+└── use_cases/      ← Outputs curatés qualité showcase (portfolio)
 ```
+
+### Pipeline
+
+```
+briefs/ → [run workflow] → outputs/ → [curation] → use_cases/
+```
+
+| Dossier | Responsabilité | Modifiable | Commité |
+|---------|---------------|------------|---------|
+| `briefs/` | Input pur | ❌ Jamais | ✅ |
+| `outputs/` | Run brut | ✅ Enrichissement | ✅ |
+| `use_cases/` | Showcase curatés | ✅ Curation | ✅ |
 
 ---
 

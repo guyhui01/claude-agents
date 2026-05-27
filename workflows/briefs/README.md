@@ -5,14 +5,21 @@
 
 ---
 
+## Pipeline
+
+```
+briefs/ → [run workflow] → outputs/ → [curation] → use_cases/
+```
+
 ## Gouvernance
 
-| Dossier | Contenu | Qualité |
-|---------|---------|---------|
-| `briefs/` | Brief seul — input rédigé, prêt à lancer | Brut / exploratoire |
-| `use_cases/` | Brief + output complet curatés | Showcase / validé |
+| Dossier | Contenu | Modifiable |
+|---------|---------|------------|
+| `briefs/` | Input pur — prêt à lancer | ❌ Jamais après commit |
+| `outputs/` | Résultat brut du run | ✅ Enrichissement possible |
+| `use_cases/` | Output curatés qualité showcase | ✅ Curation |
 
-**Règle** : un brief peut évoluer en use case une fois le workflow exécuté et l'output jugé de qualité showcase.
+**Règle** : brief immuable après commit. Si correction nécessaire → nouveau fichier versionné (`-v2.md`).
 
 ---
 

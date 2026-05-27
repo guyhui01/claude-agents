@@ -21,12 +21,16 @@ Job Size               : Effort estimé (story points ou T-shirt sizing)
 
 ## Tableau WSJF — Template Features
 
+> Cotation **relative**, **plus petit = 1 par colonne**, colonnes indépendantes, échelle Fibonacci (cf. `skills/safe/wsjf.md`).
+
 | ID | Feature | BV | TC | RR/OE | CoD | Size | WSJF | Priorité |
 |---|---|---|---|---|---|---|---|---|
-| F-01 | Scoring CVs IA | 10 | 8 | 5 | 23 | 5 | **4.6** | 🥇 1 |
-| F-02 | Dashboard RH | 8 | 6 | 3 | 17 | 3 | **5.7** | 🥇 1 (petit!) |
-| F-03 | API SIRH | 7 | 4 | 8 | 19 | 8 | **2.4** | 🥉 3 |
-| F-04 | Mobile App | 6 | 3 | 2 | 11 | 13 | **0.8** | ❌ Déprioritisé |
+| F-01 | Scoring CVs IA | 8 | 8 | 5 | 21 | 5 | **4.2** | 🥈 2 |
+| F-02 | Dashboard RH | 5 | 3 | 3 | 11 | 1 | **11.0** | 🥇 1 (petit job !) |
+| F-03 | API SIRH | 3 | 5 | 8 | 16 | 8 | **2.0** | 🥉 3 |
+| F-04 | Mobile App | 1 | 1 | 1 | 3 | 13 | **0.2** | ❌ Déprioritisé (à splitter) |
+
+> Plus petit par colonne : BV → F-04 · TC → F-04 · RR/OE → F-04 · Size → F-02. F-02 remonte #1 (plus petit job) ; F-04 déprioritisé car gros job → à splitter.
 
 ## Lean Business Case — Template Epic
 

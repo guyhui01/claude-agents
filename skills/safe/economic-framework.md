@@ -53,14 +53,14 @@ WSJF = CoD / Durée du travail (Job Size)
 
 CoD = Business Value + Time Criticality + Risk Reduction/Opportunity Enablement
 
-Exemple de scoring (Fibonacci-like : 1, 2, 3, 5, 8, 13, 20) :
+Exemple de scoring (relatif, plus petit = 1 par colonne · Fibonacci : 1, 2, 3, 5, 8, 13, 20) :
 
 Feature      BV  TC  RR/OE  CoD  Size  WSJF
 ──────────────────────────────────────────────
-Feature A     8   5    3     16    5    3,2
-Feature B     5   8    8     21    3    7,0  ← Priorité #1
-Feature C     3   2    2      7    1    7,0  ← Priorité #2 (ex-aequo)
-Feature D    13   1    1     15    8    1,9
+Feature A     5   5    3     13    5    2,6
+Feature B     3   8    8     19    3    6,3  ← Priorité #1
+Feature C     1   2    2      5    1    5,0  ← Priorité #2
+Feature D     8   1    1     10    8    1,3
 ```
 
 ### 4. Decentralized Decision-Making (délégation des décisions)

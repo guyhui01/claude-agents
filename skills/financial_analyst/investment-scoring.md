@@ -23,36 +23,38 @@ wsjf_portfolio:
   periode: "PI-12 à PI-14"
   budget_disponible: 500_000
   
+  # Cotation relative, plus petit = 1 par colonne, Fibonacci (cf. skills/safe/wsjf.md)
+  # size = taille relative ; durée en jours et budget suivis dans la grille multicritères
   epics:
     - id: "EPIC-01"
       titre: "Module Formation IA"
-      bv: 8
-      tc: 6
-      rr_oe: 5
-      taille_jours: 80
-      cod: 19
-      wsjf: 2.4
+      bv: 3
+      tc: 1
+      rr_oe: 1
+      size: 3
+      cod: 5
+      wsjf: 1.7
       rang: 3
       
     - id: "EPIC-02"
       titre: "Scoring CV IA"
-      bv: 10
-      tc: 9
-      rr_oe: 7
-      taille_jours: 50
-      cod: 26
-      wsjf: 5.2
+      bv: 5
+      tc: 5
+      rr_oe: 3
+      size: 1
+      cod: 13
+      wsjf: 13.0
       rang: 1
       budget_estime: 150_000
       
     - id: "EPIC-03"
       titre: "Intégration SIRH"
-      bv: 7
-      tc: 8
-      rr_oe: 6
-      taille_jours: 60
-      cod: 21
-      wsjf: 3.5
+      bv: 1
+      tc: 3
+      rr_oe: 2
+      size: 2
+      cod: 6
+      wsjf: 3.0
       rang: 2
       budget_estime: 180_000
       

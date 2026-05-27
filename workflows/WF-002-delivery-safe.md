@@ -194,8 +194,9 @@ etape:
     - "Vélocité historique de l'équipe"
     - "Disponibilités et congés sprint"
   output_attendu:
-    - "Sprint plan validé (US engagées + story points)"
-    - "Répartition du travail entre développeurs"
+    - "Sprint Goal unique par équipe (1 objectif cohérent)"
+    - "Sprint plan validé — forecast des Developers (US engagées + story points)"
+    - "Sprint Backlog auto-organisé par les Developers (allocation ajustée au Daily ; le SM facilite, n'assigne pas — Scrum Guide 2020)"
     - "Impediments sprint 1 listés"
     - "Définition of Done rappelée"
   duree_estimee: "10 min"

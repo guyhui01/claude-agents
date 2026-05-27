@@ -138,14 +138,14 @@ Opportunité IA : Deep link push  SSO ou magic link  NLP questions   Compression
 
 ### Épics
 
-> Priorisation WSJF (SAFe) — CoD = BV + TC + RR/OE · WSJF = CoD / Size · Échelle Fibonacci : 1·2·3·5·8·13
+> Priorisation WSJF (SAFe) — CoD = BV + TC + RR/OE · WSJF = CoD / Size · cotation relative, plus petit = 1 par colonne · Fibonacci : 1·2·3·5·8·13
 > BV : Business Value · TC : Time Criticality · RR/OE : Risk Reduction / Opportunity Enablement
 
 | ID | Libellé | BV | TC | RR/OE | CoD | Size | WSJF | Rang |
 |----|---------|----|----|-------|-----|------|------|------|
-| EP-04 | Conformité RGPD + AI Act | 8 | 13 | 13 | 34 | 5 | **6,8** | #1 |
-| EP-03 | Suivi et notification | 5 | 3 | 2 | 10 | 3 | **3,3** | #2 |
-| EP-02 | Gestion documentaire sinistre | 8 | 5 | 3 | 16 | 5 | **3,2** | #3 |
+| EP-04 | Conformité RGPD + AI Act | 8 | 13 | 13 | 34 | 3 | **11,3** | #1 |
+| EP-03 | Suivi et notification | 1 | 1 | 1 | 3 | 1 | **3,0** | #2 |
+| EP-02 | Gestion documentaire sinistre | 5 | 3 | 3 | 11 | 5 | **2,2** | #3 |
 | EP-01 | Parcours déclaration guidée IA | 13 | 8 | 5 | 26 | 13 | **2,0** | #4 |
 
 ### User Stories — Backlog initial priorisé

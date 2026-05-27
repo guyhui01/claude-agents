@@ -406,12 +406,12 @@ PROCHAIN JALON : System Demo S1 → 1er calcul CPI/SPI
 | Critère | Note /5 | Commentaire |
 |---------|---------|-------------|
 | Complétude livrables | 5 | 6 steps produits (STEP-01 à 06), tous les artefacts attendus |
-| Qualité SAFe / Agile | 4 | Conforme après 2 corrections en cours de run (WSJF relatif, auto-organisation SM) |
-| Réutilisabilité | 4 | Bon template ; dépend de la correction du WF-002 (tâche #5) |
-| Promu en use case ? | **non** | À réévaluer après le lot de corrections #1-#5 (wsjf.md + WF-002). Reste en outputs/ |
+| Qualité SAFe / Agile | 5 | Conforme aux certifications, vérifié step par step après correction des fondations |
+| Réutilisabilité | 5 | WF-002 corrigé (tâche #5) + wsjf.md source de vérité corrigée |
+| Promu en use case ? | **oui** | Promu le 2026-05-27 → `../use_cases/WF-002-uc01-assurance-pi01.md` |
 
 ---
 
 > **Run complet WF-002** : STEP-01 → STEP-06 · 6 agents orchestrés · modèle Opus 4.7 · 2026-05-27
 > **Conformité** : WSJF recalculé niveau Feature (méthode officielle) · Sprint Goals uniques · auto-organisation SM · EVM baseline sans CPI/SPI fabriqués · Benefit Hypothesis (pas LBC) au niveau Feature
-> **Décision promotion** : maintenu en outputs/ — fondations à corriger d'abord (lot post-run #1-#5)
+> **Décision promotion** : ✅ promu en `use_cases/WF-002-uc01-assurance-pi01.md` le 2026-05-27 (lot post-run #1-#5 terminé, conformité vérifiée step par step)

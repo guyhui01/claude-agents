@@ -1,7 +1,7 @@
 # WF-001 — Use Case UC-01 — Digitalisation sinistres Assurance IA
 
 > Workflow : `WF-001-cadrage-produit-ia.md`
-> Secteur : Assurance · Client fictif : Prévalis Assurances
+> Secteur : Assurance · Client fictif : Prévalistest Assurances
 > Durée d'exécution simulée : 75 min · Agents activés : BA · UX · PO · QA · JURIDIQUE-IA
 
 ---
@@ -9,7 +9,7 @@
 ## Brief client (input du workflow)
 
 ```
-CLIENT       : Prévalis Assurances — mutuelle régionale, 280 000 assurés
+CLIENT       : Prévalistest Assurances — mutuelle régionale, 280 000 assurés
 SECTEUR      : Assurance IARD (Auto, Habitation, Santé)
 PRODUIT      : Assistant IA de déclaration de sinistre en ligne
 DÉCLENCHEUR  : Taux d'abandon déclaration web : 67% — Délai moyen traitement : 8 jours
@@ -30,7 +30,7 @@ NIVEAU       : Cadrage complet — backlog multi-sprints
 | Persona | Job principal | Frustration actuelle | Gain attendu |
 |---------|--------------|----------------------|--------------|
 | Assuré sinistré (Marie, 42 ans) | Déclarer rapidement son sinistre auto depuis son mobile | Formulaire de 47 champs, aucune aide contextuelle, abandon à mi-parcours | Guidage intelligent, < 10 min, confirmation immédiate |
-| Gestionnaire sinistres (Karim) | Traiter les dossiers sans relance client | 40% des dossiers incomplets à réception — relances manuelles chronophages | Dossier complet dès la déclaration, IA pré-qualifiée |
+| Gestionnaire sinistres (Mike) | Traiter les dossiers sans relance client | 40% des dossiers incomplets à réception — relances manuelles chronophages | Dossier complet dès la déclaration, IA pré-qualifiée |
 | Responsable conformité (Isabelle) | Garantir la traçabilité RGPD et AI Act | Aucun registre automatique des décisions IA | Log automatique des suggestions IA + consentement explicite |
 
 ### Périmètre fonctionnel
@@ -61,12 +61,12 @@ Soumission → Vérification manuelle J+1 → Dossier incomplet ? → Relance em
 
 ## STEP-02 — UX-DESIGNER · Parcours utilisateur
 
-### Persona principal — Marie Fontaine
+### Persona principal — Marie Dupont
 
 ```
-Prénom      : Marie Fontaine
-Âge         : 42 ans
-Situation   : Employée de commerce, permis B depuis 20 ans, peu à l'aise avec le numérique
+Prénom      : Marie Dupont
+Âge         : 47 ans
+Situation   : Employée de commerce, permis B depuis 25 ans, peu à l'aise avec le numérique
 Device      : Mobile 80% du temps (iPhone SE)
 Contexte    : Accrochage parking — stressée, veut que ça se règle vite
 Citation    : "Je ne sais jamais quoi mettre dans ces formulaires, j'ai peur de mal remplir
@@ -99,7 +99,7 @@ Opportunité IA : Deep link push  SSO ou magic link  NLP questions   Compression
 **Écran 1 — Choix type de sinistre**
 ```
 ┌──────────────────────────────┐
-│  🛡️ Prévalis — Mon sinistre  │
+│  🛡️ Prévalistest — Mon sinistre  │
 ├──────────────────────────────┤
 │  Bonjour Marie,              │
 │  Quel type de sinistre ?     │
@@ -138,12 +138,15 @@ Opportunité IA : Deep link push  SSO ou magic link  NLP questions   Compression
 
 ### Épics
 
-| ID | Libellé | MoSCoW |
-|----|---------|--------|
-| EP-01 | Parcours déclaration guidée IA | Must |
-| EP-02 | Gestion documentaire sinistre | Must |
-| EP-03 | Suivi et notification | Should |
-| EP-04 | Conformité RGPD + AI Act | Must |
+> Priorisation WSJF (SAFe) — CoD = BV + TC + RR/OE · WSJF = CoD / Size · Échelle Fibonacci : 1·2·3·5·8·13
+> BV : Business Value · TC : Time Criticality · RR/OE : Risk Reduction / Opportunity Enablement
+
+| ID | Libellé | BV | TC | RR/OE | CoD | Size | WSJF | Rang |
+|----|---------|----|----|-------|-----|------|------|------|
+| EP-04 | Conformité RGPD + AI Act | 8 | 13 | 13 | 34 | 5 | **6,8** | #1 |
+| EP-03 | Suivi et notification | 5 | 3 | 2 | 10 | 3 | **3,3** | #2 |
+| EP-02 | Gestion documentaire sinistre | 8 | 5 | 3 | 16 | 5 | **3,2** | #3 |
+| EP-01 | Parcours déclaration guidée IA | 13 | 8 | 5 | 26 | 13 | **2,0** | #4 |
 
 ### User Stories — Backlog initial priorisé
 
@@ -223,7 +226,7 @@ Feature: Consentement utilisation IA
 
 ```gherkin
 Feature: Traçabilité AI Act — log suggestions IA
-  En tant que DPO Prévalis,
+  En tant que DPO Prévalistest,
   Je veux un registre automatique de chaque interaction IA
   Afin de répondre aux obligations de l'Article 13 AI Act.
 

@@ -192,7 +192,7 @@ ENABLERS NÉCESSAIRES : [Enabler Features ou Stories]
 2. **Brainstorm tous les patterns applicables** (30 min) — souvent 2-3 patterns combinés
 3. **Génération de Features candidates** (45 min) — Post-its individuels puis mise en commun
 4. **Regroupement et tri** (30 min) — élimination des doublons, regroupements
-5. **Priorisation pour le MVP** (30 min) — appliquer WSJF ou MoSCoW
+5. **Priorisation pour le MVP** (30 min) — appliquer WSJF (Features et Epics — MoSCoW réservé aux User Stories)
 6. **Définition du Benefit Hypothesis par Feature MVP** (30 min)
 7. **Identification des dépendances et Enablers** (15 min)
 

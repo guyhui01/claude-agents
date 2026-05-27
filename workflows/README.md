@@ -64,6 +64,21 @@ et lance le workflow avec le contexte suivant : [décrire le contexte client]
 
 ---
 
+## Structure du dossier workflows/
+
+```
+workflows/
+├── WF-00X-*.md     ← Définitions des workflows (this folder)
+├── use_cases/      ← Outputs complets curatés — qualité showcase
+│                      Brief + exécution complète documentée
+│                      Ex: WF-001-uc01-sinistres-assurance-ia.md
+└── briefs/         ← Inputs rédigés — lancement live
+                       Brief seul, prêt à coller dans Claude Code
+                       Peut évoluer en use_case après validation
+```
+
+---
+
 ## Structure d'un workflow
 
 Chaque fichier de workflow contient :

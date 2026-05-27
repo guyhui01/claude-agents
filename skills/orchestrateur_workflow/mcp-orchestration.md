@@ -85,12 +85,12 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
     },
     {
       name: "prioriser_backlog",
-      description: "Priorise un backlog avec MoSCoW ou WSJF",
+      description: "Priorise un backlog selon le niveau SAFe : WSJF pour Epics et Features, MoSCoW pour User Stories",
       inputSchema: {
         type: "object",
         properties: {
           backlog: { type: "array", items: { type: "string" } },
-          methode: { type: "string", enum: ["moscow", "wsjf"], default: "moscow" },
+          methode: { type: "string", enum: ["wsjf", "moscow"], default: "wsjf" },
         },
         required: ["backlog"],
       },

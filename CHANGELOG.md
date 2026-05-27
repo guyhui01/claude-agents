@@ -5,6 +5,34 @@
 
 ---
 
+## [2.6.0] — 2026-05-27 — Gouvernance workflows + conformité méthode WSJF officielle
+
+### 🎯 Contexte
+Mise en conformité de la priorisation SAFe sur l'ensemble du catalogue (méthode WSJF officielle POPM 6) et structuration de la gouvernance des workflows. Déclenché par un audit méthodologique : MoSCoW appliqué à tort aux Epics/Features (réservé aux User Stories), et WSJF coté en absolu (échelle 1-20) au lieu de la cotation relative officielle (plus petit = 1 par colonne).
+
+### ✨ Ajouté — Gouvernance des workflows
+- `workflows/briefs/` — dossier des briefs de lancement (inputs immuables) + README
+- `workflows/outputs/` — dossier des runs bruts tracés + README + template
+- Pipeline documenté : `briefs → [run] → outputs → [curation] → use_cases`
+- `workflows/use_cases/WF-002-uc01-assurance-pi01.md` — use case Delivery SAFe PI-01 (continuité de WF-001 UC-01), 6 agents orchestrés, conforme SAFe/Scrum/ISTQB/PMI
+
+### 🐛 Corrigé — Conformité méthode WSJF (POPM 6)
+- `skills/safe/wsjf.md` (source de vérité) — règles officielles ajoutées : cotation relative, plus petit = 1 par colonne, colonnes indépendantes, anti-ex-aequo + exemple conforme
+- Propagation sur ~11 fichiers : `economic-framework`, `economic-framework-pm` (échelle 1-10 → Fibonacci), `investment-scoring`, `lean-business-case` (CoD 4 → 3 composantes, RR/OE combiné), `gouvernance-portefeuille`, `few-shot-learning`, `chain-of-thought`, `epic-to-feature-splitting`, `mcp-orchestration`, WF-001 UC-01
+- MoSCoW recentré sur les **User Stories** ; **WSJF** pour Epics et Features
+
+### 🔧 Modifié — Conformité Scrum
+- `workflows/WF-002-delivery-safe.md` — output STEP-04 reformulé : auto-organisation des Developers (le SM facilite, n'assigne pas — Scrum Guide 2020), Sprint Goal unique par équipe
+
+### 📊 Statistiques après v2.6.0
+| Métrique | Avant | Après |
+|---|---|---|
+| Use cases workflows | 1 | **2** |
+| Dossiers workflows | use_cases | + **briefs/**, **outputs/** |
+| Fichiers mis en conformité WSJF | — | **~11** |
+
+---
+
 ## [2.5.1] — 2026-05-26 — Sécurité : anonymisation repo public + convention token
 
 ### 🔒 Sécurité — Anonymisation données repo public

@@ -186,11 +186,232 @@ MOYENNE ART : 3,8  (cible ≥ 3,5) ✅
 
 ---
 
+## STEP-03 — PO-SAFE · PI Objectives & Backlog Sprint 1
+
+### Split officiel FEAT-A (SPIDR — Rules + Spike)
+
+```
+FEAT-A "Parcours déclaration guidée IA" (13 — trop gros pour 1 sprint)
+   ├── Enabler Spike : moteur NLP adaptatif vs fallback règles
+   ├── Tranche A1 — Auto SANS tiers (règle simple)   → MVP S3
+   └── Tranche A2 — Auto AVEC tiers + constat (règle complexe) → S4
+```
+
+### PI Objectives par squad (committed / uncommitted)
+
+**Squad ALPHA — Déclaration IA & UX**
+
+| # | Objectif (SMART) | BV cible | Statut | Features |
+|---|------------------|----------|--------|----------|
+| A1 | Livrer le parcours Auto **sans tiers** pour le MVP S3 | 9 | Committed | FEAT-A1 |
+| A2 | Intégrer l'upload documentaire mobile | 7 | Committed | FEAT-B |
+| A3 | Étendre au parcours **avec tiers** + constat | 6 | Uncommitted | FEAT-A2 |
+| A4 | Activer les notifications de statut | 5 | Uncommitted | FEAT-C |
+
+**Squad BETA — Conformité & Back-office**
+
+| # | Objectif (SMART) | BV cible | Statut | Features |
+|---|------------------|----------|--------|----------|
+| B1 | Livrer consentement IA + logs AI Act **dès S1** | 10 | Committed | FEAT-D |
+| B2 | Établir l'intégration AS/400 (données dossier) | 8 | Committed | FEAT-E |
+| B3 | Préparer System Demo + note CODIR | 4 | Uncommitted | — |
+
+> Uncommitted = hors PI Predictability (gestion incertitude AS/400).
+
+### Backlog Sprint 1
+
+**Squad BETA**
+
+| US | Titre | Type | SP |
+|----|-------|------|----|
+| US-B01 | Écran consentement IA avant guidage | Story | 3 |
+| US-B02 | Log automatique des suggestions IA | Enabler Compliance | 3 |
+| US-B03 | Spike : API REST AS/400 disponible ? (3j) | Enabler Exploration | 3 |
+
+**Squad ALPHA**
+
+| US | Titre | Type | SP |
+|----|-------|------|----|
+| US-A01 | Spike : NLP adaptatif vs fallback règles (3j) | Enabler Exploration | 3 |
+| US-A02 | Choisir le type de sinistre (Auto/Habitation) | Story | 3 |
+| US-A03 | Parcours questions guidées — Auto sans tiers (mock) | Story | 5 |
+
+> Charge S1 : Beta 9 SP · Alpha 11 SP · Enabler ratio ≈ 45% (dé-risquage initial S1).
+
+### Acceptance Criteria Gherkin (US prioritaires)
+
+```gherkin
+# US-B01 — Écran consentement IA (FEAT-D · WSJF #1)
+AC1 — Consentement avant toute suggestion IA
+  GIVEN un assuré accède au parcours de déclaration guidé
+  WHEN le module IA est sur le point d'être activé
+  THEN un écran de consentement s'affiche AVANT toute suggestion
+  AND  deux options : "Accepter" / "Déclarer sans IA"
+
+# US-A02 — Choix du type de sinistre (FEAT-A1)
+AC1 — Sélection du type
+  GIVEN un assuré connecté à son espace
+  WHEN il accède à la déclaration
+  THEN il peut choisir "Auto" ou "Habitation"
+  AND  le parcours adapté est chargé
+```
+
+### Risques équipe (ROAM)
+
+| Squad | Risque | Catégorie | Action |
+|-------|--------|-----------|--------|
+| Beta | API AS/400 (spike US-B03) conditionne FEAT-E | O Owned | Résultat spike S1 = go/no-go |
+| Alpha | NLP non tranché (spike US-A01) | M Mitigated | Fallback règles si spike négatif |
+
+---
+
+## STEP-04 — SCRUM-MASTER · Sprint Planning S1
+
+> Posture : le SM **facilite** et **coache l'auto-organisation** — décisions produites par les Developers (Scrum Guide 2020).
+
+### Sprint Goals (un seul par Scrum Team)
+
+| Squad | Sprint Goal S1 (unique) |
+|-------|-------------------------|
+| Alpha | Livrer les premières étapes du parcours guidé Auto sans tiers (choix type + questions en mock) |
+| Beta | Livrer un socle de conformité AI Act démontrable (consentement + logs traçables) |
+
+### Capacité (forecast des Developers)
+
+> Facteur de focus ~80% = convention d'équipe (pas une règle Scrum), à recalibrer après vélocité S1.
+
+| Squad | Devs | Capacité estimée | Forecast S1 |
+|-------|------|------------------|-------------|
+| Alpha | 3 | ~12 SP | 11 SP (dont 1 spike 3j) |
+| Beta | 2 | ~10 SP | 9 SP (dont 1 spike 3j) |
+
+### Sprint Backlog (auto-sélectionné par les Developers, ajusté au Daily)
+
+**Alpha** : US-A01 Spike NLP (Enabler Exploration) · US-A02 Choix type (3) · US-A03 Parcours mock (5)
+**Beta** : US-B01 Consentement (3) · US-B02 Logs IA (Enabler Compliance, 3) · US-B03 Spike AS/400 (Enabler Exploration)
+
+### Impediments Sprint (sans doublon avec le ROAM PI)
+
+| # | Impediment opérationnel | Action SM | Réf. ROAM |
+|---|-------------------------|-----------|-----------|
+| I1 | Accès/credentials AS/400 pour le spike | Escalade Lead IT legacy | instance R1 |
+| I2 | Clé API sandbox NLP | Escalade Achats | instance R2 |
+| I3 | Créneau DPO (wording consentement) | Faciliter avec PO Beta | — |
+| I4 | PO partagé Alpha/Beta — dispo | Coacher la délégation refinement | — |
+
+### Definition of Done (rappel)
+
+```
+☐ Code revu + mergé · ☐ AC Gherkin passants · ☐ Logs AI Act + consentement vérifiés
+☐ Aucune anomalie critique sécurité/RGPD · ☐ Increment démontrable (System Demo)
+☐ Spikes : note de décision (pas de code de prod)
+```
+
+---
+
+## STEP-05 — QA-AGILE · Tests Sprint 1 (shift-left, BDD)
+
+> Périmètre testé = stories de livraison uniquement. Spikes US-A01/US-B03 exclus (Enablers Exploration).
+
+### Scénarios BDD/Gherkin (nominal + erreur + limite)
+
+```gherkin
+# US-B01 — Écran consentement IA (FEAT-D)
+Nominal: consentement accordé → guidage IA + événement horodaté
+Alternatif: refus → formulaire standard, aucune donnée transmise IA
+Limite: fermeture sans choix → aucun consentement, IA inactive
+
+# US-B02 — Log suggestions IA (Enabler Compliance)
+Nominal: log {timestamp, hash, type, modèle, version} à chaque suggestion
+Limite: consentement refusé → aucun log IA
+
+# US-A03 — Parcours Auto sans tiers (FEAT-A1)
+Nominal: "Non" au tiers → champs tiers masqués, progression OK
+Erreur: réponse obligatoire manquante → blocage + message
+```
+
+### Plan de test Sprint 1 (in-sprint)
+
+| US | Type | Mode | Priorité |
+|----|------|------|----------|
+| US-B01 Consentement | Acceptance (ATDD) + exploratoire | Auto + manuel | Haute (gate légal) |
+| US-B02 Logs IA | Compliance + intégration | Auto | Haute (AI Act) |
+| US-A02 Choix type | Acceptance | Auto | Moyenne |
+| US-A03 Parcours mock | Acceptance + exploratoire | Auto + manuel | Moyenne |
+
+### Stratégie automatisation & régression (pyramide ISTQB)
+
+- E2E/Acceptance : Gherkin → Cucumber/Behave (parcours critiques US-B01, US-A03)
+- Intégration : US-B02 logs + connecteur AS/400 (mock en S1)
+- Unit : logique métier (règles parcours, validation consentement)
+- Régression : suite Gherkin automatisée en CI/CD dès S1 (socle)
+- Manuel/exploratoire : questions IA adaptatives (comportement émergent)
+- Tests intégration AS/400 réels : conditionnés au spike US-B03
+
+---
+
+## STEP-06 — CHEF-PROJET-IA · Dashboard PI & Note CODIR
+
+### Dashboard PI-01
+
+```
+Statut PI    : PLANIFIÉ · Vote de confiance 3,8/5
+Objectifs    : 4 Committed + 3 Uncommitted
+Capacité ART : ~80 SP · Sprint 1 engagé ~20 SP
+Avancement   : 0% (S1 non démarré — T0)
+MVP cible    : fin Sprint 3 (semaine 6)
+Risques      : 5 ROAM · dont R1 AS/400 (critique)
+```
+
+### EVM — Baseline (CPI/SPI N/A à T0, conforme PMI)
+
+| Élément | Valeur |
+|---------|--------|
+| BAC | 150 k€ |
+| PV (courbe) | S1≈30k · S2≈60k · S3≈95k (MVP) · S4≈130k · IP≈150k |
+| EV / AC | 0 (aucune exécution) |
+| CPI = EV/AC | N/A — calculable dès fin S1 |
+| SPI = EV/PV | N/A — calculable dès fin S1 |
+
+> Conforme PMI : pas d'indice de performance sans actuals. CPI/SPI mesurés à chaque System Demo.
+
+### RAG status par Feature
+
+| Feature | RAG | Justification |
+|---------|-----|---------------|
+| FEAT-D Conformité | 🟢 | Scope clair, gate légal |
+| FEAT-B Upload | 🟢 | Standard |
+| FEAT-C Notification | 🟢 | Post-MVP, simple |
+| FEAT-E AS/400 | 🟠 | Dépendance legacy non confirmée (R1) |
+| FEAT-A Parcours IA | 🟠 | NLP non tranché + gros split (R5) |
+
+### Note CODIR (1 page)
+
+```
+ÉTAT     : PI-01 planifié. Vote ART 3,8/5. MVP Auto visé S6. Conformité AI Act dès S1.
+RISQUES  : R1 AS/400 (bloquant FEAT-A) · R2 contrat NLP · R3 validation DPO
+DÉCISIONS CODIR :
+  1. Débloquer accès/spec API AS/400 (IT legacy) — URGENT
+  2. Valider et signer le contrat NLP
+  3. Confirmer le budget PI-01 (150 k€)
+  4. Arbitrer scope de repli si AS/400 glisse > S2
+KPIs MVP : abandon <20% · délai <48h · complétion >80%
+PROCHAIN JALON : System Demo S1 → 1er calcul CPI/SPI
+```
+
+---
+
 ## Évaluation
 
 | Critère | Note /5 | Commentaire |
 |---------|---------|-------------|
-| Complétude livrables | | À compléter en fin de run |
-| Qualité SAFe / Agile | | |
-| Réutilisabilité | | |
-| Promu en use case ? | oui / non | |
+| Complétude livrables | 5 | 6 steps produits (STEP-01 à 06), tous les artefacts attendus |
+| Qualité SAFe / Agile | 4 | Conforme après 2 corrections en cours de run (WSJF relatif, auto-organisation SM) |
+| Réutilisabilité | 4 | Bon template ; dépend de la correction du WF-002 (tâche #5) |
+| Promu en use case ? | **non** | À réévaluer après le lot de corrections #1-#5 (wsjf.md + WF-002). Reste en outputs/ |
+
+---
+
+> **Run complet WF-002** : STEP-01 → STEP-06 · 6 agents orchestrés · modèle Opus 4.7 · 2026-05-27
+> **Conformité** : WSJF recalculé niveau Feature (méthode officielle) · Sprint Goals uniques · auto-organisation SM · EVM baseline sans CPI/SPI fabriqués · Benefit Hypothesis (pas LBC) au niveau Feature
+> **Décision promotion** : maintenu en outputs/ — fondations à corriger d'abord (lot post-run #1-#5)

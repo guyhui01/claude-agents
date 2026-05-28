@@ -5,18 +5,14 @@
 
 ---
 
-## Index des skills (20)
+## Index des skills (16)
 
 ### Cérémonies Scrum
 | Skill | Quand l'invoquer | Certification |
 |---|---|---|
-| [`facilitation-ceremonies.md`](facilitation-ceremonies.md) | Vue d'ensemble des 4 cérémonies + bonnes pratiques | PSM I/II · CSM |
-| [`sprint-planning.md`](sprint-planning.md) | Animer le Sprint Planning (Why/What/How) | PSM I · CSM |
-| [`daily.md`](daily.md) | Animer le Daily Scrum (15 min, 24h plan) | PSM I · CSM |
-| [`sprint-review.md`](sprint-review.md) | Animer la Sprint Review (inspection Increment) | PSM I · CSM |
-| [`retrospective.md`](retrospective.md) | Animer la rétrospective classique | PSM I · CSM |
-| [`retrospective-avancee.md`](retrospective-avancee.md) | Formats avancés (Lean Coffee, Sailboat, Mad/Sad/Glad) | PSM II · A-CSM · ICAgile |
-| [`planning-poker.md`](planning-poker.md) | Animer une session Planning Poker (Fibonacci, alternatives, remote) | PSM I · CSM · A-CSM · SAFe SSM · ICAgile |
+| [`facilitation-ceremonies.md`](facilitation-ceremonies.md) | Animer les 5 cérémonies Scrum (Sprint Planning, Daily, Review, Rétrospective, Backlog Refinement) | PSM I/II · CSM |
+| [`retrospective-avancee.md`](retrospective-avancee.md) | Formats avancés rétrospective (Sailboat, Fishbone, Timeline, Prime Directive) | PSM II · A-CSM · ICAgile |
+| [`planning-poker.md`](planning-poker.md) | Animer une session Planning Poker (Fibonacci, alternatives, remote, SAFe) | PSM I · CSM · A-CSM · SAFe SSM · ICAgile |
 
 ### Coaching & Équipe
 | Skill | Quand l'invoquer | Certification |
@@ -51,9 +47,9 @@
 Tu veux ...
 
   ... ANIMER UNE CÉRÉMONIE SCRUM ?
-    → sprint-planning / daily / sprint-review / retrospective (de base)
-    → retrospective-avancee (formats variés)
-    → planning-poker (estimation collective)
+    → facilitation-ceremonies (vue d'ensemble + agendas Planning/Daily/Review/Rétro/Refinement)
+    → retrospective-avancee (formats variés : Sailboat, Fishbone, Timeline, Prime Directive)
+    → planning-poker (estimation collective Fibonacci, alternatives, remote)
 
   ... COACHER L'ÉQUIPE OU LE PO ?
     → coaching-equipe / coaching-po-sm

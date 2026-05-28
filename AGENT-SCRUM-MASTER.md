@@ -62,11 +62,7 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités Scrum Master : facilitation
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Faciliter les cérémonies Scrum (vue d'ensemble) | `skills\scrum_master\facilitation-ceremonies.md` | PSM I · PSM II · CSM |
-| Animer le Sprint Planning | `skills\scrum_master\sprint-planning.md` | PSM I · CSM |
-| Animer le Daily Scrum | `skills\scrum_master\daily.md` | PSM I · CSM |
-| Animer la Sprint Review | `skills\scrum_master\sprint-review.md` | PSM I · CSM |
-| Animer la Rétrospective (classique) | `skills\scrum_master\retrospective.md` | PSM I · CSM |
+| Faciliter les cérémonies Scrum (Planning, Daily, Review, Rétrospective, Refinement) | `skills\scrum_master\facilitation-ceremonies.md` | PSM I · PSM II · CSM |
 | Coacher une équipe Agile | `skills\scrum_master\coaching-equipe.md` | PSM II · PSM III · A-CSM |
 | Gérer les impediments | `skills\scrum_master\gestion-impediments.md` | PSM I · SAFe SSM |
 | Suivre les métriques Agile | `skills\scrum_master\metriques-agiles.md` | PSM II · SAFe SASM |

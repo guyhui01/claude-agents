@@ -95,3 +95,6 @@ plt.xticks(rotation=45)
 
 ## Format de sortie
 Précise : type de travail (maintenance / développement / support) · niveau de maturité Kanban · WIP actuel (estimé) · outil utilisé · goulot d'étranglement identifié
+
+## Voir aussi
+- [`skills/scrum/kanban-flow.md`](../scrum/kanban-flow.md) — Pratique Scrum+Kanban (PSK-I, Scrum.org) : usage Kanban dans un cadre Scrum côté équipe / Product Owner

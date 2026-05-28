@@ -5,6 +5,54 @@
 
 ---
 
+## [2.8.1] — 2026-05-28 — Audit SCRUM-MASTER + suppression 4 doublons cérémonies + cross-links kanban
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+4ème audit du chantier qualité (groupe Agile/Produit). Identification de **4 doublons architecturaux** dans `skills/scrum_master/` : `daily.md`, `sprint-planning.md`, `sprint-review.md`, `retrospective.md` répliquaient partiellement `facilitation-ceremonies.md` (sans certification déclarée, < 50L chacun). Décision architecturale (Option A) : **suppression des 4 doublons** + `facilitation-ceremonies.md` devient source de vérité unique pour les 5 cérémonies Scrum. Identification d'un 2ème skill exemplaire ✓ pur : `planning-poker.md` (James Grenning 2002, Mike Cohn, 6 alternatives, 8 anti-patterns).
+
+### ✨ Ajouté — Rapport d'audit
+- `audits/audit-scrum-master-2026-05-28.md` (20 skills audités) — **1 ✓ ⭐⭐** (planning-poker) / 3 P3 / 11 P2 / 5 P1
+- 35% des skills citent des sources externes → **meilleur taux du chantier** (vs 0% PO-SAFE, 10% PO-SCRUM, 30% PM-SAFE)
+
+### 🗑️ Supprimé — 4 doublons architecturaux (Option A)
+- `skills/scrum_master/daily.md` (27L, sans certif)
+- `skills/scrum_master/sprint-planning.md` (34L, sans certif)
+- `skills/scrum_master/sprint-review.md` (37L, sans certif)
+- `skills/scrum_master/retrospective.md` (49L, sans certif)
+
+**Justification** : les 4 fichiers étaient des extraits partiels de `facilitation-ceremonies.md` (103L), sans certification déclarée, < 50L chacun. Pattern "sans certif" confirmait leur statut de doublons non assumés. `facilitation-ceremonies.md` (cérémonies courantes) + `retrospective-avancee.md` (formats avancés) suffisent.
+
+**Impact catalogue** : 20 → **16 skills** dans `skills/scrum_master/`. 4 P1 → 0 P1 sur le doublon (1 P1 résiduel : `change-management-agile.md` — PROSCI/Kotter absents, à traiter en V2).
+
+### 🔧 Modifié — Mises à jour catalogue
+- `AGENT-SCRUM-MASTER.md` — Table des skills : suppression 4 lignes, libellé de `facilitation-ceremonies.md` enrichi (`Faciliter les cérémonies Scrum (Planning, Daily, Review, Rétrospective, Refinement)`)
+- `skills/scrum_master/README.md` — Compteur 20 → 16, table Cérémonies recomposée (3 lignes : facilitation-ceremonies + retrospective-avancee + planning-poker), arbre de décision adapté
+
+### ✨ Ajouté — Cross-links `kanban-flow.md`
+Clarification de la complémentarité (et non du doublon) entre les 2 fichiers homonymes :
+- `skills/scrum/kanban-flow.md` (45L, **PSK-I**) — usage Scrum+Kanban niveau équipe PO
+- `skills/scrum_master/kanban-flow.md` (98L, PSM I · A-CSM · SAFe SSM · ICAgile) — Kanban Method (David Anderson 2010) niveau SM/transformation
+
+Ajout section `## Voir aussi` dans les 2 fichiers pour expliciter la frontière.
+
+### 📊 Statistiques après v2.8.1 (bilan groupe Agile/Produit 4/9 agents)
+
+| Métrique | PO-SAFE | PO-SCRUM | PM-SAFE | SM | **Cumul 4** |
+|---|---|---|---|---|---|
+| Skills audités | 25 | 30 | 10 | 20 | **85** |
+| Verdict ✓ | 0 | 1 ⭐ | 0 | 1 ⭐⭐ | **2** |
+| P1 (%) | 24% | 27% | 20% | 25% | 25% |
+| % skills avec sources externes | 0% | 10% | 30% | 35% ⭐ | 14% |
+
+**Skills exemplaires identifiés** : `story-mapping.md` (PO-SCRUM, Jeff Patton) · `planning-poker.md` (SM, James Grenning 2002)
+
+### 🔜 RAF v2.8.x
+- **V2 P1 résiduels** : 9 skills à enrichir en profondeur (priorité haute : `po-ai-product.md` + `change-management-agile.md` PROSCI/Kotter)
+- **Audits restants groupe Agile/Produit (5/9)** : RELEASE-TRAIN-ENGINEER · BUSINESS-ANALYST · QA-AGILE · QA-CYCLEV · CHANGE-MANAGER
+
+---
+
 ## [2.8.0] — 2026-05-28 — Audit qualité agents Agile/Produit (3/9) + grille v2.8 + corrections architecturales
 > Modèle : Claude Opus 4.7
 

@@ -19,7 +19,7 @@ Maintenir une veille réglementaire IA de haut niveau pour anticiper les évolut
 ### International
 | Source | Contenu |
 |---|---|
-| NIST AI RMF (nist.gov) | Framework risques IA (USA) |
+| NIST AI RMF 1.0 (nist.gov, 2023) | Framework risques IA (USA) |
 | OECD AI Policy Observatory | Politiques IA par pays |
 | ISO/IEC JTC 1/SC 42 | Standards techniques IA (ISO 42001) |
 | IEEE Standards (standards.ieee.org) | Éthique et sécurité IA |

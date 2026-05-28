@@ -111,7 +111,7 @@ Tactique : Impact
 **Activités** :
 - Application de STRIDE à chaque composant du DFD
 - Cartographie sur MITRE ATT&CK et MITRE ATLAS (specific to AI)
-- Veille sur menaces émergentes (OWASP LLM Top 10, NIST AI RMF)
+- Veille sur menaces émergentes (OWASP LLM Top 10 v2025, NIST AI RMF 1.0)
 **Livrable** : threat register initial
 
 ### Phase 5 — Vulnerability Analysis

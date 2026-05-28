@@ -5,7 +5,44 @@
 
 ---
 
+## [2.7.6] — 2026-05-28 — Convention de traçabilité modèle + cosmétique skills DEV
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+Ajout d'une convention de traçabilité : **chaque entrée CHANGELOG et chaque tag annoté doit désormais indiquer le modèle Claude utilisé** (Sonnet 4.6 / Opus 4.7 / Haiku 4.5). Mise à jour rétroactive des 6 entrées de la session v2.7.0–v2.7.5. Préférence sauvegardée dans la mémoire conversationnelle (`feedback_changelog_modele.md`).
+
+### ✨ Ajouté — Convention de traçabilité modèle
+- Format CHANGELOG : ligne `> Modèle : Claude <version>` sous le titre de chaque entrée
+- Format tag annoté : mention du modèle en fin de message, ex : `v2.7.6 — Description (Opus 4.7)`
+- Mise à jour rétroactive des entrées v2.7.0 à v2.7.5 (cf. ci-dessous)
+
+### 🔧 Modifié — Traçabilité rétroactive des entrées 2026-05-28
+| Version | Modèle utilisé |
+|---|---|
+| v2.7.0 | Claude Sonnet 4.6 |
+| v2.7.1 | **Claude Opus 4.7** (audit qualité multi-agents en parallèle) |
+| v2.7.2 | Claude Sonnet 4.6 |
+| v2.7.3 | Claude Sonnet 4.6 |
+| v2.7.4 | Claude Sonnet 4.6 |
+| v2.7.5 | Claude Sonnet 4.6 |
+
+### 🔧 Modifié — Datage des références (3 occurrences)
+- `skills/ai_architect/README.md` : `OWASP LLM Top 10` → `OWASP LLM Top 10 (2025)`, `NIST AI RMF` → `NIST AI RMF 1.0 (2023)`
+- `skills/securite_ia/threat-modeling.md` (ligne 114) : ajout `v2025` et `1.0`
+- `skills/juridique_ia/veille-reglementaire.md` : `NIST AI RMF` → `NIST AI RMF 1.0 (nist.gov, 2023)`
+
+### 🔍 Audit du datage des références
+Audit complet via Grep des références aux standards (NIST AI RMF, OWASP LLM Top 10, MITRE ATT&CK, Scrum Guide, ISO/IEC 42001, EU AI Act) : **95% des occurrences déjà correctement datées**. Seules 3 corrections nécessaires (cf. ci-dessus). Les autres références sont déjà au format conforme depuis les v2.7.x précédentes.
+
+### 🔜 RAF v2.7.7+ (cosmétique restante)
+- **Uniformisation tag `> Certifications :`** : 2 formats coexistent dans ~80 skills (virgule vs middle dot `·`). Format cible recommandé = middle dot. Vague séparée nécessaire (audit puis batch de modifications).
+- **Sections "Hors périmètre" universelles** : à ajouter à la fin des 50 skills DEV
+- **README index dossiers restants** : 22 dossiers (faible utilisation client)
+
+---
+
 ## [2.7.5] — 2026-05-28 — README index 10 dossiers de skills supplémentaires
+> Modèle : Claude Sonnet 4.6
 
 ### 🎯 Contexte
 Poursuite de la généralisation du pattern README index initié en v2.7.3 (`securite_ia/`) et étendu aux 4 dossiers DEV core en v2.7.4. Cette release ajoute **10 README index** sur les dossiers les plus utilisés en mission, en priorisant les domaines de Guy (Agile, MOA, CMS, PIM, DAM, BI, EA). Bilan : **15/37 dossiers** indexés (40%) — les dossiers à plus forte utilisation client sont couverts.
@@ -46,6 +83,7 @@ Poursuite de la généralisation du pattern README index initié en v2.7.3 (`sec
 ---
 
 ## [2.7.4] — 2026-05-28 — README index des 4 dossiers de skills DEV core
+> Modèle : Claude Sonnet 4.6
 
 ### 🎯 Contexte
 Suite à la création du premier README index (`skills/securite_ia/`) en v2.7.3, généralisation du pattern aux 4 dossiers de skills DEV core. Chaque README suit le même format : index numéroté · arbre de décision "Tu veux..." · tableau des frontières avec les autres agents · liste des référentiels et standards. Les 32 dossiers de skills restants seront traités en v2.7.5+ (cosmétique long terme).
@@ -71,6 +109,7 @@ Suite à la création du premier README index (`skills/securite_ia/`) en v2.7.3,
 ---
 
 ## [2.7.3] — 2026-05-28 — Finalisation P3 audit qualité skills DEV (98% conformité)
+> Modèle : Claude Sonnet 4.6
 
 ### 🎯 Contexte
 Traitement des 3 skills P3 restants identifiés lors de l'audit qualité v2.7.1, et création du premier README index de dossier de skills (`skills/securite_ia/`). Les 4 dernières tâches cosmétiques (datage références sur 50 skills, uniformisation tag `> Certifications :`, sections "Hors périmètre" universelles, README pour les 36 autres dossiers de skills) sont reportées à v2.7.4.
@@ -99,6 +138,7 @@ Traitement des 3 skills P3 restants identifiés lors de l'audit qualité v2.7.1,
 ---
 
 ## [2.7.2] — 2026-05-28 — Frontières inter-agents : arbitrage des 3 doublons audit v2.7.1
+> Modèle : Claude Sonnet 4.6
 
 ### 🎯 Contexte
 Suite à l'audit v2.7.1, 3 doublons fonctionnels avaient été détectés entre AGENT-TECH-LEAD et 3 agents spécialistes (SECURITE-IA, DEVOPS-CLOUD, QA-AGILE). Cette release documente la frontière de manière **symétrique** (côté TECH-LEAD ET côté spécialiste), sur le modèle de la note QA-AGILE ↔ QA-CYCLEV (v2.3.6).
@@ -125,6 +165,7 @@ Suite à l'audit v2.7.1, 3 doublons fonctionnels avaient été détectés entre 
 ---
 
 ## [2.7.1] — 2026-05-28 — Audit qualité skills DEV (5 agents core) + corrections P1/P2
+> Modèle : Claude Opus 4.7 (audit multi-agents en parallèle)
 
 ### 🎯 Contexte
 Audit qualité méthodologique appliqué aux 50 skills des 5 agents techniques core (DEV-PYTHON-IA, AI-ARCHITECT, TECH-LEAD, DEVOPS-CLOUD, SECURITE-IA). Audit conduit par 5 sous-agents en parallèle (Opus 4.7) avec grille standardisée : conformité aux certifications revendiquées · actionabilité (livrables concrets, format prêt-à-copier) · profondeur (sources/références récentes 2024-2026). Bilan : 33/50 conformes (66%), 17/50 à corriger, 0/50 à refondre. Pas d'agent à risque, mais 1/3 des skills sous-investis. Vague de corrections P1 (3 bugs bloquants) + P2 (10 enrichissements). Skills restants (P3) reportés à une vague ultérieure.
@@ -173,6 +214,7 @@ Audit qualité méthodologique appliqué aux 50 skills des 5 agents techniques c
 ---
 
 ## [2.7.0] — 2026-05-28 — Nouvel agent AGENT-AUDIT-METHODO-IA + 3 skills critique_conformite
+> Modèle : Claude Sonnet 4.6
 
 ### 🎯 Contexte
 Ajout d'un agent de contre-expertise méthodologique indépendant, distinct des agents QA existants (AGENT-QA-AGILE et AGENT-QA-CYCLEV qui couvrent tests et code). AGENT-AUDIT-METHODO-IA joue le rôle de second avis adversarial sur les livrables produits par les autres agents IA : audit de conformité méthode (SAFe/Scrum/ISTQB/PMI/ISO 9001), challenge du raisonnement (biais cognitifs, devil's advocate, red-team) et gate de validation avant promotion. Nom initialement CONTRE-EXPERTISE-IA, renommé AUDIT-METHODO-IA pour refléter exactement le périmètre fonctionnel certifiant — conformément à la convention catalogue fonction + domaine.
@@ -713,6 +755,8 @@ Audit stratégique complet par Opus 4.7 (5 questions : redondances, gaps, cohér
 
 ## Liens de comparaison entre versions
 
+- [v2.7.6](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.6) — Convention traçabilité modèle + cosmétique skills (Opus 4.7)
+- [v2.7.5...v2.7.6](https://github.com/guyhui01/claude-agents/compare/v2.7.5...v2.7.6)
 - [v2.7.5](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.5) — README index 10 dossiers supplémentaires (15/37)
 - [v2.7.4...v2.7.5](https://github.com/guyhui01/claude-agents/compare/v2.7.4...v2.7.5)
 - [v2.7.4](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.4) — README index 4 dossiers DEV core

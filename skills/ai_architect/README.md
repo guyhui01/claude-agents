@@ -1,7 +1,7 @@
 # Skills — AI Architect
 
 > Dossier rattaché à `AGENT-AI-ARCHITECT.md`
-> Référentiels : AWS AIF-C01/MLA-C01 · Google ML Engineer · Azure AI-102 · TOGAF 10 · OWASP LLM Top 10 · NIST AI RMF · MCP/A2A standards
+> Référentiels : AWS AIF-C01/MLA-C01 · Google ML Engineer · Azure AI-102 · TOGAF 10 · OWASP LLM Top 10 (2025) · NIST AI RMF 1.0 (2023) · MCP/A2A standards
 
 ---
 

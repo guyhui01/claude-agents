@@ -5,6 +5,50 @@
 
 ---
 
+## [2.8.3] — 2026-05-29 — Audit BUSINESS-ANALYST (6/9 Agile/Produit)
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+6ème audit du chantier qualité (groupe Agile/Produit). BA = **agent le plus sous-dimensionné du chantier** : tous les skills entre 39-58 lignes (volumétrie moyenne 51L vs ~90L sur les autres agents). **40% de P1** = pire taux du chantier. Mais **0/10 sans certif** (3ème agent au top après PM-SAFE et RTE). Pas de V1 mécanique nécessaire — actions reportées à V2 (enrichissement profond, ~4-5h).
+
+### ✨ Ajouté — Rapport d'audit
+- `audits/audit-business-analyst-2026-05-29.md` (10 skills audités) — 0 ✓ / **0 P3** / 6 P2 / **4 P1** ⚠️
+
+### 🔍 Findings P1 critiques (à traiter en V2 profonde)
+- **elicitation-besoins.md** (39L) — Knowledge Area BABOK CORE compressé à 1 page. Volere (Robertson 2012) et Karl Wiegers (2013) absents. Refonte profonde : 39L → ~100L
+- **modelisation-processus.md** (44L) — BPMN 2.0 (538 pages spec OMG) + UML 2.5 (800+ pages) compressés à 44L. Use Cases (Jacobson 1992) sans attribution. Refonte : 44L → ~120L
+- **cartographie-si.md** (45L) — TOGAF 10 (600 pages, Open Group 2022) ramené à 45L. Archimate non cité explicitement. Lien AGENT-AI-ARCHITECT manquant
+- **analyse-impact.md** (50L) — Kübler-Ross (référentiel deuil) utilisé pour change organisationnel. Préférer John Kotter "Leading Change" (1995, 2nd ed 2012). BABOK Strategy Analysis absent
+
+### 🔍 Findings P2 (enrichissements)
+6 skills nécessitent ajout sources externes + anti-patterns + doublement de volumétrie :
+animation-atelier-metier, cadrage-projet, gestion-exigences, recette-moa, reporting-moa, specification-fonctionnelle.
+
+### 🔍 Constats transversaux
+- Référentiels canoniques BA **totalement absents** : Volere, Wiegers, Jacobson, Cockburn — 0 citation sur 10 skills
+- 0/10 anti-patterns documentés (anomalie pour agent IIBA CBAP)
+- 0/10 sources externes (régression vs SCRUM-MASTER 35%)
+- Tous les renvois inter-agents manquants (vers AI-ARCHITECT, QA-AGILE, PO-SCRUM, CHANGE-MANAGER)
+- Doublon thématique `specification-fonctionnelle.md` (BA) vs `spec-fonctionnelle.md` (Scrum) = **complémentaires** (60-70% redondance acceptable, pas de fusion)
+
+### 📊 Statistiques après v2.8.3 — Bilan groupe Agile/Produit (6/9 agents)
+
+| Métrique | PO-SAFE | PO-SCRUM | PM-SAFE | SM | RTE | BA | **Cumul 6** |
+|---|---|---|---|---|---|---|---|
+| Skills audités | 25 | 30 | 10 | 20 | 7 | 10 | **102** |
+| Skills catalogue actuel | 25 | 30 | 10 | 16 | 6+1 partagé | 10 | **97** |
+| Verdicts ✓ purs | 0 | 1 ⭐ | 0 | 1 ⭐⭐ | 0 | 0 | **2** |
+| % P1 | 24% | 27% | 20% | 25% | 14% | **40%** ⚠️ | 24% |
+| % skills sans certif | 28% | 37% | 0% | 20% | 0% | 0% | 16% |
+| Volumétrie moyenne (L) | 78 | 84 | 90 | 103 | 90 | 51 ⚠️ | — |
+
+### 🔜 RAF v2.8.x
+- **Audits restants groupe Agile/Produit (3/9)** : QA-AGILE · QA-CYCLEV · CHANGE-MANAGER
+- **V2 P1 résiduels** : 12 skills à enrichir (BA 4 + autres 8) — session dédiée recommandée après audits complets
+- **Triplon thématique potentiel à anticiper** : `business_analyst/analyse-impact.md` + `scrum_master/change-management-agile.md` + `change_manager/?` — décision architecturale à prendre lors de l'audit CHANGE-MANAGER
+
+---
+
 ## [2.8.2] — 2026-05-28 — Audit RELEASE-TRAIN-ENGINEER + fusion inspect-adapt + 1 P1 résolu
 > Modèle : Claude Opus 4.7
 

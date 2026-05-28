@@ -5,6 +5,34 @@
 
 ---
 
+## [2.7.3] — 2026-05-28 — Finalisation P3 audit qualité skills DEV (98% conformité)
+
+### 🎯 Contexte
+Traitement des 3 skills P3 restants identifiés lors de l'audit qualité v2.7.1, et création du premier README index de dossier de skills (`skills/securite_ia/`). Les 4 dernières tâches cosmétiques (datage références sur 50 skills, uniformisation tag `> Certifications :`, sections "Hors périmètre" universelles, README pour les 36 autres dossiers de skills) sont reportées à v2.7.4.
+
+### ✨ Enrichi — P3 skills restants (3 fichiers)
+- `skills/securite_ia/threat-modeling.md` — méthodologie **PASTA détaillée en 7 phases** (inputs/activités/livrables par phase) + **3 kill chains MITRE ATT&CK complètes** (Indirect Prompt Injection T-LLM02, Training Data Poisoning, Model Extraction T-LLM06), chacune avec 7 étapes opérationnelles incluant tactiques MITRE, outils, signaux de détection et contre-mesures
+- `skills/dev_python_ia/python-avance-ia.md` — ajout de 3 fichiers d'exemples testables prêts à copier-coller : `async_llm_retry.py` (Claude async + tenacity + structured logging), `test_async_llm_retry.py` (3 tests pytest avec mocks Anthropic), `rag_query_validation.py` (validation Pydantic stricte avec `field_validator` anti-injection)
+- `skills/securite_ia/owasp-llm-top10.md` — ajout grille d'évaluation scoring /10 (4 dimensions × 4 niveaux), matrice CVSS 3.1 avec exemple détaillé LLM01 + vecteur officiel FIRST, template complet de rapport d'audit (synthèse exécutive, détail par vulnérabilité, plan de remédiation priorisé P0/P1/P2)
+
+### ✨ Ajouté — Premier README index de dossier
+- `skills/securite_ia/README.md` — index des 10 skills + arbre de décision (auditer / construire / industrialiser / détecter & répondre) + tableau des frontières avec autres agents + liste des référentiels et standards (OWASP, NIST, ISO, MITRE)
+
+### 📊 Statistiques après v2.7.3
+| Métrique | Avant audit | v2.7.1 | v2.7.2 | v2.7.3 |
+|---|---|---|---|---|
+| Skills DEV conformes (✓) | 33/50 (66%) | 46/50 (92%) | 46/50 (92%) | **49/50 (98%)** |
+| Doublons inter-agents arbitrés | 0/3 | 0/3 | **3/3** | 3/3 |
+| README dossiers skills | 0/37 | 0/37 | 0/37 | **1/37** |
+
+### 🔜 RAF v2.7.4 (cosmétique restante, ~2h)
+- Datage des références sur les 50 skills DEV (NIST 1.0 = 2023, OWASP LLM = 2025, etc.)
+- Uniformisation du tag `> Certifications :` en tête de chaque skill (format hétérogène détecté)
+- Sections "Hors périmètre" systématiques sur les 50 skills (renvoi vers agents spécialistes)
+- README index pour les 36 autres dossiers de skills (modèle `securite_ia/README.md`)
+
+---
+
 ## [2.7.2] — 2026-05-28 — Frontières inter-agents : arbitrage des 3 doublons audit v2.7.1
 
 ### 🎯 Contexte
@@ -620,6 +648,8 @@ Audit stratégique complet par Opus 4.7 (5 questions : redondances, gaps, cohér
 
 ## Liens de comparaison entre versions
 
+- [v2.7.3](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.3) — Finalisation P3 audit qualité skills DEV (98%)
+- [v2.7.2...v2.7.3](https://github.com/guyhui01/claude-agents/compare/v2.7.2...v2.7.3)
 - [v2.7.2](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.2) — Frontières inter-agents
 - [v2.7.1...v2.7.2](https://github.com/guyhui01/claude-agents/compare/v2.7.1...v2.7.2)
 - [v2.7.1](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.1) — Audit qualité skills DEV (P1+P2)

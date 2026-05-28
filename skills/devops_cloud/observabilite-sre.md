@@ -124,6 +124,86 @@ groups:
           severity: warning
 ```
 
+### Métriques spécifiques LLM (à ajouter pour les services agentiques)
+
+Les SLOs classiques (availability, latency) ne suffisent pas pour un service LLM. Instrumenter en plus :
+
+```yaml
+# prometheus/rules/llm-slo.yml
+groups:
+  - name: slo-llm-service
+    rules:
+      # Coût LLM : alerte si la dépense quotidienne dépasse le budget
+      - alert: LLMCostBudgetBurn
+        expr: |
+          sum(increase(llm_token_cost_usd_total[24h])) > 500
+        for: 10m
+        labels:
+          severity: warning
+          slo: cost
+        annotations:
+          summary: "Budget LLM 24h dépassé : ${{ $value | humanize }}"
+
+      # Boucle agent infinie : trop d'itérations sur un seul thread
+      - alert: AgentLoopRunaway
+        expr: |
+          max_over_time(agent_iterations_per_thread[5m]) > 20
+        for: 1m
+        labels:
+          severity: critical
+          slo: cost
+        annotations:
+          summary: "Agent en boucle (>20 itérations) sur thread {{ $labels.thread_id }}"
+
+      # Taux d'hallucination (via LLM-as-judge async)
+      - alert: HallucinationRateHigh
+        expr: |
+          (
+            sum(rate(llm_response_judged_total{verdict="hallucinated"}[1h]))
+            /
+            sum(rate(llm_response_judged_total[1h]))
+          ) > 0.10
+        for: 15m
+        labels:
+          severity: warning
+          slo: quality
+        annotations:
+          summary: "Taux d'hallucination > 10% sur 1h"
+
+      # Context window saturation
+      - alert: ContextWindowSaturation
+        expr: |
+          histogram_quantile(0.95, rate(llm_input_tokens_bucket[10m])) > 150000
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "P95 des inputs LLM > 150k tokens — risque de troncature / coût"
+```
+
+**Instrumentation Python (extension OpenTelemetry)** :
+
+```python
+token_cost_counter = meter.create_counter(
+    "llm_token_cost_usd",
+    description="Coût cumulé en USD par modèle et par endpoint",
+)
+agent_iter_gauge = meter.create_gauge(
+    "agent_iterations_per_thread",
+    description="Nombre d'itérations actuelles par thread agentique",
+)
+
+@tracer.start_as_current_span("llm.call")
+def call_llm(prompt: str, model: str = "claude-sonnet-4-6") -> str:
+    response = client.messages.create(model=model, max_tokens=1024,
+        messages=[{"role": "user", "content": prompt}])
+    # Coût = input × prix_input + output × prix_output (Anthropic pricing)
+    cost = (response.usage.input_tokens * INPUT_PRICE[model]
+            + response.usage.output_tokens * OUTPUT_PRICE[model]) / 1_000_000
+    token_cost_counter.add(cost, {"model": model, "endpoint": "agent"})
+    return response.content[0].text
+```
+
 ### OpenTelemetry — instrumentation Python
 
 ```python

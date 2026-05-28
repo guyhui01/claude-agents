@@ -5,10 +5,22 @@
 Concevoir et optimiser un pipeline RAG pour ancrer les réponses LLM dans des données fiables.
 
 ## Pipeline RAG standard
-```
-Documents → Chunking → Embedding → Vector Store
-                                        ↓
-Query → Embedding → Retrieval → Reranking → LLM → Réponse
+
+```mermaid
+flowchart LR
+    subgraph Indexation[Indexation - offline]
+        D[Documents<br/>PDF/DOCX/HTML] --> C[Chunking<br/>recursive 512-1024 tokens]
+        C --> E[Embedding<br/>voyage-3-large]
+        E --> VS[(Vector Store<br/>Qdrant / pgvector)]
+    end
+    subgraph Runtime[Runtime - online]
+        Q[Query utilisateur] --> QE[Query Embedding]
+        QE --> R[Hybrid Retrieval<br/>vectoriel + BM25]
+        VS --> R
+        R --> RR[Reranking<br/>Cohere rerank-v3]
+        RR --> L[LLM<br/>Claude Sonnet 4.6]
+        L --> A[Réponse + sources citées]
+    end
 ```
 
 ## Étapes détaillées
@@ -26,10 +38,35 @@ Query → Embedding → Retrieval → Reranking → LLM → Réponse
 | Semantic | Variable | Précision maximale |
 | Parent-child | Hiérarchique | Context riche + précision |
 
-### 3. Embedding
-- **OpenAI** text-embedding-3-large (3072 dim) — qualité maximale
-- **Cohere** embed-v3 — multilingue excellent
-- **HuggingFace** bge-m3 — open source, multilingue
+### 3. Embedding (2026)
+- **Voyage AI** voyage-3-large (1024 dim) — partenaire Anthropic, leader benchmark MTEB 2025
+- **OpenAI** text-embedding-3-large (3072 dim) — qualité, plus cher
+- **Cohere** embed-multilingual-v3 — multilingue excellent
+- **HuggingFace** bge-m3 — open source, multilingue, self-hosted
+
+### Code de chunking récursif (référence Python)
+
+```python
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_voyageai import VoyageAIEmbeddings
+from langchain_qdrant import QdrantVectorStore
+
+# Hiérarchie de séparateurs : on tente de couper à \n\n, puis \n, puis phrases, puis mots
+splitter = RecursiveCharacterTextSplitter(
+    chunk_size=1000,            # ~750 tokens, sweet spot retrieval
+    chunk_overlap=200,           # 20% de chevauchement → continuité sémantique
+    separators=["\n\n", "\n", ". ", " ", ""],
+    length_function=len,
+)
+chunks = splitter.split_documents(docs)
+
+# Métadonnées propagées automatiquement aux chunks (source, page, section)
+for chunk in chunks:
+    chunk.metadata["chunk_id"] = f"{chunk.metadata['source']}-{chunk.metadata.get('page', 0)}"
+
+embeddings = VoyageAIEmbeddings(model="voyage-3-large")
+vs = QdrantVectorStore.from_documents(chunks, embeddings, url="http://localhost:6333")
+```
 
 ### 4. Vector Store
 - pgvector (PostgreSQL) · Qdrant · Pinecone · Weaviate

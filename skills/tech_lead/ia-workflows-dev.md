@@ -29,27 +29,36 @@ CI/CD               GitHub Actions + Claude     Analyse automatique des rapports
                     Sentry AI                   Résolution suggérée pour les erreurs
 ```
 
-## Claude Code — Commandes essentielles Tech Lead
+## Claude Code — Skills essentiels Tech Lead
+
+Claude Code expose des **skills** (slash commands) invocables dans la session interactive :
 
 ```bash
-# Revue de code complète d'un fichier
-claude review src/services/order.service.ts
+# Lancer Claude Code dans le repo
+claude
 
-# Expliquer un fichier complexe
-claude "Explique l'architecture de src/services/order.service.ts"
+# Une fois dans la session, invoquer les skills built-in :
+/code-review                    # Revue du diff courant (correctness + simplifications)
+/code-review --fix              # Revue + applique les corrections au working tree
+/code-review --comment          # Poste les findings en commentaires PR
+/code-review ultra <PR#>        # Revue multi-agents cloud (Opus 4.7)
 
-# Générer des tests unitaires
-claude "Génère des tests Jest pour src/services/order.service.ts, couvre tous les cas d'erreur"
-
-# Refactoring guidé
-claude "Refactore cette méthode pour réduire sa complexité cyclomatique à < 10"
-
-# Générer un ADR depuis une discussion
-claude "Rédige un ADR pour la décision d'utiliser BullMQ comme queue de jobs"
-
-# Analyser une PR (dans le contexte du repo)
-claude "Analyse la PR #142 : correctness, sécurité, performance"
+/simplify                       # Équivalent à /code-review --fix (refactor uniquement)
+/verify                         # Lance l'app, teste le comportement réel
+/security-review                # Audit sécurité du diff (OWASP, secrets, injections)
+/init                           # Crée le CLAUDE.md du projet
 ```
+
+Et en prompt libre, demander à Claude :
+
+```
+Génère des tests Jest pour src/services/order.service.ts, couvre tous les cas d'erreur
+Refactore cette méthode pour réduire sa complexité cyclomatique à < 10
+Rédige un ADR pour la décision d'utiliser BullMQ comme queue de jobs
+Analyse la PR #142 (sécurité, perf, correctness) et liste les blockers
+```
+
+> ℹ️ Voir `claude --help` ou la liste des skills affichée en session (system reminders). Les skills sont définis dans `~/.claude/skills/*.md`.
 
 ## Hooks Claude Code — Pre-commit automatisé
 

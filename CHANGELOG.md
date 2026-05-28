@@ -5,6 +5,54 @@
 
 ---
 
+## [2.7.1] — 2026-05-28 — Audit qualité skills DEV (5 agents core) + corrections P1/P2
+
+### 🎯 Contexte
+Audit qualité méthodologique appliqué aux 50 skills des 5 agents techniques core (DEV-PYTHON-IA, AI-ARCHITECT, TECH-LEAD, DEVOPS-CLOUD, SECURITE-IA). Audit conduit par 5 sous-agents en parallèle (Opus 4.7) avec grille standardisée : conformité aux certifications revendiquées · actionabilité (livrables concrets, format prêt-à-copier) · profondeur (sources/références récentes 2024-2026). Bilan : 33/50 conformes (66%), 17/50 à corriger, 0/50 à refondre. Pas d'agent à risque, mais 1/3 des skills sous-investis. Vague de corrections P1 (3 bugs bloquants) + P2 (10 enrichissements). Skills restants (P3) reportés à une vague ultérieure.
+
+### 🐛 Corrigé — P1 bugs bloquants
+- `skills/dev_python_ia/pipeline-rag.md` — import LangChain v0.2+ cassé (`langchain.text_splitter` → `langchain_text_splitters`), ajout Voyage AI embeddings (partenaire Anthropic), enrichissement section RAGAs (4 métriques + dataset complet + seuils production)
+- `skills/tech_lead/ia-workflows-dev.md` — commandes `claude review` inventées remplacées par les vrais skills Claude Code (`/code-review`, `/code-review --fix`, `/verify`, `/security-review`, `/simplify`, `/init`)
+- `AGENT-DEVOPS-CLOUD.md` — ajout 3 certifications ML manquantes (AWS MLA-C01, GCP ML Engineer, Azure AI-102) pour cohérence avec les skills cloud aws/gcp/azure-architecture
+- `skills/dev_python_ia/agents-python.md` — fix nom modèle obsolète `claude-opus-4-5` → `claude-opus-4-7`
+
+### ✨ Enrichi — P2 contenu et actionabilité
+
+**AI-ARCHITECT (5 skills)** :
+- `evaluation-llm.md` — benchmarks 2025+ (GPQA, IFEval, MMLU-Pro, SWE-bench Verified, τ-bench, LMArena), outils 2026 (Braintrust, Inspect AI UK AISI), template golden dataset YAML, format rapport mensuel
+- `design-patterns-agents.md` — diagramme Mermaid Multi-Agent Supervisor + code LangGraph 0.2+ complet (StateGraph + Command routing + structured output)
+- `protocoles-mcp-a2a.md` — MCP server TypeScript complet (tools + resources + stdio transport) + commande create-server + config Claude Desktop
+- `multi-agent-design.md` — exemple StateGraph LangGraph avec checkpointing SQLite et `interrupt_before` human-in-the-loop
+- `architecture-rag.md` — diagramme Mermaid pipeline (indexation + runtime) + code chunking récursif avec métadonnées propagées
+
+**DEV-PYTHON-IA (2 skills)** :
+- `agents-python.md` — pattern ReAct **déplié** (StateGraph manuel + ToolNode + boucle agent↔tools + checkpointing SQLite), démo multi-tour avec thread_id
+- `pytorch-deeplearning.md` — Mini-Transformer complet (PositionalEncoding + Encoder + classification head) + Dataset/DataLoader + boucle train/val avec accuracy
+
+**DEVOPS-CLOUD (2 skills)** :
+- `observabilite-sre.md` — règles Prometheus spécifiques LLM (LLMCostBudgetBurn, AgentLoopRunaway, HallucinationRateHigh, ContextWindowSaturation) + instrumentation OTel Python pour coûts tokens
+- `incident-response-llm.md` — toolbox d'investigation concrète (RAGAs, DeepEval, LangSmith, Helicone, Langfuse, Anthropic Console)
+
+**SECURITE-IA (1 skill)** :
+- `incident-response.md` — passage de 3 à 6 runbooks complets (Prompt Injection, Data Poisoning, Model Theft, Data Exfiltration, DoS/Token Burn, Auth Bypass) + template RCA méthode 5 Whys + tableau de suivi avec SLA P0-P3
+
+### 📊 Statistiques après v2.7.1
+| Métrique | Avant audit | Après corrections |
+|---|---|---|
+| Skills DEV conformes (✓) | 33/50 (66%) | 46/50 (92%) |
+| Skills DEV à corriger (⚠) | 17/50 | 4/50 (P3, à traiter ultérieurement) |
+| Skills DEV à refondre (✗) | 0/50 | 0/50 |
+| Certifications ML alignées avec contenu | 0/3 | 3/3 (DEVOPS-CLOUD) |
+| Bugs bloquants identifiés | 3 | 0 |
+
+### 🔜 Reste à arbitrer (P3)
+- `skills/securite_ia/threat-modeling.md` — PASTA détaillé + kill chains MITRE complets
+- `skills/dev_python_ia/python-avance-ia.md` — création d'exemples testables
+- `skills/securite_ia/owasp-llm-top10.md` — template rapport d'audit + matrice CVSS
+- 3 doublons à arbitrer entre agents (securite-applicative ↔ SECURITE-IA, cicd-pipeline ↔ DEVOPS-CLOUD, strategie-tests ↔ QA-AGILE)
+
+---
+
 ## [2.7.0] — 2026-05-28 — Nouvel agent AGENT-AUDIT-METHODO-IA + 3 skills critique_conformite
 
 ### 🎯 Contexte
@@ -546,6 +594,8 @@ Audit stratégique complet par Opus 4.7 (5 questions : redondances, gaps, cohér
 
 ## Liens de comparaison entre versions
 
+- [v2.7.1](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.1) — Audit qualité skills DEV (P1+P2)
+- [v2.7.0...v2.7.1](https://github.com/guyhui01/claude-agents/compare/v2.7.0...v2.7.1)
 - [v2.7.0](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.0) — AGENT-AUDIT-METHODO-IA
 - [v2.6.0...v2.7.0](https://github.com/guyhui01/claude-agents/compare/v2.6.0...v2.7.0)
 - [v2.0.0](https://github.com/guyhui01/claude-agents/releases/tag/v2.0.0) — Audit stratégique Opus 4.7

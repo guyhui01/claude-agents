@@ -83,6 +83,48 @@ CHECKLIST INVESTIGATION
 □ Vérifier les dépendances (vectorDB, embedding model, tools)
 ```
 
+### Outils d'investigation LLM (concrets)
+
+```yaml
+investigation_toolbox:
+  evaluation_qualite:
+    - tool: RAGAs eval suite
+      usage: "rejouer le golden dataset, vérifier faithfulness/groundedness vs baseline"
+      cmd: "ragas evaluate --dataset golden.jsonl --baseline v2026-04"
+    - tool: DeepEval
+      usage: "tests pytest-like sur sample représentatif de la prod"
+      cmd: "deepeval test run incident_replay.py"
+
+  tracing_et_replay:
+    - tool: LangSmith
+      usage: "traces de requêtes problématiques avec inputs/outputs/tokens/coûts"
+      url_pattern: "https://smith.langchain.com/projects/{project}/traces?filter=error"
+    - tool: Helicone
+      usage: "dashboard historique des coûts par endpoint, replay de requêtes"
+      url: "https://www.helicone.ai/dashboard"
+    - tool: Langfuse (open source self-hosted)
+      usage: "tracing + eval + prompt management, alternative à LangSmith"
+
+  prompt_versioning:
+    - tool: Git history sur dossier prompts/
+      cmd: "git log --oneline -p prompts/system-prompt-agent.txt | head -50"
+    - tool: Diff entre version actuelle et version stable
+      cmd: "git diff <last-stable-tag> HEAD -- prompts/"
+
+  analyse_token:
+    - tool: Anthropic Console — Usage tab
+      url: "https://console.anthropic.com/settings/usage"
+      usage: "détail des appels par jour, identification des spikes"
+    - tool: Token burn analysis (script custom)
+      cmd: "python scripts/analyze_token_spike.py --from '2h ago' --threshold 50000"
+
+  rag_corpus:
+    - tool: Qdrant snapshot diff
+      usage: "vérifier si le corpus vectoriel a changé (ingestion défaillante ?)"
+    - tool: Re-indexation sandbox
+      usage: "réindexer un échantillon sur un cluster de test pour comparaison"
+```
+
 ### PHASE 4 — RÉSOLUTION & RESTAURATION
 
 ```yaml

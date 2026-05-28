@@ -41,10 +41,73 @@ Concevoir l'architecture d'un système d'agents IA en choisissant les bons patte
 | Tâche longue décomposable | Plan & Execute |
 | Équipe d'agents spécialisés | Multi-Agent Supervisor |
 
+## Exemple : Multi-Agent Supervisor avec LangGraph
+
+### Diagramme (Mermaid)
+
+```mermaid
+flowchart TD
+    User([User Query]) --> Supervisor{Supervisor<br/>routing decision}
+    Supervisor -->|recherche| Researcher[Researcher Agent<br/>tools: web_search, arxiv]
+    Supervisor -->|analyse| Analyst[Analyst Agent<br/>tools: code_interpreter]
+    Supervisor -->|rédige| Writer[Writer Agent<br/>tools: format_md]
+    Researcher --> Supervisor
+    Analyst --> Supervisor
+    Writer --> Supervisor
+    Supervisor -->|done| Output([Final Answer])
+```
+
+### Implémentation (Python — LangGraph 0.2+)
+
+```python
+from typing import Literal, Annotated
+from typing_extensions import TypedDict
+from langgraph.graph import StateGraph, END, START
+from langgraph.types import Command
+from langchain_anthropic import ChatAnthropic
+
+class State(TypedDict):
+    messages: list
+    next: str  # nom de l'agent suivant ou "FINISH"
+
+llm = ChatAnthropic(model="claude-sonnet-4-6")
+MEMBERS = ["researcher", "analyst", "writer"]
+
+def supervisor_node(state: State) -> Command[Literal[*MEMBERS, "FINISH"]]:
+    """Décide quel agent appeler ensuite, ou FINISH."""
+    system = f"Tu coordonnes {MEMBERS}. Choisis le prochain ou FINISH."
+    response = llm.with_structured_output({
+        "type": "object",
+        "properties": {"next": {"enum": MEMBERS + ["FINISH"]}}
+    }).invoke([{"role": "system", "content": system}] + state["messages"])
+    goto = response["next"]
+    if goto == "FINISH":
+        return Command(goto=END)
+    return Command(goto=goto, update={"next": goto})
+
+def researcher_node(state: State) -> Command[Literal["supervisor"]]:
+    # ... appel au researcher avec ses tools web_search, arxiv
+    result = llm.invoke(state["messages"] + [{"role": "system", "content": "Tu es Researcher."}])
+    return Command(goto="supervisor", update={"messages": [result]})
+
+# Idem pour analyst_node et writer_node...
+
+graph = StateGraph(State)
+graph.add_node("supervisor", supervisor_node)
+graph.add_node("researcher", researcher_node)
+graph.add_node("analyst", analyst_node)
+graph.add_node("writer", writer_node)
+graph.add_edge(START, "supervisor")
+app = graph.compile()
+
+result = app.invoke({"messages": [{"role": "user", "content": "Analyse l'impact de l'AI Act sur la santé"}]})
+```
+
 ## Livrables
-- Diagramme d'architecture (Mermaid)
-- Choix de pattern justifié (trade-offs)
-- Liste des tools et agents nécessaires
+- Diagramme d'architecture (Mermaid) + flux de contrôle annoté
+- Code d'amorce du pattern choisi (LangGraph / CrewAI / Anthropic SDK)
+- Choix de pattern justifié (trade-offs latence × coût × qualité)
+- Liste des tools et agents avec contrats input/output
 
 ## Format de sortie
-Précise : cas d'usage · contraintes (latence, coût, qualité) · LLM disponible
+Précise : cas d'usage · contraintes (latence, coût, qualité) · LLM disponible · framework cible (LangGraph, CrewAI, AutoGen, SDK Anthropic natif)

@@ -8,24 +8,36 @@ Implémenter un pipeline RAG complet en Python, de l'ingestion à la génératio
 
 ### 1. Ingestion des documents
 ```python
+# LangChain v0.2+ : le text_splitter est dans un package séparé
 from langchain_community.document_loaders import PyPDFLoader, DirectoryLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 loader = DirectoryLoader("./docs", glob="**/*.pdf", loader_cls=PyPDFLoader)
 docs = loader.load()
 
-splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+splitter = RecursiveCharacterTextSplitter(
+    chunk_size=1000,
+    chunk_overlap=200,
+    separators=["\n\n", "\n", ". ", " ", ""],  # ordre de priorité
+)
 chunks = splitter.split_documents(docs)
 ```
 
 ### 2. Embedding & stockage
 ```python
-from langchain_openai import OpenAIEmbeddings
-from langchain_qdrant import QdrantVectorStore
+# Option A : Voyage AI (recommandé en 2026 — meilleur ratio qualité/coût pour le français)
+from langchain_voyageai import VoyageAIEmbeddings
+embeddings = VoyageAIEmbeddings(model="voyage-3-large", batch_size=128)
 
-embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
+# Option B : OpenAI (alternative grand public)
+# from langchain_openai import OpenAIEmbeddings
+# embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
+
+from langchain_qdrant import QdrantVectorStore
 vectorstore = QdrantVectorStore.from_documents(chunks, embeddings, url="http://localhost:6333")
 ```
+
+> ℹ️ Pour utiliser Claude (Anthropic) comme générateur, les embeddings doivent venir d'un autre provider — Anthropic ne fournit pas d'API d'embeddings native. Voyage AI est leur partenaire officiel recommandé.
 
 ### 3. Retrieval avec reranking
 ```python
@@ -56,12 +68,35 @@ rag_chain = (
 - **Multi-query** : générer plusieurs variantes de la query pour plus de recall
 
 ## Évaluation avec RAGAs
-```python
-from ragas import evaluate
-from ragas.metrics import faithfulness, answer_relevancy, context_precision
 
-results = evaluate(dataset, metrics=[faithfulness, answer_relevancy, context_precision])
+```python
+from datasets import Dataset
+from ragas import evaluate
+from ragas.metrics import (
+    faithfulness,           # le LLM hallucine-t-il par rapport au contexte ?
+    answer_relevancy,       # la réponse est-elle pertinente vs la question ?
+    context_precision,      # les chunks récupérés sont-ils utiles ?
+    context_recall,         # le retrieval a-t-il trouvé toute l'info nécessaire ?
+)
+
+# Dataset d'évaluation = liste de questions avec ground truth (à curer manuellement)
+eval_data = {
+    "question": ["Quelle est la politique de retour ?", "Quel est le délai SLA ?"],
+    "answer": [rag_chain.invoke(q) for q in questions],            # généré par le RAG
+    "contexts": [[doc.page_content for doc in retriever.invoke(q)] for q in questions],
+    "ground_truth": ["30 jours sans condition", "4h ouvrées"],     # référence humaine
+}
+dataset = Dataset.from_dict(eval_data)
+
+results = evaluate(
+    dataset,
+    metrics=[faithfulness, answer_relevancy, context_precision, context_recall],
+)
+print(results)
+# {'faithfulness': 0.92, 'answer_relevancy': 0.87, 'context_precision': 0.81, 'context_recall': 0.76}
 ```
+
+**Seuils de production recommandés** : faithfulness ≥ 0.90 (anti-hallucination), context_recall ≥ 0.80 (couverture). En dessous → revoir le chunking ou le reranking.
 
 ## Livrables
 - Pipeline RAG fonctionnel (ingestion + retrieval + génération)

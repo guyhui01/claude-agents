@@ -22,7 +22,7 @@ tools = [{
 def run_agent(user_message: str) -> str:
     messages = [{"role": "user", "content": user_message}]
     while True:
-        response = client.messages.create(model="claude-opus-4-5",
+        response = client.messages.create(model="claude-opus-4-7",
             max_tokens=4096, tools=tools, messages=messages)
         if response.stop_reason == "end_turn":
             return response.content[0].text
@@ -56,19 +56,99 @@ memory = SqliteSaver.from_conn_string("./agent_memory.db")
 # Récupérer les souvenirs pertinents à chaque nouvelle session
 ```
 
-## Pattern ReAct complet (LangGraph)
+## Pattern ReAct complet (LangGraph) — version "boîte noire"
+
 ```python
 from langgraph.prebuilt import create_react_agent
+from langgraph.checkpoint.sqlite import SqliteSaver
+from langchain_anthropic import ChatAnthropic
+
+memory = SqliteSaver.from_conn_string("./agent_memory.db")
 
 agent = create_react_agent(
-    model=ChatAnthropic(model="claude-opus-4-5"),
+    model=ChatAnthropic(model="claude-opus-4-7"),
     tools=[search_tool, calculator_tool, write_file_tool],
-    checkpointer=memory
+    checkpointer=memory,
 )
 
-result = await agent.ainvoke(
-    {"messages": [HumanMessage(content=user_input)]},
-    config={"configurable": {"thread_id": "session_123"}}
+result = agent.invoke(
+    {"messages": [{"role": "user", "content": user_input}]},
+    config={"configurable": {"thread_id": "session_123"}},
+)
+```
+
+## Pattern ReAct **déplié** (LangGraph) — pour comprendre / customiser
+
+`create_react_agent` masque la mécanique. Le voici à la main :
+
+```python
+from typing_extensions import TypedDict
+from typing import Annotated, Literal
+from langgraph.graph import StateGraph, START, END
+from langgraph.graph.message import add_messages
+from langgraph.checkpoint.sqlite import SqliteSaver
+from langgraph.prebuilt import ToolNode
+from langchain_anthropic import ChatAnthropic
+from langchain_core.tools import tool
+
+# 1. État accumulé : la liste des messages avec reducer
+class AgentState(TypedDict):
+    messages: Annotated[list, add_messages]
+
+# 2. Définir des tools typés
+@tool
+def search_documents(query: str, limit: int = 5) -> str:
+    """Recherche dans la base documentaire."""
+    return f"Trouvé 3 docs pour '{query}'"
+
+@tool
+def calculator(expression: str) -> str:
+    """Évalue une expression mathématique."""
+    return str(eval(expression, {"__builtins__": {}}))
+
+tools = [search_documents, calculator]
+llm_with_tools = ChatAnthropic(model="claude-opus-4-7").bind_tools(tools)
+
+# 3. Nœud "agent" : le LLM décide (réponse finale OU appel de tool)
+def agent_node(state: AgentState) -> dict:
+    response = llm_with_tools.invoke(state["messages"])
+    return {"messages": [response]}
+
+# 4. Nœud "tools" : exécute les tools demandés par le LLM
+tool_node = ToolNode(tools)
+
+# 5. Routing : tool_calls dans le dernier message ? → tools, sinon → END
+def should_continue(state: AgentState) -> Literal["tools", END]:
+    last = state["messages"][-1]
+    if hasattr(last, "tool_calls") and last.tool_calls:
+        return "tools"
+    return END
+
+# 6. Construire le graphe ReAct (boucle agent ↔ tools jusqu'à end_turn)
+graph = StateGraph(AgentState)
+graph.add_node("agent", agent_node)
+graph.add_node("tools", tool_node)
+graph.add_edge(START, "agent")
+graph.add_conditional_edges("agent", should_continue)
+graph.add_edge("tools", "agent")  # ← la boucle ReAct
+
+# 7. Checkpointing SQLite : reprise après crash, multi-thread, audit
+checkpointer = SqliteSaver.from_conn_string("./agent_memory.db")
+app = graph.compile(checkpointer=checkpointer)
+
+# 8. Exécution avec thread_id pour persister la conversation
+config = {"configurable": {"thread_id": "session_123"}}
+result = app.invoke(
+    {"messages": [{"role": "user", "content": "Cherche 'AI Act' et calcule 2024-1995"}]},
+    config=config,
+)
+for msg in result["messages"]:
+    print(f"[{msg.type}] {msg.content[:200]}")
+
+# Reprise dans une autre exécution : LangGraph récupère l'état persisté
+result2 = app.invoke(
+    {"messages": [{"role": "user", "content": "Et le détail de l'article 5 ?"}]},
+    config=config,  # même thread_id → contexte conservé
 )
 ```
 

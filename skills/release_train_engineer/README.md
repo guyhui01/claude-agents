@@ -5,14 +5,14 @@
 
 ---
 
-## Index des skills (7)
+## Index des skills (6 dans ce dossier + 1 partagé)
 
 | # | Skill | Quand l'invoquer | Certification |
 |---|---|---|---|
 | 1 | [`facilitation-pi-planning.md`](facilitation-pi-planning.md) | Préparer et faciliter le PI Planning (agenda, Program Board, PI Objectives) | SAFe RTE · SPC · POPM 6 |
 | 2 | [`coordination-art.md`](coordination-art.md) | Coordonner l'Agile Release Train (rôles, cadence, synchronisation) | SAFe RTE · SA |
 | 3 | [`gestion-impediments-art.md`](gestion-impediments-art.md) | Gérer les impediments et dépendances ART | SAFe RTE · SPC · PMP |
-| 4 | [`inspect-adapt-rte.md`](inspect-adapt-rte.md) | Faciliter l'Inspect & Adapt (Problem-Solving Workshop) | SAFe RTE · SPC · SA |
+| 4 | [`../safe/inspect-adapt.md`](../safe/inspect-adapt.md) | Faciliter l'Inspect & Adapt (PSW Ishikawa, agenda 4h détaillé) — **partagé avec PO-SAFE / PM-SAFE** | SAFe RTE · SPC · POPM 6 · Agilist |
 | 5 | [`metriques-art.md`](metriques-art.md) | Piloter métriques ART et Flow (PI Predictability, Flow Metrics, DORA) | SAFe RTE · POPM 6 · LPM |
 | 6 | [`scrum-of-scrums.md`](scrum-of-scrums.md) | Animer le Scrum of Scrums (coordination Scrum Masters) | SAFe RTE · PSM I · SA |
 | 7 | [`amelioration-continue-art.md`](amelioration-continue-art.md) | Piloter l'amélioration continue de l'ART (Kaizen) | SAFe RTE · SPC · SA |
@@ -34,7 +34,7 @@ Tu veux ...
 
   ... PILOTER LA PERFORMANCE DE L'ART ?
     → metriques-art.md (PI Predictability + Flow + DORA)
-    → inspect-adapt-rte.md (trimestriel, fin de PI)
+    → ../safe/inspect-adapt.md (trimestriel, fin de PI — partagé PO-SAFE / PM-SAFE)
     → amelioration-continue-art.md (Kaizen ART)
 ```
 

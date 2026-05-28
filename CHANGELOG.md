@@ -5,6 +5,53 @@
 
 ---
 
+## [2.8.2] — 2026-05-28 — Audit RELEASE-TRAIN-ENGINEER + fusion inspect-adapt + 1 P1 résolu
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+5ème audit du chantier qualité (groupe Agile/Produit). Détection d'**1 doublon architectural** : `skills/release_train_engineer/inspect-adapt-rte.md` (73L) reproduisait à 75% `skills/safe/inspect-adapt.md` (41L). Application de l'**Option A** (cohérente avec v2.8.1 SCRUM-MASTER) : fusion du delta unique RTE (agenda minute-by-minute + Ishikawa 5 catégories + exemple chiffré 18% défauts) vers la source de vérité commune `skills/safe/inspect-adapt.md`, puis suppression du doublon.
+
+### ✨ Ajouté — Rapport d'audit
+- `audits/audit-release-train-engineer-2026-05-28.md` (7 skills audités) — 0 ✓ / **1 P3 ⭐** (facilitation-pi-planning très proche du verdict ✓) / 5 P2 / **1 P1** (inspect-adapt-rte)
+- ✅ **0/7 sans certif** (2ème agent au top après PM-SAFE)
+- ⚠️ **0/7 sources externes** (régression vs SM 35%)
+- Analyse architecturale croisée RTE ↔ skills/safe/ : 1 doublon, 4 complémentarités saines, 2 distincts
+
+### 🐛 Corrigé — Fusion architecturale (Option A)
+- **Enrichi** `skills/safe/inspect-adapt.md` avec le delta unique RTE :
+  - Agenda I&A 4h minute-by-minute (09h00 → 13h00, breaks inclus)
+  - Fishbone Ishikawa **5 catégories** (Personnes/Process/Outils/Environnement/Management)
+  - Exemple chiffré complet (18% défauts production → cible <10%, couverture 40% → 80%)
+  - Actions SMART avec propriétaires et mesures (Tech Lead, RTE+SM, SonarQube)
+  - Métriques PI enrichies (Flow SAFe 6, DORA)
+- **Mise à jour des en-têtes** :
+  - Certifications : `SAFe POPM 6 · SAFe Agilist` → `SAFe POPM 6 · SAFe Agilist · SAFe RTE · SAFe SPC`
+  - Agents : `AGENT-PO-SAFE.md` → `AGENT-PO-SAFE.md · AGENT-RELEASE-TRAIN-ENGINEER.md · AGENT-PRODUCT-MANAGER-SAFE.md`
+
+### 🗑️ Supprimé
+- `skills/release_train_engineer/inspect-adapt-rte.md` (73L, 75% redondance avec safe/inspect-adapt)
+
+### 🔧 Modifié — Catalogue RTE
+- `AGENT-RELEASE-TRAIN-ENGINEER.md` — Table des skills : ligne I&A pointe désormais vers `skills\safe\inspect-adapt.md`
+- `skills/release_train_engineer/README.md` — Index : ligne 4 renvoie vers `../safe/inspect-adapt.md` (skill partagé marqué) + arbre de décision adapté
+
+### 📊 Statistiques après v2.8.2
+
+| Métrique | Avant V1.2 | Après V1.2 |
+|---|---|---|
+| Skills audités cumul (Agile/Produit) | 85 | **92** |
+| Skills catalogue actuel (Agile/Produit) | 88 | **87** (-1 fusion) |
+| Verdicts ✓ purs | 2 | 2 (story-mapping + planning-poker) |
+| P1 résiduels (Agile/Produit) | 17 | **16** (-1 fusion inspect-adapt) |
+| Skills RTE catalogue | 7 propres | **6 propres + 1 partagé safe/inspect-adapt** |
+| Source de vérité I&A | Dupliquée (RTE + SAFe) | **Unifiée → safe/inspect-adapt.md** |
+
+### 🔜 RAF v2.8.x
+- **V2 P1 résiduels** : 8 skills (po-ai-product, gestion-risques, product-vision, ux-sprint, change-management-agile, market-analysis, capabilities, lean-agile-mindset)
+- **Audits restants groupe Agile/Produit (4/9)** : BUSINESS-ANALYST · QA-AGILE · QA-CYCLEV · CHANGE-MANAGER
+
+---
+
 ## [2.8.1] — 2026-05-28 — Audit SCRUM-MASTER + suppression 4 doublons cérémonies + cross-links kanban
 > Modèle : Claude Opus 4.7
 

@@ -5,6 +5,46 @@
 
 ---
 
+## [2.7.5] — 2026-05-28 — README index 10 dossiers de skills supplémentaires
+
+### 🎯 Contexte
+Poursuite de la généralisation du pattern README index initié en v2.7.3 (`securite_ia/`) et étendu aux 4 dossiers DEV core en v2.7.4. Cette release ajoute **10 README index** sur les dossiers les plus utilisés en mission, en priorisant les domaines de Guy (Agile, MOA, CMS, PIM, DAM, BI, EA). Bilan : **15/37 dossiers** indexés (40%) — les dossiers à plus forte utilisation client sont couverts.
+
+### ✨ Ajouté — 10 README index supplémentaires
+
+**Agile & Produit (3)** :
+- `skills/scrum/README.md` — 30 skills indexés (Vision/Discovery, Backlog, Métriques, Pratiques avancées, Communication), arbre de décision, frontières (PO-SAFE, SCRUM-MASTER, PRODUCT-MANAGER-SAFE, BUSINESS-ANALYST, QA-AGILE)
+- `skills/safe/README.md` — 25 skills indexés (Team, Program/ART, Large Solution, Portfolio, Transversal), avec rappel des règles de conformité critiques (WSJF relatif, MoSCoW = US only, Sprint Goal unique, etc.)
+- `skills/qa_testing/README.md` — 23 skills (dossier partagé QA-AGILE + QA-CYCLEV), groupés par méthodologie (10 Agile / 12 Cycle en V / 1 Transversal)
+
+**Business Analysis (1)** :
+- `skills/business_analyst/README.md` — 10 skills MOA (élicitation, BPMN, spécifications, recette MOA, cadrage, exigences, change)
+
+**CMS / Data Product (3)** :
+- `skills/cms_digital/README.md` — 12 skills (architecture, AEM, Drupal, headless, migration, gouvernance, performance, accessibilité RGAA/WCAG)
+- `skills/pim_expert/README.md` — 12 skills (modélisation, enrichissement, gouvernance, syndication, localisation, migration, IA)
+- `skills/dam_expert/README.md` — 12 skills (taxonomie, workflows, droits, distribution, transformations, brand portal, IA visuelle)
+
+**Data & Architecture (3)** :
+- `skills/bi_analyst/README.md` — 12 skills (modélisation dimensionnelle, Power BI/Tableau/Looker, SQL, KPIs, CODIR, Fabric, BI augmentée IA)
+- `skills/solutions_architect/README.md` — 8 skills (TOGAF ADM, ArchiMate, urbanisme, BDAT, integration patterns, cloud migration, gouvernance, roadmap)
+- `skills/mlops_engineer/README.md` — 10 skills (Docker IA, K8s GPU, CI/CD ML, MLflow, monitoring LLM, model serving vLLM/TGI, Terraform IA)
+
+### 📊 Statistiques après v2.7.5
+| Métrique | v2.7.4 | v2.7.5 |
+|---|---|---|
+| README dossiers skills | 5/37 (14%) | **15/37 (40%)** |
+| Dossiers core couverts | 5/5 ✓ | 5/5 ✓ |
+| Dossiers à forte utilisation client couverts | 5/15 | **15/15** ✓ |
+
+### 🔜 RAF v2.7.6+ (cosmétique long terme, ~2h)
+- Datage des références sur les 50 skills DEV (NIST 1.0 = 2023, OWASP LLM = 2025)
+- Uniformisation du tag `> Certifications :` (format hétérogène)
+- Sections "Hors périmètre" systématiques sur les 50 skills
+- README index pour les 22 dossiers restants (faible priorité — agents moins sollicités)
+
+---
+
 ## [2.7.4] — 2026-05-28 — README index des 4 dossiers de skills DEV core
 
 ### 🎯 Contexte
@@ -673,6 +713,8 @@ Audit stratégique complet par Opus 4.7 (5 questions : redondances, gaps, cohér
 
 ## Liens de comparaison entre versions
 
+- [v2.7.5](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.5) — README index 10 dossiers supplémentaires (15/37)
+- [v2.7.4...v2.7.5](https://github.com/guyhui01/claude-agents/compare/v2.7.4...v2.7.5)
 - [v2.7.4](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.4) — README index 4 dossiers DEV core
 - [v2.7.3...v2.7.4](https://github.com/guyhui01/claude-agents/compare/v2.7.3...v2.7.4)
 - [v2.7.3](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.3) — Finalisation P3 audit qualité skills DEV (98%)

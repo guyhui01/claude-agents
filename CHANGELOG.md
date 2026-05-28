@@ -5,6 +5,35 @@
 
 ---
 
+## [2.7.7] — 2026-05-28 — README index 8 dossiers de skills supplémentaires (23/37)
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+Poursuite du chantier README index amorcé en v2.7.3 et étendu en v2.7.4 / v2.7.5. Cette release ajoute **8 README index** sur les dossiers à utilisation transversale en mission (pilotage projet, conseil, produit, prompting, juridique, scrum master, RH, frontend TS). Bilan : **23/37 dossiers** indexés (62%).
+
+### ✨ Ajouté — 8 README index supplémentaires
+- `skills/chef_projet_ia/README.md` — 8 skills (cadrage, planification hybride, risques, EVM, portefeuille, CODIR, stakeholders, post-mortem)
+- `skills/consultant_ia/README.md` — 9 skills (avant-vente, diagnostic, feuille de route, benchmark, exécutif, ROI, PoC, transformation)
+- `skills/product_manager_safe/README.md` — 12 skills (Vision/Stratégie, Customer-Centricity, Économie, Scaling, Épics cross-référencés)
+- `skills/prompt_engineer/README.md` — 8 skills (system prompt, few-shot, CoT, RAG, multimodal, evals, optimisation, observabilité)
+- `skills/juridique_ia/README.md` — 10 skills (AI Act, RGPD, DPIA, contrats, IP, gouvernance éthique, veille, politique, NIS2, audit)
+- `skills/scrum_master/README.md` — 20 skills (cérémonies, coaching, pilotage, scaling SAFe SSM, transformation Agile)
+- `skills/rh_ia/README.md` — 11 skills (recrutement IT/IA, anti-fraude CV/deepfake, GEPP, people analytics, transformation RH)
+- `skills/dev_typescript_ia/README.md` — 9 skills (TypeScript avancé, MCP server TS, Vercel AI SDK, Next.js, chat UI streaming, edge functions)
+
+### 📊 Statistiques après v2.7.7
+| Métrique | v2.7.6 | v2.7.7 |
+|---|---|---|
+| README dossiers skills | 15/37 (40%) | **23/37 (62%)** |
+| Dossiers à utilisation cliente forte/transverse | 15/15 ✓ | **23/23** ✓ |
+
+### 🔜 RAF v2.7.8+
+- 14 dossiers restants (faible utilisation client ou très spécialisés) : `cdo_directeur_ia`, `change_manager`, `critique_conformite`, `data_engineer`, `data_scientist`, `dev_drupal`, `financial_analyst`, `formateur_ia`, `growth_ia`, `orchestrateur_workflow`, `redacteur_ia`, `release_train_engineer`, `ux_design`, `veille_strategique`
+- Uniformisation tag `> Certifications :` (~80 skills, 2 formats coexistants)
+- Sections "Hors périmètre" universelles (~50 skills DEV)
+
+---
+
 ## [2.7.6] — 2026-05-28 — Convention de traçabilité modèle + cosmétique skills DEV
 > Modèle : Claude Opus 4.7
 
@@ -755,6 +784,8 @@ Audit stratégique complet par Opus 4.7 (5 questions : redondances, gaps, cohér
 
 ## Liens de comparaison entre versions
 
+- [v2.7.7](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.7) — README index 8 dossiers supplémentaires (23/37) (Opus 4.7)
+- [v2.7.6...v2.7.7](https://github.com/guyhui01/claude-agents/compare/v2.7.6...v2.7.7)
 - [v2.7.6](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.6) — Convention traçabilité modèle + cosmétique skills (Opus 4.7)
 - [v2.7.5...v2.7.6](https://github.com/guyhui01/claude-agents/compare/v2.7.5...v2.7.6)
 - [v2.7.5](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.5) — README index 10 dossiers supplémentaires (15/37)

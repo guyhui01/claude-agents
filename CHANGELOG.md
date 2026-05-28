@@ -5,6 +5,59 @@
 
 ---
 
+## [2.7.9] — 2026-05-28 — README index 14 dossiers restants (37/37 ✓ 100%)
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+Finalisation du chantier README index : ajout des **14 README index restants** pour atteindre **100% de couverture** (37/37 dossiers de skills). Tous les dossiers de skills du catalogue disposent désormais d'un README structuré avec : index numéroté, arbre de décision "Tu veux...", tableau des frontières avec les autres agents, liste des référentiels et standards utilisés.
+
+### ✨ Ajouté — 14 README index supplémentaires
+
+**Direction & Management (3)** :
+- `skills/cdo_directeur_ia/README.md` — 8 skills (stratégie data-IA, gouvernance DAMA, CoE IA, Data Mesh, OKRs)
+- `skills/change_manager/README.md` — 7 skills (PROSCI ADKAR, analyse impact, plan communication, résistances, KPIs)
+- `skills/release_train_engineer/README.md` — 7 skills (PI Planning, ART, impediments, I&A, Flow Metrics, Scrum of Scrums)
+
+**Data & Analyse (3)** :
+- `skills/data_engineer/README.md` — 11 skills (pipelines, Spark, Kafka, dbt, Airflow, Lakehouse, gouvernance)
+- `skills/data_scientist/README.md` — 13 skills (EDA, feature engineering, ML, DL, time series, MLflow, éthique IA)
+- `skills/financial_analyst/README.md` — 6 skills (business case IA, ROI, TCO, budget, scoring investissements)
+
+**Dev & Production de contenu (3)** :
+- `skills/dev_drupal/README.md` — 10 skills (modules custom Drupal 10, Commerce 2.x, Twig, CMI, PHPUnit/Behat)
+- `skills/redacteur_ia/README.md` — 16 skills (rapports, synthèses, copywriting, SEO, UX writing, documentation)
+- `skills/ux_design/README.md` — 20 skills (research, personas, wireframing Figma, Design System, tests, WCAG)
+
+**Croissance & Apprentissage (2)** :
+- `skills/formateur_ia/README.md` — 11 skills (TNA, Bloom, Kirkpatrick, prompt engineering formation, data literacy)
+- `skills/growth_ia/README.md` — 8 skills (acquisition, A/B testing, product analytics, LTV/CAC, personnalisation IA)
+
+**Orchestration & Méthodes (3)** :
+- `skills/orchestrateur_workflow/README.md` — 15 skills (BPMN, agent routing, MCP, LangGraph/CrewAI, monitoring)
+- `skills/critique_conformite/README.md` — 3 skills (audit méthode SAFe/Scrum/ISTQB/PMI, challenge raisonnement, gates DoD)
+- `skills/veille_strategique/README.md` — 6 skills (veille IA/LLM, concurrentielle, signaux faibles, synthèses)
+
+### 📊 Statistiques finales après v2.7.9
+| Métrique | v2.7.7 | v2.7.9 |
+|---|---|---|
+| README dossiers skills | 23/37 (62%) | **37/37 (100%)** ✓ |
+| Format unifié sur l'ensemble du catalogue | Partiel | **Complet** ✓ |
+
+### 🏆 Récapitulatif du chantier README (v2.7.3 → v2.7.9)
+| Vague | Dossiers indexés | Cumul |
+|---|---|---|
+| v2.7.3 | 1 (securite_ia) | 1/37 |
+| v2.7.4 | 4 (DEV core) | 5/37 |
+| v2.7.5 | 10 (Agile, MOA, CMS, Data, EA) | 15/37 |
+| v2.7.7 | 8 (pilotage, conseil, juridique, RH, TS) | 23/37 |
+| v2.7.9 | 14 (restants) | **37/37 ✓** |
+
+### 🔜 RAF v2.7.10+ (cosmétique fine, non bloquant)
+- Uniformisation tag `> Certifications :` (2 formats coexistants — virgule vs middle dot `·`)
+- Sections "Hors périmètre" universelles à la fin des 50 skills DEV
+
+---
+
 ## [2.7.8] — 2026-05-28 — Correctif traçabilité modèle (v2.7.2 → v2.7.5)
 > Modèle : Claude Opus 4.7
 
@@ -805,6 +858,8 @@ Audit stratégique complet par Opus 4.7 (5 questions : redondances, gaps, cohér
 
 ## Liens de comparaison entre versions
 
+- [v2.7.9](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.9) — README index 14 dossiers restants (37/37 ✓ 100%) (Opus 4.7)
+- [v2.7.8...v2.7.9](https://github.com/guyhui01/claude-agents/compare/v2.7.8...v2.7.9)
 - [v2.7.8](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.8) — Correctif traçabilité modèle v2.7.2→v2.7.5 (Opus 4.7)
 - [v2.7.7...v2.7.8](https://github.com/guyhui01/claude-agents/compare/v2.7.7...v2.7.8)
 - [v2.7.7](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.7) — README index 8 dossiers supplémentaires (23/37) (Opus 4.7)

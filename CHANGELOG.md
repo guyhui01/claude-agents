@@ -5,6 +5,34 @@
 
 ---
 
+## [2.7.0] — 2026-05-28 — Nouvel agent AGENT-AUDIT-METHODO-IA + 3 skills critique_conformite
+
+### 🎯 Contexte
+Ajout d'un agent de contre-expertise méthodologique indépendant, distinct des agents QA existants (AGENT-QA-AGILE et AGENT-QA-CYCLEV qui couvrent tests et code). AGENT-AUDIT-METHODO-IA joue le rôle de second avis adversarial sur les livrables produits par les autres agents IA : audit de conformité méthode (SAFe/Scrum/ISTQB/PMI/ISO 9001), challenge du raisonnement (biais cognitifs, devil's advocate, red-team) et gate de validation avant promotion. Nom initialement CONTRE-EXPERTISE-IA, renommé AUDIT-METHODO-IA pour refléter exactement le périmètre fonctionnel certifiant — conformément à la convention catalogue fonction + domaine.
+
+### ✨ Ajouté — AGENT-AUDIT-METHODO-IA.md
+Auditeur Méthodo IA — contre-expertise indépendante Agile/SAFe/ISTQB/PMI/ISO 9001/CMMI.
+- **16 certifications** : SAFe 6 SA/POPM/SSM/SASM/RTE · PSM I/II/III · PSPO I/II · ISTQB CTFL/CTFL-AT/CTAL-TM/CTAL-TA · PMP · PMI-ACP · ISO 9001:2015 Lead Auditor (IRCA/CQI) · CMMI Associate · 3× Anthropic 2026
+- **3 skills** dans `skills/critique_conformite/` :
+  - `audit-conformite-methodo.md` — checklists Scrum Guide 2020, SAFe 6, ISTQB CTFL/CTAL, PMBOK 7
+  - `challenge-raisonnement.md` — 8 biais cognitifs, devil's advocate 4 étapes, red-team 5 vecteurs
+  - `gate-validation-livrable.md` — 4 gates DoD (Story / Feature / PI-Release / Livrable IA), règle anti-théâtre
+
+### 🔧 Modifié — Compteurs catalogue
+- `README.md` — 37 → **38 agents**, 36 → **37 dossiers skills**
+- `CLAUDE.md` — Compteurs 37/36 → **38/37**
+- `AGENT-ORCHESTRATEUR-WORKFLOW.md` — Catalogue 37 → **38 agents**
+
+### 📊 Statistiques après v2.7.0
+| Métrique | Avant | Après |
+|---|---|---|
+| Agents | 37 | **38** |
+| Dossiers de skills | 36 | **37** |
+| Skills nouveaux | — | **+3** |
+| Fichiers créés/modifiés | — | 7 (1 agent + 3 skills + 3 mises à jour) |
+
+---
+
 ## [2.6.0] — 2026-05-27 — Gouvernance workflows + conformité méthode WSJF officielle
 
 ### 🎯 Contexte
@@ -518,6 +546,8 @@ Audit stratégique complet par Opus 4.7 (5 questions : redondances, gaps, cohér
 
 ## Liens de comparaison entre versions
 
+- [v2.7.0](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.0) — AGENT-AUDIT-METHODO-IA
+- [v2.6.0...v2.7.0](https://github.com/guyhui01/claude-agents/compare/v2.6.0...v2.7.0)
 - [v2.0.0](https://github.com/guyhui01/claude-agents/releases/tag/v2.0.0) — Audit stratégique Opus 4.7
 - [v1.5.0...v2.0.0](https://github.com/guyhui01/claude-agents/compare/v1.5.0...v2.0.0)
 - [v1.4.0...v1.5.0](https://github.com/guyhui01/claude-agents/compare/v1.4.0...v1.5.0)

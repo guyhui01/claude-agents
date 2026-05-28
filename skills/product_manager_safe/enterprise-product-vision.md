@@ -1,7 +1,7 @@
 # Skill — Vision produit entreprise (Enterprise Product Vision)
 
-> Certification : PSPO III · SAFe LPM
-> Agent : AGENT-PO-SCRUM.md
+> Certification : PSPO III · SAFe LPM · SAFe POPM 6 · SAFe SPC
+> Agent : AGENT-PRODUCT-MANAGER-SAFE.md
 
 ## Objectif
 Définir, communiquer et aligner une vision produit ambitieuse et inspirante à l'échelle de l'entreprise, en connectant la stratégie business aux décisions produit quotidiennes.

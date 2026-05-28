@@ -1,5 +1,8 @@
 # Skill SAFe — PI Planning
 
+> Certification : SAFe POPM 6 · SAFe Agilist
+> Agent : AGENT-PO-SAFE.md
+
 ## Durée et structure (2 jours)
 
 ### Jour 1

@@ -1,5 +1,8 @@
 # Skill Scrum — Email Stakeholder
 
+> Certification : PSPO I · PSPO II
+> Agent : AGENT-PO-SCRUM.md
+
 ## Règles
 - Objet clair et actionnable
 - 3 paragraphes max : contexte → message clé → action attendue

@@ -1,5 +1,8 @@
 # Skill SAFe — Dépendances Inter-équipes
 
+> Certification : SAFe POPM 6
+> Agent : AGENT-PO-SAFE.md
+
 ## Program Board
 ```
            | Iter 1 | Iter 2 | Iter 3 | Iter 4 | IP |

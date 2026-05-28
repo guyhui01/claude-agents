@@ -1,5 +1,8 @@
 # Skill Scrum — Rédaction User Story
 
+> Certification : PSPO I · PSPO II
+> Agent : AGENT-PO-SCRUM.md
+
 ## Format standard
 ```
 En tant que [persona/rôle],

@@ -1,5 +1,8 @@
 # Skill SAFe — Inspect & Adapt
 
+> Certification : SAFe POPM 6 · SAFe Agilist
+> Agent : AGENT-PO-SAFE.md
+
 ## Structure (4h en fin de PI)
 | Étape | Durée | Description |
 |---|---|---|

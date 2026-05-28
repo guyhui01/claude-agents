@@ -1,5 +1,8 @@
 # Skill SAFe — ART (Agile Release Train)
 
+> Certification : SAFe POPM 6 · SAFe Agilist
+> Agents : AGENT-PO-SAFE.md · AGENT-PRODUCT-MANAGER-SAFE.md
+
 ## Rôles clés
 | Rôle | Responsabilité |
 |---|---|

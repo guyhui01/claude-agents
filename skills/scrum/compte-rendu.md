@@ -1,5 +1,8 @@
 # Skill Scrum — Compte Rendu de Réunion
 
+> Certification : PSPO I
+> Agent : AGENT-PO-SCRUM.md
+
 ## Template
 ```
 COMPTE RENDU — [Titre]

@@ -1,5 +1,8 @@
 # Skill SAFe — OKR
 
+> Certification : SAFe POPM 6
+> Agents : AGENT-PO-SAFE.md · AGENT-PRODUCT-MANAGER-SAFE.md
+
 ## Format OKR
 ```
 OBJECTIVE : [Qualitatif — inspirant — orienté résultat]

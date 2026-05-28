@@ -1,5 +1,8 @@
 # Skill SAFe — Rédaction Features
 
+> Certification : SAFe POPM 6
+> Agents : AGENT-PO-SAFE.md · AGENT-PRODUCT-MANAGER-SAFE.md
+
 ## Format Feature SAFe
 ```
 Titre : [Verbe] + [Capacité] + [Contexte]

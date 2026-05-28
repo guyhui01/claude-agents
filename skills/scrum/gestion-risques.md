@@ -1,5 +1,8 @@
 # Skill Scrum — Gestion des Risques & RACI
 
+> Certification : PSPO II · ICAgile ICP-APO
+> Agent : AGENT-PO-SCRUM.md
+
 ## Matrice des risques
 Score = Probabilité × Impact
 🟢 1-6 Faible | 🟡 7-12 Moyen | 🔴 13-25 Élevé

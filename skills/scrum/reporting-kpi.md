@@ -1,5 +1,8 @@
 # Skill Scrum — Reporting KPI Sprint
 
+> Certification : PSPO II · ICAgile ICP-APO
+> Agent : AGENT-PO-SCRUM.md
+
 ## KPIs sprint
 | KPI | Définition | Cible |
 |---|---|---|

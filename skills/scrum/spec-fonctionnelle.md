@@ -1,5 +1,8 @@
 # Skill Scrum — Spécifications Fonctionnelles
 
+> Certification : PSPO I · IIBA BABOK v3
+> Agent : AGENT-PO-SCRUM.md
+
 ## Types de documents
 | Document | Abréviation | Usage |
 |---|---|---|

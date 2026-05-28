@@ -1,5 +1,8 @@
 # Skill Scrum — Tests d'Acceptation
 
+> Certification : PSPO I · ISTQB CTFL
+> Agent : AGENT-PO-SCRUM.md
+
 ## Format Given/When/Then
 ```
 GIVEN [contexte initial]

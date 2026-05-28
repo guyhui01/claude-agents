@@ -1,7 +1,7 @@
 # Skill — Scaling Product Ownership (PO à l'échelle)
 
 > Certification : PSPO III · SAFe POPM 6
-> Agent : AGENT-PO-SCRUM.md
+> Agent : AGENT-PRODUCT-MANAGER-SAFE.md
 
 ## Objectif
 Coordonner la fonction Product Owner sur plusieurs équipes Scrum qui travaillent sur le même produit ou la même plateforme.

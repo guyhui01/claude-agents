@@ -5,6 +5,88 @@
 
 ---
 
+## [2.8.0] — 2026-05-28 — Audit qualité agents Agile/Produit (3/9) + grille v2.8 + corrections architecturales
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+Démarrage du chantier d'audit qualité étendu (post-v2.7.1 qui couvrait les 5 agents DEV core). Cette release adresse les **3 premiers agents du groupe Agile/Produit** (PO-SAFE, PO-SCRUM, PRODUCT-MANAGER-SAFE) selon une nouvelle grille déclinée v2.8 calibrée pour les agents non-DEV. Méthode rodée : extraction factuelle déléguée à sous-agent Explore + cotation expert Claude principal. **Bug architectural critique détecté et corrigé** : 3 skills PM-SAFE référençaient erronément `Agent: AGENT-PO-SCRUM.md` (confusion scope Programme/équipe).
+
+### ✨ Ajouté — Livrable méthodologique
+- `audits/audit-grilles-v2.8.md` — **Grille d'audit qualité v2.8** :
+  - Squelette commun (3 dimensions universelles × 4 niveaux ✓/⚠/✗/N/A · règles verdict P0/P1/P2/P3)
+  - **Déclinaison Agile/Produit validée** (référentiels Scrum Guide 2020, SAFe 6.0, WSJF POPM 6, PMBOK 7, BABOK v3, PROSCI, ISTQB)
+  - Emplacements pour 4 déclinaisons futures (Conseil/Direction, Data/Tech, Dev/CMS, Transverse/Méta)
+  - Workflow d'application en 6 étapes (Cadrage → Extraction → Cotation → Rapport → Validation → Corrections par vagues)
+  - Référentiel de sources attendues par référentiel (13 entrées)
+
+### ✨ Ajouté — 3 rapports d'audit complets
+- `audits/audit-po-safe-2026-05-28.md` (**Pilote**, 25 skills) — 0 ✓ / 7 P3 / 12 P2 / **6 P1**
+- `audits/audit-po-scrum-2026-05-28.md` (30 skills) — **1 ✓** ⭐ (story-mapping) / 5 P3 / 16 P2 / **8 P1**
+- `audits/audit-product-manager-safe-2026-05-28.md` (10 skills + 2 SAFe partagés) — 0 ✓ / 1 P3 / 7 P2 / **2 P1**
+
+### 🐛 Corrigé — Bug architectural PM-SAFE (3 skills)
+Header `> Agent :` erroné dans 3 skills `skills/product_manager_safe/` :
+- `enterprise-product-vision.md` — `AGENT-PO-SCRUM.md` → `AGENT-PRODUCT-MANAGER-SAFE.md` (+ ajout `SAFe POPM 6 · SAFe SPC` dans Certification)
+- `product-operating-model.md` — `AGENT-PO-SCRUM.md` → `AGENT-PRODUCT-MANAGER-SAFE.md` (+ ajout `SAFe POPM 6 · SAFe SPC`)
+- `scaling-product-ownership.md` — `AGENT-PO-SCRUM.md` → `AGENT-PRODUCT-MANAGER-SAFE.md`
+
+**Impact** : Restaure la cohérence Programme (PM) vs équipe (PO Scrum) sur 3 skills stratégiques.
+
+### 🔧 Modifié — V1 cosmétique transverse (17 skills, ajout `> Certification :` + `> Agent :`)
+
+**PO-SAFE (7 skills `skills/safe/`)** :
+- art.md → SAFe POPM 6 · SAFe Agilist · Agents PO-SAFE/PM-SAFE
+- dependencies.md → SAFe POPM 6 · Agent PO-SAFE
+- features.md → SAFe POPM 6 · Agents PO-SAFE/PM-SAFE
+- inspect-adapt.md → SAFe POPM 6 · SAFe Agilist · Agent PO-SAFE
+- okr.md → SAFe POPM 6 · Agents PO-SAFE/PM-SAFE
+- pi-planning.md → SAFe POPM 6 · SAFe Agilist · Agent PO-SAFE
+- roadmap.md → SAFe POPM 6 · SAFe LPM · Agents PO-SAFE/PM-SAFE
+
+**PO-SCRUM (10 skills `skills/scrum/`)** :
+- compte-rendu.md → PSPO I
+- confluence-page.md → PSPO I
+- email-stakeholder.md → PSPO I · PSPO II
+- gestion-risques.md → PSPO II · ICAgile ICP-APO
+- po-acceptance-tests.md → PSPO I · ISTQB CTFL
+- po-user-story.md → PSPO I · PSPO II
+- recette-fonctionnelle.md → PSPO I · ISTQB CTFL
+- reporting-kpi.md → PSPO II · ICAgile ICP-APO
+- spec-fonctionnelle.md → PSPO I · IIBA BABOK v3
+- ticket-incident.md → PSPO I
+
+### 📊 Statistiques après v2.8.0
+
+| Métrique | Avant V1 | Après V1 |
+|---|---|---|
+| Agents audités (Agile/Produit) | 0/9 | **3/9 (33%)** |
+| Skills audités | 0 | **65/180 Agile/Produit (36%)** |
+| Skills avec verdict ✓ pur | — | 1 (story-mapping ⭐) |
+| Skills avec verdict P1 (Agile/Produit) | — | 16 → **8 après V1** (régression 8 P1 → P2) |
+| Skills sans certification déclarée | — | 18 → **0 après V1** ✓ |
+| Skills product_manager_safe avec Agent header correct | 7/10 | **10/10** ✓ |
+
+### 🔜 RAF v2.8.x — Plan d'action 4 vagues (par agent)
+
+**V2 — P1 résiduels (8 skills à enrichir en profondeur)** :
+- PO-SAFE : capabilities, lean-agile-mindset (template manquant)
+- PO-SCRUM : gestion-risques, **po-ai-product** (différenciateur stratégique IA), product-vision, ux-sprint
+- PM-SAFE : market-analysis (zéro source externe)
+
+**V3 — Enrichissements P2 (35 skills)** — propagation sources externes + anti-patterns + diversification sectorielle (sortir du seul exemple RH/IA dans PM-SAFE)
+
+**V4 — Cosmétique P3** (13 skills) — sections `## Sources` à standardiser
+
+### 🔜 RAF v2.8.x — Audits restants groupe Agile/Produit (6/9 agents)
+SCRUM-MASTER (20 skills) · RELEASE-TRAIN-ENGINEER · BUSINESS-ANALYST · QA-AGILE · QA-CYCLEV · CHANGE-MANAGER
+
+### 📌 Pattern méthode validé
+- Délégation extraction Explore + cotation Claude expert : **~30 min par agent**
+- Grille v2.8 Agile/Produit **stable sur 3 itérations** (aucun ajustement après PO-SAFE pilote)
+- Limit WIP : V1 cosmétique systématique après chaque audit avant d'enchaîner
+
+---
+
 ## [2.7.9] — 2026-05-28 — README index 14 dossiers restants (37/37 ✓ 100%)
 > Modèle : Claude Opus 4.7
 

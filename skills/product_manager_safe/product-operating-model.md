@@ -1,7 +1,7 @@
 # Skill — Product Operating Model (modèle opérationnel produit)
 
-> Certification : PSPO III
-> Agent : AGENT-PO-SCRUM.md
+> Certification : PSPO III · SAFe POPM 6 · SAFe SPC
+> Agent : AGENT-PRODUCT-MANAGER-SAFE.md
 
 ## Objectif
 Concevoir et piloter le modèle organisationnel qui permet à une organisation de livrer de la valeur produit de manière continue, autonome et alignée sur la stratégie.

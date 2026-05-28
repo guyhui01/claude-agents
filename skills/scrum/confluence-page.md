@@ -1,5 +1,8 @@
 # Skill Scrum — Page Confluence
 
+> Certification : PSPO I
+> Agent : AGENT-PO-SCRUM.md
+
 ## Structure recommandée
 ```
 # [Titre]

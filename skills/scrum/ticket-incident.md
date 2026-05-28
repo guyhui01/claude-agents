@@ -1,5 +1,8 @@
 # Skill Scrum — Ticket Incident
 
+> Certification : PSPO I
+> Agent : AGENT-PO-SCRUM.md
+
 ## Template Jira
 ```
 Titre : [PROD/REC] [Composant] — [Description courte]

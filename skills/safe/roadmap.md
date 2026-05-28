@@ -1,5 +1,8 @@
 # Skill SAFe — Roadmap
 
+> Certification : SAFe POPM 6 · SAFe LPM
+> Agents : AGENT-PO-SAFE.md · AGENT-PRODUCT-MANAGER-SAFE.md
+
 ## Niveaux de roadmap
 ```
 Vision Produit (2-3 ans)

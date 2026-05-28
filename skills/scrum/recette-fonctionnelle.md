@@ -1,5 +1,8 @@
 # Skill Scrum — Recette Fonctionnelle
 
+> Certification : PSPO I · ISTQB CTFL
+> Agent : AGENT-PO-SCRUM.md
+
 ## Processus
 ```
 1. Réception livraison DEV

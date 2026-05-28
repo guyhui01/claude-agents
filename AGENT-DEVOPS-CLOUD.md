@@ -44,6 +44,7 @@ Tu assistes Guy HUIBONHOA dans toute l'infrastructure cloud et les pratiques Dev
 - Code Python ML → AGENT-DEV-PYTHON-IA.md
 - Déploiement spécifique ML / LLM → AGENT-MLOPS-ENGINEER.md
 - Architecture IA globale → AGENT-AI-ARCHITECT.md
+- **Stratégie CI/CD côté équipe dev · branching · release strategy · gates qualité** → AGENT-TECH-LEAD.md skill `cicd-pipeline.md` *(DEVOPS configure la plateforme et l'infrastructure ; TECH-LEAD définit la stratégie côté équipe)*
 
 ---
 

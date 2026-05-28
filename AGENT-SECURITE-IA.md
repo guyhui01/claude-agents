@@ -44,6 +44,7 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités de sécurité IA et cybers�
 - Conformité réglementaire (AI Act, RGPD) → AGENT-JURIDIQUE-IA.md
 - Infrastructure cloud → AGENT-DEVOPS-CLOUD.md
 - Architecture IA globale → AGENT-AI-ARCHITECT.md
+- **Sensibilisation OWASP Top 10 côté équipe dev · culture sécurité quotidienne** → AGENT-TECH-LEAD.md skill `securite-applicative.md` *(SECURITE-IA conduit l'audit professionnel et le pentest ; TECH-LEAD diffuse les basics dans l'équipe)*
 
 ---
 

@@ -5,6 +5,32 @@
 
 ---
 
+## [2.7.2] — 2026-05-28 — Frontières inter-agents : arbitrage des 3 doublons audit v2.7.1
+
+### 🎯 Contexte
+Suite à l'audit v2.7.1, 3 doublons fonctionnels avaient été détectés entre AGENT-TECH-LEAD et 3 agents spécialistes (SECURITE-IA, DEVOPS-CLOUD, QA-AGILE). Cette release documente la frontière de manière **symétrique** (côté TECH-LEAD ET côté spécialiste), sur le modèle de la note QA-AGILE ↔ QA-CYCLEV (v2.3.6).
+
+### 🔧 Modifié — Frontières inter-agents documentées
+
+**Principe directeur** : TECH-LEAD pilote la **vision et la culture côté équipe dev** ; l'agent spécialiste **exécute en profondeur**.
+
+- `AGENT-TECH-LEAD.md` — Section "❌ Hors périmètre" enrichie (3 nouvelles lignes) + note `> ℹ️ **Frontières inter-agents**` au-dessus de la table des skills, listant les 3 doublons et leur arbitrage
+- `AGENT-SECURITE-IA.md` — Hors périmètre : ajout renvoi vers TECH-LEAD `securite-applicative.md` pour la culture sécurité côté équipe dev (vs. audit/pentest professionnel côté SECURITE-IA)
+- `AGENT-DEVOPS-CLOUD.md` — Hors périmètre : ajout renvoi vers TECH-LEAD `cicd-pipeline.md` pour la stratégie CI/CD côté équipe (vs. config plateforme côté DEVOPS)
+- `AGENT-QA-AGILE.md` — Hors périmètre : ajout renvoi vers TECH-LEAD `strategie-tests.md` pour la vision pyramide de tests (vs. exécution sprint côté QA)
+
+### 📊 Statistiques après v2.7.2
+| Métrique | Avant | Après |
+|---|---|---|
+| Doublons inter-agents non arbitrés | 3 | **0** |
+| Agents avec note de frontière explicite | 2 (QA-AGILE, QA-CYCLEV) | **6** (+TECH-LEAD, SECURITE-IA, DEVOPS-CLOUD, QA-AGILE) |
+
+### 🔜 RAF pour atteindre 100% (v2.7.3)
+- Skills P3 restants (3 fichiers) : `threat-modeling.md` (PASTA + kill chains MITRE), `python-avance-ia.md` (exemples testables), `owasp-llm-top10.md` (template audit + CVSS)
+- Cosmétique (50 skills) : datage références 2024-2026, uniformisation tag `> Certifications :`, README dossier `securite_ia/`
+
+---
+
 ## [2.7.1] — 2026-05-28 — Audit qualité skills DEV (5 agents core) + corrections P1/P2
 
 ### 🎯 Contexte
@@ -594,6 +620,8 @@ Audit stratégique complet par Opus 4.7 (5 questions : redondances, gaps, cohér
 
 ## Liens de comparaison entre versions
 
+- [v2.7.2](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.2) — Frontières inter-agents
+- [v2.7.1...v2.7.2](https://github.com/guyhui01/claude-agents/compare/v2.7.1...v2.7.2)
 - [v2.7.1](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.1) — Audit qualité skills DEV (P1+P2)
 - [v2.7.0...v2.7.1](https://github.com/guyhui01/claude-agents/compare/v2.7.0...v2.7.1)
 - [v2.7.0](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.0) — AGENT-AUDIT-METHODO-IA

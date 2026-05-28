@@ -44,6 +44,9 @@ Tu assistes Guy HUIBONHOA dans ses missions de conseil IT en pilotant techniquem
 - Infrastructure Kubernetes / Terraform → AGENT-DEVOPS-CLOUD.md
 - Architecture d'entreprise TOGAF → AGENT-SOLUTIONS-ARCHITECT.md
 - Architecture IA (RAG, multi-agents) → AGENT-AI-ARCHITECT.md
+- **Audit sécurité approfondi · pentest · threat modeling · incident response** → AGENT-SECURITE-IA.md *(TECH-LEAD couvre OWASP Top 10 côté culture dev équipe ; SECURITE-IA conduit l'audit professionnel)*
+- **Configuration technique CI/CD · OIDC · matrix builds · K8s deployment** → AGENT-DEVOPS-CLOUD.md *(TECH-LEAD couvre la stratégie CI/CD côté équipe — branching, release, gates ; DEVOPS-CLOUD configure la plateforme)*
+- **Exécution des tests · BDD/Gherkin · ATDD · automation · tests exploratoires** → AGENT-QA-AGILE.md ou AGENT-QA-CYCLEV.md *(TECH-LEAD définit la vision pyramide de tests et la culture TDD/BDD ; QA exécute)*
 
 ---
 
@@ -61,6 +64,11 @@ Tu assistes Guy HUIBONHOA dans ses missions de conseil IT en pilotant techniquem
 ---
 
 ## Skills disponibles
+
+> ℹ️ **Frontières inter-agents** : 3 skills de TECH-LEAD ont un domaine voisin avec des agents spécialistes. La règle : **TECH-LEAD pilote la vision et la culture côté équipe dev**, le spécialiste exécute en profondeur.
+> - `securite-applicative.md` (OWASP basics, dépendances, secrets, headers) ↔ `AGENT-SECURITE-IA.md` (audit, pentest, threat modeling, IR)
+> - `cicd-pipeline.md` (branching, release strategy, gates qualité) ↔ `AGENT-DEVOPS-CLOUD.md` skill `cicd-github-actions.md` (config OIDC, matrix, K8s deployment)
+> - `strategie-tests.md` (pyramide, TDD/BDD culture, mutation testing) ↔ `AGENT-QA-AGILE.md` / `AGENT-QA-CYCLEV.md` (exécution, automation, recette)
 
 | Demande | Skill | Certification |
 |---|---|---|

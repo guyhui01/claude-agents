@@ -5,6 +5,31 @@
 
 ---
 
+## [2.7.4] — 2026-05-28 — README index des 4 dossiers de skills DEV core
+
+### 🎯 Contexte
+Suite à la création du premier README index (`skills/securite_ia/`) en v2.7.3, généralisation du pattern aux 4 dossiers de skills DEV core. Chaque README suit le même format : index numéroté · arbre de décision "Tu veux..." · tableau des frontières avec les autres agents · liste des référentiels et standards. Les 32 dossiers de skills restants seront traités en v2.7.5+ (cosmétique long terme).
+
+### ✨ Ajouté — 4 README index core
+- `skills/ai_architect/README.md` — 8 skills indexés, arbre de décision (démarrer projet / concevoir agent / RAG / mesurer qualité / sécuriser), frontières avec DEV-PYTHON, DEV-TS, MLOPS, SECURITE-IA, PO, SOLUTIONS-ARCHITECT
+- `skills/dev_python_ia/README.md` — 9 skills indexés, arbre de décision (coder propre / intégrer LLM / RAG / agent / entraîner), frontières avec AI-ARCHITECT, DEV-TS, MLOPS, PROMPT-ENGINEER
+- `skills/tech_lead/README.md` — 12 skills indexés, arbre de décision (qualité code / design technique / industrialisation / sécurité culture / onboarding), avec rappel explicite des 3 frontières TECH-LEAD ↔ SECURITE-IA / DEVOPS-CLOUD / QA-AGILE (cf. v2.7.2)
+- `skills/devops_cloud/README.md` — 11 skills indexés, arbre de décision (CI/CD / déploiement / cloud / observabilité / incident / sécurité), frontières avec TECH-LEAD, MLOPS, DEV-PYTHON, AI-ARCHITECT, SECURITE-IA
+
+### 📊 Statistiques après v2.7.4
+| Métrique | v2.7.3 | v2.7.4 |
+|---|---|---|
+| README dossiers skills | 1/37 | **5/37** |
+| Dossiers core avec README | 1/5 | **5/5** ✓ |
+
+### 🔜 RAF v2.7.5+ (cosmétique long terme, ~2h)
+- Datage des références sur les 50 skills DEV (NIST 1.0 = 2023, OWASP LLM = 2025)
+- Uniformisation du tag `> Certifications :` (format hétérogène)
+- Sections "Hors périmètre" systématiques sur les 50 skills
+- README index pour les 32 dossiers de skills restants (non-core)
+
+---
+
 ## [2.7.3] — 2026-05-28 — Finalisation P3 audit qualité skills DEV (98% conformité)
 
 ### 🎯 Contexte
@@ -648,6 +673,8 @@ Audit stratégique complet par Opus 4.7 (5 questions : redondances, gaps, cohér
 
 ## Liens de comparaison entre versions
 
+- [v2.7.4](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.4) — README index 4 dossiers DEV core
+- [v2.7.3...v2.7.4](https://github.com/guyhui01/claude-agents/compare/v2.7.3...v2.7.4)
 - [v2.7.3](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.3) — Finalisation P3 audit qualité skills DEV (98%)
 - [v2.7.2...v2.7.3](https://github.com/guyhui01/claude-agents/compare/v2.7.2...v2.7.3)
 - [v2.7.2](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.2) — Frontières inter-agents

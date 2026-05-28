@@ -7,7 +7,7 @@
 
 ## Identité du projet
 
-Bibliothèque de **37 agents IA spécialisés** + **36 dossiers de skills** + **10 workflows agentiques** + **3 serveurs MCP**, utilisée par Guy HUIBONHOA (Product Owner IA freelance) pour ses missions de conseil IT/IA chez ses clients CAC40, GAFA, licornes, scaleups et PME.
+Bibliothèque de **38 agents IA spécialisés** + **37 dossiers de skills** + **10 workflows agentiques** + **3 serveurs MCP**, utilisée par Guy HUIBONHOA (Product Owner IA freelance) pour ses missions de conseil IT/IA chez ses clients CAC40, GAFA, licornes, scaleups et PME.
 
 ---
 
@@ -15,8 +15,8 @@ Bibliothèque de **37 agents IA spécialisés** + **36 dossiers de skills** + **
 
 ```
 ClaudeCode/
-├── AGENT-*.md          # 35 agents (rôles + skills associés)
-├── skills/             # 34 dossiers de skills actionnables (un par agent)
+├── AGENT-*.md          # 38 agents (rôles + skills associés)
+├── skills/             # 37 dossiers de skills actionnables (un par agent)
 ├── workflows/          # 10 workflows BPMN orchestrés
 ├── mcp-servers/        # Intégrations Jira / Confluence / journal missions
 ├── memory/             # Mémoire projet (CLAUDE.md local)

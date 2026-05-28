@@ -5,7 +5,7 @@
 
 ---
 
-## Agents disponibles (37)
+## Agents disponibles (38)
 
 ### Développement & Technique
 
@@ -42,6 +42,7 @@
 | `AGENT-PRODUCT-MANAGER-SAFE.md` | Product Manager SAFe | Vision produit Programme, roadmap ART, go-to-market, WSJF |
 | `AGENT-RELEASE-TRAIN-ENGINEER.md` | Release Train Engineer | PI Planning, coordination ART, impediments, Flow Metrics, I&A |
 | `AGENT-CHANGE-MANAGER.md` | Change Manager | ADKAR, plan de communication, gestion résistances, adoption IA |
+| `AGENT-AUDIT-METHODO-IA.md` | Auditeur Méthodo IA (Contrôle & Challenge) | Audit conformité méthode SAFe/Scrum/ISTQB/PMI, challenge raisonnement, gate validation livrable |
 
 ### Orchestration & Workflows
 
@@ -71,7 +72,7 @@
 
 ---
 
-## Skills disponibles (36 dossiers)
+## Skills disponibles (37 dossiers)
 
 ### Développement & Technique
 
@@ -105,6 +106,7 @@
 | `skills/product_manager_safe/` | Vision produit Programme, roadmap ART, customer-centricity, Lean Business Case, go-to-market |
 | `skills/release_train_engineer/` | Facilitation PI Planning, coordination ART, métriques Flow, Inspect & Adapt, Scrum of Scrums |
 | `skills/change_manager/` | ADKAR, analyse impact, plan de communication, gestion résistances, mesure adoption |
+| `skills/critique_conformite/` | Audit conformité méthode (SAFe/Scrum/ISTQB/PMI), challenge raisonnement, gate validation livrable |
 
 ### Orchestration & Workflows
 
@@ -175,7 +177,7 @@ Voir `START.md` pour toutes les commandes de démarrage.
 
 ```
 claude-agents/
-├── AGENT-*.md              # 35 agents spécialisés
+├── AGENT-*.md              # 38 agents spécialisés
 ├── skills/
 │   ├── ai_architect/       # Architecture IA · RAG · multi-agents · MCP/A2A
 │   ├── dev_python_ia/      # Python IA · LangChain · RAG · agents
@@ -210,6 +212,7 @@ claude-agents/
 │   ├── cms_digital/        # CMS & Digital Platform · AEM · Drupal · Headless · migration
 │   ├── tech_lead/          # Tech Lead · Code review · API design · CI/CD · mentoring
 │   ├── bi_analyst/         # BI & Reporting · Power BI/Fabric · Tableau · KPIs · self-service
+│   ├── critique_conformite/  # Contre-expertise IA · audit méthode · challenge · gate validation
 │   └── orchestrateur_workflow/ # Orchestration workflows agentiques
 ├── workflows/
 │   ├── README.md               # Index et grille de sélection

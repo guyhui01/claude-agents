@@ -5,6 +5,25 @@
 
 ---
 
+## [2.7.8] — 2026-05-28 — Correctif traçabilité modèle (v2.7.2 → v2.7.5)
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+Correction rétroactive de la mention du modèle Claude utilisé sur les entrées v2.7.2 à v2.7.5. Initialement, ces versions étaient consignées comme produites avec `Claude Sonnet 4.6` suite à une commande `/model claude-sonnet-4-6` saisie en cours de session. Vérification ex-post : le modèle effectif resté actif était **Claude Opus 4.7** sur toute la session post-v2.7.1. Correction appliquée.
+
+### 🔧 Modifié
+- Mise à jour de la ligne `> Modèle :` dans les 4 entrées du CHANGELOG : v2.7.2, v2.7.3, v2.7.4, v2.7.5 — passage de `Claude Sonnet 4.6` à `Claude Opus 4.7`
+- Mise à jour de la table récapitulative "Traçabilité rétroactive" dans l'entrée v2.7.6 — passage des lignes v2.7.2 à v2.7.5 en `Claude Opus 4.7`
+- Ajout d'une note de correction dans v2.7.6 pour traçabilité de l'erreur initiale
+
+### 📋 État final des modèles de la session 2026-05-28
+| Version | Modèle |
+|---|---|
+| v2.7.0 | Claude Sonnet 4.6 |
+| v2.7.1 à v2.7.8 | **Claude Opus 4.7** (7 releases consécutives) |
+
+---
+
 ## [2.7.7] — 2026-05-28 — README index 8 dossiers de skills supplémentaires (23/37)
 > Modèle : Claude Opus 4.7
 
@@ -48,12 +67,14 @@ Ajout d'une convention de traçabilité : **chaque entrée CHANGELOG et chaque t
 ### 🔧 Modifié — Traçabilité rétroactive des entrées 2026-05-28
 | Version | Modèle utilisé |
 |---|---|
-| v2.7.0 | Claude Sonnet 4.6 |
+| v2.7.0 | Claude Sonnet 4.6 (modèle par défaut au démarrage de la session) |
 | v2.7.1 | **Claude Opus 4.7** (audit qualité multi-agents en parallèle) |
-| v2.7.2 | Claude Sonnet 4.6 |
-| v2.7.3 | Claude Sonnet 4.6 |
-| v2.7.4 | Claude Sonnet 4.6 |
-| v2.7.5 | Claude Sonnet 4.6 |
+| v2.7.2 | Claude Opus 4.7 |
+| v2.7.3 | Claude Opus 4.7 |
+| v2.7.4 | Claude Opus 4.7 |
+| v2.7.5 | Claude Opus 4.7 |
+
+> **Note de correction (appliquée en v2.7.8)** : les entrées v2.7.2 à v2.7.5 indiquaient initialement `Sonnet 4.6` (consigné après une commande `/model claude-sonnet-4-6` saisie en cours de session). En réalité, le modèle effectif resté actif était Claude Opus 4.7 sur toute la session post-v2.7.1 ; correction rétroactive appliquée en v2.7.8.
 
 ### 🔧 Modifié — Datage des références (3 occurrences)
 - `skills/ai_architect/README.md` : `OWASP LLM Top 10` → `OWASP LLM Top 10 (2025)`, `NIST AI RMF` → `NIST AI RMF 1.0 (2023)`
@@ -71,7 +92,7 @@ Audit complet via Grep des références aux standards (NIST AI RMF, OWASP LLM To
 ---
 
 ## [2.7.5] — 2026-05-28 — README index 10 dossiers de skills supplémentaires
-> Modèle : Claude Sonnet 4.6
+> Modèle : Claude Opus 4.7
 
 ### 🎯 Contexte
 Poursuite de la généralisation du pattern README index initié en v2.7.3 (`securite_ia/`) et étendu aux 4 dossiers DEV core en v2.7.4. Cette release ajoute **10 README index** sur les dossiers les plus utilisés en mission, en priorisant les domaines de Guy (Agile, MOA, CMS, PIM, DAM, BI, EA). Bilan : **15/37 dossiers** indexés (40%) — les dossiers à plus forte utilisation client sont couverts.
@@ -112,7 +133,7 @@ Poursuite de la généralisation du pattern README index initié en v2.7.3 (`sec
 ---
 
 ## [2.7.4] — 2026-05-28 — README index des 4 dossiers de skills DEV core
-> Modèle : Claude Sonnet 4.6
+> Modèle : Claude Opus 4.7
 
 ### 🎯 Contexte
 Suite à la création du premier README index (`skills/securite_ia/`) en v2.7.3, généralisation du pattern aux 4 dossiers de skills DEV core. Chaque README suit le même format : index numéroté · arbre de décision "Tu veux..." · tableau des frontières avec les autres agents · liste des référentiels et standards. Les 32 dossiers de skills restants seront traités en v2.7.5+ (cosmétique long terme).
@@ -138,7 +159,7 @@ Suite à la création du premier README index (`skills/securite_ia/`) en v2.7.3,
 ---
 
 ## [2.7.3] — 2026-05-28 — Finalisation P3 audit qualité skills DEV (98% conformité)
-> Modèle : Claude Sonnet 4.6
+> Modèle : Claude Opus 4.7
 
 ### 🎯 Contexte
 Traitement des 3 skills P3 restants identifiés lors de l'audit qualité v2.7.1, et création du premier README index de dossier de skills (`skills/securite_ia/`). Les 4 dernières tâches cosmétiques (datage références sur 50 skills, uniformisation tag `> Certifications :`, sections "Hors périmètre" universelles, README pour les 36 autres dossiers de skills) sont reportées à v2.7.4.
@@ -167,7 +188,7 @@ Traitement des 3 skills P3 restants identifiés lors de l'audit qualité v2.7.1,
 ---
 
 ## [2.7.2] — 2026-05-28 — Frontières inter-agents : arbitrage des 3 doublons audit v2.7.1
-> Modèle : Claude Sonnet 4.6
+> Modèle : Claude Opus 4.7
 
 ### 🎯 Contexte
 Suite à l'audit v2.7.1, 3 doublons fonctionnels avaient été détectés entre AGENT-TECH-LEAD et 3 agents spécialistes (SECURITE-IA, DEVOPS-CLOUD, QA-AGILE). Cette release documente la frontière de manière **symétrique** (côté TECH-LEAD ET côté spécialiste), sur le modèle de la note QA-AGILE ↔ QA-CYCLEV (v2.3.6).
@@ -784,6 +805,8 @@ Audit stratégique complet par Opus 4.7 (5 questions : redondances, gaps, cohér
 
 ## Liens de comparaison entre versions
 
+- [v2.7.8](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.8) — Correctif traçabilité modèle v2.7.2→v2.7.5 (Opus 4.7)
+- [v2.7.7...v2.7.8](https://github.com/guyhui01/claude-agents/compare/v2.7.7...v2.7.8)
 - [v2.7.7](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.7) — README index 8 dossiers supplémentaires (23/37) (Opus 4.7)
 - [v2.7.6...v2.7.7](https://github.com/guyhui01/claude-agents/compare/v2.7.6...v2.7.7)
 - [v2.7.6](https://github.com/guyhui01/claude-agents/releases/tag/v2.7.6) — Convention traçabilité modèle + cosmétique skills (Opus 4.7)

@@ -16,6 +16,9 @@ TODO_GITHUB_SETUP.md
 TODO-portable.md
 backup/
 
+# --- Todolists / roadmaps privées (non versionnées sur GitHub public) ---
+audits/NEXT_STEPS.md
+
 # --- Fichiers système & temporaires ---
 *.tmp
 *.log

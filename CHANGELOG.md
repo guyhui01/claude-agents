@@ -5,6 +5,61 @@
 
 ---
 
+## [3.0.2] — 2026-05-29 — Quick scan propreté (compteurs START.md + anonymisation Aginode 9 skills)
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+**Quick scan rigoureux** (méthode standard, pas dégradée) sur fichiers non audités en Phase 1 (README, START.md, AGENT-*.md, mcp-servers/, workflows/). Objectif : confirmer "repo CAC40 100% propre" avant cartographie skills core mission (étape suivante plan révisé). Application disciplinée du **quadriptyque qualité** : test #3 (refus complaisance) + vérification avant correction.
+
+### 🔧 Corrections appliquées (2 bugs confirmés + 1 faux positif écarté)
+
+#### 1. `START.md` — Compteurs incohérents et catégorisation
+- **Bug** : annonce "37 agents · 36 dossiers" alors que README.md = 38 agents / 37 dossiers (réalité confirmée) + catégorisation interne incohérente (Dev/Tech listait 11, manquait CMS-DIGITAL/TECH-LEAD/BI-ANALYST/PIM-EXPERT/DAM-EXPERT ; Agile manquait CHANGE-MANAGER/AUDIT-METHODO-IA)
+- **Correction** :
+  - L3 : "38 agents IA spécialisés · 37 dossiers de skills"
+  - Catégorie "Dev & Technique (16)" — ajout 5 agents manquants (CMS-DIGITAL, TECH-LEAD, BI-ANALYST, PIM-EXPERT, DAM-EXPERT)
+  - Catégorie "Agile, Produit & Qualité (11)" — ajout CHANGE-MANAGER + AUDIT-METHODO-IA
+  - Catégorie "Management & Conseil (9)" — retiré CHANGE-MANAGER (déplacé Agile)
+  - Total catégoriel cohérent : 16 + 11 + 9 + 1 + 1 = **38** ✅
+- **Alignement** : README.md ↔ START.md ↔ réalité dossier
+
+#### 2. Anonymisation **Aginode** dans 9 skills Drupal (violation directive anonymisation)
+- **Bug** : "Aginode" cité dans 9 skills `skills/dev_drupal/*` (modules `aginode_b2b`, label `Aginode B2B`, email `aginode.fr`, hooks `aginode_b2b_*`) — déjà anonymisé dans CHANGELOG via v2.8.6/v2.8.7 mais oublié dans skills (incohérence repo public)
+- **Correction** : substitutions ordonnées (spécifique → générique) sur 9 fichiers via sed :
+  - `Aginode B2B` → `Client B2B`
+  - `aginode-b2b` → `client-b2b`
+  - `aginode_b2b` → `client_b2b`
+  - `aginode.fr` → `client-b2b.fr`
+  - `Aginode` → `Client télécom`
+  - `aginode_admin` → `client_admin` (rôle Drupal — Edit ciblé complémentaire)
+- **Fichiers touchés** : drupal-api-rest, drupal-commerce-checkout, drupal-config-yaml, drupal-integration-api-tierce, drupal-module-custom, drupal-performance, drupal-tests-phpunit-behat, drupal-theming-twig, drupal-user-roles
+- **Post-vérification** : `grep -i aginode` repo entier = **0 occurrence** ✅
+- **Mémoire mise à jour** : `feedback_anonymisation_clients.md` enrichi avec mention explicite d'Aginode + détection v3.0.2
+
+#### ✅ Faux positif écarté (test #3 triptyque appliqué)
+- **Initialement suspecté** : `memory/CLAUDE.md` mention START.md L120 → potentiellement cassé
+- **Vérification** : `ls memory/` confirme `memory/CLAUDE.md` existant → faux positif, aucune correction
+
+### 📊 État repo post v3.0.2
+
+- ✅ **0 occurrence client réel** dans tout le repo (Orange/CACIB/CHANEL/Accor/EDF/MBDA/Aginode tous anonymisés)
+- ✅ **Compteurs cohérents** README ↔ START ↔ réalité (38 agents / 37 dossiers / 10 workflows / 3 MCP)
+- ✅ **5 P1 critiques corrigés** (v3.0.1) + **2 incohérences propreté** (v3.0.2)
+- ⏳ **38 P1 résiduels** restent pour Phase 2 transversale (différenciateurs compétitifs, pas des bugs visibles)
+
+### 🎯 Apprentissages
+
+- **Quick scan rigoureux ROI confirmé** : 2 bugs détectés en ~20 min (anonymisation Aginode était une violation directive importante, compteurs incohérents = vitrine repo)
+- **Test #3 triptyque** appliqué à nouveau : 1 faux positif écarté (`memory/CLAUDE.md` existant) — méthode qui sauve d'over-engineering
+- **Cohérence mémoire-action** : ajout Aginode à `feedback_anonymisation_clients.md` pour éviter récurrence future
+
+### 🔜 Suite chantier
+
+- **Étape suivante** : cartographie skills "core mission" (~60 skills sur 303) selon critère "Mission 6 mois" — avant Phase 2 réduite
+- **15 releases publiées** : v2.8.0 → v3.0.2
+
+---
+
 ## [3.0.1] — 2026-05-29 — V1 propreté immédiate (5 bugs visibles publiquement corrigés)
 > Modèle : Claude Opus 4.7
 

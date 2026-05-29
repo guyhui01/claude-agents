@@ -36,14 +36,14 @@ class SiretValidatorTest extends UnitTestCase {
 ```php
 // tests/src/Kernel/AccountValidationServiceTest.php
 class AccountValidationServiceTest extends KernelTestBase {
-  protected static $modules = ['aginode_b2b', 'user', 'system'];
+  protected static $modules = ['client_b2b', 'user', 'system'];
 
   public function testValidateAccount(): void {
     $user = User::create(['name' => 'test', 'mail' => 'test@b2b.fr',
                           'field_compte_statut' => 'en_attente']);
     $user->save();
 
-    $this->container->get('aginode_b2b.account_validation')->validate($user);
+    $this->container->get('client_b2b.account_validation')->validate($user);
 
     $user = User::load($user->id());
     $this->assertEquals('actif', $user->get('field_compte_statut')->value);
@@ -87,7 +87,7 @@ class FeatureContext extends RawDrupalContext {
 ## Commandes
 ```bash
 # PHPUnit
-./vendor/bin/phpunit web/modules/custom/aginode_b2b/ --testdox
+./vendor/bin/phpunit web/modules/custom/client_b2b/ --testdox
 
 # Behat (tous les scénarios Sprint 1)
 ./vendor/bin/behat --tags=sprint1

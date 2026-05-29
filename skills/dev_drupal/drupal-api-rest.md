@@ -40,7 +40,7 @@ GET /jsonapi/commerce_product/cable_ftth
 
 # Commandes d'un acheteur
 GET /jsonapi/commerce_order/default
-    ?filter[uid.mail]=buyer@aginode.fr
+    ?filter[uid.mail]=buyer@client-b2b.fr
     &filter[state]=pending
     &sort=-placed
 ```

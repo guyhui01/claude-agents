@@ -24,9 +24,9 @@ web/modules/custom/mon_module/
 
 ## Fichier .info.yml
 ```yaml
-name: 'Aginode B2B'
+name: 'Client B2B'
 type: module
-description: 'Gestion des comptes et accès B2B Aginode'
+description: 'Gestion des comptes et accès B2B Client télécom'
 core_version_requirement: ^10
 package: Custom
 dependencies:

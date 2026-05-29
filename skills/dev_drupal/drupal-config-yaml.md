@@ -28,9 +28,9 @@ drush cr                     # rebuild caches
 
 ## Config d'installation de module (config/install/)
 ```yaml
-# modules/custom/aginode_b2b/config/install/aginode_b2b.settings.yml
+# modules/custom/client_b2b/config/install/client_b2b.settings.yml
 # Chargée automatiquement lors du premier enable du module
-admin_email: 'admin@aginode.fr'
+admin_email: 'admin@client-b2b.fr'
 account_validation_delay_hours: 24
 flood_limit: 5
 flood_window: 900
@@ -39,11 +39,11 @@ flood_window: 900
 ## Lire la config dans le code
 ```php
 // Lecture
-$config = \Drupal::config('aginode_b2b.settings');
+$config = \Drupal::config('client_b2b.settings');
 $adminEmail = $config->get('admin_email');
 
 // Écriture (ConfigFactory — service injecté)
-$this->configFactory->getEditable('aginode_b2b.settings')
+$this->configFactory->getEditable('client_b2b.settings')
   ->set('admin_email', $newEmail)
   ->save();
 ```
@@ -51,7 +51,7 @@ $this->configFactory->getEditable('aginode_b2b.settings')
 ## Override par environnement (settings.php)
 ```php
 // web/sites/default/settings.local.php (non versionné)
-$config['aginode_b2b.settings']['admin_email'] = 'dev-local@aginode.fr';
+$config['client_b2b.settings']['admin_email'] = 'dev-local@client-b2b.fr';
 
 // Production (settings.php ou settings.prod.php)
 $config['sendgrid_integration.settings']['apikey'] = getenv('SENDGRID_API_KEY');

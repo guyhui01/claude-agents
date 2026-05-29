@@ -66,7 +66,7 @@ class OrderStatusSubscriber implements EventSubscriberInterface {
 
   public function onOrderShip(WorkflowTransitionEvent $event): void {
     $order = $event->getEntity();
-    $this->mailManager->mail('aginode_b2b', 'order_shipped', ...);
+    $this->mailManager->mail('client_b2b', 'order_shipped', ...);
   }
 }
 ```

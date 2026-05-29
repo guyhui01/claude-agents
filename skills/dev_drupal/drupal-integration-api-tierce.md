@@ -39,10 +39,10 @@ composer require drupal/sendgrid_integration
 ```
 
 ```php
-// src/Mail/AginodeMail.php — hook_mail() implémentation
-function aginode_b2b_mail(string $key, array &$message, array $params): void {
+// src/Mail/Client télécomMail.php — hook_mail() implémentation
+function client_b2b_mail(string $key, array &$message, array $params): void {
   match($key) {
-    'account_activated' => $message['subject'] = 'Votre compte Aginode est activé',
+    'account_activated' => $message['subject'] = 'Votre compte Client télécom est activé',
     'account_refused'   => $message['subject'] = 'Votre demande de compte a été refusée',
     'order_confirmation'=> $message['subject'] = 'Confirmation de commande #' . $params['order']->getOrderNumber(),
     'order_shipped'     => $message['subject'] = 'Votre commande a été expédiée',
@@ -52,7 +52,7 @@ function aginode_b2b_mail(string $key, array &$message, array $params): void {
 
 // Envoi depuis un service
 $this->mailManager->mail(
-  'aginode_b2b',          // module
+  'client_b2b',          // module
   'account_activated',    // clé mail
   $account->getEmail(),   // destinataire
   'fr',                   // langue

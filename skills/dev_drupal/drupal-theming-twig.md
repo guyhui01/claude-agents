@@ -42,8 +42,8 @@ views-view--catalog-by-category.html.twig      # vue spécifique
 
 ## Preprocess hook — injecter des variables dans le template
 ```php
-// aginode_b2b.module
-function aginode_b2b_preprocess_commerce_product(array &$variables): void {
+// client_b2b.module
+function client_b2b_preprocess_commerce_product(array &$variables): void {
   $account = \Drupal::currentUser();
   $variables['is_b2b_buyer'] = $account->hasRole('b2b_buyer');
 

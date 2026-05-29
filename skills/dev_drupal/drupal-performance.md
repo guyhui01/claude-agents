@@ -39,7 +39,7 @@ Cache::invalidateTags(['commerce_product_list']);
 ```php
 // Composant qui charge lentement (ex: commandes récentes)
 $build['recent_orders'] = [
-  '#lazy_builder' => ['aginode_b2b.lazy_builder:renderRecentOrders', [$uid]],
+  '#lazy_builder' => ['client_b2b.lazy_builder:renderRecentOrders', [$uid]],
   '#create_placeholder' => TRUE, // BigPipe envoie le placeholder immédiatement
 ];
 ```
@@ -61,7 +61,7 @@ drush sql:query "EXPLAIN SELECT * FROM cache_render WHERE ..."
 
 # Blackfire (recommandé)
 blackfire run drush cr
-blackfire curl http://aginode-b2b.local/catalogue
+blackfire curl http://client-b2b.local/catalogue
 ```
 
 ## Bonnes pratiques

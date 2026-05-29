@@ -1,6 +1,6 @@
 # Démarrage rapide — Claude Agents Library
 
-> 37 agents IA spécialisés · 36 dossiers de skills · 10 workflows · 3 serveurs MCP
+> 38 agents IA spécialisés · 37 dossiers de skills · 10 workflows · 3 serveurs MCP
 > Auteur : Guy HUIBONHOA · [github.com/guyhui01](https://github.com/guyhui01)
 
 ---
@@ -48,12 +48,17 @@ Lis le fichier AGENT-<NOM>.md et adopte ce rôle.
 Confirme que tu es prêt en listant les skills disponibles.
 ```
 
-### Dev & Technique (11)
+### Dev & Technique (16)
 - `AGENT-AI-ARCHITECT.md` — Architecture IA, RAG, multi-agents, MCP/A2A
 - `AGENT-SOLUTIONS-ARCHITECT.md` — Architecture d'entreprise, TOGAF, urbanisme SI, roadmap transformation
 - `AGENT-DEV-PYTHON-IA.md` — Python IA, LangChain, RAG, agents
 - `AGENT-DEV-TYPESCRIPT-IA.md` — TS IA, Next.js, Vercel AI SDK, MCP
 - `AGENT-DEV-DRUPAL-PHP.md` — Drupal 10, Commerce 2.x, modules custom
+- `AGENT-CMS-DIGITAL.md` — AEM, Drupal 10, Headless CMS, migration, PIM/DAM, WCAG/SEO
+- `AGENT-TECH-LEAD.md` — Code review, architecture applicative, API design, CI/CD, mentoring
+- `AGENT-BI-ANALYST.md` — Power BI/Fabric, Tableau, Looker, KPIs, self-service BI
+- `AGENT-PIM-EXPERT.md` — Modélisation catalogue, enrichissement, syndication, PIM IA
+- `AGENT-DAM-EXPERT.md` — Taxonomie, droits, distribution multicanal, brand portal, DAM IA
 - `AGENT-MLOPS-ENGINEER.md` — Docker, K8s, MLflow, model serving
 - `AGENT-DATA-ENGINEER.md` — Pipelines ETL, Spark, dbt, Airflow
 - `AGENT-DATA-SCIENTIST.md` — ML, stats, modélisation, Python/SQL
@@ -61,7 +66,7 @@ Confirme que tu es prêt en listant les skills disponibles.
 - `AGENT-SECURITE-IA.md` — OWASP LLM, red teaming, CISSP
 - `AGENT-PROMPT-ENGINEER.md` — System prompts, CoT, RAG, evals
 
-### Agile & Produit (9)
+### Agile, Produit & Qualité (11)
 - `AGENT-PO-SCRUM.md` — User Stories, backlog, cérémonies Scrum
 - `AGENT-PO-SAFE.md` — PI Planning, WSJF, ART, portfolio epics
 - `AGENT-PRODUCT-MANAGER-SAFE.md` — Vision Programme, roadmap ART, go-to-market
@@ -71,12 +76,13 @@ Confirme que tu es prêt en listant les skills disponibles.
 - `AGENT-QA-CYCLEV.md` — Plans de tests, recette, UAT, performance
 - `AGENT-UX-DESIGNER.md` — Figma, wireframing, design system
 - `AGENT-BUSINESS-ANALYST.md` — Élicitation, BPMN, spécifications
+- `AGENT-CHANGE-MANAGER.md` — ADKAR, plan adoption, résistances
+- `AGENT-AUDIT-METHODO-IA.md` — Audit conformité méthode SAFe/Scrum/ISTQB/PMI, challenge raisonnement
 
-### Management & Conseil (10)
+### Management & Conseil (9)
 - `AGENT-CHEF-PROJET-IA.md` — Cadrage, planning, EVM, COPIL
 - `AGENT-CONSULTANT-IA.md` — Diagnostic maturité, feuille de route, ROI
 - `AGENT-CDO-DIRECTEUR-IA.md` — Stratégie data, gouvernance, OKR
-- `AGENT-CHANGE-MANAGER.md` — ADKAR, plan adoption, résistances
 - `AGENT-FINANCIAL-ANALYST.md` — Business case IA, ROI, TCO, EVM
 - `AGENT-FORMATEUR-IA.md` — Conception parcours, e-learning
 - `AGENT-GROWTH-IA.md` — Acquisition, automation, analytics

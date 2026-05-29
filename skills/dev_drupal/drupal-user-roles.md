@@ -19,9 +19,9 @@ permissions:
 ```
 
 ```yaml
-# config/sync/user.role.aginode_admin.yml
-id: aginode_admin
-label: 'Administrateur Aginode'
+# config/sync/user.role.client_admin.yml
+id: client_admin
+label: 'Administrateur Client télécom'
 weight: 4
 permissions:
   - 'administer users'
@@ -74,7 +74,7 @@ class B2bLoginSubscriber implements EventSubscriberInterface {
 
 ## hook_entity_access — restreindre l'accès par rôle
 ```php
-function aginode_b2b_entity_access(EntityInterface $entity, string $operation, AccountInterface $account): AccessResultInterface {
+function client_b2b_entity_access(EntityInterface $entity, string $operation, AccountInterface $account): AccessResultInterface {
   if ($entity->getEntityTypeId() === 'commerce_product' && $operation === 'view price') {
     return $account->hasRole('b2b_buyer')
       ? AccessResult::allowed()

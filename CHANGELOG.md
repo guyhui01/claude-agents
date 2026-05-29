@@ -5,6 +5,49 @@
 
 ---
 
+## [3.2.0] — 2026-05-29 — Phase 2 P2.2 : refonte V2 `modelisation-processus` (BPMN 2.0 + UML 2.5 + DMN 1.4 + CMMN 1.1)
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+**Phase 2 P2.2 du chantier audit v2.8** — deuxième refonte V2 profonde sur skill N1 CORE-PRATIQUE. Skill `business_analyst/modelisation-processus.md` identifié P1.2 dans audit Phase 1 (Knowledge Area BABOK ramené à 45L minimalistes, BPMN 3 éléments seulement, UML 1 diagramme, DMN/CMMN absents, Process Mining absent, Jacobson Use Cases 2.0 absent). Application stricte du **quadriptyque qualité** sur skill mobilisé en mission PO/MOA tous segments d'organisations.
+
+### ✨ Refonte V2 — `skills/business_analyst/modelisation-processus.md` (45L → 188L denses)
+
+#### Enrichissements majeurs (14 sections structurées)
+- **En-tête certifications & référentiels** : IIBA CBAP + BCS Diploma BA + **OCEB 2** (OMG Certified Expert BPM) — référentiels OMG datés et précis (BPMN 2.0.2 OMG 2014 / ISO 19510:2013 · UML 2.5.1 OMG 2017 / ISO 19505 · DMN 1.4 OMG 2023 · CMMN 1.1 OMG 2016 · Cockburn 2001 · Jacobson 2.0 2011 · Van der Aalst 2016)
+- **Cadre BABOK v3** : 4 Knowledge Areas mobilisées (#7 Requirements Analysis & Design · #9 Strategy Analysis · #10 Elicitation · Perspective Business Process Management) avec mapping Tasks BABOK ↔ notations
+- **BPMN 2.0.2 éléments complets** : 15 types Events (vs 3 actuels) + 7 types Tasks (User/Service/Send/Receive/Manual/Business Rule/Script) + 5 types Gateways (XOR/AND/OR/Event-based/Complex) + Sub-Process types (Embedded/Call Activity/Event/Transaction/Ad-Hoc) + Markers (Loop/Multi-Instance/Compensation) + règles Silver
+- **3 Niveaux BPMN Silver & Bridgeland 2009** : Descriptive / Analytical / Executable avec critères de basculement explicites
+- **UML 2.5.1 — 14 diagrammes OMG** : tableau Structural (7) + Behavioral (7) avec quand utiliser chacun + anti-pattern Sequence trop bas niveau
+- **Use Cases — Cockburn (2001) vs Jacobson 2.0 (2011)** : template Cockburn Fully Dressed (12 champs) + Use Case Slice Jacobson + règles «include»/«extend»/Generalization + anti-pattern UC CRUD
+- **DMN 1.4 (OMG 2023)** : Decision Requirements Diagram + Decision Tables + Hit Policy (Unique/First/Priority/Any/Collect avec sous-types) + FEEL language + délégation BPMN Business Rule Task
+- **CMMN 1.1 (OMG 2016)** : pour cas non déterministes > 30% imprévisibilité (sinistres, dossiers médicaux, instructions juridiques) + Plan Items + Sentries + Discretionary
+- **Process Mining Van der Aalst (2016)** : Discovery (Alpha/Inductive/Heuristics Miner) + Conformance (token-replay) + Enhancement + standard XES IEEE 1849-2016 + outils (Celonis/Disco/ProM/UiPath/Apromore)
+- **Exemple chiffré sectoriel** : refonte processus check-in/check-out groupe hôtelier international (350 hôtels, 50 pays, 12M nuitées/an) — BPMN As-Is/To-Be (Event Sub-Process pre-check-in J-2) + DMN Decision Table surclassement automatique (Hit Policy First, 4 règles Loyalty Tier × Availability × Stay Length) + Use Case UC-014 Cockburn + CMMN gestion litige + gains mesurés POC 12 mois (check-in 8min→2.5min, NPS 6→8.5, digital 25%→65%, ROI 14 mois) — anonymisé
+- **8 anti-patterns explicites** : BPMN spaghetti · Gateway diamond pile-up · Use cases CRUD · UML Sequence bas niveau · Mélange BPMN/UML Activity · Pool métier/SI mélangés · DMN dans BPMN flow · Modèle sans versioning
+- **Outils & formats** : modeleurs gratuits (draw.io/Camunda Modeler/Bizagi/BPMN.io) · plateformes enterprise (Signavio/ARIS/Visual Paradigm/Sparx EA) · BPMS exécutables (Camunda 8/Flowable/Activiti/IBM BAW) · formats interchange (BPMN-XML/XPDL/UML-XMI/DMN-XML/CMMN-XML)
+- **Livrables complets** : As-Is + To-Be + DMN séparés + CMMN + Use Cases Cockburn + matrice traçabilité Processus↔Exigences↔Tests↔KPI + matrice RACI + notes de style Silver
+- **10 sources datées** : 4 spec OMG officielles (BPMN/UML/DMN/CMMN) + Silver 2011 + Cockburn 2001 + Jacobson 2.0 2011 + Van der Aalst 2016 + BABOK v3 IIBA 2015 + IEEE 1849-2016
+- **6 cross-links "Voir aussi"** : elicitation-besoins · cartographie-si · analyse-impact · gestion-exigences · po-user-story (Scrum) · conduite-changement (change_manager)
+
+### 📊 Impact qualitatif
+- **Densité** : 3 events BPMN → 15 + 7 tasks + 5 gateways + sub-process complets (notation OMG quasi-exhaustive utile)
+- **Profondeur** : ajout de 3 notations OMG normatives absentes (DMN, CMMN, Process Mining) + Jacobson 2.0 + Cockburn Fully Dressed
+- **Actionabilité** : exemple chiffré bout-en-bout (As-Is → To-Be → DMN Decision Table chiffrée → UC Cockburn → CMMN → ROI mesuré) — réplicable directement par PO/MOA en mission
+- **Conformité référentielle** : 100% sources datées et identifiées par spec OMG + ISO + BABOK + auteurs primaires
+- **Anonymisation respectée** : "groupe hôtelier international" générique — alignement [[feedback-anonymisation-clients]]
+
+### 🎯 Conformité quadriptyque qualité
+1. ✅ **Densité actionnable** — chaque ligne tableau opérationnelle (Hit Policy DMN avec règles concrètes, Use Case UC-014 chiffré)
+2. ✅ **Méthode standard inaltérée** — format Phase 1.1 respecté (En-tête / Cadre / Contenu / Exemple / Anti-patterns / Livrables / Sources / Voir aussi)
+3. ✅ **Recommandations best practices** — spec OMG officielles + ISO + auteurs primaires (Silver/Cockburn/Jacobson/Van der Aalst), pas wikipédia ni blogs
+4. ✅ **Simplicité maintenance future** — skill N1 CORE-PRATIQUE mobilisé en mission PO/MOA + cross-links uniquement vers skills mobilisés (N1/N2)
+
+### 🔜 Prochaine étape Phase 2 (suite plan révisé)
+P2.3 : `business_analyst/cartographie-si.md` (TOGAF 10 + Archimate 3.2 + Capability Mapping) — voir `audits/NEXT_STEPS.md`
+
+---
+
 ## [3.1.0] — 2026-05-29 — Phase 2 P2.1 : refonte V2 `elicitation-besoins` (BABOK v3 + Volere + Wiegers)
 > Modèle : Claude Opus 4.7
 

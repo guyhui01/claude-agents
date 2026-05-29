@@ -205,25 +205,81 @@ v2.8 conserve les **3 dimensions universelles** et formalise **5 déclinaisons**
 
 ---
 
-### 3.3 — Groupe Data/Tech ⏳ (à formaliser)
+### 3.3 — Groupe Data/Tech ✅ (formalisé v2.8.2 — Phase 1.2, audit 2026-05-29)
 
-**Agents concernés (5)** : DATA-SCIENTIST · DATA-ENGINEER · MLOPS-ENGINEER · SOLUTIONS-ARCHITECT · BI-ANALYST
+**Agents concernés (5)** : DATA-SCIENTIST (13 skills) · DATA-ENGINEER (11) · MLOPS-ENGINEER (10) · SOLUTIONS-ARCHITECT (8) · BI-ANALYST (12) — **54 skills total**
 
-#### Référentiels attendus (à valider)
-- Hériter en grande partie de la grille v2.7.1 (DEV core)
-- + DAMA-DMBOK (data governance)
-- + TOGAF / Zachman (architecture d'entreprise)
-- + MLflow, Kubeflow, Spark 3.5+, dbt, Airflow versions récentes
-- + DORA + AIOps metrics
-- + ISO/IEC 5338 (AI system lifecycle)
+#### D1 — Conformité référentielle (Data/Tech)
 
-#### Actionabilité attendue
-- Code prêt-à-copier (PyTorch, Spark, dbt models)
-- Diagrammes Mermaid (lakehouse, pipelines ML)
-- Notebook templates (EDA, feature engineering)
-- Dashboards Power BI / Tableau / Looker exemples
+| Sous-domaine | Référentiels attendus |
+|---|---|
+| **Data Science / ML** | CRISP-DM (1999) · CRISP-ML(Q) (2020) · Scikit-learn API conventions · PyTorch (Meta) / TensorFlow 2.x · Hugging Face Transformers · MLflow tracking · Hastie/Tibshirani *Elements of Statistical Learning* (2009) · Goodfellow et al. *Deep Learning* (2016) · Kuhn & Johnson *Applied Predictive Modeling* (2013) |
+| **Data Engineering** | DAMA-DMBOK 2 (2017) · Data Mesh (Dehghani 2022) · Data Vault 2.0 (Linstedt) · Lakehouse (Databricks 2020) · Kimball *Data Warehouse Toolkit* (3rd ed. 2013) · dbt best practices · Apache Airflow / Spark 3.5+ / Kafka conventions |
+| **MLOps** | Google MLOps maturity (3 niveaux, 2021) · *Machine Learning Engineering* (Burkov 2020) · MLOps Community guidelines · CD4ML (ThoughtWorks 2019) · Feature Store patterns (Tecton, Feast) · DORA metrics (Forsgren/Humble/Kim *Accelerate* 2018) |
+| **Architecture SI** | TOGAF 10 (2022) · ArchiMate 3.2 · C4 Model (Simon Brown) · Zachman Framework · ISO/IEC 42010:2022 (architecture description) · Conway's Law (1968) · Fowler patterns |
+| **BI / Analytics** | Kimball dimensional modeling (Kimball 2013) · Inmon CIF · OLAP (Codd 1993) · Power BI / Tableau / Looker best practices · LookML (Looker) · Microsoft Fabric · Self-Service BI (Gartner) |
+| **AI lifecycle / Gouvernance** | ISO/IEC 5338:2023 (AI system lifecycle) · ISO/IEC 42001:2023 (AIMS) · NIST AI RMF 1.0 (2023) · Model Cards (Mitchell et al. 2019) · Datasheets for Datasets (Gebru et al. 2021) |
 
-**🔜 À compléter** : lors de l'audit DATA-SCIENTIST.
+**Cotation** :
+- ✓ : 100% conforme, vocabulaire exact (CRISP-DM 6 phases nommées, TOGAF ADM 8 phases, Kimball star schema), versions à jour, frameworks attribués à leurs auteurs
+- ⚠ : conforme dans les grandes lignes, 1-2 imprécisions (CRISP-DM cité sans 6 phases, TOGAF cité sans ADM, dbt sans bonnes pratiques officielles)
+- ✗ : déviation majeure (Kimball confondu avec Inmon, CRISP-DM sans phases, MLOps sans pipelines CI/CD)
+
+#### D2 — Actionabilité (Data/Tech)
+
+**Critères opérationnels** :
+- **Code prêt-à-copier** : PyTorch / TensorFlow / Scikit-learn pour DS · PySpark / dbt / SQL pour DE · YAML CI/CD + Helm charts + Terraform pour MLOps · DAX / LookML / Python pandas pour BI
+- **Diagrammes** Mermaid/PlantUML : architectures lakehouse, pipelines ML, ADM TOGAF, ArchiMate, C4 model
+- **Notebooks templates** : EDA, feature engineering, evaluation modèles (DS) · ELT/ETL patterns (DE)
+- **Dashboards exemples** : Power BI / Tableau / Looker / Fabric / Quicksight (chiffrés)
+- **Métriques** opérationnelles : F1/AUC/RMSE (DS) · data quality DQ score (DE) · MTTR/lead time DORA (MLOps) · NSM/AARRR (BI)
+- **Cas sectoriels variés** (banque CIB risk, retail churn, énergie maintenance prédictive, défense vision, télécom anti-fraude, hôtellerie pricing)
+
+**Cotation** :
+- ✓ : ≥3 livrables actionnables (code + diagramme + cas chiffré), exemples reproductibles, datasets/références publiques
+- ⚠ : code partiel ou pseudo-code, exemples génériques mono-sectoriels
+- ✗ : majoritairement conceptuel, aucun code, aucun diagramme
+
+#### D3 — Profondeur (Data/Tech)
+
+**Critères opérationnels** :
+- **Sources académiques** : ICML / NeurIPS / KDD papers, ouvrages référence (Bishop, Murphy, Hastie, Goodfellow), Stanford CS229/CS231n
+- **Tendances 2024-2026** : LLMs (Llama 3.x, Claude 3.x, GPT-4o), agentic AI, RAG patterns, vector DBs (Pinecone, Weaviate, pgvector), feature stores (Tecton, Feast), data contracts
+- **Cas réels publics** : Netflix recommender, Uber Michelangelo, Airbnb feature store, Stripe ML platform, Spotify ML stack
+- **Anti-patterns explicités** par sous-domaine (ex : "Train/test leakage", "Data dredging", "Model decay non monitoré", "Big ball of mud lakehouse")
+- **Métriques modernes** : MLOps maturity Google 0/1/2, DORA 4 keys, DQ Score, observability data (Monte Carlo, Bigeye)
+
+**Cotation** :
+- ✓ : sources 2023+, frameworks officiels datés, anti-patterns explicités, exemples sectoriels variés, métriques modernes
+- ⚠ : contenu solide mais sources implicites, exemples génériques
+- ✗ : daté (TensorFlow 1.x, Spark 2.x), aucune source, anti-patterns absents
+
+#### Référentiel de sources attendues (Data/Tech)
+
+| Source | URL/Ref | Skills cibles |
+|---|---|---|
+| **CRISP-DM 1.0** | IBM SPSS 1999 (consortium) | analyse-exploratoire, modelisation-ml, rapport-data-science |
+| **CRISP-ML(Q)** | Studer et al. (arxiv 2003.05155, 2020) | evaluation-modeles, ethique-ia-biais |
+| **Hastie, Tibshirani, Friedman** | *Elements of Statistical Learning* (Springer 2009) | statistiques-tests, modelisation-ml |
+| **Goodfellow, Bengio, Courville** | *Deep Learning* (MIT Press 2016) | deep-learning, nlp-classique |
+| **Burkov A.** | *Machine Learning Engineering* (2020) | mlops_engineer/* |
+| **Google MLOps Maturity** | cloud.google.com/architecture/mlops-continuous-delivery (2021) | cicd-ia, mlflow-tracking |
+| **DORA Accelerate** | Forsgren, Humble, Kim (IT Revolution 2018) | cicd-ia, monitoring-llm |
+| **Dehghani Z.** | *Data Mesh* (O'Reilly 2022) | gouvernance-data, cloud-data-platforms |
+| **Kimball R.** | *The Data Warehouse Toolkit* (3rd ed., Wiley 2013) | data-warehouse, modelisation-dimensionnelle |
+| **DAMA-DMBOK 2** | dama.org (2017) | gouvernance-data, gouvernance-bi |
+| **Databricks Lakehouse** | Armbrust et al. (CIDR 2021) | cloud-data-platforms |
+| **TOGAF 10** | The Open Group (2022) | togaf-adm, urbanisme-si |
+| **ArchiMate 3.2** | The Open Group (2023) | archimate-modeling |
+| **C4 Model** | Simon Brown (c4model.com) | architecture-bdat |
+| **Conway's Law** | Mel Conway (1968) | gouvernance-architecturale |
+| **ISO/IEC 5338:2023** | iso.org (AI system lifecycle) | mlops_engineer/*, ethique-ia-biais |
+| **NIST AI RMF 1.0** | nist.gov (jan. 2023) | ethique-ia-biais, monitoring-llm |
+| **Mitchell et al.** | *Model Cards* (FAT* 2019) | evaluation-modeles, rapport-data-science |
+| **Gebru et al.** | *Datasheets for Datasets* (Comm. ACM 2021) | data-quality, gouvernance-data |
+| **Codd E.F.** | OLAP "12 Rules" (1993) | bi_analyst/* |
+
+---
 
 ---
 

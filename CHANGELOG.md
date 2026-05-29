@@ -19,14 +19,7 @@ Suppression de toutes les mentions nominatives de clients dans le repo public, r
 - `mcp-servers/mcp-workflow-log/server.ts` (L.88 description paramètre `client`)
 
 ### 📊 Mapping appliqué
-| Nom client | Remplacé par |
-|---|---|
-| Orange | secteur télécom |
-| Crédit Agricole CIB | secteur banque CIB |
-| CHANEL | secteur luxe |
-| Accor | secteur hôtellerie |
-| EDF | secteur énergie |
-| MBDA | secteur défense |
+Substitution des noms nominatifs par les références sectorielles correspondantes (banque, luxe, énergie, défense, télécom, hôtellerie).
 
 ### ✅ Vérification
 - Grep exhaustif sur tout le repo : 0 mention nominative résiduelle

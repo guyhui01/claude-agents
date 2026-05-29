@@ -5,6 +5,47 @@
 
 ---
 
+## [3.1.0] — 2026-05-29 — Phase 2 P2.1 : refonte V2 `elicitation-besoins` (BABOK v3 + Volere + Wiegers)
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+**Phase 2 du chantier audit v2.8 — première refonte V2 profonde sur skill N1 CORE-PRATIQUE** (cf. `audits/CARTOGRAPHIE-SKILLS-CORE-MISSION.md`). Skill `business_analyst/elicitation-besoins.md` identifié P1.1 dans audit Phase 1 (Knowledge Area BABOK ramené à 1 page minimaliste). Application stricte du **quadriptyque qualité** : densité actionnable + méthode standard inaltérée + recommandations best practices + simplicité maintenance future (skill mobilisé en mission PO/MOA cycle V comme Agile).
+
+### ✨ Refonte V2 — `skills/business_analyst/elicitation-besoins.md` (39L → 175L denses)
+
+#### Enrichissements majeurs (14 sections structurées)
+- **En-tête certifications & référentiels** : IIBA CBAP/CCBA + PMI-PBA + BABOK v3 (IIBA 2015) + Volere (Robertson 2012) + Wiegers (2013) + ISO/IEC 25010:2011
+- **Cadre BABOK v3 Knowledge Area #4** : 5 Tasks officielles (10.1 Prepare → 10.5 Manage Collaboration) avec livrables explicites par Task
+- **Tableau des 14 techniques d'élicitation BABOK v3** (vs 4 techniques initialement) : Interview · Brainstorming · Focus Groups · Document Analysis · Interface Analysis · Observation · Prototyping · Survey · Workshops · Mind Mapping · Process Modelling · Concept Modelling · Reverse Engineering · Lessons Learned — avec contexte privilégié, durée, type (Collaborative/Research/Experimental)
+- **Volere Atomic Requirement** (Robertson 2012) : structure complète 12 champs (ID, Type, Event/BUC, Description, Rationale, Originator, Fit Criterion, Priority, Dependencies, Conflicts, Supporting Materials, History) + mention Volere Shell 24 sections et Snow Cards
+- **Wiegers practices critiques** : Stakeholder Matrix (Power × Interest Mendelow 1991), Prioritization Quadrant (Value × Cost), Volatility Index 1-5, Specification Reviews checklist
+- **NFR ISO/IEC 25010:2011** (8 caractéristiques) + alternative FURPS+ (Grady HP 1992) + anti-pattern critique "NFR oubliés"
+- **Formats d'expression comparés** : User Story Connextra (2001) + INVEST (Wake 2003) · Use Cases Cockburn (2001) · Job Stories Klement (2013) — quand utiliser chacun
+- **Priorisation duale** : MoSCoW (Clegg DSDM 1994) + Kano (1984 — Must-be / Performance / Attractive / Indifferent / Reverse)
+- **Exemple chiffré sectoriel anonymisé** : refonte portail KYC/AML banque CIB (RGPD + DORA + LCB-FT + Sapin 2 + 5AMLD) — 12 stakeholders, 320 exigences, plan d'élicitation détaillé (6 interviews + 2 workshops + Document Analysis + Observation 5h + Survey 47/60), Volere REQ-KYC-014 chiffré (p95 ≤ 3s screening sanctions), backlog MoSCoW (142 Must · 89 Should · 67 Could · 22 Won't)
+- **8 anti-patterns explicites** : Solution avant problème · Pas de validation utilisateur final · Élicitation one-shot · NFR oubliés · Pas de traçabilité · Jargon technique · Brainstorming sans facilitation · Mélange formats User/Job Stories
+- **Livrables complets** : Volere Shell · Matrice traçabilité Requirement↔Test↔Release↔Stakeholder · Glossaire · Plan élicitation · Backlog MoSCoW + heatmap Kano · Rapport avec Volatility Index
+- **10 sources datées** : BABOK v3 IIBA 2015 · Volere Robertson 2012 · Wiegers 2013 · Cockburn 2001 · Klement Intercom 2013 · Wake 2003 · Clegg DSDM 1994 · Kano 1984 · Grady HP 1992 · ISO/IEC 25010:2011
+- **6 cross-links "Voir aussi"** : modelisation-processus · cartographie-si · analyse-impact · gestion-exigences · recette-moa · po-user-story (Scrum)
+
+### 📊 Impact qualitatif
+- **Densité** : 4 techniques → 14 techniques (BABOK v3 complet) — pas de listing académique mais tableau de **sélection par contexte**
+- **Profondeur** : ajout de 3 référentiels normatifs majeurs (Volere, Wiegers, ISO 25010/FURPS+) absents initialement
+- **Actionabilité** : exemple chiffré bout-en-bout (contexte → techniques → Volere REQ → backlog priorisé) — réplicable directement par PO/MOA en mission
+- **Conformité référentielle** : 100% des sources datées, certifications IIBA + PMI explicitement liées aux Tasks BABOK
+- **Anonymisation respectée** : exemple "banque CIB" générique (pas de mention CACIB) — alignement [[feedback-anonymisation-clients]]
+
+### 🎯 Conformité quadriptyque qualité
+1. ✅ **Densité actionnable** — chaque ligne du tableau 14 techniques opérationnelle, structure Volere copiable
+2. ✅ **Méthode standard inaltérée** — format Phase 1.1 respecté (En-tête / Objectif / Cadre / Contenu / Anti-patterns / Livrables / Sources / Voir aussi)
+3. ✅ **Recommandations best practices** — référentiels officiels IIBA/PMI/ISO + sources primaires datées (pas wikipédia, pas blogs sans autorité)
+4. ✅ **Simplicité maintenance future** — skill N1 CORE-PRATIQUE mobilisé en mission PO/MOA (justifie V2 profonde) — pas de cross-links inutiles vers N3/N4
+
+### 🔜 Prochaine étape Phase 2 (suite plan révisé)
+P2.2 : `business_analyst/modelisation-processus.md` (BPMN 2.0 OMG 2014 + UML 2.5 + Jacobson) — voir `audits/NEXT_STEPS.md`
+
+---
+
 ## [3.0.2] — 2026-05-29 — Quick scan propreté (compteurs START.md + anonymisation Aginode 9 skills)
 > Modèle : Claude Opus 4.7
 

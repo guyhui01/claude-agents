@@ -306,13 +306,18 @@ Application sélective sur **130 skills N1+N2** (vs 303 audités) — économie 
 1. Rôle distinct PO/MOA (Scrum Master, QA pratique, RTE, BI, RH)
 2. Long-tail catalogue (couvrir exhaustivement mais pas pratique PO/MOA)
 
-### B. Décisions Guy à valider (suite cartographie v2)
+### B. Décisions Guy — VALIDÉES 2026-05-29
 
-- [ ] Confirmer terme "Grands comptes, ETI, scale-ups, PME et secteur public" appliqué partout
-- [ ] Confirmer taxonomie 4 niveaux N1/N2/N3/N4
-- [ ] Confirmer scope Phase 2 (top 9 P1 alignés N1+N2 stratégiques)
-- [ ] Confirmer scope Phase 3 (bundles sur 130 skills N1+N2 only)
-- [ ] Décider sort des 29 P1 hors N1/N2 (différer Phase 3 V3 bundle "Sources" OU abandonner)
+- [x] ✅ Terme englobant : **"Grands comptes, ETI, scale-ups, PME et secteur public"** appliqué partout
+- [x] ✅ Taxonomie 4 niveaux **N1 CORE-PRATIQUE / N2 CORE-DOMAINE / N3 SUPPORT / N4 RÉFÉRENCE** retenue
+- [x] ✅ **Scope Phase 2** : top 9 P1 stratégiques alignés N1+N2 (bundle BA × 4 + PO-SCRUM × 2 + CONSULTANT-IA × 2 + JURIDIQUE-IA × 1) — ~16-18h
+- [x] ✅ **Scope Phase 3** : bundles cross-agents sur 130 N1+N2 uniquement — ~12-15h ; **priorisation N1 sur N2** si contrainte temps en exécution
+- [x] ✅ **22 P1 N3+N4 ABANDONNÉS** (DATA-SCIENTIST 6, DATA-ENGINEER 2-3, UX-DESIGNER design-for-ai, REDACTEUR traduction/ux-writing, BI-ANALYST 3) — V1 cosmétique implicite suffit. Économie ~20-25h appliquée.
+- [x] ✅ **7 P1 N2 résiduels** (chain-of-thought, few-shot-learning, gouvernance-donnees-produit, integration-patterns, etc.) : inclus dans Phase 3 V3 bundle "Sources Frameworks" — économie naturelle, pas de V2 dédié
+
+**TOTAL FINAL Phase 2 + Phase 3** : **~28-33h** (vs ~70-80h plan initial — économie 55-60%).
+
+**Phase 4 audit méta-récurrent** : ABANDONNÉE (sauf valeur démontrée ultérieurement).
 
 ### C. Comparaison cartographie v1 (Guy-spécifique) vs v2 (PO/MOA général)
 

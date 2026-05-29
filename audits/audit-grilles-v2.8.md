@@ -122,36 +122,86 @@ v2.8 conserve les **3 dimensions universelles** et formalise **5 déclinaisons**
 
 ---
 
-### 3.2 — Groupe Conseil/Direction ⏳ (à formaliser lors du 1er audit de groupe)
+### 3.2 — Groupe Conseil/Direction ✅ (formalisé v2.8.1 — Phase 1.1, audit 2026-05-29)
 
 **Agents concernés (6)** : JURIDIQUE-IA · CDO-DIRECTEUR-IA · CHEF-PROJET-IA · CONSULTANT-IA · FINANCIAL-ANALYST · AUDIT-METHODO-IA
 
-#### Référentiels attendus (à valider lors du premier audit)
-- DAMA-DMBOK (data governance)
-- McKinsey 7S / BCG matrix / Porter 5 forces (frameworks stratégiques)
-- ISO 42001 (gouvernance IA)
-- NIST AI RMF
-- ISO 23894 (risk management AI)
-- AI Act (UE 2024)
-- RGPD (UE 2016, application 2018)
-- NIS2 (UE 2023)
-- PMI PMP, PMI-ACP, EVM (gestion projet)
-- CMMI
+#### D1 — Conformité référentielle (Conseil/Direction)
 
-#### Actionabilité attendue (à valider)
-- One-pagers CODIR, business cases, roadmaps stratégiques
-- Slides decks structurés (pyramide Minto)
-- Calculs ROI/TCO/NPV chiffrés
-- DPIA templates, registres de traitement RGPD
-- Matrices risques IA (NIST AI RMF)
+**Référentiels attendus** (par sous-domaine) :
 
-#### Profondeur attendue (à valider)
-- Benchmarks marché 2024-2026 (Gartner Magic Quadrant, Forrester Wave)
-- Études McKinsey/BCG/Deloitte récentes
-- Cas réels CAC40 ou licornes
-- Jurisprudence AI Act (premières amendes 2025-2026 attendues)
+| Sous-domaine | Référentiels attendus |
+|---|---|
+| **Juridique IA** | AI Act UE (Règl. 2024/1689) · RGPD UE 2016/679 · NIS2 UE 2022/2555 · DORA UE 2022/2554 · ISO/IEC 42001:2023 · ISO/IEC 23894:2023 · ISO/IEC 27001:2022 · CNIL (DPIA, guides IA) |
+| **Stratégie / Conseil** | McKinsey 7S · BCG Growth-Share Matrix · Porter Five Forces (1979) · Ansoff Matrix (1957) · Blue Ocean (Kim & Mauborgne 2005) · Wardley Maps · Lean Startup (Ries 2011) pour POC |
+| **Data Governance (CDO)** | DAMA-DMBOK 2 (2017) · Data Mesh (Dehghani 2022) · Data Vault 2.0 (Linstedt) · CDMC (EDM Council) · DCAM |
+| **Gestion projet (CDP)** | PMBOK 7 (2021) · PMI-ACP · PRINCE2 · EVM ANSI/EIA-748 · PMI Risk Management Standard · ISO 21500 |
+| **Finance / ROI** | NPV/IRR (Brealey-Myers) · TCO Gartner · Real Options (Black-Scholes adapté) · Payback Period · Discounted Cash Flow |
+| **Audit / Méthodo** | COSO ERM 2017 · COBIT 2019 · ITIL 4 · ISO/IEC 19011:2018 (audit) · IIA Standards (Internal Audit) |
 
-**🔜 À compléter** : critères opérationnels précis, échelle de cotation, sources attendues — formaliser lors de l'audit JURIDIQUE-IA (premier agent du groupe).
+**Cotation** :
+- ✓ : 100% conforme, vocabulaire exact, version datée citée (AI Act art. X, RGPD art. Y), pas de mélange inter-référentiels
+- ⚠ : conforme dans les grandes lignes, 1-2 imprécisions (auteur non cité, version ancienne, article non précisé)
+- ✗ : déviation majeure (RGPD cité sans articles, AI Act sans niveau de risque, EVM sans formules)
+
+#### D2 — Actionabilité (Conseil/Direction)
+
+**Critères opérationnels** :
+- **One-pagers CODIR** structurés Pyramide Minto (réponse → arguments → données)
+- **Business cases chiffrés** avec NPV, IRR, TCO, Payback Period, IRR > coût capital
+- **Slide decks exec** : 5-10 slides max, 1 message par slide (Barbara Minto, *The Pyramid Principle* 1987)
+- **DPIA templates** (CNIL/EDPB), registres de traitement RGPD, AI Risk Register NIST RMF
+- **Matrices RACI**, dashboards portefeuille projet (EVM : CV, SV, CPI, SPI)
+- **Calculs ROI/TCO** avec hypothèses explicites et analyses de sensibilité
+- **Cas sectoriels variés** (banque CIB, luxe, énergie, défense, télécom, hôtellerie) — anti mono-sectoriel
+- **Frameworks visuels** (7S McKinsey, BCG 2×2, Porter 5F, Wardley Map en Mermaid)
+
+**Cotation** :
+- ✓ : ≥3 livrables actionnables (one-pager + business case chiffré + RACI/template juridique), exemples chiffrés réalistes
+- ⚠ : contenu théorique correct, templates partiels ou exemples non chiffrés
+- ✗ : majoritairement conceptuel, aucun livrable réutilisable, pas de calcul chiffré
+
+#### D3 — Profondeur (Conseil/Direction)
+
+**Critères opérationnels** :
+- **Benchmarks marché 2024-2026** : Gartner Magic Quadrant, Forrester Wave, IDC MarketScape
+- **Études cabinets récentes (2023+)** : McKinsey Global Institute, BCG, Deloitte AI, Accenture Technology Vision
+- **Cas réels** : transformations CAC40 / licornes, anonymisés en secteurs (banque CIB, luxe, énergie…)
+- **Jurisprudence émergente** : premières amendes AI Act 2025-2026, jurisprudence CNIL/EDPB, sanctions DORA
+- **Métriques modernes** : AI maturity index (CDO), DORA metrics (data engineering), Gartner CDO playbook
+- **Anti-patterns explicités** par sous-domaine (ex : "RGPD = juste un consentement", "AI Act = checklist annexe", "Business case sans hypothèses")
+
+**Cotation** :
+- ✓ : sources datées récentes (2023+), benchmarks/études cabinets cités, anti-patterns explicités, cas sectoriels variés
+- ⚠ : contenu solide mais sources implicites ou datées (avant 2022)
+- ✗ : contenu daté, aucune source externe, anti-patterns absents, exemples génériques
+
+#### Référentiel de sources attendues (Conseil/Direction)
+
+| Source | URL/Ref | Skills cibles |
+|---|---|---|
+| **AI Act UE** (Règl. 2024/1689) | JO L 2024/1689 (13 juin 2024) | juridique_ia/* |
+| **RGPD** (Règl. UE 2016/679) | eur-lex.europa.eu | rgpd-ia, dpia-* |
+| **NIS2** (Dir. UE 2022/2555) | eur-lex.europa.eu | nis2-conformite |
+| **DORA** (Règl. UE 2022/2554) | eur-lex.europa.eu | finance/banque CIB |
+| **ISO/IEC 42001:2023** | iso.org | gouvernance-ethique-ia, politique-ia-* |
+| **NIST AI RMF 1.0** | nist.gov/itl/ai-risk-management-framework (jan. 2023) | audit-conformite-ia |
+| **DAMA-DMBOK 2** | dama.org (2017, 2nd ed.) | data governance CDO |
+| **Data Mesh** | Dehghani (O'Reilly 2022) | cdo_directeur_ia/data-mesh |
+| **PMBOK 7** | pmi.org (2021) | chef_projet_ia/* |
+| **EVM** | ANSI/EIA-748-D (PMI) | evm-valeur-acquise |
+| **COSO ERM** | coso.org (2017) | risk management |
+| **COBIT 2019** | isaca.org | gouvernance IT |
+| **Minto Pyramid** | Barbara Minto (1987) | reporting-codir, presentation-executif |
+| **Porter Five Forces** | HBR (1979) · Competitive Strategy (1980) | benchmark, strategie |
+| **McKinsey 7S** | Waterman & Peters (1980) | transformation-digitale |
+| **BCG Matrix** | Henderson (1970) | strategie-data-ia |
+| **Blue Ocean Strategy** | Kim & Mauborgne (HBR 2004, livre 2005) | strategie |
+| **Lean Startup / MVP** | Eric Ries (2011) | cadrage-poc-ia |
+| **Gartner Magic Quadrant** | gartner.com | benchmark-solutions-ia |
+| **Forrester Wave** | forrester.com | benchmark-solutions-ia |
+
+---
 
 ---
 

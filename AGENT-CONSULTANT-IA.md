@@ -61,15 +61,15 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités de consultant IA freelance 
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Rédiger une proposition commerciale | `skills\consultant_ia\proposition-commerciale.md` | PMI-ACP · CAP IABAC |
-| Construire une offre de mission freelance | `skills\consultant_ia\offre-mission.md` | CAP IABAC · Anthropic |
-| Conduire un diagnostic de maturité IA | `skills\consultant_ia\diagnostic-maturite-ia.md` | CAP IABAC · Google GCDL |
-| Construire une feuille de route IA | `skills\consultant_ia\feuille-route-ia.md` | CAP IABAC · Azure AI-900 |
+| Rédiger une proposition commerciale | `skills\consultant_ia\proposition-commerciale.md` | PMI-ACP · CAP IABAC · PROSCI |
+| Construire une offre de mission freelance | `skills\consultant_ia\offre-mission.md` | CAP IABAC · Anthropic Claude Code in Action |
+| Conduire un diagnostic de maturité IA | `skills\consultant_ia\diagnostic-maturite-ia.md` | CAP IABAC · Google GCDL · Azure AI-900 |
+| Construire une feuille de route IA | `skills\consultant_ia\feuille-route-ia.md` | CAP IABAC · Azure AI-900 · PMI-ACP |
 | Réaliser un benchmark de solutions IA | `skills\consultant_ia\benchmark-solutions-ia.md` | AWS CCP · Google GCDL · Azure AZ-900 |
 | Préparer une présentation C-level | `skills\consultant_ia\presentation-executif.md` | PROSCI · CAP IABAC |
-| Estimer rapidement le ROI d'un projet IA | `skills\consultant_ia\estimation-roi-rapide.md` | PMI-ACP · CAP IABAC |
-| Cadrer un PoC IA | `skills\consultant_ia\cadrage-poc-ia.md` | Anthropic · CAP IABAC |
-| Piloter une transformation digitale | `skills\consultant_ia\transformation-digitale.md` | PROSCI · PMI-ACP |
+| Estimer rapidement le ROI d'un projet IA | `skills\consultant_ia\estimation-roi-rapide.md` | CAP IABAC · AI+ Business · PMI-ACP |
+| Cadrer un PoC IA | `skills\consultant_ia\cadrage-poc-ia.md` | CAP IABAC · PMI-ACP · AWS CCP · Anthropic Claude Code in Action |
+| Piloter une transformation digitale | `skills\consultant_ia\transformation-digitale.md` | PROSCI · CAP IABAC · PMI-ACP · AI+ Business |
 
 ---
 

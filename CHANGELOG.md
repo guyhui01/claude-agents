@@ -5,6 +5,68 @@
 
 ---
 
+## [2.10.0] — 2026-05-29 — Phase 1.1 Audit + V1 mass groupe Conseil/Direction (6 agents, 44 skills)
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+**1ère application de la stratégie hybride par groupe** validée 2026-05-29 (audit + V1 mass cosmétique par groupe → V2 ciblés transversaux Phase 2 → V3 bundles cross-agents Phase 3). Démarrage du 2ème groupe du chantier audit qualité v2.8 : **Conseil/Direction** (6 agents, 44 skills, 5141 lignes cumulées — 1.7× plus volumineux que PO-SAFE+PO-SCRUM combinés).
+
+### 🔧 Ajouté — Grille v2.8.1 Conseil/Direction formalisée
+- `audits/audit-grilles-v2.8.md` §3.2 — 2ème déclinaison de la grille v2.8 (sur 5 prévues)
+- **D1 Conformité référentielle** détaillée par sous-domaine : Juridique IA (AI Act + RGPD + NIS2 + DORA + ISO 42001/23894/27001), Stratégie/Conseil (McKinsey 7S + BCG + Porter + Ansoff + Blue Ocean + Wardley), Data Governance (DAMA-DMBOK 2 + Data Mesh Dehghani + Data Vault 2.0 + CDMC + DCAM), Gestion projet (PMBOK 7 + PRINCE2 + EVM ANSI/EIA-748), Finance (NPV/IRR Brealey-Myers + TCO Gartner + Real Options), Audit (COSO ERM + COBIT 2019 + ITIL 4 + ISO/IEC 19011)
+- **D2 Actionabilité** Conseil/Direction : one-pagers Minto, business cases NPV/IRR/TCO, slides exec, DPIA templates, matrices RACI, calculs WACC
+- **D3 Profondeur** : benchmarks Gartner MQ/Forrester Wave/IDC, études McKinsey/BCG/Deloitte 2023+, jurisprudence AI Act émergente
+- **20 sources attendues** référencées avec auteurs/années/URLs
+
+### 🔧 Ajouté — Audit groupe consolidé
+- `audits/audit-groupe-conseil-direction-2026-05-29.md` (~450L)
+- **Format consolidé** : 1 rapport pour 6 agents (cohérent directive qualité > quantité, consolidation > multiplication) plutôt que 6 rapports séparés
+- 10 sections structurées : synthèse exécutive, méthode, tableaux récapitulatifs par agent (44 skills cotés sur grille v2.8.1), findings P1/P2/P3, findings transversaux groupe, plan d'action 4 vagues, méta-observations méthode v2.8.1, annexes
+
+### 📊 Résultats audit (44 skills, 6 agents)
+
+| Verdict | Nb | % | Comparaison Agile/Produit |
+|---|---:|---:|---|
+| ✓ purs (3 dimensions) | 0 | 0% | 3/55 (5%) — 🔴 Aucun skill exemplaire ici |
+| P3 (proche ✓) | ~10 | 23% | ~12/55 (22%) — stable |
+| P2 (enrichissement) | ~31 | 70% | ~26/55 (47%) — 🔴 plus élevé |
+| P1 (bloquant) | **3** | 7% | 14/55 (25%) — ✅ bien meilleur |
+| Sans certif déclarée | **0** | 0% | ~17/55 (31%) — ✅ bug structurel absent |
+
+**3 P1 identifiés (différés en Phase 2 transversale)** :
+- 🔴 `consultant_ia/diagnostic-maturite-ia.md` (41L) — modèle 5 niveaux sans Gartner/MIT Sloan/Forrester
+- 🔴 `consultant_ia/benchmark-solutions-ia.md` (51L) — 0 framework benchmark cité (Magic Quadrant/Wave/MarketScape absents)
+- 🔴 `juridique_ia/propriete-intellectuelle-ia.md` (112L) — jurisprudence CJUE/EUIPO 2025 non sourcée
+
+**8 patterns transverses critiques détectés** :
+- T1 Sourcing académique faible (~93% sans URL/auteur/année)
+- T2 Anti-patterns quasi-absents chez CDO (0/8) et CHEF-PROJET (~0-2/8)
+- T3 **0 cross-link inter-skills** sur les 44 skills
+- T4 Certifications non-standard (CAP IABAC, Anthropic Claude Code in Action) — décision : conserver mais clarifier (Phase 3 V3)
+- T5 Articulation AI Act × RGPD insuffisante
+- T6 Exemples sectoriels mono-focalisés (RH IA partout en FINANCIAL-ANALYST)
+- T7 Incohérences certifs CONSULTANT-IA (en-têtes skills ≠ table AGENT) — **corrigé V1**
+- T8 Circularité Gate 4 méta-agent AUDIT-METHODO-IA
+
+### 🔧 V1 mass minimal — Harmonisation certifs CONSULTANT-IA (T7)
+- `AGENT-CONSULTANT-IA.md` : alignement de la table d'activation skills sur les en-têtes skills (5 corrections + 1 résolution incohérence sévère)
+- `skills/consultant_ia/cadrage-poc-ia.md` : ajout `Anthropic Claude Code in Action` dans en-tête (résolution incohérence avec table AGENT)
+- 9 skills CONSULTANT-IA vérifiés, tous cohérents après corrections
+
+### 🎯 Apprentissages méthode v2.8.1
+- ✅ Grille v2.8.1 **applicable sans ajustement** depuis formalisation (validation pilote sur 1ère application)
+- ✅ Délégation extraction Explore × 6 en parallèle = ~12-15 min wall-time pour 44 skills (vs 25 min série sur PO-SCRUM 30 skills)
+- ⚠️ **Méta-pattern** : sur Conseil/Direction, V1 mass ne désamorce **pas** mécaniquement les P1 (0 P1 cosmétique vs 4 sur Agile/Produit) — les P1 ici sont profonds (sources/anti-patterns absents), V2+V3 nécessaires
+- ⚠️ Risque saturation contexte sur extractions parallèles volumineuses (1/6 fichier persisté pour CHEF-PROJET-IA) — à anticiper sur Phase 1.4 (Transverse/Méta, 8 agents)
+
+### 🔜 Suite chantier
+- **3 P1 différés en Phase 2 transversale** (cohérent stratégie hybride validée)
+- **T4 clarification certifs** : exécution effective renvoyée à Phase 3 V3 bundle (modification ciblée des skills concernés, non disruptive)
+- **Bundles V3 candidats post-audit Phase 1 complet** : Sources Frameworks (~40 skills), Anti-patterns (~15 skills CDO/CHEF-PROJET), Cross-links Voir aussi (~44 skills), AI Act articles (4 skills JURIDIQUE), WACC explicite (4 skills FINANCIAL), Diversification sectorielle
+- **Prochaine session Phase 1** : Phase 1.2 — Audit + V1 Data/Tech (5 agents : DATA-SCIENTIST, DATA-ENGINEER, MLOPS-ENGINEER, SOLUTIONS-ARCHITECT, BI-ANALYST) — estim. ~2h30
+
+---
+
 ## [2.9.0] — 2026-05-29 — V2 po-ai-product.md — Refonte PSPO-AI (différenciateur compétitif IA)
 > Modèle : Claude Opus 4.7
 

@@ -1,5 +1,5 @@
 # Skill — Cadrage d'un PoC IA
-> Certifications : CAP IABAC · PMI-ACP · AWS CCP
+> Certifications : CAP IABAC · PMI-ACP · AWS CCP · Anthropic Claude Code in Action
 
 ## Objectif
 Définir et cadrer un Proof of Concept IA en limitant les risques et en maximisant les chances de succès.

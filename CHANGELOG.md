@@ -5,6 +5,65 @@
 
 ---
 
+## [2.8.5] — 2026-05-29 — V2 tests-securite.md — Refonte OWASP Top 10 / CT-SEC (1er P1 résolu)
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+**Premier P1 V2 traité** : refonte du skill `skills/qa_testing/tests-securite.md` identifié comme **bug critique sécurité** lors de l'audit QA-CYCLEV (v2.8.4). Le skill original (58L) ne référençait ni OWASP Top 10 ni CT-SEC 2022 — risque réputationnel chez clients CAC40 (Crédit Agricole CIB, CHANEL, EDF, MBDA, Orange).
+
+### 🔧 Modifié — `skills/qa_testing/tests-securite.md` (58L → 188L)
+
+**Référentiels intégrés** :
+- ✅ **OWASP Top 10 (2021)** — mapping détaillé A01-A10 avec tests QA pour chaque vulnérabilité
+- ✅ **OWASP API Security Top 10 (2023)** — API1-API10 spécifiques REST/GraphQL
+- ✅ **CWE Top 25 (2024)** — Most Dangerous Software Weaknesses
+- ✅ **OWASP ASVS v4.0.3 (2024)** — Niveaux 1/2/3 avec recommandations par profil client (CAC40 = L2 min, L3 pour produits sensibles)
+- ✅ **NIST CSF 2.0 (2024)** — framework Govern/Identify/Protect/Detect/Respond/Recover
+- ✅ **ISTQB CT-SEC (2022)** — certification ISTQB Security Tester revendiquée
+- ✅ **CVSS 3.1** — exemple complet calcul vecteur dans template cas de test
+
+**Enrichissements** :
+- Catalogue **8 catégories tests QA** alignées OWASP (Authentication/Authorization/Input/Session/Data/Config/Dependencies/Logging)
+- Template cas de test sécurité enrichi (OWASP + CWE + CVSS 3.1 + remediation)
+- Checklist Go/No-Go MEP exhaustive (7 sections × 4-7 items chacune)
+- Catalogue **8 catégories outils** (Burp Suite, OWASP ZAP, SAST/DAST/SCA, secrets scanner, container security, etc.)
+- **12 anti-patterns explicites** (vs 0 avant) : pentest tardif, SAST/DAST absents pipeline, secrets en clair, CORS `*`, JWT `alg:none`, etc.
+- Section "Niveaux ASVS" avec recommandations par segment client
+- 6 livrables structurés (rapport audit, cahier tests, checklist MEP, configuration pipeline, plan remediation, registre risques résiduels)
+- Cross-links explicites vers AGENT-SECURITE-IA.md (OWASP LLM Top 10), AGENT-DEVOPS-CLOUD.md (DevSecOps), AGENT-JURIDIQUE-IA.md (RGPD/AI Act)
+- **11 sources externes datées avec URLs** (owasp.org, nist.gov, istqb.org, cwe.mitre.org, first.org/cvss)
+
+### 📊 Impact verdict v2.8
+
+| Dimension | Avant V2 | Après V2 |
+|---|---|---|
+| **Conformité référentielle** | ✗ (OWASP/CT-SEC/NIST absents) | ✅ (7 référentiels datés cités) |
+| **Actionabilité** | ⚠ (template basique, checklist minimale) | ✅ (template enrichi + checklist 7×4-7 items + outils + anti-patterns) |
+| **Profondeur** | ✗ (0 source, 0 anti-pattern) | ✅ (11 URL/livres datés, 12 anti-patterns explicites) |
+| **Verdict** | **P1** | **✓ → P3** (proche du verdict pur ✓, manque uniquement Mermaid/diagramme) |
+
+### 🎯 Risque réputationnel résolu
+Le repo public reflète désormais une **expertise QA Sécurité conforme aux standards 2023-2024**. Un RSSI/DPO parcourant ce skill y trouvera tous les référentiels attendus pour un PO/QA senior en mission CAC40.
+
+### 📊 Bilan groupe Agile/Produit après v2.8.5
+
+| Métrique | Avant V2 | Après V2 |
+|---|---|---|
+| Skills ✓ purs | 2 (story-mapping, planning-poker) | **2-3** (tests-securite proche ✓ en P3) |
+| P1 résiduels | 13 | **12** |
+| Skills avec OWASP/CT-SEC | 0/127 | 1/127 |
+
+### 🔜 Prochains V2 candidates (12 P1 restants)
+- 🔴 **po-ai-product.md** (PO-SCRUM, différenciateur compétitif PSPO-AI) — priorité stratégique
+- 🔴 **elicitation-besoins.md** (BA, Knowledge Area BABOK CORE 39L) — refonte profonde
+- 🟡 capabilities, lean-agile-mindset (PO-SAFE)
+- 🟡 gestion-risques, product-vision, ux-sprint (PO-SCRUM)
+- 🟡 market-analysis (PM-SAFE)
+- 🟡 change-management-agile (SM)
+- 🟡 modelisation-processus, cartographie-si, analyse-impact (BA)
+
+---
+
 ## [2.8.4] — 2026-05-29 — 🎉 Groupe Agile/Produit COMPLET (9/9) — Audits QA-AGILE + QA-CYCLEV + CHANGE-MANAGER + V1 unifiée
 > Modèle : Claude Opus 4.7
 

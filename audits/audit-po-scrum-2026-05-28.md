@@ -86,7 +86,7 @@ Spécificité PO-SCRUM : ajout d'un axe d'analyse **« skill transverse vs spéc
 **Corrections** :
 - Déclarer `> Certification : PSPO II · ICAgile ICP-APO`
 - Référencer PMBOK 7 (Performance Domain "Uncertainty") et ISO 31000:2018
-- Compléter RACI avec exemple sectoriel (CHANEL e-commerce ou Accor digital)
+- Compléter RACI avec exemple sectoriel (luxe e-commerce ou hôtellerie digital)
 - Ajouter taxonomie risques (technique, organisationnel, business, conformité, sécurité)
 - Anti-patterns risques : "Matrice sans plan de mitigation", "Risk owner = chef de projet par défaut"
 
@@ -193,7 +193,7 @@ Action P2 : ajouter section `## Sources` avec ces 7 attributions + URLs.
 - SPIDR (Richard Lawrence)
 - Jobs To Be Done (Tony Ulwick, Clayton Christensen 2016 "Competing Against Luck")
 
-Action P2 : section Sources + cas réel (ex : VSM banque retail Crédit Agricole).
+Action P2 : section Sources + cas réel (ex : VSM banque retail / CIB).
 
 #### P2.C — `business-model-canvas.md` (36L)
 Skill **trop court** pour un sujet stratégique. Manque :

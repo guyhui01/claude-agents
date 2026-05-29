@@ -85,7 +85,7 @@ const TOOLS = [
           enum: ["WF-001", "WF-002", "WF-003", "WF-004", "WF-005"],
           description: "Identifiant du workflow exécuté",
         },
-        client: { type: "string", description: "Nom du client ou contexte (ex: Orange, Mission interne)" },
+        client: { type: "string", description: "Nom du client ou contexte (ex: secteur télécom, Mission interne)" },
         deliverables: {
           type: "array",
           items: { type: "string" },

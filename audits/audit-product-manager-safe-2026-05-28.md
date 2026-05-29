@@ -115,7 +115,7 @@ Action commune : ajouter section `## Sources` et `## Anti-patterns`. Cas notable
 ### P2.B — `economic-framework-pm.md` (83L)
 - Référencer WSJF SAFe officiel : scaledagileframework.com/wsjf/
 - Citer Donald Reinertsen "Principles of Product Development Flow" (2009) — origine CoD
-- Diversifier exemples : banque (Crédit Agricole), retail (Accor), CMS (CHANEL)
+- Diversifier exemples : secteurs banque CIB, hôtellerie, luxe (CMS), énergie, défense, télécom
 - Anti-patterns : "WSJF Feature copié au niveau Epic", "ROI calculé sans payback", "LBC > 10 pages"
 
 ### P2.C — `product-operating-model.md` (96L)
@@ -192,7 +192,7 @@ Action commune : ajouter section `## Sources` et `## Anti-patterns`. Cas notable
 ### 🟡 T3 — Zéro diversité sectorielle
 - **9/10 skills** utilisent uniquement le secteur **RH/IA** comme exemple
 - Risque : tendance à enfermer l'agent dans un domaine
-- Action V3 : diversifier au moins 4-5 skills avec banque/retail/télécom/CMS pour matcher la palette clients Guy (Crédit Agricole, Accor, CHANEL, Orange, EDF, MBDA)
+- Action V3 : diversifier au moins 4-5 skills avec banque/retail/télécom/CMS pour matcher la palette sectorielle des missions (banque CIB, hôtellerie, luxe, télécom, énergie, défense)
 
 ### 🟡 T4 — Carence sources externes (mais meilleure que PO-SAFE/PO-SCRUM)
 - 3/10 skills citent quelqu'un (Cagan, Moore, Pichler, LeSS/Nexus) — meilleur ratio

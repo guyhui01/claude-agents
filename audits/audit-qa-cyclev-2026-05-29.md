@@ -25,7 +25,7 @@
 | Skills avec anti-pattern explicite | 1/13 (environnements seul "problèmes fréquents") | — |
 
 **Constats clés** :
-- 🔴 **Bug critique sécurité** : `tests-securite.md` sans OWASP Top 10, CT-SEC 2022, NIST CSF — ironique pour un skill sécurité chez des clients CAC40 (CHANEL, Crédit Agricole, Orange)
+- 🔴 **Bug critique sécurité** : `tests-securite.md` sans OWASP Top 10, CT-SEC 2022, NIST CSF — ironique pour un skill sécurité chez des clients CAC40 (secteurs luxe, banque, télécom)
 - 🔴 **Bug structurel systémique** : 12/13 skills sans certif (QA-CYCLEV revendique 8 certs ISTQB)
 - ⭐ **`environnements.md`** (137L, certif + agent déclarés) = **modèle pour duplication** — seul skill QA-CYCLEV "propre" structurellement
 - 🟡 **ISO/IEC/IEEE 29119** (standard de référence testing) **absent partout**
@@ -66,7 +66,7 @@ Skill sécurité **sans aucune référence sécurité reconnue** :
 - **CWE Top 25** (Most Dangerous Software Weaknesses) — ABSENT
 
 ### Impact business
-Tu interviens chez des clients **CAC40/banque/luxe** (Crédit Agricole CIB, CHANEL, EDF, MBDA, Orange). Un skill QA Sécurité **sans OWASP Top 10** = signal d'alerte immédiat pour un RSSI ou un DPO. Risque réputationnel max.
+Tu interviens chez des clients **CAC40** dans les secteurs banque CIB, luxe, énergie, défense, télécom. Un skill QA Sécurité **sans OWASP Top 10** = signal d'alerte immédiat pour un RSSI ou un DPO. Risque réputationnel max.
 
 ### Corrections (V2 prioritaire)
 - Déclarer en-tête : `> Certification : CT-SEC · CTAL-TTA · CTAL-TA`

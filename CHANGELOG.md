@@ -5,11 +5,40 @@
 
 ---
 
+## [2.8.6] — 2026-05-29 — Anonymisation références clients (confidentialité repo public)
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+Suppression de toutes les mentions nominatives de clients dans le repo public, remplacées par des références sectorielles équivalentes. Cohérent avec la gouvernance du repo (cf. `CLAUDE.md` : "Ne jamais versionner de données client réelles dans `claude-agents`").
+
+### 🔧 Modifié — Anonymisation (8 occurrences)
+- `CHANGELOG.md` (entrée v2.8.5) : noms clients → secteurs (banque CIB, luxe, énergie, défense, télécom)
+- `audits/audit-qa-cyclev-2026-05-29.md` (2 occurrences §1 + §3)
+- `audits/audit-product-manager-safe-2026-05-28.md` (2 occurrences §5 + §7)
+- `audits/audit-po-scrum-2026-05-28.md` (2 occurrences §4 + §5)
+- `mcp-servers/mcp-workflow-log/server.ts` (L.88 description paramètre `client`)
+
+### 📊 Mapping appliqué
+| Nom client | Remplacé par |
+|---|---|
+| Orange | secteur télécom |
+| Crédit Agricole CIB | secteur banque CIB |
+| CHANEL | secteur luxe |
+| Accor | secteur hôtellerie |
+| EDF | secteur énergie |
+| MBDA | secteur défense |
+
+### ✅ Vérification
+- Grep exhaustif sur tout le repo : 0 mention nominative résiduelle
+- Les occurrences "Orange" restantes sont des couleurs RAG (Red/Amber/Green) dans les skills (faux positifs).
+
+---
+
 ## [2.8.5] — 2026-05-29 — V2 tests-securite.md — Refonte OWASP Top 10 / CT-SEC (1er P1 résolu)
 > Modèle : Claude Opus 4.7
 
 ### 🎯 Contexte
-**Premier P1 V2 traité** : refonte du skill `skills/qa_testing/tests-securite.md` identifié comme **bug critique sécurité** lors de l'audit QA-CYCLEV (v2.8.4). Le skill original (58L) ne référençait ni OWASP Top 10 ni CT-SEC 2022 — risque réputationnel chez clients CAC40 (Crédit Agricole CIB, CHANEL, EDF, MBDA, Orange).
+**Premier P1 V2 traité** : refonte du skill `skills/qa_testing/tests-securite.md` identifié comme **bug critique sécurité** lors de l'audit QA-CYCLEV (v2.8.4). Le skill original (58L) ne référençait ni OWASP Top 10 ni CT-SEC 2022 — risque réputationnel chez clients CAC40 (secteurs banque CIB, luxe, énergie, défense, télécom).
 
 ### 🔧 Modifié — `skills/qa_testing/tests-securite.md` (58L → 188L)
 

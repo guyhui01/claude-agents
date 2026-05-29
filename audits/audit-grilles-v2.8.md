@@ -283,18 +283,92 @@ v2.8 conserve les **3 dimensions universelles** et formalise **5 déclinaisons**
 
 ---
 
-### 3.4 — Groupe Dev/CMS ⏳ (à formaliser)
+### 3.4 — Groupe Dev/CMS ✅ (formalisé v2.8.3 — Phase 1.3, audit 2026-05-29)
 
-**Agents concernés (5)** : DEV-TYPESCRIPT-IA · DEV-DRUPAL-PHP · CMS-DIGITAL · PIM-EXPERT · DAM-EXPERT
+**Agents concernés (5)** : DEV-TYPESCRIPT-IA (9 skills) · DEV-DRUPAL-PHP (10 — dossier `skills/dev_drupal/`) · CMS-DIGITAL (12) · PIM-EXPERT (12) · DAM-EXPERT (12) — **55 skills total**
 
-#### Référentiels attendus (à valider)
-- Hériter de la grille v2.7.1 (DEV core)
-- + Spécifiques CMS : AEM 6.5+, Drupal 10, WordPress 6.x, Typo3 12
-- + PIM : Akeneo 7, SAP Hybris, Stibo
-- + DAM : Bynder, Cloudinary, Aprimo
-- + Standards e-commerce : Adobe Commerce, Magento 2.4
+#### D1 — Conformité référentielle (Dev/CMS)
 
-**🔜 À compléter** : lors de l'audit DEV-TYPESCRIPT-IA.
+| Sous-domaine | Référentiels attendus |
+|---|---|
+| **TypeScript / Frontend IA** | TypeScript Handbook (Hejlsberg, Microsoft 2012+) · React 18+ (Meta) · Next.js 14+ (Vercel) · Anthropic SDK (Claude) · Vercel AI SDK · **MCP — Model Context Protocol** (Anthropic 2024) · Edge Functions (Vercel/Cloudflare Workers) · Streaming patterns (SSE, WebSockets) · ESLint · Prettier · pnpm/npm |
+| **Drupal / PHP** | Drupal 10/11 (Drupal Association) · Drupal Commerce 2.x · **Twig** (SensioLabs) · **PHPUnit** (Sebastian Bergmann) · **Behat** (BDD) · Configuration Management Initiative CMI · Migrate API · PSR-12 (PHP) · PHP 8.x (Zend Engineer) · JSON:API spec · BigPipe (Drupal) |
+| **CMS digital** | Adobe AEM 6.5+ / Cloud Service · Drupal 10/11 · WordPress 6.x · Typo3 12 · Headless CMS (Strapi, Contentful, Sanity, Storyblok) · **WCAG 2.2** (W3C 2023) · Schema.org · **Core Web Vitals** (LCP/FID/CLS, Google 2020+) · Atomic Design (Brad Frost 2016) · Forrester Wave DXP |
+| **PIM** | **Akeneo PIM** (Akeneo SAS) · SAP Hybris PCM · Stibo Systems STEP · Salsify · inRiver · **GS1** (GTIN, GPC, GLN) · Schema.org Product · MDM patterns · Volere (Wiegers) données produit · CDM (Common Data Model) |
+| **DAM** | **Bynder** · **Cloudinary** · **Aprimo** · **Adobe Experience Manager Assets** · MediaValet · IntelligenceBank · **IPTC** (metadata standard, IPTC 2024) · **XMP** (Adobe) · **IIIF** (image interoperability framework) · Brand portals patterns · MAM (Media Asset Management) standards |
+| **Standards web** | HTTP/2, HTTP/3 (RFC 9114) · OAuth 2.1 (RFC 9700) · OpenAPI 3.1 · GraphQL (Meta) · CDN best practices · OWASP Top 10 (2021) |
+
+**Cotation** :
+- ✓ : 100% conforme, versions à jour (Drupal 10/11, AEM 6.5+, React 18+, Akeneo récent), vocabulaire exact, frameworks attribués
+- ⚠ : conforme dans les grandes lignes, 1-2 imprécisions (versions absentes, auteur non cité)
+- ✗ : déviation majeure (Drupal 8 cité, AEM 5.x, Twig sans SensioLabs, WCAG 2.0 obsolète)
+
+#### D2 — Actionabilité (Dev/CMS)
+
+**Critères opérationnels** :
+- **Code prêt-à-copier** : TypeScript/React/Next.js pour frontend IA · PHP/Drupal hooks/plugins pour backend · YAML CMI pour Drupal · LookML/DAX pour CMS analytics
+- **Diagrammes** Mermaid/PlantUML : architectures CMS headless, pipelines PIM, taxonomies DAM
+- **Templates Twig / React composants** : reusable patterns
+- **Schemas YAML CMI / Akeneo / Stibo** : exportables
+- **Cas sectoriels variés** (banque CIB, luxe e-commerce, hôtellerie, retail, télécom)
+- **Workflows BPMN** : validation contenu, onboarding PIM, distribution DAM
+- **Metadata schemas** : IPTC, XMP, Schema.org Product, GS1
+- **Checklists WCAG 2.2 niveau AA** : par composant
+- **Plans de tests** : PHPUnit (Drupal), Jest/Vitest (TS), Behat (BDD), axe-core (a11y)
+
+**Cotation** :
+- ✓ : ≥3 livrables actionnables (code + diagramme + schéma metadata), exemples reproductibles, plans tests
+- ⚠ : code partiel, exemples génériques, schemas non sourcés (GS1, IPTC absents)
+- ✗ : majoritairement conceptuel, aucun code, aucun schema metadata
+
+#### D3 — Profondeur (Dev/CMS)
+
+**Critères opérationnels** :
+- **Sources officielles 2023+** : drupal.org, react.dev, vercel.com, akeneo.com, bynder.com, w3.org/wcag
+- **Tendances 2024-2026** : Drupal Starshot (CMS modulaire), AEM as a Cloud Service, MCP (Anthropic 2024), Vercel AI SDK, headless commerce
+- **Cas réels publics** : Pfizer (Drupal), Tesla (CMS headless), Disney (DAM Bynder), L'Oréal (Akeneo PIM), Nike (AEM)
+- **Anti-patterns explicités** par sous-domaine
+- **Métriques modernes** : Core Web Vitals (LCP < 2.5s, FID < 100ms, CLS < 0.1), Lighthouse score ≥ 90, DAM ROI (asset reuse rate), PIM completeness score
+
+**Cotation** :
+- ✓ : sources datées récentes (2023+), tendances 2024-2026 citées, anti-patterns explicités, exemples sectoriels variés, métriques mesurables
+- ⚠ : contenu solide mais sources implicites
+- ✗ : daté (Drupal 8, AEM 5.x, React 17), aucune source, anti-patterns absents
+
+#### Référentiel de sources attendues (Dev/CMS)
+
+| Source | URL/Ref | Skills cibles |
+|---|---|---|
+| **Drupal 10/11** | drupal.org (2022+) | dev_drupal/*, drupal-developpement |
+| **Drupal Commerce 2.x** | drupalcommerce.org | drupal-commerce-* |
+| **Twig** | twig.symfony.com (SensioLabs) | drupal-theming-twig |
+| **PHPUnit** | phpunit.de (Sebastian Bergmann) | drupal-tests-phpunit-behat |
+| **Behat** | behat.org (BDD framework) | drupal-tests-phpunit-behat |
+| **PSR-12** | php-fig.org (PHP Standards) | dev_drupal/* |
+| **TypeScript Handbook** | typescriptlang.org/docs | dev_typescript_ia/* |
+| **React 18** | react.dev (Meta) | react-patterns-ia |
+| **Next.js 14+** | nextjs.org (Vercel) | nextjs-ia |
+| **Anthropic SDK** | docs.anthropic.com | integration-apis-llm-ts, vercel-ai-sdk |
+| **MCP — Model Context Protocol** | modelcontextprotocol.io (Anthropic 2024) | mcp-server-dev |
+| **Vercel AI SDK** | sdk.vercel.ai | vercel-ai-sdk |
+| **Adobe AEM** | experienceleague.adobe.com (6.5+) | aem-sites-assets |
+| **WordPress 6.x** | wordpress.org | cms-headless |
+| **Akeneo PIM** | akeneo.com (Community/Enterprise) | pim_expert/* |
+| **Stibo STEP** | stibosystems.com | modelisation-catalogue |
+| **GS1** | gs1.org (GTIN, GPC, GLN) | gouvernance-donnees-produit, syndication-canaux |
+| **Bynder** | bynder.com | dam_expert/* |
+| **Cloudinary** | cloudinary.com | transformation-formats |
+| **Aprimo** | aprimo.com | brand-portal, gouvernance-dam |
+| **IPTC** | iptc.org (metadata standard 2024) | taxonomie-assets, naming-convention |
+| **XMP** | adobe.com/xmp | transformation-formats |
+| **IIIF** | iiif.io (image interoperability) | distribution-multicanal |
+| **WCAG 2.2** | w3.org/WAI/standards-guidelines/wcag (W3C 2023) | accessibilite-numerique |
+| **Core Web Vitals** | web.dev/vitals (Google 2020+) | performance-web |
+| **Schema.org Product** | schema.org/Product | gouvernance-donnees-produit |
+| **Atomic Design** | atomicdesign.bradfrost.com (Brad Frost 2016) | architecture-cms |
+| **Forrester Wave DXP** | forrester.com | architecture-cms |
+
+---
 
 ---
 

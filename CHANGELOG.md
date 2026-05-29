@@ -5,6 +5,76 @@
 
 ---
 
+## [2.12.0] — 2026-05-29 — Phase 1.3 Audit groupe Dev/CMS (5 agents, 55 skills)
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+**3ème application de la stratégie hybride par groupe** (cf. v2.10.0 Conseil/Direction, v2.11.0 Data/Tech). Démarrage du 4ème groupe : **Dev/CMS** (5 agents, **55 skills**, ~5545 lignes cumulées). Audit complet en méthode standard Phase 1.1 ([[feedback-no-degradation-qualite]] règle 2 appliquée), application disciplinée du triptyque qualité ([[feedback-triptyque-qualite]]).
+
+### 🔧 Ajouté — Grille v2.8.3 Dev/CMS formalisée
+- `audits/audit-grilles-v2.8.md` §3.4 — 4ème déclinaison de la grille v2.8 (sur 5 prévues)
+- Référentiels par sous-domaine : TypeScript/Frontend IA (React 18+, Next.js 14+, Anthropic SDK, Vercel AI SDK, **MCP Anthropic 2024**), Drupal/PHP (Drupal 10/11, Twig SensioLabs, PHPUnit Bergmann, Behat), CMS digital (AEM 6.5+, **WCAG 2.2 W3C 2023**, **Core Web Vitals Google 2020+**, Schema.org, Atomic Design), PIM (Akeneo, **GS1**, Schema.org Product, DAMA-DMBOK 2), DAM (Bynder, Cloudinary, **IPTC 2024**, XMP ISO 16684-1, IIIF)
+- 28 sources attendues référencées avec auteurs/années/URLs
+
+### 🔧 Ajouté — Audit groupe consolidé
+- `audits/audit-groupe-dev-cms-2026-05-29.md` (~600L denses)
+- **Format consolidé** : 1 rapport pour 5 agents (cohérent règle 1 triptyque qualité)
+- 10 sections structurées : synthèse exécutive, méthode, 5 tableaux par agent (55 skills cotés sur grille v2.8.3), findings P1/P2/P3, skill exemplaire, transversaux 10 patterns, plan action 4 vagues, méta-observations, annexes 28 sources
+
+### 📊 Résultats audit (55 skills, 5 agents) — Meilleur profil qualité du chantier
+
+| Verdict | Nb | % | Comparaison |
+|---|---:|---:|---|
+| ⭐ **✓ pur** | **1** | 2% | `cms_digital/accessibilite-numerique.md` — **2ème ✓ pur hors Agile/Produit** |
+| **P3 (proche ✓)** | **~21** | **38%** | 🏆 **record positif du chantier** (vs 15-23% autres groupes) |
+| P2 | ~30 | 55% | équivalent autres groupes |
+| **P1 bloquant** | **3** | **5%** | 🏆 **record positif** (vs 28% Data/Tech, 25% Agile/Produit) |
+| Sans certif | 0 | 0% | ✅ |
+
+**Skill exemplaire** : `cms_digital/accessibilite-numerique.md` — WCAG 2.2 (W3C 2023) + RGAA 4.1 (DINUM 2024) + ARIA 1.2 + 12 critères avec test rapide + outils Pa11y/axe/WAVE CI/CD + 12 anti-patterns + lecteurs d'écran NVDA/VoiceOver/JAWS + Déclaration d'Accessibilité DINUM template. **Modèle de référence accessibilité/conformité** du catalogue.
+
+### 🔴 3 P1 critiques (différés en Phase 2 transversale)
+
+- **DEV-DRUPAL-PHP** : `drupal-theming-twig.md` — **Twig XSS/autoescape absent** (bug sécurité Web) → V2 Phase 2 priorité haute
+- **DAM-EXPERT** : `gestion-droits-licences.md` — **RGPD cité dans 6 skills DAM sans aucune source légale** (UE 2016/679, CNIL, jurisprudence) → bug conformité critique pour clients CAC40 régulés → V2 Phase 2 priorité haute
+- **PIM-EXPERT** : `gouvernance-donnees-produit.md` — DAMA-DMBOK 2 cité sans année (2017) + **GS1 absent** (GTIN/GLN/GDSN) + MDM patterns (Inmon/Ladley) absents → V2 Phase 2
+
+### 🔴 10 patterns transverses critiques détectés
+
+- T1 DEV-TYPESCRIPT-IA : 0/9 sources externes URLs (carence sourcing structurelle)
+- T2 DEV-DRUPAL-PHP : Drupal 11 absent (10/10 ciblent Drupal 10 seul — EOL prévue 2026)
+- T3 Migrate API mentionné périmètre agent mais aucun skill ne le couvre + Twig XSS
+- T4 CMS-DIGITAL : TYPO3 + WordPress absents (2 CMS majeurs marché EU/global)
+- T5 DAM-EXPERT : RGPD sans source légale (6 skills concernés)
+- T6 PIM-EXPERT : GS1 sous-intégré (2/12 alors que standard universel e-commerce)
+- T7 Versions SDK absentes systématiquement (~30 skills concernés)
+- T8 Incohérence nommage dossier `skills/dev_drupal/` vs agent `AGENT-DEV-DRUPAL-PHP.md` (non bloquant, différé)
+- T9 Anti-patterns absents DAM-EXPERT (8/12 sans aucun anti-pattern explicite)
+- T10 0 cross-link inter-skills sur 55 skills (cohérent avec Conseil/Direction + Data/Tech)
+
+### 🎯 V1 mass
+
+Vu le faible taux P1 (5%) et le record P3 (38%), **V1 mass = 0 modification ce coup-ci** :
+- 3 P1 sont profonds (sécurité/conformité), différés Phase 2 cohérent stratégie hybride
+- T8 (nommage dossier) non bloquant, différé Phase 3 V3 bundle
+
+### 🎯 Apprentissages méthode v2.8.3
+
+- ✅ Grille v2.8.3 Dev/CMS **applicable sans ajustement** depuis formalisation (4ème déclinaison rodée)
+- ✅ Délégation extraction Explore × 5 en parallèle = ~15-20 min wall-time pour 55 skills (méthode standard intacte conformément triptyque qualité)
+- ✅ **Profil qualité du groupe = inverse de Data/Tech** : 5% P1 / 38% P3 (Dev/CMS) vs 28% P1 / 15% P3 (Data/Tech). Pattern dominant Dev/CMS = "code abondant + certifs spécialistes + outils mainstream bien intégrés" (Acquia, Adobe AEM, Anthropic MCP, Bynder, Cloudinary, IPTC, Henry Stewart)
+- ⚠️ **Pattern P1 dominant nouveau** : "skill sécurité/conformité avec gap critique" (Twig XSS, RGPD sans source) — distinct du pattern P1 "référentiels académiques absents" (Data/Tech) et "P1 cosmétique certifs" (Agile/Produit)
+- ⚠️ Sécurité Web (XSS, RGPD, secrets, SSO/SAML) = nouvel axe critique transverse à intégrer en grille v2.8 future
+
+### 🔜 Suite chantier
+
+- **3 P1 différés en Phase 2 transversale** (Twig XSS, RGPD DAM, DAMA PIM)
+- **T8 nommage dossier** : différé Phase 3 V3 bundle
+- **Prochaine session Phase 1** : **Phase 1.4 — Audit + V1 Transverse/Méta** (8 agents : ORCHESTRATEUR-WORKFLOW, PROMPT-ENGINEER, REDACTEUR-IA, UX-DESIGNER, FORMATEUR-IA, GROWTH-IA, RH-IA, VEILLE-STRATEGIQUE) — **dernier groupe Phase 1** — estim. ~4h
+- État global : **25/33 agents audités (76%)**, **285 skills audités**, **4/5 grilles v2.8 formalisées**
+
+---
+
 ## [2.11.0] — 2026-05-29 — Phase 1.2 Audit + V1 correctifs groupe Data/Tech (5 agents, 54 skills)
 > Modèle : Claude Opus 4.7
 

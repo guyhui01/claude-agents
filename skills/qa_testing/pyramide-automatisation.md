@@ -1,6 +1,8 @@
 # Skill QA Agile — Pyramide d'Automatisation
 
-> **Méthodologie :** Agile
+> Certification : CT-TAE · CTAL-ATT
+> Agent : AGENT-QA-AGILE.md
+> Méthodologie : Agile
 
 ## La pyramide de tests (Mike Cohn)
 

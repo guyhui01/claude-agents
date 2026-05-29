@@ -1,6 +1,8 @@
 # Skill QA Agile — BDD & Scénarios Gherkin
 
-> **Méthodologie :** Agile
+> Certification : CTFL-AT · CTAL-ATT
+> Agent : AGENT-QA-AGILE.md
+> Méthodologie : Agile
 
 
 ## BDD — Behavior Driven Development

@@ -1,6 +1,8 @@
 # Skill QA Agile — Tests Exploratoires
 
-> **Méthodologie :** Agile
+> Certification : CTFL-AT · CTAL-TA
+> Agents : AGENT-QA-AGILE.md · AGENT-QA-CYCLEV.md
+> Méthodologie : Agile
 
 ## Définition ISTQB
 Les tests exploratoires combinent apprentissage, conception et exécution simultanément. Le testeur explore librement le système en documentant sa démarche.

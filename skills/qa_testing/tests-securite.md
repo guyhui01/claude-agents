@@ -1,6 +1,8 @@
 # Skill QA Cycle V — Tests de Sécurité (Bases ISTQB)
 
-> **Méthodologie :** Cycle en V
+> Certification : CT-SEC · CTAL-TTA
+> Agents : AGENT-QA-CYCLEV.md · AGENT-SECURITE-IA.md
+> Méthodologie : Cycle en V
 
 ## Objectif
 Identifier les vulnérabilités fonctionnelles de sécurité testables par un QA (hors pentest spécialisé).

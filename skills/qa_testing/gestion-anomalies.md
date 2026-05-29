@@ -1,6 +1,8 @@
 # Skill QA Cycle V — Gestion des Anomalies
 
-> **Méthodologie :** Cycle en V
+> Certification : CTAL-TM · CTAL-TA
+> Agent : AGENT-QA-CYCLEV.md
+> Méthodologie : Cycle en V
 
 ## Cycle de vie d'une anomalie
 

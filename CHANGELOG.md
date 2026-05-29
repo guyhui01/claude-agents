@@ -5,6 +5,86 @@
 
 ---
 
+## [2.8.4] — 2026-05-29 — 🎉 Groupe Agile/Produit COMPLET (9/9) — Audits QA-AGILE + QA-CYCLEV + CHANGE-MANAGER + V1 unifiée
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+**Bouclage du groupe Agile/Produit avec les 3 derniers audits (7ème/8ème/9ème agents)** + V1 unifiée sur le dossier mutualisé `skills/qa_testing/` (22 skills) + V1 CHANGE-MANAGER (7 skills). Pattern systémique majeur : 22/23 skills `qa_testing/` étaient sans certification déclarée en en-tête (pattern record). V1 mécanique cumulée a fait régresser **22 + 4 + 4 = 30 P1 → P2** sur la session. Premier agent à 0 P1 identifié : **CHANGE-MANAGER**.
+
+### ✨ Ajouté — 3 rapports d'audit
+- `audits/audit-qa-agile-2026-05-29.md` (10 skills audités) — 0 ✓ / 0 P3 / 0 P2 / **10 P1 (100%)** ⚠️ record du chantier
+- `audits/audit-qa-cyclev-2026-05-29.md` (13 skills audités) — 0 ✓ / 0 P3 / 1 P2 / **12 P1 (92%)** + 🔴 bug critique sécurité (OWASP Top 10 absent)
+- `audits/audit-change-manager-2026-05-29.md` (7 skills audités + triplon BA/SM/CM) — 0 ✓ / 0 P3 / **7 P2 / 0 P1** ⭐ premier agent sans P1
+
+### 🔍 Findings critiques
+- ⭐⭐ **`tests-ia.md`** (QA-AGILE) = 8 anti-patterns IA explicites — record du chantier
+- 🔴 **`tests-securite.md`** (QA-CYCLEV) — OWASP Top 10 + CT-SEC 2022 ABSENTS pour un skill QA sécurité chez clients CAC40 (à traiter V2 prioritaire)
+- 🔴 **Pattern record** : 22/23 skills qa_testing sans certif en en-tête
+- ✅ **`environnements.md`** seul skill QA-CYCLEV avec certif + agent (modèle dupliqué via V1)
+- ⭐ **CHANGE-MANAGER** : 7/7 skills avec PROSCI ADKAR effectivement utilisé (pas juste cité en certif)
+- 🟡 **Triplon thématique CHANGE** : `BA/analyse-impact` + `SM/change-management-agile` + `CM/analyse-impact-changement` = statu quo recommandé (3 périmètres distincts, pas de fusion)
+
+### 🔧 Modifié — V1 unifiée qa_testing (22 skills)
+
+**QA-AGILE — 10 skills** (ajout `> Certification :` + `> Agent : AGENT-QA-AGILE.md`) :
+strategie-agile · bdd-gherkin · tests-exploratoires (partagé QA-CYCLEV via CTAL-TA) · dod-qualite · pyramide-automatisation · atdd-sprint · regression-cicd · metriques-qualite · retrospective-qa · tests-ia
+
+**QA-CYCLEV — 12 skills** (environnements déjà OK avant audit) :
+strategie-tests · plan-tests · cas-de-test · gestion-anomalies · regression-tnr · tests-integration · tests-systeme · tests-uat (partagé BA) · tests-performance · **tests-securite (partagé AGENT-SECURITE-IA)** · revues-inspections · reporting-qualite
+
+### 🔧 Modifié — V1 CHANGE-MANAGER (7 skills)
+Ajout `> Agent : AGENT-CHANGE-MANAGER.md` sur les 7 skills (certifications déjà déclarées) :
+adkar-model · analyse-impact-changement · gestion-resistance · mesure-adoption · plan-communication · stakeholder-engagement-change · strategie-adoption
+
+### 📊 Bilan groupe Agile/Produit COMPLET (9/9 agents)
+
+| Métrique | PO-SAFE | PO-SCRUM | PM-SAFE | SM | RTE | BA | QA-AGILE | QA-CYCLEV | CM | **Cumul 9/9** |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Skills audités | 25 | 30 | 10 | 20 | 7 | 10 | 10 | 13 | 7 | **132** |
+| Skills catalogue actuel | 25 | 30 | 10 | 16 | 6+1 | 10 | 10 | 13 | 7 | **127** |
+| Verdicts ✓ purs | 0 | 1 ⭐ | 0 | 1 ⭐⭐ | 0 | 0 | 0 | 0 | 0 | **2** |
+| P3 | 7 | 5 | 1 | 3 | 1 | 0 | 0 | 0 | 0 | **17** |
+| P2 (avant V1) | 12 | 16 | 7 | 11 | 5 | 6 | 0 | 1 | 7 | **65** |
+| **P1 avant V1 cumulées** | 6 | 8 | 2 | 5 | 1 | 4 | 10 | 12 | 0 | **48** (36%) |
+| **P1 après V1 cumulées** | 2 | 4 | 1 | 1 | 0 | 4 | 0 | 1 | 0 | **13** (10%) |
+
+**Skills exemplaires identifiés** :
+- ⭐ `story-mapping.md` (PO-SCRUM) — Jeff Patton cité 3× + quote
+- ⭐⭐ `planning-poker.md` (SCRUM-MASTER) — James Grenning 2002, Mike Cohn, 6 alternatives, 8 anti-patterns
+
+**Bugs architecturaux résolus pendant l'audit** :
+- ✅ PM-SAFE : 3 headers Agent corrigés (v2.8.0)
+- ✅ SM : 4 doublons cérémonies supprimés → catalogue 20→16 skills (v2.8.1)
+- ✅ SM/PO-SCRUM : kanban-flow cross-links ajoutés (v2.8.1)
+- ✅ RTE : inspect-adapt-rte fusionné vers safe/inspect-adapt + suppression (v2.8.2)
+- ✅ qa_testing : V1 unifiée 22 skills (v2.8.4)
+- ✅ Triplon CHANGE BA/SM/CM : statu quo + cross-links V3 recommandés
+
+### 🔜 V2 P1 résiduels (13 skills, sessions dédiées)
+- PO-SAFE : 2 (capabilities, lean-agile-mindset)
+- PO-SCRUM : 4 (gestion-risques, **po-ai-product** [différenciateur IA stratégique], product-vision, ux-sprint)
+- PM-SAFE : 1 (market-analysis)
+- SM : 1 (change-management-agile — PROSCI/Kotter absents)
+- BA : 4 (elicitation-besoins, modelisation-processus, cartographie-si, analyse-impact)
+- QA-CYCLEV : 1 (**tests-securite** — OWASP Top 10 critique)
+
+### 🔜 RAF v2.9.x
+- **V3 enrichissements** : 65 P2 répartis en bundles thématiques (Sources / Anti-patterns / Cross-links)
+- **Audit-grilles-v2.8.md** : formaliser la déclinaison Conseil/Direction (2ème déclinaison à valider lors audit JURIDIQUE-IA)
+- **Groupes restants à auditer (4/5)** :
+  - Conseil/Direction (6 agents) : JURIDIQUE-IA, CDO, CHEF-PROJET-IA, CONSULTANT-IA, FINANCIAL-ANALYST, AUDIT-METHODO-IA
+  - Data/Tech (5 agents) : DATA-SCIENTIST, DATA-ENGINEER, MLOPS, SOLUTIONS-ARCHITECT, BI-ANALYST
+  - Dev/CMS (5 agents) : DEV-TYPESCRIPT-IA, DEV-DRUPAL-PHP, CMS-DIGITAL, PIM-EXPERT, DAM-EXPERT
+  - Transverse/Méta (8 agents) : ORCHESTRATEUR, PROMPT-ENGINEER, REDACTEUR-IA, UX-DESIGNER, FORMATEUR-IA, GROWTH-IA, RH-IA, VEILLE-STRATEGIQUE
+
+### 📌 Méthode v2.8 — Apprentissages session
+- Délégation Explore + cotation expert : **~30 min par agent** (9 agents en ~4-5h)
+- Grille v2.8 Agile/Produit **stable sur 9 itérations** (aucun ajustement nécessaire)
+- Bugs architecturaux détectés systématiquement (doublons, headers erronés, scope flou)
+- Pattern V1 mécanique : régression massive P1→P2 quasi-instantanée (30 P1 résolus mécaniquement aujourd'hui)
+
+---
+
 ## [2.8.3] — 2026-05-29 — Audit BUSINESS-ANALYST (6/9 Agile/Produit)
 > Modèle : Claude Opus 4.7
 

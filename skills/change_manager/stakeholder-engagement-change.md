@@ -1,5 +1,6 @@
 # Skill — Engagement des Parties Prenantes au Changement
 > Certifications : PROSCI Change Management (PROSCI), PMP (PMI), PRINCE2 Practitioner (Axelos)
+> Agent : AGENT-CHANGE-MANAGER.md
 
 ## Objectif
 Identifier, analyser et engager les parties prenantes d'un changement — comprendre leur positionnement, construire un plan d'engagement ciblé et piloter l'évolution de leur soutien tout au long du projet.

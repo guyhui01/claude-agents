@@ -1,5 +1,6 @@
 # Skill — Mesure de l'Adoption et KPIs du Changement
 > Certifications : PROSCI Change Management (PROSCI), CCMP (ACMP), PMI-ACP (PMI)
+> Agent : AGENT-CHANGE-MANAGER.md
 
 ## Objectif
 Définir, collecter et analyser les indicateurs d'adoption d'un changement — taux d'utilisation, satisfaction, compétences, impact business — pour piloter l'accompagnement en temps réel et démontrer la valeur du change management.

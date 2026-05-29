@@ -1,6 +1,8 @@
 # Skill QA Agile — Tests d'Acceptance en Sprint (ATDD)
 
-> **Méthodologie :** Agile
+> Certification : CTFL-AT · CTAL-ATT
+> Agent : AGENT-QA-AGILE.md
+> Méthodologie : Agile
 
 ## ATDD — Acceptance Test Driven Development
 Les tests d'acceptance sont écrits AVANT le développement, en collaboration PO + DEV + QA (les "3 amigos").

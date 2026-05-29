@@ -1,6 +1,8 @@
 # Skill QA Cycle V — Tests Système
 
-> **Méthodologie :** Cycle en V
+> Certification : CTAL-TA · CTFL
+> Agent : AGENT-QA-CYCLEV.md
+> Méthodologie : Cycle en V
 
 ## Objectif ISTQB
 Valider le comportement du système complet par rapport aux exigences spécifiées (fonctionnelles et non-fonctionnelles).

@@ -1,5 +1,6 @@
 # Skill — Analyse d'Impact Organisationnel du Changement
 > Certifications : PROSCI Change Management (PROSCI), CCMP (ACMP), PMP (PMI)
+> Agent : AGENT-CHANGE-MANAGER.md
 
 ## Objectif
 Cartographier l'ensemble des impacts d'un changement sur l'organisation — populations concernées, processus modifiés, compétences requises — pour cibler précisément les actions d'accompagnement.

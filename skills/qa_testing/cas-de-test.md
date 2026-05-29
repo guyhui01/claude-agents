@@ -1,6 +1,8 @@
 # Skill QA Cycle V — Rédaction Cas de Test
 
-> **Méthodologie :** Cycle en V
+> Certification : CTAL-TA · CTFL
+> Agent : AGENT-QA-CYCLEV.md
+> Méthodologie : Cycle en V
 
 ## Structure d'un cas de test formel
 

@@ -1,6 +1,8 @@
 # Skill QA Cycle V — Tests de Performance
 
-> **Méthodologie :** Cycle en V
+> Certification : CT-PT · CTAL-TTA
+> Agent : AGENT-QA-CYCLEV.md
+> Méthodologie : Cycle en V
 
 ## Types de tests de performance (ISTQB)
 

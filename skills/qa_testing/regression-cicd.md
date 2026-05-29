@@ -1,6 +1,8 @@
 # Skill QA Agile — Régression Automatisée CI/CD
 
-> **Méthodologie :** Agile
+> Certification : CT-TAE · CTAL-ATT
+> Agent : AGENT-QA-AGILE.md
+> Méthodologie : Agile
 
 ## Principe
 En Agile, la régression est automatisée et intégrée au pipeline CI/CD pour garantir la qualité à chaque commit.

@@ -1,6 +1,8 @@
 # Skill QA Cycle V — Stratégie de Tests
 
-> **Méthodologie :** Cycle en V
+> Certification : CTAL-TM · CTFL
+> Agent : AGENT-QA-CYCLEV.md
+> Méthodologie : Cycle en V
 
 ## Définition ISTQB
 La stratégie de tests définit l'approche générale : niveaux de tests, types de tests, critères d'entrée/sortie, outils et responsabilités.

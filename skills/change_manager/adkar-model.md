@@ -1,5 +1,6 @@
 # Skill — Application du Modèle ADKAR
 > Certifications : PROSCI Change Management (PROSCI), CCMP (ACMP)
+> Agent : AGENT-CHANGE-MANAGER.md
 
 ## Objectif
 Appliquer le modèle ADKAR (Awareness, Desire, Knowledge, Ability, Reinforcement) pour diagnostiquer précisément où se situe le blocage d'adoption d'un individu ou d'une population, et construire un plan d'action ciblé.

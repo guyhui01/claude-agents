@@ -1,6 +1,8 @@
 # Skill QA Agile — Definition of Done orientée Qualité
 
-> **Méthodologie :** Agile
+> Certification : CTFL-AT · CTAL-TM
+> Agent : AGENT-QA-AGILE.md
+> Méthodologie : Agile
 
 ## Principe
 La DoD est un engagement collectif de l'équipe sur ce que signifie "terminé". Elle inclut les critères qualité non négociables.

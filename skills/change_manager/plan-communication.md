@@ -1,5 +1,6 @@
 # Skill — Plan de Communication du Changement
 > Certifications : PROSCI Change Management (PROSCI), CCMP (ACMP), PMI-ACP (PMI)
+> Agent : AGENT-CHANGE-MANAGER.md
 
 ## Objectif
 Construire un plan de communication structuré pour accompagner un changement — messages clés par population, canaux adaptés, calendrier, indicateurs de réception — pour garantir que les bonnes personnes reçoivent le bon message au bon moment.

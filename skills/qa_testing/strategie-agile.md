@@ -1,6 +1,8 @@
 # Skill QA Agile — Stratégie de Tests Agile (Shift-Left)
 
-> **Méthodologie :** Agile
+> Certification : CTFL-AT · CTAL-ATT
+> Agent : AGENT-QA-AGILE.md
+> Méthodologie : Agile
 
 ## Principe Shift-Left ISTQB
 Intégrer la qualité le plus tôt possible dans le cycle, dès la rédaction des User Stories.

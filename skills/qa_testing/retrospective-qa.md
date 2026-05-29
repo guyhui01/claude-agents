@@ -1,6 +1,8 @@
 # Skill QA Agile — Rétrospective QA & Amélioration Continue
 
-> **Méthodologie :** Agile
+> Certification : CTFL-AT · CTAL-TM
+> Agent : AGENT-QA-AGILE.md
+> Méthodologie : Agile
 
 ## Contribution QA à la rétrospective Scrum
 

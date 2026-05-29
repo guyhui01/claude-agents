@@ -1,6 +1,8 @@
 # Skill QA Cycle V — Tests d'Intégration
 
-> **Méthodologie :** Cycle en V
+> Certification : CTAL-TTA · CTFL
+> Agent : AGENT-QA-CYCLEV.md
+> Méthodologie : Cycle en V
 
 ## Objectif ISTQB
 Vérifier les interfaces et interactions entre composants, modules ou systèmes.

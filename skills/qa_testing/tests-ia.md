@@ -1,6 +1,8 @@
 # Skill QA Agile — Tests IA (ISTQB® AI Testing)
 
-> **Méthodologie :** Agile
+> Certification : CT-AI · CT-MBT
+> Agent : AGENT-QA-AGILE.md
+> Méthodologie : Agile
 
 ## Spécificités des systèmes IA à tester
 

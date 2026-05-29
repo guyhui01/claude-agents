@@ -1,6 +1,8 @@
 # Skill QA Cycle V — Revues & Inspections
 
-> **Méthodologie :** Cycle en V
+> Certification : CTFL · CTAL-TM
+> Agent : AGENT-QA-CYCLEV.md
+> Méthodologie : Cycle en V
 
 ## Types de revues (ISTQB)
 

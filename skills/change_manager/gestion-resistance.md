@@ -1,5 +1,6 @@
 # Skill — Gestion des Résistances au Changement
 > Certifications : PROSCI Change Management (PROSCI), CCMP (ACMP), SAFe 6 Agilist (Scaled Agile)
+> Agent : AGENT-CHANGE-MANAGER.md
 
 ## Objectif
 Identifier, diagnostiquer et traiter les résistances au changement — comprendre leurs causes profondes, segmenter les profils résistants et mettre en place des plans d'action ciblés pour transformer les résistants en ambassadeurs.

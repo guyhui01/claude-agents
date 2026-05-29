@@ -1,6 +1,8 @@
 # Skill QA Cycle V — Reporting Qualité & Métriques
 
-> **Méthodologie :** Cycle en V
+> Certification : CTAL-TM · ISTQB Expert Test Management
+> Agent : AGENT-QA-CYCLEV.md
+> Méthodologie : Cycle en V
 
 ## Métriques clés (ISTQB)
 

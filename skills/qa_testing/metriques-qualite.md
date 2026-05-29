@@ -1,6 +1,8 @@
 # Skill QA Agile — Métriques Qualité Agile
 
-> **Méthodologie :** Agile
+> Certification : CTAL-TM · CTFL-AT
+> Agent : AGENT-QA-AGILE.md
+> Méthodologie : Agile
 
 ## Métriques sprint
 

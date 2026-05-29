@@ -1,5 +1,6 @@
 # Skill — Stratégie d'Adoption et de Formation
 > Certifications : PROSCI Change Management (PROSCI), CCMP (ACMP), ITIL 4 Foundation (Axelos)
+> Agent : AGENT-CHANGE-MANAGER.md
 
 ## Objectif
 Concevoir et piloter la stratégie d'adoption d'un changement — plan de formation multi-canal, réseau d'ambassadeurs, dispositif de support post go-live — pour maximiser l'utilisation réelle du nouveau système ou processus.

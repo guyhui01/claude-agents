@@ -1,8 +1,11 @@
 # Skill — Orchestration via MCP et Protocole A2A
 > Certifications : Anthropic Claude Code in Action (2026), AWS Certified Solutions Architect (Amazon), Google Cloud Professional Cloud Architect (Google)
+> Référentiel : **Model Context Protocol** (Anthropic 2024) — modelcontextprotocol.io · SDK @modelcontextprotocol/sdk@latest
 
 ## Objectif
 Implémenter techniquement l'orchestration d'agents via le Model Context Protocol (MCP) et le protocole Agent-to-Agent (A2A) — connexion des serveurs MCP, routage inter-agents, exposition des tools et gestion des sessions.
+
+> ⚠️ **Pédagogique vs Production** : ce skill présente des **patterns de référence avec stubs explicites** à compléter selon le cas d'usage. Les fonctions `genererUserStories()`, `prioriserBacklog()` etc. sont des points d'extension à implémenter — soit via appel Anthropic SDK, soit via logique métier propre. Production réelle : voir `skills/orchestrateur_workflow/claude-api-integration.md` pour intégration Anthropic SDK fonctionnelle complète.
 
 ## Architecture MCP — Concepts clés
 
@@ -25,6 +28,10 @@ ARCHITECTURE MCP
 
 ## Configuration MCP multi-agents — claude_desktop_config.json
 
+> ℹ️ **Substitution d'env vars** : Claude Desktop **n'effectue pas de substitution shell** `${VAR}` dans le JSON. Deux solutions :
+> 1. **Hardcoder la valeur dans le JSON** (config locale uniquement, jamais committée)
+> 2. **Lire la variable côté serveur MCP** via `process.env.ANTHROPIC_API_KEY` dans le code Node — méthode recommandée pour CI/CD.
+
 ```json
 {
   "mcpServers": {
@@ -32,7 +39,6 @@ ARCHITECTURE MCP
       "command": "node",
       "args": ["./mcp-servers/orchestrateur/index.js"],
       "env": {
-        "ANTHROPIC_API_KEY": "${ANTHROPIC_API_KEY}",
         "LOG_LEVEL": "info"
       }
     },
@@ -98,16 +104,18 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
   ],
 }));
 
-// Exécution des tools
+// Exécution des tools — POINTS D'EXTENSION à implémenter
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
   const { name, arguments: args } = request.params;
 
   if (name === "rediger_user_stories") {
+    // ⚠️ STUB à implémenter — exemple d'implémentation possible ci-dessous
     const result = await genererUserStories(args.contexte_metier, args.nombre_us);
     return { content: [{ type: "text", text: result }] };
   }
 
   if (name === "prioriser_backlog") {
+    // ⚠️ STUB à implémenter
     const result = await prioriserBacklog(args.backlog, args.methode);
     return { content: [{ type: "text", text: result }] };
   }
@@ -117,58 +125,90 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
 const transport = new StdioServerTransport();
 await server.connect(transport);
+
+// ─────────────────────────────────────────────────────────────
+// IMPLÉMENTATION RÉFÉRENCE des stubs (via Anthropic SDK)
+// ─────────────────────────────────────────────────────────────
+import Anthropic from "@anthropic-ai/sdk";
+const anthropic = new Anthropic(); // lit ANTHROPIC_API_KEY depuis process.env
+
+async function genererUserStories(contexte_metier: string, nombre_us: number = 8): Promise<string> {
+  const response = await anthropic.messages.create({
+    model: "claude-sonnet-4-6",
+    max_tokens: 4096,
+    system: `Tu es un Product Owner Scrum expert. Tu rédiges des User Stories au format INVEST avec critères Gherkin (Given/When/Then). Format : "En tant que [rôle], je veux [action] afin de [bénéfice]".`,
+    messages: [{
+      role: "user",
+      content: `Contexte métier : ${contexte_metier}\n\nProduis ${nombre_us} User Stories prêtes pour un sprint, avec critères d'acceptation Gherkin.`,
+    }],
+  });
+  return response.content.map((b) => (b.type === "text" ? b.text : "")).join("\n");
+}
+
+async function prioriserBacklog(backlog: string[], methode: "wsjf" | "moscow" = "wsjf"): Promise<string> {
+  const response = await anthropic.messages.create({
+    model: "claude-sonnet-4-6",
+    max_tokens: 4096,
+    system: methode === "wsjf"
+      ? `Tu pries selon WSJF SAFe POPM 6 (cotation relative par colonne, plus petit = 1, colonnes indépendantes : Business Value, Time Criticality, Risk Reduction, Job Size).`
+      : `Tu pries selon MoSCoW (Must / Should / Could / Won't) pour les User Stories uniquement.`,
+    messages: [{
+      role: "user",
+      content: `Backlog à prioriser (${methode.toUpperCase()}) :\n${backlog.map((s, i) => `${i + 1}. ${s}`).join("\n")}\n\nProduis le backlog priorisé avec justifications par item.`,
+    }],
+  });
+  return response.content.map((b) => (b.type === "text" ? b.text : "")).join("\n");
+}
 ```
 
 ## Protocole A2A — Appel inter-agents
 
+> ℹ️ **Architecture A2A via MCP** : il n'existe pas (encore) de protocole standardisé "Agent-to-Agent" direct dans MCP. Deux patterns possibles :
+> 1. **MCP client comme proxy** — l'orchestrateur instancie un MCP client qui se connecte au MCP server de l'agent cible, et invoque le tool via `client.callTool()`. Recommandé pour communication multi-process réelle.
+> 2. **Tool use direct sur LLM** — l'orchestrateur passe les tools de l'agent à Claude comme tools natifs, et Claude décide quand les invoquer. Pattern plus simple si tous les agents tournent dans le même processus.
+
 ```typescript
-// L'orchestrateur appelle un agent via MCP tool use
-import Anthropic from "@anthropic-ai/sdk";
+// Pattern 1 : MCP client → MCP server (vrai inter-process A2A)
+import { Client } from "@modelcontextprotocol/sdk/client/index.js";
+import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 
-const client = new Anthropic();
-
-async function callAgent(
-  agentName: string,
+async function callAgentViaMCP(
+  agentCommand: string,
+  agentArgs: string[],
   toolName: string,
   toolArgs: Record<string, unknown>
 ): Promise<string> {
-  // L'orchestrateur utilise le tool MCP de l'agent cible
-  const response = await client.messages.create({
-    model: "claude-sonnet-4-6",
-    max_tokens: 4096,
-    tools: [
-      {
-        name: toolName,
-        description: `Tool de l'agent ${agentName}`,
-        input_schema: { type: "object", properties: {}, required: [] },
-      },
-    ],
-    messages: [
-      {
-        role: "user",
-        content: `Appelle le tool ${toolName} avec ces arguments : ${JSON.stringify(toolArgs)}`,
-      },
-    ],
+  // Lance le MCP server de l'agent et s'y connecte
+  const transport = new StdioClientTransport({
+    command: agentCommand,
+    args: agentArgs,
+  });
+  const client = new Client(
+    { name: "orchestrateur-client", version: "1.0.0" },
+    { capabilities: {} }
+  );
+  await client.connect(transport);
+
+  // Invoque le tool sur le MCP server
+  const result = await client.callTool({
+    name: toolName,
+    arguments: toolArgs,
   });
 
-  // Extraire le résultat du tool_use
-  for (const block of response.content) {
-    if (block.type === "tool_use") {
-      return JSON.stringify(block.input);
-    }
-    if (block.type === "text") {
-      return block.text;
-    }
-  }
-  return "";
+  await client.close();
+  return result.content.map((c: any) => (c.type === "text" ? c.text : "")).join("\n");
 }
 
-// Exemple d'appel A2A dans un workflow
-const userStories = await callAgent(
-  "agent-po-scrum",
+// Exemple d'appel A2A inter-process
+const userStories = await callAgentViaMCP(
+  "node",
+  ["./mcp-servers/po-scrum/index.js"],
   "rediger_user_stories",
   { contexte_metier: brief, nombre_us: 8, methodologie: "scrum" }
 );
+
+// Pattern 2 : Tool use direct sur Claude (intra-process plus simple)
+// Voir skills/orchestrateur_workflow/claude-api-integration.md section "Tool Use"
 ```
 
 ## Structure de dossier MCP multi-agents

@@ -1,8 +1,9 @@
 # Skill — Theming Twig Drupal 10
 > Certifications : Acquia Certified Front-End Specialist
+> Référentiel : Twig (Fabien Potencier, SensioLabs — twig.symfony.com) · Drupal Twig Coding Standards (drupal.org)
 
 ## Objectif
-Créer et surcharger des templates Twig Drupal 10, utiliser les preprocess hooks et implémenter des composants UI conformes au design system.
+Créer et surcharger des templates Twig Drupal 10, utiliser les preprocess hooks et implémenter des composants UI conformes au design system — **avec gestion stricte de l'échappement XSS** (autoescape Drupal activé par défaut).
 
 ## Hiérarchie de suggestion de templates
 ```
@@ -75,6 +76,86 @@ function aginode_b2b_preprocess_commerce_product(array &$variables): void {
 - Preprocess dans le module custom — pas dans le `.theme` (sauf theming pur)
 - Variables métier injectées via preprocess, jamais calculées dans le Twig
 - `{{ path('route.name') }}` pour les URLs — pas de chemins en dur
+
+## Sécurité Twig & prévention XSS
+
+**Drupal 10 active `autoescape='html'` par défaut** dans tous les templates Twig — `{{ variable }}` est automatiquement échappé HTML. Mais certains patterns dangereux contournent cette protection.
+
+### ✅ Patterns sécurisés (autoescape garanti)
+
+| Pattern | Comportement |
+|---|---|
+| `{{ user_input }}` | Échappement HTML automatique (`<` → `&lt;`, etc.) |
+| `{{ path('route.name', {id: nid}) }}` | URLs générées via routeur Drupal (anti path traversal) |
+| `{{ link(text, url) }}` | Génération `<a>` sécurisée Drupal |
+| `{{ 'Message'|t({'@user': username}) }}` | Traduction `t()` avec placeholders échappés (`@`, `%`, `:`) |
+| `<a href="{{ url('user.login') }}">` | Attribut HTML : auto-escapé contexte URL |
+
+### ❌ Anti-patterns XSS (à proscrire)
+
+```twig
+{# 🔴 DANGEREUX — filtre |raw désactive l'autoescape #}
+{{ user_input|raw }}             {# XSS si user_input vient d'un formulaire #}
+{{ comment.body|raw }}           {# XSS stockée si HTML non-filtré #}
+
+{# 🔴 DANGEREUX — Markup brut non filtré #}
+{% set html = '<div>' ~ user_input ~ '</div>' %}
+{{ html|raw }}                   {# Injection HTML #}
+
+{# 🔴 DANGEREUX — URLs en dur sans path()/url() #}
+<a href="/user/{{ uid }}">       {# Pas d'échappement contexte URL, risque #}
+
+{# 🔴 DANGEREUX — Désactivation autoescape sur bloc #}
+{% autoescape false %}
+  {{ untrusted_content }}         {# Toute la zone est XSS-prone #}
+{% endautoescape %}
+```
+
+### ✅ Corrections recommandées
+
+```twig
+{# Si HTML autorisé : filtrer via filter_xss_admin() en PHP avant injection #}
+{# En preprocess : $variables['safe_html'] = ['#markup' => $html, '#allowed_tags' => ['p','strong','em','a']]; #}
+{{ safe_html }}                  {# Markup pré-filtré côté PHP, autoescape respecté #}
+
+{# Pour URLs dynamiques : toujours path()/url() #}
+<a href="{{ path('entity.user.canonical', {user: uid}) }}">
+
+{# Pour HTML utilisateur (commentaires, etc.) : filter_xss() côté PHP #}
+{# Jamais |raw sur user input, JAMAIS #}
+```
+
+### Pattern Twig sécurisé — Sanitization en preprocess
+
+```php
+// Côté PHP (preprocess) — utiliser Html::escape() ou Xss::filter()
+use Drupal\Component\Utility\Html;
+use Drupal\Component\Utility\Xss;
+
+function mymodule_preprocess_node(array &$variables): void {
+  // Pour texte plain (sera échappé par autoescape)
+  $variables['user_text'] = $node->get('field_text')->value;
+
+  // Pour HTML autorisé (admin uniquement) — Markup safe
+  $variables['admin_html'] = [
+    '#markup' => $node->get('field_html')->value,
+    '#allowed_tags' => Xss::getAdminTagList(),
+  ];
+}
+```
+
+### Anti-patterns Twig sécurité
+
+- ❌ **`|raw` sur user input** = XSS quasi-certaine (formulaires, commentaires, profils)
+- ❌ **URLs en dur** sans `path()` / `url()` = risque path traversal + perte i18n
+- ❌ **`{% autoescape false %}`** sur contenu utilisateur = désactivation complète protection
+- ❌ **Concaténation HTML en Twig** (`'<div>' ~ var ~ '</div>'`) = bypass autoescape
+
+**Sources** :
+- Drupal Theming Guide — drupal.org/docs/theming-drupal
+- Twig Security — twig.symfony.com/doc/3.x/api.html#environment-options
+- OWASP Top 10 A03:2021 — Injection (XSS Cross-Site Scripting)
+- Drupal Security Advisories — drupal.org/security
 
 ## Livrables
 - Templates Twig avec suggestions correctes

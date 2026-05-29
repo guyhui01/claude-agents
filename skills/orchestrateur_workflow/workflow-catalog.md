@@ -114,23 +114,153 @@ livrables:
 statut: "disponible"
 ```
 
+### WF-006 — Avant-vente / Proposition commerciale
+```yaml
+id: "WF-006"
+nom: "Avant-vente / Proposition commerciale"
+domaine: "Management & Conseil"
+duree_estimee: "75-120 min"
+modele_recommande: "Opus 4.7"
+modele_raison: "Workflow stratégique à fort enjeu commercial (qualification GO/NO-GO, architecture cible, chiffrage J/H, pricing, ROI prospect) — Opus 4.7 recommandé pour clients CAC40/GAFA/licornes"
+certifications: ["PMP", "CBAP", "TOGAF 10", "CFA", "CAP IABAC"]
+contexte_usage: "RFP reçu → qualification → cadrage → architecture → planning → chiffrage → proposition commerciale"
+agents:
+  - CONSULTANT-IA
+  - BUSINESS-ANALYST
+  - AI-ARCHITECT
+  - CHEF-PROJET-IA
+  - FINANCIAL-ANALYST
+  - REDACTEUR-IA
+livrables:
+  - "Grille GO/NO-GO qualifiée"
+  - "Cadrage fonctionnel + cas d'usage"
+  - "Architecture cible (diagramme)"
+  - "Planning + lotissement J/H"
+  - "Chiffrage + pricing + ROI prospect"
+  - "Proposition technico-commerciale complète"
+statut: "disponible"
+```
+
+### WF-007 — Onboarding Mission Client J1-J5
+```yaml
+id: "WF-007"
+nom: "Onboarding Mission Client J1-J5"
+domaine: "Management & Conseil"
+duree_estimee: "45-75 min"
+modele_recommande: "Sonnet 4.6"
+certifications: ["PMP", "CBAP", "PROSCI"]
+contexte_usage: "Mission signée → contexte client → plan de démarrage → livrables J1 → cadrage J5"
+agents:
+  - CHEF-PROJET-IA
+  - BUSINESS-ANALYST
+  - CHANGE-MANAGER
+  - REDACTEUR-IA
+livrables:
+  - "Plan de démarrage validé (J1-J5)"
+  - "Cartographie SI + processus client"
+  - "Kit J1 remis (fiche client, présentation, plan)"
+  - "Cadrage J5 complété"
+  - "Compte rendu J1"
+statut: "disponible"
+```
+
+### WF-008 — Audit conformité IA Act / RGPD
+```yaml
+id: "WF-008"
+nom: "Audit conformité IA Act / RGPD"
+domaine: "Conformité & Gouvernance"
+duree_estimee: "90-150 min"
+modele_recommande: "Opus 4.7"
+modele_raison: "Workflow réglementaire à très haut enjeu (qualification tier de risque AI Act, analyse RGPD multi-articles, threat modeling, gouvernance IA) — erreur de qualification = exposition à sanctions jusqu'à 7% CA mondial sous AI Act"
+certifications: ["CIPP/E", "DPO", "ISO 42001", "ISO 27001", "CISSP", "CDMP", "TOGAF 10"]
+contexte_usage: "Système IA à auditer → cartographie obligations → revue architecture → sécurité → données → gouvernance → rapport + plan remédiation"
+agents:
+  - JURIDIQUE-IA
+  - AI-ARCHITECT
+  - SECURITE-IA
+  - DATA-ENGINEER
+  - CDO-DIRECTEUR-IA
+  - CHANGE-MANAGER
+  - REDACTEUR-IA
+livrables:
+  - "Cartographie obligations AI Act / RGPD / NIS2"
+  - "Rapport audit conformité"
+  - "Cartographie des risques"
+  - "Plan de remédiation priorisé"
+  - "Gouvernance IA cible (comité éthique, instances)"
+statut: "disponible"
+```
+
+### WF-009 — Recrutement IT/IA
+```yaml
+id: "WF-009"
+nom: "Recrutement IT/IA"
+domaine: "RH & Talent"
+duree_estimee: "60-90 min"
+modele_recommande: "Sonnet 4.6"
+certifications: ["SHRM-CP", "CBAP", "PHR", "CIPD L5", "CAP IABAC"]
+contexte_usage: "Besoin identifié → fiche de poste → sourcing → évaluation → sélection → offre"
+agents:
+  - RH-IA
+  - BUSINESS-ANALYST
+  - CONSULTANT-IA
+  - REDACTEUR-IA
+livrables:
+  - "Fiche de poste rédigée + checklist anti-biais"
+  - "Plan de sourcing multi-canal"
+  - "Grille d'évaluation technique + comportementale"
+  - "Scoring CV ATS + détection fraude"
+  - "Offre d'emploi émise + dossier recrutement"
+statut: "disponible"
+```
+
+### WF-010 — Post-mortem Projet / REX
+```yaml
+id: "WF-010"
+nom: "Post-mortem Projet / REX"
+domaine: "Management & Conseil"
+duree_estimee: "45-75 min"
+modele_recommande: "Sonnet 4.6"
+certifications: ["PMP", "PRINCE2", "PROSCI", "ISTQB"]
+contexte_usage: "Projet clôturé ou incident majeur → collecte → analyse causale → rapport REX → plan d'amélioration"
+agents:
+  - CHEF-PROJET-IA
+  - QA-AGILE
+  - CHANGE-MANAGER
+  - REDACTEUR-IA
+livrables:
+  - "Timeline projet + faits collectés"
+  - "Analyse causale (5 Pourquoi / Ishikawa)"
+  - "Rapport REX complet"
+  - "Plan d'amélioration priorisé"
+  - "Mémo capitalisation des apprentissages"
+statut: "disponible"
+```
+
 ---
 
 ## Grille de sélection du workflow
 
 ```
 ÉTAPE 1 — Quel est l'objectif principal ?
-  ○ Définir / cadrer un produit ou service   → WF-001
-  ○ Planifier / piloter une livraison Agile  → WF-002
-  ○ Construire / déployer une app IA         → WF-003
-  ○ Conseiller / transformer un client       → WF-004
-  ○ Communiquer / développer l'activité      → WF-005
+  ○ Définir / cadrer un produit ou service       → WF-001
+  ○ Planifier / piloter une livraison Agile      → WF-002
+  ○ Construire / déployer une app IA             → WF-003
+  ○ Conseiller / transformer un client           → WF-004
+  ○ Communiquer / développer l'activité          → WF-005
+  ○ Répondre à un RFP / proposition commerciale  → WF-006
+  ○ Démarrer une mission client (J1-J5)          → WF-007
+  ○ Auditer conformité IA Act / RGPD             → WF-008
+  ○ Recruter un profil IT/IA                     → WF-009
+  ○ Post-mortem projet ou incident               → WF-010
 
 ÉTAPE 2 — Y a-t-il des contraintes spécifiques ?
-  ○ Contexte SAFe / multi-équipes            → WF-002 prioritaire
-  ○ Données personnelles / RGPD              → Ajouter JURIDIQUE-IA
-  ○ Livraison court terme (< 1 semaine)      → Mode parallèle max
-  ○ Rapport CODIR requis                     → Ajouter CHEF-PROJET-IA
+  ○ Contexte SAFe / multi-équipes                → WF-002 prioritaire
+  ○ Données personnelles / RGPD                  → Ajouter JURIDIQUE-IA ou WF-008
+  ○ Livraison court terme (< 1 semaine)          → Mode parallèle max
+  ○ Rapport CODIR requis                         → Ajouter CHEF-PROJET-IA
+  ○ Client CAC40 / GAFA / licorne                → Modèle Opus 4.7 recommandé
+  ○ Incident sécurité / faille LLM               → WF-010 + SECURITE-IA
 ```
 
 ---

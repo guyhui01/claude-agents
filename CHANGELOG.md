@@ -5,6 +5,79 @@
 
 ---
 
+## [3.0.1] — 2026-05-29 — V1 propreté immédiate (5 bugs visibles publiquement corrigés)
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte — Repo CAC40 propre
+**Avant Phase 2 transversale**, application du principe "présenter un travail propre" sur repo public. Corrections ciblées sur les 5 bugs les plus visibles publiquement (priorité crédibilité externe), conformément quadriptyque qualité **règle 4 — simplicité maintenance future** ([[feedback-simplicite-maintenance]]) : *propreté immédiate ROI élevé vs Phase 2/3 plus longues à scoper sur skills core mission*.
+
+Application disciplinée du **test #3 triptyque** (vérification avant correction) : 2 faux positifs Explore détectés et écartés (T1 "5 workflows manquants" → workflows existent réellement, T6 "incohérences nommage" → convention CLAUDE.md respectée).
+
+### 🔧 Corrections appliquées (5 fichiers)
+
+#### 1. `skills/orchestrateur_workflow/workflow-catalog.md` — Catalogue complet 10/10 workflows
+- **Bug** : skill documentait seulement 5 workflows (WF-001 à WF-005) alors que 10 workflows existent dans `workflows/` (cohérent avec CLAUDE.md "10 workflows agentiques")
+- **Correction** : ajout des 5 entrées YAML manquantes (WF-006 Avant-vente, WF-007 Onboarding mission J1-J5, WF-008 Audit conformité IA Act/RGPD, WF-009 Recrutement IT/IA, WF-010 Post-mortem REX)
+- **Grille de sélection** mise à jour : 10 options au lieu de 5
+
+#### 2. `skills/dev_drupal/drupal-theming-twig.md` — Sécurité Twig XSS
+- **Bug** : skill theming Twig sans aucune mention de l'autoescape Drupal ni des patterns XSS dangereux (`|raw` sur user input, URLs en dur, `{% autoescape false %}`)
+- **Correction** : section dédiée **Sécurité Twig & prévention XSS** avec :
+  - 5 patterns sécurisés (autoescape, `path()`, `link()`, `|t()` placeholders échappés)
+  - 4 anti-patterns XSS explicites (`|raw` sur user input, URLs en dur, désactivation autoescape, concaténation HTML)
+  - Exemple `Html::escape()` + `Xss::filter()` côté PHP preprocess
+  - Sources : Drupal Theming Guide + Twig Security + OWASP Top 10 A03:2021 + Drupal Security Advisories
+
+#### 3. `skills/mlops_engineer/monitoring-llm.md` — OWASP LLM Top 10 v2 + SLI/SLO Google SRE
+- **Bug critique sécurité IA** : skill monitoring LLM sans aucune référence OWASP LLM Top 10 (référentiel sécurité LLM 2024), SLOs implicites, hallucination détection non instrumentée
+- **Correction** : 3 sections ajoutées :
+  - **OWASP Top 10 for LLM Applications v2 (2024)** : tableau 10 catégories (LLM01 Prompt Injection → LLM10 Unbounded Consumption) avec détection/monitoring + mitigation pour chacune
+  - **SLI/SLO formalisés Google SRE** : 8 indicateurs avec objectifs chiffrés + conséquence dépassement + concept error budget mensuel
+  - **5 anti-patterns** monitoring LLM explicites (pas d'OWASP LLM Top 10, pas de benchmark hallucination, SLOs implicites, pas de circuit breaker coût LLM10, logs sans correlation_id)
+  - Sources : OWASP genai.owasp.org · NIST AI RMF · Google SRE Book (Beyer 2016) · FActScore Min 2023 · TruthfulQA Lin 2022
+
+#### 4. `skills/dam_expert/gestion-droits-licences.md` — Sources légales RGPD + CPI + Code civil
+- **Bug conformité critique** : skill RGPD cité dans 6 skills DAM **sans aucune source légale** (CNIL, articles RGPD, jurisprudence) — risque crédibilité conformité CAC40
+- **Correction** : 4 sections enrichies :
+  - **Sources légales applicables** : RGPD UE 2016/679 (art. 6, 9, 13-14, 17, 35), Code civil FR art. 9 (droit à l'image), Code propriété intellectuelle FR (art. L121-1, L131-3), AI Act UE 2024/1689 art. 50, Loi République numérique 2016 art. 63, CNIL Guide droit à l'image
+  - **Distinction Model Release USA vs Droit à l'image France/UE** : 5 dimensions comparées (fondement légal, cession, retrait, mineurs, personnalité publique avec jurisprudence Cass. civ. 1ère 13 nov. 2003)
+  - **Contrôles techniques DAM mapping légal** : 6 règles légales × source × contrôle DAM × sanction non-conformité
+  - **Workflow droit à l'oubli RGPD art. 17** détaillé J0 → J+72h (notification, retrait DAM, purge CDN, audit trail 5 ans)
+
+#### 5. `skills/orchestrateur_workflow/mcp-orchestration.md` — Exemples MCP fonctionnels
+- **Bug crédibilité technique** : exemples MCP non fonctionnels (env var JSON syntax incorrecte, stubs sans implémentation, A2A appelle Claude direct au lieu d'inter-agent MCP réel)
+- **Corrections** :
+  - **Avertissement explicite pédagogique vs production** en en-tête
+  - **Substitution env vars JSON** : clarification que Claude Desktop n'effectue pas de substitution `${VAR}` (recommander `process.env` côté serveur MCP)
+  - **Stubs `genererUserStories()` + `prioriserBacklog()`** marqués explicitement + **implémentation de référence fonctionnelle Anthropic SDK** ajoutée (claude-sonnet-4-6, system prompts métier, tool execution)
+  - **Pattern A2A clarifié** : 2 patterns documentés (MCP client→server inter-process vrai A2A vs Tool use direct intra-process)
+  - **Code Pattern 1 fonctionnel** : `StdioClientTransport` + `client.callTool()` réel
+
+### 📊 Impact verdict v2.8 (skills corrigés)
+
+| Skill | Avant V1 propreté | Après V1 propreté |
+|---|---|---|
+| `workflow-catalog.md` | **P1** 🔴 (50% catalogue manquant) | **P3** (proche ✓ — 10/10 workflows) |
+| `drupal-theming-twig.md` | **P1** 🔴 (XSS absent) | **P3** (Twig XSS sourced + 4 anti-patterns) |
+| `monitoring-llm.md` | **P1** 🔴 (OWASP LLM absent) | **P3** (proche ✓ — OWASP LLM + SLI/SLO + sources) |
+| `gestion-droits-licences.md` | **P1** 🔴 (RGPD sans source) | **P3** (proche ✓ — sources légales complètes) |
+| `mcp-orchestration.md` | **P1** 🔴 (exemples non fonctionnels) | **P3** (pédagogie clarifiée + Pattern fonctionnel) |
+
+### 🔴 Patterns transverses appliqués
+
+- **Test #3 triptyque (refus complaisance)** validé 2 fois : T1 (workflows existent réellement) et T6 (convention nommage respectée) écartés comme faux positifs Explore
+- **Quadriptyque qualité règle 4** appliqué : corrections ciblées propreté ROI immédiat vs Phase 2/3 plus longues
+- **Sources datées systématiques** ajoutées sur chaque correction (URLs OWASP, NIST, CNIL, articles RGPD/CPI/Code civil, papers académiques)
+- **Anti-patterns explicites** ajoutés sur 3 skills (drupal-theming-twig, monitoring-llm, gestion-droits-licences implicite)
+
+### 🔜 Suite chantier
+
+- **5 P1 résiduels désamorcés** sur 43 initiaux → **38 P1 résiduels** pour Phase 2 transversale
+- **Prochaine étape** : cartographie skills "core mission" (~60 skills sur 303) selon critère "Mission 6 mois" avant Phase 2 réduite (5-7 P1)
+- **Total chantier post v3.0.1** : 14 releases publiées (v2.8.0 → v3.0.1)
+
+---
+
 ## [3.0.0] — 2026-05-29 — 🏆 BILAN GLOBAL PHASE 1 — Chantier audit qualité v2.8 COMPLET
 > Modèle : Claude Opus 4.7
 

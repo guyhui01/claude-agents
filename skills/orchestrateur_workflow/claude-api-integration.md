@@ -226,7 +226,15 @@ function estimateTokens(text: string): number {
 }
 
 // Garde-fous pour les workflows longs
-const MAX_CONTEXT_TOKENS = 150_000; // Claude Sonnet 4.6 = 200K context
+// Claude Sonnet 4.6 / Opus 4.7 = 200K context window (2026)
+// Pour Opus 4.7 contexte étendu, augmenter à 1M tokens si activé
+const MAX_CONTEXT_TOKENS = 200_000;
+const SAFETY_MARGIN_TOKENS = 8_192; // Marge de sécurité pour réponse + tools
+
+// Anthropic BatchAPI : pour workflows asynchrones non-interactifs
+// → coûts -50% via batch processing (jusqu'à 24h délai)
+// → idéal pour : audits de masse, génération offline, evaluation suites
+// → docs.anthropic.com/claude/docs/batch-api
 
 function buildSafeContextPacket(
   systemPrompt: string,
@@ -235,7 +243,7 @@ function buildSafeContextPacket(
 ): string {
   const systemTokens = estimateTokens(systemPrompt);
   const messageTokens = estimateTokens(currentMessage);
-  let availableTokens = MAX_CONTEXT_TOKENS - systemTokens - messageTokens - 4096;
+  let availableTokens = MAX_CONTEXT_TOKENS - systemTokens - messageTokens - SAFETY_MARGIN_TOKENS;
 
   // Tronquer les outputs précédents si nécessaire (les plus anciens en premier)
   const truncatedOutputs: string[] = [];

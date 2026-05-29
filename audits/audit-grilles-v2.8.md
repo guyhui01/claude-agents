@@ -372,32 +372,98 @@ v2.8 conserve les **3 dimensions universelles** et formalise **5 déclinaisons**
 
 ---
 
-### 3.5 — Groupe Transverse/Méta ⏳ (à formaliser)
+### 3.5 — Groupe Transverse/Méta ✅ (formalisé v2.8.4 — Phase 1.4, audit 2026-05-29)
 
-**Agents concernés (8)** : ORCHESTRATEUR-WORKFLOW · PROMPT-ENGINEER · REDACTEUR-IA · UX-DESIGNER · FORMATEUR-IA · GROWTH-IA · RH-IA · VEILLE-STRATEGIQUE
+**Agents concernés (8)** : ORCHESTRATEUR-WORKFLOW (15 skills) · PROMPT-ENGINEER (8) · REDACTEUR-IA (16) · UX-DESIGNER (20 — dossier `skills/ux_design/`) · FORMATEUR-IA (11) · GROWTH-IA (8) · RH-IA (11) · VEILLE-STRATEGIQUE (6) — **95 skills total** (record absolu chantier)
 
-**Sous-groupes possibles** :
-- **UX/Contenu** : UX-DESIGNER, REDACTEUR-IA → critères design + WCAG + style guide
-- **Pédagogie/Formation** : FORMATEUR-IA → critères Bloom, Kirkpatrick, andragogie
-- **Engagement/Croissance** : GROWTH-IA, VEILLE-STRATEGIQUE → critères AARRR, signaux faibles
-- **Méta-agents** : ORCHESTRATEUR-WORKFLOW, PROMPT-ENGINEER → critères orchestration, evals LLM
-- **RH/People** : RH-IA → critères talent acquisition, people analytics
+**Sous-groupes opérationnels** (5) :
+- **Méta-agents** : ORCHESTRATEUR-WORKFLOW + PROMPT-ENGINEER → orchestration multi-agents, MCP, evals LLM
+- **UX/Contenu** : UX-DESIGNER + REDACTEUR-IA → design + WCAG + Pyramid Minto + storytelling
+- **Pédagogie/Formation** : FORMATEUR-IA → Bloom, Kirkpatrick, ADDIE, andragogie
+- **Engagement/Croissance** : GROWTH-IA + VEILLE-STRATEGIQUE → AARRR, Reforge, Gartner Hype Cycle, weak signals
+- **RH/People** : RH-IA → SHRM, OCEAN, Schein, ATS, RGPD recrutement
 
-#### UX/Contenu — Référentiels attendus (à valider)
-- WCAG 2.2 (W3C 2023)
-- Nielsen 10 heuristics
-- ISO 9241-210 (human-centered design)
-- Design Tokens Community Group standards
-- Figma + FigJam workflows
+#### D1 — Conformité référentielle (Transverse/Méta)
 
-#### UX/Contenu — Actionabilité attendue
-- Wireframes Figma (composants reusable)
-- Personas testables (jobs-to-be-done)
-- Plans de tests UX (5 utilisateurs, protocole)
-- Checklists WCAG par niveau (A/AA/AAA)
-- Style guide rédactionnel (ton, voix, vocabulaire)
+| Sous-domaine | Référentiels attendus |
+|---|---|
+| **Méta-agents (orchestration + prompts)** | Anthropic Prompt Engineering Guide (docs.anthropic.com) · OpenAI Cookbook · **MCP — Model Context Protocol** (Anthropic 2024) · LangChain · LangGraph · CrewAI · AutoGen (Microsoft) · **Chain-of-Thought** (Wei et al. NeurIPS 2022) · **Few-shot Learning** (Brown et al. NeurIPS 2020 — GPT-3 paper) · **RAG** (Lewis et al. NeurIPS 2020) · Anthropic Workflows (multi-agent, parallel, orchestrator-workers) · Evals : TruthfulQA, MMLU, HumanEval · Constitutional AI (Anthropic 2022) · Self-Consistency (Wang et al. 2022) |
+| **UX/Contenu** | **Nielsen Norman 10 heuristiques** (Jakob Nielsen 1994) · Material Design 3 (Google) · Apple HIG · **WCAG 2.2** (W3C 2023) · **Atomic Design** (Brad Frost 2016) · Figma + FigJam workflows · IAAP CPACC/WAS · **Pyramide Minto** (Barbara Minto 1987) · Tufte *Visual Display of Quantitative Information* (1983) · David Ogilvy *On Advertising* (1983) · Cialdini *Influence* (1984) · Hick's Law (1952) · Fitts's Law (1954) · ISO 9241-210 · Design Tokens Community Group |
+| **Pédagogie/Formation** | **Bloom's Taxonomy révisée** (Anderson & Krathwohl 2001) · **ADDIE** (Florida State University 1975) · **Kirkpatrick 4 levels** (Donald Kirkpatrick 1959, révisé 1996) · **Andragogie** (Malcolm Knowles 1968 *The Modern Practice of Adult Education*) · **Cognitive Load Theory** (John Sweller 1988) · SAM model (Allen 2012) · **Gagne's 9 Events of Instruction** (Robert Gagne 1965) · Mayer multimedia principles (Richard Mayer 2001) · 70-20-10 model |
+| **Engagement/Croissance (Growth + Veille)** | **AARRR Pirate Metrics** (Dave McClure 500 Startups 2007) · **North Star Metric** (Sean Ellis) · **Reforge frameworks** (Brian Balfour) · **ICE prioritization** (Sean Ellis) · PIE prioritization · LTV/CAC ratio (Bessemer SaaS benchmarks) · **Forrester Wave** · **Gartner Magic Quadrant + Hype Cycle** (Gartner 1995) · **McKinsey Three Horizons** (Baghai/Coley/White 1999) · **Porter Five Forces** (HBR 1979) · **Ansoff weak signals** (Ansoff 1975) · **Wardley Maps** (Simon Wardley) · Mixpanel / Amplitude product analytics · Attribution models (last-touch, multi-touch, MTA) |
+| **RH/People** | **SHRM-SCP** (Society for Human Resource Management) standards · **OCEAN/Big Five** (McCrae & Costa 1987) · **Edgar Schein** *Organizational Culture and Leadership* (1985, 5th ed 2016) · Talent Operating Model (McKinsey) · ATS standards (Workday, Greenhouse, Lever, SmartRecruiters) · **RGPD recrutement** (CNIL guides 2024) · Deepfake detection (NIST 2023, Deepware) · DAMA-DMBOK 2 (people analytics) · Sapin 2 (anti-corruption FR) · Code du travail FR (recrutement, discrimination art. L1132-1) |
+| **Standards transverses** | ISO/IEC 42001:2023 (AIMS) · NIST AI RMF 1.0 (2023) · AI Act UE 2024/1689 · RGPD UE 2016/679 · GDPR-K (kids data) |
 
-**🔜 À compléter** : lors de l'audit UX-DESIGNER ou REDACTEUR-IA (premier du sous-groupe).
+**Cotation** :
+- ✓ : 100% conforme, vocabulaire exact, versions à jour, papiers académiques cités avec conférence+année
+- ⚠ : conforme grandes lignes, 1-2 imprécisions (Bloom sans Anderson 2001, Kirkpatrick sans niveaux, McClure 2007 implicite)
+- ✗ : déviation majeure (heuristiques sans Nielsen, Bloom non révisé, McKinsey 3 Horizons sans année, RGPD sans articles)
+
+#### D2 — Actionabilité (Transverse/Méta)
+
+**Critères opérationnels** :
+- **Méta-agents** : YAML workflow Anthropic, MCP server code (TypeScript/Python), prompts structurés versionnés, evals scripts (RAGAS, custom), monitoring observability (Langfuse, LangSmith, Helicone)
+- **UX/Contenu** : Wireframes Figma reusable, personas JTBD, plans de tests UX 5 utilisateurs minimum, checklists WCAG 2.2 par niveau (A/AA/AAA), style guides rédactionnels, exemples Minto SCQA
+- **Pédagogie** : Plans de formation ADDIE structurés, objectifs Bloom (verbes opérationnels), évaluations Kirkpatrick 4 niveaux, modules e-learning chiffrés (durées, ratio synchrone/async), supports (Storyline, Rise, Articulate)
+- **Growth/Veille** : Dashboards AARRR (chiffres), funnel acquisition→activation→rétention, NSM + sous-métriques, Hype Cycle annoté, weak signals capturés, benchmark concurrentiel (matrice 2×2)
+- **RH** : Templates JD ATS, grille d'entretien structurée, scoring CV (transparence algorithmique), Big Five reports, plan GEPP, dashboards people analytics, déclaration RGPD candidats
+- **Cas sectoriels variés** (banque CIB, luxe, énergie, défense, télécom, hôtellerie)
+
+**Cotation** :
+- ✓ : ≥3 livrables actionnables, exemples chiffrés sectoriels variés, plans tests/évaluation
+- ⚠ : contenu théorique correct, templates partiels ou génériques mono-sectoriels
+- ✗ : majoritairement conceptuel, aucun livrable opérationnel
+
+#### D3 — Profondeur (Transverse/Méta)
+
+**Critères opérationnels** :
+- **Sources académiques** : NeurIPS, ICML papers pour ML/prompting (Wei, Brown, Lewis), HBR pour management, Sloan Management Review, Harvard Bus Pub
+- **Tendances 2024-2026** : Agentic AI (multi-agent systems), MCP (Anthropic 2024), Constitutional AI, Skills (Anthropic), feature stores, observability LLM
+- **Cas réels publics** : Anthropic Claude usage internal (Claude Code), Reforge case studies, Schibsted growth, Stripe RH practices
+- **Anti-patterns explicités** par sous-domaine
+- **Métriques modernes** : token efficiency, prompt cache hit rate, eval scores (factuality, harmlessness), AARRR conversion rates, Kirkpatrick L4 ROI
+
+**Cotation** :
+- ✓ : sources datées récentes (2023+), papiers académiques cités, anti-patterns explicités, cas sectoriels variés, métriques modernes
+- ⚠ : contenu solide mais sources implicites, exemples génériques
+- ✗ : daté, aucune source, anti-patterns absents
+
+#### Référentiel de sources attendues (Transverse/Méta) — 30+ sources
+
+| Source | URL/Ref | Skills cibles |
+|---|---|---|
+| **Anthropic Prompt Engineering Guide** | docs.anthropic.com/prompt-engineering | prompt_engineer/*, redacteur_ia/prompt-engineering-redaction |
+| **MCP — Model Context Protocol** | modelcontextprotocol.io (Anthropic 2024) | mcp-orchestration, agent-routing |
+| **Wei et al. — Chain-of-Thought** | arxiv 2201.11903 (NeurIPS 2022) | chain-of-thought |
+| **Brown et al. — Few-shot GPT-3** | arxiv 2005.14165 (NeurIPS 2020) | few-shot-learning |
+| **Lewis et al. — RAG** | arxiv 2005.11401 (NeurIPS 2020) | rag-prompt-design |
+| **Anthropic Workflows patterns** | anthropic.com/engineering | workflow-design, parallel-orchestration |
+| **Nielsen — 10 heuristics** | nngroup.com (1994) | audit-ux-heuristiques |
+| **Frost — Atomic Design** | atomicdesign.bradfrost.com (2016) | design-system |
+| **Minto — Pyramid Principle** | Pearson (1987) | redaction-rapport, synthese-executive, presentation-pitch |
+| **WCAG 2.2** | w3.org/WAI (W3C 2023) | accessibilite-wcag |
+| **Anderson & Krathwohl** | *Taxonomy for Learning* (Pearson 2001) | conception-parcours, evaluation-formation |
+| **Kirkpatrick** | *Evaluating Training Programs* (Berrett-Koehler 1959/1996) | evaluation-formation |
+| **Knowles — Andragogy** | *The Modern Practice of Adult Education* (1968) | analyse-besoins-formation |
+| **Sweller — Cognitive Load** | *Cognitive Science* (1988) | elearning-rapid-learning |
+| **Gagne — 9 Events** | *Conditions of Learning* (1965) | conception-parcours |
+| **McClure — AARRR** | 500 Startups (2007) | growth-frameworks |
+| **Reforge frameworks** | reforge.com (Brian Balfour) | growth-frameworks |
+| **Gartner Hype Cycle** | gartner.com (annuel depuis 1995) | analyse-tendances, benchmark-outils-ia |
+| **McKinsey Three Horizons** | *The Alchemy of Growth* (Baghai/Coley/White 1999) | analyse-tendances |
+| **Ansoff — Weak Signals** | *California Mgmt Review* (1975) | detection-signaux-faibles |
+| **Wardley Maps** | wardleymaps.com | analyse-tendances |
+| **McCrae & Costa — Big Five** | *Journal of Personality* (1987) | evaluation-profils-techniques |
+| **Schein — Org Culture** | Jossey-Bass (1985, 5th ed 2016) | transformation-rh-ia |
+| **CNIL Guide recrutement** | cnil.fr/recrutement (2024) | cv-parsing-ats-scoring, recrutement-sourcing-it |
+| **AI Act UE 2024/1689** | JO L 2024/1689 (art. 6 haut risque RH) | cv-parsing-ats-scoring, detection-deepfake-entretien |
+| **NIST Deepfake Detection** | nist.gov (2023) | detection-deepfake-entretien, detection-fraude-cv-profils |
+| **Tufte — Visual Display** | Graphics Press (1983, 2nd ed 2001) | storytelling-stakeholders |
+| **Ogilvy — On Advertising** | Crown (1983) | copywriting-ia |
+| **Cialdini — Influence** | Harper Business (1984) | copywriting-ia |
+| **Porter Five Forces** | HBR (1979) | veille-concurrentielle |
+
+---
 
 ---
 

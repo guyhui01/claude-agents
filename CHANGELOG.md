@@ -5,6 +5,89 @@
 
 ---
 
+## [2.13.0] — 2026-05-29 — Phase 1.4 Audit groupe Transverse/Méta (8 agents, 95 skills) — **CHANTIER PHASE 1 COMPLET 33/33** 🏆
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte — CLÔTURE PHASE 1
+**5ème et DERNIER groupe audité** du chantier qualité v2.8. Application finale de la stratégie hybride par groupe (cf. v2.10.0/v2.11.0/v2.12.0). **Transverse/Méta = MEILLEUR PROFIL QUALITÉ DU CHANTIER** sur les 5 groupes audités. Méthode standard Phase 1.1 intacte ([[feedback-no-degradation-qualite]] règle 2 appliquée), application disciplinée triptyque qualité.
+
+### 🔧 Ajouté — Grille v2.8.4 Transverse/Méta formalisée — **5/5 grilles complètes** ✅
+- `audits/audit-grilles-v2.8.md` §3.5 — **5ème et dernière déclinaison** de la grille v2.8 — **objectif méthode v2.8 ATTEINT**
+- 5 sous-domaines structurés : Méta-agents (Anthropic SDK + **MCP 2024** + LangGraph + CrewAI + Constitutional AI + Chain-of-Thought Wei NeurIPS 2022 + Few-shot Brown NeurIPS 2020 + RAG Lewis NeurIPS 2020), UX/Contenu (Nielsen 1994 + WCAG 2.2 + Minto 1987 + Ogilvy 1983 + Cialdini 1984), Pédagogie (Bloom révisée Anderson 2001 + ADDIE + **Kirkpatrick L1-L4** + Andragogie Knowles + Cognitive Load Sweller + Gagne 9 Events + Mayer + 70-20-10), Engagement/Croissance (AARRR McClure 2007 + Reforge Balfour + Gartner Hype Cycle 1995 + McKinsey 3 Horizons 1999 + Porter 5F 1979 + Ansoff 1975), RH (SHRM-SCP + OCEAN McCrae 1987 + Schein 1985/2016 + AI Act art. 6 + CNIL 2024)
+- **30 sources attendues** référencées avec auteurs/années/URLs/conférences NeurIPS/HBR
+
+### 🔧 Ajouté — Audit groupe consolidé (record volume chantier)
+- `audits/audit-groupe-transverse-meta-2026-05-29.md` (~800L denses)
+- **Format consolidé** : 1 rapport pour 8 agents (cohérent règle 1 triptyque qualité)
+- 10 sections structurées : synthèse exécutive, méthode, 8 tableaux par agent (95 skills cotés sur grille v2.8.4), findings P1/P2/P3, **5 skills exemplaires détaillés**, transversaux 10 patterns, plan action 4 vagues, **méta-observations chantier Phase 1 complet 5/5 groupes**, annexes 30+ sources
+
+### 📊 Résultats audit (95 skills, 8 agents) — **MEILLEUR PROFIL QUALITÉ DU CHANTIER**
+
+| Verdict | Nb | % | Comparaison inter-groupes (5 groupes) |
+|---|---:|---:|---|
+| ⭐⭐ **✓ purs** | **7** | **7%** | 🏆 **RECORD ABSOLU** (vs 5% max Agile/Produit, 2% Dev/CMS, 2% Data/Tech, 0% Conseil/Direction) |
+| P3 (proche ✓) | ~35 | 37% | équivalent meilleur Dev/CMS (38%) |
+| P2 (enrichissement) | ~45 | 47% | équivalent autres groupes |
+| P1 bloquant | **8** | **8%** | 2ème meilleur ratio (vs 5% Dev/CMS, 7% Conseil/Direction, 25-28% Agile-Data) |
+| Sans certif | 0 | 0% | ✅ |
+
+**⭐⭐⭐ FORMATEUR-IA = meilleur agent du chantier** avec **3 ✓ purs sur 11 skills (27%)** :
+- `formateur_ia/conception-parcours.md` — ADDIE+SAM + Bloom L1-L6 exhaustif + règle 30-40-30
+- `formateur_ia/evaluation-formation.md` — Kirkpatrick L1-L4 + formule ROI Philips
+- `formateur_ia/prompt-engineering-formation.md` — Framework CLEAR + 3 niveaux Bloom
+
+**Autres ✓ purs** :
+- `redacteur_ia/synthese-executive.md` — Barbara Minto + SCQA + McKinsey Writing
+- `growth_ia/experimentation-ab-testing.md` — Bonferroni + peeking + HARKing + 4 anti-patterns
+
+### 🔴 8 P1 critiques (différés en Phase 2 transversale)
+
+- **ORCHESTRATEUR-WORKFLOW (3)** : `workflow-catalog.md` (5 workflows manquants WF-006-010 vs CLAUDE.md "10"), `claude-api-integration.md` (token budget obsolète 150K vs 200K — **CORRIGÉ V1**), `mcp-orchestration.md` (exemples non fonctionnels — différenciateur compétitif MCP Anthropic)
+- **PROMPT-ENGINEER (2)** : `chain-of-thought.md` + `few-shot-learning.md` (papiers fondateurs Wei NeurIPS 2022 / Brown NeurIPS 2020 cités sans URLs arxiv)
+- **REDACTEUR-IA (2)** : `traduction-localisation.md` (ISO 17100:2015 + MQM absent), `ux-writing.md` (Nielsen Norman + Microsoft Writing Style + Google Material absent)
+- **UX-DESIGNER (1)** : `design-for-ai.md` (**Anthropic Claude UX patterns ABSENT** dans skill dédié IA — bug majeur positionnement)
+- **VEILLE-STRATEGIQUE (2)** : `veille-concurrentielle.md` (Gartner MQ/Forrester/Porter/Wardley/Blue Ocean tous absents), `detection-signaux-faibles.md` (Ansoff 1975 non cité)
+
+### 🔧 V1 correctifs urgents appliqués
+
+**T2 corrigé** : `skills/orchestrateur_workflow/claude-api-integration.md` L229 — MAX_CONTEXT_TOKENS mis à jour de 150_000 → **200_000** (Claude Sonnet 4.6 / Opus 4.7 actuel). Ajout commentaire BatchAPI (économie -50% workflows asynchrones, docs.anthropic.com/claude/docs/batch-api). SAFETY_MARGIN_TOKENS extrait constante. Mention contexte étendu Opus 4.7 (1M tokens).
+
+**T1 différé Phase 2** : 5 workflows manquants WF-006 à WF-010 — décision stratégique à arbitrer (créer 5 workflows OU corriger compteurs CLAUDE.md).
+
+### 🔴 10 patterns transverses critiques détectés
+
+- T1 ORCHESTRATEUR : 5 workflows manquants (50% catalogue) vs CLAUDE.md annonce
+- T2 Token budget Claude obsolète (CORRIGÉ V1)
+- T3 PROMPT-ENGINEER : Constitutional AI Anthropic 2022 ABSENT 8 skills
+- T4 UX-DESIGNER : Anthropic Claude UX patterns absent skill dédié IA
+- T5 VEILLE-STRATEGIQUE : 31% couverture référentiels (taux le plus bas du chantier — Gartner HC/MQ + Forrester + McKinsey 3H tous absents)
+- T6 Papiers fondateurs sans URLs arxiv (Wei CoT, Brown Few-shot, Lewis RAG, Yao ReAct/ToT)
+- T7 REDACTEUR-IA : Ogilvy 1983 + Cialdini 1984 + Miller StoryBrand 2017 absents
+- T8 RH-IA : AI Act art. 6 + RGPD art. 22 sous-cités (1/11 et 3/11)
+- T9 0 cross-link inter-skills sur 95 skills (cohérent avec autres groupes)
+- T10 Incohérence nommage `ux_design/` vs `UX-DESIGNER` (différé)
+
+### 🎯 Apprentissages méthode v2.8.4 — **BILAN CHANTIER PHASE 1 COMPLET**
+
+**État global après v2.13.0** :
+- ✅ **33/33 agents audités (100%)** 🏆 — **CHANTIER PHASE 1 COMPLET**
+- ✅ **303 skills audités** sur ~35336 lignes cumulées
+- ✅ **5/5 grilles v2.8 formalisées** (Agile/Produit + Conseil/Direction + Data/Tech + Dev/CMS + Transverse/Méta)
+- ✅ **12 ✓ purs identifiés** (4% du catalogue total — dépasse objectif initial 5)
+- ✅ **43 P1 résiduels cumulés** (14% moyenne — différenciateurs compétitifs Phase 2)
+- ✅ Délégation Explore × N en parallèle (méthode standard intacte 5 fois)
+- ✅ Application disciplinée triptyque qualité ([[feedback-triptyque-qualite]]) sur les 3 dernières phases (1.2, 1.3, 1.4)
+- ⚠️ 0 cross-link inter-skills sur 303 skills (sauf Agile/Produit 6) — gap structurel Phase 3 V3 bundle
+
+### 🔜 Suite chantier
+
+- **Phase 1 COMPLET** : bilan global à publier (v3.0.0 candidat — major version pour 33/33 agents + 12 ✓ purs)
+- **Phase 2 transversale** : V2 ciblés sur top 10-15 P1 stratégiques cross-groupes (~30-40h sur 4-5 sessions)
+- **Phase 3 V3 bundles** : Sources Frameworks (~80 skills) + Anti-patterns (~70 skills) + Cross-links Voir aussi (~250 liens) + Diversification sectorielle (~30 skills)
+- **13 releases publiées** : v2.8.0 → v2.13.0
+
+---
+
 ## [2.12.0] — 2026-05-29 — Phase 1.3 Audit groupe Dev/CMS (5 agents, 55 skills)
 > Modèle : Claude Opus 4.7
 

@@ -5,6 +5,78 @@
 
 ---
 
+## [2.11.0] — 2026-05-29 — Phase 1.2 Audit + V1 correctifs groupe Data/Tech (5 agents, 54 skills)
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+**2ème application de la stratégie hybride par groupe** (cf. [v2.10.0] Conseil/Direction). Démarrage du 3ème groupe : **Data/Tech** (5 agents, **54 skills**, ~5950 lignes cumulées — patrimoine le plus volumineux du chantier, 12% de plus que Conseil/Direction). Audit complet en méthode standard Phase 1.1 (briefs Explore détaillés, **pas de version compacte/dégradée** conforme [[feedback-no-degradation-qualite]]).
+
+### 🔧 Ajouté — Grille v2.8.2 Data/Tech formalisée (déjà commit `56860b6`)
+- `audits/audit-grilles-v2.8.md` §3.3 — 3ème déclinaison de la grille v2.8 (sur 5 prévues)
+- Référentiels par sous-domaine : ML/DS (CRISP-DM, Hastie 2009, Goodfellow 2016, Bishop, Murphy), DE (DAMA-DMBOK 2 2017, Data Mesh Dehghani 2022, Kimball 2013, Lakehouse), MLOps (Google MLOps Maturity 2021, Burkov 2020, DORA Accelerate 2018, OWASP LLM Top 10), Architecture (TOGAF 10 2022, ArchiMate 3.2 2023, Hohpe & Woolf 2003, Zachman 1987), BI (Kimball 2013, Codd OLAP 1993, Minto 1987, DAMA-DMBOK 2 2017)
+- 20 sources attendues référencées avec auteurs/années/URLs
+
+### 🔧 Ajouté — Audit groupe consolidé
+- `audits/audit-groupe-data-tech-2026-05-29.md` (~500L denses)
+- **Format consolidé** : 1 rapport pour 5 agents (cohérent directive qualité > quantité, [[feedback-triptyque-qualite]] règle 1)
+- 10 sections structurées (synthèse exécutive, méthode, 5 tableaux par agent, findings P1/P2/P3, transversaux, plan action 4 vagues, méta-observations, annexes 20 sources)
+
+### 📊 Résultats audit (54 skills, 5 agents)
+
+| Verdict | Nb | % | Comparaison |
+|---|---:|---:|---|
+| ⭐ **✓ pur** | **1** | 2% | `solutions_architect/archimate-modeling.md` — **2ème ✓ pur du chantier hors Agile/Produit** |
+| P3 (proche ✓) | ~8 | 15% | inférieur Conseil/Direction (23%) |
+| P2 | ~30 | 55% | — |
+| **P1 bloquant** | **15** | **28%** 🔴 | **taux record du chantier** (vs 7% Conseil/Direction, 25% Agile/Produit) |
+| Sans certif | 0 | 0% | ✅ |
+
+**Skill exemplaire** : `solutions_architect/archimate-modeling.md` — ArchiMate 3 cité, 3 couches, 5 viewpoints, 7 relations, **4 anti-patterns explicites**, comparatif outils. Modèle de référence architecture du catalogue.
+
+### 🔴 15 P1 par agent (différés en Phase 2 transversale)
+
+- **DATA-SCIENTIST : 6 P1** (46% — pire ratio agent du chantier) — Goodfellow/Hastie/Vaswani/Devlin/Lundberg tous absents (analyse-exploratoire, deep-learning, feature-engineering, modelisation-ml, nlp-classique, time-series)
+- **DATA-ENGINEER : 3 P1** — Kimball non attribué (data-warehouse), DAMA-DMBOK absent (gouvernance-data), erreur technique `RateLimitError` (api-data-integration)
+- **MLOPS-ENGINEER : 2 P1** — 🚨 **OWASP LLM Top 10 ABSENT** dans `monitoring-llm.md` (bug critique sécurité IA), DORA Accelerate absent dans `cicd-ia.md`
+- **SOLUTIONS-ARCHITECT : 1 P1** — Hohpe & Woolf *Enterprise Integration Patterns* (2003) absent dans `integration-patterns.md` alors que TOUS les patterns du skill (Strangler Fig, Anti-corruption Layer, SAGA, Circuit Breaker) viennent de ce livre
+- **BI-ANALYST : 3 P1** — DAMA-DMBOK 2 absent (gouvernance-bi), Kimball non attribué (modelisation-dimensionnelle), **Minto 1987 absente** (reporting-codir) alors que tous ses principes structurent le skill
+
+### 🔧 V1 correctifs techniques (Test #3 triptyque appliqué — vérification avant correction)
+
+**2 erreurs techniques confirmées corrigées** :
+1. `skills/data_engineer/api-data-integration.md` L32 — `requests.exceptions.RateLimitError` n'existe pas dans la lib `requests`. Refactor : suppression du `except` mort-né, utilisation du `HTTPError` (L35-39 gère déjà le 429 via `Retry-After`), ajout `except` `Timeout`/`ConnectionError` pour erreurs transitoires
+2. `skills/data_engineer/pipeline-ingestion.md` L93-104 — Great Expectations API `ge.dataset.PandasDataset` deprecated (< 0.14). Modernisation API GE 0.18+ Fluent Datasource (`context.data_sources.add_pandas() + add_dataframe_asset() + add_batch_definition_whole_dataframe()`)
+
+**1 faux positif refusé (honnêteté, pas de complaisance)** :
+- `skills/data_engineer/spark-big-data.md` L85 `deltaTable.optimize().executeCompaction()` — initialement signalé comme erreur par le sous-agent Explore, vérification a confirmé que cette syntaxe **EST valide** en Delta Lake 2.0+ Python API (`DeltaOptimizeBuilder.executeCompaction()` documenté officiellement). Aucune modification. Application du test auto-validation #3 du triptyque qualité ([[feedback-recommandations-best-practices]]) : *sans la signalisation Explore, ne corrigerais-je pas une syntaxe valide*.
+
+### 🔴 8 patterns transverses critiques détectés
+
+- **T1 Référentiels académiques fondateurs absents** (~93% des skills) — domaines matures (ML, BI, architecture, DE) avec piliers manquants : Kimball, Goodfellow, Hastie, Hohpe & Woolf, Minto, DAMA, Codd, Inmon
+- **T2 Erreurs techniques** (3 détectées dont 2 confirmées corrigées, 1 faux positif refusé)
+- **T3 0 cross-link inter-skills** sur 54 skills (cohérent avec Conseil/Direction)
+- **T4 Sécurité IA générative absente** — OWASP LLM Top 10 absent dans `monitoring-llm.md`, NIST AI RMF absent dans tout le groupe MLOps
+- **T5 Versioning frameworks absent** sur ~25 skills (Airflow, Spark, dbt, K8s, confluent_kafka) — différé V3 bundle Phase 3
+- **T6 Patrimoine outils sans patrimoine théorie** (BI surtout) — Power BI/Tableau/Looker/Fabric sans Kimball/Inmon/Codd
+- **T7 Multi-cloud déclaré, AWS-réalisé** (SOLUTIONS-ARCHITECT, MLOPS)
+- **T8 Anti-patterns absents** (33% skills avec, 67% sans — particulièrement DATA-ENGINEER 0/11)
+
+### 🎯 Apprentissages méthode v2.8.2
+
+- ✅ Grille v2.8.2 **applicable sans ajustement** depuis formalisation (3ème déclinaison rodée)
+- ✅ Délégation extraction Explore × 5 en parallèle (méthode standard intacte cf. [[feedback-no-degradation-qualite]]) = ~15-20 min wall-time pour 54 skills
+- ⚠️ **Nouveau pattern P1 dominant détecté** : "skill long, certif déclarée, code dense, MAIS référentiels académiques fondateurs absents" — distinct du pattern P1 cosmétique d'Agile/Produit et du pattern P1 sources de Conseil/Direction
+- ⚠️ **Profil Data/Tech distinct** : exactitude technique du code à vérifier (3 erreurs signalées dont 1 faux positif) — confirme la nécessité du test auto-validation #3 du triptyque
+- ⚠️ **Sécurité IA générative prioritaire** : `monitoring-llm.md` candidat top priorité Phase 2
+
+### 🔜 Suite chantier
+- **15 P1 différés en Phase 2 transversale** (cohérent garde-fou stratégie hybride : max 1-2 V2 d'exception par groupe — 15 trop volumineux pour ce groupe)
+- **T5 versionnage** : V3 bundle Phase 3
+- **Prochaine session Phase 1** : **Phase 1.3 — Audit + V1 Dev/CMS** (5 agents : DEV-TYPESCRIPT-IA, DEV-DRUPAL-PHP, CMS-DIGITAL, PIM-EXPERT, DAM-EXPERT) — estim. ~2h30
+- État global : **20/33 agents audités (61%)**, **230 skills audités**, **3 grilles v2.8 formalisées (sur 5)**
+
+---
+
 ## [2.10.0] — 2026-05-29 — Phase 1.1 Audit + V1 mass groupe Conseil/Direction (6 agents, 44 skills)
 > Modèle : Claude Opus 4.7
 

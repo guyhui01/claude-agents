@@ -91,15 +91,26 @@ while True:
 
 ## Qualité des données en ingestion
 ```python
-import great_expectations as ge
+import great_expectations as gx
+# Great Expectations >= 0.18 (Fluent Datasource API — `ge.dataset.PandasDataset` est obsolète)
 
-# Validation des données en entrée
-suite = ge.dataset.PandasDataset(df)
-suite.expect_column_values_to_not_be_null('user_id')
-suite.expect_column_values_to_be_between('age', 0, 150)
-suite.expect_column_values_to_match_regex('email', r'^[\w\.-]+@[\w\.-]+\.\w+$')
+context = gx.get_context()
 
-results = suite.validate()
+# Pandas Datasource + DataFrame Asset + Batch Definition
+batch_def = (
+    context.data_sources.add_pandas("ingestion")
+    .add_dataframe_asset(name="data")
+    .add_batch_definition_whole_dataframe("validation")
+)
+batch = batch_def.get_batch(batch_parameters={"dataframe": df})
+
+# Attentes à valider sur le batch
+expectations = [
+    gx.expectations.ExpectColumnValuesToNotBeNull(column="user_id"),
+    gx.expectations.ExpectColumnValuesToBeBetween(column="age", min_value=0, max_value=150),
+    gx.expectations.ExpectColumnValuesToMatchRegex(column="email", regex=r"^[\w\.-]+@[\w\.-]+\.\w+$"),
+]
+results = batch.validate(expectations)
 if not results.success:
     raise ValueError(f"Data quality check failed: {results}")
 ```

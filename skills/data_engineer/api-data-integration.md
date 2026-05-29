@@ -29,14 +29,16 @@ class APIClient:
                 response = self.session.get(url, params=params, timeout=30)
                 response.raise_for_status()
                 return response.json()
-            except requests.exceptions.RateLimitError:
-                wait = 2 ** attempt
-                time.sleep(wait)
             except requests.exceptions.HTTPError as e:
-                if e.response.status_code == 429:  # Rate limit
-                    time.sleep(int(e.response.headers.get('Retry-After', 60)))
+                if e.response is not None and e.response.status_code == 429:
+                    # Rate limit (HTTP 429) — respect Retry-After ou exponential backoff
+                    wait = int(e.response.headers.get('Retry-After', 2 ** attempt))
+                    time.sleep(wait)
                 else:
                     raise
+            except (requests.exceptions.Timeout, requests.exceptions.ConnectionError):
+                # Erreurs transitoires — exponential backoff
+                time.sleep(2 ** attempt)
         raise Exception(f"Max retries reached for {url}")
     
     def paginate(self, endpoint: str, page_size: int = 100):

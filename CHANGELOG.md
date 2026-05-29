@@ -5,6 +5,69 @@
 
 ---
 
+## [2.9.0] — 2026-05-29 — V2 po-ai-product.md — Refonte PSPO-AI (différenciateur compétitif IA)
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+**1er P1 V2 du chantier audit qualité v2.8 sur le groupe Agile/Produit après tests-securite** — refonte profonde du skill `skills/scrum/po-ai-product.md` identifié comme **différenciateur compétitif stratégique** lors de l'audit PO-SCRUM (cf. `audits/audit-po-scrum-2026-05-28.md` §4 finding P1.3). Le skill original (40L) revendiquait la certification PSPO-AI sans aucun référencement des cadres normatifs IA 2024-2026 (AI Act UE, NIST AI RMF, ISO 42001), des métriques probabilistes ou des anti-patterns sourcés — risque crédibilité majeur sur le positionnement PSPO-AI auprès de clients régulés.
+
+### 🔧 Modifié — `skills/scrum/po-ai-product.md` (40L → 136L)
+
+**Référentiels normatifs intégrés** :
+- ✅ **PSPO-AI Guide Scrum.org (2024)** — certification revendiquée désormais sourcée
+- ✅ **AI Act UE** (Règlement 2024/1689) — calendrier d'application 2025-2027, 4 niveaux de risque, articulation rôle PO (art. 5, 6, 10, 14, 50)
+- ✅ **NIST AI RMF 1.0 (jan. 2023)** — 4 fonctions Govern/Map/Measure/Manage structurant l'AI Risk Register
+- ✅ **ISO/IEC 42001:2023** — AI Management System certifiable
+- ✅ **ISO/IEC 23894:2023** — AI Risk Management
+
+**Enrichissements** :
+- Tableau **cadre réglementaire & normatif** (5 référentiels datés)
+- Tableau **AI Risk Register** structuré NIST AI RMF (Govern/Map/Measure/Manage)
+- Tableau **7 métriques IA probabilistes** sourcées avec seuils indicatifs : `hallucination_rate` (FActScore Min et al. 2023), `factuality_score` (TruthfulQA Lin et al. 2022), `disparate_impact_ratio` (EEOC 4/5ths rule, repris AI Act), `confidence_calibration` (ECE Guo et al. 2017), latence p95/p99 (SRE Google), precision/recall/F1, `human_override_rate`
+- **Exemple chiffré sectoriel** anonymisé (retail e-commerce — feature "Recommandation produit IA") : 8 critères d'acceptation chiffrés (precision ≥0.70, recall ≥0.60, latence ≤500ms p95, hallucination ≤1%, disparate impact ≥0.8) + fallback non-IA obligatoire + transparence AI Act art. 50 + journalisation 6 mois
+- Tableau **Mapping AI Act → backlog PO** (4 niveaux de risque × items backlog obligatoires)
+- **8 anti-patterns IA explicites** (vs 0 avant) sourcés OWASP LLM Top 10, Datasheets for Datasets (Gebru et al. 2021), AI Act art. 50
+- **12 sources externes datées** (officielles + académiques) avec URLs/refs : Scrum.org, JO UE, NIST, ISO, OWASP, ACM, EMNLP, ACL, ICML, O'Reilly
+- **Cross-links internes vérifiés** : `ai-user-stories.md`, `dor-dod.md`, `gestion-risques.md`, `product-metrics-ebm.md`, `product-vision.md`, `po-acceptance-tests.md`
+- Mention "📌 À venir" pour `skills/securite_ia/owasp-llm-top10.md` et `skills/juridique_ia/ai-act.md` (anticipe priorité 2 du chantier — bundle Conseil/Direction)
+
+### 📊 Impact verdict v2.8
+
+| Dimension | Avant V2 | Après V2 |
+|---|---|---|
+| **Certification déclarée** | ⚠ (PSPO-AI cité, non sourcé) | ✅ (PSPO-AI Scrum.org 2024 + PSPO II sourcés) |
+| **Conformité référentielle** | ✗ (0 framework IA cité) | ✅ (5 référentiels normatifs datés) |
+| **Actionabilité** | ⚠ (checklist générique 5 items) | ✅ (7 métriques avec seuils + exemple chiffré complet + AI Risk Register NIST) |
+| **Profondeur** | ✗ (40L, 0 source, 0 anti-pattern, 0 cross-link) | ✅ (136L, 12 sources datées, 8 anti-patterns, 5 cross-links) |
+| **Verdict** | **P1** 🔴 | **✓** (verdict pur attendu sur les 3 dimensions) |
+
+### 🎯 Positionnement compétitif résolu
+Le repo public reflète désormais une **expertise PSPO-AI conforme aux standards 2024-2026**. Un Chief AI Officer, RSSI ou DPO parcourant ce skill y trouve l'ensemble des référentiels attendus pour un PO IA senior en mission régulée (secteurs banque CIB, luxe, énergie, défense, télécom).
+
+### 📊 Bilan chantier audit après v2.9.0
+
+| Métrique | Avant v2.9.0 | Après v2.9.0 |
+|---|---|---|
+| Skills ✓ purs | 2 (story-mapping, planning-poker) | **3** (+ po-ai-product attendu ✓) |
+| P1 résiduels (audit Agile/Produit) | 12 | **11** |
+| Skills avec référentiels IA datés (AI Act, NIST AI RMF, ISO 42001) | 0/127 | 1/127 |
+| Skills avec métriques IA probabilistes sourcées | 0/127 | 1/127 |
+
+### 🔜 Prochains V2 candidates (11 P1 restants)
+- 🔴 **gestion-risques.md** (PO-SCRUM, PMBOK 7 + ISO 31000 absents — 20L) — bundle PO-SCRUM
+- 🔴 **product-vision.md** (PO-SCRUM, 35L pour skill stratégique PSPO II/III) — bundle PO-SCRUM
+- 🔴 **ux-sprint.md** (PO-SCRUM, PSU-I 44L — Dual Track Patton/Cagan non sourcés) — bundle PO-SCRUM
+- 🔴 **elicitation-besoins.md** (BA, BABOK 39L) — bundle BA (priorité 3)
+
+### 🧭 Méthode appliquée
+- Validation plan préalable (14 sections, volumétrie cible, choix sectoriel, gestion cross-links absents)
+- Respect directive **qualité > quantité** : 136L denses (sous la fourchette basse 150-200L) plutôt que remplissage
+- Anonymisation stricte : aucun client réel cité (retail e-commerce générique)
+- Vérification existence cross-links avant citation (zéro lien mort)
+- Conformité méthodologique vérifiée avant écriture (PSPO-AI Scrum.org, AI Act règl. 2024/1689, NIST AI RMF 1.0 jan. 2023, ISO 42001/23894 = 2023)
+
+---
+
 ## [2.8.6] — 2026-05-29 — Anonymisation références clients (confidentialité repo public)
 > Modèle : Claude Opus 4.7
 

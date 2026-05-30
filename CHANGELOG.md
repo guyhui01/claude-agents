@@ -5,6 +5,54 @@
 
 ---
 
+## [3.5.0] — 2026-05-30 — Phase 2 P2.5 : refonte V2 `gestion-risques` (ISO 31000 + PMBOK 7 + COSO ERM + SAFe ROAM + DORA + Monte Carlo)
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+**Phase 2 P2.5 du chantier audit v2.8** — cinquième refonte V2 profonde sur skill N1 CORE-PRATIQUE. Skill `scrum/gestion-risques.md` identifié P1 dans audit Phase 1 (initialement 23 lignes — quasi vide : matrice P×I basique sans référentiel, RACI minimaliste, aucun référentiel cité au-delà des certifs PSPO II/ICAgile). Application stricte du **quadriptyque qualité** sur skill mobilisé en mission PO/MOA tous segments d'organisations.
+
+### ✨ Refonte V2 — `skills/scrum/gestion-risques.md` (23L → 287L denses)
+
+#### Enrichissements majeurs (15 sections structurées)
+- **En-tête certifications & référentiels** : PSPO II · PMI-RMP (Risk Management Professional) · ISO 31000 Lead Risk Manager · COSO ERM Certificate · ICAgile ICP-APO
+- **Cadre BABOK v3** : KA #9 Strategy Analysis T9.3 Assess Risks + KA #5 RADD T5.5 Design Options évaluation + Perspective Agile
+- **ISO 31000:2018 complet** : 8 principes (clause 4) + framework (clause 5 Leadership/Intégration/Conception) + processus 6 étapes (Communication & Consultation · Scope/Context/Criteria · Risk Assessment ID-Analysis-Evaluation · Risk Treatment 4 stratégies AVOID/REDUCE/TRANSFER/ACCEPT · Monitoring · Recording)
+- **PMBOK Guide 7th ed (PMI 2021)** : Performance Domain Uncertainty 8 principes + Risk Breakdown Structure (RBS) 6 catégories typiques (Technique · Externe · Organisationnel · PM · Cyber/Data · Conformité)
+- **COSO ERM 2017** : 5 composants (Governance & Culture · Strategy & Objective-Setting · Performance · Review & Revision · Information/Communication/Reporting) × 20 principes
+- **SAFe Risk Management — ROAM Board** : 4 statuts détaillés (Resolved/Owned/Accepted/Mitigated) avec actions par statut + règle blocage commitment PI
+- **ISO 31010:2019 — Top 10 techniques** : Brainstorming · Delphi · SWIFT · Bowtie · FMEA IEC 60812 · HAZOP · RCA Five Whys · Fault Tree · Event Tree · Monte Carlo (qualitatif vs quantitatif)
+- **Matrice Probabilité × Impact 5×5 (Heat Map)** : grille complète avec scores 1-25 + zones 🟢/🟡/🔴 + définitions quantitatives (Proba %, Impact financier banque CIB) + concepts Appétit/Tolérance/Capacité au risque
+- **Risk Register enrichi — 13 colonnes** : ID · Catégorie RBS · Cause · Événement · Conséquence · P · I · Score · Owner · Stratégie · Mitigation préventive · Contingency réactive · Trigger/Statut (vs 9 colonnes original)
+- **Risk Quantification** : EMV (Expected Monetary Value) avec exemple chiffré · Monte Carlo simulation détaillée (10k itérations, courbe S P50/P80/P95) · Risk Burndown Chart (Cohn 2006)
+- **IIA Three Lines Model (2020)** : abandon "Defense" → "Lines", 3 lignes opérationnelles (Management/Risk Mgmt-Compliance/Audit Interne) avec acteurs typiques
+- **Risk Adjusted Backlog DSDM** : intégration risques dans 7 cérémonies agiles (Daily · Refinement · Sprint Planning · Sprint Review · Retrospective · SAFe PI Planning · I&A)
+- **Risques conformité réglementaire** : matrice 7 réglementations (DORA UE 2022/2554 applicable 17/01/2025 · NIS2 · AI Act · RGPD · Bâle IV/FRTB · IFRS 9 · MiFID II) avec échéances + sanctions + risques associés
+- **Exemple chiffré banque CIB** : banque européenne de financement et investissement (8 pays, 25 000 collaborateurs, NBI 10 Md€), programme conformité DORA 18 mois — 47 services critiques ICT, 35 fournisseurs critiques third-party register, 312 risques inscrits — Top 10 risques scorés avec EMV (R001 DORA art.28 P4×I5=20🔴 EMV 80M€, R002 Ransomware trading EMV 45M€, etc.) — Monte Carlo budget P50 16.2M€/P80 18M€/P95 20.5M€ — gouvernance Three Lines détaillée — gains T+18 mois (conformité 100% 47 services, RTO < 2h, risques 🔴 -72%, 0 réserve majeure ACPR)
+- **8 anti-patterns explicites** : Risk Register statique · cotation sans définition quanti · mitigation = "surveiller" · pas d'owner · acceptation sans gouvernance · confusion risque/issue/dépendance · cygne noir ignoré (Taleb) · ROAM Board ignoré post-PI Planning
+- **Outils** : GRC (ServiceNow GRC, IBM OpenPages, MetricStream, Archer RSA, Riskonnect, SAP GRC) · Quantification (@Risk Palisade, Crystal Ball Oracle, ModelRisk, Python numpy/scipy) · Cyber (OneTrust, Tenable Lumin, Qualys) · Third-Party (BitSight, SecurityScorecard, UpGuard) · Compliance (Vanta, Drata) · Agile (Jira, Azure DevOps, LeanKit) · Visualisation (Lucidchart, Miro, PowerBI)
+- **Livrables complets** : Risk Management Plan · Risk Register 13 colonnes · RBS · Risk Heat Map mensuelle · Risk Burndown · Monte Carlo report · ICT Third-Party Risk Register DORA · BCP/DRP · Reporting comité COSO ERM
+- **14 sources datées** : ISO 31000:2018 · ISO 31010:2019 · ISO 27005:2022 · PMBOK 7 PMI 2021 · COSO ERM 2017 · DORA UE 2022/2554 · NIS2 UE 2022/2555 · NIST AI RMF 1.0 (2023) · SAFe 6.0 (2023) · IIA Three Lines Model (2020, révision 3LoD 2013) · Snowden Cynefin HBR (2007) · Cohn Agile Estimating 2006 · Hubbard Failure of Risk Management 2009/2020 · Taleb Black Swan 2007
+- **8 cross-links "Voir aussi"** : po-ai-product · po-backlog · dor-dod · analyse-impact (business_analyst) · cartographie-si (business_analyst) · inspect-adapt (safe) · threat-modeling (securite_ia) · nis2-conformite (juridique_ia)
+
+### 📊 Impact qualitatif
+- **Densité** : 23L → 287L (×12.5) — matrice basique → 7 référentiels normatifs intégrés (ISO 31000/31010/27005, PMBOK 7, COSO ERM, SAFe ROAM, NIST AI RMF) + Three Lines Model + Cynefin + Monte Carlo + EMV
+- **Profondeur** : couverture quasi-exhaustive du domaine — normatif international (ISO) + US (COSO) + projet (PMBOK 7) + agile (SAFe ROAM, Cohn) + sectoriel (DORA, NIS2, Bâle IV, AI Act)
+- **Actionabilité** : exemple chiffré bout-en-bout (banque CIB conformité DORA : 47 services critiques → Top 10 risques scorés EMV → Monte Carlo P50/P80/P95 → Three Lines → gains mesurés ROI 18 mois) — réplicable directement par PO/MOA en mission grands comptes
+- **Conformité référentielle** : 100% sources datées primaires (ISO/TC 262, PMI, COSO Treadway Commission, UE Règlements numérotés et datés, IIA, auteurs primaires Snowden/Cohn/Hubbard/Taleb)
+- **Anonymisation respectée** : "banque européenne de financement et investissement" générique — alignement [[feedback-anonymisation-clients]]
+
+### 🎯 Conformité quadriptyque qualité
+- ✅ **Règle 1 — Densité actionnable** : enrichissement profond du skill existant (pas de fragmentation) — 1 fichier consolidé avec cross-links vers skills spécialisés (threat-modeling cyber, nis2-conformite juridique)
+- ✅ **Règle 2 — Méthode standard inaltérée** : zéro raccourci, écriture en pleine méthode (référentiels primaires datés ISO/PMBOK/COSO, exemple chiffré sectoriel détaillé avec EMV + Monte Carlo)
+- ✅ **Règle 3 — Best practices** : ISO 31000:2018 conforme spec (8 principes + 6-step process), PMBOK 7 conforme PMI 2021, COSO ERM 2017 5 composants × 20 principes officiels, SAFe ROAM conforme Scaled Agile Inc.
+- ✅ **Règle 4 — Simplicité maintenance** : critère 80/20 respecté — skill core mission PO/MOA mobilisé en cadrage projet, gestion programme, gouvernance ERM, conformité réglementaire
+
+### 🔜 Suite
+- **Phase 2 P2.6** : `scrum/product-vision.md` (Cagan "Inspired" 2018 + Pichler + Moore datés, ~2h)
+- NEXT_STEPS.md actualisé post-v3.5.0
+
+---
+
 ## [3.4.0] — 2026-05-30 — Phase 2 P2.4 : refonte V2 `analyse-impact` (Kotter 8 Steps + Lewin + Bridges + PROSCI ADKAR + McKinsey 7S + Mendelow + BABOK)
 > Modèle : Claude Opus 4.7
 

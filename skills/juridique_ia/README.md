@@ -13,7 +13,7 @@
 | 2 | [`rgpd-ia.md`](rgpd-ia.md) | Appliquer le RGPD à un projet IA (bases légales, droits) | CIPP/E · CIPM · DPO Certifié |
 | 3 | [`dpia-systemes-ia.md`](dpia-systemes-ia.md) | Réaliser une DPIA (Data Protection Impact Assessment) | CIPP/E · CIPT · DPO Certifié |
 | 4 | [`contrats-ia.md`](contrats-ia.md) | Rédiger ou analyser un contrat IA (licence, IP, SLA) | LegalTech AI · CIPP/E |
-| 5 | [`propriete-intellectuelle-ia.md`](propriete-intellectuelle-ia.md) | Gérer la propriété intellectuelle des modèles IA | LegalTech AI · FIP |
+| 5 | [`propriete-intellectuelle-ia.md`](propriete-intellectuelle-ia.md) | Propriété intellectuelle IA (TDM Directive 2019/790 art. 3 & 4, AI Act art. 50/53, jurisprudence NYT/Andersen/Getty/Like Company/Thaler, secret d'affaires Dir. 2016/943, clauses contractuelles, DD LLM SaaS) | DPO Certifié CNIL · CIPP/E · CIPM · ISO 42001 LI (PECB) · LegalTech AI |
 | 6 | [`gouvernance-ethique-ia.md`](gouvernance-ethique-ia.md) | Mettre en place une gouvernance éthique IA | AI Act Compliance Expert · CIPM |
 | 7 | [`veille-reglementaire.md`](veille-reglementaire.md) | Assurer la veille réglementaire IA (AI Office, CNIL, etc.) | CIPP/E · FIP · CIPM |
 | 8 | [`politique-ia-entreprise.md`](politique-ia-entreprise.md) | Rédiger une politique IA interne (charte, gouvernance) | AI Act Compliance Expert · CIPM |

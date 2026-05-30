@@ -1,24 +1,25 @@
-# Skills — Business Analyst / MOA
+# Skills — Business Analyst / MOA / AMOA
 
 > Dossier rattaché à `AGENT-BUSINESS-ANALYST.md`
-> Référentiels : IIBA CBAP / CCBA / AAC · PMI-PBA · BCS International Diploma · TOGAF 10 · BPMN 2.0 · UML
+> Référentiels : IIBA CBAP / CCBA / AAC · PMI-PBA · PMP · PRINCE2 · BCS International Diploma · TOGAF 10 · ISO 21500 · BPMN 2.0 · UML 2.5
 
 ---
 
-## Index des skills (10)
+## Index des skills (11)
 
 | # | Skill | Quand l'invoquer | Certification |
 |---|---|---|---|
 | 1 | [`elicitation-besoins.md`](elicitation-besoins.md) | Éliciter les besoins (interviews, ateliers, observation) | IIBA CBAP · CCBA |
-| 2 | [`modelisation-processus.md`](modelisation-processus.md) | Modéliser les processus (BPMN 2.0, UML, cas d'usage) | IIBA CBAP · BCS Diploma |
+| 2 | [`modelisation-processus.md`](modelisation-processus.md) | Modéliser les processus (BPMN 2.0, UML, cas d'usage) | IIBA CBAP · BCS Diploma · OCEB 2 |
 | 3 | [`specification-fonctionnelle.md`](specification-fonctionnelle.md) | Rédiger les spécifications (SFG, SFD, cahier des charges) | IIBA CBAP · PMI-PBA |
 | 4 | [`recette-moa.md`](recette-moa.md) | Préparer et conduire la recette MOA (plan, cahier, PV) | IIBA CBAP · BCS Diploma |
-| 5 | [`cadrage-projet.md`](cadrage-projet.md) | Cadrer un projet (note de cadrage, faisabilité, périmètre) | PMI-PBA · IIBA CBAP |
-| 6 | [`cartographie-si.md`](cartographie-si.md) | Cartographier le SI existant (schéma directeur, urbanisme) | TOGAF 10 · IIBA CBAP |
-| 7 | [`gestion-exigences.md`](gestion-exigences.md) | Gérer les exigences (traçabilité, matrice de couverture) | IIBA CBAP · PMI-PBA |
-| 8 | [`analyse-impact.md`](analyse-impact.md) | Analyser les impacts et conduire le changement | PROSCI · IIBA AAC |
-| 9 | [`animation-atelier-metier.md`](animation-atelier-metier.md) | Animer un atelier métier (co-construction, validation) | IIBA AAC · ICAgile |
-| 10 | [`reporting-moa.md`](reporting-moa.md) | Produire le reporting MOA (COPIL, tableaux de bord) | IIBA CBAP · PMI-PBA |
+| 5 | [`cadrage-projet.md`](cadrage-projet.md) | Cadrer un projet (Charte PMBOK, Business Case, faisabilité TELOS) | PMI-PBA · PRINCE2 · IIBA CBAP |
+| 6 | [`pilotage-projet.md`](pilotage-projet.md) | Piloter le projet (WBS, Gantt/CPM, Tolérances PRINCE2, EVM, Clôture, Lessons Learned) | PMI-PBA · PMP · PRINCE2 · ISO 21500 |
+| 7 | [`cartographie-si.md`](cartographie-si.md) | Cartographier le SI (TOGAF 10, ArchiMate 3.2, C4, APM TIME) | TOGAF 10 · IIBA CBAP |
+| 8 | [`gestion-exigences.md`](gestion-exigences.md) | Gérer les exigences (traçabilité, matrice de couverture) | IIBA CBAP · PMI-PBA |
+| 9 | [`analyse-impact.md`](analyse-impact.md) | Analyser les impacts et conduire le changement (Kotter, ADKAR, McKinsey 7S) | PROSCI · ACMP CCMP · IIBA AAC |
+| 10 | [`animation-atelier-metier.md`](animation-atelier-metier.md) | Animer un atelier métier (co-construction, validation) | IIBA AAC · ICAgile |
+| 11 | [`reporting-moa.md`](reporting-moa.md) | Reporting MOA + gouvernance comitologique (COMEX/COSTRAT/COPIL/COTECH/CCB/CDP) | IIBA CBAP · PMI-PBA · PRINCE2 |
 
 ---
 
@@ -28,26 +29,27 @@
 Tu veux ...
 
   ... DÉMARRER UN PROJET MOA ?
-    → cadrage-projet.md (note de cadrage + faisabilité)
+    → cadrage-projet.md (Charte PMBOK + Business Case + faisabilité TELOS)
     → cartographie-si.md (état des lieux SI)
 
+  ... PILOTER LE PROJET (cycle V ou hybride) ?
+    → pilotage-projet.md (WBS, Gantt/CPM, Tolérances PRINCE2, EVM, Clôture, Lessons Learned)
+    → reporting-moa.md (comitologie COMEX→COSTRAT→COPIL→COTECH→CCB→CDP, OKR projet, RAG)
+
   ... COMPRENDRE LE BESOIN MÉTIER ?
-    → elicitation-besoins.md (techniques d'élicitation)
+    → elicitation-besoins.md (techniques d'élicitation, BABOK KA #10)
     → animation-atelier-metier.md (ateliers de co-construction)
 
   ... MODÉLISER ET SPÉCIFIER ?
-    → modelisation-processus.md (BPMN, UML)
-    → specification-fonctionnelle.md (cahier des charges)
-    → gestion-exigences.md (traçabilité)
+    → modelisation-processus.md (BPMN 2.0, UML 2.5, DMN, CMMN)
+    → specification-fonctionnelle.md (SFG/SFD/cahier des charges cycle V)
+    → gestion-exigences.md (traçabilité exigences → tests)
 
   ... VALIDER UNE LIVRAISON ?
-    → recette-moa.md (plan + cahier + PV)
+    → recette-moa.md (plan + cahier + PV de recette)
 
   ... CONDUIRE LE CHANGEMENT ?
-    → analyse-impact.md (cartographie d'impact)
-
-  ... COMMUNIQUER À LA GOUVERNANCE ?
-    → reporting-moa.md (COPIL, dashboards)
+    → analyse-impact.md (Kotter, Lewin, Bridges, PROSCI ADKAR, McKinsey 7S, Mendelow)
 ```
 
 ---

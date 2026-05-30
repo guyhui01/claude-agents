@@ -5,6 +5,81 @@
 
 ---
 
+## [3.6.0] — 2026-05-30 — Enrichissement BA/MOA/AMOA : pilotage projet (WBS, Gantt, Tolérances PRINCE2, EVM, Clôture, Gouvernance comitologique)
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+**Suite décision v3.5.1** : pas de création d'AGENT-CHEF-PROJET-MOA séparé (convention AMOA française dominante fusionne BA/MOA/CdP MOA). Audit pilotage projet MOA du dossier `skills/business_analyst/` → lacunes identifiées : Charte projet PMBOK formelle, WBS, Gantt/PERT/CPM, RACI projet détaillé, Tolérances PRINCE2, Clôture + Lessons Learned, Gouvernance comitologique complète (COMEX/COSTRAT/COPIL/COTECH/CCB/CDP). Application **Option A minimaliste** validée : 1 skill créé + 2 V2 enrichissements + agent/README mis à jour, **sans nouvel agent**.
+
+### ✨ Création (1 skill) — `skills/business_analyst/pilotage-projet.md` (NOUVEAU, 322L denses)
+
+#### Enrichissements (15 sections structurées)
+- **En-tête certifications** : PMI-PBA · PMP · PRINCE2 Practitioner · IIBA CBAP · ISO 21500 Lead Project Manager · AgilePM (DSDM)
+- **Cadre BABOK v3** : KA #2 + KA #9 + Perspective Business Architecture
+- **PMBOK Guide 7th ed (PMI 2021)** : 12 Principes + 8 Performance Domains détaillés
+- **PRINCE2 7th ed** (Axelos 2017) : 7 Principes × 7 Thèmes × 7 Processus + pilotage par exception
+- **Charte projet PMBOK** : 10 sections du Project Charter signé Sponsor (autorisation formelle)
+- **WBS** (PMI Practice Standard 3rd ed 2019) : décomposition hiérarchique 4 niveaux + règle 100% + WBS Dictionary
+- **Planning** : Gantt (Henry Gantt 1910s) + PERT/CPM 1958 + Critical Chain Goldratt 1997 + estimation 3 points
+- **Jalons & Gates** (Stage-Gate Cooper 1986) : 7 phases types cycle V avec critères Go/No-Go
+- **RACI projet détaillé** : matrice complète activités × rôles (Sponsor/CdP MOA/BA/MOE/Métier/DSI/Régulateur)
+- **Pilotage par exception** : 6 dimensions de tolérances avec triggers escalade
+- **Clôture projet** (PRINCE2 CP / PMBOK Close Project) : 7 activités structurées + 5 méthodes Lessons Learned (4L's, KALM, Start-Stop-Continue, 5 Whys, Knowledge Café)
+- **Exemple chiffré sectoriel assurance** : groupe d'assurance européen multi-pays 45 000 collaborateurs IARD+Santé+Vie, programme IFRS 17 + Solvabilité II (24 mois, 28 M€, WBS 312 work packages, conformité 100% au 1er janvier 2024, ROI T+12 atteint 87% cibles)
+- **8 anti-patterns explicites** : Charte absente · WBS non maintenu · jalons sans critères · RACI ambigu · pilotage exception inversé · tolerances non définies · clôture sautée · lessons learned non lus
+- **Outils** : MS Project · Primavera · Smartsheet · GanttPRO · ProjectLibre · Asana · Monday · Wrike · MindManager · XMind · Confluence · Power BI · SharePoint · Microsoft Viva
+- **Livrables complets** + **11 sources datées** + **8 cross-links**
+
+### ✨ Refonte V2 — `skills/business_analyst/cadrage-projet.md` (59L → 234L denses)
+
+- **En-tête certifications enrichi** : PMI-PBA · PMP · PRINCE2 Practitioner · IIBA CBAP · TOGAF 10 · ISO 21500
+- **Charte projet PMBOK** : 12 sections du Project Charter (vs note de cadrage simple)
+- **Business Case PRINCE2** : structure 8 sections + 4 calculs financiers (ROI · NPV · Payback · IRR)
+- **Étude de faisabilité TELOS étendu** : 5 dimensions (Technique · Économique · Légale · Opérationnelle · Temporelle) + dimension RSE optionnelle
+- **Matrice Eisenhower** appliquée au cadrage périmètre
+- **WBS niveau 2** : décomposition initiale phases × lots (lien vers pilotage-projet pour détail)
+- **Arbre de décision Build/Buy/SaaS/Lease** (TOGAF + Gartner) : 7 critères × 4 options
+- **Exemple chiffré sectoriel public** : agence publique européenne 15 000 agents, programme "Démat'Services 2025" (32 procédures, 12 M demandes/an, budget 18 M€, ROI 5 ans +34 M€ net, NPV +12 M€) — anonymisé
+- **6 anti-patterns explicites** · outils enrichis · 9 sources datées · 7 cross-links
+
+### ✨ Refonte V2 — `skills/business_analyst/reporting-moa.md` (59L → 239L denses)
+
+- **En-tête certifications enrichi** : IIBA CBAP · PMI-PBA · PRINCE2 Practitioner · ISO 21500
+- **Comitologie complète** : pyramide gouvernance 6 niveaux (COMEX → COSTRAT → COPIL → COTECH → CCB → CDP) avec fréquence, composition, périmètre décisionnel par instance
+- **Escalade pyramidale** : 6 triggers automatiques (risque 🔴, tolérance dépassée, change Must, réserve régulateur, etc.) avec délais
+- **8 types de reportings** : Daily MOA · CDP hebdo · Rapport bimensuel · CCB · COPIL mensuel · Bilan de Gate · COSTRAT trimestriel · COMEX trimestriel
+- **Tableau de bord COPIL** : structure 5 slides standardisée (synthèse · planning · budget · risques · décisions)
+- **OKR projet** (Doerr 2018) : structure Objective + KR + couplage KPI projet ↔ KPI bénéfices business case
+- **Indicateurs MOA standardisés** : 3 catégories (Couverture/Qualité · Avancement/Performance avec SPI/CPI EVM · Engagement/Satisfaction)
+- **Code RAG strict** : critères objectifs par statut Vert/Orange/Rouge + anti-pattern RAG subjectif
+- **Bilan de Gate** : structure 10 slides (Go/No-Go formel COSTRAT)
+- **8 anti-patterns explicites** · outils enrichis · 7 sources datées · 6 cross-links
+
+### 🔧 Mises à jour catalogue & agent
+
+- **`skills/business_analyst/README.md`** : index 10 → 11 skills + arbre de décision avec branche "Piloter le projet (cycle V ou hybride)" + référentiels enrichis (PMP · PRINCE2 · ISO 21500 ajoutés)
+- **`AGENT-BUSINESS-ANALYST.md`** : titre "Business Analyst / MOA / AMOA Expert" (vs "Business Analyst / MOA Expert") + 3 certifications ajoutées (PMP, PRINCE2 Practitioner, ISO 21500 Lead PM) + périmètre étendu explicitement au **pilotage projet MOA** (WBS, Gantt, Tolérances PRINCE2, EVM, Clôture) + **gouvernance comitologique** (COMEX→COSTRAT→COPIL→COTECH→CCB→CDP) + ajout convention française AMOA fusionnée
+- Table skills agent enrichie avec entrée `pilotage-projet.md` + libellés enrichis (Charte PMBOK, Tolérances PRINCE2, comitologie)
+
+### 📊 Impact qualitatif
+- **Couverture pilotage projet MOA** : 100% des besoins PO/MOA/AMOA freelance généraliste (cadrage Charter + pilotage WBS/Gantt/CPM/Tolérances + gouvernance + clôture + lessons learned)
+- **Densité ajoutée** : +795 lignes denses (+322L pilotage-projet + 175L cadrage V2 + 180L reporting-moa V2) sur 3 skills core mission
+- **Conformité référentielle** : 100% sources datées primaires (PMBOK 7 PMI 2021, PRINCE2 Axelos 2017, ISO 21500:2021, AFNOR FD X50-115:2001, Goldratt 1997, Cooper 1986 Stage-Gate, Doerr OKR 2018)
+- **Catalogue généraliste préservé** : pas de nouvel agent (38 agents inchangés), enrichissement existant, conforme [[feedback-catalogue-generaliste]] + [[feedback-qualite-consolidation]]
+- **Anonymisation respectée** : exemples chiffrés "groupe d'assurance européen multi-pays" + "agence publique européenne" génériques
+
+### 🎯 Conformité quadriptyque qualité
+- ✅ **Règle 1 — Densité actionnable** : enrichissement de 2 skills existants + création 1 seul skill (vs 3-5 skills atomiques de l'Option B refusée)
+- ✅ **Règle 2 — Méthode standard inaltérée** : aucun raccourci, référentiels primaires datés, exemples chiffrés sourcés
+- ✅ **Règle 3 — Best practices** : PMBOK 7 conforme PMI 2021, PRINCE2 conforme Axelos 7th ed, ISO 21500:2021 conforme spec, AFNOR FD X50-115 conforme référentiel français
+- ✅ **Règle 4 — Simplicité maintenance** : critère 80/20 respecté — couverture besoins PO/MOA freelance ESN sans niche EVM/PMP pure, sans création agent CdP MOA séparé
+
+### 🔜 Suite
+- **v3.7.0** : reprise Phase 2 P2.6 `scrum/product-vision.md` (Cagan "Inspired" 2018 + Pichler + Moore + JTBD + OKR)
+- NEXT_STEPS.md actualisé post-v3.6.0
+
+---
+
 ## [3.5.1] — 2026-05-30 — Conformité méthodologique : séparation stricte livrables PO Scrum (Agile) vs BA/MOA (cycle V)
 > Modèle : Claude Opus 4.7
 

@@ -5,6 +5,82 @@
 
 ---
 
+## [3.10.1] — 2026-05-30 — Correctif factuel rétroactif sur V2 antérieures à v3.8.1 (PRINCE2 année + Mendelow affiliation + PROSCI 70% non sourcé + Cooper Stage-Gate source + TM Forum version)
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+**Audit qualité fin de session** demandé par utilisateur — application **rétroactive** de la règle `feedback_verification_factuelle` (ajoutée en v3.8.1) sur les V2 antérieures (v3.3.0 → v3.7.0) publiées AVANT que la règle ne soit mémorisée. 8 WebSearch préalables sur sources officielles (ISO.org, PMI.org, COSO.org, Axelos/PeopleCert, Cagan SVPG, Cooper Stage-Gate, Goldratt North River Press, etc.) — 6 erreurs factuelles confirmées + 1 fausse alerte (DORA date adoption 14/12/2022 correcte = date du règlement par Parlement/Conseil, distinct de la publication JO 27/12/2022).
+
+### 🔧 Corrections appliquées
+
+#### 1. **PRINCE2 7th Edition date** — 🔴 erreur majeure (décalage 6 ans)
+- v3.6.0 (faux) : "PRINCE2 7th Edition — Axelos / PeopleCert (2017, rév. 2023)"
+- v3.10.1 (corrigé) : "PRINCE2 7th Edition — **PeopleCert/Axelos (septembre 2023, remplace 6e édition)**"
+- Source : multiples confirmations PeopleCert.org / Axelos.com (Foundation 3 jours + Practitioner 2 jours, intégration People Management + Sustainability)
+- Fichiers corrigés : `pilotage-projet.md` (2 mentions L37 + L302) · `cadrage-projet.md` (L218) · `reporting-moa.md` (L225)
+
+#### 2. **Cooper Stage-Gate source** — 🟡 imprécision source
+- v3.6.0 (imprécis) : "Cooper R.G. — *Stage-Gate Process* (HBR, 1986)"
+- v3.10.1 (corrigé) : "Cooper R.G. — *Winning at New Products: Accelerating the Process from Idea to Launch* (Addison-Wesley, 1986 — 1ère éd., depuis multiples éditions) — Stage-Gate® trademarked"
+- Source : recherches Cooper publie HBR mais le livre originel Stage-Gate est "Winning at New Products" Addison-Wesley 1986
+- Fichier corrigé : `pilotage-projet.md` (L308)
+
+#### 3. **Chiffres "70%" non vérifiés** — 🔴 risque hallucination
+- v3.4.0 (faux/non sourcé) : 4 mentions de "70%" sur Bridges et PROSCI dans `analyse-impact.md` (L51, L113, L219, L226)
+- v3.10.1 (corrigé) : remplacés par stat PROSCI **vérifiée** "projets avec excellent change management = **8× plus susceptibles** d'atteindre leurs objectifs" (PROSCI Best Practices 12e éd., 2023, étude sur 10 800+ professionnels en 101 pays sur 25 ans, 2 668 répondants analysés)
+- Source : empower.prosci.com/bpcm12 (executive summary 12th edition)
+
+#### 4. **Mendelow affiliation Cleveland State University** — 🟠 imprécision
+- v3.4.0 (imprécis) : "Mendelow A. ... Cleveland State University ICIS Proceedings (1991)"
+- v3.10.1 (corrigé) : "Mendelow A.L. — *Environmental Scanning: The Impact of the Stakeholder Concept*, **Proceedings From the Second International Conference on Information Systems (ICIS), Cambridge MA** (1991)"
+- Source : WebSearch confirme publication ICIS Cambridge MA 1991, Cleveland State pourrait être affiliation auteur mais non confirmée précisément
+- Fichier corrigé : `analyse-impact.md` (L268)
+
+#### 5. **PROSCI Best Practices 12th ed date** — 🟡 imprécision année
+- v3.4.0 (imprécis) : "PROSCI Best Practices in Change Management — 12th Edition Benchmark (Prosci 2024)"
+- v3.10.1 (corrigé) : "PROSCI Best Practices in Change Management — **12th Edition (Prosci, mai 2023)** — étude sur 10 800+ professionnels en 101 pays sur 25 ans ; analyses fines sur 2 668 répondants ; projets avec excellent change management = **8× plus susceptibles** d'atteindre leurs objectifs"
+- Source : empower.prosci.com (lancement 12th edition mai 2023, pas 2024)
+
+#### 6. **TM Forum Frameworx version v23.5** — 🟡 version non confirmée
+- v3.3.0 (non sourcé) : "TM Forum Frameworx — eTOM + SID + TAM v23.5 (2023)"
+- v3.10.1 (corrigé) : "TM Forum Frameworx — eTOM (Process Framework) + SID (Shared Information Data) + TAM (Application Framework) + évolution **Open Digital Architecture (ODA, cloud-native re-packaging)**" — sans version précise non vérifiée
+- Source : tmforum.org/frameworx-evolution (Frameworx mature stable, évolution vers ODA)
+- Fichier corrigé : `cartographie-si.md` (L141 + L227)
+
+### ⚠️ Fausse alerte écartée
+- **DORA date "14 décembre 2022"** : initialement signalée comme erreur (publication JO 27/12/2022), mais en réalité = date d'**adoption du règlement** par Parlement et Conseil européens. **Mention v3.5.0 reste correcte** : "Règlement (UE) 2022/2554 du 14 décembre 2022" est la nomenclature officielle EUR-Lex (date du règlement). La date de publication JO 27/12/2022 est un détail supplémentaire optionnel. **Aucune correction nécessaire**.
+
+### 📊 Référentiels vérifiés CORRECTS (audit fin de session)
+
+WebSearch préalables ont **confirmé** les affirmations suivantes des V2 antérieures à v3.8.1 (donc OK, pas de correction nécessaire) :
+- ✅ ISO 31000:2018 (8 principes Clause 4, Framework Clause 5, Process Clause 6)
+- ✅ PMBOK Guide 7 (12 principes + 8 performance domains, août 2021)
+- ✅ COSO ERM 2017 (5 composants + 20 principes)
+- ✅ Kotter HBR mai-juin 1995 + livre Leading Change 1996 + Accelerate 2014
+- ✅ ArchiMate 3.2 (The Open Group octobre 2022)
+- ✅ Sean Ellis PMF 40% (blog 2009, basé sur Dropbox/LogMeIn/Eventbrite)
+- ✅ AARRR McClure 2007 (Seattle Ignite Summit)
+- ✅ HEART Rodden/Hutchinson/Fu CHI 2010
+- ✅ Cagan Inspired 1ère éd. 2008 + 2e éd. 2017 (Wiley)
+- ✅ Goldratt Critical Chain 1997 (North River Press)
+- ✅ Bridges Managing Transitions 1991 (3 phases Endings/Neutral Zone/New Beginnings)
+- ✅ Lewin Frontiers in Group Dynamics 1947 + Force Field 1943
+
+### 🎯 Conformité quadriptyque qualité + verification factuelle
+- ✅ **Règle 1 — Densité actionnable** : correctif sans création de fichier, aligné existant
+- ✅ **Règle 2 — Méthode standard inaltérée** : zéro raccourci, 8 WebSearch préalables avant correctifs
+- ✅ **Règle 3 — Best practices** : libellés référentiels alignés sources primaires officielles (PeopleCert, ICIS Cambridge MA, PROSCI empower, TM Forum)
+- ✅ **Règle 4 — Simplicité maintenance** : 1 patch consolidé vs 6 patches séparés
+- ✅ **[[feedback-verification-factuelle]]** : application **rétroactive** confirme la valeur de la règle (6 erreurs détectées sur travail antérieur à la mémorisation de la règle)
+
+### 🔜 Suite — Phase 2 chantier COMPLET
+
+- **🏆 Phase 2 maintenant 100% factuel** (9/9 P1 stratégiques publiés + corrections appliquées)
+- **Sweep généralisation catalogue** (futur, demain) : retirer mentions "Guy HUIBONHOA" dans AGENT-*.md (violation `feedback_catalogue_generaliste`)
+- **Phase 3 V3 bundles cross-agents** (optionnel) : Sources Frameworks · Anti-patterns · Cross-links · Diversification
+
+---
+
 ## [3.10.0] — 2026-05-30 — Phase 2 P2.9 (DERNIÈRE) : refonte V2 `propriete-intellectuelle-ia` (Directive 2019/790 TDM art. 3-4 + AI Act + jurisprudence NYT/Andersen/Getty/Like Company C-250/25/Thaler) — 🏆 CHANTIER PHASE 2 COMPLET 9/9
 > Modèle : Claude Opus 4.7
 

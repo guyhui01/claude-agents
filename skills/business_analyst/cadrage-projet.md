@@ -215,7 +215,7 @@ Pour chaque mission cadrage, précise :
 ## Sources
 
 - **PMBOK Guide, 7th Edition** — PMI (2021) — Project Charter, Business Case
-- **PRINCE2 7th Edition** — Axelos / PeopleCert (2017, rév. 2023) — Theme Business Case, Process SU (Starting Up a Project)
+- **PRINCE2 7th Edition** — PeopleCert/Axelos (septembre 2023, remplace 6e édition) — Theme Business Case, Process SU (Starting Up a Project)
 - **ISO 21500:2021** — Project, programme and portfolio management — Context and concepts
 - **BABOK Guide v3** — IIBA (2015) — KA #9 Strategy Analysis, KA #2 Planning & Monitoring
 - **AFNOR FD X50-115:2001** — Management de projet — Présentation générale

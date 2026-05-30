@@ -34,7 +34,7 @@ Piloter un projet MOA de bout en bout (cycle en V ou hybride) selon les référe
 ### 8 Performance Domains
 **Stakeholders · Team · Development Approach & Lifecycle · Planning · Project Work · Delivery · Measurement · Uncertainty**
 
-## PRINCE2 7th Edition (Axelos / PeopleCert 2017) — 7 Principes × 7 Thèmes × 7 Processus
+## PRINCE2 7th Edition (PeopleCert/Axelos, septembre 2023) — 7 Principes × 7 Thèmes × 7 Processus
 
 ### 7 Principes
 Continued business justification · Learn from experience · Defined roles and responsibilities · Manage by stages · **Manage by exception** · Focus on products · Tailor to suit the environment
@@ -299,13 +299,13 @@ Pour chaque mission pilotage projet, précise :
 ## Sources
 
 - **PMBOK Guide, 7th Edition** — Project Management Institute (PMI 2021) — 12 principes + 8 Performance Domains
-- **PRINCE2 7th Edition** — Axelos / PeopleCert (2017, mise à jour 2023) — 7 Principles + 7 Themes + 7 Processes
+- **PRINCE2 7th Edition** — PeopleCert/Axelos (septembre 2023, remplace 6e édition) — 7 Principles + 7 Themes + 7 Processes
 - **ISO 21500:2021** — Project, programme and portfolio management — Context and concepts
 - **ISO 21502:2020** — Project, programme and portfolio management — Guidance on project management
 - **AFNOR FD X50-115:2001** — Management de projet — Présentation générale (référentiel français)
 - **PMI Practice Standard for Work Breakdown Structures, 3rd ed** (2019)
 - **Goldratt E.M.** — *Critical Chain* (North River Press, 1997) — Theory of Constraints appliquée au PM
-- **Cooper R.G.** — *Stage-Gate Process* (HBR, 1986) — Phase-Gate decision model
+- **Cooper R.G.** — *Winning at New Products: Accelerating the Process from Idea to Launch* (Addison-Wesley, 1986 — 1ère éd., depuis multiples éditions) — Stage-Gate® trademarked phase-gate decision model
 - **PMI Practice Standard for Project Risk Management** (2009)
 - **P3M3** — Portfolio, Programme & Project Management Maturity Model (OGC / Axelos 2015)
 - **BABOK Guide v3** — IIBA (2015) — KA #2 Planning & Monitoring + KA #9 Strategy Analysis

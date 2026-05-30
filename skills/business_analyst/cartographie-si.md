@@ -138,7 +138,7 @@ Niveau 5 — Infrastructure → Réseau, datacenter, cloud, sécurité physique
 
 **Périmètre cartographié** :
 - **412 applications** identifiées (objectif : exhaustivité ≥ 95%) répartis en 5 domaines **TM Forum eTOM** : Customer Domain (78) · Product Domain (61) · Service Domain (94 — OSS) · Resource Domain (112 — réseau/infra) · Enterprise Domain (67 — RH/Finance/Achats)
-- **Référentiel TM Forum** appliqué : eTOM (Business Process Framework) + SID (Shared Information Data) + TAM (Telecom Application Map) — référentiel sectoriel datant 2001, version 23.5 (2023)
+- **Référentiel TM Forum Frameworx** appliqué : eTOM (Business Process Framework) + SID (Shared Information Data) + TAM (Telecom Application Map) — référentiel sectoriel mature standard de l'industrie télécoms, en évolution continue vers Open Digital Architecture (ODA)
 - **3 250 flux applicatifs** inventoriés (Source → Cible × pattern × criticité)
 
 **Modélisation ArchiMate 3.2** :
@@ -224,7 +224,7 @@ Pour chaque mission cartographie, précise :
 - **Hohpe G., Woolf B.** — *Enterprise Integration Patterns* (Addison-Wesley 2003)
 - **Nygard Michael T.** — *Documenting Architecture Decisions* (ADR pattern, 2011)
 - **BABOK Guide v3** — IIBA (2015), KA #2 Planning + KA #9 Strategy Analysis + Perspective IT
-- **TM Forum Frameworx** — eTOM + SID + TAM v23.5 (2023) — https://www.tmforum.org/oda
+- **TM Forum Frameworx** — eTOM (Process Framework) + SID (Shared Information Data) + TAM (Application Framework) + évolution Open Digital Architecture (ODA, cloud-native re-packaging) — https://www.tmforum.org/oda
 - **APM Gartner** — *IT Application Portfolio Management* (Gartner Research, méthode TIME 2010+)
 
 ## Voir aussi

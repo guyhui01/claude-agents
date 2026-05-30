@@ -48,7 +48,7 @@ Versant **psychologique** du changement (vs Lewin focus organisationnel) — dis
 | **2. Neutral Zone** | Confusion, incertitude, perte de productivité temporaire | Communication soutenue, ritualisation, droit à l'erreur, soutien psychologique |
 | **3. New Beginnings** | Engagement, identité reconstruite, productivité retrouvée | Célébrer petites victoires, clarifier nouveaux rôles, ancrer apprentissages |
 
-**Règle Bridges** : aucune transition ne réussit si la phase Endings est sautée — 70% des échecs de change projects (PROSCI Best Practices 2024) viennent du déni de la perte.
+**Règle Bridges** : aucune transition ne réussit si la phase Endings est sautée — l'oubli du deuil de l'existant est l'une des causes principales d'échec des changes projects (cf. PROSCI Best Practices in Change Management 12e éd., 2023).
 
 ## PROSCI 3-Phase Process + ADKAR (Jeff Hiatt 2003)
 
@@ -110,7 +110,7 @@ Classification des parties prenantes selon 2 axes : **Power** (capacité d'influ
 | **Keep Informed** (Low Power, High Interest) | Communication régulière transparente, écoute, feedback loops | Utilisateurs finaux, managers de proximité, associations consommateurs |
 | **Monitor** (Low Power, Low Interest) | Veille minimale, communication standard | Prestataires hors périmètre, fournisseurs IT secondaires |
 
-**Anti-pattern** : sponsor classé Manage Closely mais qui décroche → reclassifier en Keep Satisfied ne corrige rien. Sans sponsor actif **70% des projets de transformation échouent** (PROSCI Best Practices 2024, 12th ed).
+**Anti-pattern** : sponsor classé Manage Closely mais qui décroche → reclassifier en Keep Satisfied ne corrige rien. Les projets avec **excellent change management** sont **8× plus susceptibles d'atteindre leurs objectifs** que ceux avec un poor change management (PROSCI Best Practices in Change Management, 12e éd., 2023 — étude sur 10 800+ professionnels en 101 pays sur 25 ans). Le sponsorship actif et visible est l'un des **top contributeurs au succès** mesurés.
 
 ## Force Field Analysis (Kurt Lewin, 1943) — quantification des résistances
 
@@ -216,14 +216,14 @@ Identifier dans quelle phase se trouve **chaque population cible** (jamais homog
 
 ## 8 anti-patterns analyse d'impact & conduite du changement
 
-- ❌ **Démarrer projet sans analyse d'impact** ("on verra plus tard") → 70% d'échec adoption (PROSCI 2024)
+- ❌ **Démarrer projet sans analyse d'impact** ("on verra plus tard") → projets avec poor change management ont un taux d'atteinte des objectifs nettement inférieur (cf. PROSCI Best Practices 12e éd., 2023 : 8× moins susceptibles que ceux avec excellent change management)
 - ❌ **Analyse impact mono-dimensionnelle** (que processus, ignore culture & compétences) → POOCC partiel = angle mort
 - ❌ **Stakeholder mapping absent ou sponsor mal identifié** → coalition fragile, arbitrages impossibles
 - ❌ **ADKAR survolé sans scoring individualisé par population** → plan one-size-fits-all inefficace
 - ❌ **Plan de communication descendant uniquement** (top-down sans feedback loop) → résistance silencieuse non détectée
 - ❌ **Quick wins absents** (Kotter step #6 ignoré) → essoufflement coalition à 6-12 mois
 - ❌ **Pas d'indicateur d'adoption mesurable** (taux connexion ≠ adoption réelle) → faux signaux de succès
-- ❌ **Sponsor exécutif absent ou décrochage post-kickoff** → projet orphelin, 70% des échecs PROSCI
+- ❌ **Sponsor exécutif absent ou décrochage post-kickoff** → projet orphelin, sponsorship actif/visible identifié comme **top contributeur au succès** dans PROSCI Best Practices 12e éd. (2023)
 
 ## Outils
 
@@ -265,11 +265,11 @@ Pour chaque mission analyse d'impact, précise :
 - **Bridges W., Bridges S.** — *Managing Transitions: Making the Most of Change* (Da Capo Press, 1991, 4ème éd. 2017)
 - **Hiatt J.** — *ADKAR: A Model for Change in Business, Government and our Community* (Prosci Learning Center, 2003)
 - **Waterman R., Peters T., Phillips J.** — *Structure Is Not Organization*, McKinsey Quarterly (1980) + Peters & Waterman *In Search of Excellence* (1982)
-- **Mendelow A.** — *Environmental Scanning — The Impact of the Stakeholder Concept*, Cleveland State University ICIS Proceedings (1991)
+- **Mendelow A.L.** — *Environmental Scanning: The Impact of the Stakeholder Concept*, Proceedings From the Second International Conference on Information Systems (ICIS), Cambridge MA (1991)
 - **Kübler-Ross E.** — *On Death and Dying* (Macmillan, 1969) — adaptation change management
 - **BABOK Guide v3** — IIBA (2015) — KA #6 Solution Evaluation + KA #9 Strategy Analysis + KA #10 Stakeholder Engagement
 - **PMBOK Guide 7th ed** — PMI (2021) — Change Control Board, Performance Domain
-- **PROSCI Best Practices in Change Management** — 12th Edition Benchmark (Prosci 2024)
+- **PROSCI Best Practices in Change Management — 12th Edition** (Prosci, mai 2023) — étude sur 10 800+ professionnels en 101 pays sur 25 ans ; analyses fines sur 2 668 répondants ; projets avec excellent change management = **8× plus susceptibles** d'atteindre leurs objectifs
 
 ## Voir aussi
 

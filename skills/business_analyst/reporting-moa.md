@@ -222,7 +222,7 @@ Pour chaque mission reporting, précise :
 ## Sources
 
 - **PMBOK Guide, 7th Edition** — PMI (2021) — Performance Domain Measurement, Earned Value Management
-- **PRINCE2 7th Edition** — Axelos / PeopleCert (2017, rév. 2023) — Theme Progress, Process DP (Directing a Project)
+- **PRINCE2 7th Edition** — PeopleCert/Axelos (septembre 2023, remplace 6e édition) — Theme Progress, Process DP (Directing a Project)
 - **BABOK Guide v3** — IIBA (2015) — KA #2 Planning & Monitoring + KA #6 Solution Evaluation + KA #10 Stakeholder Engagement
 - **ISO 21500:2021** — Project, programme and portfolio management — Performance reporting
 - **Doerr J.** — *Measure What Matters: How Google, Bono, and the Gates Foundation Rock the World with OKRs* (Portfolio Penguin, 2018)

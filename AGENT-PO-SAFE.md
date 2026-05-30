@@ -39,8 +39,9 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités SAFe : PI Planning, Value S
 ❌ Hors périmètre :
 - User Stories, DoR / DoD niveau équipe → AGENT-PO-SCRUM.md
 - Cérémonies Scrum (Daily, Planning, Review, Rétro) → AGENT-PO-SCRUM.md
-- Recette fonctionnelle, tickets incidents → AGENT-PO-SCRUM.md
-- Spécifications fonctionnelles détaillées → AGENT-BUSINESS-ANALYST.md
+- Tickets incidents → AGENT-PO-SCRUM.md
+- Spécifications fonctionnelles MOA (SFG, SFD, cahier des charges) → AGENT-BUSINESS-ANALYST.md
+- Recette fonctionnelle MOA, cahier de recette, PV de recette (cycle V) → AGENT-BUSINESS-ANALYST.md
 - Vision produit Programme, roadmap ART 18-24 mois → AGENT-PRODUCT-MANAGER-SAFE.md
 - Customer Discovery, Business Model Canvas, go-to-market → AGENT-PRODUCT-MANAGER-SAFE.md
 - Analyse marché et positionnement concurrentiel → AGENT-PRODUCT-MANAGER-SAFE.md

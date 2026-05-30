@@ -5,7 +5,7 @@
 
 ---
 
-## Index des skills (30)
+## Index des skills (28)
 
 ### Vision & Discovery
 | Skill | Quand l'invoquer | Certification |
@@ -49,12 +49,10 @@
 ### Communication & Documentation
 | Skill | Quand l'invoquer | Certification |
 |---|---|---|
-| [`spec-fonctionnelle.md`](spec-fonctionnelle.md) | Rédiger une spécification fonctionnelle | PSPO I |
 | [`compte-rendu.md`](compte-rendu.md) | Rédiger un compte rendu de réunion | PSPO I |
 | [`confluence-page.md`](confluence-page.md) | Structurer une page Confluence | PSPO I |
 | [`email-stakeholder.md`](email-stakeholder.md) | Email stakeholder pro et concis | PSPO I |
 | [`ticket-incident.md`](ticket-incident.md) | Ticket d'incident PO | PSPO I |
-| [`recette-fonctionnelle.md`](recette-fonctionnelle.md) | Préparer et conduire la recette PO | PSPO I |
 | [`gestion-risques.md`](gestion-risques.md) | Matrice des risques / RACI | PSPO II |
 
 ---
@@ -83,7 +81,10 @@ Tu veux ...
     → forecasting-planning.md (prévision)
 
   ... DOCUMENTER OU COMMUNIQUER ?
-    → spec-fonctionnelle / confluence-page / email-stakeholder / compte-rendu
+    → confluence-page / email-stakeholder / compte-rendu (côté agile produit)
+
+  ... RÉDIGER DES SPÉCIFICATIONS FONCTIONNELLES MOA (SFG, SFD, recette MOA) ?
+    → ❌ Hors périmètre PO Scrum — voir `AGENT-BUSINESS-ANALYST.md` (cycle en V)
 ```
 
 ---

@@ -113,11 +113,11 @@ Skills **directement produits** par PO/MOA en mission — livrables systématiqu
 - `business_analyst/elicitation-besoins.md` — Volere + Wiegers + BABOK
 - `business_analyst/modelisation-processus.md` — BPMN 2.0 + UML 2.5
 - `business_analyst/cartographie-si.md` — TOGAF 10 + Archimate 3.2
-- `business_analyst/spec-fonctionnelle.md` — Spec Fonctionnelle Générale/Détaillée
+- `business_analyst/specification-fonctionnelle.md` — Spec Fonctionnelle Générale/Détaillée (SFG/SFD)
 - `business_analyst/analyse-impact.md` — Analyse impact changement
-- `business_analyst/recette-fonctionnelle.md` — Recette MOA
+- `business_analyst/recette-moa.md` — Recette MOA
 - `business_analyst/reporting-moa.md` — Reporting MOA
-- `business_analyst/note-cadrage.md` — Note de cadrage
+- `business_analyst/cadrage-projet.md` — Cadrage projet / Note de cadrage
 
 ### 3.4 — CHEF-PROJET-IA (6 skills N1)
 - `chef_projet_ia/cadrage-projet-ia.md` — Cadrage projet IA

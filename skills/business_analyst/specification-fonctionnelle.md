@@ -5,12 +5,17 @@
 Rédiger des spécifications fonctionnelles complètes, traçables et validables pour guider le développement.
 
 ## Types de documents
-| Document | Contexte | Détail |
-|---|---|---|
-| **SFG** (Spécifications Fonctionnelles Générales) | Vision macro, cycle en V | Exigences de haut niveau |
-| **SFD** (Spécifications Fonctionnelles Détaillées) | Détail technique, cycle en V | Règles de gestion, IHM |
-| **Cahier des charges fonctionnel** | Appel d'offres | Besoins + contraintes |
-| **User Stories + AC** | Agile | Format PO |
+| Document | Contexte | Détail | Skill associé |
+|---|---|---|---|
+| **SFG** (Spécifications Fonctionnelles Générales) | Vision macro, cycle en V | Exigences de haut niveau | ce skill |
+| **SFD** (Spécifications Fonctionnelles Détaillées) | Détail technique, cycle en V | Règles de gestion, IHM | ce skill |
+| **Cahier des charges fonctionnel (CDCF)** | Appel d'offres MOA→MOE | Besoins + contraintes + critères choix | ce skill |
+| **User Stories + Acceptance Criteria** | Agile / Scrum / SAFe | Format PO, Connextra + Gherkin | [`../scrum/po-user-story.md`](../scrum/po-user-story.md) + [`../scrum/po-acceptance-tests.md`](../scrum/po-acceptance-tests.md) |
+
+**Règle d'orientation rôle/méthodologie** :
+- Contexte cycle en V → MOA / BA → ce skill (SFG, SFD, CDCF) + [`recette-moa.md`](recette-moa.md)
+- Contexte Agile/Scrum → PO Scrum → [`../scrum/po-user-story.md`](../scrum/po-user-story.md) + [`../scrum/po-acceptance-tests.md`](../scrum/po-acceptance-tests.md) + [`../scrum/po-backlog.md`](../scrum/po-backlog.md)
+- Contexte SAFe Programme → Product Manager SAFe → [`../safe/`](../safe/)
 
 ## Structure d'une SFD type
 ```
@@ -53,3 +58,12 @@ Priorité : [Obligatoire / Souhaitable / Optionnel]
 
 ## Format de sortie
 Précise : type de document · contexte (cycle en V, Agile) · domaine fonctionnel · niveau de détail attendu
+
+## Voir aussi
+
+- [elicitation-besoins.md](elicitation-besoins.md) — collecte besoins en amont (BABOK KA #10, 14 techniques)
+- [modelisation-processus.md](modelisation-processus.md) — BPMN 2.0 / UML 2.5 pour processus métier modélisés en SFG
+- [recette-moa.md](recette-moa.md) — recette MOA, cahier de recette, PV de recette (livrable cycle V aval)
+- [gestion-exigences.md](gestion-exigences.md) — traçabilité besoins → exigences → tests
+- [`../scrum/po-user-story.md`](../scrum/po-user-story.md) — pont Agile : User Story (Connextra) équivalent SFD côté PO Scrum
+- [`../scrum/po-acceptance-tests.md`](../scrum/po-acceptance-tests.md) — Acceptance Criteria (Gherkin) équivalent règles de gestion vérifiables côté PO

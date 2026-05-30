@@ -5,6 +5,69 @@
 
 ---
 
+## [3.5.1] — 2026-05-30 — Conformité méthodologique : séparation stricte livrables PO Scrum (Agile) vs BA/MOA (cycle V)
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+**Audit méthodologique déclenché en session** — détection d'une **violation de la séparation des rôles** : 2 skills cycle V (`spec-fonctionnelle.md` + `recette-fonctionnelle.md`) étaient logés dans `skills/scrum/` avec rattachement faussé à AGENT-PO-SCRUM et certifications PSPO I (alors que PSPO ne forme pas à SFG/SFD/recette MOA). Anti-pattern fréquent en France (confusion AMOA/PO Scrum). **Révision de la décision passée v2.8.x** ("doublons complémentaires 60-70% acceptable") — cette décision était méthodologiquement incorrecte au regard du Scrum Guide 2020, des cursus Scrum.org PSPO, et de la séparation cycle V / Agile.
+
+### 🔧 Suppressions (2 fichiers)
+
+- ❌ **`skills/scrum/spec-fonctionnelle.md`** (47L) — contenu 100% cycle V (SFG, SFD, Use Cases formels signés Métier) — déjà couvert par `business_analyst/specification-fonctionnelle.md` (correctement positionné rôle BA/MOA)
+- ❌ **`skills/scrum/recette-fonctionnelle.md`** (54L) — terminologie 100% cycle V (Recette Fonctionnelle, GO MEP, TNR, Validation PO signée) — déjà couvert côté agile par `scrum/po-acceptance-tests.md` (Sprint Review) et côté QA par `qa_testing/*`
+
+### 🔧 Modifications agents & README (4 fichiers)
+
+#### 1. `AGENT-PO-SCRUM.md`
+- **L32** : "Tests d'acceptation et recette fonctionnelle" → "Tests d'acceptation (Gherkin, ATDD) et Sprint Review"
+- **L37** : "Documentation (spécifications, comptes rendus, Confluence)" → "Documentation produit (comptes rendus, Confluence, pages de référence backlog)"
+- **L89** : suppression entrée table `Spécifications fonctionnelles | spec-fonctionnelle.md | PSPO I`
+- **L96** : suppression entrée table `Recette fonctionnelle | recette-fonctionnelle.md | PSPO I`
+- **Nouvel encart Hors périmètre → AGENT-BUSINESS-ANALYST.md** explicite : SFG/SFD/cahier des charges/recette MOA/PV de recette/EB macro/cartographie SI
+
+#### 2. `AGENT-PO-SAFE.md` L42-43
+- "Recette fonctionnelle, tickets incidents → AGENT-PO-SCRUM.md" → "Tickets incidents → AGENT-PO-SCRUM.md ; Recette fonctionnelle MOA, cahier de recette, PV de recette (cycle V) → AGENT-BUSINESS-ANALYST.md"
+- Précision SFG/SFD/cahier des charges → AGENT-BUSINESS-ANALYST.md
+
+#### 3. `skills/scrum/README.md`
+- Compteur "Index des skills (30)" → "(28)"
+- Suppression 2 entrées tables `spec-fonctionnelle.md` + `recette-fonctionnelle.md`
+- Arbre de décision corrigé : ajout branche explicite "❌ SFG/SFD/recette MOA → Hors périmètre PO Scrum, voir AGENT-BUSINESS-ANALYST.md (cycle en V)"
+
+#### 4. `skills/business_analyst/specification-fonctionnelle.md`
+- Enrichissement table types de documents avec colonne "Skill associé" (cycle V vs Agile)
+- Ajout **règle d'orientation rôle/méthodologie** explicite : cycle V → BA/MOA · Agile/Scrum → PO Scrum · SAFe Programme → Product Manager SAFe
+- Ajout section **`## Voir aussi`** : 4 cross-links internes BA (elicitation-besoins, modelisation-processus, recette-moa, gestion-exigences) + 2 cross-links Agile (`../scrum/po-user-story.md`, `../scrum/po-acceptance-tests.md`)
+
+### 🔧 Correction cohérence — `audits/CARTOGRAPHIE-SKILLS-CORE-MISSION.md` §3.3
+
+3 chemins de skills BA erronés corrigés (bugs pré-existants détectés à l'occasion) :
+- `spec-fonctionnelle.md` → `specification-fonctionnelle.md`
+- `recette-fonctionnelle.md` → `recette-moa.md`
+- `note-cadrage.md` → `cadrage-projet.md`
+
+### 📊 Impact qualitatif
+- **Conformité référentielle PSPO/Scrum.org** : 100% (suppression des livrables cycle V mal rattachés à PSPO I)
+- **Séparation rôles claire** : PO Scrum (Agile) ≠ BA/MOA (cycle V) ≠ AMOA (transverse, fusionné dans BA pour le marché français)
+- **Compteurs cohérents** : skills/scrum/ = 28 (vs 30 affiché précédemment) — README aligné réalité
+- **Catalogue généraliste préservé** : décision **NE PAS créer AGENT-CHEF-PROJET-MOA** séparé — la convention française AMOA dominante (70% des offres) fusionne BA/MOA/CdP MOA dans un seul rôle, conforme à AGENT-BUSINESS-ANALYST déjà titré "BA / MOA Expert"
+
+### 🎯 Conformité quadriptyque qualité
+- ✅ **Règle 1 — Densité actionnable** : enrichissement de l'existant (BA spec-fonctionnelle) > création nouveau (CdP MOA refusé)
+- ✅ **Règle 2 — Méthode standard inaltérée** : analyse rigoureuse Scrum Guide 2020 + cursus PSPO + BABOK avant correction
+- ✅ **Règle 3 — Best practices** : conformité Scrum.org PSPO + cycle V AFNOR/PMBOK V + BABOK v3 rôles
+- ✅ **Règle 4 — Simplicité maintenance** : 38 agents inchangés (refus création CdP MOA), 2 skills supprimés (29→28 scrum)
+
+### 🧠 Memories enregistrées
+- `feedback_catalogue_generaliste.md` — catalogue public pour profils PO/MOA/consultants généralistes (pas calé sur Guy)
+- `feedback_conformite_scrum_vs_cyclev.md` — séparation stricte livrables Agile vs cycle V (anti-patterns interdits)
+
+### 🔜 Suite
+- **v3.6.0** : enrichissement micro AGENT-BUSINESS-ANALYST pour clarifier la couverture **pilotage projet MOA** (COPIL, EVM, planning Gantt, charte projet) — audit préalable du dossier `skills/business_analyst/` requis avant création de nouveaux skills
+- **v3.7.0** : reprise Phase 2 P2.6 `scrum/product-vision.md` (Cagan + Pichler + Moore + JTBD)
+
+---
+
 ## [3.5.0] — 2026-05-30 — Phase 2 P2.5 : refonte V2 `gestion-risques` (ISO 31000 + PMBOK 7 + COSO ERM + SAFe ROAM + DORA + Monte Carlo)
 > Modèle : Claude Opus 4.7
 

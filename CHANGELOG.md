@@ -5,6 +5,56 @@
 
 ---
 
+## [3.7.0] — 2026-05-30 — Phase 2 P2.6 : refonte V2 `product-vision` (Cagan + Pichler + Moore + Christensen + Sinek + Blue Ocean + JTBD + PMF + OKR)
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+**Phase 2 P2.6 du chantier audit v2.8** — sixième refonte V2 profonde sur skill N1 CORE-PRATIQUE. Skill `scrum/product-vision.md` identifié P1 dans audit Phase 1 (initialement 35 lignes minimalistes : Pichler Vision Board + Elevator Pitch + North Star + Impact Mapping cités sans profondeur, Cagan/Moore/Christensen/Blue Ocean/JTBD/PMF tous absents). Application stricte du **quadriptyque qualité** sur skill mobilisé en mission PO moderne (scale-up + grand groupe avec spin-off scale-up).
+
+### ✨ Refonte V2 — `skills/scrum/product-vision.md` (35L → 393L denses)
+
+#### Enrichissements majeurs (16 sections structurées)
+- **En-tête certifications enrichi** : PSPO II/III · ICAgile ICP-APO · Pragmatic Marketing · SVPG Coach Influences (Cagan)
+- **Cadre référentiels mobilisés** : 6 domaines × référentiels (Vision narrative · Stratégie marché · Discovery · Validation · Roadmap · Metrics)
+- **Sinek Golden Circle (2009)** : Start With Why — WHY/HOW/WHAT inversé + anti-pattern WHAT-first
+- **Pichler Product Vision Board (Strategize 2016)** : 5 sections cadre + Extended VB (Business Model, Competitors, Market & Trends, Technologies) + variante IA
+- **Cagan Product Vision Type (Inspired 2017 / Empowered 2020)** : équipe empowered + **4 grands risques produit** (Value/Usability/Feasibility/Business Viability) avec owners — référentiel SVPG mondial
+- **Moore Crossing the Chasm (1991/2014)** : 5 segments Technology Adoption Lifecycle + Chasm + stratégie Bowling Alley/Tornado/Main Street
+- **Christensen Innovator's Dilemma (1997)** : sustaining vs disruptive low-end vs disruptive new-market + dilemme + 2 horizons
+- **Kim & Mauborgne Blue Ocean Strategy (2005/2015)** : 6 Paths to Reconstruct Market Boundaries + ERRC Grid (Eliminate-Reduce-Raise-Create)
+- **JTBD Christensen-Ulwick** : Job Story format (When/I want/So I can) + ODI Outcome Statements + Opportunity Score (Importance + max(0, Importance - Satisfaction)) + anti-pattern personas démographiques
+- **Lean Canvas (Maurya 2012)** : 9 blocs + comparaison BMC Osterwalder (Problem · Solution · Unfair Advantage · Key Metrics)
+- **Product-Market Fit** : Andreessen 2007 + Sean Ellis PMF Survey 40% rule (méthode mesurable "How would you feel if you could no longer use [product]?") + 4 signaux complémentaires (organic growth, retention, NPS, churn)
+- **Continuous Discovery Torres (2021)** : Opportunity Solution Tree + cadence hebdo (3-5 interviews/semaine + 1 assumption test/semaine)
+- **Hiérarchie stratégique** : Vision (2-5 ans) → Strategy (annuelle) → Themes (trimestriels) → OKR → Initiatives/Epics → Features/User Stories — règle Cagan 3-5 axes max
+- **Roadmap themes-based** : GO Product Roadmap Pichler (Date/Name/Goal/Features/Metrics) + Now/Next/Later (Sutherland) + anti-pattern Gantt dates fixes 18 mois
+- **Metrics Framework** : North Star (Amplitude Cutler/Taylor) + Inputs Metrics + AARRR McClure 2007 + HEART Google Rodden et al. CHI 2010 + OKR Doerr 2018
+- **Exemple chiffré sectoriel scale-up SaaS B2B** : éditeur SaaS B2B européen Series B (~150 collab, ARR 15M€, 1 200 customers) — refonte vision T+12 mois post arrivée nouveau CPO ex-Atlassian, diagnostic PMF 47% (sous-seuil 40%), application méthode complète (Golden Circle + Pichler VB + Moore Bowling Alley + Blue Ocean ERRC + JTBD interviews + OKR Q4 + Now/Next/Later), gains T+12 : PMF 47%→**64%**, ARR 15→22M€ (+47%), NPS 38→52, Net Revenue Retention 105%→117%, velocity +35%
+- **8 anti-patterns explicites** : Vision = liste features · vision changée chaque trimestre · roadmap Gantt 18 mois · North Star = vanity metric · JTBD remplacé par personas démo · OKR top-down rigide · PMF confondu avec adoption early adopters · skipper Bowling Alley Crossing the Chasm
+- **Outils** : Miro/Mural (Vision Board) · Ally.io/Perdoo/Gtmhub (OKR) · ProductPlan/Aha/Productboard (Roadmap) · Dovetail/Maze (Discovery) · Amplitude/Mixpanel/PostHog (Metrics)
+- **Livrables complets** : Vision Statement · Pichler VB · Blue Ocean ERRC · JTBD Map · Lean Canvas · PMF Survey · Hiérarchie 1-page · GO Roadmap · NSM + Inputs · OKR trimestriels · AARRR funnel + HEART scorecard
+- **16 sources datées primaires** : Cagan 2008/2017/2020 · Pichler 2016 · Moore 1991/2014 · Christensen 1997/2016 · Sinek 2009 · Kim & Mauborgne 2005/2015 · Torres 2021 · Ulwick 2005 · Andreessen 2007 · Sean Ellis 2009-2010 · Maurya 2012 · Ries 2011 · Doerr 2018 · McClure 2007 · Rodden et al. CHI 2010 · Wodtke 2016
+- **10 cross-links "Voir aussi"** : po-backlog · product-metrics-ebm · customer-discovery · business-model-canvas · hypothesis-driven · story-mapping · lean-ux · po-ai-product · coaching-pos (scrum) · cadrage-projet (business_analyst, pont Agile↔Cycle V)
+
+### 📊 Impact qualitatif
+- **Densité** : 35L → 393L (×11.2) — Pichler VB seul cité → 9 référentiels normatifs intégrés (Cagan SVPG, Pichler, Moore, Christensen, Sinek, Kim & Mauborgne, Torres, Ulwick, Maurya/Ries) + 4 frameworks metrics (NSM, AARRR, HEART, OKR)
+- **Profondeur** : couverture quasi-exhaustive du Product Management moderne — narrative (Sinek) + cadre (Pichler/Cagan) + marché (Moore/Christensen/Blue Ocean) + discovery (Torres/Ulwick/JTBD) + validation (PMF Andreessen/Ellis + Lean Startup) + roadmap (GO/Now-Next-Later) + metrics (North Star + AARRR + HEART + OKR)
+- **Actionabilité** : exemple chiffré bout-en-bout (diagnostic PMF → application méthode complète → OKR Q4 → roadmap themes → gains T+12 mesurés ROI 47%) — réplicable directement par PO scale-up ou PO grand groupe
+- **Conformité référentielle** : 100% sources datées primaires (livres + papers académiques CHI 2010 + blog Andreessen 2007 + référentiel SVPG Silicon Valley)
+- **Anonymisation respectée** : "éditeur SaaS B2B européen Series B" générique — alignement [[feedback-anonymisation-clients]] + [[feedback-catalogue-generaliste]]
+
+### 🎯 Conformité quadriptyque qualité
+- ✅ **Règle 1 — Densité actionnable** : enrichissement profond du skill existant (pas de fragmentation en sous-skills) — 1 fichier consolidé avec 10 cross-links vers skills spécialisés
+- ✅ **Règle 2 — Méthode standard inaltérée** : zéro raccourci, écriture en pleine méthode (référentiels primaires datés, exemple chiffré sectoriel scale-up détaillé)
+- ✅ **Règle 3 — Best practices** : Cagan Inspired/Empowered conformes SVPG, Pichler Vision Board conforme méthode officielle, Moore Chasm conforme livre 1991/2014, OKR conforme méthode Doerr/Wodtke
+- ✅ **Règle 4 — Simplicité maintenance** : critère 80/20 respecté — skill core mission PO mobilisé en formulation vision, refonte produit, OKR trimestriels, roadmap
+
+### 🔜 Suite
+- **Phase 2 P2.7** : `consultant_ia/diagnostic-maturite-ia.md` (Gartner AI Maturity Model + MIT Sloan AI Maturity, ~2h)
+- NEXT_STEPS.md actualisé post-v3.7.0
+
+---
+
 ## [3.6.0] — 2026-05-30 — Enrichissement BA/MOA/AMOA : pilotage projet (WBS, Gantt, Tolérances PRINCE2, EVM, Clôture, Gouvernance comitologique)
 > Modèle : Claude Opus 4.7
 

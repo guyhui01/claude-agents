@@ -1,7 +1,7 @@
 # Skills — Consultant IA
 
 > Dossier rattaché à `AGENT-CONSULTANT-IA.md`
-> Référentiels : CAP IABAC · PMI-ACP · AWS CCP · Google Cloud Digital Leader · Azure AI-900 / AZ-900 · PROSCI · Anthropic Claude Code in Action
+> Référentiels : CAP IABAC · PMI-ACP · AWS CCP · Google Cloud Digital Leader · Azure AI-900 / AZ-900 · PROSCI · **ISO/IEC 42001:2023 Lead Implementer** (PECB) · **NIST AI RMF 1.0 Architect** (CIS) · Anthropic Claude Code in Action
 
 ---
 
@@ -11,7 +11,7 @@
 |---|---|---|---|
 | 1 | [`proposition-commerciale.md`](proposition-commerciale.md) | Rédiger une proposition commerciale (RFP response) | PMI-ACP · CAP IABAC · PROSCI |
 | 2 | [`offre-mission.md`](offre-mission.md) | Construire une offre de mission freelance | CAP IABAC · Anthropic Claude Code in Action |
-| 3 | [`diagnostic-maturite-ia.md`](diagnostic-maturite-ia.md) | Conduire un diagnostic de maturité IA (5 axes) | CAP IABAC · Google GCDL · Azure AI-900 |
+| 3 | [`diagnostic-maturite-ia.md`](diagnostic-maturite-ia.md) | Conduire un diagnostic de maturité IA (8 dimensions, triangulation Gartner + MIT Sloan/BCG + Cap Gemini + couplage NIST AI RMF/ISO 42001) | CAP IABAC · ISO 42001 LI (PECB) · NIST AI RMF Architect (CIS) |
 | 4 | [`feuille-route-ia.md`](feuille-route-ia.md) | Construire une feuille de route IA (Now/Next/Later) | CAP IABAC · Azure AI-900 · PMI-ACP |
 | 5 | [`benchmark-solutions-ia.md`](benchmark-solutions-ia.md) | Réaliser un benchmark de solutions IA (matrice TCO) | AWS CCP · Google GCDL · Azure AZ-900 |
 | 6 | [`presentation-executif.md`](presentation-executif.md) | Préparer une présentation C-level (CODIR/COMEX) | PROSCI · CAP IABAC |

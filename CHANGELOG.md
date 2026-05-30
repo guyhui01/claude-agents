@@ -5,6 +5,75 @@
 
 ---
 
+## [3.8.1] — 2026-05-30 — Correctif factuel `diagnostic-maturite-ia` : noms cohorts MIT Sloan/BCG + chiffre Cap Gemini + libellés certifications
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+**Audit qualité déclenché en session** sur v3.8.0 — détection de **3 erreurs factuelles** + **2 incohérences cross-files** par vérification WebSearch des sources primaires. Révision honnête des affirmations publiées. Couplage à une nouvelle règle mémorisée (`feedback_verification_factuelle.md`) — WebSearch obligatoire avant publier tout chiffre statistique ou libellé exact de référentiel/certification.
+
+### 🔧 Corrections factuelles
+
+#### 1. MIT Sloan / BCG cohorts — **noms inventés corrigés** (sévère)
+- **v3.8.0 (faux)** : Implementers (18%) / Builders (16%) / Practitioners (27%) / Leaders (39%)
+- **v3.8.1 (corrigé selon source primaire)** : **Pioneers** (~18%) / **Investigators** (~33%) / **Experimenters** (~16%) / **Passives** (~34%) — rapport MIT SMR + BCG *Artificial Intelligence in Business Gets Real* (septembre 2018)
+- Ajout note méthodologique pour mise à jour annuelle (Winning With AI 2019, Expanding AI's Impact 2020, etc.)
+- Suppression différenciateurs "Leaders 75%/80%/90%" inventés → remplacement par 6 caractéristiques qualitatives sourcées MIT SMR/BCG 2018
+
+#### 2. Cap Gemini Digital Mastery — **chiffre échantillon corrigé**
+- **v3.8.0 (faux)** : "étude 184 entreprises"
+- **v3.8.1 (corrigé)** : "+400 entreprises mondiales (Capgemini Consulting + MIT Center for Digital Business, 2012-2014)" + ajout "+9% de revenus" (donnée complémentaire confirmée)
+- **+26% profitabilité** reste correct ✅
+
+#### 3. Gartner AI Maturity — **colonne %  fabriquée supprimée**
+- **v3.8.0 (faux)** : colonne "% entreprises (Gartner 2023)" avec 20%/30%/30%/15%/5% inventés
+- **v3.8.1 (corrigé)** : colonne supprimée, remplacée par note "Observations terrain (Gartner Hype Cycle for AI, rapports annuels)" sans chiffres précis non sourcés
+- **Noms 5 niveaux Gartner restent corrects** ✅
+
+#### 4. Certifications — **libellés précisés** (cohérence cross-files)
+- **v3.8.0 (imprécis)** : "NIST AI RMF Certification" générique
+- **v3.8.1 (précis)** : "**NIST AI RMF 1.0 Architect** (Certified Information Security)" — précision de l'organisme certificateur (CIS, pas NIST directement)
+- **v3.8.0 (imprécis)** : "ISO/IEC 42001 Lead Implementer"
+- **v3.8.1 (précis)** : "**ISO/IEC 42001:2023 Lead Implementer (PECB)**" — alignement avec libellé exact PECB et avec AGENT-CONSULTANT-IA.md L17
+- "MIT Sloan AI Strategy Executive Programs" → "MIT Sloan AI Strategy Executive Education" (libellé exact)
+- "Wharton AI for Business" → "Wharton AI for Business Executive Program" (libellé exact)
+
+#### 5. Exemple chiffré santé — cohort recalée
+- v3.8.0 (faux) : classification "MIT Sloan **Builders**" (cohort inventé)
+- v3.8.1 (corrigé) : classification "MIT Sloan **Investigators**" (cohort réel — comprennent l'IA, déploiements limités au stade pilote — colle au profil hospitalier décrit)
+- Gain projeté T+18 mois : "Builders → Practitioners" → "**Investigators → Pioneers**" (transition réelle)
+
+### 🔧 Corrections cohérence cross-files
+
+#### `skills/consultant_ia/README.md`
+- **Ligne 4 référentiels** : ajout ISO/IEC 42001:2023 Lead Implementer (PECB) + NIST AI RMF 1.0 Architect (CIS) dans la liste référentiels du dossier
+- **Ligne 14 table skills** : "(5 axes)" → "(8 dimensions, triangulation Gartner + MIT Sloan/BCG + Cap Gemini + couplage NIST AI RMF/ISO 42001)" + certifications enrichies (CAP IABAC · ISO 42001 LI (PECB) · NIST AI RMF Architect (CIS))
+
+#### `AGENT-CONSULTANT-IA.md`
+- **Section certifications agent** : ajout "NIST AI RMF 1.0 Architect (Certified Information Security)"
+- **Ligne 66 table skills** : libellé skill enrichi (8 dim. + triangulation + couplage) + certifications alignées
+
+### 📊 Impact qualitatif
+- **Conformité référentielle factuelle** : 100% des chiffres et noms vérifiés WebSearch sur sources primaires
+- **Crédibilité skill Consultant IA** restaurée (citation en mission grand groupe possible sans embarras)
+- **Cohérence cross-files** : skill ↔ README ↔ AGENT alignés sur libellés exacts
+- **Catalogue généraliste préservé** : pas d'invention de chiffres, préfère ne pas chiffrer plutôt qu'halluciner
+
+### 🧠 Memory enregistrée
+- **`feedback_verification_factuelle.md`** — règle d'or anti-hallucination : WebSearch obligatoire avant publier chiffres clés (%, cohorts) et libellés exacts de référentiels/certifications. Anti-patterns interdits : inventer des % "pour boucler un tableau", mélanger noms de cohorts entre frameworks, citer une certif au libellé approximatif.
+
+### 🎯 Conformité quadriptyque qualité
+- ✅ **Règle 1 — Densité actionnable** : correctif sans création de nouveau fichier, enrichissement précision skill existant
+- ✅ **Règle 2 — Méthode standard inaltérée** : audit qualité rigoureux avec WebSearch sur 5 sources primaires + relecture cross-files
+- ✅ **Règle 3 — Best practices** : libellés certifications maintenant alignés sources officielles (PECB pour ISO 42001, CIS pour NIST AI RMF, MIT SMR/BCG pour cohorts AI Maturity)
+- ✅ **Règle 4 — Simplicité maintenance** : aucune création de skill, juste correction factuelle ciblée
+
+### 🔜 Suite
+- **Phase 2 P2.8** : `consultant_ia/benchmark-solutions-ia.md` (Gartner Magic Quadrant + Forrester Wave + IDC MarketScape, ~1.5h, v3.9.0)
+- **Sweep généralisation catalogue** (futur) : retirer mentions "Guy HUIBONHOA" dans AGENT-*.md (violation [[feedback-catalogue-generaliste]] — hors scope v3.8.1)
+- NEXT_STEPS.md actualisé post-v3.8.1
+
+---
+
 ## [3.8.0] — 2026-05-30 — Phase 2 P2.7 : refonte V2 `diagnostic-maturite-ia` (Gartner + MIT Sloan/BCG + Cap Gemini Digital Mastery + NIST AI RMF + ISO 42001 + AI Act + benchmarks McKinsey/Stanford)
 > Modèle : Claude Opus 4.7
 

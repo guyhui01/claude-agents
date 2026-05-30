@@ -1,6 +1,6 @@
 # Skill — Diagnostic de Maturité IA
 
-> Certifications : **CAP IABAC** · **Google Cloud Digital Leader** · **Azure AI-900** · **NIST AI RMF Certification** · **ISO/IEC 42001 Lead Implementer** · MIT Sloan AI Strategy Executive Programs · Wharton AI for Business
+> Certifications : **CAP IABAC** · **Google Cloud Digital Leader** · **Azure AI-900** · **NIST AI RMF 1.0 Architect** (Certified Information Security) · **ISO/IEC 42001:2023 Lead Implementer** (PECB) · MIT Sloan AI Strategy Executive Education · Wharton AI for Business Executive Program
 > Agent : AGENT-CONSULTANT-IA.md
 
 ## Objectif
@@ -16,35 +16,40 @@
 | **Benchmarks marché** | McKinsey State of AI (annuel) · Stanford HAI AI Index (annuel) · Gartner Hype Cycle for AI (annuel) · PWC AI Predictions · Deloitte State of AI |
 | **Compétences & Data** | DAMA-DMBOK 2 (2017) · EDM Council DCAM · Coursera/MIT AI for Business · Wharton/INSEAD AI Strategy |
 
-## Gartner AI Maturity Model (2019/2020) — 5 niveaux
+## Gartner AI Maturity Model (2019+) — 5 niveaux
 
-| Niveau | Nom | Caractéristiques clés | % entreprises (Gartner 2023) |
-|:---:|---|---|:---:|
-| **1** | **Awareness** | Discussions stratégiques, pas d'investissement concret | ~20% |
-| **2** | **Active** | POCs isolés, expérimentations métier, pas de gouvernance | ~30% |
-| **3** | **Operational** | IA en production sur quelques cas d'usage, gouvernance émergente, équipe data dédiée | ~30% |
-| **4** | **Systemic** | IA intégrée à plusieurs processus business, plateforme MLOps, gouvernance mature | ~15% |
-| **5** | **Transformational** | IA au cœur de la stratégie business, avantage compétitif mesuré, culture IA-first | ~5% |
+| Niveau | Nom | Caractéristiques clés |
+|:---:|---|---|
+| **1** | **Awareness** | Discussions stratégiques sur l'IA, pas d'investissement concret |
+| **2** | **Active** | POCs isolés et projets pilotes, expérimentations métier, pas de gouvernance |
+| **3** | **Operational** | Au moins un projet IA en production, gouvernance émergente, équipe data dédiée |
+| **4** | **Systemic** | Chaque nouveau projet digital intègre l'IA, plateforme MLOps, gouvernance mature |
+| **5** | **Transformational** | IA au cœur de la stratégie business, avantage compétitif mesuré, culture IA-first |
+
+**Observations terrain (Gartner Hype Cycle for AI, rapports annuels)** : la majorité des organisations se situent au niveau 1 (Awareness) ou 2 (Active). Le niveau 5 (Transformational) reste rare. Pour positionnement quantifié précis, se référer au rapport Gartner CIO annuel + benchmarks sectoriels McKinsey/Stanford AI Index.
 
 **Mesure type** : positionnement organisation × benchmark sectoriel × ambition cible 18-36 mois.
 
-## MIT Sloan / BCG AI Maturity — 4 cohorts (Reshaping Business With AI, 2018+)
+## MIT Sloan / BCG AI Maturity — 4 cohorts (*Artificial Intelligence in Business Gets Real*, 2018)
 
-Étude annuelle MIT SMR + BCG sur 3 000+ organisations dans 28 industries — segmentation en 4 cohorts mesurées sur **5 piliers** (Strategy / Talent / Data / Tech / Culture) :
+Étude conjointe MIT Sloan Management Review + Boston Consulting Group sur 3 000+ organisations dans 28 industries — segmentation en **4 cohorts** selon compréhension et adoption IA :
 
-| Cohort | % entreprises | Caractéristiques différenciantes |
+| Cohort | % (2018) | Caractéristiques différenciantes |
 |---|:---:|---|
-| **Implementers** | ~18% | Adoption IA limitée, POCs sans business value claire |
-| **Builders** | ~16% | Investissent dans la data/tech mais ROI faible (gap exécution) |
-| **Practitioners** | ~27% | Cas d'usage prouvés mais cantonnés à quelques fonctions |
-| ⭐ **Leaders** | ~39% | IA au cœur stratégie, **3× plus de ROI** que Practitioners |
+| ⭐ **Pioneers** | ~18% | Organisations qui **comprennent ET ont adopté** l'IA — leaders du marché, IA intégrée stratégie |
+| **Investigators** | ~33% | Comprennent l'IA mais ne déploient pas au-delà de la phase pilote |
+| **Experimenters** | ~16% | Pilotent/adoptent l'IA sans compréhension profonde |
+| **Passives** | ~34% | Pas d'adoption ni de compréhension significative |
 
-**Différenciateurs Leaders (vs autres cohorts)** :
-- 75% intègrent IA dans stratégie corporate (vs 25% Builders)
-- 80% ont une plateforme MLOps unifiée (vs 30% Practitioners)
-- 90% mesurent ROI IA via KPI business (vs 45% autres)
-- Culture "Learn fast, fail fast" institutionnalisée
+**Différenciateurs Pioneers (vs Passives, étude MIT SMR/BCG 2018)** :
+- Approche stratégique IA documentée et alignée business
+- Plateformes data/IA matures (MLOps, data catalog, gouvernance)
+- Mesure ROI IA via KPI business
+- Culture "Test and Learn" institutionnalisée
 - Compétences hybrides Business + Data Science fortement valorisées
+- Engagement direction (Sponsor exécutif IA)
+
+> **Note méthodologique** : pour pourcentages 2024-2025 actualisés et différenciateurs chiffrés par Pioneers, se référer aux mises à jour annuelles MIT SMR/BCG (séries *Winning With AI* 2019, *Expanding AI's Impact* 2020+, *Achieving Individual and Organizational Value With AI* 2022+).
 
 ## Cap Gemini Digital Mastery (Westerman, Bonnet, McAfee 2012/2014)
 
@@ -67,7 +72,7 @@ Matrice 2×2 — **Digital Capabilities** (data, IA, plateformes, cloud) × **Le
                   LOW LEADERSHIP CAPABILITIES
 ```
 
-**Étude 184 entreprises** : Digital Masters surperforment +26% de profitabilité moyenne vs Beginners. **Conservatives sont mieux placés** que Fashionistas pour devenir Masters (leadership > tech sans vision).
+**Étude +400 entreprises mondiales** (Capgemini Consulting + MIT Center for Digital Business, 2012-2014) : Digital Masters surperforment de **+26% de profitabilité moyenne** et **+9% de revenus** vs leurs pairs sectoriels. **Conservatives sont mieux placés** que Fashionistas pour devenir Masters (leadership > tech sans vision).
 
 ## Microsoft AI Maturity Model + IBM AI Ladder
 
@@ -201,7 +206,7 @@ Data & Infrastructure (8 questions)
 
 **Classifications croisées** :
 - **Gartner** : niveau **2 "Active"** (POCs isolés, gouvernance émergente)
-- **MIT Sloan cohort** : **Builders** (investissements data forts mais ROI faible)
+- **MIT Sloan cohort** : **Investigators** (comprennent l'IA, déploiements limités au stade pilote)
 - **Cap Gemini quadrant** : **Conservatives** (Leadership Capabilities fortes, Digital Capabilities faibles)
 - **NIST AI RMF gap** : Govern 3.5/5 ✅, Map 2.8/5 🟡, Measure 1.8/5 🔴, Manage 2.5/5 🟡
 
@@ -226,7 +231,7 @@ Data & Infrastructure (8 questions)
 - NIST AI RMF : couverture 4 fonctions intégrée à la gouvernance projet IA
 
 **Gains projetés T+18 mois** (post-implémentation) :
-- Cohort MIT Sloan : passage **Builders → Practitioners** (cible **Leaders** T+36)
+- Cohort MIT Sloan : passage **Investigators → Pioneers** (sortie phase pilote, IA en production scalée)
 - Gartner : niveau 2 → **niveau 3.5 "Operational/Systemic"**
 - Productivité personnel médical : +18% (temps libéré sur tâches valeur ajoutée clinique)
 - Réduction durée séjour moyenne : -8% (parcours optimisé + détection précoce)
@@ -281,8 +286,8 @@ Pour chaque mission diagnostic, précise :
 
 ## Sources
 
-- **Gartner AI Maturity Model** — Gartner Research (2019-2024) — 5 niveaux Awareness/Active/Operational/Systemic/Transformational
-- **Ransbotham S., Kiron D., Gerbert P., Reeves M.** — *Reshaping Business With Artificial Intelligence*, MIT Sloan Management Review en partenariat avec BCG (2017+, mise à jour annuelle) — 4 cohorts Implementers/Builders/Practitioners/Leaders
+- **Gartner AI Maturity Model** — Gartner Research (2019+, mise à jour annuelle) — 5 niveaux Awareness/Active/Operational/Systemic/Transformational
+- **Ransbotham S., Kiron D., Gerbert P., Reeves M.** — *Artificial Intelligence in Business Gets Real*, MIT Sloan Management Review en partenariat avec BCG (septembre 2018) — 4 cohorts **Pioneers / Investigators / Experimenters / Passives** (séries annuelles ultérieures : *Winning With AI* 2019, *Expanding AI's Impact* 2020, *Achieving Individual and Organizational Value With AI* 2022+)
 - **Westerman G., Bonnet D., McAfee A.** — *Leading Digital: Turning Technology into Business Transformation* (HBR Press, 2014) + Cap Gemini Digital Mastery (2012, rev. 2017)
 - **NIST AI Risk Management Framework 1.0** — National Institute of Standards and Technology (janvier 2023) — 4 fonctions Govern/Map/Measure/Manage
 - **ISO/IEC 42001:2023** — Information technology — Artificial intelligence — Management system (AIMS) — certifiable

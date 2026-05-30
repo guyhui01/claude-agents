@@ -5,6 +5,63 @@
 
 ---
 
+## [3.9.0] — 2026-05-30 — Phase 2 P2.8 : refonte V2 `benchmark-solutions-ia` (Gartner MQ + Forrester Wave + IDC MarketScape + G2 + Peer Insights + TEI + Kraljic + ISO 25010:2023 + RFI/RFP/POC)
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+**Phase 2 P2.8 du chantier audit v2.8** — huitième refonte V2 profonde sur skill N1 CORE-PRATIQUE. Skill `consultant_ia/benchmark-solutions-ia.md` identifié P1 (initialement 51 lignes basiques : exemples LLM/Low-code + Make vs Buy + méthode 6 étapes générique, aucun référentiel analyste cité). **Application stricte de la nouvelle règle `feedback_verification_factuelle.md`** (WebSearch préalable sur tous les libellés et structures de référentiels avant écriture).
+
+### ✨ Refonte V2 — `skills/consultant_ia/benchmark-solutions-ia.md` (51L → 334L denses)
+
+#### Enrichissements majeurs (15 sections structurées)
+- **En-tête certifications enrichi** : AWS CCP CLF-C02 · Google Cloud Digital Leader · Azure Fundamentals AZ-900 · CAP IABAC · **Gartner Subscriptions** (Peer Insights/MQ) · **Forrester Decisions**
+- **Cadre référentiels mobilisés (4 catégories)** : Frameworks analystes · Peer reviews · Méthodes économiques · Procurement & qualité
+- **Gartner Magic Quadrant** méthodologie officielle vérifiée WebSearch : 2 axes (Ability to Execute × Completeness of Vision) × 4 quadrants (Leaders/Visionaries/Niche Players/Challengers) + Critical Capabilities complément + exemple récent vérifié (MQ Data Science & ML Platforms 2025 — Leaders : Databricks/AWS/Microsoft/Google/Dataiku/Altair/DataRobot/IBM)
+- **Forrester Wave** méthodologie officielle vérifiée WebSearch (mise à jour 2024) : ⚠️ **suppression catégorie Challengers en 2024**, 3 catégories actuelles (Leaders/Strong Performers/Contenders) × 3 dimensions (Current offering × Strategy × Customer feedback)
+- **IDC MarketScape** méthodologie vérifiée : 4 catégories (Leaders/Major Players/Contenders/Participants) × 2 axes (Capabilities × Strategies 3-5 ans) + bubble size market share + +/- growth indicator
+- **G2 Grid** méthodologie vérifiée (mise à jour trimestrielle) : 4 segments (Leaders/High Performers/Contenders/Niche) × 2 axes (Market Presence × Satisfaction) + seuils minimum (6 produits, 10 reviews/produit, 150 total)
+- **Constellation ShortList** : alternative analyst-curated (focus digital transformation), mise à jour annuelle (semestrielle marchés mouvants)
+- **Peer review platforms** : 6 plateformes (Gartner Peer Insights, G2, TrustRadius, Capterra, Software Advice, GetApp) avec usage privilégié par contexte + contrepoids cabinet analyste
+- **Forrester TEI méthodologie** vérifiée : 4 composantes (Cost · Benefits · Flexibility · Risk) × processus 4 phases (Research/Composite Org/Financial Modeling/Risk-adjusted) sur 3 ans
+- **Kraljic Matrix (HBR 1983)** vérifiée : matrice 2×2 (Profit Impact × Supply Risk) × 4 catégories (Strategic/Bottleneck/Leverage/Non-critical) appliquée au sourcing IA avec stratégie sourcing par catégorie
+- **ISO/IEC 25010:2023** vérifiée (Edition 2 novembre 2023, **pas 2011 obsolète**) : 9 caractéristiques qualité (Functional Suitability · Performance Efficiency · Compatibility · **Interaction Capability** *nouveau* · Reliability · Security · Maintainability · **Flexibility** *remplace Portability* · **Safety** *nouveau*)
+- **Méthode benchmark structurée 6 étapes** : Cadrage → Long list RFI → Shortlist 3-5 → RFP → POC 4-8 semaines → TCO+TEI+Décision
+- **TCO 3-5 ans** : 7 catégories de coûts (Licences/Intégration/Formation/RUN/Maintenance/Conformité/Exit) avec 3 scénarios (Conservatif/Probable/Optimiste)
+- **Exemple chiffré industrie 4.0 / manufacturing** : groupe industriel manufacturier européen (12 sites, ~8 500 collaborateurs, CA 1.2 Md€) — programme "Smart Factory 2026" (plateforme MLOps + computer vision qualité + maintenance prédictive), Kraljic appliqué, RFI 12 → shortlist 5 → POC 3 finalistes → Databricks + Cognex + Senseye retenus, TCO 5 ans 4.2 M€, TEI 3 ans (NPV +3.0 M€, Payback 22 mois, ROI 107%), gains 3 sites pilotes T+18 mois (taux rebut -26%, MTBF +35%, disponibilité +8 pts)
+- **8 anti-patterns explicites** : benchmark sans pondération · shortlist > 5 · pas de POC · TCO 1 an · confondre Gartner MQ et Forrester Wave · ignorer peer reviews · pas critères sortie · pas de tests prod
+- **Outils** : plateformes analystes (Gartner/Forrester/IDC/Constellation subs) · peer reviews (G2/TrustRadius/Capterra) · RFP management (Loopio/RFPIO/Responsive) · scoring (Excel/Smartsheet/Airtable) · TCO/TEI calculators · POC tracking (Confluence/Notion/Jira)
+- **Livrables complets** : Cadre + RFI/RFP + Grille pondérée + POC + TCO + TEI + Recommandation + ADR + Plan exit + Reporting COSTRAT
+- **12 sources datées vérifiées** : 4 méthodologies analystes (URLs officiels) + Constellation ShortList + Forrester TEI Methodology + Kraljic HBR 1983 + ISO/IEC 25010:2023 + NIST SP 800-145 + 2 exemples MQ récents vérifiés (DSML 2025, Cloud AI Developer Services 2024)
+- **9 cross-links "Voir aussi"** : diagnostic-maturite-ia · feuille-route-ia · estimation-roi-rapide · proposition-commerciale · cadrage-poc-ia · transformation-digitale (consultant_ia) · gestion-risques (scrum) · cadrage-projet · pilotage-projet (business_analyst)
+
+### 🔧 Mises à jour cohérence cross-files
+
+- **`skills/consultant_ia/README.md`** L16 : libellé skill enrichi + certifications alignées (Gartner Subscriptions + Forrester Decisions ajoutés)
+- **`AGENT-CONSULTANT-IA.md`** L68 : libellé skill enrichi + certifications alignées
+
+### 📊 Impact qualitatif
+- **Densité** : 51L → 334L (×6.5) — 4 tableaux comparatifs basiques → 4 méthodologies analystes officiellement détaillées + 6 peer review platforms + TEI complet + Kraljic + ISO 25010:2023 (9 caractéristiques) + méthode 6 étapes structurée
+- **Profondeur** : couverture exhaustive du benchmark IA — frameworks analystes (4) + peer reviews (6) + méthodes économiques (TEI+TCO) + procurement strategy (Kraljic) + grille qualité normative (ISO 25010:2023)
+- **Application IMMÉDIATE [[feedback-verification-factuelle]]** : 4 WebSearch préalables sur structures référentiels (Gartner MQ, Forrester Wave, IDC MarketScape, G2 Grid) + 4 vérifications supplémentaires (ISO 25010:2023, Kraljic, Constellation, Gartner MQ DSML 2025) — **0 chiffre/libellé inventé**, tous sourcés ou prudemment non-quantifiés
+- **Découverte factuelle clé** : Forrester Wave 2024 — suppression catégorie Challengers (3 catégories actuelles, pas 4)
+- **Actionabilité** : exemple chiffré industriel bout-en-bout (Kraljic → RFI 12 → shortlist 5 → POC 3 → décision tracée ADR → TCO 4.2 M€ → TEI NPV +3.0 M€ → gains 3 sites T+18 mois mesurés) — réplicable directement
+- **Conformité référentielle** : 100% sources datées vérifiées WebSearch sur sources officielles (Gartner.com/research, forrester.com/policies, idc.com, g2.com, constellationr.com, iso.org)
+- **Anonymisation respectée** : "groupe industriel manufacturier européen" générique — alignement [[feedback-anonymisation-clients]] + [[feedback-catalogue-generaliste]]
+
+### 🎯 Conformité quadriptyque qualité + nouvelle règle factuelle
+- ✅ **Règle 1 — Densité actionnable** : enrichissement profond skill existant (pas de fragmentation), 1 fichier consolidé
+- ✅ **Règle 2 — Méthode standard inaltérée** : zéro raccourci, WebSearch systématique préalable sur référentiels et chiffres clés
+- ✅ **Règle 3 — Best practices** : structures analystes 100% conformes méthodologies officielles vérifiées (Gartner.com, Forrester.com, IDC.com, G2.com)
+- ✅ **Règle 4 — Simplicité maintenance** : critère 80/20 respecté — skill core mission Consultant IA mobilisé en sélection plateforme/solution IA toutes échelles
+- ✅ ⚠️ **[[feedback-verification-factuelle]]** : 8 WebSearch préalables avant écriture, 0 invention de chiffres/cohorts/libellés — application IMMÉDIATE de la règle apprise en v3.8.1
+
+### 🔜 Suite
+- **Phase 2 P2.9 (dernière)** : `juridique_ia/propriete-intellectuelle-ia.md` (Jurisprudence CJUE numéros affaires + Directive UE 2019/790 art. 3-4, ~1.5h, v3.10.0)
+- **Fin Phase 2 Chantier audit v2.8** post v3.10.0 = 9/9 P1 stratégiques publiés (100%)
+- NEXT_STEPS.md actualisé post-v3.9.0
+
+---
+
 ## [3.8.1] — 2026-05-30 — Correctif factuel `diagnostic-maturite-ia` : noms cohorts MIT Sloan/BCG + chiffre Cap Gemini + libellés certifications
 > Modèle : Claude Opus 4.7
 

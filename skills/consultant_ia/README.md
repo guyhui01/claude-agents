@@ -13,7 +13,7 @@
 | 2 | [`offre-mission.md`](offre-mission.md) | Construire une offre de mission freelance | CAP IABAC · Anthropic Claude Code in Action |
 | 3 | [`diagnostic-maturite-ia.md`](diagnostic-maturite-ia.md) | Conduire un diagnostic de maturité IA (8 dimensions, triangulation Gartner + MIT Sloan/BCG + Cap Gemini + couplage NIST AI RMF/ISO 42001) | CAP IABAC · ISO 42001 LI (PECB) · NIST AI RMF Architect (CIS) |
 | 4 | [`feuille-route-ia.md`](feuille-route-ia.md) | Construire une feuille de route IA (Now/Next/Later) | CAP IABAC · Azure AI-900 · PMI-ACP |
-| 5 | [`benchmark-solutions-ia.md`](benchmark-solutions-ia.md) | Réaliser un benchmark de solutions IA (matrice TCO) | AWS CCP · Google GCDL · Azure AZ-900 |
+| 5 | [`benchmark-solutions-ia.md`](benchmark-solutions-ia.md) | Réaliser un benchmark de solutions IA (Gartner MQ + Forrester Wave + IDC MarketScape + G2 Grid + Constellation ShortList + Peer Insights + TEI + Kraljic + ISO 25010:2023 + RFI/RFP/POC + TCO 3-5 ans) | AWS CCP · Google GCDL · Azure AZ-900 · Gartner Subscriptions · Forrester Decisions |
 | 6 | [`presentation-executif.md`](presentation-executif.md) | Préparer une présentation C-level (CODIR/COMEX) | PROSCI · CAP IABAC |
 | 7 | [`estimation-roi-rapide.md`](estimation-roi-rapide.md) | Estimer rapidement le ROI d'un projet IA | PMI-ACP · CAP IABAC · AI+ Business |
 | 8 | [`cadrage-poc-ia.md`](cadrage-poc-ia.md) | Cadrer un PoC IA (objectifs, critères de succès, exit gate) | Anthropic · CAP IABAC · PMI-ACP |

@@ -5,6 +5,54 @@
 
 ---
 
+## [3.4.0] — 2026-05-30 — Phase 2 P2.4 : refonte V2 `analyse-impact` (Kotter 8 Steps + Lewin + Bridges + PROSCI ADKAR + McKinsey 7S + Mendelow + BABOK)
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+**Phase 2 P2.4 du chantier audit v2.8** — quatrième refonte V2 profonde sur skill N1 CORE-PRATIQUE. Skill `business_analyst/analyse-impact.md` identifié P1 dans audit Phase 1 (initialement 50 lignes basiques : ADKAR mentionné minimaliste, Kotter absent, Lewin absent, Bridges absent, McKinsey 7S absent, Stakeholder Mendelow absent, Force Field absent, CCB absent, BABOK Strategy/Solution Evaluation absents). Application stricte du **quadriptyque qualité** sur skill mobilisé en mission PO/MOA tous segments d'organisations.
+
+### ✨ Refonte V2 — `skills/business_analyst/analyse-impact.md` (50L → 284L denses)
+
+#### Enrichissements majeurs (15 sections structurées)
+- **En-tête certifications & référentiels** : PROSCI Change Management Practitioner · ACMP CCMP · IIBA CBAP/AAC · PMI-PBA
+- **Cadre BABOK v3** : 3 mobilisations (KA #9 Strategy Analysis 4 tasks · KA #6 Solution Evaluation 5 tasks · KA #10 Stakeholder Engagement transverse)
+- **Kotter 8 Steps for Leading Change** (HBR 1995 / livre 1996) : 8 étapes détaillées avec livrables PO/BA par étape + **Kotter Accelerate dual-OS** (2014) pour transformations rapides
+- **Lewin 3-Phase Model** (1947) : Unfreeze / Change / Refreeze — fondateur historique avec mécanismes et leviers opérationnels
+- **Bridges Transition Model** (William Bridges 1991, *Managing Transitions*) : versant psychologique 3 phases (Endings / Neutral Zone / New Beginnings) + règle « 70% des échecs viennent du déni de la perte » PROSCI 2024
+- **PROSCI 3-Phase Process + ADKAR enrichi** (Jeff Hiatt 2003) : 3 phases méthodo (Prepare Approach / Manage Change / Sustain Outcomes) + scoring ADKAR 1-5 par jalon avec plan d'action si < 3 (barrier point)
+- **McKinsey 7S Framework** (Waterman, Peters, Phillips, HBR 1980) : 7 leviers Hard (Strategy/Structure/Systems) + Soft (Shared Values/Skills/Style/Staff) — règle alignement obligatoire pour éviter échec superficiel
+- **Stakeholder Impact Matrix Mendelow** (1991, Cleveland State Univ) : grille Power × Interest 4 quadrants (Manage Closely / Keep Satisfied / Keep Informed / Monitor) avec stratégie engagement par quadrant
+- **Force Field Analysis Lewin** (1943, Human Relations) : quantification driving vs restraining forces, règle d'arbitrage avant kickoff
+- **Analyse d'impact 5 dimensions POOCC** : Processus / Organisation / Outils / Compétences / Culture avec cotation 1-5 et indicateurs quantitatifs + règle "score ≥ 4 sur ≥ 2 dimensions = plan dédié"
+- **CCB Change Control Board** (PMBOK 7 PMI 2021 / PRINCE2) : composition, fréquence, inputs (CR), outputs, critères arbitrage, traçabilité
+- **Kübler-Ross adaptée 7 phases** (1969) : Choc / Déni / Colère / Marchandage / Dépression / Acceptation / Engagement avec actions par phase
+- **Exemple chiffré sectoriel énergie** : énergéticien européen majeur ~30 000 collaborateurs 4 pays — programme "Customer Experience 2025" (refonte CRM B2C unifié 35M clients + self-care + chatbot IA + workflow conseiller 350→1 interface), 8 500 conseillers impactés, analyse POOCC chiffrée (score 4.0/5), Force Field (Restraining > Driving), ADKAR baseline scoring critique (Knowledge 1.8 / Desire 2.3), Stakeholder Mendelow 4 quadrants, budget 12 M€/24 mois, gains T+18 mois (NPS +18 pts, coût/contact -22%, time-to-resolution -41%, eNPS conseillers +14%, ROI 22 mois) — anonymisé
+- **8 anti-patterns explicites** : analyse mono-dimensionnelle · stakeholder mapping absent · ADKAR sans scoring individualisé · communication descendante · quick wins absents · pas d'indicateur d'adoption · sponsor exécutif décroché · démarrage sans analyse impact (échec adoption 70% PROSCI)
+- **Outils** : cartographie stakeholders (Miro, Lucidchart, Mural) · ADKAR scoring (Prosci Toolkit, Qualtrics) · pilotage change (ServiceNow SPM, WalkMe, Whatfix, Pendo) · communication (Slack, Teams, Lumapps) · formation (Articulate, Cornerstone LMS, 360Learning) · adoption analytics (Pendo, Viva Insights) · CCB tooling (Jira, ServiceNow)
+- **Livrables complets** : Matrice POOCC + Stakeholder Matrix + Force Field + ADKAR scoring + Plan conduite changement PROSCI 3-Phase + Plan communication + Plan formation + Charte CCB + Dashboard adoption
+- **12 sources datées** : Kotter 1995 HBR + 1996 livre + 2014 Accelerate · Lewin 1947 + 1943 Force Field · Bridges 1991 (rééd. 2017) · Hiatt 2003 ADKAR · Waterman/Peters/Phillips 1980 McKinsey 7S · Mendelow 1991 Cleveland State · Kübler-Ross 1969 · BABOK v3 IIBA 2015 · PMBOK 7 PMI 2021 · PROSCI Best Practices 2024 (12th ed)
+- **9 cross-links "Voir aussi"** : elicitation-besoins · cartographie-si · modelisation-processus · gestion-exigences · strategie-adoption (change_manager) · adkar-model (change_manager) · gestion-resistance (change_manager) · plan-communication (change_manager) · coaching-pos (scrum)
+
+### 📊 Impact qualitatif
+- **Densité** : 50L → 284L (×5.7) — ADKAR cité → 6 référentiels normatifs intégrés (Kotter, Lewin, Bridges, ADKAR PROSCI complet, McKinsey 7S, Mendelow) + Force Field + CCB + BABOK Strategy/Solution Evaluation
+- **Profondeur** : intégration de 6 frameworks change management normatifs absents + référentiel BABOK v3 KA #6/#9/#10 + courbe émotionnelle Kübler-Ross 7 phases adaptée
+- **Actionabilité** : exemple chiffré bout-en-bout (analyse POOCC chiffrée → Force Field → ADKAR baseline → Stakeholder Mendelow → plan budget 12M€ → gains mesurés ROI 22 mois) — réplicable directement par BA/MOA en mission change management
+- **Conformité référentielle** : 100% sources datées primaires (Kotter HBR 1995 + livre 1996, Lewin Human Relations 1947, Hiatt PROSCI 2003, Waterman/Peters McKinsey Quarterly 1980)
+- **Anonymisation respectée** : "énergéticien européen majeur" générique — alignement [[feedback-anonymisation-clients]]
+
+### 🎯 Conformité quadriptyque qualité
+- ✅ **Règle 1 — Densité actionnable** : enrichissement profond du skill existant (pas de fragmentation) — 1 fichier consolidé avec 9 cross-links vers skills spécialisés change_manager
+- ✅ **Règle 2 — Méthode standard inaltérée** : zéro raccourci, écriture en pleine méthode (référentiels primaires datés, exemple chiffré sectoriel détaillé sourcé)
+- ✅ **Règle 3 — Best practices** : Kotter 8 steps conforme HBR 1995, ADKAR scoring conforme méthode Prosci officielle, McKinsey 7S conforme article original 1980, Mendelow grille Power-Interest conforme paper 1991
+- ✅ **Règle 4 — Simplicité maintenance** : critère 80/20 respecté — skill core mission BA/PO mobilisé en cadrage projet, conduite changement, accompagnement transformation
+
+### 🔜 Suite
+- **Phase 2 P2.5** : `scrum/gestion-risques.md` (PMBOK 7 + ISO 31000 + COSO ERM 2017, ~2h)
+- Diversification sectorielle Phase 2 : luxe / banque CIB / défense / assurance / santé / secteur public restants
+- NEXT_STEPS.md actualisé post-v3.4.0
+
+---
+
 ## [3.3.0] — 2026-05-30 — Phase 2 P2.3 : refonte V2 `cartographie-si` (TOGAF 10 + ArchiMate 3.2 + C4 + Longépé + APM Gartner)
 > Modèle : Claude Opus 4.7
 

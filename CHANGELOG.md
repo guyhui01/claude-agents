@@ -5,6 +5,28 @@
 
 ---
 
+## [3.2.1] — 2026-05-30 — Fix `po-ai-product.md` : section "À venir" obsolète
+> Modèle : Claude Opus 4.7
+
+### 🎯 Contexte
+Re-vérification de `skills/scrum/po-ai-product.md` (déjà refondu V2 en v2.9.0) en début de session Phase 2 — détection d'une section `📌 À venir` obsolète référençant comme à créer deux skills désormais existants depuis v2.10.0 (Phase 1.1 Conseil/Direction).
+
+### 🔧 Correction appliquée
+- **Section `📌 À venir` supprimée** (lignes 134-136) — annonçait `skills/securite_ia/owasp-llm-top10.md` et `skills/juridique_ia/ai-act.md` comme « à venir »
+- **2 cross-links ajoutés dans `## Voir aussi`** vers les fichiers réellement publiés :
+  - `../securite_ia/owasp-llm-top10.md` — OWASP LLM Top 10 détaillé (prompt injection, data leak)
+  - `../juridique_ia/ai-act-conformite.md` — AI Act UE — guide opérationnel conformité
+
+### 📊 Impact
+- ✅ Cohérence cross-links : 7 liens "Voir aussi" tous vérifiés existants (5 scrum + 2 cross-dossier)
+- ✅ Suppression annonce trompeuse de skills "à venir" déjà publiés en v2.10.0
+- ✅ Convention path relatif `../folder/file.md` conforme repo (alignement `qa_testing/tests-securite.md`, `scrum_master/kanban-flow.md`)
+
+### 🔜 Suite
+- Phase 2 P2.3 `business_analyst/cartographie-si.md` (TOGAF 10 + Archimate 3.2) — prochaine étape réelle (P2.1 et P2.2 déjà publiées v3.1.0 et v3.2.0 — NEXT_STEPS.md à actualiser)
+
+---
+
 ## [3.2.0] — 2026-05-29 — Phase 2 P2.2 : refonte V2 `modelisation-processus` (BPMN 2.0 + UML 2.5 + DMN 1.4 + CMMN 1.1)
 > Modèle : Claude Opus 4.7
 

@@ -130,7 +130,5 @@ Pour chaque feature IA, précise :
 - [gestion-risques.md](gestion-risques.md) — gestion risques projet, articulation avec AI Risk Register
 - [product-metrics-ebm.md](product-metrics-ebm.md) — mesure valeur (EBM) — couplage métriques business + modèle
 - [product-vision.md](product-vision.md) — Product Vision Board, base de l'AI Vision Statement
-
-📌 **À venir** (bundle Conseil/Direction — priorité 2 chantier audit) :
-- `skills/securite_ia/owasp-llm-top10.md` — OWASP LLM Top 10 détaillé
-- `skills/juridique_ia/ai-act.md` — AI Act UE — guide opérationnel détaillé
+- [`../securite_ia/owasp-llm-top10.md`](../securite_ia/owasp-llm-top10.md) — OWASP LLM Top 10 détaillé (prompt injection, data leak)
+- [`../juridique_ia/ai-act-conformite.md`](../juridique_ia/ai-act-conformite.md) — AI Act UE — guide opérationnel conformité

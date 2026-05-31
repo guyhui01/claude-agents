@@ -1,5 +1,7 @@
 # Skill — Gestion Budgétaire des Projets IT/IA
 > Certifications : PMP (PMI), DSCG (France), CMA (IMA), PMI-PBA (PMI)
+> Agent : AGENT-FINANCIAL-ANALYST.md
+> Référentiels : **PMBOK 7** (PMI 2021 — *Cost Management*) · distinction **CAPEX/OPEX** (cadre comptable) · **EVM** (variance analysis) · réserve de contingence (PMI)
 
 ## Objectif
 Construire, suivre et piloter le budget d'un projet IT/IA — décomposition CAPEX/OPEX, suivi de consommation, variance analysis, reporting mensuel — pour maintenir le projet dans l'enveloppe validée.
@@ -89,3 +91,21 @@ Scénario risque   : 270 000 € (+10 000 €) si tests > estimés
 
 ## Format de sortie
 Précise : postes budgétaires identifiés, montants engagés vs consommés, écarts constatés, date de clôture prévisionnelle.
+
+## Anti-patterns
+- ❌ **Budget sans réserve de contingence** : aucune marge pour les risques identifiés
+- ❌ **Confondre engagé et consommé** : un poste engagé à 100% peut n'être consommé qu'à 60%
+- ❌ **Confondre CAPEX et OPEX** : impacte la fiscalité et l'amortissement
+- ❌ **Pas de variance analysis** : constater l'écart sans en expliquer la cause ni l'action
+- ❌ **Budget figé sans re-forecast** : ne pas réviser la prévision de fin en cours de projet
+
+## Sources
+- **PMBOK 7** (PMI 2021) — *Cost Management* / planification budgétaire
+- **EVM** — variance analysis (cf. `reporting-financier.md`)
+- Cadre comptable **CAPEX/OPEX** (immobilisations vs charges)
+
+## Voir aussi
+- [`reporting-financier.md`](reporting-financier.md) — EVM et reporting CODIR du budget
+- [`business-case-ia.md`](business-case-ia.md) — budget issu du business case
+- [`cost-benefit-analysis.md`](cost-benefit-analysis.md) — TCO alimentant le budget
+- [`../chef_projet_ia/evm-valeur-acquise.md`](../chef_projet_ia/evm-valeur-acquise.md) — pilotage valeur acquise

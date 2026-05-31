@@ -1,5 +1,7 @@
 # Skill — Scoring et Priorisation des Investissements
 > Certifications : SAFe LPM (Scaled Agile), CFA Level I (CFA Institute), PMI-PBA (PMI), FRM (GARP)
+> Agent : AGENT-FINANCIAL-ANALYST.md
+> Référentiels : **WSJF** (SAFe POPM — cotation relative par colonne) · **PMI Standard for Portfolio Management** · matrice **Risque/Valeur** · scoring multicritères pondéré
 
 ## Objectif
 Scorer et prioriser un portefeuille d'investissements IT/IA — grilles multicritères, WSJF portfolio, scoring risque/valeur — pour allouer les budgets aux projets à plus fort impact stratégique.
@@ -90,3 +92,21 @@ wsjf_portfolio:
 
 ## Format de sortie
 Précise : liste des projets / epics à scorer, critères de décision stratégiques, budget disponible, contraintes de capacité.
+
+## Anti-patterns
+- ❌ **WSJF en absolu** : coter en valeur monétaire au lieu de relatif par colonne (plus petit = 1)
+- ❌ **Scoring multicritères sans poids** : additionner des notes sans pondération stratégique
+- ❌ **Ignorer la contrainte de capacité/budget** : prioriser au-delà de l'enveloppe disponible
+- ❌ **Matrice Risque/Valeur sans seuils** : placement subjectif des projets
+- ❌ **Confondre scoring d'investissement (financier) et WSJF (flux de valeur)** : usages complémentaires
+
+## Sources
+- **SAFe** — **WSJF** (Weighted Shortest Job First) — scaledagileframework.com
+- **PMI** — *The Standard for Portfolio Management* (4e éd. 2017)
+- **Reinertsen D.** — *Cost of Delay* (*Principles of Product Development Flow*, 2009)
+
+## Voir aussi
+- [`../safe/wsjf.md`](../safe/wsjf.md) — méthode WSJF détaillée
+- [`../chef_projet_ia/gouvernance-portefeuille.md`](../chef_projet_ia/gouvernance-portefeuille.md) — priorisation portefeuille (vue PM)
+- [`business-case-ia.md`](business-case-ia.md) — business case par initiative
+- [`cost-benefit-analysis.md`](cost-benefit-analysis.md) — VAN/TRI pour départager

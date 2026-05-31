@@ -1,5 +1,7 @@
 # Skill — Analyse Coût/Bénéfice et TCO
 > Certifications : CFA Level I (CFA Institute), CMA (IMA), PMI-PBA (PMI), FRM (GARP)
+> Agent : AGENT-FINANCIAL-ANALYST.md
+> Référentiels : **TCO** (Gartner) · **NPV/VAN & IRR/TRI** (Brealey, Myers & Allen — *Principles of Corporate Finance*) · **DCF** (flux actualisés) · comparaison Build/Buy/Cloud
 
 ## Objectif
 Réaliser une analyse coût/bénéfice complète et calculer le TCO (Total Cost of Ownership) d'une solution IT/IA — comparaison build vs buy vs cloud, analyse sur 3-5 ans — pour guider les décisions d'investissement.
@@ -77,6 +79,32 @@ van = calculer_van(flux, investissement_initial=70_000, taux_actualisation=0.10)
 # VAN = 975 000 € → Investissement très attractif
 ```
 
+## TRI / IRR — taux de rentabilité interne
+
+Le **TRI (Taux de Rentabilité Interne / IRR)** est le taux d'actualisation qui annule la VAN.
+Règle de décision : **investir si TRI > coût du capital (WACC)**.
+
+```python
+# Sans dépendance : recherche par bisection. (En pratique : numpy_financial.irr)
+def calculer_tri(flux_nets_annuels: list, investissement_initial: float) -> float:
+    def van(taux):
+        v = -investissement_initial
+        for annee, flux in enumerate(flux_nets_annuels, 1):
+            v += flux / (1 + taux) ** annee
+        return v
+    bas, haut = 0.0, 1.0          # 0% à 100%
+    for _ in range(100):          # bisection
+        mid = (bas + haut) / 2
+        if van(mid) > 0: bas = mid
+        else:            haut = mid
+    return round(mid * 100, 1)
+
+# EXEMPLE — Option Cloud Native (flux ci-dessus)
+tri = calculer_tri(flux, investissement_initial=70_000)
+# TRI très élevé (flux annuels >> investissement) → bien au-dessus d'un WACC ~10%
+```
+> Limite : le TRI suppose un réinvestissement des flux au taux du TRI (optimiste). Pour des flux non conventionnels (signes multiples), préférer la **VAN** ou le **TRI modifié (MIRR)**.
+
 ## Tableau comparatif de décision
 
 | Critère | Build | Buy | Cloud Native |
@@ -96,3 +124,23 @@ van = calculer_van(flux, investissement_initial=70_000, taux_actualisation=0.10)
 
 ## Format de sortie
 Précise : options à comparer (build/buy/cloud), horizon d'analyse, taux d'actualisation, contraintes RGPD/sécurité.
+
+## Anti-patterns
+- ❌ **TCO sans coûts cachés** : oublier formation, conduite du changement, dette technique, sortie/réversibilité
+- ❌ **Comparer des options sur des horizons différents** : toujours le même horizon + même taux
+- ❌ **VAN sans justifier le taux d'actualisation** : le taux = coût du capital (WACC), à expliciter
+- ❌ **Ignorer le TRI / le coût du capital** : une VAN positive à 10% peut être négative à 15%
+- ❌ **« Build » sous-estimé** : le coût réel d'un développement interne est souvent × 1,5
+- ❌ **TCO = uniquement le prix de licence** : intégrer exploitation, support, montée de version
+
+## Sources
+- **Gartner** — *Total Cost of Ownership (TCO)* — méthodologie de référence
+- **Brealey R., Myers S., Allen F.** — *Principles of Corporate Finance* (McGraw-Hill) — NPV, IRR, DCF
+- **WACC** — coût moyen pondéré du capital (taux d'actualisation)
+
+## Voir aussi
+- [`business-case-ia.md`](business-case-ia.md) — business case mobilisant VAN/TRI
+- [`roi-transformation.md`](roi-transformation.md) — ROI et payback
+- [`budget-projet.md`](budget-projet.md) — TCO → budget opérationnel
+- [`../consultant_ia/cadrage-poc-ia.md`](../consultant_ia/cadrage-poc-ia.md) — décision build/buy/cloud en cadrage
+- [`../juridique_ia/contrats-ia.md`](../juridique_ia/contrats-ia.md) — réversibilité et coûts de sortie (SaaS)

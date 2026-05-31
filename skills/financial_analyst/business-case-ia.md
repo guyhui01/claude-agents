@@ -1,5 +1,7 @@
 # Skill — Business Case Projets IA et Transformation Digitale
 > Certifications : CFA Level I (CFA Institute), PMI-PBA (PMI), PMP (PMI), SAFe LPM (Scaled Agile)
+> Agent : AGENT-FINANCIAL-ANALYST.md
+> Référentiels : **NPV/VAN · ROI · Payback** (Brealey, Myers & Allen — *Principles of Corporate Finance*) · **PMI Business Case** · analyse de scénarios (sensibilité)
 
 ## Objectif
 Construire un business case complet pour un projet IA ou de transformation digitale — quantification des bénéfices, estimation des coûts, analyse ROI, scénarios — pour obtenir l'arbitrage budgétaire des décideurs.
@@ -94,3 +96,23 @@ analyse_financiere:
 
 ## Format de sortie
 Précise : projet IA concerné, données de volumétrie disponibles, coûts RH, budget indicatif, horizon d'analyse (2-3-5 ans).
+
+## Anti-patterns
+- ❌ **Business case sans hypothèses explicites** : des chiffres « tombés du ciel », non challengeables
+- ❌ **ROI brut sans actualisation** : sur 3 ans, présenter aussi la VAN (cf. `cost-benefit-analysis.md`)
+- ❌ **Un seul scénario** : toujours optimiste / réaliste / pessimiste (analyse de sensibilité)
+- ❌ **Bénéfices intangibles gonflés** sans méthode de valorisation
+- ❌ **Oublier le coût de conduite du changement** (souvent 15-20% du total)
+- ❌ **Pas de critère d'arrêt** : prévoir le « kill » si le pilote n'atteint pas le seuil
+
+## Sources
+- **Brealey R., Myers S., Allen F.** — *Principles of Corporate Finance* (McGraw-Hill) — NPV, ROI, Payback
+- **PMI** — *Business Case* (PMBOK 7 / Business Analysis)
+- **Forrester** — *Total Economic Impact (TEI)* — cadre de valorisation bénéfices/risques
+
+## Voir aussi
+- [`cost-benefit-analysis.md`](cost-benefit-analysis.md) — VAN/TRI et TCO (build/buy/cloud)
+- [`roi-transformation.md`](roi-transformation.md) — calcul ROI détaillé + intangibles
+- [`budget-projet.md`](budget-projet.md) — budget opérationnel issu du business case
+- [`../consultant_ia/estimation-roi-rapide.md`](../consultant_ia/estimation-roi-rapide.md) — version rapide (cadrage)
+- [`../scrum/product-vision.md`](../scrum/product-vision.md) — alignement valeur produit

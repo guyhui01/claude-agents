@@ -101,6 +101,29 @@ Néant identifié séparément — les manques cosmétiques (Sources/Anti-patter
 
 ## 10. Validation Guy
 
-- [ ] Verdicts validés / ajustés
-- [ ] Périmètre de correction arbitré (tout · P0 + différenciateurs seulement · étalé)
-- [ ] Go pour démarrer la 1ʳᵉ V2 (recommandé : `gouvernance-ethique-ia` P0)
+- [x] Verdicts validés
+- [x] Périmètre arbitré : option 1 (P0 + 3 différenciateurs) **puis finalisation des 7**
+- [x] Corrections exécutées : v3.12.0 (P0 + ai-act + audit + contrats) · v3.13.0 (rgpd + dpia + politique)
+
+## 11. Vérification post-correction (boucle dogfooding) — 2026-05-31
+
+Re-extraction Explore **indépendante** (regard neuf, principe d'indépendance ISO 19011 — pas d'auto-évaluation) sur les 7 skills corrigés, puis re-cotation grille §3.2.
+
+| Skill | Verdict initial | Verdict post-V2 | Release |
+|---|:--:|:--:|:--:|
+| `gouvernance-ethique-ia` | **P0** | **✓** | v3.12.0 |
+| `ai-act-conformite` | P1 | **✓** | v3.12.0 |
+| `contrats-ia` | P1 | **✓** | v3.12.0 |
+| `rgpd-ia` | P1 | **✓** | v3.13.0 |
+| `dpia-systemes-ia` | P1 | **✓** | v3.13.0 |
+| `politique-ia-entreprise` | P1 | **✓** | v3.13.0 |
+| `audit-conformite-ia` | P1 | **P3** | v3.12.0 |
+
+**Résultat : 1 P0 + 6 P1 → 6 ✓ + 1 P3.**
+
+- Confirmé par extraction indépendante : **7/7** disposent de la ligne Référentiels + `## Cadre référentiels mobilisés` + `## Anti-patterns` + `## Sources` datées + `## Voir aussi` ; référentiels cités avec **articles/versions/dates précis**.
+- **`audit-conformite-ia` maintenu P3** (non ✓) en toute rigueur : méthodologie solide mais **pas de cas sectoriel chiffré déroulé** (D2 ⚠ léger) → candidat V3-bundle. Anti-indulgence d'auteur appliquée.
+- **Faux positifs Explore** : « audience Like Company 10 mars 2026 » et « CNIL reco avril 2025 » flaggés comme dates futures par le sous-agent (confusion liée à son cutoff d'entraînement) — en réalité **passées au 2026-05-31** et **WebSearch-vérifiées en v3.10.0**. Aucune correction nécessaire.
+
+### Conclusion — méta-agent v3.11.0 validé en conditions réelles
+Cycle complet **audit → correction → re-vérification** piloté de bout en bout : détection (1 P0 + 6 P1 + 1 incohérence cross-file) → corrections V2 (8 WebSearch, 0 invention) → remontée des verdicts (6 ✓ + 1 P3). Le skill `audit-qualite-catalogue.md` est opérationnel.

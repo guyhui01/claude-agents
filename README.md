@@ -42,7 +42,7 @@
 | `AGENT-PRODUCT-MANAGER-SAFE.md` | Product Manager SAFe | Vision produit Programme, roadmap ART, go-to-market, WSJF |
 | `AGENT-RELEASE-TRAIN-ENGINEER.md` | Release Train Engineer | PI Planning, coordination ART, impediments, Flow Metrics, I&A |
 | `AGENT-CHANGE-MANAGER.md` | Change Manager | ADKAR, plan de communication, gestion résistances, adoption IA |
-| `AGENT-AUDIT-METHODO-IA.md` | Auditeur Méthodo IA (Contrôle & Challenge) | Audit conformité méthode SAFe/Scrum/ISTQB/PMI, challenge raisonnement, gate validation livrable |
+| `AGENT-AUDIT-METHODO-IA.md` | Auditeur Méthodo IA (Contrôle & Challenge) | Audit conformité méthode SAFe/Scrum/ISTQB/PMI, challenge raisonnement, gate validation livrable, audit qualité catalogue (grille v2.8) |
 
 ### Orchestration & Workflows
 
@@ -106,7 +106,7 @@
 | `skills/product_manager_safe/` | Vision produit Programme, roadmap ART, customer-centricity, Lean Business Case, go-to-market |
 | `skills/release_train_engineer/` | Facilitation PI Planning, coordination ART, métriques Flow, Inspect & Adapt, Scrum of Scrums |
 | `skills/change_manager/` | ADKAR, analyse impact, plan de communication, gestion résistances, mesure adoption |
-| `skills/critique_conformite/` | Audit conformité méthode (SAFe/Scrum/ISTQB/PMI), challenge raisonnement, gate validation livrable |
+| `skills/critique_conformite/` | Audit conformité méthode (SAFe/Scrum/ISTQB/PMI), challenge raisonnement, gate validation livrable, audit qualité d'un skill du catalogue (grille v2.8 autonome) |
 
 ### Orchestration & Workflows
 

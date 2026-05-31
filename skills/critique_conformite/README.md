@@ -5,13 +5,14 @@
 
 ---
 
-## Index des skills (3)
+## Index des skills (4)
 
 | # | Skill | Quand l'invoquer | Référentiel |
 |---|---|---|---|
 | 1 | [`audit-conformite-methodo.md`](audit-conformite-methodo.md) | Auditer la conformité méthode (checklists SAFe/Scrum/ISTQB/PMI) | SAFe 6 · Scrum Guide 2020 · CTFL · PMBOK 7 · ISO 9001 |
 | 2 | [`challenge-raisonnement.md`](challenge-raisonnement.md) | Challenger le raisonnement (biais cognitifs, devil's advocate, red-team) | CTAL-TM · PMI-ACP · ISO 9001 §9.3 |
 | 3 | [`gate-validation-livrable.md`](gate-validation-livrable.md) | Gate de validation avant promotion d'un livrable (4 niveaux DoD) | SAFe DoD · ISTQB Exit Criteria · CMMI · PMI Quality Gate |
+| 4 | [`audit-qualite-catalogue.md`](audit-qualite-catalogue.md) | Auditer la qualité d'un **skill du catalogue** (grille v2.8 en autonomie) | ISO 19011:2018 · ISO 9001:2015 §9.2 · CMMI V3.0 SCAMPI · grille v2.8 |
 
 ---
 
@@ -39,7 +40,15 @@ Tu veux ...
        · Gate 2 : Feature DoD (SAFe 6)
        · Gate 3 : PI / Release DoD (SAFe 6 + ISTQB Exit Criteria)
        · Gate 4 : Livrable IA (audit méthode + challenge + biais)
+
+  ... AUDITER LA QUALITÉ D'UN SKILL DU CATALOGUE (fichier .md) ?
+    → audit-qualite-catalogue.md (grille v2.8 en autonomie)
+       · Routage auto agent → groupe → déclinaison §3.x
+       · Extraction Explore (brief standard) + cotation D1/D2/D3
+       · Rapport standardisé + reco vague V1/V2/V3
 ```
+
+> ⚠️ **Frontière interne** : `audit-conformite-methodo.md` audite un **livrable runtime** (User Story, Feature, PI, sortie IA) ; `audit-qualite-catalogue.md` audite un **fichier skill du catalogue** avec la grille qualité v2.8. Ne pas confondre les deux.
 
 ---
 

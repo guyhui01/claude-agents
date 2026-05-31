@@ -5,6 +5,31 @@
 
 ---
 
+## [3.11.0] — 2026-05-31 — AGENT-AUDIT-METHODO-IA autonome : consommation de la grille v2.8 (objectif final chantier audit)
+> Modèle : Claude Opus 4.8
+
+### 🎯 Contexte
+**Objectif final déclaré du chantier audit v2.8** (cf. `audits/NEXT_STEPS.md` Étape 1) : rendre `AGENT-AUDIT-METHODO-IA` capable de **consommer la grille v2.8 en autonomie**. Jusqu'ici les 3 skills de l'agent auditaient des **livrables runtime** (User Stories, Features, PI, sorties IA) ; aucun ne permettait d'auditer la **qualité des skills du catalogue eux-mêmes** avec la grille v2.8 (3D × 4 niveaux) — méthodologie pilotée manuellement sur les 33 agents (Phases 1+2). Cette release encode cette méthodologie dans l'agent.
+
+### ✨ Ajout — skill `audit-qualite-catalogue.md`
+- Nouveau skill dans `skills/critique_conformite/` (3→4 skills) — **pas de nouveau dossier** (règle de consolidation : enrichir l'existant)
+- Encode la **procédure d'exécution** de la grille v2.8 ; renvoie vers `audits/audit-grilles-v2.8.md` comme source de vérité des 5 déclinaisons (pas de duplication)
+- **Table de routage** agent → groupe → déclinaison §3.x (33 agents audités + rattachement des 5 agents hors chantier)
+- **Workflow 6 étapes** exécutable + brief-type Explore en **méthode standard** (leçon Phase 1.2 : extraction dégradée proscrite)
+- **Template de rapport** standardisé 10 sections + logique de reco vague **V1/V2/V3** (mapping verdict P0-P3 → vague)
+- 6 anti-patterns d'audit (complaisance/faux ✓, brief compact, biais corrélés LLM, confusion avec audit runtime, D1 sans WebSearch)
+- Frontière nette : audit **skill catalogue** ≠ audit **livrable runtime** (`audit-conformite-methodo.md`)
+
+### 🔧 Mises à jour de cohérence
+- `AGENT-AUDIT-METHODO-IA.md` : périmètre ✅ enrichi + ligne 4 dans la table des skills
+- `skills/critique_conformite/README.md` : index 3→4, arbre de décision, frontière interne documentée
+- `README.md` : descriptions agent + dossier critique_conformite complétées
+
+### ✅ Vérification factuelle (règle `feedback_verification_factuelle`)
+2 WebSearch préalables sur sources primaires avant rédaction : **ISO/IEC 19011:2018** (« Guidelines for auditing management systems », 7 principes dont approche par les risques ajoutée en 2018, iso.org/standard/70017.html) · **CMMI V3.0** (CMMI Institute/ISACA, avril 2023, méthode d'appraisal SCAMPI classes A/B/C). 0 invention.
+
+---
+
 ## [3.10.1] — 2026-05-30 — Correctif factuel rétroactif sur V2 antérieures à v3.8.1 (PRINCE2 année + Mendelow affiliation + PROSCI 70% non sourcé + Cooper Stage-Gate source + TM Forum version)
 > Modèle : Claude Opus 4.7
 

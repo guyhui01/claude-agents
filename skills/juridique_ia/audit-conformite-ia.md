@@ -93,6 +93,21 @@ J+30 : findings critiques · J+90 : findings majeurs · J+180 : améliorations �
 | < 60 | Non conforme | Suspension recommandée + escalade |
 > Grille de **pilotage interne** (convention de l'auditeur), à distinguer des obligations légales AI Act/RGPD qui, elles, ne se « scorent » pas (elles sont remplies ou non).
 
+## Exemple — audit d'un système de pré-instruction d'aides sociales (secteur public)
+
+**Contexte anonymisé** : collectivité territoriale, système IA de **pré-instruction et priorisation** de demandes d'aides sociales. Usage **haut risque** (AI Act Annexe III §5 — accès aux prestations sociales essentielles). Audit interne, 4 domaines, sur population vulnérable.
+
+| Domaine | Score /100 | Findings clés |
+|---|:--:|---|
+| AI Act | 70 | Classification haut risque correcte ; documentation technique (art. 11 + Annexe IV) incomplète |
+| RGPD | 80 | DPIA réalisée (art. 35) ; information des usagers (art. 13-14) à renforcer |
+| Éthique | 55 | 🔴 test de biais par sous-groupe **absent** (population vulnérable) |
+| Sécurité (OWASP LLM 2025) | 75 | LLM02 (fuite données) / LLM06 (excessive agency) partiellement traités |
+
+**Score global : 70/100 → « partiellement conforme »** (plan de remédiation urgent).
+- **Findings critiques** : test d'équité par sous-groupe (R1) + supervision humaine effective sur les **refus** (AI Act art. 14, RGPD art. 22).
+- **Remédiation** : J+30 test de biais + override humain · J+90 documentation technique · re-audit J+365.
+
 ## Anti-patterns
 
 - ❌ **Audit sans référentiel de méthode** : conduire un audit sans s'appuyer sur ISO/IEC 19011:2018 (preuves, indépendance, programme)

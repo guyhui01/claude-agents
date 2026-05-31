@@ -5,6 +5,15 @@
 
 ---
 
+## [3.13.1] — 2026-05-31 — Quick wins : audit-conformite-ia P3→✓ + clarification présentation N3 cartographie
+> Modèle : Claude Opus 4.8
+
+### 🔧 Corrections
+- **`juridique_ia/audit-conformite-ia.md`** (P3 → ✓) : ajout du **cas sectoriel chiffré** manquant (audit d'un système de pré-instruction d'aides sociales — secteur public, AI Act Annexe III haut risque, scoring par domaine 4×, plan de remédiation J+30/90/365). Comble le seul manque (D2 ⚠ léger) relevé à la vérification post-correction. **JURIDIQUE-IA N2 désormais 7 ✓ / 7.**
+- **`audits/CARTOGRAPHIE-SKILLS-CORE-MISSION.md`** : clarification de la présentation N3 SUPPORT en **2 sous-familles** (N3-a Technique pure : DEV/DATA/DEVOPS/SECU/ARCHITECT/TECH-LEAD · N3-b Design/Fonctionnel proche PO : UX-production/PIM-DAM-CMS technique/PM-SAFE). Lève l'ambiguïté de l'amalgame tech/design (point soulevé par Guy) ; aucun re-cotation (même verdict V1 cosmétique).
+
+---
+
 ## [3.13.0] — 2026-05-31 — Finalisation JURIDIQUE-IA N2 (3 skills restants) — domaine complet 7/7
 > Modèle : Claude Opus 4.8
 

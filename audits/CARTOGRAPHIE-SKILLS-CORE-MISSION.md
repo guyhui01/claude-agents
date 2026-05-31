@@ -208,19 +208,23 @@ growth-frameworks, attribution-ltv-cac, experimentation-ab-testing (✓ pur)
 
 ## 5. Skills N3 SUPPORT (~140 skills) — Consultés pour cadrer/superviser
 
-PO/MOA **lit** ces skills pour comprendre les périmètres techniques lors du cadrage, mais ne les produit pas directement.
+PO/MOA **lit** ces skills pour comprendre les périmètres lors du cadrage, mais ne les produit pas directement. N3 est défini par la **relation** du PO/MOA au skill (consulté/supervisé, non produit), **pas** par la nature technique — d'où deux sous-familles distinctes à ne pas amalgamer :
 
-**Synthèse par domaine** :
+**N3-a — Technique pure** (cadrage/supervision d'experts tech) :
 - DEV (Python IA, TypeScript IA, Drupal) : 28 skills — cadrage périmètre dev
 - DATA (Engineer, Scientist, MLOps) : 34 skills — cadrage périmètre data/IA
 - DEVOPS/Cloud : 11 skills — cadrage infra
 - SECURITE-IA : 7 skills (sur 10) — cadrage sécurité IA (OWASP LLM, Zero Trust)
 - AI-ARCHITECT : 8 skills — cadrage architecture IA
 - TECH-LEAD : 4 skills (sur 12) — cadrage tech leadership
-- Reste UX-DESIGNER : 14 skills (skills production UX/UI)
-- Reste PIM/DAM/CMS : 13 skills (skills techniques approfondis)
+
+**N3-b — Design / Fonctionnel proche PO** (collaboration rapprochée, non produit) :
+- Reste UX-DESIGNER : 14 skills (production UX/UI — wireframing, design system…)
+- Reste PIM/DAM/CMS : 13 skills (skills techniques approfondis du triptyque)
 - PM-SAFE : 6 skills (chevauchent PO SAFe)
 - Autres : ~15 skills
+
+> ⚠️ Ces deux sous-familles partagent le **même verdict** (V1 cosmétique suffit) car le PO/MOA ne les produit pas — mais elles n'ont rien à voir sur le fond (tech ≠ design). Le regroupement initial sous une liste à plat prêtait à confusion (clarification 2026-05-31).
 
 **Action V2/V3** : V1 cosmétique suffit (sourcing minimal, pas d'investissement profond).
 

@@ -5,6 +5,30 @@
 
 ---
 
+## [3.14.0] — 2026-05-31 — V1+ cluster delivery (CHEF-PROJET-IA + FINANCIAL-ANALYST, 14 skills) + généralisation offre-mission
+> Modèle : Claude Opus 4.8
+
+### 🎯 Contexte
+Suite de l'audit du cluster delivery (`audits/audit-delivery-cluster-2026-05-31.md`). Profil **« riche mais non sourcé »** confirmé : les 14 skills CHEF-PROJET-IA (8) + FINANCIAL-ANALYST (6) étaient substantiellement excellents (code EVM/WSJF/RAID/ADKAR, formules correctes, exemples chiffrés) mais sans couche D3. Traitement **V1+ mécanique** (option 1 validée par Guy).
+
+### ✨ V1+ batch — 14 skills
+- **CHEF-PROJET-IA (8)** : `cadrage-projet-ia` · `evm-valeur-acquise` · `gestion-risques-projet` · `gouvernance-portefeuille` · `planification-hybride` · `post-mortem-rex` · `reporting-codir` · `stakeholder-management`
+- **FINANCIAL-ANALYST (6)** : `budget-projet` · `business-case-ia` · `cost-benefit-analysis` · `investment-scoring` · `reporting-financier` · `roi-transformation`
+- Sur chacun : ligne **Référentiels** en-tête + `## Anti-patterns` + `## Sources` datées + `## Voir aussi` + **versionnage** des référentiels (PMBOK 7 2021, PRINCE2 7 2023, **ANSI/EIA-748 rév. D SAE 2019**, ISO 31000:2018, Mendelow 1991, **ADKAR Hiatt 2006**, Planning Poker Grenning 2002, Minto 1987, Knaflic 2015, Google SRE 2016, Brealey-Myers, Gartner TCO, Forrester TEI).
+
+### 🔧 Fixes de fond
+- `cost-benefit-analysis` : **ajout du calcul TRI/IRR** (promis en livrable mais absent) + limites (réinvestissement, MIRR)
+- `roi-transformation` : **correction du code Python** (opérateur `×` invalide → `*`)
+- `gestion-risques-projet` : coefficient de contingence EMV `0.1` clarifié (heuristique à calibrer)
+
+### ♻️ Généralisation
+- `consultant_ia/offre-mission.md` : transformé d'**outil perso** (TJM/Malt/CV/« CAC40 ») en **méthode généraliste** de positionnement & offre (Value Proposition Canvas Osterwalder 2014, Positioning Dunford 2019, STAR), références anonymisées par secteur — conforme `feedback_catalogue_generaliste` + `feedback_anonymisation_clients`.
+
+### ✅ Vérification factuelle
+WebSearch préalables (ADKAR Hiatt 2006, ANSI/EIA-748 rév. D 2019). 0 invention.
+
+---
+
 ## [3.13.1] — 2026-05-31 — Quick wins : audit-conformite-ia P3→✓ + clarification présentation N3 cartographie
 > Modèle : Claude Opus 4.8
 

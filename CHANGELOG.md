@@ -5,6 +5,26 @@
 
 ---
 
+## [3.12.0] — 2026-05-31 — Enrichissement V2 JURIDIQUE-IA N2 (option 1 : P0 + 3 différenciateurs) — 1er cycle d'audit piloté par le méta-agent v3.11.0
+> Modèle : Claude Opus 4.8
+
+### 🎯 Contexte
+Premier **cycle complet audit → correction piloté par le méta-agent** `audit-qualite-catalogue.md` (v3.11.0). Audit des 7 skills N2 de JURIDIQUE-IA (grille v2.8 §3.2 Conseil/Direction) : verdict 0 ✓ / 6 P1 / 1 P0. Rapport : `audits/audit-juridique-ia-n2-2026-05-31.md`. Correction du périmètre **option 1** validé par Guy : le P0 + les 3 différenciateurs alignés positionnement « PO/MOA AI augmenté ».
+
+### ✨ 4 refontes V2 (ancrage référentiel + sources + anti-patterns + cross-links)
+- **`gouvernance-ethique-ia.md`** (P0, 116→174 L) — réancrage **OECD AI Principles** (2019/2024) · **UNESCO Reco Éthique IA** (2021) · **EU HLEG Trustworthy AI** 7 exigences (2019) + ALTAI · **NIST AI RMF 1.0** (GOVERN) · **ISO/IEC 42001:2023**. Suppression « consensus international 2026 », Model Card sourcé (Mitchell et al. 2019), seuils d'équité documentés, cas sectoriel assurance (AI Act haut risque).
+- **`ai-act-conformite.md`** (101→163 L) — **articles AI Act exacts** : interdits = **art. 5** (corrigé, le skill citait « Annexe I »), haut risque art. 6 + Annexe III, transparence art. 50, GPAI/risque systémique **art. 51-55** (>10²⁵ FLOP, terme « systemic risk »). **Calendrier officiel corrigé** (1 août 2024 / 2 fév. 2025 / 2 août 2025 / 2 août 2026 / 2 août 2027). ISO/IEC 42001:2023 versionné.
+- **`audit-conformite-ia.md`** (115→131 L) — méthodologie ancrée **ISO/IEC 19011:2018** (7 principes) + ISO/IEC 42001:2023 + NIST AI RMF. **OWASP Top 10 for LLM Applications 2025** (liste LLM01→LLM10 complète, versionnée). Scoring requalifié « pilotage interne ».
+- **`contrats-ia.md`** (111→143 L) — **recentré sur la mécanique contractuelle**, jurisprudence PI déléguée à `propriete-intellectuelle-ia.md` (corrige l'incohérence cross-file détectée par l'audit). « droit français 2026 » → CPI art. L.111-1/112-1/122-6 ; « position CJUE/EUIPO 2025 » non sourcée → état daté + renvoi veille.
+
+### ✅ Vérification factuelle (règle `feedback_verification_factuelle`)
+**8 WebSearch préalables sur sources primaires** : OECD AI Principles, UNESCO 2021, EU HLEG (7 exigences), NIST AI RMF + GenAI Profile, Model Cards Mitchell 2019, calendrier + articles AI Act (art. 5/6/50/51-55), seuil GPAI 10²⁵ FLOP, OWASP LLM Top 10 2025. **0 invention.**
+
+### 📋 Transverse JURIDIQUE-IA (constaté à l'audit, traité sur les 4 V2)
+Ajout systématique des sections `## Sources` (datées, eur-lex/iso.org/nist.gov) + `## Anti-patterns` + cross-links « Voir aussi » + `## Cadre référentiels mobilisés`. Reste différé (V3 bundle) : `rgpd-ia` (proche ✓), `dpia-systemes-ia`, `politique-ia-entreprise`.
+
+---
+
 ## [3.11.0] — 2026-05-31 — AGENT-AUDIT-METHODO-IA autonome : consommation de la grille v2.8 (objectif final chantier audit)
 > Modèle : Claude Opus 4.8
 

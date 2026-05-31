@@ -5,6 +5,25 @@
 
 ---
 
+## [3.13.0] — 2026-05-31 — Finalisation JURIDIQUE-IA N2 (3 skills restants) — domaine complet 7/7
+> Modèle : Claude Opus 4.8
+
+### 🎯 Contexte
+Finalisation du domaine **JURIDIQUE-IA N2** après l'option 1 (v3.12.0) : V2 des 3 skills restants identifiés P1 à l'audit. Le domaine est désormais **intégralement enrichi (7/7 N2)**.
+
+### ✨ 3 refontes V2
+- **`rgpd-ia.md`** (110→140 L) — articles RGPD déjà précis conservés ; ajout **CNIL Recommandations IA (2024-2025)** (intérêt légitime/entraînement), PSD2 corrigé (**Directive (UE) 2015/2366**), délais art. 12.3 (1 mois prorogeable 2), table articulation RGPD×AI Act corrigée (art. 50/14/11/9/86), Sources + Anti-patterns + cross-links.
+- **`dpia-systemes-ia.md`** (113→119 L) — ancrage **RGPD art. 35 + EDPB WP248 rev.01 (9 critères, ≥2)** + **CNIL délib. 2018-327 (11 oct. 2018, 14 types)** ; ajout **exemple déroulé** (tri CV RH, AI Act haut risque) ; révision « 3 ans » sourcée (reco CNIL) ; Sources + Anti-patterns + cross-links.
+- **`politique-ia-entreprise.md`** (101→127 L) — interdits ancrés **AI Act art. 5**, formation = **art. 4 AI literacy** (obligation 2 fév. 2025), valeurs alignées OECD/NIST, ajout consultation **CSE** (Code du travail), exemple sectoriel ETI industrielle, Sources + Anti-patterns + cross-links.
+
+### ✅ Vérification factuelle
+WebSearch préalables : CNIL délib. 2018-327 + EDPB WP248 (9 critères), PSD2 (Dir. 2015/2366), RGPD art. 12.3 (1 mois + 2). 0 invention.
+
+### 📊 Bilan domaine JURIDIQUE-IA N2
+**7/7 skills V2** (v3.12.0 : 4 · v3.13.0 : 3). Sections `## Sources` + `## Anti-patterns` + `## Cadre référentiels` + cross-links « Voir aussi » désormais présentes sur les 7. Prochaine étape : re-audit de vérification par le méta-agent (boucle dogfooding).
+
+---
+
 ## [3.12.0] — 2026-05-31 — Enrichissement V2 JURIDIQUE-IA N2 (option 1 : P0 + 3 différenciateurs) — 1er cycle d'audit piloté par le méta-agent v3.11.0
 > Modèle : Claude Opus 4.8
 

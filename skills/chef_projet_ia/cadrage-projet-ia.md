@@ -1,5 +1,7 @@
 # Skill — Cadrage de Projet IA
 > Certifications : PMP (PMI 2026), PRINCE2 Practitioner, SAFe Product Owner/Product Manager, Anthropic Certified AI Professional 2026
+> Agent : AGENT-CHEF-PROJET-IA.md
+> Référentiels : **PMBOK 7** (PMI 2021) · **PRINCE2 7** (PeopleCert/Axelos 2023) · **SMART** (Doran 1981) · **JTBD** (Christensen 2016) · **Matrice Mendelow** (1991) · RACI · couplage RGPD / AI Act 2024/1689
 
 ## Objectif
 Produire une charte de projet IA complète et partagée — périmètre précis, parties prenantes mappées, critères d'acceptation mesurables — pour aligner toutes les parties dès le kick-off.
@@ -151,3 +153,26 @@ R=Responsible A=Accountable C=Consulted I=Informed
 
 ## Format de sortie
 Précise : secteur d'activité, cas d'usage IA (NLP, ML, computer vision, LLM), volume de données disponibles, contraintes réglementaires (RGPD, IA Act), budget indicatif, durée projet, équipe (taille, expertise), systèmes existants à intégrer.
+
+## Anti-patterns
+- ❌ **Charte sans critères d'acceptation mesurables** : « améliorer la conversion » au lieu d'un AC SMART chiffré et bloquant
+- ❌ **Parties prenantes mappées une fois puis oubliées** : la matrice doit être révisée à chaque jalon
+- ❌ **Périmètre sans « hors périmètre » explicite** : porte ouverte au scope creep
+- ❌ **Pas de sponsor (Accountable) nommé** : décisions de Go/No-Go sans autorité claire
+- ❌ **Confondre Responsible et Accountable** dans le RACI (1 seul A par décision)
+- ❌ **Oublier le couplage conformité** (DPIA RGPD / classification AI Act) dès le cadrage d'un projet IA
+
+## Sources
+- **PMBOK 7** — *A Guide to the Project Management Body of Knowledge* (PMI, 7e éd. 2021) — charte de projet, parties prenantes
+- **PRINCE2 7** — PeopleCert/Axelos (2023) — *Business Case* et *Organization*
+- **Doran G.T.** — objectifs **SMART** (*Management Review*, 1981)
+- **Christensen C.M.** — *Competing Against Luck* (JTBD, HBR Press 2016)
+- **Mendelow A.L.** — matrice pouvoir/intérêt (*Proc. ICIS*, Cambridge MA, 1991)
+
+## Voir aussi
+- [`gestion-risques-projet.md`](gestion-risques-projet.md) — RAID log (les risques R1-R5 de la charte)
+- [`planification-hybride.md`](planification-hybride.md) — WBS et planning issus du périmètre
+- [`stakeholder-management.md`](stakeholder-management.md) — plan d'engagement des parties prenantes
+- [`evm-valeur-acquise.md`](evm-valeur-acquise.md) — pilotage budgétaire (BAC issu du cadrage)
+- [`../business_analyst/cadrage-projet.md`](../business_analyst/cadrage-projet.md) — note de cadrage MOA (cycle V, complémentaire)
+- [`../scrum/product-vision.md`](../scrum/product-vision.md) — vision produit amont

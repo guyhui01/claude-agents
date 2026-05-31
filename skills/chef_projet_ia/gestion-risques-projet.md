@@ -1,5 +1,7 @@
 # Skill — Gestion des Risques Projet IA
 > Certifications : PMP (PMI 2026), PMI-RMP (Risk Management Professional), ISO 31000 Lead Risk Manager, EU AI Act Compliance Specialist
+> Agent : AGENT-CHEF-PROJET-IA.md
+> Référentiels : **ISO 31000:2018** (management du risque) · **ISO/IEC 31010:2019** (techniques) · **PMBOK 7** + **PMI-RMP** · **AI Act 2024/1689 art. 9** (système de gestion des risques) · EMV (PMBOK) · Fairlearn (Microsoft)
 
 ## Objectif
 Identifier, évaluer et piloter proactivement les risques spécifiques aux projets IA — techniques, éthiques, réglementaires et business — via un RAID log structuré et des plans de réponse actionnables.
@@ -201,6 +203,10 @@ def calculate_contingency(
 ) -> dict:
     """
     Méthode EMV (Expected Monetary Value) pour le budget de contingence.
+    Heuristique : la classe de probabilité (1-5) est convertie en probabilité
+    approximative via le facteur 0.1 (classe 1≈10% ... classe 5≈50%), et l'impact
+    en fraction du budget via (impact/5). Ces coefficients sont des hypothèses de
+    départ À CALIBRER selon l'historique de l'organisation (pas une norme).
     """
     emv_total = sum(
         risk.probability * 0.1 * total_budget * (risk.impact / 5)
@@ -239,3 +245,26 @@ def calculate_contingency(
 
 ## Format de sortie
 Précise : type de projet IA (NLP, MLOps, LLM, Vision), secteur (santé, finance, RH — systèmes à haut risque EU AI Act), budget total, équipe, dépendances critiques identifiées, historique d'incidents similaires, niveau d'appétence au risque du sponsor.
+
+## Anti-patterns
+- ❌ **RAID log créé puis jamais revu** : le registre doit vivre à chaque sprint
+- ❌ **Risque sans owner ni plan de réponse** : un risque non assigné n'est pas piloté
+- ❌ **Probabilité × impact sans échelle définie** : coter sans matrice calibrée = faux semblant
+- ❌ **Oublier les risques IA spécifiques** : drift, biais, explicabilité, non-conformité AI Act
+- ❌ **Coefficient EMV arbitraire non documenté** : les facteurs de contingence doivent être justifiés/calibrés
+- ❌ **Seuil d'équité posé sans justification** (ex. « Equal Opportunity Difference < 0.05 ») : à définir selon le contexte et le risque
+
+## Sources
+- **ISO 31000:2018** — *Management du risque — Lignes directrices* — iso.org
+- **ISO/IEC 31010:2019** — *Techniques d'appréciation du risque* (31 techniques)
+- **PMBOK 7** (PMI 2021) + **PMI-RMP** — *Risk Management Professional*
+- **AI Act** — Règlement (UE) 2024/1689, **art. 9** (système de gestion des risques pour l'IA haut risque)
+- **Fairlearn** — toolkit open-source d'équité ML (Microsoft) — fairlearn.org
+
+## Voir aussi
+- [`cadrage-projet-ia.md`](cadrage-projet-ia.md) — risques majeurs identifiés au cadrage
+- [`evm-valeur-acquise.md`](evm-valeur-acquise.md) — réserve de contingence ↔ VAC
+- [`gouvernance-portefeuille.md`](gouvernance-portefeuille.md) — agrégation des risques au niveau portefeuille
+- [`../scrum/gestion-risques.md`](../scrum/gestion-risques.md) — gestion des risques côté Agile/produit (ISO 31000 + ROAM)
+- [`../juridique_ia/dpia-systemes-ia.md`](../juridique_ia/dpia-systemes-ia.md) — risques pour les personnes (DPIA)
+- [`../data_scientist/ethique-ia-biais.md`](../data_scientist/ethique-ia-biais.md) — mesure technique des biais (Fairlearn)

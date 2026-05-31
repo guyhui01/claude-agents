@@ -1,5 +1,7 @@
 # Skill — Earned Value Management (EVM) pour Projets IA
 > Certifications : PMP (PMI 2026), PMI-SP (Scheduling Professional), PMI-ACP, Certified Agile Value Engineer
+> Agent : AGENT-CHEF-PROJET-IA.md
+> Référentiels : **ANSI/EIA-748** (rév. D, SAE 2019 — 32 guidelines EVMS) · **PMI Practice Standard for EVM** (2e éd. 2011) · **PMBOK 7** (PMI 2021)
 
 ## Objectif
 Piloter l'avancement réel d'un projet IA avec les indicateurs EVM — détecter tôt les dérives de coût et de planning, forecaster la date et le coût de fin, et présenter les données au Steering Committee.
@@ -190,3 +192,23 @@ def agile_evm_from_sprints(
 
 ## Format de sortie
 Précise : budget total (BAC), durée du projet (semaines/sprints), date de référence, données disponibles (PV, EV, AC actuels), méthode de comptabilisation (par sprint, par lot de travail, par jalon), fréquence de reporting.
+
+## Anti-patterns
+- ❌ **EVM sans baseline figée (PMB)** : sans référence de mesure, les indices CPI/SPI ne veulent rien dire
+- ❌ **Confondre EV (valeur acquise) et AC (coût réel)** : EV = % réalisé × BAC, pas les dépenses
+- ❌ **% d'avancement déclaratif** (« 90% syndrome ») au lieu d'un EV mesuré sur des jalons objectifs
+- ❌ **EAC optimiste ignorant le CPI passé** : si CPI < 1 durablement, EAC = BAC/CPI (pas l'espoir)
+- ❌ **EVM Agile sans conversion** : transposer story points → valeur (BAC) sans règle explicite
+- ❌ **Reporter CPI/SPI sans action** : un indice rouge non suivi d'une décision est un théâtre de pilotage
+
+## Sources
+- **ANSI/EIA-748** — *Earned Value Management Systems* (rév. D, SAE International 2019) — 32 guidelines (rév. E en préparation)
+- **PMI** — *Practice Standard for Earned Value Management* (2e éd., 2011)
+- **PMBOK 7** — *A Guide to the PMBOK* (PMI, 7e éd. 2021) — domaine de performance « Mesure »
+
+## Voir aussi
+- [`reporting-codir.md`](reporting-codir.md) — restitution exécutive des indices EVM (1 page)
+- [`gestion-risques-projet.md`](gestion-risques-projet.md) — budget de contingence (lien VAC ↔ réserve)
+- [`planification-hybride.md`](planification-hybride.md) — baseline planning/coût source de PV
+- [`../financial_analyst/reporting-financier.md`](../financial_analyst/reporting-financier.md) — EVM côté contrôle de gestion
+- [`gouvernance-portefeuille.md`](gouvernance-portefeuille.md) — agrégation EVM multi-projets

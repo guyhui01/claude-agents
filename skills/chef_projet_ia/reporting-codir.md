@@ -1,5 +1,7 @@
 ﻿# Skill — Reporting CODIR pour Projets IA
 > Certifications : PMP (PMI 2026), PMI-ACP, Executive Presentation Skills, Storytelling with Data (Nussbaumer Knaflic)
+> Agent : AGENT-CHEF-PROJET-IA.md
+> Référentiels : **Pyramide de Minto** (1987) · **Storytelling with Data** (Knaflic, Wiley 2015) · **EVM** (CPI/SPI/EAC) · RAG status
 
 ## Objectif
 Produire des reportings CODIR clairs et orientés décision pour les projets IA — one-pager RAG, tableau de bord KPIs, visualisation d avancement et escalade des risques en moins de 5 minutes de lecture.
@@ -124,3 +126,24 @@ def generate_codir_table(projects: list[ProjectStatus]) -> str:
 
 ## Format de sortie
 Precise : nombre de projets a reporter, frequence CODIR, format attendu (slide/PDF/Notion/email), public (CDO seul / CODIR complet), metriques prioritaires du sponsor, seuils RAG de l entreprise, outils de visualisation disponibles.
+
+## Anti-patterns
+- ❌ **One-pager qui déborde** : un reporting CODIR tient sur 1 page lisible en < 5 min
+- ❌ **Jargon technique au CODIR** (AUC, RPS, OOM) sans traduction en impact business
+- ❌ **Reporting sans décision demandée** : un CODIR sert à décider, pas seulement à informer
+- ❌ **RAG sans seuils objectifs** : un « vert » optimiste non adossé à SPI/CPI
+- ❌ **Enterrer le mauvais sous le bon** (anti-Minto) : la mauvaise nouvelle doit remonter en tête
+- ❌ **Graphiques surchargés** : 1 message par visuel (Knaflic)
+
+## Sources
+- **Minto B.** — *The Pyramid Principle* (Pearson, 1987) — réponse → arguments → données
+- **Nussbaumer Knaflic C.** — *Storytelling with Data* (Wiley, 2015)
+- **PMI** — EVM (CPI/SPI/EAC) pour le reporting d'avancement
+- **Few S.** — *Information Dashboard Design* (O'Reilly, 2006)
+
+## Voir aussi
+- [`evm-valeur-acquise.md`](evm-valeur-acquise.md) — calcul des indices reportés (CPI/SPI/EAC)
+- [`gouvernance-portefeuille.md`](gouvernance-portefeuille.md) — dashboard multi-projets
+- [`stakeholder-management.md`](stakeholder-management.md) — adapter le message par audience
+- [`../redacteur_ia/synthese-executive.md`](../redacteur_ia/synthese-executive.md) — synthèse exécutive Minto/SCQA
+- [`../financial_analyst/reporting-financier.md`](../financial_analyst/reporting-financier.md) — volet financier du reporting

@@ -1,5 +1,7 @@
 # Skill — Planification Agile/Waterfall Hybride pour Projets IA
 > Certifications : PMP (PMI 2026), SAFe Program Consultant (SPC), PMI-ACP, PRINCE2 Agile
+> Agent : AGENT-CHEF-PROJET-IA.md
+> Référentiels : **PMBOK 7** (PMI 2021) · **PRINCE2 Agile** (PeopleCert) · **SAFe** (PI Planning) · **Planning Poker** (Grenning 2002) · **Story Points** (Cohn 2005) · WBS (PMI)
 
 ## Objectif
 Construire un plan hybride adapté aux projets IA — phases séquentielles pour la conformité et l'infrastructure, sprints Agile pour le développement et l'expérimentation, avec estimation et jalons clairs.
@@ -186,3 +188,24 @@ user_stories:
 
 ## Format de sortie
 Précise : durée totale du projet, taille de l'équipe et rôles, contraintes dates clés (fiscales, réglementaires), méthode de gestion préférée (SAFe/Scrum/Kanban), outil de gestion projet (Jira/Linear/Azure DevOps), niveau d'expérience Agile de l'équipe.
+
+## Anti-patterns
+- ❌ **Gantt fixe rigide sur 18 mois** : illusion de prédictibilité, ingérable sur la partie expérimentale IA
+- ❌ **Estimer en jours/homme absolus** au lieu de points relatifs (Planning Poker / T-shirt)
+- ❌ **Story XXL (21) non découpée** : à refuser et fractionner avant planification
+- ❌ **Phase data « découverte » zappée** : démarrer le dev IA sans audit qualité des données
+- ❌ **Jalons sans critères de sortie Go/No-Go** mesurables (ex. AUC ≥ seuil)
+- ❌ **Vélocité confondue avec engagement** : la capacité calculée ≠ promesse contractuelle
+
+## Sources
+- **PMBOK 7** (PMI 2021) — WBS, jalons, planification adaptative
+- **PRINCE2 Agile** — PeopleCert/Axelos (gestion par phases + Agile delivery)
+- **Grenning J.** — *Planning Poker* (2002) · **Cohn M.** — *Agile Estimating and Planning* (2005) — Story Points
+- **SAFe** — PI Planning (scaledagileframework.com)
+
+## Voir aussi
+- [`cadrage-projet-ia.md`](cadrage-projet-ia.md) — périmètre amont (source du WBS)
+- [`evm-valeur-acquise.md`](evm-valeur-acquise.md) — baseline planning → PV
+- [`../scrum_master/planning-poker.md`](../scrum_master/planning-poker.md) — estimation relative (Grenning)
+- [`../scrum/forecasting-planning.md`](../scrum/forecasting-planning.md) — forecasting vélocité
+- [`gestion-risques-projet.md`](gestion-risques-projet.md) — risques de planning (RAID)

@@ -1,5 +1,7 @@
 # Skill — Gestion des Parties Prenantes
 > Certifications : PMP (PMI 2026), PRINCE2 Practitioner, Prosci Change Management Certified, ADKAR Practitioner
+> Agent : AGENT-CHEF-PROJET-IA.md
+> Référentiels : **Matrice Mendelow** pouvoir/intérêt (1991) · **PROSCI ADKAR** (Hiatt 2006) · **PMBOK 7** (engagement des parties prenantes) · couplage Kotter / change management
 
 ## Objectif
 Identifier, analyser et engager toutes les parties prenantes d'un projet IA — en utilisant la matrice influence/intérêt, un plan de communication adapté et les techniques de change management ADKAR pour maximiser l'adoption.
@@ -184,3 +186,24 @@ Sabotage                Escalade au sponsor, arbitrage RH si nécessaire
 
 ## Format de sortie
 Précise : nombre et type de parties prenantes, transformation impactée (processus métier, outil, organisation), taille de la population impactée, expérience ADKAR de l'équipe, culture de l'entreprise (top-down / participative), délai pour le changement.
+
+## Anti-patterns
+- ❌ **Cartographie figée** : la matrice influence/intérêt doit être révisée (les stances évoluent)
+- ❌ **Communication uniforme** : même message pour le DG et l'utilisateur final (≠ besoins)
+- ❌ **Sauter une étape ADKAR** : former (K) sans avoir créé le désir (D) → adoption qui échoue
+- ❌ **Ignorer la résistance** au lieu de l'adresser (la résistance non traitée devient sabotage)
+- ❌ **Confondre Mendelow et RACI** : pouvoir/intérêt (engagement) ≠ responsabilités (exécution)
+- ❌ **Mesurer l'adoption seulement au go-live** : suivre L1→L4 (conscience → renforcement à M+3)
+
+## Sources
+- **Mendelow A.L.** — matrice pouvoir/intérêt (*Proc. ICIS*, Cambridge MA, 1991)
+- **Hiatt J.** — *ADKAR: A Model for Change* (Prosci Research, 2006)
+- **PMBOK 7** (PMI 2021) — domaine de performance « Parties prenantes »
+- **Kotter J.** — *Leading Change* (HBR Press, 1996) — couplage conduite du changement
+
+## Voir aussi
+- [`cadrage-projet-ia.md`](cadrage-projet-ia.md) — matrice des parties prenantes initiale
+- [`reporting-codir.md`](reporting-codir.md) — communication adaptée par audience
+- [`../change_manager/`](../change_manager/) — conduite du changement approfondie (PROSCI/Kotter)
+- [`../scrum/stakeholder-map.md`](../scrum/stakeholder-map.md) — cartographie côté produit
+- [`../juridique_ia/politique-ia-entreprise.md`](../juridique_ia/politique-ia-entreprise.md) — adoption IA & CSE

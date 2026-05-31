@@ -1,5 +1,7 @@
 # Skill — Post-Mortem & Retour d'Expérience (REX)
 > Certifications : PMP (PMI 2026), SRE Foundation (Google), Certified Agile Retrospective Facilitator, Blameless Post-Mortem Practitioner
+> Agent : AGENT-CHEF-PROJET-IA.md
+> Référentiels : **Google SRE** (Beyer et al. 2016 — postmortem culture, error budget) · **Blameless Post-Mortem** (Allspaw/Etsy 2012) · **5 Whys** (Toyota / Ohno) · PMBOK 7 (clôture / leçons apprises)
 
 ## Objectif
 Conduire des post-mortems constructifs et sans blame après un incident ou en fin de projet — identifier les causes profondes avec les 5 Pourquoi, produire des plans d'amélioration actionnables et capitaliser sur les apprentissages.
@@ -224,3 +226,23 @@ class ProjectREX:
 
 ## Format de sortie
 Précise : type d'événement (incident de production / clôture projet / fin de sprint), sévérité, durée de l'impact, participants disponibles, outil de documentation (Confluence/Notion/Google Docs), délai pour publication du post-mortem.
+
+## Anti-patterns
+- ❌ **Blâmer les individus** au lieu des systèmes/processus (tue la transparence — règle blameless)
+- ❌ **5 Pourquoi arrêté trop tôt** : s'arrêter à la cause technique sans remonter à la cause process
+- ❌ **Plan d'action sans owner ni deadline** : un post-mortem sans suivi est un rituel vide
+- ❌ **Trop d'actions (> 5-7)** : dilution, rien n'est fait
+- ❌ **Post-mortem jamais partagé** : l'apprentissage reste dans l'équipe, l'incident se reproduit ailleurs
+- ❌ **Hindsight bias** : juger les décisions passées avec l'information d'aujourd'hui
+
+## Sources
+- **Beyer B. et al.** — *Site Reliability Engineering* (Google, O'Reilly 2016) — postmortem culture, error budget
+- **Allspaw J.** — *Blameless PostMortems and a Just Culture* (Etsy, 2012)
+- **Ohno T.** — méthode des **5 Pourquoi** (Toyota Production System)
+- **PMBOK 7** (PMI 2021) — clôture de projet et leçons apprises
+
+## Voir aussi
+- [`gestion-risques-projet.md`](gestion-risques-projet.md) — risques réalisés → incidents (boucle)
+- [`reporting-codir.md`](reporting-codir.md) — escalade et communication d'incident
+- [`../scrum_master/`](../scrum_master/) — rétrospectives Agile (complément du REX projet)
+- [`../mlops_engineer/`](../mlops_engineer/) — incidents techniques ML (drift, OOM, rollback modèle)

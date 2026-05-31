@@ -1,5 +1,7 @@
 # Skill — Gouvernance de Portefeuille IA
 > Certifications : PfMP (Portfolio Management Professional 2026), SAFe Program Consultant (SPC), Gartner PPM Certified
+> Agent : AGENT-CHEF-PROJET-IA.md
+> Référentiels : **PMI Standard for Portfolio Management** (4e éd. 2017) · **SAFe Lean Portfolio Management** + **WSJF** (POPM) · **Gartner PPM** · couplage AI Act 2024/1689 (critère de conformité)
 
 ## Objectif
 Piloter un portefeuille de projets IA avec une priorisation objective (WSJF), un scoring multicritères, des revues de portefeuille structurées et une visibilité claire sur la valeur délivrée et les capacités disponibles.
@@ -205,3 +207,24 @@ capacity_heatmap:
 
 ## Format de sortie
 Précise : nombre de projets IA actifs/proposés, budget total du portefeuille, équipes disponibles (DataScience, MLEng, DataEng), horizon de planification (trimestre/année), outils PPM utilisés (Jira Portfolio, Planview, Notion), critères stratégiques de l'entreprise.
+
+## Anti-patterns
+- ❌ **WSJF en absolu** : coter en valeur monétaire au lieu de relatif par colonne (plus petit = 1) — viole la méthode SAFe
+- ❌ **Portefeuille sans analyse de capacité** : prioriser sans vérifier les ressources disponibles (goulots)
+- ❌ **Scoring multicritères sans poids explicites** : addition de notes sans pondération stratégique
+- ❌ **Aucun projet jamais arrêté** : un portefeuille sain tue les initiatives à faible WSJF (kill criteria)
+- ❌ **RAG status déclaratif** sans seuils objectifs (SPI/CPI) → optimisme de façade
+- ❌ **Revue de portefeuille sans décision** : réunion d'information au lieu d'arbitrage Go/No-Go
+
+## Sources
+- **PMI** — *The Standard for Portfolio Management* (4e éd., 2017)
+- **SAFe** — *Lean Portfolio Management* + **WSJF** (scaledagileframework.com)
+- **Gartner** — *PPM Magic Quadrant* / Adaptive Project Management (gartner.com)
+- **Reinertsen D.** — *The Principles of Product Development Flow* (2009) — Cost of Delay
+
+## Voir aussi
+- [`../safe/wsjf.md`](../safe/wsjf.md) — méthode WSJF détaillée (cotation relative par colonne)
+- [`cadrage-projet-ia.md`](cadrage-projet-ia.md) — business case alimentant le scoring portefeuille
+- [`evm-valeur-acquise.md`](evm-valeur-acquise.md) — agrégation EVM des projets du portefeuille
+- [`reporting-codir.md`](reporting-codir.md) — dashboard portefeuille multi-projets
+- [`../financial_analyst/investment-scoring.md`](../financial_analyst/investment-scoring.md) — scoring d'investissement (vue financière)

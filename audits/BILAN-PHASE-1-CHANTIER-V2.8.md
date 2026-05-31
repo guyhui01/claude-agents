@@ -1,9 +1,82 @@
-# Bilan global Phase 1 — Chantier audit qualité v2.8
+# Bilan global — Chantier audit qualité v2.8 (Phases 1 + 2 + clôture)
 
-> **Date de publication** : 2026-05-29
-> **Modèle** : Claude Opus 4.7
-> **Version** : v3.0.0 (release MAJOR — milestone structurel chantier complet)
-> **Statut** : **🏆 PHASE 1 COMPLET — 33/33 agents audités (100%)**
+> **Date de publication initiale** : 2026-05-29 (Phase 1, v3.0.0) · **Mise à jour** : 2026-05-31 (Phases 1+2+clôture, v3.11.0)
+> **Modèle** : Claude Opus 4.7 (Phases 1+2) · Claude Opus 4.8 (clôture v3.11.0)
+> **Version** : v3.11.0 (objectif final du chantier atteint)
+> **Statut** : **🎯 CHANTIER BOUCLÉ — 33/33 agents audités · 9/9 V2 stratégiques · AGENT-AUDIT-METHODO-IA autonome**
+
+> 📌 **Structure du document** : la **Partie I** (sections 1-7) est l'archive historique de la Phase 1 (audit 33 agents, v3.0.0, conservée telle quelle). La **Partie II** ci-dessous actualise le bilan avec la Phase 2 (9 V2) et la clôture du chantier (v3.11.0).
+
+---
+
+## 🎯 PARTIE II — Synthèse Phase 2 & clôture chantier (2026-05-31, v3.11.0)
+
+### II.1 — Vue d'ensemble
+
+La **Phase 2** a transformé les P1 stratégiques identifiés en Phase 1 en **9 refontes V2 profondes** (différenciateurs compétitifs publiables), puis la session du 2026-05-31 a atteint l'**objectif final déclaré** du chantier : rendre `AGENT-AUDIT-METHODO-IA` capable de consommer la grille v2.8 en autonomie.
+
+| Métrique globale chantier | Valeur finale |
+|---|---:|
+| **Agents audités** | 33/33 (100%) |
+| **V2 stratégiques publiées** | **9/9 (100%)** |
+| **Grilles v2.8 formalisées** | 5/5 (100%) |
+| **Releases totales** | **29** (v2.8.0 → v3.11.0) |
+| **Lignes denses ajoutées Phase 2** | ~3 100 L |
+| **Secteurs anonymisés mobilisés** | 9 (hôtellerie · télécom · énergie · banque CIB · santé · scale-up SaaS B2B · industrie 4.0 · média/presse · + assurance/secteur public) |
+| **Repo factuel** | 100% (audit qualité rétroactif v3.10.1) |
+| **Objectif final** | ✅ atteint (v3.11.0) |
+
+### II.2 — Les 9 V2 stratégiques (Phase 2)
+
+| # | Release | Skill | Référentiels intégrés | Secteur exemple |
+|:---:|:---:|---|---|---|
+| P2.1 | v3.1.0 | `business_analyst/elicitation-besoins.md` | BABOK v3 + Volere + Wiegers + 14 techniques | — |
+| P2.2 | v3.2.0 | `business_analyst/modelisation-processus.md` | BPMN 2.0 + UML 2.5 + DMN 1.4 + CMMN 1.1 + Process Mining + Use Cases Cockburn/Jacobson | Hôtellerie multi-pays |
+| P2.3 | v3.3.0 | `business_analyst/cartographie-si.md` | TOGAF 10 + ArchiMate 3.2 + C4 + Longépé + APM Gartner TIME + TM Forum eTOM | Télécom européen |
+| P2.4 | v3.4.0 | `business_analyst/analyse-impact.md` | Kotter + Lewin + Bridges + PROSCI ADKAR + McKinsey 7S + Mendelow + Force Field + BABOK KA + CCB | Énergéticien européen |
+| P2.5 | v3.5.0 | `scrum/gestion-risques.md` | ISO 31000 + ISO 31010 + PMBOK 7 + COSO ERM 2017 + SAFe ROAM + DORA + NIST AI RMF + IIA Three Lines + Monte Carlo + Cynefin | Banque CIB (DORA) |
+| P2.6 | v3.7.0 | `scrum/product-vision.md` | Cagan + Pichler + Moore + Christensen + Sinek + Blue Ocean + Torres + Ulwick + PMF + Lean Canvas + OKR + North Star + AARRR + HEART | Scale-up SaaS B2B Series B |
+| P2.7 | v3.8.0 | `consultant_ia/diagnostic-maturite-ia.md` | Gartner AI Maturity + MIT Sloan/BCG + Cap Gemini + Microsoft + IBM AI Ladder + NIST AI RMF + ISO 42001 + AI Act | Groupe hospitalier multi-pays |
+| P2.8 | v3.9.0 | `consultant_ia/benchmark-solutions-ia.md` | Gartner MQ + Forrester Wave + IDC MarketScape + G2 + Constellation + TEI + Kraljic + ISO 25010:2023 | Industrie 4.0 |
+| P2.9 🏆 | v3.10.0 | `juridique_ia/propriete-intellectuelle-ia.md` | Directive 2019/790 TDM + AI Act + Dir. 2016/943 + jurisprudence (NYT/Andersen/Getty/Like Company/Thaler) | Média/presse européen |
+
+### II.3 — Patches qualité & enrichissements Phase 2
+
+| Release | Nature | Apport |
+|:---:|---|---|
+| v3.2.1 | Patch | `po-ai-product.md` section « À venir » obsolète + 2 cross-links |
+| v3.5.1 | **Patch conformité** | Séparation stricte livrables **PO Scrum (Agile)** vs **BA/MOA (cycle V)** — suppression `scrum/spec-fonctionnelle.md` + `scrum/recette-fonctionnelle.md`, enrichissement BA |
+| v3.6.0 | **Enrichissement BA** | Pilotage projet MOA complet : `pilotage-projet.md` (322L) + V2 `cadrage-projet.md` + V2 `reporting-moa.md` (PMBOK 7 + PRINCE2 + ISO 21500 + Goldratt CCPM + Stage-Gate Cooper) |
+| v3.8.1 | **Patch factuel** | Audit WebSearch sources primaires : MIT Sloan cohorts inventés corrigés, Cap Gemini « 184 »→+400, % Gartner fabriqués supprimés, libellés certifs précisés |
+| v3.10.1 | **Patch factuel rétroactif** | V2 antérieures à v3.8.1 : PRINCE2 (2023), Mendelow (ICIS 1991), PROSCI 70%→8×, Cooper Stage-Gate source, TM Forum version |
+
+### II.4 — Décisions méthodologiques tracées
+
+- ✅ **Pas d'AGENT-CHEF-PROJET-MOA séparé** : convention AMOA française dominante = fusion BA/MOA/CdP MOA dans `AGENT-BUSINESS-ANALYST` (renommé « BA/MOA/AMOA Expert »). 38 agents inchangés.
+- ✅ **Mentions « Guy HUIBONHOA » conservées** dans les `AGENT-*.md` (décision 2026-05-30) : profil d'activation perso ; les autres utilisateurs adaptent leur nom. Le **contenu** des skills reste généraliste/anonymisé (catalogue public).
+- ✅ **Séparation stricte Scrum vs cycle V** : pas de SFG/SFD/recette MOA dans `skills/scrum/`.
+- ✅ **Sweep généralisation (retrait mentions Guy)** : ABANDONNÉ (décision 2026-05-30).
+- ✅ **Skill méta-procédural mérite la profondeur** (2026-05-31) : `audit-qualite-catalogue.md` refondu au standard profond (parité structurelle `product-vision.md`) après challenge Guy — une fiche de procédure ne suffit pas pour l'objectif final du chantier.
+
+### II.5 — Memories enregistrées (Phases 2 + clôture)
+
+- `feedback_catalogue_generaliste` — repo public = bibliothèque PO/MOA/consultants généralistes
+- `feedback_conformite_scrum_vs_cyclev` — séparation livrables PO Scrum/SAFe ≠ BA/MOA cycle V
+- ⚠️ `feedback_verification_factuelle` — WebSearch obligatoire avant publier %/cohorts/libellés certifs (incident v3.8.0)
+
+### II.6 — Clôture v3.11.0 — objectif final atteint
+
+La section 6.3 ci-dessous (« Phase 4 audit méta-récurrent — optionnel ») est désormais **réalisée** :
+- Nouveau skill `skills/critique_conformite/audit-qualite-catalogue.md` (274L) — encode la grille v2.8 pour exécution autonome par `AGENT-AUDIT-METHODO-IA`
+- Routage agent→groupe→déclinaison (33 agents + 5 hors chantier) · workflow 6 étapes · brief Explore standard · cotation D1/D2/D3 · template rapport 10 sections · reco V1/V2/V3 · exemple d'audit déroulé de bout en bout
+- 7 principes ISO 19011:2018 développés · 2 WebSearch factuels préalables (ISO 19011:2018, CMMI V3.0/SCAMPI), 0 invention
+- Consolidation dans `critique_conformite` (pas de nouveau dossier) · renvoi vers `audits/audit-grilles-v2.8.md` (pas de duplication)
+
+**Reste optionnel** : GitHub Release commémorative (Étape 3) · Phase 3 V3 bundles cross-agents (Sources/Anti-patterns/Cross-links/Diversification, ~12-15h).
+
+---
+
+## 📚 PARTIE I — Bilan Phase 1 (archive historique, v3.0.0, 2026-05-29)
 
 ---
 

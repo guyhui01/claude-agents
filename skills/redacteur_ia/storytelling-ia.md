@@ -6,7 +6,7 @@ Construire des récits captivants qui donnent vie aux données, aux cas clients 
 
 ## Les structures narratives fondamentales
 
-### Le Voyage du Héros (Joseph Campbell)
+### Le Voyage du Héros (Joseph Campbell, *The Hero with a Thousand Faces*, 1949)
 ```
 1. Monde ordinaire   → Situation initiale du personnage
 2. Appel à l'aventure → Le problème / défi
@@ -78,3 +78,23 @@ Longueur : [X mots]."
 
 ## Format de sortie
 Précise : type de support · personnage principal · problème · solution · résultats · audience · ton · longueur
+
+## Anti-patterns
+- ❌ **Héros = l'entreprise** — se mettre en personnage principal au lieu du client → le lecteur ne se projette pas. Le client est le héros, vous êtes le mentor.
+- ❌ **Chiffres inventés pour l'effet** — « 47 % de réduction » sans donnée réelle → mensonge dès qu'on creuse. Tout chiffre de cas client doit être réel et anonymisé.
+- ❌ **Histoire sans tension** — récit linéaire sans obstacle → ennuyeux, non mémorable. La tension maintient l'attention.
+- ❌ **Storytelling au lieu de preuve** — narration qui masque l'absence de résultats → décrédibilisation auprès d'un public exigeant.
+- ❌ **Détails non pertinents** — surcharge descriptive qui dilue le message → garder ce qui sert l'arc et la transformation.
+
+## Sources
+- **Joseph Campbell** — *The Hero with a Thousand Faces* (1949, rév. 1968) — monomythe / voyage du héros
+- **Donald Miller** — *Building a StoryBrand* (HarperCollins, 2017) — le client héros, la marque guide
+- **Nancy Duarte** — *Resonate* (Wiley, 2010) — structure narrative des présentations
+- **Edward Tufte** — *The Visual Display of Quantitative Information* (1983, 2ᵉ éd. 2001) — donner vie aux données sans les trahir
+- **Chip & Dan Heath** — *Made to Stick* (Random House, 2007) — principe SUCCES de mémorabilité
+
+## Voir aussi
+- [presentation-pitch.md](presentation-pitch.md) — arc narratif appliqué au deck
+- [copywriting-ia.md](copywriting-ia.md) — persuasion et preuve sociale
+- [linkedin-thought-leadership.md](linkedin-thought-leadership.md) — posts en storytelling
+- [`../ux_design/storytelling-stakeholders.md`](../ux_design/storytelling-stakeholders.md) — narration data-driven (Tufte)

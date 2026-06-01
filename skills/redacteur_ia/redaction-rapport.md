@@ -128,3 +128,22 @@ IMPACT :
 
 ## Format de sortie
 Précise : type de rapport (audit, activité, projet, incident) · audience principale · périmètre · données disponibles · longueur cible · deadline
+
+## Anti-patterns
+- ❌ **Résumé exécutif qui n'en est pas un** — résumé qui exige la lecture du rapport pour être compris → décideurs perdus. Il doit être autoportant (principe Minto).
+- ❌ **Constats noyés dans les opinions** — mélanger faits et interprétations non étayées → perte de crédibilité, conclusions contestables.
+- ❌ **Recommandations non priorisées** — empiler les actions sans Impact/Effort ni responsable/échéance → rapport non actionnable.
+- ❌ **Données en paragraphe dense** — chiffres enfouis dans le texte au lieu d'un tableau/graphique → illisible (cf. Tufte).
+- ❌ **Graphique mal choisi** — camembert à 12 parts, axes tronqués → message faussé. Choisir le type selon la donnée.
+
+## Sources
+- **Barbara Minto** — *The Minto Pyramid Principle* (Pearson, 1987) — structure « réponse d'abord », SCQA, groupement MECE
+- **Edward Tufte** — *The Visual Display of Quantitative Information* (Graphics Press, 1983 ; 2ᵉ éd. 2001) — choix et intégrité des graphiques
+- **Joseph Williams** — *Style: Lessons in Clarity and Grace* (1981) — clarté rédactionnelle, longueur de phrase
+- **Méthode STAR** — issue de l'entretien comportemental (US Army / behavioral interviewing, ~1970s) — adaptée ici à la rédaction de constats factuels
+
+## Voir aussi
+- [synthese-executive.md](synthese-executive.md) — résumé exécutif autoportant (pyramide Minto)
+- [compte-rendu-pro.md](compte-rendu-pro.md) — relevé de décisions de réunion
+- [note-cadrage.md](note-cadrage.md) — document fondateur amont
+- [`../ux_design/storytelling-stakeholders.md`](../ux_design/storytelling-stakeholders.md) — mise en récit des données (Tufte)

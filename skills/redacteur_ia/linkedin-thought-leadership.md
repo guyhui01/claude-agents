@@ -21,7 +21,7 @@ Développer une présence LinkedIn d'expert reconnu sur les sujets IA, générer
 | Chiffre fort | "J'ai testé 47 prompts Claude en 30 jours. Résultats :" |
 | Story | "En 2023, j'ai raté ma présentation CODIR. Voici ce que j'ai appris." |
 | Question | "Savez-vous combien vaut 1h de votre temps en tokens IA ?" |
-| Affirmation forte | "La roadmap IA de 95% des entreprises est dans le mauvais sens." |
+| Affirmation forte | "La roadmap IA de la plupart des entreprises est dans le mauvais sens." *(toute statistique en hook doit être sourcée — sinon rester qualitatif)* |
 
 ## Types de posts LinkedIn × objectifs
 | Type | Objectif | Format | Fréquence |
@@ -67,3 +67,22 @@ Inclure : [un insight actionnable + CTA + 3 hashtags]."
 
 ## Format de sortie
 Précise : sujet du post · audience · objectif · ton · longueur · call to action souhaité
+
+## Anti-patterns
+- ❌ **Statistique-hook non sourcée** — ouvrir sur un chiffre inventé (« 95 % des… ») → décrédibilisation auprès d'une audience experte. Sourcer ou rester qualitatif.
+- ❌ **Broadcasting sans engagement** — publier sans répondre aux commentaires → l'algorithme ne pousse pas, pas de relation.
+- ❌ **Humble bragging permanent** — autopromotion systématique sans valeur actionnable → désabonnements.
+- ❌ **Hook déconnecté du contenu** — accroche racoleuse non tenue par le corps → perte de confiance.
+- ❌ **Régularité en dents de scie** — 10 posts puis silence d'un mois → perte de portée et de mémorisation.
+
+## Sources
+- **Dorie Clark** — *Stand Out* (Portfolio, 2015) — construire une expertise reconnue
+- **Mark Schaefer** — *Known* (2017) — autorité et personal branding
+- **Robert Cialdini** — *Influence* (1984) — preuve sociale et autorité appliquées au contenu
+- **LinkedIn** — *Creator best practices* (documentation officielle) — formats et bonnes pratiques d'engagement
+
+## Voir aussi
+- [content-strategy.md](content-strategy.md) — pilier « attirer » et calendrier éditorial
+- [storytelling-ia.md](storytelling-ia.md) — posts en storytelling (cas client anonymisé)
+- [copywriting-ia.md](copywriting-ia.md) — hooks et formules persuasives
+- [newsletter-email.md](newsletter-email.md) — convertir l'audience LinkedIn en abonnés

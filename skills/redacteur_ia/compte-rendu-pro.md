@@ -108,7 +108,7 @@ Un mauvais compte-rendu :
 [Date + lieu + ordre du jour prévisionnel]
 ```
 
-## Prise de notes en réunion — Méthode Cornell adaptée
+## Prise de notes en réunion — Méthode Cornell adaptée *(Walter Pauk, 1962)*
 
 ### Colonnes de prise de notes
 ```
@@ -156,3 +156,21 @@ Un mauvais compte-rendu :
 
 ## Format de sortie
 Précise : type de réunion (comité, one-on-one, réunion d'équipe, CODIR) · durée · nombre de participants · outil de partage du CR · délai d'envoi · niveau de détail attendu (synthèse ou verbatim)
+
+## Anti-patterns
+- ❌ **Verbatim intégral** — retranscrire mot à mot les échanges → CR illisible, l'essentiel (décisions/actions) noyé.
+- ❌ **Aucune action traçable** — pas de responsable ni d'échéance → engagements oubliés, pas de suivi possible.
+- ❌ **Confondre « évoqué » et « décidé »** — flou sur le statut des points → contestations ultérieures.
+- ❌ **Envoi tardif** — CR envoyé plusieurs jours après → contexte perdu, actions démarrées en retard.
+- ❌ **CR fleuve** — pas de structure ni de hiérarchie → personne ne le lit. Viser 1 page pour une réunion standard.
+
+## Sources
+- **Walter Pauk** — *How to Study in College* (Cornell University, 1962) — méthode Cornell de prise de notes
+- **George T. Doran** — *There's a S.M.A.R.T. Way to Write Management's Goals and Objectives*, Management Review (novembre 1981) — actions SMART
+- **Patrick Lencioni** — *Death by Meeting* (Jossey-Bass, 2004) — efficacité et formats de réunion
+
+## Voir aussi
+- [redaction-rapport.md](redaction-rapport.md) — rapport structuré pour des décisions plus larges
+- [synthese-executive.md](synthese-executive.md) — synthèse de décisions pour décideurs
+- [note-cadrage.md](note-cadrage.md) — relevé de décisions de kickoff projet
+- [redaction-email-pro.md](redaction-email-pro.md) — diffusion du CR par email

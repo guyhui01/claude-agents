@@ -5,6 +5,31 @@
 
 ---
 
+## [3.20.0] — 2026-06-01 — Audit complet + V1+ du groupe REDACTEUR-IA (16 skills, §3.5)
+> Modèle : Claude Opus 4.8
+
+### 🎯 Contexte
+Audit-first complet de **AGENT-REDACTEUR-IA** (sous-domaine UX/Contenu de la grille §3.5). Extraction Explore des 16 skills (4 lots parallèles) · **passe de vérification factuelle** (8 WebSearch préalables) · cotation D1/D2/D3. Rapport : `audits/audit-redacteur-ia-2026-06-01.md`. Cotation : 0 ✓ pur · **1 P0** · 7 P1 · 8 P2. Profil du groupe : « riche non sourcé » (0/16 sources datées, 0/16 cross-links, anti-patterns sur 5/16 seulement à l'entrée).
+
+### 🚨 P0 — Finding factuel (la passe de vérification a payé)
+- **`presentation-pitch`** : chiffre choc **« 87 % des projets IA échouent en production »** — **fabriqué**, aucune source ne le porte (incident de type v3.19.0) → remplacé par une statistique sourcée : **Gartner, juillet 2024 — « 30 % des projets d'IA générative abandonnés après le POC d'ici fin 2025 »**. Heading « freytag » → **pyramide de Freytag (1863)**.
+
+### 🟠 P1 — Corrections factuelles & sources structurantes
+- **`seo-content`** : « E-E-A-T (Google 2026) » **faux** → **Google, décembre 2022** (2ᵉ « E » Experience ajouté à E-A-T, lui-même depuis ~2014).
+- **`newsletter-email`** : 7 benchmarks email non sourcés et sous-estimés → requalifiés en **ordres de grandeur** + note **biais Apple Mail Privacy Protection** + privilégier le **CTOR** + sources Mailchimp/HubSpot/Brevo 2025 + CNIL.
+- **`copywriting-ia`** : ajout **Ogilvy *On Advertising* (1983)** + **Cialdini *Influence* (1984)** + AIDA attribué (E. St. Elmo Lewis 1898).
+- **`redaction-rapport`** : ajout **Pyramide Minto (1987)** + Tufte (1983) ; **`ux-writing`** : **Nielsen & Landauer 1993 / NN/g 2000** (règle des 5 users) + **WCAG 2.2 (W3C 2023)** ; **`linkedin`** : hook « 95 % » neutralisé ; **`content-strategy`** : E-E-A-T + Helpful Content.
+
+### ✨ V1+ standard sur les 16 skills
+- Section **`## Sources`** datée (16/16) · section/bloc **`## Anti-patterns`** (16/16, dont 11 créés) · **`## Voir aussi`** (16/16) maillage intra-redacteur_ia + cross-agents (`ux_design`, `prompt_engineer`, `business_analyst`, `dev_typescript_ia`).
+- Attributions ajoutées : SMART = **Doran, *Management Review*, nov. 1981** · Campbell *Hero with a Thousand Faces* **1949** · BLEU = **Papineni et al., ACL 2002** · CoT = Wei 2022 · Few-shot = Brown 2020 · Cornell = Pauk 1962.
+
+### ✅ Notes
+- **Faux positif Explore écarté** : certif « Anthropic Claude Code in Action » (documentation-technique, prompt-engineering-redaction) = **certification réelle** (Anthropic 2026), conservée.
+- Exemples chiffrés fictifs clairement contextualisés (4,2 % churn, 2,3 M€, 4,3 jours…) = conformes, non modifiés. Anonymisation clients 100 % respectée.
+
+---
+
 ## [3.19.0] — 2026-06-01 — Audit complet + V1+ du groupe RH-IA (11 skills, §3.5)
 > Modèle : Claude Opus 4.8
 

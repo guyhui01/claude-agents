@@ -81,7 +81,7 @@ SLIDE Q&A         → Simple, avec contact info
 
 ## Storytelling en présentation
 
-### Structure narrative (freytag adapté)
+### Structure narrative (pyramide de Freytag adaptée)
 ```
 ACCROCHE    → Situation initiale (les gens s'y reconnaissent)
 TENSION     → Le problème qui crée le besoin d'agir
@@ -93,7 +93,7 @@ APPEL       → Ce qu'on fait maintenant ensemble
 
 ### Techniques d'accroche
 ```
-Le chiffre choc     : "87% des projets IA échouent en production."
+Le chiffre choc     : "30% des projets d'IA générative seront abandonnés après le POC d'ici fin 2025." (Gartner, 2024)
 La question directe : "Combien vous coûte vraiment ce processus manuel ?"
 L'histoire courte   : "Un client nous a appelés à 2h du matin..."
 La citation         : [Auteur] : "[Citation pertinente]"
@@ -131,3 +131,25 @@ PRÉPARATION :
 
 ## Format de sortie
 Précise : type de présentation (pitch, CODIR, kickoff, formation) · audience · durée allouée · objectif (convaincre, informer, décider) · données disponibles · charte graphique
+
+## Anti-patterns
+- ❌ **Chiffre choc non sourcé** — utiliser une statistique d'accroche sans source vérifiable (ex. « 87 % des projets IA échouent ») → perte de crédibilité immédiate si challengé en CODIR. Toujours dater et attribuer (cf. Gartner, McKinsey).
+- ❌ **Slide-document** — slides denses lues à voix haute → l'audience lit au lieu d'écouter. La slide appuie le discours, elle ne le remplace pas.
+- ❌ **Titre-label** — « Résultats », « Contexte » au lieu du message (« Le CA a progressé de 23 % »). Le titre doit porter l'insight.
+- ❌ **Recommandation en fin de deck** — noyer la préconisation à la dernière slide → décideurs décrochés. La placer en slide 3-4 (principe Minto : réponse d'abord).
+- ❌ **Plus de 3 idées par slide** — viole la règle 1-3-5 → surcharge cognitive, message dilué.
+- ❌ **Pas de répétition à voix haute** — timing non maîtrisé, dépassement, transitions hésitantes.
+
+## Sources
+- **E. St. Elmo Lewis** — modèle AIDA / *elevator pitch* (1898) — structure d'accroche persuasive
+- **Gustav Freytag** — *Die Technik des Dramas* (1863) — pyramide narrative (exposition → tension → climax → résolution)
+- **Barbara Minto** — *The Minto Pyramid Principle* (Pearson, 1987) — réponse d'abord, structure SCQA pour la slide de recommandation
+- **Nancy Duarte** — *Resonate* (Wiley, 2010) & *slide:ology* (O'Reilly, 2008) — design narratif de présentations
+- **Edward Tufte** — *The Visual Display of Quantitative Information* (Graphics Press, 1983 ; 2ᵉ éd. 2001) — slides de données, data-ink ratio
+- **Gartner** — *Predicts 30% of Generative AI Projects Will Be Abandoned After Proof of Concept by End of 2025* (juillet 2024) — exemple de chiffre choc sourcé
+
+## Voir aussi
+- [synthese-executive.md](synthese-executive.md) — synthèse 1 page (pyramide Minto) en amont du deck CODIR
+- [storytelling-ia.md](storytelling-ia.md) — arc narratif et techniques d'accroche
+- [note-cadrage.md](note-cadrage.md) — structure de kickoff projet et gouvernance (DACI)
+- [`../ux_design/storytelling-stakeholders.md`](../ux_design/storytelling-stakeholders.md) — narration data-driven pour parties prenantes (Tufte)

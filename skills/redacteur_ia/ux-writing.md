@@ -64,7 +64,7 @@ Objectif : [réduire la friction / encourager l'action / rassurer]."
 - [ ] Aucun message d'erreur sans solution proposée
 - [ ] Le ton est cohérent sur toute la page
 - [ ] Les termes métier sont expliqués ou évités
-- [ ] Testé avec de vrais utilisateurs (5 suffit)
+- [ ] Testé avec de vrais utilisateurs (≈5 suffisent en test qualitatif — Nielsen & Landauer 1993)
 
 ## Livrables
 - Guide de ton de voix (Voice & Tone)
@@ -74,3 +74,23 @@ Objectif : [réduire la friction / encourager l'action / rassurer]."
 
 ## Format de sortie
 Précise : type d'interface · composant ciblé · ton de marque · audience · contrainte de longueur · contexte d'affichage
+
+## Anti-patterns
+- ❌ **« Cliquez ici »** — libellé de bouton sans action ni valeur → ne dit pas ce qui se passe. Décrire l'action + le résultat.
+- ❌ **Message d'erreur sans solution** — « Erreur 404 » / « Champ invalide » → l'utilisateur est bloqué. Toujours indiquer quoi faire.
+- ❌ **Jargon ou ton corporate** — « Veuillez réessayer ultérieurement » → froid et flou. Parler comme à un humain.
+- ❌ **Incohérence terminologique** — « Supprimer » ici, « Effacer » là pour la même action → confusion.
+- ❌ **Microcopy non accessible** — messages reposant sur la couleur seule, libellés non lisibles par lecteur d'écran → exclusion (cf. WCAG 2.2).
+
+## Sources
+- **Jakob Nielsen** — *10 Usability Heuristics for User Interface Design* (NN/g, 1994) — heuristiques d'interface
+- **Nielsen & Landauer** — *A mathematical model of the finding of usability problems* (1993) ; Nielsen, *Why You Only Need to Test with 5 Users* (NN/g, 2000) — règle des 5 utilisateurs (~85 % des problèmes en test qualitatif)
+- **W3C** — *WCAG 2.2* (octobre 2023) — accessibilité du contenu (libellés, messages, contraste)
+- **Torrey Podmajersky** — *Strategic Writing for UX* (O'Reilly, 2019) — voix & ton, microcopy
+- **Kinneret Yifrah** — *Microcopy: The Complete Guide* (2017) — microcopy par composant
+
+## Voir aussi
+- [`../ux_design/accessibilite-wcag.md`](../ux_design/accessibilite-wcag.md) — conformité WCAG 2.2 détaillée
+- [`../ux_design/audit-ux-heuristiques.md`](../ux_design/audit-ux-heuristiques.md) — 10 heuristiques de Nielsen
+- [`../ux_design/tests-utilisateurs.md`](../ux_design/tests-utilisateurs.md) — tests utilisateurs (règle des 5)
+- [documentation-technique.md](documentation-technique.md) — messages et guides côté produit

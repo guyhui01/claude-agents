@@ -130,7 +130,7 @@ Exemples d'exclusions types :
   "La formation des utilisateurs finaux n'est pas incluse dans ce projet"
 ```
 
-### Objectifs : le test SMART
+### Objectifs : le test SMART *(George T. Doran, 1981)*
 ```
 Avant de valider un objectif, appliquer le test :
   Specific   → "Améliorer l'expérience" ❌ vs "Réduire le délai de réponse" ✅
@@ -148,3 +148,22 @@ Avant de valider un objectif, appliquer le test :
 
 ## Format de sortie
 Précise : nom et nature du projet · commanditaire · budget approximatif · contraintes connues · parties prenantes principales · deadline de validation
+
+## Anti-patterns
+- ❌ **Périmètre sans exclusions explicites** — ne lister que ce qui est inclus → scope creep, conflits sur le « hors périmètre ».
+- ❌ **Objectifs non SMART** — « améliorer l'expérience » sans indicateur ni cible ni échéance → impossible de mesurer le succès.
+- ❌ **Parties prenantes oubliées** — cartographie incomplète → opposants découverts en cours de route, blocages.
+- ❌ **Hypothèses non tracées** — bâtir sur des suppositions non validées sans les expliciter → dérive si elles s'avèrent fausses.
+- ❌ **Note de cadrage non signée** — pas de validation formelle du commanditaire → désalignement révélé trop tard.
+
+## Sources
+- **George T. Doran** — *There's a S.M.A.R.T. Way to Write Management's Goals and Objectives*, Management Review, vol. 70, n° 11 (novembre 1981) — critères SMART
+- **PMI** — *PMBOK Guide, 7th Edition* (2021) — Project Charter, parties prenantes
+- **PRINCE2 7** — PeopleCert/Axelos (2023) — Project Brief, Business Case
+- **Mendelow** — *Stakeholder Mapping* (1991) — matrice pouvoir/intérêt des parties prenantes
+
+## Voir aussi
+- [`../business_analyst/cadrage-projet.md`](../business_analyst/cadrage-projet.md) — cadrage projet MOA approfondi (charte, business case)
+- [redaction-rapport.md](redaction-rapport.md) — rédaction structurée du document
+- [presentation-pitch.md](presentation-pitch.md) — présentation du kickoff projet
+- [synthese-executive.md](synthese-executive.md) — synthèse de la note pour le commanditaire

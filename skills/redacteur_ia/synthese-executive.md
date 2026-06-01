@@ -4,7 +4,7 @@
 ## Objectif
 Rédiger des synthèses exécutives percutantes qui permettent aux décideurs de comprendre l'essentiel en 2-3 minutes et de prendre une décision éclairée.
 
-## Principe fondateur : la pyramide de Minto
+## Principe fondateur : la pyramide de Minto *(Barbara Minto, 1987)*
 ```
 RÉPONSE DIRECTE D'ABORD
     ↓
@@ -146,3 +146,15 @@ INVESTISSEUR / BANQUIER
 
 ## Format de sortie
 Précise : sujet du document source · décideur cible · décision attendue · contrainte de longueur · ton souhaité (assertif, consultatif, neutre)
+
+## Sources
+- **Barbara Minto** — *The Minto Pyramid Principle* (Pearson, 1987) — réponse d'abord, structure SCQA (Situation-Complication-Question-Résolution)
+- **McKinsey** — *Writing Program* / principe « answer first » — pratique de la synthèse exécutive en conseil
+- **Joseph Williams** — *Style: Lessons in Clarity and Grace* (1981) — concision, phrases courtes
+- **Edward Tufte** — *The Visual Display of Quantitative Information* (1983) — un seul tableau/graphique simple
+
+## Voir aussi
+- [redaction-rapport.md](redaction-rapport.md) — rapport complet dont la synthèse est extraite
+- [presentation-pitch.md](presentation-pitch.md) — slide de recommandation (même logique Minto)
+- [note-cadrage.md](note-cadrage.md) — synthèse pour le commanditaire projet
+- [compte-rendu-pro.md](compte-rendu-pro.md) — synthèse de décisions de réunion

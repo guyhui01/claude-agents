@@ -65,3 +65,22 @@ Pilier 2 (thème central)
 
 ## Format de sortie
 Précise : secteur · audience cible (persona) · objectif principal (notoriété / leads / autorité) · budget · canaux prioritaires · fréquence de publication
+
+## Anti-patterns
+- ❌ **Produire sans stratégie** — publier au fil de l'eau sans piliers ni objectifs → contenu dispersé, pas de cumul d'autorité topique.
+- ❌ **Volume au détriment de la qualité** — viser le nombre de posts plutôt que l'E-E-A-T → dilution, déclassement SEO (Helpful Content).
+- ❌ **Pas de mesure** — produire sans suivre les KPI (trafic, leads, conversion) → impossible d'arbitrer ou d'optimiser.
+- ❌ **Ignorer la distribution** — tout miser sur la production, rien sur l'amplification → bon contenu, zéro audience.
+- ❌ **IA sans relecture humaine** — laisser l'IA produire et publier sans vérification factuelle → risque réputationnel.
+
+## Sources
+- **Google** — *Helpful Content System* (2022+) & E-E-A-T (déc. 2022) — contenu « people-first »
+- **Robert Rose & Joe Pulizzi (Content Marketing Institute)** — *Killing Marketing* (McGraw-Hill, 2017) — content as a strategy
+- **April Dunford** — *Obviously Awesome* (2019) — positionnement au service du contenu
+- **HubSpot** — modèle *Pillar / Topic Cluster* — architecture de contenu
+
+## Voir aussi
+- [seo-content.md](seo-content.md) — exécution SEO des contenus piliers
+- [copywriting-ia.md](copywriting-ia.md) — rédaction persuasive des formats
+- [newsletter-email.md](newsletter-email.md) — pilier « fidéliser » et distribution email
+- [linkedin-thought-leadership.md](linkedin-thought-leadership.md) — pilier « attirer » sur les réseaux

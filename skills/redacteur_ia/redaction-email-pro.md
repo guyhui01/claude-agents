@@ -163,3 +163,15 @@ GESTION DES PIÈCES JOINTES :
 
 ## Format de sortie
 Précise : type d'email (demande, relance, escalade, annonce) · destinataire et relation · contexte du sujet · ton souhaité (formel, neutre, chaleureux) · délai de réponse attendu
+
+## Sources
+- **Barbara Minto** — *The Minto Pyramid Principle* (Pearson, 1987) — message clé d'abord, applicable à l'objet et au corps
+- **Cal Newport** — *A World Without Email* (Portfolio, 2021) — hygiène et protocoles email
+- **The Radicati Group** — *Email Statistics Report* (édité annuellement) — volumétrie et usages email professionnels
+- **AIDA** (E. St. Elmo Lewis, 1898) — structure d'objet et de CTA persuasifs
+
+## Voir aussi
+- [compte-rendu-pro.md](compte-rendu-pro.md) — diffusion d'un CR par email
+- [synthese-executive.md](synthese-executive.md) — version « 5 lignes » pour email exécutif
+- [newsletter-email.md](newsletter-email.md) — email marketing (≠ email professionnel transactionnel)
+- [redaction-rapport.md](redaction-rapport.md) — email d'accompagnement d'un rapport

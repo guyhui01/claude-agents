@@ -79,3 +79,23 @@ Format : Markdown."
 
 ## Format de sortie
 Précise : type de doc · projet/composant décrit · audience · niveau de détail · format de rendu (Markdown, HTML, PDF) · langage de code utilisé
+
+## Anti-patterns
+- ❌ **Doc désynchronisée du code** — documentation non versionnée avec le code → obsolète dès la release suivante. Appliquer *Docs as Code*.
+- ❌ **Descriptions sans exemples** — expliquer sans montrer → l'utilisateur ne sait pas démarrer. Un exemple exécutable vaut 10 lignes de prose.
+- ❌ **Exemples non testés** — snippets qui ne compilent pas → perte de confiance immédiate. Tester la doc en CI.
+- ❌ **Tout dans un seul README** — mélanger README, API, runbook, guide → illisible. Séparer par type et audience.
+- ❌ **Jargon non défini** — acronymes et termes maison non explicités → barrière pour les nouveaux arrivants.
+
+## Sources
+- **OpenAPI Initiative** — *OpenAPI Specification 3.x* (Linux Foundation) — référence API
+- **Simon Brown** — *The C4 Model for visualising software architecture* (c4model.com) — diagrammes d'architecture
+- **Write the Docs** — *Docs as Code* — documentation versionnée avec le code
+- **Daniele Procida** — *Diátaxis framework* (tutorials / how-to / reference / explanation) — typologie de la documentation
+- **WCAG 2.2** — W3C (octobre 2023) — accessibilité des contenus (structure, alt text)
+
+## Voir aussi
+- [redaction-rapport.md](redaction-rapport.md) — rédaction structurée hors contexte code
+- [ux-writing.md](ux-writing.md) — microcopy et messages d'erreur côté interface
+- [`../dev_typescript_ia/README.md`](../dev_typescript_ia/README.md) — skills développeur (consommateurs de la doc)
+- [`../prompt_engineer/system-prompt-design.md`](../prompt_engineer/system-prompt-design.md) — documentation de prompts/agents

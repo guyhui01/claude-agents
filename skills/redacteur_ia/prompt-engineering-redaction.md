@@ -16,7 +16,7 @@ Maîtriser l'art du prompt engineering appliqué à la production de contenu éc
 
 ## Techniques de prompting avancées
 
-### Few-shot (exemples dans le prompt)
+### Few-shot (exemples dans le prompt) *(Brown et al., 2020)*
 ```
 "Voici 2 exemples du ton que je veux :
 Exemple 1 : [texte de référence]
@@ -24,7 +24,7 @@ Exemple 2 : [texte de référence]
 Maintenant écris [nouvelle tâche] avec ce même ton."
 ```
 
-### Chain of Thought pour le contenu
+### Chain of Thought pour le contenu *(Wei et al., 2022)*
 ```
 "Avant d'écrire, réfléchis à :
 1. Quel est le problème principal du lecteur ?
@@ -85,3 +85,16 @@ V1 : chiffre, V2 : question, V3 : bénéfice direct."
 
 ## Format de sortie
 Précise : type de contenu · audience · canal · objectif · exemples de référence (style souhaité) · contraintes
+
+## Sources
+- **Anthropic** — *Prompt Engineering Guide* (docs.anthropic.com) — rôle, contexte, exemples, balises XML
+- **Brown et al.** — *Language Models are Few-Shot Learners* (NeurIPS 2020, arXiv 2005.14165) — few-shot
+- **Wei et al.** — *Chain-of-Thought Prompting Elicits Reasoning in Large Language Models* (NeurIPS 2022, arXiv 2201.11903) — CoT
+- **Ann Handley** — *Everybody Writes* (Wiley, 2014, 2ᵉ éd. 2022) — qualité rédactionnelle
+- **David Ogilvy** — *Ogilvy on Advertising* (1983) — référence de persona copywriter
+
+## Voir aussi
+- [`../prompt_engineer/chain-of-thought.md`](../prompt_engineer/chain-of-thought.md) — CoT approfondi
+- [`../prompt_engineer/few-shot-learning.md`](../prompt_engineer/few-shot-learning.md) — few-shot approfondi
+- [`../prompt_engineer/system-prompt-design.md`](../prompt_engineer/system-prompt-design.md) — conception de system prompts
+- [copywriting-ia.md](copywriting-ia.md) — application au copy marketing

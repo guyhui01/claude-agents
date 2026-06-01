@@ -35,7 +35,7 @@ Conclusion (100 mots)
   → CTA clair
 ```
 
-## Critères E-E-A-T (Google 2026)
+## Critères E-E-A-T (Google, décembre 2022 — 2ᵉ « E » Experience ajouté à E-A-T)
 | Critère | Description | Comment le montrer |
 |---|---|---|
 | **Experience** | Expérience vécue | Témoignages, cas réels, études |
@@ -69,3 +69,22 @@ Ton : [expert / accessible / neutre]."
 
 ## Format de sortie
 Précise : mot-clé principal · audience · intention de recherche · longueur cible · concurrents à battre · CTA final
+
+## Anti-patterns
+- ❌ **Keyword stuffing** — bourrage de mots-clés au détriment de la lisibilité → pénalité Google (Helpful Content System), expérience dégradée.
+- ❌ **Contenu sans expérience first-hand** — IA générant un article générique sans le « E » d'Experience d'E-E-A-T → faible valeur perçue, mal classé.
+- ❌ **Ignorer l'intention de recherche** — produire un contenu informationnel pour une requête transactionnelle → mismatch SERP, taux de rebond élevé.
+- ❌ **Publier sans relecture humaine** — laisser l'IA publier sans vérification factuelle ni E-E-A-T → risque de désinformation et de déclassement.
+- ❌ **Oublier le maillage interne** — articles isolés sans liens vers les contenus piliers → autorité topique diluée.
+
+## Sources
+- **Google Search Central** — *Our latest update to the quality rater guidelines: E-A-T gets an extra E for Experience* (décembre 2022) — E-A-T existe depuis ~2014, le 2ᵉ « E » est ajouté en 2022
+- **Google** — *Search Quality Rater Guidelines* (mises à jour régulières) — critères de qualité de page
+- **Google** — *Helpful Content System* (2022+) — contenu « people-first »
+- **Semrush / Ahrefs** — documentation officielle — recherche de mots-clés, audit SERP
+
+## Voir aussi
+- [content-strategy.md](content-strategy.md) — stratégie éditoriale et content pillars amont
+- [copywriting-ia.md](copywriting-ia.md) — rédaction persuasive du corps de l'article
+- [newsletter-email.md](newsletter-email.md) — distribution du contenu par email
+- [`../ux_design/architecture-information.md`](../ux_design/architecture-information.md) — architecture de l'information et maillage

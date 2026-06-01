@@ -48,10 +48,12 @@ Inclure :
 | Post-achat | 3 emails | J0, J3, J14 | Satisfaction + upsell |
 
 ## KPIs email à surveiller
-| KPI | Benchmark B2B | Benchmark B2C |
+> ⚠️ **Ordres de grandeur indicatifs**, à recalibrer selon l'outil, le secteur et la qualité de la base. Les taux d'ouverture sont fortement biaisés à la hausse depuis Apple Mail Privacy Protection (préchargement automatique des images) — privilégier le **CTOR (click-to-open rate)** comme signal d'engagement fiable. Sources de référence à jour : benchmarks Mailchimp / HubSpot / Brevo (2025).
+
+| KPI | Ordre de grandeur B2B | Ordre de grandeur B2C |
 |---|---|---|
-| Taux d'ouverture | 20-25% | 15-20% |
-| Taux de clic | 3-5% | 2-4% |
+| Taux d'ouverture *(biaisé Apple MPP)* | 30-45% | 30-40% |
+| Taux de clic | 2-4% | 1-3% |
 | Taux de conversion | 1-3% | 0,5-2% |
 | Taux de désabonnement | < 0,5% | < 0,5% |
 
@@ -63,3 +65,22 @@ Inclure :
 
 ## Format de sortie
 Précise : type d'email · audience · objectif · outil (Mailchimp, HubSpot, Brevo) · ton · contraintes légales (RGPD)
+
+## Anti-patterns
+- ❌ **Benchmark présenté comme certitude** — afficher un taux d'ouverture « cible » sans le cadrer en ordre de grandeur ni source → objectifs irréalistes, et biais Apple MPP ignoré.
+- ❌ **Plusieurs CTA concurrents** — multiplier les boutons → dilution, chute du taux de clic. Un email = un CTA principal.
+- ❌ **Objet trompeur (clickbait)** — promesse non tenue dans le corps → désabonnements et perte de confiance.
+- ❌ **Pas de segmentation** — même message à toute la base → pertinence faible, délivrabilité dégradée.
+- ❌ **RGPD négligé** — absence de consentement explicite, de lien de désinscription clair ou de mentions légales → non-conformité (RGPD, ePrivacy).
+
+## Sources
+- **Mailchimp** — *Email Marketing Benchmarks by Industry* (mis à jour annuellement) — ordres de grandeur par secteur
+- **HubSpot** — *Email Marketing Benchmarks* (2025) — open/click rates B2B/B2C
+- **Apple** — *Mail Privacy Protection* (iOS 15+, 2021) — préchargement des images, biais des taux d'ouverture
+- **CNIL** — *Prospection commerciale par email* (guides 2024) — consentement, opt-in, désinscription (RGPD / ePrivacy)
+
+## Voir aussi
+- [copywriting-ia.md](copywriting-ia.md) — formules persuasives pour objets et corps d'email
+- [content-strategy.md](content-strategy.md) — calendrier éditorial et pilier « fidéliser »
+- [seo-content.md](seo-content.md) — réutilisation du contenu web en newsletter
+- [redaction-email-pro.md](redaction-email-pro.md) — emails transactionnels et professionnels (≠ marketing)

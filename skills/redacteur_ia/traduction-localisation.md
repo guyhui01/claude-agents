@@ -21,7 +21,7 @@ Adapter les contenus à de nouveaux marchés et langues en préservant le sens, 
 
 ### Étape 2 : Traduction IA (machine translation)
 - DeepL Pro / Google Translate API / Claude pour premier jet
-- Qualité BLEU score > 0,7 avant révision humaine
+- Métrique BLEU *(Papineni et al., ACL 2002)* comme indicateur de proximité au texte de référence avant révision humaine (seuil à calibrer selon paire de langues et type de contenu — le BLEU ne mesure pas la fluidité ni l'adéquation culturelle)
 
 ### Étape 3 : Post-édition humaine
 - Révision du ton et des nuances culturelles
@@ -70,3 +70,22 @@ Consignes :
 
 ## Format de sortie
 Précise : langue source · langue cible · marché / pays · type de contenu · ton · termes à ne pas traduire · glossaire existant
+
+## Anti-patterns
+- ❌ **Traduction littérale d'idiomes** — rendre mot à mot une expression imagée → contresens ou ridicule. Localiser, pas traduire.
+- ❌ **Se fier au seul BLEU** — valider sur un score automatique sans relecture native → fautes de fluidité et de culture invisibles à la métrique.
+- ❌ **Pas de glossaire** — laisser l'IA traduire les termes métier au fil de l'eau → incohérence terminologique entre contenus.
+- ❌ **Formats non adaptés** — garder dates, devises, unités, sens de lecture de la source → non-conformité locale (ex. RTL pour l'arabe).
+- ❌ **Zéro relecture native** — publier la sortie machine telle quelle sur un contenu critique → risque de marque.
+
+## Sources
+- **Papineni, Roukos, Ward & Zhu (IBM)** — *BLEU: a Method for Automatic Evaluation of Machine Translation* (ACL 2002) — métrique BLEU
+- **ISO 17100:2015** — *Services de traduction* — exigences de qualité et post-édition
+- **ISO 18587:2017** — *Post-édition de traduction automatique* — niveaux de post-édition
+- **DeepL / Lokalise / Phrase** — documentation officielle des TMS et moteurs de traduction
+
+## Voir aussi
+- [content-strategy.md](content-strategy.md) — déclinaison multi-marché de la stratégie de contenu
+- [copywriting-ia.md](copywriting-ia.md) — transcréation du copy marketing
+- [seo-content.md](seo-content.md) — SEO multilingue et international
+- [`../prompt_engineer/multimodal-prompting.md`](../prompt_engineer/multimodal-prompting.md) — prompting pour la traduction IA

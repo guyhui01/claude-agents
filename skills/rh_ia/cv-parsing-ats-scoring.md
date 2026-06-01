@@ -4,6 +4,18 @@
 ## Objectif
 Comprendre et optimiser la façon dont les ATS parsent, scorent et classent les CV — tant du côté recruteur (configuration des critères) que du côté candidat (optimisation du CV) — pour maximiser la qualité des matchings et éviter les faux positifs/négatifs.
 
+## ⚖️ Conformité — Scoring ATS = système à HAUT RISQUE
+
+> Le scoring/filtrage automatisé de candidatures est **explicitement classé à haut risque**
+> par l'**AI Act (Règlement UE 2024/1689, art. 6 §2 + Annexe III pt 4 « Emploi »)**.
+> Obligations déployeur applicables au **2 août 2026**.
+
+- **Transparence** : informer le candidat de l'usage d'un outil automatisé (RGPD art. 22 + Code du travail **L1221-8** : information préalable des méthodes/techniques de recrutement, résultats confidentiels).
+- **Supervision humaine** : aucune décision de rejet purement automatisée — un recruteur valide (human-in-the-loop) ; droit du candidat à une intervention humaine (RGPD art. 22).
+- **Non-discrimination** : auditer les critères et les rejets pour biais indirect (Code du travail **L1132-1**) ; documenter.
+- **Minimisation & lien direct** : ne scorer que des critères ayant un **lien direct et nécessaire** avec le poste (Code du travail **L1221-6**).
+- **CNIL** : suivre le Guide du recrutement (information candidats, AIPD si traitement à risque).
+
 ## Comment fonctionne le parsing ATS
 
 ```
@@ -37,7 +49,11 @@ PIPELINE DE TRAITEMENT D'UN CV PAR UN ATS
 
 ## Critères de scoring — Ce que l'ATS évalue
 
-| Critère ATS | Poids typique | Optimisation |
+> ⚠️ **Poids paramétrables, exemple de configuration** — chaque ATS et chaque offre définit
+> ses propres pondérations. Les valeurs ci-dessous sont un **point de départ illustratif**, pas
+> un standard de marché. Veiller à ce que chaque critère ait un lien direct avec le poste (L1221-6).
+
+| Critère ATS | Poids exemple | Optimisation |
 |---|---|---|
 | Mots-clés techniques (stack) | 30-40% | Utiliser les termes exacts de l'offre |
 | Intitulé de poste | 20-25% | Aligner avec le titre cible |
@@ -109,11 +125,13 @@ OPTIMISATION CÔTÉ CANDIDAT (conseil aux candidats sourcés)
 
 | Outil | Usage | Prix |
 |---|---|---|
-| **Jobscan** | Scanner un CV vs une offre, score ATS simulé | ~20$/mois |
-| **Resume Worded** | Analyse CV + score ATS + recommandations | ~19$/mois |
-| **SkillSyncer** | Matching CV ↔ offre (mots-clés manquants) | Gratuit (limité) |
-| **Rezi.ai** | Rédaction CV optimisé ATS par IA | ~29$/mois |
-| **EnhanCV** | Analyse compatibilité ATS + score | ~24$/mois |
+| **Jobscan** | Scanner un CV vs une offre, score ATS simulé | abonnement mensuel |
+| **Resume Worded** | Analyse CV + score ATS + recommandations | abonnement mensuel |
+| **SkillSyncer** | Matching CV ↔ offre (mots-clés manquants) | Gratuit (limité) + payant |
+| **Rezi.ai** | Rédaction CV optimisé ATS par IA | abonnement mensuel |
+| **EnhanCV** | Analyse compatibilité ATS + score | abonnement mensuel |
+
+> Tarifs indicatifs en abonnement (ordre de grandeur ~15-30 $/mois) — à vérifier sur le site de chaque éditeur.
 
 ## Détection CV sur-optimisés pour ATS (fraude keyword stuffing)
 
@@ -150,3 +168,22 @@ J8+  → Shortlist 3-5 profils : entretien technique + scorecard
 
 ## Format de sortie
 Précise : ATS utilisé (ou à sélectionner), volume de candidatures mensuel, profils tech principaux recrutés, problème identifié (trop de CV rejetés / trop de CV non pertinents passent / scoring incohérent).
+
+## Anti-patterns
+- ❌ Rejet automatique de candidatures sans revue humaine (interdit pour un système haut risque + RGPD art. 22).
+- ❌ Critères de scoring sans lien direct avec le poste (L1221-6) ou potentiellement discriminants (L1132-1).
+- ❌ Ne pas informer le candidat de l'usage d'un outil automatisé (L1221-8, transparence AI Act).
+- ❌ Ne jamais auditer les CV rejetés → biais ATS invisibles qui s'accumulent.
+- ❌ Présenter les poids de critères comme un standard de marché chiffré et figé.
+
+## Sources
+- Règlement UE 2024/1689 (AI Act) — art. 6 §2 + Annexe III pt 4 (emploi, haut risque) — artificialintelligenceact.eu
+- RGPD UE 2016/679 — art. 22 (décision automatisée) — cnil.fr
+- Code du travail — L1132-1 (non-discrimination), L1221-6 (lien direct/bonne foi), L1221-8 (information préalable) — legifrance.gouv.fr
+- CNIL — Guide du recrutement (information candidats, AIPD) — cnil.fr/fr/le-guide-du-recrutement
+
+## Voir aussi
+- `skills/rh_ia/detection-fraude-cv-profils.md` — détection keyword stuffing / CV générés par IA
+- `skills/rh_ia/recrutement-sourcing-it.md` — qualification humaine post-scoring
+- `skills/rh_ia/transformation-rh-ia.md` — cadre éthique et conformité ATS IA
+- `skills/juridique_ia/` — conformité AI Act / RGPD / non-discrimination

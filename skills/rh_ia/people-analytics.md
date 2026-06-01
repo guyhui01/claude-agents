@@ -6,17 +6,23 @@ Construire des tableaux de bord RH orientés données pour piloter le recrutemen
 
 ## KPIs Recrutement — Référentiel
 
+> ⚠️ **Ordres de grandeur indicatifs, à valider sur ton périmètre.** Les valeurs ci-dessous
+> ne sont **pas des benchmarks marché sourcés** : elles servent de repères de cadrage à
+> recalibrer. Pour des références chiffrées, s'appuyer sur des baromètres datés (ex. SHRM
+> Recruiting Benchmarking — données US ; APEC / Numeum pour la France) et **mesurer son
+> propre baseline**.
+
 ```
 EFFICACITÉ DU RECRUTEMENT
 ──────────────────────────────────────────────────────
 Time to Fill        : Nb jours entre ouverture du poste et signature offre
-                      Benchmark IT France : 45-60 jours (senior : 60-90j)
+                      Ordre de grandeur indicatif : ~45-60 j (senior plus long) — à valider
 Time to Hire        : Nb jours entre 1er contact candidat et offre acceptée
-                      Benchmark IT France : 20-30 jours
+                      Ordre de grandeur indicatif : ~20-30 j — à valider
 Cost per Hire       : (Coûts internes + externes) / Nb recrutements
-                      Benchmark : 3 000-8 000 € (IT confirmé)
+                      Coût complet par embauche — mesurer son propre baseline
 Offer Acceptance    : % d'offres acceptées / offres émises
-                      Cible : > 85%
+                      Cible interne usuelle : > 85% (à fixer selon contexte)
 
 QUALITÉ DU RECRUTEMENT
 ──────────────────────────────────────────────────────
@@ -32,7 +38,8 @@ SOURCING
 Source of Hire      : % candidats par canal (LinkedIn / referral / jobboard)
 Pipeline conversion : Candidatures → shortlist → entretien → offre → embauche
 InMail Response Rate: % de réponses aux InMails LinkedIn
-                      Benchmark : 25-35% (personnalisés) / 10-15% (génériques)
+                      Ordre de grandeur : messages personnalisés nettement > génériques
+                      (mesurer son propre taux ; ne pas figer un chiffre marché)
 ```
 
 ## Dashboard Recrutement IT — Template
@@ -68,7 +75,7 @@ ACTIONS REQUISES
 TURNOVER & RÉTENTION
 ──────────────────────────────────────────────────────
 Turnover global      : (Départs / Effectif moyen) × 100
-                       Benchmark IT France : 15-25% / an
+                       Ordre de grandeur indicatif (à valider) — varie fortement par secteur/zone
 Turnover volontaire  : Départs à l'initiative du salarié
 Turnover involontaire: Licenciements, fins de mission
 Early Attrition      : % départs < 12 mois (signal fort de mauvais recrutement)
@@ -77,7 +84,7 @@ Early Attrition      : % départs < 12 mois (signal fort de mauvais recrutement)
 ABSENTÉISME
 ──────────────────────────────────────────────────────
 Taux d'absentéisme   : (Jours absents / Jours théoriques) × 100
-                       Benchmark : < 4% (secteur tech)
+                       Comparer à son propre historique et à des sources sectorielles datées
 
 ENGAGEMENT
 ──────────────────────────────────────────────────────
@@ -123,3 +130,23 @@ Satisfaction Pulse   : Enquête mensuelle courte (3-5 questions, outil : Officev
 
 ## Format de sortie
 Précise : volume de recrutements, outils RH disponibles (ATS, SIRH), périmètre (toute l'entreprise ou équipe IT), période analysée, audience du reporting (DRH, CODIR, managers).
+
+## Anti-patterns
+- ❌ Afficher un « benchmark France » chiffré sans source datée ni baseline mesuré sur le périmètre.
+- ❌ Comparer des KPIs sans normaliser le périmètre (séniorité, zone, type de poste) → comparaisons trompeuses.
+- ❌ Traiter des données RH personnelles sans base légale, minimisation ni durée de conservation (RGPD).
+- ❌ Piloter sur un seul KPI (ex. Time to Fill) au détriment de la qualité (Quality of Hire, rétention).
+- ❌ People analytics prédictif (turnover) sans transparence ni supervision humaine (risque biais/discrimination).
+
+## Sources
+- SHRM — Recruiting Benchmarking Report (données US, repère méthodologique) — shrm.org
+- APEC / Numeum (Syntec Numérique) — données emploi IT France — apec.fr · numeum.fr
+- DAMA-DMBOK 2 (2017) — gouvernance et qualité des données RH
+- RGPD UE 2016/679 — art. 5 (minimisation), art. 22 (décision automatisée) — cnil.fr
+- eNPS — interprétation d'échelle standard (Reichheld, *The Ultimate Question*, 2006)
+
+## Voir aussi
+- `skills/rh_ia/recrutement-sourcing-it.md` — pipeline et sourcing (source of hire)
+- `skills/rh_ia/transformation-rh-ia.md` — automatisation et ROI du recrutement
+- `skills/rh_ia/benchmark-remuneration-it.md` — repères rémunération
+- `skills/juridique_ia/` — conformité RGPD du traitement de données RH

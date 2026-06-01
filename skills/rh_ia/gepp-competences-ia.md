@@ -117,3 +117,22 @@ PHASE 4 — MESURE (M12)
 
 ## Format de sortie
 Précise : taille de l'équipe, domaine tech principal, objectifs stratégiques IT/IA à 12 mois, budget formation disponible, outils RH existants (SIRH, LMS).
+
+## Anti-patterns
+- ❌ Confondre GEPP (démarche prospective emplois/compétences) et simple plan de formation annuel.
+- ❌ Cartographier les compétences sans associer les managers ni les collaborateurs (auto-évaluation seule = biaisée).
+- ❌ Référentiel figé, non réévalué → obsolète face à l'évolution rapide des compétences IA.
+- ❌ Ignorer l'obligation de négociation GEPP dans les entreprises concernées (Code du travail L2242-20).
+- ❌ Plan sans budget, jalons ni indicateurs de progression → non pilotable.
+
+## Sources
+- Code du travail — L2242-20 (négociation GEPP, entreprises ≥ 300 salariés) — legifrance.gouv.fr
+- France Compétences — référentiels de certification professionnelle — francecompetences.fr
+- CIPD — Workforce planning (Level 5) — cipd.org
+- ANACT / Edgar Schein — *Organizational Culture and Leadership* (1985, 5e éd. 2016) pour l'ancrage culturel des parcours
+
+## Voir aussi
+- `skills/rh_ia/people-analytics.md` — indicateurs de compétences et de rétention
+- `skills/rh_ia/benchmark-remuneration-it.md` — valorisation des parcours d'évolution
+- `skills/formateur_ia/` — conception des parcours de montée en compétences
+- `skills/consultant_ia/` — diagnostic de maturité et roadmap compétences

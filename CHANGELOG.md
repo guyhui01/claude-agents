@@ -5,6 +5,36 @@
 
 ---
 
+## [3.19.0] — 2026-06-01 — Audit complet + V1+ du groupe RH-IA (11 skills, §3.5)
+> Modèle : Claude Opus 4.8
+
+### 🎯 Contexte
+Audit-first complet de **AGENT-RH-IA** — l'agent le plus sensible juridiquement (RGPD recrutement, AI Act art. 6 + Annexe III « haut risque », Code du travail L1132-1 / L1221-6-8-9). Grille §3.5 RH/People · extraction Explore des 11 skills · **passe de vérification factuelle renforcée** (post-incident v3.18.1) · 6 WebSearch préalables sur sources légales primaires. Rapport : `audits/audit-rh-ia-2026-06-01.md`. Cotation : 0 ✓ pur · 3 P0 · 2 P1 · 6 P2.
+
+### 🚨 P0 — Findings factuels/conformité (la passe de vérification a payé)
+- **`transformation-rh-ia`** : table « ROI de l'IA » attribuée à **« Greenhouse State of Recruiting 2024 » — rapport introuvable** (Greenhouse publie « Hiring benchmarks ») → requalifiée en **cadre de mesure + exemple illustratif** (valeurs fictives), source erronée retirée. Prix ATS → « indicatifs, sur devis ». AI Act précisé (art. 6 §2 + Annexe III, échéance 02/08/2026).
+- **`people-analytics`** : 8 « benchmarks France IT » non traçables (Time to Fill 45-60j, Cost per Hire 3-8k€, Turnover 15-25%…) → requalifiés en **ordres de grandeur à valider** + renvoi baromètres datés (SHRM US, APEC/Numeum FR) + « mesurer son baseline ».
+- **`benchmark-remuneration-it`** : **anonymisation** des entreprises réelles nommées (GAFAM explicites + Mistral/Qonto/Alan/Contentsquare → catégories génériques) · disclaimer « fourchettes indicatives France 2025 » · sources datées · **Directive UE 2023/970** (transparence salariale, 07/06/2026).
+
+### 🟠 P1
+- **`cv-parsing-ats-scoring`** (scoring automatisé = **haut risque AI Act**) : bloc conformité ajouté (art. 6 + Annexe III, RGPD art. 22, L1221-6/8, L1132-1, CNIL) · poids critères requalifiés « exemple paramétrable ».
+- **`detection-deepfake-entretien`** : NIST (2023) + AI Act + DOJ/Mandiant ajoutés · **retrait des mentions stigmatisantes par nationalité** (« coréens/indiens », « offshore Inde/Nigéria ») recadrées sur le phénomène documenté · bloc non-discrimination (L1132-1) · chiffres requalifiés.
+
+### ✨ V1+ standard sur les 11 skills
+- Section **`## Sources`** datée ajoutée (9 skills sans) · section **`## Anti-patterns`** conformité (11 skills, 0 auparavant) · **cross-links** intra-rh_ia + vers `juridique_ia` / `formateur_ia`.
+- Corrections D1 ciblées : L1132-1, L1221-6/8/9, L2242-20 (GEPP), Big Five **McCrae & Costa 1987** (réf. exacte), Schein 1985/2016, Dir. 2023/970, CNIL Guide recrutement (19 fiches).
+- `redaction-offre-emploi` : « loi transparence salariale 2024 » → **Directive UE 2023/970** (appl. 07/06/2026).
+
+### 🔧 Grille §3.5 corrigée
+Big Five : *Journal of Personality* → **Journal of Personality and Social Psychology, 52(1):81-90** (vérifié WebSearch, PubMed 3820081).
+
+### ✅ Notes
+- **Faux positif Explore écarté** : « Claude Code 101 » (gepp) n'est pas une hallucination (formation Anthropic réelle).
+- Garde-fous LLM benchmarks hérités de v3.18.1 conservés. Versions Anthropic à jour (Opus 4.8 / Sonnet 4.6 / Haiku 4.5).
+- Mentions « Mistral » restantes = références au fournisseur LLM (légitimes), pas des clients.
+
+---
+
 ## [3.18.1] — 2026-06-01 — Fix P0 factuel : benchmarks LLM fabriqués dans rh_ia
 > Modèle : Claude Opus 4.8
 

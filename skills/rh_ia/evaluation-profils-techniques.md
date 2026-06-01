@@ -137,3 +137,22 @@ Attendu : audit maturité, architecture, change management, budget
 
 ## Format de sortie
 Précise : intitulé du poste, niveau requis (junior/confirmé/senior/lead), stack technique clé, type de mission (produit / conseil / ESN), secteur client.
+
+## Anti-patterns
+- ❌ Entretien non structuré (questions improvisées) → faible validité prédictive et risque de biais.
+- ❌ Évaluer sur des critères sans lien direct avec le poste (Code du travail L1221-6).
+- ❌ Utiliser un test de personnalité sans information préalable du candidat (L1221-8) ni validité scientifique.
+- ❌ Figer un classement de modèles LLM dans une question d'évaluation (renvoyer aux leaderboards à jour — déjà intégré).
+- ❌ Décision Go/No-Go sans trace écrite des scores → non auditable, non défendable.
+
+## Sources
+- Entretien structuré — meilleure validité prédictive que l'entretien libre (littérature RH / SHRM) — shrm.org
+- Méthode STAR (Situation-Tâche-Action-Résultat) — standard d'entretien comportemental
+- Big Five / OCEAN — McCrae & Costa (1987), *Journal of Personality and Social Psychology*, 52(1), 81-90 — **si** une évaluation de personnalité est utilisée (encadrée par L1221-8)
+- Code du travail — L1221-6 (lien direct/nécessaire), L1221-8 (information préalable, confidentialité des résultats) — legifrance.gouv.fr
+
+## Voir aussi
+- `skills/rh_ia/recrutement-sourcing-it.md` — qualification amont
+- `skills/rh_ia/detection-deepfake-entretien.md` — authenticité de l'entretien distanciel
+- `skills/rh_ia/verification-references-background-check.md` — confirmation du parcours
+- `skills/rh_ia/cv-parsing-ats-scoring.md` — pré-sélection ATS

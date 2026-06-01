@@ -26,10 +26,13 @@ CE QUI EST ILLÉGAL
 ✗ Références sans accord écrit préalable du candidat
 ✗ Vérification antécédents judiciaires non liés au poste
 
-BASE RGPD
+BASE RGPD & CODE DU TRAVAIL
 ──────────────────────────────────────────────────────
 · Consentement explicite requis avant tout background check
-· Données collectées = strictement nécessaires au poste
+· Données collectées = strictement nécessaires au poste (lien direct, L1221-6)
+· Information préalable du candidat sur les méthodes de vérification (L1221-8) ;
+  résultats confidentiels et non communiqués à des tiers non autorisés
+· Pas de collecte par un dispositif non porté à sa connaissance (L1221-9)
 · Durée de conservation : 2 ans max (candidature non retenue)
 · Droit d'accès et de rectification du candidat garanti
 ```
@@ -113,12 +116,14 @@ CERTIFICATIONS IT/IA (vérification directe)
 
 | Prestataire | Périmètre | Prix indicatif | Délai |
 |---|---|---|---|
-| **Veriff** | Identité + liveness check | ~5-15€/check | Immédiat |
-| **Persona** | Identité + documents | ~4-10€/check | Immédiat |
-| **Kroll** | Full background (diplômes, références, casier) | ~150-400€/dossier | 5-10j |
-| **HireRight** | International background check | ~100-300€/dossier | 3-7j |
-| **Preventeo** | France : casier B3, diplômes, références | ~80-200€/dossier | 3-5j |
-| **Certn** | Europe + international | ~50-200€/dossier | 2-5j |
+| **Veriff** | Identité + liveness check | au check (faible coût unitaire) | Immédiat |
+| **Persona** | Identité + documents | au check (faible coût unitaire) | Immédiat |
+| **Kroll** | Full background (diplômes, références, casier) | au dossier (sur devis) | 5-10j |
+| **HireRight** | International background check | au dossier (sur devis) | 3-7j |
+| **Preventeo** | France : casier B3, diplômes, références | au dossier (sur devis) | 3-5j |
+| **Certn** | Europe + international | au dossier (sur devis) | 2-5j |
+
+> Tarifs et délais indicatifs (ordres de grandeur), à confirmer auprès de chaque prestataire au moment du cadrage.
 
 ## Checklist background check — Par niveau de poste
 
@@ -155,3 +160,22 @@ POSTE DIRECTION / LEAD / CTO
 
 ## Format de sortie
 Précise : nom du candidat, poste visé, niveau de poste (standard / sensible / direction), coordonnées des référents fournis, diplômes à vérifier, certifications déclarées, délai requis pour la décision.
+
+## Anti-patterns
+- ❌ Lancer un background check sans consentement explicite préalable du candidat.
+- ❌ Appeler une référence non fournie/non autorisée par le candidat (ex. employeur actuel à son insu).
+- ❌ Vérifier des éléments sans lien direct avec le poste (L1221-6) ou relevant de la vie privée.
+- ❌ Demander un casier B2 (réservé à la justice) ou B3 hors cas légalement prévu (L133-6 CASF).
+- ❌ Communiquer les résultats de vérification à des tiers non autorisés (confidentialité, L1221-8).
+
+## Sources
+- Code du travail — L1221-6 (lien direct/bonne foi), L1221-8 (information préalable, confidentialité), L1221-9 (dispositif porté à connaissance) — legifrance.gouv.fr
+- Code de l'action sociale et des familles — L133-6 (casier B3, postes au contact de mineurs/publics vulnérables) — legifrance.gouv.fr
+- CNIL — Guide du recrutement (proportionnalité, consentement, conservation) — cnil.fr/fr/le-guide-du-recrutement
+- ENIC-NARIC France — reconnaissance des diplômes étrangers — enic-naric.fr · France Compétences (RNCP) — francecompetences.fr
+
+## Voir aussi
+- `skills/rh_ia/detection-fraude-cv-profils.md` — détection des incohérences en amont
+- `skills/rh_ia/detection-deepfake-entretien.md` — vérification d'identité en entretien
+- `skills/rh_ia/evaluation-profils-techniques.md` — évaluation des compétences
+- `skills/juridique_ia/` — cadre légal RGPD / vie privée du candidat

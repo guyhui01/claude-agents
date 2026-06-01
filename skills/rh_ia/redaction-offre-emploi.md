@@ -103,7 +103,7 @@ AVANT PUBLICATION — Anti-biais checklist
 □ Titre avec mention H/F/X
 □ Pas de mots genrés (éviter "dynamique", "ambitieux" → utiliser "rigoureux/se", "autonome")
 □ Critères requis limités au strict nécessaire (≤ 5)
-□ Fourchette salariale mentionnée (loi transparence salariale 2024)
+□ Fourchette salariale mentionnée (Directive UE 2023/970 transparence salariale, applicable 07/06/2026)
 □ Pas de critères indirects discriminants (permis B si non requis, etc.)
 □ Flexibilité de travail précisée (remote, horaires)
 □ Process de recrutement détaillé (transparence pour le candidat)
@@ -129,3 +129,22 @@ AVANT PUBLICATION — Anti-biais checklist
 
 ## Format de sortie
 Précise : type de contrat (CDI/freelance), intitulé exact, stack technique, niveau, budget, remote ou présentiel, secteur client, date de démarrage.
+
+## Anti-patterns
+- ❌ Omettre la fourchette de rémunération (obligatoire dès 07/06/2026, Dir. UE 2023/970).
+- ❌ Multiplier les critères « requis » (>5) → effet d'auto-exclusion, notamment des candidates.
+- ❌ Vocabulaire genré ou exclusif (« ninja », « rockstar », « jeune et dynamique ») — biais + L1132-1.
+- ❌ Critères indirects discriminants (permis B non requis, mobilité, photo demandée).
+- ❌ Titre non indexable (jargon interne) → invisible dans les recherches candidats.
+
+## Sources
+- Directive UE 2023/970 (transparence salariale) — fourchette en offre + interdiction historique de rémunération, transposition 07/06/2026 — eur-lex.europa.eu
+- Code du travail — L1132-1 (non-discrimination à l'embauche) — legifrance.gouv.fr
+- CNIL — Guide du recrutement (mentions et données dans l'offre) — cnil.fr/fr/le-guide-du-recrutement
+- Défenseur des droits — guides sur la non-discrimination à l'embauche — defenseurdesdroits.fr
+
+## Voir aussi
+- `skills/rh_ia/benchmark-remuneration-it.md` — fixer la fourchette de rémunération
+- `skills/rh_ia/recrutement-sourcing-it.md` — diffusion et sourcing
+- `skills/rh_ia/cv-parsing-ats-scoring.md` — rendre l'offre lisible par les ATS
+- `skills/redacteur_ia/` — qualité rédactionnelle et storytelling employeur

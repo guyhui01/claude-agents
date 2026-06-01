@@ -44,6 +44,9 @@ Reporting automatisé      → Power BI + Copilot, Tableau AI
 | **Paradox (Olivia)** | Chatbot recrutement, scheduling | Volume, retail, call center | Sur devis |
 | **Recruitee** | Simple, collaboratif, prix abordable | Startups | ~2 000-5 000 €/an |
 
+> ⚠️ **Prix indicatifs, ordres de grandeur non contractuels** (tarification souvent sur devis,
+> au siège/volume). À vérifier auprès de chaque éditeur au moment du cadrage.
+
 ## Workflow de recrutement augmenté par l'IA
 
 ```
@@ -100,13 +103,16 @@ RGPD & DONNÉES CANDIDATS
     · Durée de conservation : 2 ans max (candidature non retenue)
     · Registre des traitements à jour (CNIL)
 
-IA ACT EUROPÉEN (2024-2026)
-  Classification recrutement IA : RISQUE ÉLEVÉ
+IA ACT EUROPÉEN (Règlement UE 2024/1689)
+  Classification : recrutement / sélection / évaluation de candidats =
+    SYSTÈME À HAUT RISQUE (art. 6 §2 + Annexe III, pt 4 « Emploi »)
+  Échéance déployeur : obligations haut risque applicables au 2 août 2026
+  Sanctions : jusqu'à 15 M€ ou 3 % du CA mondial
   Obligations :
     · Transparence sur l'utilisation de l'IA (informer candidats)
-    · Supervision humaine obligatoire
-    · Documentation du système IA (conformité)
-    · Audit de conformité avant déploiement
+    · Supervision humaine obligatoire (human-in-the-loop)
+    · Documentation technique + gestion des risques du système IA
+    · Évaluation de conformité avant mise en service
 
 BONNES PRATIQUES
   □ Politique IA RH documentée et partagée
@@ -164,16 +170,30 @@ PHASE 4 — GÉNÉRALISATION (M5-M6)
   · Audit biais post-déploiement (DPO)
 ```
 
-## ROI de l'IA en recrutement — Benchmarks
+## ROI de l'IA en recrutement — Cadre de mesure
 
-| Indicateur | Avant IA | Après IA | Gain |
+> ⚠️ **Pas de benchmark figé.** Les gains varient fortement selon le contexte (volume,
+> maturité de départ, qualité des données). Mesure **ton propre baseline avant déploiement**,
+> puis compare. Le tableau ci-dessous est un **exemple illustratif de structuration** d'un
+> dashboard avant/après — **les valeurs ne sont pas des références de marché, à recalibrer
+> sur ton périmètre**.
+
+**Indicateurs à suivre** (avant IA → après IA, sur ton propre périmètre) :
+- **Time to Fill** (jours médians entre ouverture et acceptation)
+- **Cost per Hire** (coût complet par embauche : sourcing + temps recruteur + outils)
+- **Taux de réponse sourcing** (InMail/messages personnalisés)
+- **Temps de screening CV** (heures par poste)
+- **Satisfaction manager** (enquête post-recrutement, échelle 1-5)
+
+*Exemple illustratif de présentation (valeurs fictives, non benchmark) :*
+
+| Indicateur | Avant IA | Après IA | Variation |
 |---|---|---|---|
-| Time to Fill | 55 jours | 38 jours | -31% |
-| Cost per Hire | 5 500 € | 3 800 € | -31% |
-| Taux réponse InMail | 22% | 35% | +59% |
-| Temps screening CV | 4h/poste | 45 min/poste | -81% |
-| Satisfaction manager | 3.6/5 | 4.2/5 | +17% |
-*Sources : LinkedIn Talent Trends 2024, Greenhouse State of Recruiting 2024*
+| Time to Fill | *baseline* | *mesuré* | *à calculer* |
+| Cost per Hire | *baseline* | *mesuré* | *à calculer* |
+
+> Pour des **repères de marché sourcés**, consulter des baromètres datés (ex. SHRM Recruiting
+> Benchmarking — données US ; APEC / Numeum pour la France) plutôt que des chiffres non tracés.
 
 ## Référentiel LLM par tier
 
@@ -205,3 +225,23 @@ PHASE 4 — GÉNÉRALISATION (M5-M6)
 
 ## Format de sortie
 Précise : taille de l'équipe RH, volume de recrutements annuels, ATS actuel (si existant), budget transformation, enjeux prioritaires (rapidité / qualité / coût / conformité).
+
+## Anti-patterns
+- ❌ Déployer un scoring/filtrage IA de CV sans qualification AI Act haut risque (art. 6 + Annexe III) ni supervision humaine.
+- ❌ Présenter des gains de ROI chiffrés sans baseline mesuré sur le périmètre client (chiffres « marché » non sourcés).
+- ❌ Automatiser une décision de rejet sans droit à l'intervention humaine (RGPD art. 22).
+- ❌ Choisir un ATS IA sans clause de sous-traitance RGPD ni audit de biais contractualisé.
+- ❌ Confondre « assistance IA » et « décision IA » : la décision finale reste humaine et traçable.
+
+## Sources
+- Règlement UE 2024/1689 (AI Act) — art. 6 §2 + Annexe III pt 4 (emploi, haut risque) — eur-lex.europa.eu · artificialintelligenceact.eu
+- RGPD UE 2016/679 — art. 22 (décision automatisée), art. 5 (minimisation) — cnil.fr
+- CNIL — Guide du recrutement (19 fiches, dont nouvelles technologies & discrimination) — cnil.fr/fr/le-guide-du-recrutement
+- PROSCI ADKAR — modèle de conduite du changement — prosci.com
+- NIST AI RMF 1.0 (2023) · ISO/IEC 42001:2023 (AIMS) — gouvernance IA
+
+## Voir aussi
+- `skills/rh_ia/cv-parsing-ats-scoring.md` — scoring ATS (haut risque AI Act)
+- `skills/rh_ia/people-analytics.md` — KPIs et dashboards RH
+- `skills/juridique_ia/` — conformité RGPD / AI Act / non-discrimination
+- `skills/formateur_ia/` — montée en compétences des équipes RH sur l'IA

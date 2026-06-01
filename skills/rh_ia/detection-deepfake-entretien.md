@@ -11,7 +11,8 @@ FRAUDE TYPE 1 — VOICE CLONING (voix clonée)
 ──────────────────────────────────────────────────────
 Principe  : Candidat utilise ElevenLabs, Resemble AI ou Descript
             pour synthétiser une voix différente en temps réel
-Cas réel  : Faux candidats coréens/indiens qui "sonnent" natifs FR/EN
+Cas réel  : Schémas de fraude à l'emploi par faux travailleurs IT à distance,
+            documentés par le DOJ américain et Mandiant (2023-2024) — voix/identité usurpées
 Détection : Latence anormale · artefacts audio · voix trop uniforme
             Pas d'essoufflement, rire, hésitations naturelles
 
@@ -34,7 +35,7 @@ Détection : Absence de réponse spontanée, latence homogène
 FRAUDE TYPE 4 — SUBSTITUTION DE CANDIDAT
 ──────────────────────────────────────────────────────
 Principe  : Une autre personne passe l'entretien à la place du candidat
-Cas réel  : Fréquent dans certains contextes offshore (Inde, Nigéria)
+Cas réel  : Observé sur des recrutements 100% distanciels, tous contextes
 Détection : Vérification pièce d'identité en live · questions personnelles
             Incohérence entre voix entretien et voix appel de qualification
 ```
@@ -44,7 +45,7 @@ Détection : Vérification pièce d'identité en live · questions personnelles
 ```
 ANOMALIES AUDIO TYPIQUES D'UNE VOIX SYNTHÉTIQUE
 ──────────────────────────────────────────────────────
-· Latence systématique : 0.5 à 2s avant chaque réponse
+· Latence systématique avant chaque réponse (ordre de grandeur, ~1-2s) — à apprécier en contexte
 · Prosodie trop régulière : débit constant, pas d'accélération/ralentissement
 · Absence de disfluences naturelles : "euh", "alors", "du coup"
 · Pas de bruits ambiants cohérents avec le lieu annoncé
@@ -102,10 +103,13 @@ PROTOCOLE 3 — DÉTECTION AI COPILOT
 |---|---|---|---|
 | **Reality Defender** | Vidéo + audio deepfake temps réel | API, Zoom plugin | Sur devis (entreprise) |
 | **Pindrop** | Voice authentication + deepfake audio | API call center / ATS | Sur devis |
-| **Resemble Detect** | Voix synthétique vs naturelle | API REST | ~0.006$/min |
+| **Resemble Detect** | Voix synthétique vs naturelle | API REST | à l'usage (par minute) |
 | **Sensity AI** | Deepfake vidéo (images + vidéos) | API + dashboard | Sur devis |
 | **Intel FakeCatcher** | Deepfake vidéo (analyse flux sanguin) | Intégration custom | Sur devis |
 | **HireVue Guard** | Détection fraude en entretien vidéo | Dans HireVue ATS | Inclus HireVue |
+
+> Tarifs majoritairement sur devis (B2B), à vérifier auprès de chaque éditeur. Aucun outil
+> n'est fiable à 100 % : la détection automatique se combine **toujours** à une vérification humaine.
 
 ## Grille de scoring — Authenticité entretien
 
@@ -148,3 +152,29 @@ PROCÉDURE
 
 ## Format de sortie
 Précise : plateforme d'entretien utilisée (Teams, Zoom, Google Meet, HireVue), poste concerné, niveau de criticité, observations déjà notées par le recruteur.
+
+## ⚖️ Conformité & non-discrimination
+- La détection porte sur des **signaux techniques et comportementaux** (latence, artefacts, synchro), **jamais** sur l'accent, l'origine présumée ou la consonance du nom (Code du travail **L1132-1**).
+- Vérification biométrique / d'identité = traitement à risque : **information préalable du candidat** (RGPD ; Code du travail **L1221-8**), base légale, durée de conservation limitée.
+- Un outil de détection peut produire des **faux positifs** : ne jamais fonder un rejet sur le seul score automatique → toujours une appréciation humaine (présentiel si doute).
+- Outils de reconnaissance biométrique/deepfake : vigilance **AI Act (Règlement UE 2024/1689)** selon l'usage.
+
+## Anti-patterns
+- ❌ Accuser un candidat de fraude en direct (risque juridique) — mettre fin poliment et documenter.
+- ❌ Associer la fraude à une nationalité ou un accent (discrimination, L1132-1).
+- ❌ Enregistrer l'entretien sans information ni base légale RGPD.
+- ❌ Se fier à 100 % à un outil de détection sans vérification humaine.
+- ❌ Figer des seuils chiffrés (latence, prix) comme des vérités absolues.
+
+## Sources
+- NIST — travaux sur la détection de médias synthétiques / deepfakes (2023) — nist.gov
+- US DOJ / Mandiant (Google Cloud) — alertes fraude à l'emploi par faux travailleurs IT (2023-2024)
+- Règlement UE 2024/1689 (AI Act) — reconnaissance biométrique / contenus manipulés — artificialintelligenceact.eu
+- Code du travail — L1132-1 (non-discrimination), L1221-8 (information préalable) — legifrance.gouv.fr
+- RGPD UE 2016/679 — traitement de données biométriques (art. 9) — cnil.fr
+
+## Voir aussi
+- `skills/rh_ia/detection-fraude-cv-profils.md` — fraude en amont (CV, profils)
+- `skills/rh_ia/verification-references-background-check.md` — vérification d'identité et de parcours
+- `skills/rh_ia/evaluation-profils-techniques.md` — entretien structuré (réponses spontanées)
+- `skills/juridique_ia/` — conformité RGPD biométrie / AI Act

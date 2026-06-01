@@ -11,7 +11,8 @@ CANAL 1 — LinkedIn Recruiter
 ──────────────────────────────────────────────────────
 Boolean search : "Python" AND "LLM" AND ("RAG" OR "LangChain") NOT "junior"
 Filtres recommandés : localisation, disponibilité, taille entreprise actuelle
-InMail : taux de réponse moyen 25-30% — personnaliser TOUJOURS l'accroche
+InMail : un message personnalisé obtient un bien meilleur taux de réponse
+         qu'un générique — personnaliser TOUJOURS l'accroche (mesurer son propre taux)
 
 CANAL 2 — GitHub / Stack Overflow
 ──────────────────────────────────────────────────────
@@ -90,3 +91,27 @@ Seuil retenu : **≥ 7/10** pour présentation client.
 
 ## Format de sortie
 Précise : intitulé du poste/mission, stack technique requise, localisation, budget (salaire ou TJM), date de démarrage, secteur client.
+
+## ⚖️ Conformité sourcing
+- Données collectées (LinkedIn, GitHub, CVthèque) = données personnelles : **finalité, minimisation, durée de conservation** (RGPD ; CNIL Guide du recrutement). Candidature non retenue conservée 2 ans max sauf accord.
+- Critères de sélection limités à ce qui a un **lien direct et nécessaire** avec le poste (Code du travail **L1221-6**) ; aucun critère discriminant (**L1132-1**).
+- Informer le candidat de la source de ses données et de ses droits (accès, opposition).
+
+## Anti-patterns
+- ❌ Sourcer sur des critères proxy discriminants (photo, nom, âge déduit du diplôme) — L1132-1.
+- ❌ Conserver indéfiniment les profils en CVthèque sans base légale ni durée définie (RGPD).
+- ❌ Boolean search trop restrictif (« 5 ans sur une techno de 3 ans ») → exclut de bons profils.
+- ❌ InMail générique non personnalisé → taux de réponse faible, image employeur dégradée.
+- ❌ Annoncer un chiffre de « taux de réponse marché » non mesuré sur sa propre activité.
+
+## Sources
+- CNIL — Guide du recrutement (collecte et conservation des données candidats) — cnil.fr/fr/le-guide-du-recrutement
+- Code du travail — L1221-6 (lien direct/bonne foi), L1132-1 (non-discrimination) — legifrance.gouv.fr
+- RGPD UE 2016/679 — art. 5 (minimisation) — cnil.fr
+- LinkedIn Talent Solutions — bonnes pratiques de sourcing — business.linkedin.com
+
+## Voir aussi
+- `skills/rh_ia/evaluation-profils-techniques.md` — qualification approfondie post-sourcing
+- `skills/rh_ia/redaction-offre-emploi.md` — offre/brief à diffuser
+- `skills/rh_ia/benchmark-remuneration-it.md` — fourchettes pour la qualification TJM/salaire
+- `skills/rh_ia/cv-parsing-ats-scoring.md` — scoring ATS en amont

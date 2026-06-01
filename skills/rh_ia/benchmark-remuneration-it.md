@@ -4,6 +4,13 @@
 ## Objectif
 Fournir des grilles de rémunération IT/IA à jour (CDI, freelance/TJM) pour conseiller les clients sur leur positionnement salarial et aider les candidats à négocier au juste marché.
 
+> ⚠️ **Fourchettes indicatives France 2025, à recouper.** Ces grilles sont des **ordres de
+> grandeur de cadrage** issus d'une synthèse des baromètres listés en fin de skill — elles ne
+> remplacent pas une étude salariale datée sur le poste/la zone précis. À recalibrer chaque
+> année. Rappel **Directive UE 2023/970 (transparence salariale, applicable 07/06/2026)** :
+> fourchette de rémunération obligatoire dans l'offre + interdiction de demander l'historique
+> de rémunération du candidat.
+
 ## Grilles salaires CDI — Profils IT/IA (France, 2025)
 
 ```
@@ -138,8 +145,8 @@ FACTEURS BAISSIERS (-5 à -20%)
 
 | Type de client | Niveau de rémunération | Remarque |
 |---|---|---|
-| GAFA / Big Tech (Google, Meta, Apple, Amazon, Microsoft) | +25-40% vs marché | Full remote fréquent · processus recrutement long (6-8 tours) |
-| Licorne (valorisation > 1 Md€, ex : Mistral, Qonto, Alan, Contentsquare) | +15-30% vs marché | Package equity fort (BSPCE/AGA) · rythme scale-up intensif |
+| GAFAM / Big Tech | +25-40% vs marché | Full remote fréquent · processus recrutement long (6-8 tours) |
+| Licorne (valorisation > 1 Md€) | +15-30% vs marché | Package equity fort (BSPCE/AGA) · rythme scale-up intensif |
 | CAC40 / Grands groupes | Marché à +5-10% | Négociation longue · avantages (CE, retraite, intéressement) |
 | Scale-up (Série B/C, < licorne) | Marché + equity | BSPCE si senior · évolution rapide possible |
 | Startup Série A | -5-10% vs marché | Equity significatif · forte prise de risque · rôle large |
@@ -177,10 +184,26 @@ Contre-proposition suggérée au client :
 ## Format de sortie
 Précise : intitulé exact, localisation (Paris / région / full remote), niveau (junior/confirmé/senior/lead), stack principale, type de contrat (CDI/freelance), secteur client.
 
+## Anti-patterns
+- ❌ Présenter ces fourchettes comme un benchmark certifié sans dater ni recouper les sources.
+- ❌ Attribuer un niveau de rémunération à une entreprise nommée sans donnée publique vérifiable.
+- ❌ Demander au candidat son historique de salaire (interdit par la Dir. UE 2023/970, dès 07/06/2026).
+- ❌ Omettre la fourchette de rémunération dans l'offre (obligation 2023/970) ou la rendre trop large pour être informative.
+- ❌ Ignorer les écarts F/H (index égalité professionnelle) dans le positionnement salarial.
+
 ## Sources de référence
-- Baromètre Talent.io (annuel)
-- Études Malt Freelance (annuel)
-- Glassdoor France IT
-- LinkedIn Salary Insights
-- Robert Half Technology Salary Guide
-- Hays IT Salary Guide France
+> Baromètres à consulter **dans leur édition datée la plus récente** (les chiffres ci-dessus en sont une synthèse indicative, non une citation directe).
+- Baromètre Talent.io (édition annuelle) — talent.io
+- Études Malt Freelance / Observatoire du freelancing (annuel) — malt.fr
+- Glassdoor France IT — glassdoor.fr
+- LinkedIn Salary Insights — linkedin.com
+- Robert Half Technology Salary Guide (annuel) — roberthalf.fr
+- Hays IT Salary Guide France (annuel) — hays.fr
+- APEC — baromètre des salaires cadres / Numeum (Syntec Numérique) — apec.fr · numeum.fr
+- Directive UE 2023/970 transparence salariale — eur-lex.europa.eu
+
+## Voir aussi
+- `skills/rh_ia/redaction-offre-emploi.md` — mention de la fourchette dans l'offre (2023/970)
+- `skills/rh_ia/recrutement-sourcing-it.md` — argumentaire de négociation candidat
+- `skills/rh_ia/people-analytics.md` — pilotage Cost per Hire
+- `skills/juridique_ia/` — conformité transparence salariale & non-discrimination

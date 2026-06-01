@@ -80,11 +80,16 @@ NIVEAU 3 — VÉRIFICATION FORMELLE (offre acceptée)
 
 | Outil | Usage | Prix |
 |---|---|---|
-| **GPTZero** | Détection texte généré par LLM | Gratuit (limité) / Pro ~15$/mois |
-| **Originality.ai** | CV + lettres de motivation | ~14$/mois |
-| **Copyleaks** | Plagiat + détection IA | ~10$/mois |
-| **Winston AI** | Détection IA multilingue (FR/EN) | ~18$/mois |
+| **GPTZero** | Détection texte généré par LLM | Gratuit (limité) / abonnement |
+| **Originality.ai** | CV + lettres de motivation | abonnement / à l'usage |
+| **Copyleaks** | Plagiat + détection IA | abonnement |
+| **Winston AI** | Détection IA multilingue (FR/EN) | abonnement |
 | **HireEZ Signal** | Analyse profil LinkedIn + GitHub | Sur devis |
+
+> ⚠️ **Fiabilité limitée** : les détecteurs de texte IA produisent des **faux positifs élevés**
+> (un CV soigné ou rédigé par un non-natif peut être faussement signalé). **Ne jamais rejeter un
+> candidat sur le seul score d'un détecteur** — c'est un signal à corroborer, pas une preuve.
+> Tarifs indicatifs en abonnement, à vérifier auprès de chaque éditeur.
 
 ## Analyse profil LinkedIn — Checklist
 
@@ -115,3 +120,28 @@ PROFIL SUSPECT — signaux d'alerte
 
 ## Format de sortie
 Précise : CV du candidat (texte ou PDF), profil LinkedIn associé, poste visé, niveau de criticité du poste (accès données sensibles ? management ? etc.).
+
+## ⚖️ Conformité
+- **Présomption de bonne foi** du candidat (Code du travail **L1221-6**) : un signal d'alerte appelle une vérification, pas une accusation.
+- Consultation des **réseaux sociaux professionnels** liée au poste = admise ; réseaux **personnels** sans lien et sans information = exclue (CNIL, RGPD).
+- Tout contrôle doit être **proportionné** au poste et **porté à la connaissance** du candidat (L1221-8/9).
+- Aucune fraude « déduite » d'un accent, d'un nom ou d'une origine (**L1132-1**).
+
+## Anti-patterns
+- ❌ Rejeter un candidat sur le seul score d'un détecteur d'IA (faux positifs élevés).
+- ❌ Traiter un signal d'alerte comme une preuve de fraude sans vérification contradictoire.
+- ❌ Fouiller la vie privée / réseaux personnels sans lien avec le poste ni information.
+- ❌ Associer la suspicion de fraude à une origine ou une consonance de nom (L1132-1).
+- ❌ Ne pas documenter les signaux et la décision → process non auditable.
+
+## Sources
+- Code du travail — L1221-6 (bonne foi), L1221-8/9 (information préalable), L1132-1 (non-discrimination) — legifrance.gouv.fr
+- CNIL — Guide du recrutement (réseaux sociaux, proportionnalité) — cnil.fr/fr/le-guide-du-recrutement
+- Limites des détecteurs de texte IA — littérature sur les faux positifs (OpenAI a retiré son propre détecteur en 2023)
+- RNCP / France Compétences — vérification des certifications — francecompetences.fr
+
+## Voir aussi
+- `skills/rh_ia/verification-references-background-check.md` — vérification formelle du parcours
+- `skills/rh_ia/detection-deepfake-entretien.md` — fraude en entretien distanciel
+- `skills/rh_ia/cv-parsing-ats-scoring.md` — keyword stuffing et scoring ATS
+- `skills/juridique_ia/` — cadre RGPD et non-discrimination

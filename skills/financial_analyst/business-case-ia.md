@@ -106,9 +106,9 @@ Précise : projet IA concerné, données de volumétrie disponibles, coûts RH, 
 - ❌ **Pas de critère d'arrêt** : prévoir le « kill » si le pilote n'atteint pas le seuil
 
 ## Sources
-- **Brealey R., Myers S., Allen F.** — *Principles of Corporate Finance* (McGraw-Hill) — NPV, ROI, Payback
-- **PMI** — *Business Case* (PMBOK 7 / Business Analysis)
-- **Forrester** — *Total Economic Impact (TEI)* — cadre de valorisation bénéfices/risques
+- **Brealey R., Myers S., Allen F. & Edmans A.** — *Principles of Corporate Finance*, McGraw-Hill, 14e éd. (2022) — NPV, ROI, Payback
+- **PMI** — *Business Case* (PMBOK 7, 2021 / Business Analysis)
+- **Forrester** — *Total Economic Impact™ (TEI)* — méthodologie 4 composantes (coûts, bénéfices, flexibilité, risque) ; report fondateur Forrester (2008)
 
 ## Voir aussi
 - [`cost-benefit-analysis.md`](cost-benefit-analysis.md) — VAN/TRI et TCO (build/buy/cloud)

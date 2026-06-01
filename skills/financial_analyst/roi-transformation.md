@@ -143,8 +143,8 @@ Précise : effectif concerné, gains de temps estimés, coût horaire moyen, co�
 - ❌ **Présenter un seul chiffre de ROI** sans fourchette ni scénario pessimiste
 
 ## Sources
-- **Brealey R., Myers S., Allen F.** — *Principles of Corporate Finance* (McGraw-Hill) — ROI, Payback
-- **Forrester** — *Total Economic Impact (TEI)* — valorisation bénéfices + risques + flexibilité
+- **Brealey R., Myers S., Allen F. & Edmans A.** — *Principles of Corporate Finance*, McGraw-Hill, 14e éd. (2022) — ROI, Payback
+- **Forrester** — *Total Economic Impact™ (TEI)* — valorisation bénéfices + risques + flexibilité ; report fondateur Forrester (2008)
 - **WACC / discounted payback** — pour les horizons longs (couplage VAN)
 
 ## Voir aussi

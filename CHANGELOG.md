@@ -5,6 +5,21 @@
 
 ---
 
+## [3.15.1] — 2026-06-01 — Patch qualité : datation des sources financières (P2 de la re-vérif)
+> Modèle : Claude Opus 4.8
+
+### 🔧 Corrections (D3 ⚠ → ✓)
+Suite au P2 transversal du rapport `audit-revalidation-v1plus-2026-06-01.md` (sources financières implicites plafonnant D3). **WebSearch préalable sur sources primaires** (règle `feedback_verification_factuelle`) :
+- **Brealey, Myers, Allen (& Edmans)** — *Principles of Corporate Finance* → précisé **McGraw-Hill, 14e éd. (2022)** dans `business-case-ia`, `cost-benefit-analysis`, `roi-transformation`
+- **Gartner TCO** → daté **Bill Kirwin, Gartner (1987)** (« Father of TCO ») dans `cost-benefit-analysis`
+- **Forrester TEI** → précisé méthodologie 4 composantes + **report fondateur Forrester (2008)** dans `business-case-ia`, `roi-transformation`. ⚠️ Le « 1997 » (origine Giga Information Group) **non retenu** car non confirmé par source primaire (anti-invention)
+- **EVM** dans `budget-projet` → daté **ANSI/EIA-748 rév. D (SAE 2019)** au lieu du simple renvoi interne
+
+### ✅ Vérification factuelle
+3 WebSearch (Brealey 14e éd., Forrester TEI, Gartner TCO Kirwin). 0 date inventée — « 1997 » écarté faute de confirmation.
+
+---
+
 ## [3.15.0] — 2026-06-01 — Cluster delivery COMPLET : V2 profonde des CONSULTANT-IA + re-vérif méta-agent des 14 V1+
 > Modèle : Claude Opus 4.8
 

@@ -101,7 +101,7 @@ Précise : postes budgétaires identifiés, montants engagés vs consommés, éc
 
 ## Sources
 - **PMBOK 7** (PMI 2021) — *Cost Management* / planification budgétaire
-- **EVM** — variance analysis (cf. `reporting-financier.md`)
+- **EVM** — *ANSI/EIA-748 rév. D* (SAE 2019) — variance analysis (cf. `reporting-financier.md`)
 - Cadre comptable **CAPEX/OPEX** (immobilisations vs charges)
 
 ## Voir aussi

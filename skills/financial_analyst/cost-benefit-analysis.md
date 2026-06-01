@@ -134,8 +134,8 @@ Précise : options à comparer (build/buy/cloud), horizon d'analyse, taux d'actu
 - ❌ **TCO = uniquement le prix de licence** : intégrer exploitation, support, montée de version
 
 ## Sources
-- **Gartner** — *Total Cost of Ownership (TCO)* — méthodologie de référence
-- **Brealey R., Myers S., Allen F.** — *Principles of Corporate Finance* (McGraw-Hill) — NPV, IRR, DCF
+- **Gartner** — *Total Cost of Ownership (TCO)* — concept créé par Bill Kirwin (Gartner, 1987), méthodologie de référence du secteur
+- **Brealey R., Myers S., Allen F. & Edmans A.** — *Principles of Corporate Finance*, McGraw-Hill, 14e éd. (2022) — NPV, IRR, DCF
 - **WACC** — coût moyen pondéré du capital (taux d'actualisation)
 
 ## Voir aussi

@@ -5,6 +5,31 @@
 
 ---
 
+## [3.16.0] — 2026-06-01 — CMS/PIM/DAM enrichi : 33 V1+ + 2 V2 (différenciateur CV)
+> Modèle : Claude Opus 4.8
+
+### 🎯 Contexte
+Domaine N2 **CMS/PIM/DAM** (différenciateur CV historique : AEM, Drupal, Akeneo, SAP Hybris, Bynder). Audit-first via méta-agent (`audits/audit-groupe-cms-pim-dam-2026-06-01.md`, grille §3.4, extraction Explore ×3) : profil **« riche non sourcé »** confirmé (D2 fort, D3 quasi absente, versioning D1 manquant). 1 ✓ pur préexistant (`dam_expert/gestion-droits-licences`).
+
+### ✨ V1+ de masse — 33 skills (Sources + Anti-patterns + Voir aussi + versioning)
+- **DAM (10)** : analytics-assets, brand-portal, distribution-multicanal, gouvernance-dam, integration-dam-cms, migration-dam, naming-convention, taxonomie-assets, transformation-formats, workflow-validation-assets
+- **PIM (11)** : enrichissement-produit, gouvernance-donnees-produit, integration-erp-pim, kpis-catalogue, localisation-i18n, migration-pim, modelisation-catalogue, onboarding-donnees-produit, portail-fournisseurs, scoring-qualite-produit, syndication-canaux
+- **CMS (12)** : accessibilite-numerique, aem-sites-assets, architecture-cms, cms-headless, drupal-developpement, gouvernance-editoriale, integration-pim-dam, migration-cms, performance-web, personnalisation-segmentation, rebranding-digital, seo-technique-cms
+
+**Versions vérifiées par WebSearch** (10 recherches, 0 invention) : Drupal 11 (août 2024, Symfony 7/PHP 8.3 ; D10 EOL déc. 2026) · Next.js 16 + React 19 · Akeneo Serenity · ETIM 10.0 (déc. 2024) · GS1 General Specifications v24.0 (GPC 4 niveaux) · IPTC Photo Metadata Standard 2025.1 · Exif 3.0 (CIPA 2023) · XMP ISO 16684-1:2019 · Dublin Core ISO 15836-1:2017 · IIIF 3.0 · BPMN 2.0.2 · WCAG 2.2 (W3C 2023) · Core Web Vitals INP (mars 2024) · Atomic Design (Frost 2016) · TOGAF 10. Maillage croisé CMS↔PIM↔DAM↔BA↔juridique.
+
+### 🔬 V2 profonde — 2 différenciateurs « PO/MOA AI augmenté »
+- `pim-augmente-ia` + `dam-augmente-ia` : **désamorçage des gains % fabriqués** (80 %/90 %/95 % → effets « à mesurer par POC » + renvoi McKinsey GenAI 2023) ; **gouvernance approfondie** AI Act art. 50 (transparence contenus IA, applicable 2 août 2026) + ISO/IEC 42001 + NIST AI RMF + human-in-the-loop.
+
+### 🔧 Correctifs factuels
+- `cms_digital/integration-pim-dam` : **Ooyala** signalé comme exemple historique (OVP arrêté en 2019).
+- Cross-link orphelin corrigé (`rgpd-conformite-ia` → `rgpd-ia`).
+
+### 📌 Méthode
+Audit-first 80/20 (règles 1 & 4 : densité, anti usine à gaz), méthode standard inaltérée (règle 2), WebSearch préalable sur chaque version publiée (`feedback_verification_factuelle`). 4 commits (1 par sous-lot + 1 V2), release groupée.
+
+---
+
 ## [3.15.1] — 2026-06-01 — Patch qualité : datation des sources financières (P2 de la re-vérif)
 > Modèle : Claude Opus 4.8
 

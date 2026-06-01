@@ -5,6 +5,26 @@
 
 ---
 
+## [3.18.0] — 2026-06-01 — Méta-agents enrichis : ORCHESTRATEUR-WORKFLOW + PROMPT-ENGINEER (23 skills)
+> Modèle : Claude Opus 4.8
+
+### 🎯 Contexte
+Sous-cluster **méta-agents** du groupe Transverse/Méta (cœur « PO/MOA AI augmenté »). Audit-first méta-agent (`audits/audit-meta-orchestrateur-prompt-2026-06-01.md`, §3.5, Explore ×2). Profil « riche non sourcé » + 2 findings spécifiques traités.
+
+### ✨ V1+ — ORCHESTRATEUR-WORKFLOW (15)
+Sources (Anthropic **Building Effective Agents**, déc. 2024 ; MCP spec 2025-11-25 ; BPMN 2.0.2 ; observability LLM Langfuse/LangSmith/Helicone) + Anti-patterns + Voir aussi sur les 15 skills. MCP SDK pin **v1.x**.
+
+### ✨ V1+ — PROMPT-ENGINEER (8) — attribution académique
+Sources datées **vérifiées WebSearch** (exigence §3.5) : **CoT** Wei *NeurIPS 2022*, **Self-Consistency** Wang *ICLR 2023*, **Tree of Thoughts** Yao *NeurIPS 2023*, **ReAct** Yao *ICLR 2023*, **Few-shot** Brown *NeurIPS 2020*, **RAG** Lewis *NeurIPS 2020*, **RAGAS** *EACL 2024*, **Constitutional AI** Bai 2022. + Anti-patterns + Voir aussi.
+
+### 🔧 Correctif D1 — modèle « Opus 4.7 » en PROSE
+Le sweep v3.17.x cherchait l'ID `claude-opus-4-7` ; ces skills écrivaient **« Opus 4.7 » en toutes lettres** → corrigé en **Opus 4.8** : `workflow-design`, `claude-api-integration`, `workflow-catalog` (×4), `prompt-optimization` (×3), `tech_lead/ia-workflows-dev`. en-tête API `anthropic-version: 2023-06-01` conservé (courant, pas périmé).
+
+### ⚠️ Finding signalé pour l'audit rh_ia (non traité ici)
+`rh_ia/evaluation-profils-techniques` + `transformation-rh-ia` + `redaction-offre-emploi` contiennent un **tableau de benchmarks concurrents très probablement fabriqués** (« GPT-5.5 / Gemini 3.1 Pro / Grok 3 », « Opus 4.7 avr. 2026 : 64,3 % SWE-bench Pro · 1504 Elo »). **À retirer/sourcer en priorité lors de l'audit rh_ia** (pas un simple 4.7→4.8).
+
+---
+
 ## [3.17.2] — 2026-06-01 — Sweep factuel transverse + scrub anonymisation du CHANGELOG
 > Modèle : Claude Opus 4.8
 

@@ -70,7 +70,7 @@ class State(TypedDict):
     messages: list
     next: str  # nom de l'agent suivant ou "FINISH"
 
-llm = ChatAnthropic(model="claude-sonnet-4-6")
+llm = ChatAnthropic(model="claude-opus-4-8")
 MEMBERS = ["researcher", "analyst", "writer"]
 
 def supervisor_node(state: State) -> Command[Literal[*MEMBERS, "FINISH"]]:

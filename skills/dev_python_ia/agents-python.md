@@ -22,7 +22,7 @@ tools = [{
 def run_agent(user_message: str) -> str:
     messages = [{"role": "user", "content": user_message}]
     while True:
-        response = client.messages.create(model="claude-opus-4-7",
+        response = client.messages.create(model="claude-opus-4-8",
             max_tokens=4096, tools=tools, messages=messages)
         if response.stop_reason == "end_turn":
             return response.content[0].text
@@ -66,7 +66,7 @@ from langchain_anthropic import ChatAnthropic
 memory = SqliteSaver.from_conn_string("./agent_memory.db")
 
 agent = create_react_agent(
-    model=ChatAnthropic(model="claude-opus-4-7"),
+    model=ChatAnthropic(model="claude-opus-4-8"),
     tools=[search_tool, calculator_tool, write_file_tool],
     checkpointer=memory,
 )
@@ -107,7 +107,7 @@ def calculator(expression: str) -> str:
     return str(eval(expression, {"__builtins__": {}}))
 
 tools = [search_documents, calculator]
-llm_with_tools = ChatAnthropic(model="claude-opus-4-7").bind_tools(tools)
+llm_with_tools = ChatAnthropic(model="claude-opus-4-8").bind_tools(tools)
 
 # 3. Nœud "agent" : le LLM décide (réponse finale OU appel de tool)
 def agent_node(state: AgentState) -> dict:

@@ -48,7 +48,7 @@ metriques_business:
 # Structure type d'un pipeline d'evals Claude
 eval_pipeline = {
     "dataset": "eval_set.jsonl",          # questions + réponses de référence
-    "judge_model": "claude-opus-4-7",     # juge LLM
+    "judge_model": "claude-opus-4-8",     # juge LLM
     "metrics": [
         "groundedness",
         "answer_relevance",

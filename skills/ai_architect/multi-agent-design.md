@@ -81,7 +81,7 @@ class SearchOutput(BaseModel):
     destinations: list[str] = Field(min_length=1, max_length=5)
     estimated_budget_eur: int
 
-llm = ChatAnthropic(model="claude-sonnet-4-6")
+llm = ChatAnthropic(model="claude-opus-4-8")
 
 # 3. Nœuds agents
 def search_agent(state: TripState) -> dict:

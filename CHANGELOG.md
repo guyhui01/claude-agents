@@ -5,6 +5,20 @@
 
 ---
 
+## [3.17.1] — 2026-06-01 — Mise à jour des modèles : Opus 4.7 → 4.8 + mix de tiers raisonné
+> Modèle : Claude Opus 4.8
+
+### 🔧 Correctifs (références de modèles dans les exemples de code)
+Audit transverse des IDs de modèle (suite à clarification : « 4.6 » = **Sonnet 4.6**, dernier Sonnet, ≠ Opus périmé). Politique de tiers validée par Guy (« mix raisonné, le plus fin techniquement ») :
+- **`claude-opus-4-7` → `claude-opus-4-8`** (Opus courant) — 5 skills : `dev_python_ia/agents-python`, `tech_lead/ia-workflows-dev`, `prompt_engineer/evals-llm-observability` (judge), `bi_analyst/bi-augmentee-ia` (analyse), `formateur_ia/formation-claude-code` (table tiers). **Plus aucun `opus-4-7` dans le catalogue.**
+- **`claude-sonnet-4-6` → `claude-opus-4-8`** sur les skills d'**orchestration d'agents** : `ai_architect/design-patterns-agents`, `ai_architect/multi-agent-design`.
+- **Sonnet 4.6 conservé** (dernier Sonnet, bon tier coût/latence) sur : vision/haut volume (`dam/pim-augmente-ia`), NLP, orchestration runtime (`orchestrateur_workflow/*`), défauts utilitaires, formation, **et les modèles-sujets d'évaluation** (`evaluation-llm`, `prompt-evaluation` — on évalue le modèle de prod, pas un juge).
+
+### 📝 Note
+Les fichiers `AGENT-*.md` ne figent aucun modèle (pas d'édition requise). Directive notée pour le repo `claude-projects` : Opus 4.8 par défaut (mobilise workflows + agents).
+
+---
+
 ## [3.17.0] — 2026-06-01 — DEV-TYPESCRIPT-IA + DEV-DRUPAL-PHP enrichis (groupe Dev/CMS complet)
 > Modèle : Claude Opus 4.8
 

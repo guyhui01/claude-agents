@@ -89,7 +89,7 @@ client = anthropic.Anthropic()
 
 def analyze_bi_data(csv_data: str, context: str) -> str:
     message = client.messages.create(
-        model="claude-opus-4-7",
+        model="claude-opus-4-8",
         max_tokens=2048,
         system="Tu réponds toujours en français, de façon concise et orientée décision.",
         messages=[{

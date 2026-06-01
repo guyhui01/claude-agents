@@ -90,7 +90,7 @@ Données          Géré par Anthropic         Configurable (no-logging opt)
 │  memory/MEMORY.md        → Index des mémoires       │
 ├─────────────────────────────────────────────────────┤
 │  MODÈLES DISPONIBLES                                │
-│  claude-opus-4-7    → Raisonnement complexe         │
+│  claude-opus-4-8    → Raisonnement complexe         │
 │  claude-sonnet-4-6  → Tâches courantes              │
 │  claude-haiku-4-5   → Scripts simples               │
 └─────────────────────────────────────────────────────┘

@@ -5,6 +5,24 @@
 
 ---
 
+## [3.17.2] — 2026-06-01 — Sweep factuel transverse + scrub anonymisation du CHANGELOG
+> Modèle : Claude Opus 4.8
+
+### 🛡️ Sweep factuel transverse (tout le catalogue) — catalogue sain
+Scan déterministe (grep + Glob) sur l'ensemble des skills/agents/workflows :
+- **Fuite noms clients** (skills/agents) : ✅ 0 — « Orange » = statuts RAG, « Accord » = faux positifs
+- **Versions obsolètes** : ✅ aucune citée comme courante (Drupal 7→10 = migration, Vue 2/jQuery = Tech Radar HOLD volontaire)
+- **Cross-links orphelins** : ✅ 0 — toutes les cibles `../` vérifiées une à une (Glob)
+- **Artefacts d'anonymisation cassés** : ✅ 0 (le seul corrigé en amont)
+- **IDs de modèle** : ✅ 0 périmé (déjà nettoyés v3.17.0/v3.17.1)
+
+→ **Aucun défaut dans les skills** — validation a posteriori de la qualité du fond (un « tout relire » aurait été du gaspillage, règle 4).
+
+### 🔧 Correctif anonymisation — CHANGELOG public
+Seule trouvaille : le `CHANGELOG.md` (public) citait encore des **noms clients réels** dans des entrées historiques (v3.0.2 + ligne de synthèse). **Scrub** par placeholders sectoriels (banque CIB / luxe / hôtellerie / énergie / défense / télécom), narratif d'audit conservé. Repo public désormais **0 nom client** (les mentions restantes sont dans `memory/CLAUDE.md`, **gitignored** / privé — légitime).
+
+---
+
 ## [3.17.1] — 2026-06-01 — Mise à jour des modèles : Opus 4.7 → 4.8 + mix de tiers raisonné
 > Modèle : Claude Opus 4.8
 
@@ -951,7 +969,7 @@ P2.3 : `business_analyst/cartographie-si.md` (TOGAF 10 + Archimate 3.2 + Capabil
 - **Profondeur** : ajout de 3 référentiels normatifs majeurs (Volere, Wiegers, ISO 25010/FURPS+) absents initialement
 - **Actionabilité** : exemple chiffré bout-en-bout (contexte → techniques → Volere REQ → backlog priorisé) — réplicable directement par PO/MOA en mission
 - **Conformité référentielle** : 100% des sources datées, certifications IIBA + PMI explicitement liées aux Tasks BABOK
-- **Anonymisation respectée** : exemple "banque CIB" générique (pas de mention CACIB) — alignement [[feedback-anonymisation-clients]]
+- **Anonymisation respectée** : exemple "banque CIB" générique (aucun nom client réel) — alignement [[feedback-anonymisation-clients]]
 
 ### 🎯 Conformité quadriptyque qualité
 1. ✅ **Densité actionnable** — chaque ligne du tableau 14 techniques opérationnelle, structure Volere copiable
@@ -964,7 +982,7 @@ P2.2 : `business_analyst/modelisation-processus.md` (BPMN 2.0 OMG 2014 + UML 2.5
 
 ---
 
-## [3.0.2] — 2026-05-29 — Quick scan propreté (compteurs START.md + anonymisation Aginode 9 skills)
+## [3.0.2] — 2026-05-29 — Quick scan propreté (compteurs START.md + anonymisation nom client 9 skills)
 > Modèle : Claude Opus 4.7
 
 ### 🎯 Contexte
@@ -982,18 +1000,18 @@ P2.2 : `business_analyst/modelisation-processus.md` (BPMN 2.0 OMG 2014 + UML 2.5
   - Total catégoriel cohérent : 16 + 11 + 9 + 1 + 1 = **38** ✅
 - **Alignement** : README.md ↔ START.md ↔ réalité dossier
 
-#### 2. Anonymisation **Aginode** dans 9 skills Drupal (violation directive anonymisation)
-- **Bug** : "Aginode" cité dans 9 skills `skills/dev_drupal/*` (modules `aginode_b2b`, label `Aginode B2B`, email `aginode.fr`, hooks `aginode_b2b_*`) — déjà anonymisé dans CHANGELOG via v2.8.6/v2.8.7 mais oublié dans skills (incohérence repo public)
+#### 2. Anonymisation d'un **nom client réel** (secteur télécom) dans 9 skills Drupal (violation directive anonymisation)
+- **Bug** : un nom de client réel était cité dans 9 skills `skills/dev_drupal/*` (modules, label, email, hooks) — déjà anonymisé dans le CHANGELOG via v2.8.6/v2.8.7 mais oublié dans les skills (incohérence repo public)
 - **Correction** : substitutions ordonnées (spécifique → générique) sur 9 fichiers via sed :
-  - `Aginode B2B` → `Client B2B`
-  - `aginode-b2b` → `client-b2b`
-  - `aginode_b2b` → `client_b2b`
-  - `aginode.fr` → `client-b2b.fr`
-  - `Aginode` → `Client télécom`
-  - `aginode_admin` → `client_admin` (rôle Drupal — Edit ciblé complémentaire)
+  - `<NomClient> B2B` → `Client B2B`
+  - `<nomclient>-b2b` → `client-b2b`
+  - `<nomclient>_b2b` → `client_b2b`
+  - `<nomclient>.fr` → `client-b2b.fr`
+  - `<NomClient>` → `Client télécom`
+  - `<nomclient>_admin` → `client_admin` (rôle Drupal — Edit ciblé complémentaire)
 - **Fichiers touchés** : drupal-api-rest, drupal-commerce-checkout, drupal-config-yaml, drupal-integration-api-tierce, drupal-module-custom, drupal-performance, drupal-tests-phpunit-behat, drupal-theming-twig, drupal-user-roles
-- **Post-vérification** : `grep -i aginode` repo entier = **0 occurrence** ✅
-- **Mémoire mise à jour** : `feedback_anonymisation_clients.md` enrichi avec mention explicite d'Aginode + détection v3.0.2
+- **Post-vérification** : `grep -i <nomclient>` repo entier = **0 occurrence** ✅
+- **Mémoire mise à jour** : `feedback_anonymisation_clients.md` enrichi + détection v3.0.2
 
 #### ✅ Faux positif écarté (test #3 triptyque appliqué)
 - **Initialement suspecté** : `memory/CLAUDE.md` mention START.md L120 → potentiellement cassé
@@ -1001,16 +1019,16 @@ P2.2 : `business_analyst/modelisation-processus.md` (BPMN 2.0 OMG 2014 + UML 2.5
 
 ### 📊 État repo post v3.0.2
 
-- ✅ **0 occurrence client réel** dans tout le repo (Orange/CACIB/CHANEL/Accor/EDF/MBDA/Aginode tous anonymisés)
+- ✅ **0 occurrence client réel** dans tout le repo (tous les clients réels anonymisés — secteurs génériques uniquement : banque CIB, luxe, hôtellerie, énergie, défense, télécom)
 - ✅ **Compteurs cohérents** README ↔ START ↔ réalité (38 agents / 37 dossiers / 10 workflows / 3 MCP)
 - ✅ **5 P1 critiques corrigés** (v3.0.1) + **2 incohérences propreté** (v3.0.2)
 - ⏳ **38 P1 résiduels** restent pour Phase 2 transversale (différenciateurs compétitifs, pas des bugs visibles)
 
 ### 🎯 Apprentissages
 
-- **Quick scan rigoureux ROI confirmé** : 2 bugs détectés en ~20 min (anonymisation Aginode était une violation directive importante, compteurs incohérents = vitrine repo)
+- **Quick scan rigoureux ROI confirmé** : 2 bugs détectés en ~20 min (l'anonymisation du nom client était une violation directive importante, compteurs incohérents = vitrine repo)
 - **Test #3 triptyque** appliqué à nouveau : 1 faux positif écarté (`memory/CLAUDE.md` existant) — méthode qui sauve d'over-engineering
-- **Cohérence mémoire-action** : ajout Aginode à `feedback_anonymisation_clients.md` pour éviter récurrence future
+- **Cohérence mémoire-action** : ajout du cas client à `feedback_anonymisation_clients.md` pour éviter récurrence future
 
 ### 🔜 Suite chantier
 

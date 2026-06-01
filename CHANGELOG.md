@@ -5,6 +5,26 @@
 
 ---
 
+## [3.17.0] — 2026-06-01 — DEV-TYPESCRIPT-IA + DEV-DRUPAL-PHP enrichis (groupe Dev/CMS complet)
+> Modèle : Claude Opus 4.8
+
+### 🎯 Contexte
+Dernier sous-groupe **Dev/CMS** : DEV-TYPESCRIPT-IA (9) + DEV-DRUPAL-PHP (10) = 19 skills. Audit-first méta-agent (`audits/audit-groupe-dev-ts-drupal-2026-06-01.md`, §3.4, Explore ×2). Profil « riche non sourcé » + 1 finding D1. **Le groupe Dev/CMS est désormais entièrement traité** (CMS/PIM/DAM en v3.16.0 + DEV-TS/DRUPAL ici).
+
+### 🔧 Correctif factuel D1 — modèle obsolète
+Sweep **`claude-opus-4-5` → `claude-opus-4-8`** (Opus courant) sur tous les exemples de code : 9 skills DEV-TS + 2 transverses (`dev_python_ia/integration-apis-llm`, `growth_ia/acquisition-seo-sem`). Plus aucune occurrence obsolète dans le catalogue.
+
+### ✨ V1+ — DEV-TYPESCRIPT-IA (9)
+Sources + Anti-patterns + Voir aussi + versioning. **WebSearch** : Vercel AI SDK **5** (juill. 2025 ; `parameters`→`inputSchema`, SSE natif, classe Agent → notes de migration v4→v5 ajoutées), MCP spec **2025-11-25** + SDK TS v1.x, Next.js 16/React 19. Reformulation du prompt caching (≈90 % sur tokens en cache, pas gain global).
+
+### ✨ V1+ — DEV-DRUPAL-PHP (10)
+Sources + Anti-patterns + Voir aussi + versioning. **WebSearch** : Drupal Commerce **3.0** (22 janv. 2025, D10.3+/11), Drupal 11, PHP 8.3, Twig 3, Simple OAuth (OAuth 2.1). Correctifs : artefact d'anonymisation cassé (`Client télécomMail.php` → commentaire `.module`), anti-pattern SIRET (clé de Luhn, pas que la longueur), note migration Commerce 2.x→3.x. `drupal-theming-twig` (déjà ✓-proche) : ajout Voir aussi.
+
+### 📐 Méthode
+Audit-first 80/20 · méthode standard inaltérée · WebSearch préalable sur chaque version (`feedback_verification_factuelle`) · validation Guy du modèle cible (Opus 4.8) avant sweep · 2 commits + release groupée.
+
+---
+
 ## [3.16.0] — 2026-06-01 — CMS/PIM/DAM enrichi : 33 V1+ + 2 V2 (différenciateur CV)
 > Modèle : Claude Opus 4.8
 

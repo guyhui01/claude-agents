@@ -79,9 +79,9 @@ def calcul_roi(
     
     return resultats
 
-# EXEMPLE — Solution RH IA
+# EXEMPLE — Solution RH IA (90 collaborateurs concernés)
 resultats = calcul_roi(
-    effectif_concerne=45,
+    effectif_concerne=90,
     gain_temps_heures_semaine=2.0,
     cout_horaire_moyen=60,
     taux_adoption=0.80,
@@ -90,7 +90,9 @@ resultats = calcul_roi(
     cout_formation=15_000,
     cout_change_management=20_000,
 )
-# Résultat : ROI An1=87%, An2=210%, An3=334% | Payback=6.1 mois
+# gain_annuel_brut = 90 × 2 × 46 × 60 × 0,80 = 397 440 €
+# investissement_initial = 215 000 € · récurrent = 18 000 €/an
+# Résultat : ROI An1=70.6%, An2=216.7%, An3=343.2% | Payback=6.5 mois
 ```
 
 ## Valorisation des intangibles
@@ -107,18 +109,20 @@ resultats = calcul_roi(
 ROI TRANSFORMATION RH IA — Synthèse Directoire
 ═══════════════════════════════════════════════════════════
 
-INVESTISSEMENT : 233 000 €
-ROI AN 1       : 87%   (gain net 203 000 €)
-ROI AN 3       : 334%  (gain net 778 000 €)
-PAYBACK        : 6 mois
+INVESTISSEMENT : 233 000 €  (215K initial + 18K récurrent An1)
+ROI AN 1       : 71%   (gain net 164 000 €)
+ROI AN 3       : 343%  (gain net 923 000 €)
+PAYBACK        : 6,5 mois
 
 GAINS CLÉS
 ─────────────────────────────────────────────────────────
-Productivité RH   : +33% (30 min gagnées/dossier × 15K dossiers)
-Qualité recrutement: -67% taux rejet tardif (12% → 4%)
-Conformité        : AIPD validée CNIL — risque amende éliminé
+Productivité      : 90 collaborateurs × 2 h/semaine récupérées
+                    (≈ 397 K€/an, adoption 80%)
+Intangibles       : turnover -5% (75 K€/an), évitement amende
+                    IA Act (50 K€), NPS employeur (30 K€/an)
+Conformité        : AIPD validée CNIL — risque amende maîtrisé
 
-RISQUE PRINCIPAL : Adoption < 70% → ROI réduit à 120% (toujours positif)
+RISQUE PRINCIPAL : Adoption 60% (vs 80%) → ROI An3 ~232% (toujours positif)
 ```
 
 ## Livrables

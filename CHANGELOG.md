@@ -5,6 +5,31 @@
 
 ---
 
+## [3.15.0] — 2026-06-01 — Cluster delivery COMPLET : V2 profonde des CONSULTANT-IA + re-vérif méta-agent des 14 V1+
+> Modèle : Claude Opus 4.8
+
+### 🎯 Contexte
+Clôture du cluster delivery (CONSULTANT-IA + CHEF-PROJET-IA + FINANCIAL-ANALYST) — cœur du pitch « PO/MOA AI augmenté », mobilisable dans toute mission, sector-agnostic.
+
+### ✨ V2 profonde — 6 skills CONSULTANT-IA minces
+- `cadrage-poc-ia` — CRISP-DM + Lean Startup (Ries 2011) + ML Test Score (Google)
+- `estimation-roi-rapide` — Forrester TEI + VAN/TRI + TCO Gartner
+- `feuille-route-ia` — 3 Horizons (McKinsey) + WSJF/RICE + timeline AI Act
+- `presentation-executif` — Pyramide Minto (1987) + SCQA + Knaflic (2015)
+- `proposition-commerciale` — Shipley + Value Proposition Canvas + SPIN
+- `transformation-digitale` — PROSCI ADKAR + Kotter + McKinsey 7S + Westerman Digital Mastery (2014), exemple anonymisé groupe BTP
+
+### 🔍 Re-vérification méta-agent des 14 V1+ (v3.14.0)
+Dogfooding du skill `critique_conformite/audit-qualite-catalogue.md` (objectif final du chantier) sur CHEF-PROJET-IA (8) + FINANCIAL-ANALYST (6), grille v2.8 §3.2. Rapport : `audits/audit-revalidation-v1plus-2026-06-01.md`.
+- **Résultat : 13/14 ✓/P3 confirmés** (hypothèse de la trace validée) + extraction Explore × 2 + recalcul manuel des formules (EVM ×2, VAN/TRI exactes).
+- **1 P1 détecté et corrigé** : `financial_analyst/roi-transformation.md` — l'exemple chiffré annoté et le template CODIR contredisaient le propre code du skill (ROI An1 87 % annoncé vs −14,7 % calculé ; payback 6 mois vs ~13 mois). Le pass V1+ avait corrigé le code (`×`→`*`) sans voir l'incohérence des résultats. Correction par **re-scope cohérent** des inputs (effectif 45→90, gain 397 440 €/an) → ROI An1 70,6 % / An3 343,2 % / payback 6,5 mois, alignés sur la sortie réelle du code.
+
+### 📌 Constats transversaux (à traiter Phase 3)
+- Sources financières à dater (Brealey-Myers-Allen édition, Forrester TEI, Gartner TCO) — plafonne D3 à ⚠ sur 4 skills FINANCIAL.
+- Règle méthode : sur un skill à calcul, l'exemple annoté doit provenir d'une exécution réelle, jamais d'une saisie manuelle.
+
+---
+
 ## [3.14.0] — 2026-05-31 — V1+ cluster delivery (CHEF-PROJET-IA + FINANCIAL-ANALYST, 14 skills) + généralisation offre-mission
 > Modèle : Claude Opus 4.8
 

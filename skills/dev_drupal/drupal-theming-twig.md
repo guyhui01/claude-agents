@@ -164,3 +164,10 @@ function mymodule_preprocess_node(array &$variables): void {
 
 ## Format de sortie
 Précise : entité à thémer (node/product/user) · view mode · variables métier à afficher · comportement selon rôle
+
+## Voir aussi
+- [`drupal-commerce-catalog.md`](drupal-commerce-catalog.md) — affichage conditionnel du prix B2B
+- [`drupal-performance.md`](drupal-performance.md) — cache des fragments rendus
+- [`drupal-module-custom.md`](drupal-module-custom.md) — preprocess hooks dans le module
+- [`../cms_digital/accessibilite-numerique.md`](../cms_digital/accessibilite-numerique.md) — accessibilité des templates (aria, contraste)
+- [`../cms_digital/performance-web.md`](../cms_digital/performance-web.md) — Core Web Vitals côté rendu

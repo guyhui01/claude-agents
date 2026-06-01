@@ -79,3 +79,22 @@ class B2bAccountResource extends ResourceBase {
 
 ## Format de sortie
 Précise : entités à exposer · opérations CRUD requises · authentification · champs à masquer · consommateur (front React, ERP, service tiers)
+
+## Anti-patterns
+- ❌ **Basic auth en production** : identifiants exposés → OAuth2 (Simple OAuth)
+- ❌ **Exposer des champs sensibles** (`pass`, `mail`, champs internes) : fuite de données → restreindre via `jsonapi_extras`
+- ❌ **REST custom là où JSON:API suffit** : réinvention coûteuse → REST custom seulement pour endpoints métier
+- ❌ **Pas de cache JSON:API** : surcharge serveur → Dynamic Page Cache par rôle
+- ❌ **Pas de rate limiting** sur API publique : abus/DoS → throttling (proxy/middleware)
+- ❌ **Filtres non contrôlés** exposant toute la base : sur-exposition → whitelister les filtres autorisés
+
+## Sources
+- **JSON:API** — jsonapi.org (module core Drupal) · **jsonapi_extras** — drupal.org/project/jsonapi_extras
+- **Simple OAuth** (OAuth 2.1, RFC 9700) — drupal.org/project/simple_oauth
+- **Drupal 10/11** — drupal.org (JSON:API et REST en core)
+
+## Voir aussi
+- [`drupal-integration-api-tierce.md`](drupal-integration-api-tierce.md) — consommer des APIs tierces
+- [`drupal-user-roles.md`](drupal-user-roles.md) — droits d'accès et exposition par rôle
+- [`../cms_digital/cms-headless.md`](../cms_digital/cms-headless.md) — Drupal en source headless
+- [`../dev_typescript_ia/integration-apis-llm-ts.md`](../dev_typescript_ia/integration-apis-llm-ts.md) — consommation côté front TypeScript

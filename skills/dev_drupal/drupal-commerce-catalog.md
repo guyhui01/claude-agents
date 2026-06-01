@@ -78,3 +78,21 @@ class B2bPriceSubscriber implements EventSubscriberInterface {
 
 ## Format de sortie
 Précise : types de produits à créer · champs de variation · règle de pricing (rôle, client, liste de prix) · comportement pour visiteur anonyme
+
+## Anti-patterns
+- ❌ **Prix codés en dur** au lieu des Price Lists Commerce : tarifs B2B non gérables → Price Lists / résolveurs
+- ❌ **Configuration via l'UI admin non versionnée** : drift dev/prod → tout en YAML CMI (`config/sync`)
+- ❌ **PriceSubscriber sans priorité explicite** : ordre d'override imprévisible → priorité négative documentée
+- ❌ **Prix B2B exposé aux anonymes** : fuite commerciale → masquage conditionnel par rôle (template + access)
+- ❌ **Rester sur Commerce 2.x sans plan de migration** : Commerce 3.0 (janv. 2025) est compatible Drupal 11 → planifier la montée
+
+## Sources
+- **Drupal Commerce** — drupalcommerce.org (Commerce 2.x ; **Commerce 3.0** depuis le 22 janv. 2025, support Drupal 10.3+/11)
+- **Drupal 10/11** — drupal.org · **PriceCalculate / PriceResolver API** — docs Commerce
+- **Drupal 10/11** — drupal.org (D11 depuis août 2024 ; D10 EOL déc. 2026)
+
+## Voir aussi
+- [`drupal-commerce-checkout.md`](drupal-commerce-checkout.md) — tunnel de commande et workflow
+- [`drupal-user-roles.md`](drupal-user-roles.md) — rôle `b2b_buyer` conditionnant le prix
+- [`drupal-config-yaml.md`](drupal-config-yaml.md) — gestion de la config CMI
+- [`drupal-theming-twig.md`](drupal-theming-twig.md) — affichage conditionnel du prix

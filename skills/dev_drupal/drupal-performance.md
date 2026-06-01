@@ -78,3 +78,22 @@ blackfire curl http://client-b2b.local/catalogue
 
 ## Format de sortie
 Précise : page / composant à optimiser · rôle utilisateur concerné · volume de charge estimé · budget temps de réponse cible
+
+## Anti-patterns
+- ❌ **Désactiver le cache en prod** : performance détruite → `drush cr` ciblé, jamais cache off
+- ❌ **Render array custom sans `#cache`** : fragments non mis en cache → tags + contexts systématiques
+- ❌ **`max-age = 0`** par facilité : recalcul permanent → cache tags pour l'invalidation
+- ❌ **Pas de `cache_contexts` par rôle** (ex. prix B2B) : fuite ou incohérence de cache → `user.roles`
+- ❌ **Redis pour le cache `form`** : doit rester en BDD → bin `form` sur database (fait ici ✓)
+- ❌ **Views catalogue sans cache de résultat** : requêtes lourdes répétées → activer le cache de requête
+
+## Sources
+- **Drupal Cache API** (cache tags, contexts, max-age) — drupal.org/docs/drupal-apis/cache-api · **BigPipe** (core)
+- **Redis** — drupal.org/project/redis (PhpRedis) · **Varnish** — varnish-cache.org
+- **Blackfire** — blackfire.io · **Xdebug** — profiling · **Drupal 10/11**
+
+## Voir aussi
+- [`drupal-commerce-catalog.md`](drupal-commerce-catalog.md) — cache par rôle (prix B2B)
+- [`drupal-api-rest.md`](drupal-api-rest.md) — cache JSON:API par rôle
+- [`drupal-config-yaml.md`](drupal-config-yaml.md) — config Redis/cache versionnée
+- [`../cms_digital/performance-web.md`](../cms_digital/performance-web.md) — Core Web Vitals côté front

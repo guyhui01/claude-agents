@@ -83,3 +83,21 @@ class OrderStatusSubscriber implements EventSubscriberInterface {
 
 ## Format de sortie
 Précise : étapes checkout souhaitées · champs custom sur la commande · états du workflow · email à déclencher par transition
+
+## Anti-patterns
+- ❌ **`hook_form_alter` sur le checkout** au lieu d'un CheckoutPane plugin : fragile et non maintenable → plugin annoté
+- ❌ **EventSubscriber sur `pre_transition`** pour les emails : envoi avant validation de l'état → utiliser `post_transition`
+- ❌ **Workflow sans Guards** pour les règles métier : transitions invalides possibles → `state_machine` Guards
+- ❌ **Pas de gestion d'erreur d'envoi email** : commande bloquée si le mailer échoue → try/catch + file d'attente
+- ❌ **Commerce 2.x sans plan 3.x** : Commerce 3.0 (janv. 2025) compatible D11 → anticiper la migration
+
+## Sources
+- **Drupal Commerce** — drupalcommerce.org (CheckoutFlow/CheckoutPane ; Commerce 2.x → **3.0** janv. 2025, D10.3+/11)
+- **state_machine** (workflows de commande, transitions, Guards) — drupal.org/project/state_machine
+- **Drupal 10/11** — drupal.org
+
+## Voir aussi
+- [`drupal-commerce-catalog.md`](drupal-commerce-catalog.md) — catalogue et tarifs B2B
+- [`drupal-config-yaml.md`](drupal-config-yaml.md) — workflow YAML versionné
+- [`drupal-integration-api-tierce.md`](drupal-integration-api-tierce.md) — paiement (Stripe) et emails transactionnels
+- [`drupal-module-custom.md`](drupal-module-custom.md) — structure du module et services

@@ -96,3 +96,22 @@ function client_b2b_entity_access(EntityInterface $entity, string $operation, Ac
 
 ## Format de sortie
 Précise : rôles à créer · permissions requises par rôle · champs custom à ajouter sur l'utilisateur · règles d'accès à implémenter
+
+## Anti-patterns
+- ❌ **Rôles configurés en UI non versionnés** : drift entre environnements → YAML CMI
+- ❌ **`AccessResult::forbidden()` sur des entités non concernées** : blocages inattendus → `neutral()` par défaut (fait ici ✓)
+- ❌ **Permissions trop larges** (ex. `administer users` à un rôle client) : sur-privilège → principe du moindre privilège
+- ❌ **Ne tester qu'un seul profil** : régressions d'accès → tester anonyme + B2B actif + en_attente/refusé
+- ❌ **Logique d'accès dispersée** (hook + subscriber sans cohérence) : règles contradictoires → centraliser
+- ❌ **Statut de compte non vérifié au login** : accès d'un compte non validé → contrôle `UserLoginEvent`
+
+## Sources
+- **Drupal User / Access API** — `AccessResult`, `hook_entity_access`, `UserLoginEvent` — api.drupal.org
+- **Permissions & rôles** — drupal.org/docs/user_guide (Drupal 10/11)
+- **PSR-3 logging** pour l'audit des accès — php-fig.org
+
+## Voir aussi
+- [`drupal-commerce-catalog.md`](drupal-commerce-catalog.md) — prix conditionné au rôle `b2b_buyer`
+- [`drupal-config-yaml.md`](drupal-config-yaml.md) — rôles et champs en YAML versionné
+- [`drupal-module-custom.md`](drupal-module-custom.md) — service de validation de compte
+- [`drupal-api-rest.md`](drupal-api-rest.md) — exposition par rôle et champs masqués

@@ -84,3 +84,22 @@ function mon_module_user_insert(UserInterface $account): void {
 
 ## Format de sortie
 Précise : nom du module · fonctionnalité à implémenter · entités Drupal concernées · dépendances contrib requises
+
+## Anti-patterns
+- ❌ **Logique métier dans le `.module`** : non testable → tout dans `src/` (services/plugins)
+- ❌ **`\Drupal::service()` dans les classes** : couplage statique → injection par constructeur
+- ❌ **Hook procédural** quand un EventSubscriber/plugin convient : préférer l'orienté objet
+- ❌ **Pas de PHPCS Drupal avant commit** : code non conforme → `phpcs --standard=Drupal`
+- ❌ **`core_version_requirement` trop laxiste** ou typage absent : ruptures silencieuses → typage PHP 8.3 strict
+- ❌ **Service sans `final` ni `readonly`** : extension non maîtrisée → classes finales, propriétés readonly
+
+## Sources
+- **Drupal API** — api.drupal.org (hooks, services, plugins, Entity API) · **Drupal 10/11** (D11 : PHP 8.3, Symfony 7)
+- **PSR-12** — php-fig.org · **PHPCS Drupal / Coder** — drupal.org/project/coder
+- **Symfony Dependency Injection** — symfony.com (conteneur de services Drupal)
+
+## Voir aussi
+- [`drupal-config-yaml.md`](drupal-config-yaml.md) — config d'installation du module (CMI)
+- [`drupal-tests-phpunit-behat.md`](drupal-tests-phpunit-behat.md) — tests du service et des hooks
+- [`drupal-api-rest.md`](drupal-api-rest.md) — exposer le module en API
+- [`drupal-user-roles.md`](drupal-user-roles.md) — permissions et accès du module

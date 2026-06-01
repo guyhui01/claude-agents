@@ -109,3 +109,22 @@ class FeatureContext extends RawDrupalContext {
 
 ## Format de sortie
 Précise : classe / service à tester · comportements à valider · scénarios Gherkin QA disponibles · niveau de couverture cible
+
+## Anti-patterns
+- ❌ **Tester uniquement le happy path** : les cas limites cassent en prod → couvrir invalides/erreurs (fait ici ✓)
+- ❌ **Valider le SIRET sur la longueur seule** (14 chiffres) sans la **clé de Luhn** : faux SIRET acceptés → contrôle Luhn
+- ❌ **Test Functional pour ce qui peut être Kernel/Unit** : CI lente → choisir le niveau le moins coûteux suffisant
+- ❌ **Behat désaligné des `.feature` QA** : dérive QA/DEV → réutiliser les scénarios Gherkin de la QA
+- ❌ **Pas de tests en CI** : régressions silencieuses → exécution PHPUnit + Behat en pipeline
+- ❌ **Pas de versions épinglées** (PHPUnit/Behat) : tests cassés à la montée → fixer via Composer
+
+## Sources
+- **PHPUnit** — phpunit.de (Sebastian Bergmann) · **Behat** — behat.org (BDD) · **Gherkin** — cucumber.io/docs/gherkin
+- **Drupal Testing** (UnitTestCase / KernelTestBase / BrowserTestBase / WebDriverTestBase) — drupal.org/docs/automated-testing
+- **Drupal 10/11** — drupal.org (PHP 8.3)
+
+## Voir aussi
+- [`drupal-module-custom.md`](drupal-module-custom.md) — services/contraintes à tester
+- [`drupal-commerce-checkout.md`](drupal-commerce-checkout.md) — workflows à couvrir en Kernel/Functional
+- [`drupal-user-roles.md`](drupal-user-roles.md) — tests d'accès par rôle
+- [`../qa_testing/`](../qa_testing/) — scénarios Gherkin QA source (alignement QA/DEV)

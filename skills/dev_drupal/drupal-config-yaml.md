@@ -77,3 +77,16 @@ $config['sendgrid_integration.settings']['apikey'] = getenv('SENDGRID_API_KEY');
 
 ## Format de sortie
 Précise : configuration à gérer (champs, rôles, vues, workflows) · environnements cibles · secrets à externaliser
+
+> Les « Pièges à éviter » ci-dessus tiennent lieu d'anti-patterns pour ce skill.
+
+## Sources
+- **Configuration Management (CMI)** — drupal.org/docs/configuration-management (Drupal 10/11 ; CMI depuis Drupal 8)
+- **Config Split** — drupal.org/project/config_split (config différenciée par environnement)
+- **Drush** — drush.org (`config:export/import/status`)
+
+## Voir aussi
+- [`drupal-module-custom.md`](drupal-module-custom.md) — `config/install/` du module
+- [`drupal-commerce-checkout.md`](drupal-commerce-checkout.md) — workflow de commande en YAML
+- [`drupal-integration-api-tierce.md`](drupal-integration-api-tierce.md) — secrets externalisés (settings.php/env)
+- [`drupal-user-roles.md`](drupal-user-roles.md) — rôles et permissions versionnés

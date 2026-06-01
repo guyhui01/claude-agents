@@ -39,7 +39,7 @@ composer require drupal/sendgrid_integration
 ```
 
 ```php
-// src/Mail/Client télécomMail.php — hook_mail() implémentation
+// client_b2b.module — hook_mail() implémentation (hook procédural)
 function client_b2b_mail(string $key, array &$message, array $params): void {
   match($key) {
     'account_activated' => $message['subject'] = 'Votre compte Client télécom est activé',
@@ -121,3 +121,22 @@ CHRONOPOST_API_KEY=xxxxxxxxxxxx
 
 ## Format de sortie
 Précise : API tierce à intégrer · endpoint(s) concerné(s) · données échangées · comportement en cas d'erreur API · environnement (test/prod)
+
+## Anti-patterns
+- ❌ **Clé API en dur ou en YAML versionné** : fuite de secret → variables d'environnement / module Key
+- ❌ **Appel API sans `try/catch` ni timeout** : blocage indéfini → timeout explicite (5 s) + gestion d'erreur
+- ❌ **Pas de fallback si l'API tierce est indisponible** : checkout/email cassé → tarif forfaitaire / file d'attente
+- ❌ **Webhook Stripe non vérifié** (signature) : risque de fraude → valider la signature du webhook
+- ❌ **Pas de mock HTTP dans les tests** : tests fragiles et lents → mock `ClientInterface`
+- ❌ **Logging absent sur les appels API** : incidents invisibles → logger chaque échec (PSR-3)
+
+## Sources
+- **Stripe** — `drupal/commerce_stripe` + `stripe/stripe-php` — stripe.com/docs · **SendGrid** — `drupal/sendgrid_integration`
+- **Guzzle** (PSR-18 HTTP client) — docs.guzzlephp.org · **PSR-3** (logging) — php-fig.org
+- **Drupal Key** (gestion des secrets) — drupal.org/project/key · **Drupal 10/11**
+
+## Voir aussi
+- [`drupal-commerce-checkout.md`](drupal-commerce-checkout.md) — paiement et emails par transition
+- [`drupal-module-custom.md`](drupal-module-custom.md) — services injectés (Guzzle, mailer)
+- [`drupal-tests-phpunit-behat.md`](drupal-tests-phpunit-behat.md) — tests avec mock HttpClient
+- [`drupal-config-yaml.md`](drupal-config-yaml.md) — externalisation des secrets

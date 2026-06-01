@@ -121,3 +121,23 @@ def migrate_article(drupal_node, contentful_space, cda_token):
 
 ## Format de sortie
 Précise : **CMS source** et **CMS cible**, **volume** (pages, assets, langues), **contraintes SEO** (conservation des URLs ?), **stratégie** (big bang vs phased), **délai** et **équipe disponible**.
+
+## Anti-patterns
+- ❌ **Big bang sans rollback testé** : aucun retour arrière si échec → procédure de rollback + double-run si critique
+- ❌ **Pas de plan de redirections 301 exhaustif** : perte SEO massive (404, backlinks cassés) → map complète source → cible
+- ❌ **Migration sans gel + delta** : contenu créé pendant la recette perdu → gel lecture seule + delta J0
+- ❌ **Pas de recette SEO/perf/accessibilité** avant bascule : régressions en prod → UAT + tests automatisés
+- ❌ **Migrer la dette** (contenu obsolète, taxonomies anarchiques) : on déménage le désordre → assainir en phase 1
+- ❌ **Drupal 7/9 ou AEM ancien non anticipé** (EOL) : urgence sécurité → planifier vers Drupal 10/11 ou AEM Cloud
+
+## Sources
+- **TOGAF 10** (2022) — trajectoire de migration — opengroup.org
+- **APIs de migration** : Drupal Migrate API / JSON:API — drupal.org · Contentful Management API — contentful.com · AEM — experienceleague.adobe.com
+- **Redirections 301** (HTTP, RFC 9110) · **Google Search Console** — search.google.com/search-console
+- **WCAG 2.2** (W3C, 2023) — recette accessibilité post-migration
+
+## Voir aussi
+- [`drupal-developpement.md`](drupal-developpement.md) — migration Drupal (Migrate API)
+- [`architecture-cms.md`](architecture-cms.md) — architecture cible de la migration
+- [`seo-technique-cms.md`](seo-technique-cms.md) — plan de redirections 301 et SEO
+- [`../dam_expert/migration-dam.md`](../dam_expert/migration-dam.md) — migration coordonnée des assets

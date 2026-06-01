@@ -138,3 +138,23 @@ class MonPageTest extends BrowserTestBase {
 
 ## Format de sortie
 Précise : **version Drupal** (9, 10, 11), **type** (module custom, configuration, API, migration), **contexte** (nouvelle feature, bug, performance), **contraintes** (Drupal Commerce, multisite, headless API-first).
+
+## Anti-patterns
+- ❌ **Hacker le core** au lieu d'utiliser hooks/plugins/services : mises à jour cassées → API d'extension uniquement
+- ❌ **Config modifiée en base non exportée** (CMI) : drift dev → prod → `drush config:export` systématique + revue en CI
+- ❌ **Pas de tests PHPUnit** (Unit/Kernel/Functional) : régressions silencieuses → couverture sur la logique métier
+- ❌ **Ignorer les Drupal Security Advisories** : modules contrib vulnérables → veille + `composer audit`
+- ❌ **`#cache['max-age'] = 0`** par facilité : performance détruite → cache tags/contexts ciblés
+- ❌ **Maintenir Drupal 7/9 en fin de vie** : dette et faille de sécurité → Drupal 10 (EOL déc. 2026) ou 11
+
+## Sources
+- **Drupal 10/11** — drupal.org (Drupal 11 depuis août 2024 : Symfony 7, PHP 8.3, Recipes, SDC ; Drupal 10 EOL déc. 2026)
+- **Twig 3** — twig.symfony.com (SensioLabs) · **PHPUnit** — phpunit.de (Sebastian Bergmann)
+- **PSR-12** — php-fig.org · **JSON:API** — jsonapi.org · **Composer / Drush** — getcomposer.org / drush.org
+- **Drupal Security Advisories** — drupal.org/security
+
+## Voir aussi
+- [`performance-web.md`](performance-web.md) — cache Drupal (tags, contexts, BigPipe)
+- [`migration-cms.md`](migration-cms.md) — migration Drupal 7/9 → 10/11
+- [`architecture-cms.md`](architecture-cms.md) — Drupal monolithique vs headless
+- [`integration-pim-dam.md`](integration-pim-dam.md) — connecteurs PIM/DAM côté Drupal

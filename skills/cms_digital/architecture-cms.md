@@ -83,3 +83,23 @@ Contraintes réglementaires : [RGPD, AI Act, accessibilité RGAA]
 
 ## Format de sortie
 Précise : **canaux cibles** (web, mobile, IoT…), **volume** (pages, assets, langues), **contraintes** (budget, legacy, réglementation), **profil équipe** (développeurs disponibles, expertise CMS), **horizon** (court / moyen terme).
+
+## Anti-patterns
+- ❌ **Choisir headless/MACH par effet de mode** sans besoin omnicanal réel : complexité et coût injustifiés → décider sur la grille, pas la hype
+- ❌ **Monolithique pour un besoin clairement omnicanal** : mur de scalabilité → headless/composable
+- ❌ **Composable sans API Gateway / BFF** : couplage fort frontend ↔ microservices → couche d'orchestration
+- ❌ **Ignorer l'expérience éditoriale** dans le choix : rejet des contributeurs → pondérer l'authoring
+- ❌ **Architecture sans matrice d'intégration** (PIM/DAM/CRM/CDP) : silos → cartographier les flux dès le cadrage
+- ❌ **Pas de stratégie de sortie / réversibilité** (vendor lock-in) : dépendance → standards ouverts, abstraction
+
+## Sources
+- **TOGAF 10** (The Open Group, 2022) — cadre d'architecture d'entreprise — opengroup.org
+- **MACH Alliance** (Microservices, API-first, Cloud-native, Headless) — machalliance.org
+- **C4 Model** (Simon Brown) — c4model.com · **ArchiMate 3.2** (The Open Group) — diagrammes d'architecture
+- **Atomic Design** (Brad Frost, 2016) — atomicdesign.bradfrost.com · **Forrester Wave DXP** / **Gartner MQ DXP** — benchmarks plateformes
+
+## Voir aussi
+- [`cms-headless.md`](cms-headless.md) — mise en œuvre headless/composable
+- [`migration-cms.md`](migration-cms.md) — trajectoire depuis l'architecture existante
+- [`integration-pim-dam.md`](integration-pim-dam.md) — intégrations PIM/DAM de l'architecture
+- [`../business_analyst/cartographie-si.md`](../business_analyst/cartographie-si.md) — cartographie SI (TOGAF/ArchiMate)

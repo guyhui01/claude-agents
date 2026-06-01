@@ -132,3 +132,23 @@ weight.value            field_weight                Conversion g → kg si néce
 
 ## Format de sortie
 Précise : **PIM source** (Akeneo, SAP Hybris, Pimcore…), **DAM** (AEM Assets, Cloudinary, Bynder…), **CMS cible**, **volume** (SKU, assets), **mode de sync** (temps réel via webhook ou batch nocturne), **contraintes** (multilingue, multimarché).
+
+## Anti-patterns
+- ❌ **Upload direct des assets dans le CMS** (bypass du DAM) : assets non gouvernés, sans droits → asset reference depuis le DAM
+- ❌ **Stocker les données produit dans le CMS** au lieu de référencer le PIM : double maîtrise et désynchronisation → le PIM reste source de vérité
+- ❌ **Synchronisation sans gestion d'erreur / retry / idempotence** : doublons ou désync silencieuse → webhooks idempotents + file de retry
+- ❌ **Sync complète permanente** au lieu de delta/événementiel : charge inutile → webhook sur événement + bulk nocturne
+- ❌ **Pas de monitoring des flux** PIM/DAM → CMS : pannes invisibles → alertes + dashboard
+- ❌ **Citer/maintenir des outils discontinués** : ex. *Ooyala* (OVP arrêté en 2019) → tenir la liste d'outils à jour (DAM vidéo actuels : Bynder, Cloudinary, AEM Assets)
+
+## Sources
+- **PIM** : Akeneo (Serenity) — akeneo.com · SAP Commerce/Hybris PCM — sap.com · Pimcore — pimcore.com
+- **DAM** : Adobe AEM Assets — experienceleague.adobe.com · Cloudinary — cloudinary.com · Bynder — developer.bynder.com *(Ooyala OVP arrêté en 2019 — exemple historique)*
+- **GS1 General Specifications v24.0** (2024) — GTIN/GLN pour l'appariement produit — gs1.org
+- **Webhooks / REST / GraphQL** — patterns d'intégration événementielle
+
+## Voir aussi
+- [`../pim_expert/syndication-canaux.md`](../pim_expert/syndication-canaux.md) — diffusion produit vers les canaux
+- [`../dam_expert/integration-dam-cms.md`](../dam_expert/integration-dam-cms.md) — vue DAM de l'intégration au CMS
+- [`cms-headless.md`](cms-headless.md) — consommation headless des contenus produit
+- [`architecture-cms.md`](architecture-cms.md) — place du PIM/DAM dans l'architecture composable

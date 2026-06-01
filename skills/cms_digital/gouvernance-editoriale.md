@@ -96,3 +96,22 @@ PAGES / SLUGS
 
 ## Format de sortie
 Précise : **CMS utilisé** (AEM, Drupal, Contentful…), **nombre de contributeurs** et **profils**, **langues** du site, **fréquence de publication**, **contraintes réglementaires** (validation légale, RGPD, droits images).
+
+## Anti-patterns
+- ❌ **Workflow sans rôles clairs** (R/A non distincts) : blocages et contenus publiés sans validation → RACI explicite
+- ❌ **Contributeurs créant des termes de taxonomie libres** : taxonomie anarchique → termes contrôlés par des référents
+- ❌ **Taxonomie trop profonde** (> 2-3 niveaux) : navigation et maintenance illisibles
+- ❌ **Multilingue en rattrapage** (pas synchronisé) : versions linguistiques désalignées → création simultanée
+- ❌ **Pas de formation des contributeurs** : contournements et erreurs → guide + formation
+- ❌ **Pas d'archivage des contenus obsolètes** : le site accumule du contenu mort → état « archivé » + revue
+
+## Sources
+- **Drupal Content Moderation / Workflows** — drupal.org (Workspaces pour staging)
+- **BPMN 2.0.2** — OMG (2013) — modélisation des workflows éditoriaux — omg.org/spec/BPMN
+- **Modèle RACI** — matrice de responsabilités · **AEM Workflows** — experienceleague.adobe.com
+
+## Voir aussi
+- [`drupal-developpement.md`](drupal-developpement.md) — configuration des workflows (Content Moderation)
+- [`accessibilite-numerique.md`](accessibilite-numerique.md) — contribution accessible des éditeurs
+- [`seo-technique-cms.md`](seo-technique-cms.md) — conventions de nommage/slugs SEO
+- [`../dam_expert/workflow-validation-assets.md`](../dam_expert/workflow-validation-assets.md) — validation des assets associés

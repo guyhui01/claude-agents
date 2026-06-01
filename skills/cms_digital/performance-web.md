@@ -121,3 +121,23 @@ Score mobile  > 90              Fail build si < 80
 
 ## Format de sortie
 Précise : **CMS et version**, **URLs à auditer** (homepage, page produit, article…), **cibles** (LCP, score Lighthouse), **contexte** (refonte, optimisation ongoing), **contraintes** (tracker tiers, vidéos, iframes ads).
+
+## Anti-patterns
+- ❌ **Optimiser sur les lab data (Lighthouse) en ignorant les field data** (CrUX/RUM) : score parfait en labo, mauvais en réel → suivre les données terrain
+- ❌ **Lazy-load sur l'image LCP** : retarde le rendu du contenu principal → `loading="eager"` + `fetchpriority="high"` pour le LCP
+- ❌ **`width`/`height` non définis** : CLS dégradé → dimensions explicites
+- ❌ **Pas de budget de performance en CI** : régressions silencieuses → fail build sur seuils
+- ❌ **Trackers/tags tiers non maîtrisés** : dégradent TTFB et INP → audit des scripts tiers, chargement différé
+- ❌ **Cacher les réponses d'API** : données périmées → exclure `/api/*` du cache (cf. règle Dispatcher)
+
+## Sources
+- **Core Web Vitals** — web.dev/vitals (Google) : LCP < 2,5 s · **INP < 200 ms** (a remplacé FID en mars 2024) · CLS < 0,1
+- **Lighthouse** / **PageSpeed Insights** / **CrUX** (Chrome UX Report, field data) — developer.chrome.com
+- **Drupal** (cache tags, BigPipe) — drupal.org · **AEM Dispatcher** — experienceleague.adobe.com
+- **HTTP Archive Web Almanac** — benchmarks de performance — httparchive.org
+
+## Voir aussi
+- [`../dam_expert/transformation-formats.md`](../dam_expert/transformation-formats.md) — formats d'images optimisés (WebP/AVIF)
+- [`seo-technique-cms.md`](seo-technique-cms.md) — Core Web Vitals comme facteur de ranking
+- [`architecture-cms.md`](architecture-cms.md) — choix d'architecture impactant la performance
+- [`drupal-developpement.md`](drupal-developpement.md) — cache Drupal (tags, contexts, BigPipe)

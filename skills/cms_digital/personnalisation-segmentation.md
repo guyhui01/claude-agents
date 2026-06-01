@@ -118,3 +118,22 @@ Engagement score        Pages vues × Durée × Actions         Trending up
 
 ## Format de sortie
 Précise : **CMS et outil de perso** (Adobe Target, Optimizely, Sitecore XM…), **maturité** (tests A/B simples vs ML 1:1), **données disponibles** (cookie only, CDP, CRM…), **contraintes RGPD** (consentement, durée rétention), **KPI prioritaire** (conversion, engagement, rétention).
+
+## Anti-patterns
+- ❌ **Personnaliser sans consentement** (RGPD / ePrivacy) : traceurs déposés sans base légale → CMP + consentement préalable
+- ❌ **A/B test arrêté avant significativité statistique** : faux gagnants → taille d'échantillon + durée calculées
+- ❌ **Sur-segmentation** (segments trop petits) : aucun signal exploitable → segments suffisamment volumineux
+- ❌ **Personnalisation sans mesure de lift** vs groupe de contrôle : impossible de prouver la valeur → toujours un contrôle
+- ❌ **Cookie-only sans CDP** : profils fragmentés entre canaux → identité unifiée (CDP)
+- ❌ **Pas de fallback** pour les segments non couverts : contenu vide → version par défaut systématique
+
+## Sources
+- **Adobe Target / Real-Time CDP** — experienceleague.adobe.com · **Optimizely** — docs.developers.optimizely.com · **Sitecore XM Cloud** — sitecore.com
+- **RGPD** (UE 2016/679) + **directive ePrivacy** (consentement traceurs) — eur-lex.europa.eu · **CNIL** (lignes directrices cookies) — cnil.fr
+- **A/B testing** — significativité statistique (p-value, puissance, taille d'échantillon) — Kohavi et al., *Trustworthy Online Controlled Experiments* (2020)
+
+## Voir aussi
+- [`architecture-cms.md`](architecture-cms.md) — intégration CDP dans l'architecture
+- [`gouvernance-editoriale.md`](gouvernance-editoriale.md) — gestion des variantes de contenu
+- [`../juridique_ia/rgpd-ia.md`](../juridique_ia/rgpd-ia.md) — conformité RGPD/consentement
+- [`../scrum/product-vision.md`](../scrum/product-vision.md) — métriques d'engagement (AARRR/HEART)

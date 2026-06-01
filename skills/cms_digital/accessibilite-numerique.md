@@ -121,3 +121,23 @@ Date de mise à jour  : [AAAA-MM-JJ]
 
 ## Format de sortie
 Précise : **URL ou composant à auditer**, **CMS** (AEM, Drupal, WordPress…), **niveau cible** (A, AA, AAA), **contraintes** (service public → obligation légale RGAA, délai de mise en conformité), **technologies d'assistance** à prendre en compte.
+
+## Anti-patterns
+- ❌ **Audit automatique seul** (axe/WAVE) sans test manuel lecteur d'écran : ~30 % des critères ne sont pas détectables automatiquement → audit manuel NVDA/VoiceOver obligatoire
+- ❌ **`alt` redondant ou sur les images décoratives** : bruit pour le lecteur d'écran → `alt=""` pour le décoratif
+- ❌ **Contraste < 4,5:1** (texte normal) : illisible → vérifier au design, pas après
+- ❌ **ARIA sur-utilisé** (rôles redondants avec le HTML natif) : « No ARIA is better than bad ARIA » → privilégier le HTML sémantique
+- ❌ **Pas de Déclaration d'Accessibilité** : non-conformité légale (services publics FR) → publier la déclaration DINUM
+- ❌ **Accessibilité traitée en fin de projet** : coût de reprise élevé → intégrer dès la conception (a11y by design)
+
+## Sources
+- **WCAG 2.2** — W3C Recommendation (oct. 2023) — w3.org/TR/WCAG22
+- **RGAA 4.1** — DINUM (référentiel français, aligné WCAG, obligation loi n° 2005-102 / décret 2019) — accessibilite.numerique.gouv.fr
+- **WAI-ARIA 1.2** — W3C — w3.org/TR/wai-aria
+- **EN 301 549** — norme européenne d'accessibilité (secteur public UE) — etsi.org
+
+## Voir aussi
+- [`performance-web.md`](performance-web.md) — performance et accessibilité (audit Lighthouse commun)
+- [`seo-technique-cms.md`](seo-technique-cms.md) — recouvrement a11y/SEO (structure Hn, alt, langue)
+- [`gouvernance-editoriale.md`](gouvernance-editoriale.md) — contribution accessible côté éditeurs
+- [`architecture-cms.md`](architecture-cms.md) — accessibilité dès la conception des composants

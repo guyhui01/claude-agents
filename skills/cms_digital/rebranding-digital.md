@@ -123,3 +123,23 @@ Amériques  EN/PT/ES  Internal team     Americas Brand Director     Sem. 15
 
 ## Format de sortie
 Précise : **CMS et version**, **nombre de sites/marchés**, **périmètre** (visuel seul ou contenus aussi), **contraintes** (deadline événementielle, validation juridique), **équipes** (centralisée ou distribuée par marché), **stack design** (Figma, Storybook, design tokens).
+
+## Anti-patterns
+- ❌ **Rebranding sans design system / tokens** : incohérence visuelle entre sites → design tokens centralisés
+- ❌ **Remplacement regex naïf** (IGNORECASE global) : faux positifs et contenus corrompus → mapping ciblé + revue
+- ❌ **Pas de tests de régression visuels** (Percy/Chromatic) : régressions UI non détectées → visual diff en CI
+- ❌ **Go-live non coordonné multimarché** : marque incohérente en transition → fenêtre de bascule planifiée par marché
+- ❌ **Oublier favicons / Open Graph / e-mails / PDF** dans le périmètre : marque résiduelle visible → checklist exhaustive
+- ❌ **Pas de purge CDN/cache au go-live** : ancien branding encore servi → flush coordonné
+
+## Sources
+- **Design Tokens** — W3C Design Tokens Community Group (format standard) — tr.designtokens.org
+- **Atomic Design** (Brad Frost, 2016) — atomicdesign.bradfrost.com · **Figma / Storybook** — design system et documentation
+- **Tests de régression visuels** — Percy (BrowserStack) / Chromatic — outils de visual diff
+- **TOGAF 10** (2022) — coordination de la trajectoire multisite — opengroup.org
+
+## Voir aussi
+- [`architecture-cms.md`](architecture-cms.md) — composants et design system de l'architecture
+- [`migration-cms.md`](migration-cms.md) — coordination avec une éventuelle migration
+- [`../dam_expert/brand-portal.md`](../dam_expert/brand-portal.md) — diffusion de la nouvelle charte aux équipes
+- [`../dam_expert/naming-convention.md`](../dam_expert/naming-convention.md) — renommage des assets de marque

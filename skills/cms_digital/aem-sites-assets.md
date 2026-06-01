@@ -119,3 +119,23 @@ Page Move        Déplacement page         Vérification liens → Redirection �
 
 ## Format de sortie
 Précise : **version AEM** (6.5 / AEM Cloud), **type de livrable** (composant, workflow, configuration, migration), **contexte** (nouvelle fonctionnalité, refonte, migration CQ5), **contraintes** (performance, accessibilité RGAA, multisite).
+
+## Anti-patterns
+- ❌ **Développer pour CQ5 / versions obsolètes** : dette technique → cibler AEM as a Cloud Service (ou 6.5 LTS)
+- ❌ **Logique métier dans le HTL** au lieu d'un Sling Model : non testable, non réutilisable → modèle Java + HTL de présentation
+- ❌ **Pas de Dispatcher / cache mal configuré** : performance et sécurité dégradées → règles de cache + sécurité Dispatcher
+- ❌ **Contenus restreints sans CUG** (Closed User Groups) : fuite d'accès → CUG par marque/région
+- ❌ **Ignorer les quality gates Cloud Manager** : déploiements risqués → pipeline CI/CD avec gates
+- ❌ **Customiser le DAM AEM Assets hors standards** (métadonnées non IPTC/XMP) : interop perdue (cf. dam_expert)
+
+## Sources
+- **Adobe Experience Manager** — AEM as a Cloud Service / AEM 6.5 LTS — experienceleague.adobe.com
+- **HTL (HTML Template Language)** — Adobe spec — github.com/adobe/htl-spec · **Apache Sling Models** — sling.apache.org
+- **JCR** — JSR-283 (Content Repository for Java) · **OSGi** — osgi.org · **Maven / Cloud Manager** — Adobe
+- **Adobe Sensei** (Smart Tags) — adobe.com/sensei
+
+## Voir aussi
+- [`performance-web.md`](performance-web.md) — cache AEM Dispatcher
+- [`integration-pim-dam.md`](integration-pim-dam.md) — AEM Assets dans la chaîne PIM/DAM
+- [`architecture-cms.md`](architecture-cms.md) — AEM monolithique vs AEM Headless
+- [`../dam_expert/integration-dam-cms.md`](../dam_expert/integration-dam-cms.md) — intégration AEM Assets ↔ Sites

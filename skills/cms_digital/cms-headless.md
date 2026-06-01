@@ -117,3 +117,23 @@ export async function GET(req: Request) {
 
 ## Format de sortie
 Précise : **CMS headless cible** (Contentful, Strapi, Sanity…), **framework frontend** (Next.js, Nuxt, Astro…), **cas d'usage** (blog, e-commerce, multisite), **gestion du cache** (SSR, ISR, SSG), **contraintes** (multilingue, prévisualisation, droits).
+
+## Anti-patterns
+- ❌ **Modèle de contenu calqué sur les pages** (au lieu de contenu structuré réutilisable) : anti-headless → modéliser par entité, pas par gabarit
+- ❌ **Pas de SSR/ISR** sur un site public : contenu JS non indexé → SEO dégradé (cf. `seo-technique-cms.md`)
+- ❌ **Webhooks de revalidation absents** : contenu périmé en cache CDN/ISR → revalidation à la publication
+- ❌ **Vendor lock-in non anticipé** (Contentful) : coût de sortie élevé → abstraire la couche d'accès au contenu
+- ❌ **Preview non sécurisée** (sans secret) : fuite de drafts → token de prévisualisation
+- ❌ **Sur-fetch** (`include` trop profond, pas de pagination) : latence et coût API → requêtes ciblées
+
+## Sources
+- **Contentful / Strapi / Sanity / Prismic / Payload** — documentations éditeurs
+- **Next.js 15/16** (React 19, App Router, ISR) — nextjs.org (Vercel) · **Nuxt / Astro** — frameworks frontend
+- **GraphQL** — spec.graphql.org (GraphQL Foundation) · **MACH Alliance** (Microservices/API/Cloud/Headless) — machalliance.org
+- **JAMstack / composable commerce** — jamstack.org
+
+## Voir aussi
+- [`architecture-cms.md`](architecture-cms.md) — headless vs hybride vs monolithique (MACH)
+- [`seo-technique-cms.md`](seo-technique-cms.md) — SSR/ISR pour l'indexabilité
+- [`performance-web.md`](performance-web.md) — ISR/SSG et Core Web Vitals
+- [`../dam_expert/integration-dam-cms.md`](../dam_expert/integration-dam-cms.md) — assets DAM en headless

@@ -127,3 +127,23 @@ ANCIENNE URL                          NOUVELLE URL                          TYPE
 
 ## Format de sortie
 Précise : **CMS** (AEM, Drupal, WordPress…), **périmètre** (site complet ou section), **contexte** (audit initial, migration, refonte), **contraintes** (multilingue, multidomaine, e-commerce), **objectifs** (trafic organique, featured snippets, indexation prioritaire).
+
+## Anti-patterns
+- ❌ **Canonical loops ou canonicals multiples** : signaux contradictoires pour Google → 1 canonical autoréférentiel par page
+- ❌ **hreflang non autoréférentiel** ou incomplet : mauvais ciblage géo → chaque page se référence + x-default
+- ❌ **Title / meta description dupliqués** sur les content types : cannibalisation → templates uniques par type
+- ❌ **Rendu dépendant du JS sans SSR/prerendering** : contenu non indexé → SSR/ISR (cf. headless)
+- ❌ **Redirections en chaîne** (301 → 301 → 301) : perte de PageRank et de crawl budget → redirection directe
+- ❌ **Schema.org non validé** (Rich Results Test) : pas de rich snippets → valider chaque type
+
+## Sources
+- **Schema.org** (vocabulaire structuré) — schema.org · **Rich Results Test** — search.google.com/test/rich-results
+- **Open Graph protocol** — ogp.me · **hreflang** — Google Search Central / sitemaps.org
+- **robots.txt** — RFC 9309 (2022) · **Sitemaps XML** — sitemaps.org/protocol
+- **Core Web Vitals** — web.dev/vitals (facteur de ranking, Page Experience) · **Google Search Central** — developers.google.com/search
+
+## Voir aussi
+- [`performance-web.md`](performance-web.md) — Core Web Vitals (facteur de ranking)
+- [`accessibilite-numerique.md`](accessibilite-numerique.md) — structure Hn, alt, langue (recouvrement SEO)
+- [`migration-cms.md`](migration-cms.md) — plan de redirections 301 lors d'une migration
+- [`architecture-cms.md`](architecture-cms.md) — SSR/ISR pour l'indexabilité du headless

@@ -107,3 +107,21 @@ NOTE        : [Commentaire qualitatif en 1 phrase]
 
 ## Format de sortie
 Précise : prompt à évaluer, modèle testé, cas d'usage prioritaires, critères de qualité métier.
+
+## Anti-patterns
+- ❌ **Pas de jeu de référence (golden set)** : évaluation non reproductible → dataset de cas + réponses attendues
+- ❌ **LLM-as-judge non calibré** : juge complaisant → critères précis + ancrage sur des exemples notés
+- ❌ **Tester seulement le cas nominal** : régressions sur cas limites/injection → couvrir nominal + limite + hors-périmètre + sécurité
+- ❌ **Pas de métrique quantifiée** : « ça marche » subjectif → scores par dimension + seuils
+- ❌ **Prompt non versionné** : impossible de comparer → versionner le prompt évalué
+
+## Sources
+- **LLM-as-a-Judge** + benchmarks **MMLU / TruthfulQA / HumanEval** — évaluation standardisée des LLM
+- **RAGAS** — Es et al., *EACL 2024* (arXiv 2309.15217) — pour les prompts RAG
+- **Anthropic — Prompt Engineering Guide** (docs.anthropic.com) — bonnes pratiques d'évaluation
+
+## Voir aussi
+- [`evals-llm-observability.md`](evals-llm-observability.md) — evals en production (pipeline, observabilité)
+- [`system-prompt-design.md`](system-prompt-design.md) — prompt à évaluer
+- [`chain-of-thought.md`](chain-of-thought.md) — évaluer la qualité du raisonnement
+- [`../orchestrateur_workflow/output-validation.md`](../orchestrateur_workflow/output-validation.md) — validation d'output en workflow

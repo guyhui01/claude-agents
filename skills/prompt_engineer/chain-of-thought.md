@@ -92,3 +92,23 @@ RÉPONSE FINALE : [...]
 
 ## Format de sortie
 Précise : type de tâche (calcul / décision / rédaction), complexité, outils disponibles (si ReAct).
+
+## Anti-patterns
+- ❌ **CoT sur tâche triviale** : latence/coût inutiles → réserver au raisonnement multi-étapes
+- ❌ **Pas de format de sortie séparé** du raisonnement : le « blabla » pollue le résultat → séparer raisonnement / réponse finale
+- ❌ **ToT/ReAct sans condition d'arrêt** : explosion de coûts → borner profondeur/itérations
+- ❌ **ReAct sans tools réels** : la boucle Pensée/Action/Observation tourne à vide → tools branchés
+- ❌ **Citer une technique sans la sourcer** : crédibilité → attribuer (Wei 2022, Yao 2023…)
+
+## Sources
+- **Chain-of-Thought** — Wei et al., *NeurIPS 2022* (arXiv 2201.11903)
+- **Self-Consistency** — Wang et al., *ICLR 2023* (arXiv 2203.11171) — échantillonnage de chemins + vote
+- **Tree of Thoughts** — Yao et al., *NeurIPS 2023* (arXiv 2305.10601)
+- **ReAct** — Yao et al., *ICLR 2023* (arXiv 2210.03629) — raisonnement + action
+- **Anthropic — Prompt Engineering Guide** (docs.anthropic.com) — CoT avec balises `<thinking>`
+
+## Voir aussi
+- [`few-shot-learning.md`](few-shot-learning.md) — CoT few-shot (exemples de raisonnement)
+- [`system-prompt-design.md`](system-prompt-design.md) — intégrer le raisonnement au system prompt
+- [`prompt-evaluation.md`](prompt-evaluation.md) — évaluer la qualité du raisonnement
+- [`../orchestrateur_workflow/prompt-engineering-orchestration.md`](../orchestrateur_workflow/prompt-engineering-orchestration.md) — CoT en orchestration

@@ -13,7 +13,7 @@ LEVIER 1 — PROMPT CACHING (économie jusqu'à 90%)
   TTL : 5 minutes (Anthropic)
 
 LEVIER 2 — SÉLECTION DU MODÈLE
-  Opus 4.7   : tâches complexes / nuancées / critiques
+  Opus 4.8   : tâches complexes / nuancées / critiques
   Sonnet 4.6 : équilibre qualité / coût (80% des cas)
   Haiku 4.5  : tâches simples / répétitives / haute volumétrie
 
@@ -62,10 +62,10 @@ const savings = response.usage.cache_read_input_tokens * 0.9; // 90% moins cher
 
 | Type de tâche | Modèle recommandé | Justification |
 |---|---|---|
-| Orchestration workflow complexe | Opus 4.7 | Raisonnement multi-étapes |
+| Orchestration workflow complexe | Opus 4.8 | Raisonnement multi-étapes |
 | Rédaction US / features | Sonnet 4.6 | Qualité suffisante, rapide |
 | Extraction / classification | Haiku 4.5 | Tâche simple, volume élevé |
-| Analyse code complexe | Opus 4.7 | Nuance et précision |
+| Analyse code complexe | Opus 4.8 | Nuance et précision |
 | Résumé de documents | Sonnet 4.6 | Bon équilibre |
 | Validation de format | Haiku 4.5 | Règles explicites, rapide |
 
@@ -113,3 +113,20 @@ def estimate_cost(input_tokens, cache_read, cache_write, output_tokens):
 
 ## Format de sortie
 Précise : volume de requêtes (mensuel), longueur du system prompt, type de tâche, budget cible.
+
+## Anti-patterns
+- ❌ **« 90 % d'économie » pris pour un gain global** : c'est ~90 % sur les **tokens en cache (lecture)** → gain réel = f(ratio cache hit), à mesurer
+- ❌ **Opus partout** : surcoût → choisir le tier (Opus 4.8 raisonnement / Sonnet 4.6 courant / Haiku 4.5 simple)
+- ❌ **Tarifs codés en dur** sans source ni date : obsolètes → renvoyer à anthropic.com/pricing
+- ❌ **Compression de contexte sans contrôle de perte** : dégrade la qualité → vérifier l'output après compression
+- ❌ **Batch pour de l'interactif** : latence (jusqu'à 24h) → batch réservé à l'asynchrone
+
+## Sources
+- **Anthropic — Prompt caching / Message Batches API** (docs.anthropic.com) : cache read ≈ 0,1× input (TTL 5 min), batch −50%
+- **Anthropic — Pricing & Models** (anthropic.com/pricing) : Opus 4.8 / Sonnet 4.6 / Haiku 4.5 (vérifier les tarifs courants avant de chiffrer)
+
+## Voir aussi
+- [`system-prompt-design.md`](system-prompt-design.md) — prompts concis (moins de tokens)
+- [`evals-llm-observability.md`](evals-llm-observability.md) — suivi du coût et du cache hit rate
+- [`../orchestrateur_workflow/claude-api-integration.md`](../orchestrateur_workflow/claude-api-integration.md) — caching/batch côté SDK
+- [`../dev_typescript_ia/integration-apis-llm-ts.md`](../dev_typescript_ia/integration-apis-llm-ts.md) — implémentation du prompt caching

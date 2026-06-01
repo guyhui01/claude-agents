@@ -128,3 +128,21 @@ Distribution shift Volume ou type d'usagers change  Ré-évaluer par segment
 ## Format de sortie
 
 Précise : **type de système LLM** (RAG / agent / chatbot / génération), **LLM utilisé** (Claude / GPT / Gemini), **volume d'appels/jour**, **stack observabilité existante**, **objectifs business** (conformité / qualité / coût / SLA).
+
+## Anti-patterns
+- ❌ **Métriques sans jeu de référence (golden set)** : scores non reproductibles → dataset versionné
+- ❌ **Juge LLM non calibré** : biais de complaisance → critères précis + cas notés de référence
+- ❌ **Observabilité sans alerting** : dérives invisibles → seuils + alertes (hallucination rate, latence, coût)
+- ❌ **Pas de suivi de coût / cache hit rate** : dérive budgétaire → métriques de coût par appel
+- ❌ **Evals one-shot** (pas en continu) : régressions silencieuses → pipeline d'evals en CI/CD
+
+## Sources
+- **RAGAS** — Es et al., *EACL 2024* (arXiv 2309.15217) — faithfulness, answer/context relevance · **DeepEval**
+- Benchmarks **MMLU / TruthfulQA / HumanEval** · **LLM-as-a-Judge** · red teaming **Garak / PyRIT** (NIST AI RMF)
+- **Observabilité LLM** : Langfuse · LangSmith · Helicone · OpenTelemetry — langfuse.com / smith.langchain.com
+
+## Voir aussi
+- [`prompt-evaluation.md`](prompt-evaluation.md) — évaluation unitaire d'un prompt
+- [`rag-prompt-design.md`](rag-prompt-design.md) — métriques RAGAS pour le RAG
+- [`../orchestrateur_workflow/workflow-monitoring.md`](../orchestrateur_workflow/workflow-monitoring.md) — monitoring des workflows
+- [`../ai_architect/evaluation-llm.md`](../ai_architect/evaluation-llm.md) — évaluation côté architecture IA

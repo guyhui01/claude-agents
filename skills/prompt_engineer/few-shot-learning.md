@@ -97,3 +97,13 @@ PIÈGES À ÉVITER
 
 ## Format de sortie
 Précise : type de tâche, format de sortie attendu, 2-3 exemples représentatifs du domaine.
+
+## Sources
+- **Few-shot / In-context learning** — Brown et al., *Language Models are Few-Shot Learners*, *NeurIPS 2020* (arXiv 2005.14165, papier GPT-3)
+- **Anthropic — Prompt Engineering Guide** (docs.anthropic.com) — multishot prompting, sélection des exemples
+
+## Voir aussi
+- [`chain-of-thought.md`](chain-of-thought.md) — CoT few-shot (exemples de raisonnement)
+- [`system-prompt-design.md`](system-prompt-design.md) — exemples intégrés au system prompt
+- [`prompt-evaluation.md`](prompt-evaluation.md) — évaluer l'effet des exemples
+- [`../safe/wsjf.md`](../safe/wsjf.md) — exemple métier WSJF utilisé en few-shot

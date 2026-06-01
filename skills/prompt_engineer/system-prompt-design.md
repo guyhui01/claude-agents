@@ -106,3 +106,14 @@ Utilise EXCLUSIVEMENT le vocabulaire SAFe 6 :
 
 ## Format de sortie
 Précise : rôle de l'agent, domaine, utilisateur cible, outil de destination, contraintes de longueur.
+
+## Sources
+- **Anthropic — Prompt Engineering Guide** (docs.anthropic.com/prompt-engineering) — structure system prompt, rôle, contraintes, prompt caching (> 1024 tokens)
+- **Anthropic — Building Effective Agents** (anthropic.com/engineering, déc. 2024) — system prompts d'agents
+- **Constitutional AI** — Bai et al. (Anthropic), arXiv 2212.08073 (2022) — principes/contraintes injectés
+
+## Voir aussi
+- [`few-shot-learning.md`](few-shot-learning.md) — exemples intégrés au system prompt
+- [`chain-of-thought.md`](chain-of-thought.md) — raisonnement structuré
+- [`prompt-evaluation.md`](prompt-evaluation.md) — évaluer le system prompt
+- [`../orchestrateur_workflow/prompt-engineering-orchestration.md`](../orchestrateur_workflow/prompt-engineering-orchestration.md) — system prompts en orchestration

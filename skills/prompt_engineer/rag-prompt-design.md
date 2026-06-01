@@ -100,3 +100,21 @@ Document à découper :
 
 ## Format de sortie
 Précise : domaine de la base RAG, type de documents, longueur des chunks, cas limites fréquents.
+
+## Anti-patterns
+- ❌ **Pas de garde « aucune réponse »** : le modèle hallucine quand le contexte ne contient pas l'info → instruire « réponds uniquement à partir du contexte »
+- ❌ **Pas de citation des sources** : réponse non vérifiable → exiger les références/chunks utilisés
+- ❌ **Chunks trop gros/petits** : bruit ou perte de contexte → calibrer (≈ 150-300 tokens) + overlap
+- ❌ **Pas d'évaluation de faithfulness** : dérive silencieuse → métriques RAGAS (faithfulness, context precision/recall)
+- ❌ **Ignorer les contradictions** entre chunks : réponse incohérente → instruction de gestion des conflits
+
+## Sources
+- **RAG** — Lewis et al., *NeurIPS 2020* (arXiv 2005.11401) — papier fondateur
+- **RAGAS** — Es et al., *EACL 2024* (arXiv 2309.15217) — métriques d'évaluation RAG (faithfulness, answer/context relevance)
+- **Anthropic — Prompt Engineering Guide** (docs.anthropic.com) — prompts ancrés sur le contexte
+
+## Voir aussi
+- [`chain-of-thought.md`](chain-of-thought.md) — raisonnement sur le contexte récupéré
+- [`prompt-evaluation.md`](prompt-evaluation.md) — évaluation des réponses RAG
+- [`evals-llm-observability.md`](evals-llm-observability.md) — métriques RAGAS en production
+- [`../orchestrateur_workflow/mcp-orchestration.md`](../orchestrateur_workflow/mcp-orchestration.md) — accès aux sources via MCP

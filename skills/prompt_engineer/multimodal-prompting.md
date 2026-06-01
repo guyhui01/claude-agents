@@ -126,3 +126,20 @@ const response = await client.messages.create({
 
 ## Format de sortie
 Précise : type d'image (maquette / document / capture / diagramme), objectif de l'analyse, format de sortie attendu.
+
+## Anti-patterns
+- ❌ **Image basse résolution / texte manuscrit** : lecture peu fiable → résolution suffisante, OCR si besoin
+- ❌ **Données confidentielles** envoyées en image sans contrôle : risque RGPD → masquer/anonymiser
+- ❌ **Dépasser les limites** (> 5 Mo/image, > 20 images/message) : erreurs API → respecter les limites
+- ❌ **Demander d'inventer ce qui n'est pas visible** : hallucination → instruire « ne décris que le visible »
+- ❌ **Alt-text IA non revu** sur contenus critiques : accessibilité dégradée → revue humaine (WCAG 2.2)
+
+## Sources
+- **Anthropic — Vision** (docs.anthropic.com/vision) : formats (JPEG/PNG/WebP/GIF), limites (≤ 5 Mo, ≤ 20 images), bonnes pratiques
+- **WCAG 2.2** — W3C (2023) — alternatives textuelles (alt-text généré)
+
+## Voir aussi
+- [`system-prompt-design.md`](system-prompt-design.md) — cadrage du prompt vision
+- [`chain-of-thought.md`](chain-of-thought.md) — raisonnement sur une image complexe (diagramme)
+- [`../cms_digital/accessibilite-numerique.md`](../cms_digital/accessibilite-numerique.md) — alt-text et WCAG
+- [`../dam_expert/dam-augmente-ia.md`](../dam_expert/dam-augmente-ia.md) — auto-tagging/alt-text vision en DAM

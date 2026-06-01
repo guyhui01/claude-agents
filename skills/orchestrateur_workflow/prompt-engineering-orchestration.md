@@ -213,3 +213,14 @@ Maintenant produis les US pour : {contexte}
 
 ## Format de sortie
 Précise : type de prompt à rédiger (system / routage / transfert / validation), agent cible, format de sortie attendu, contraintes spécifiques.
+
+## Sources
+- **Anthropic — Prompt Engineering Guide** (docs.anthropic.com/prompt-engineering) — structure system prompt, prompt caching (> 1024 tokens), ordre recommandé
+- **Anthropic — Building Effective Agents** (anthropic.com/engineering, déc. 2024) — prompts d'orchestration (routing, workers)
+- **Chain-of-Thought** — Wei et al., *NeurIPS 2022* (arXiv 2201.11903) · **Few-shot** — Brown et al., *NeurIPS 2020* (arXiv 2005.14165)
+
+## Voir aussi
+- [`agent-routing.md`](agent-routing.md) — prompt de routage structuré
+- [`context-handoff.md`](context-handoff.md) — prompt de transfert de contexte
+- [`output-validation.md`](output-validation.md) — prompt de validation (LLM-as-judge)
+- [`../prompt_engineer/system-prompt-design.md`](../prompt_engineer/system-prompt-design.md) — conception de system prompts

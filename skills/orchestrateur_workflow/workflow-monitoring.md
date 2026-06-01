@@ -184,3 +184,20 @@ NIVEAUX D'ALERTE
 
 ## Format de sortie
 Précise : workflow concerné, étapes à monitorer, métriques prioritaires, format de reporting souhaité.
+
+## Anti-patterns
+- ❌ **Monitorer sans seuils d'alerte** : tableau de bord contemplatif → seuil + alerte + destinataire par métrique
+- ❌ **Vanity metrics** (nb d'exécutions seul) sans coût/tokens ni taux d'échec → suivre coût, latence, taux d'erreur, qualité
+- ❌ **Pas de traçabilité par exécution** (trace_id) : debug impossible → tracing de bout en bout
+- ❌ **Pas de SLO défini** : pas de cible → SLO latence/coût/qualité
+- ❌ **Dashboard sans action** : métriques non reliées à une décision → chaque KPI → action
+
+## Sources
+- **Observability LLM** : Langfuse · LangSmith · Helicone (tracing, coût, evals) — langfuse.com / smith.langchain.com
+- **OpenTelemetry** (traces/metrics/logs) — opentelemetry.io · principes SRE (SLO/SLI)
+
+## Voir aussi
+- [`error-recovery.md`](error-recovery.md) — alerting sur erreurs
+- [`output-validation.md`](output-validation.md) — taux de rejet comme métrique qualité
+- [`workflow-automation.md`](workflow-automation.md) — monitoring en production
+- [`../prompt_engineer/evals-llm-observability.md`](../prompt_engineer/evals-llm-observability.md) — evals + observabilité LLM

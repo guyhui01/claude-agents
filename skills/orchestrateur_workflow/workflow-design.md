@@ -14,7 +14,7 @@ OBJECTIF MÉTIER : [résultat attendu en 1 phrase]
 DÉCLENCHEUR     : [événement qui lance le workflow — ex. brief client reçu]
 RÉSULTAT FINAL  : [livrable ou état cible — ex. backlog priorisé + critères d'acceptation]
 DURÉE ESTIMÉE   : [ex. 45 min / 2h / async]
-MODÈLE LLM      : [ex. Claude Sonnet 4.6 / Opus 4.7 pour l'orchestrateur]
+MODÈLE LLM      : [ex. Claude Sonnet 4.6 (étapes) / Opus 4.8 pour l'orchestrateur]
 ```
 
 ### 2. Cartographie BPMN — Structure type
@@ -108,3 +108,23 @@ Langue livrables: [Français / Anglais / Bilingue]
 
 ## Format de sortie
 Précise : objectif métier du workflow, agents du catalogue à impliquer, contraintes de séquençage, paramètres contextuels client, format des livrables attendus.
+
+## Anti-patterns
+- ❌ **Agent surchargé** (plusieurs rôles) : non testable, non réutilisable → 1 agent = 1 responsabilité
+- ❌ **Gateways implicites** (condition de passage non définie) : blocages et branches ambiguës → condition explicite avant chaque suite
+- ❌ **Outputs non mesurables** : impossible de valider une étape → livrable concret + critère de succès
+- ❌ **Pas de fallback** sur échec d'étape : workflow bloqué → `si_echec` systématique
+- ❌ **Workflow monolithique** (un méga-prompt) au lieu de décomposer : pattern orchestrator-workers (Anthropic) → étapes spécialisées
+- ❌ **Contexte non cumulatif / non filtré** : perte d'info ou surcharge → handoff structuré (cf. `context-handoff.md`)
+
+## Sources
+- **Anthropic — Building Effective Agents** (anthropic.com/engineering, déc. 2024) : patterns prompt-chaining / routing / parallelization / orchestrator-workers / evaluator-optimizer
+- **BPMN 2.0.2** — OMG (2013) — modélisation des workflows — omg.org/spec/BPMN
+- **TOGAF 10** (The Open Group, 2022) — cadre d'architecture
+
+## Voir aussi
+- [`agent-routing.md`](agent-routing.md) — gateways et sélection d'agent
+- [`dependency-mapping.md`](dependency-mapping.md) — séquençage et dépendances
+- [`context-handoff.md`](context-handoff.md) — transmission de contexte entre étapes
+- [`parallel-orchestration.md`](parallel-orchestration.md) — fork/join et agrégation
+- [`workflow-catalog.md`](workflow-catalog.md) — catalogue des workflows types

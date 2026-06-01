@@ -139,3 +139,20 @@ workflow:
 
 ## Format de sortie
 Précise : agents impliqués, type de workflow (cadrage / delivery / conseil), contraintes de délai, livrables attendus par étape.
+
+## Anti-patterns
+- ❌ **Dépendances circulaires** (graphe non acyclique) : interblocage → garantir un DAG
+- ❌ **Tout séquentiel par défaut** : on rate les étapes parallélisables → identifier les branches indépendantes (cf. `parallel-orchestration.md`)
+- ❌ **Dépendance implicite non documentée** : ordre fragile → matrice de dépendances explicite
+- ❌ **Pas d'identification du chemin critique** : on optimise la mauvaise étape → marquer le chemin critique
+- ❌ **Goulots non détectés** : un agent bloque toute la suite → analyse des goulots
+
+## Sources
+- **BPMN 2.0.2** — OMG (2013) : fork/join, séquence — omg.org/spec/BPMN
+- **PMBOK 7** (PMI, 2021) — dépendances (FD/DD/FF/DF), chemin critique (CPM) · théorie des **graphes acycliques (DAG)**
+
+## Voir aussi
+- [`workflow-design.md`](workflow-design.md) — séquençage global
+- [`parallel-orchestration.md`](parallel-orchestration.md) — exécution des branches indépendantes
+- [`agent-routing.md`](agent-routing.md) — sélection des agents par étape
+- [`trigger-management.md`](trigger-management.md) — conditions de passage entre étapes

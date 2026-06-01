@@ -292,3 +292,20 @@ LOG_LEVEL=info
 
 ## Format de sortie
 Précise : outil d'automatisation cible (GitHub Actions / n8n / Make / webhook), déclencheur souhaité, intégrations requises (Jira, Notion, Slack), modèle Claude à utiliser.
+
+## Anti-patterns
+- ❌ **Secrets en clair** (clé API dans le YAML/code) : fuite → variables d'environnement / secrets du CI
+- ❌ **Webhook non sécurisé** (pas de vérification de signature) : déclenchement frauduleux → HMAC/secret
+- ❌ **Pas de retry ni d'idempotence** : double exécution ou perte → file de retry + clé d'idempotence
+- ❌ **SDK non épinglé** (`@anthropic-ai/sdk` sans version) : ruptures → version fixée
+- ❌ **Pas de monitoring** de l'automatisation : pannes silencieuses → alerting (cf. `workflow-monitoring.md`)
+
+## Sources
+- **GitHub Actions** — docs.github.com/actions · **n8n** — docs.n8n.io · **Make** — make.com
+- **Anthropic SDK / Messages API** — docs.anthropic.com (en-tête `anthropic-version: 2023-06-01`, courant) · modèle `claude-sonnet-4-6` pour le runtime haut volume
+
+## Voir aussi
+- [`trigger-management.md`](trigger-management.md) — déclencheurs et événements
+- [`workflow-monitoring.md`](workflow-monitoring.md) — supervision de l'automatisation
+- [`mcp-orchestration.md`](mcp-orchestration.md) — orchestration via MCP
+- [`claude-api-integration.md`](claude-api-integration.md) — intégration SDK Anthropic

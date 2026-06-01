@@ -100,3 +100,21 @@ CONTRAINTES : [délai, budget, méthodo, réglementaire]
 
 ## Format de sortie
 Précise : description de la demande, contraintes méthodologiques, type de client (CAC40 / PME / startup), livrables attendus, délai.
+
+## Anti-patterns
+- ❌ **Router vers 2 agents au même périmètre** sans condition explicite : doublons et conflits → règle de désambiguïsation
+- ❌ **Confondre PO-SCRUM/PO-SAFE** ou **QA-AGILE/QA-CYCLEV** : livrables inadaptés → vérifier niveau (équipe/ART) et méthode (Agile/cycle V)
+- ❌ **Pas de fallback de routage** si aucun agent ne matche : demande perdue → agent par défaut + escalade
+- ❌ **Oublier JURIDIQUE-IA** sur données personnelles / AI Act : risque conformité → routage systématique (règle 4)
+- ❌ **Routing statique** (pas de re-routing sur échec d'un agent) : blocage → boucle de re-routage bornée
+- ❌ **Routeur trop coûteux** (Opus pour une simple classification) : un routeur léger suffit → Sonnet/Haiku pour le routage
+
+## Sources
+- **Anthropic — Building Effective Agents** (anthropic.com/engineering, déc. 2024) : pattern **routing** (classification → agent spécialisé)
+- **TOGAF 10** (The Open Group, 2022) — gouvernance des responsabilités
+
+## Voir aussi
+- [`workflow-design.md`](workflow-design.md) — gateways décisionnels du workflow
+- [`dependency-mapping.md`](dependency-mapping.md) — ordre d'exécution des agents routés
+- [`parallel-orchestration.md`](parallel-orchestration.md) — agents en parallèle
+- [`prompt-engineering-orchestration.md`](prompt-engineering-orchestration.md) — prompt de routage structuré

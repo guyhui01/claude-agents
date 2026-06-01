@@ -267,3 +267,21 @@ function createSession(workflowId: string): WorkflowSession {
 
 ## Format de sortie
 Précise : agents à connecter, tools à exposer, transport MCP (stdio / HTTP), langage (TypeScript / Python).
+
+## Anti-patterns
+- ❌ **SDK `@modelcontextprotocol/sdk@latest` non épinglé** : ruptures en prod → pin **v1.x** (v2 attendu Q1 2026)
+- ❌ **Secrets en clair** dans la config MCP : fuite → variables d'environnement / secret manager
+- ❌ **`inputSchema` permissif** (pas de `required`) : erreurs runtime → schéma strict
+- ❌ **Handlers sans gestion d'erreur** : crash du serveur → try/catch + retour structuré
+- ❌ **Code « pédagogique » (stubs) déployé en prod** : flaggé dans le skill → implémenter avant prod
+- ❌ **Opérations destructives exposées** sans garde-fou : action irréversible déclenchée par le LLM → confirmation/scoping
+
+## Sources
+- **Model Context Protocol** — modelcontextprotocol.io (spec **2025-11-25**, transports stdio / Streamable HTTP)
+- **MCP TypeScript SDK** `@modelcontextprotocol/sdk` (v1.x) — github.com/modelcontextprotocol/typescript-sdk · **Anthropic SDK** `@anthropic-ai/sdk`
+
+## Voir aussi
+- [`claude-api-integration.md`](claude-api-integration.md) — intégration SDK Anthropic
+- [`workflow-automation.md`](workflow-automation.md) — orchestration en production
+- [`langgraph-crewai-patterns.md`](langgraph-crewai-patterns.md) — alternatives d'orchestration multi-agents
+- [`../dev_typescript_ia/mcp-server-dev.md`](../dev_typescript_ia/mcp-server-dev.md) — développement d'un serveur MCP

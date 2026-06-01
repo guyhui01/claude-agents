@@ -120,8 +120,8 @@ id: "WF-006"
 nom: "Avant-vente / Proposition commerciale"
 domaine: "Management & Conseil"
 duree_estimee: "75-120 min"
-modele_recommande: "Opus 4.7"
-modele_raison: "Workflow stratégique à fort enjeu commercial (qualification GO/NO-GO, architecture cible, chiffrage J/H, pricing, ROI prospect) — Opus 4.7 recommandé pour clients CAC40/GAFA/licornes"
+modele_recommande: "Opus 4.8"
+modele_raison: "Workflow stratégique à fort enjeu commercial (qualification GO/NO-GO, architecture cible, chiffrage J/H, pricing, ROI prospect) — Opus 4.8 recommandé pour clients CAC40/GAFA/licornes"
 certifications: ["PMP", "CBAP", "TOGAF 10", "CFA", "CAP IABAC"]
 contexte_usage: "RFP reçu → qualification → cadrage → architecture → planning → chiffrage → proposition commerciale"
 agents:
@@ -170,7 +170,7 @@ id: "WF-008"
 nom: "Audit conformité IA Act / RGPD"
 domaine: "Conformité & Gouvernance"
 duree_estimee: "90-150 min"
-modele_recommande: "Opus 4.7"
+modele_recommande: "Opus 4.8"
 modele_raison: "Workflow réglementaire à très haut enjeu (qualification tier de risque AI Act, analyse RGPD multi-articles, threat modeling, gouvernance IA) — erreur de qualification = exposition à sanctions jusqu'à 7% CA mondial sous AI Act"
 certifications: ["CIPP/E", "DPO", "ISO 42001", "ISO 27001", "CISSP", "CDMP", "TOGAF 10"]
 contexte_usage: "Système IA à auditer → cartographie obligations → revue architecture → sécurité → données → gouvernance → rapport + plan remédiation"
@@ -259,7 +259,7 @@ statut: "disponible"
   ○ Données personnelles / RGPD                  → Ajouter JURIDIQUE-IA ou WF-008
   ○ Livraison court terme (< 1 semaine)          → Mode parallèle max
   ○ Rapport CODIR requis                         → Ajouter CHEF-PROJET-IA
-  ○ Client CAC40 / GAFA / licorne                → Modèle Opus 4.7 recommandé
+  ○ Client CAC40 / GAFA / licorne                → Modèle Opus 4.8 recommandé
   ○ Incident sécurité / faille LLM               → WF-010 + SECURITE-IA
 ```
 
@@ -290,3 +290,20 @@ version: "1.0"
 
 ## Format de sortie
 Précise : objectif métier, agents à impliquer, contraintes de délai et contexte client.
+
+## Anti-patterns
+- ❌ **Workflow catalogué sans critères de sélection** : on ne sait pas quand l'utiliser → grille de sélection (questions)
+- ❌ **Modèle/certifications sur-spécifiés** par workflow : rigidité → recommander, ne pas imposer
+- ❌ **Pas de durée ni de ROI estimés** : impossible d'arbitrer → fourchette durée + valeur attendue
+- ❌ **Catalogue non maintenu** (workflows obsolètes) : confusion → revue périodique
+- ❌ **Dupliquer des workflows quasi-identiques** : maintenance → factoriser/paramétrer
+
+## Sources
+- **Anthropic — Building Effective Agents** (anthropic.com/engineering, déc. 2024) — typologie des workflows agentiques
+- **TOGAF 10** (2022) · **SAFe LPM** (Scaled Agile) — gouvernance de portefeuille de workflows
+
+## Voir aussi
+- [`workflow-design.md`](workflow-design.md) — conception d'un nouveau workflow
+- [`agent-routing.md`](agent-routing.md) — sélection des agents par workflow
+- [`dependency-mapping.md`](dependency-mapping.md) — séquençage interne
+- [`workflow-monitoring.md`](workflow-monitoring.md) — KPIs du catalogue

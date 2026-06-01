@@ -41,7 +41,7 @@ claude
 /code-review                    # Revue du diff courant (correctness + simplifications)
 /code-review --fix              # Revue + applique les corrections au working tree
 /code-review --comment          # Poste les findings en commentaires PR
-/code-review ultra <PR#>        # Revue multi-agents cloud (Opus 4.7)
+/code-review ultra <PR#>        # Revue multi-agents cloud (Opus 4.8)
 
 /simplify                       # Équivalent à /code-review --fix (refactor uniquement)
 /verify                         # Lance l'app, teste le comportement réel

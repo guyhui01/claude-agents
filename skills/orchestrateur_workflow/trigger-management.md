@@ -172,3 +172,20 @@ MODIFICATION SCOPE : Le périmètre change en cours de workflow
 
 ## Format de sortie
 Précise : workflow concerné, type de déclencheur, conditions d'entrée disponibles, contraintes de transition.
+
+## Anti-patterns
+- ❌ **Déclencheur sans condition de sortie** : workflow qui ne se termine jamais → conditions de fin explicites
+- ❌ **Webhook non vérifié** (signature absente) : déclenchement frauduleux → valider la signature du webhook
+- ❌ **Pas d'idempotence** sur événement rejoué : double exécution → clé d'idempotence
+- ❌ **Trigger temporel sans rattrapage** : exécution manquée perdue (cron raté) → stratégie de catch-up
+- ❌ **Chaînage de workflows sans garde anti-boucle** : récursion infinie → compteur de profondeur / garde
+
+## Sources
+- **BPMN 2.0.2** — OMG (2013) : événements de début/intermédiaires/de fin, déclencheurs (message/timer/signal)
+- Patterns **event-driven / webhook / cron** · sécurité webhook (signature HMAC)
+
+## Voir aussi
+- [`workflow-design.md`](workflow-design.md) — événement déclencheur du workflow
+- [`dependency-mapping.md`](dependency-mapping.md) — conditions de passage entre étapes
+- [`error-recovery.md`](error-recovery.md) — événements d'interruption/erreur
+- [`workflow-automation.md`](workflow-automation.md) — déclencheurs en production (GitHub Actions, n8n)

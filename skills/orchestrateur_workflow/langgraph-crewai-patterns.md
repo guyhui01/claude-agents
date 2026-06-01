@@ -268,3 +268,20 @@ Scatter/Gather     Même tâche sur N contextes en parallèle
 
 ## Format de sortie
 Précise : pattern souhaité (graph / crew / conversation), agents impliqués, conditions de branchement (si graph), langage (TypeScript / Python).
+
+## Anti-patterns
+- ❌ **Frameworks cités sans version** (LangGraph/CrewAI/AutoGen/LlamaIndex) : ruptures d'API → épingler les versions
+- ❌ **Code « pédagogique » pris pour de la prod** : ces patterns natifs Claude contiennent des stubs → noter le périmètre (fait dans le skill ✓)
+- ❌ **Réécrire from scratch ce que le framework fournit** : maintenance inutile → choisir framework vs natif selon le besoin
+- ❌ **Vendor lock-in non anticipé** : migration coûteuse → abstraire la couche d'orchestration
+- ❌ **Multiplier les frameworks** dans un même projet : complexité → un seul par cas d'usage
+
+## Sources
+- **LangGraph** — langchain-ai.github.io/langgraph · **CrewAI** — docs.crewai.com · **AutoGen** (Microsoft) — microsoft.github.io/autogen · **LlamaIndex** — docs.llamaindex.ai
+- **Anthropic — Building Effective Agents** (anthropic.com/engineering, déc. 2024) — patterns natifs (souvent suffisants vs framework) · SDK `@anthropic-ai/sdk`
+
+## Voir aussi
+- [`claude-api-integration.md`](claude-api-integration.md) — implémentation SDK Anthropic complète
+- [`mcp-orchestration.md`](mcp-orchestration.md) — orchestration multi-agents via MCP
+- [`workflow-design.md`](workflow-design.md) — choix du pattern d'orchestration
+- [`parallel-orchestration.md`](parallel-orchestration.md) — exécution parallèle des agents

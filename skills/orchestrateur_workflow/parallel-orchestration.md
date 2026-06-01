@@ -159,3 +159,20 @@ RÉSOLUTION DE CONFLITS :
 
 ## Format de sortie
 Précise : agents impliqués, dépendances identifiées, contrainte de temps, format des outputs à agréger.
+
+## Anti-patterns
+- ❌ **Paralléliser des étapes dépendantes** : résultats incohérents → vérifier l'indépendance (cf. `dependency-mapping.md`)
+- ❌ **« Gain > 30 % » présenté comme garanti** : le gain réel dépend du ratio d'étapes parallélisables → mesurer, ne pas promettre
+- ❌ **Pas de stratégie d'agrégation** des sorties parallèles : fusion ambiguë → règle d'agrégation + résolution de conflits
+- ❌ **Pas de gestion d'échec partiel** (un agent échoue) : tout le bloc tombe → `.filter(Boolean)` / dégradation gracieuse
+- ❌ **Sur-paralléliser** (trop d'agents simultanés) : coût/limites de débit → plafonner la concurrence
+
+## Sources
+- **Anthropic — Building Effective Agents** (anthropic.com/engineering, déc. 2024) — pattern **parallelization** (sectioning + voting)
+- **BPMN 2.0.2** — OMG (2013) : passerelles parallèles (fork/join)
+
+## Voir aussi
+- [`dependency-mapping.md`](dependency-mapping.md) — identification des branches indépendantes
+- [`workflow-design.md`](workflow-design.md) — conception des forks/joins
+- [`output-validation.md`](output-validation.md) — validation des sorties agrégées
+- [`error-recovery.md`](error-recovery.md) — échec partiel d'une branche

@@ -226,8 +226,8 @@ function estimateTokens(text: string): number {
 }
 
 // Garde-fous pour les workflows longs
-// Claude Sonnet 4.6 / Opus 4.7 = 200K context window (2026)
-// Pour Opus 4.7 contexte étendu, augmenter à 1M tokens si activé
+// Claude Sonnet 4.6 / Opus 4.8 = 200K context window (2026)
+// Pour le contexte étendu (si activé), augmenter à 1M tokens
 const MAX_CONTEXT_TOKENS = 200_000;
 const SAFETY_MARGIN_TOKENS = 8_192; // Marge de sécurité pour réponse + tools
 
@@ -271,3 +271,20 @@ function buildSafeContextPacket(
 
 ## Format de sortie
 Précise : langage (TypeScript / Python), modèle cible, nombre d'agents à chaîner, besoin de tool use ou streaming.
+
+## Anti-patterns
+- ❌ **Clé API exposée côté client** : fuite → appels server-side uniquement
+- ❌ **Modèle codé en dur** dispersé : maintenance → centraliser l'ID (Opus 4.8 raisonnement / Sonnet 4.6 runtime)
+- ❌ **Pas de retry/backoff** sur `RateLimitError` : échecs en pic → backoff exponentiel + jitter
+- ❌ **Ignorer le prompt caching** sur gros system prompts (> 1024 tokens) : surcoût → `cache_control` ephemeral
+- ❌ **Estimer les tokens à la louche sans marge** : dépassement de fenêtre → marge de sécurité (8K) + comptage réel
+
+## Sources
+- **Anthropic API** — docs.anthropic.com (Messages, **prompt caching** lecture ≈0,1× input, **Batch API** −50%, tool use, streaming) · en-tête `anthropic-version: 2023-06-01` (courant)
+- Modèles : **`claude-opus-4-8`** (raisonnement) · **`claude-sonnet-4-6`** (runtime, 200K contexte)
+
+## Voir aussi
+- [`langgraph-crewai-patterns.md`](langgraph-crewai-patterns.md) — patterns d'orchestration sur ce SDK
+- [`mcp-orchestration.md`](mcp-orchestration.md) — exposer/consommer des agents via MCP
+- [`workflow-automation.md`](workflow-automation.md) — intégration en production
+- [`../prompt_engineer/prompt-optimization.md`](../prompt_engineer/prompt-optimization.md) — caching, batch, sélection de modèle

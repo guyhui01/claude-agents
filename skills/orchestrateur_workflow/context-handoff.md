@@ -150,3 +150,20 @@ workflow_state:
 
 ## Format de sortie
 Précise : étape en cours, agent producteur, agent consommateur, outputs à transmettre, format de sortie attendu.
+
+## Anti-patterns
+- ❌ **Tout transmettre** sans filtrage : surcharge de contexte, coût et perte de focus → ne passer que l'utile (cf. règles de filtrage)
+- ❌ **Transmettre des brouillons non validés** : propagation d'erreurs en aval → checklist de validation avant transfert
+- ❌ **Pas de state management persisté** : reprise impossible après une erreur → état du workflow sauvegardé
+- ❌ **PII transmise sans filtrage** à l'agent suivant : risque RGPD → filtrage des données personnelles
+- ❌ **Contexte non structuré** (texte libre cumulé) : l'agent suivant ne sait pas quoi prioriser → context packet formaté
+
+## Sources
+- **Anthropic — Building Effective Agents** (anthropic.com/engineering, déc. 2024) — passage de contexte entre étapes
+- **Model Context Protocol** — modelcontextprotocol.io (transport et partage de contexte structuré)
+
+## Voir aussi
+- [`workflow-design.md`](workflow-design.md) — séquençage des étapes alimentant le handoff
+- [`error-recovery.md`](error-recovery.md) — reprise sur état persisté
+- [`workflow-monitoring.md`](workflow-monitoring.md) — suivi de l'état du workflow
+- [`mcp-orchestration.md`](mcp-orchestration.md) — partage de contexte via MCP

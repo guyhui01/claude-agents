@@ -152,3 +152,20 @@ Options proposées :
 
 ## Format de sortie
 Précise : étape en erreur, type d'erreur, outputs partiels déjà produits, contraintes de reprise.
+
+## Anti-patterns
+- ❌ **Retry infini sans backoff ni plafond** : « thundering herd », coûts → backoff exponentiel + jitter + nombre d'essais borné
+- ❌ **Pas de taxonomie d'erreur** : traitement uniforme inadapté → distinguer transitoire / contenu / système / métier
+- ❌ **Échec silencieux** (erreur avalée) : workflow incohérent → log + statut `en_erreur` explicite
+- ❌ **Pas de point de reprise (checkpoint)** : tout rejouer depuis le début → reprise sur état persisté (cf. `context-handoff.md`)
+- ❌ **Aucune escalade humaine** sur erreur critique : boucle bloquée → seuil d'escalade défini
+
+## Sources
+- **Anthropic — Building Effective Agents** (anthropic.com/engineering, déc. 2024) — pattern evaluator-optimizer (boucle de correction)
+- **ITIL 4** (Axelos) — gestion des incidents et reprise · patterns **retry / circuit breaker / dead-letter queue**
+
+## Voir aussi
+- [`context-handoff.md`](context-handoff.md) — reprise sur état du workflow persisté
+- [`output-validation.md`](output-validation.md) — détection d'output invalide déclenchant la reprise
+- [`workflow-monitoring.md`](workflow-monitoring.md) — alerting sur erreurs
+- [`trigger-management.md`](trigger-management.md) — événements d'interruption

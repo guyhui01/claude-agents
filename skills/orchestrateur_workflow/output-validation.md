@@ -154,3 +154,20 @@ SCORE   STATUT          ACTION
 
 ## Format de sortie
 Précise : agent évalué, étape du workflow, output à valider (coller le contenu), critères d'acceptation attendus.
+
+## Anti-patterns
+- ❌ **Validation subjective** (« ça semble bon ») sans critères objectifs : non reproductible → grille + seuils explicites
+- ❌ **Pas de gate bloquant** : un output invalide passe en aval → blocage tant que le seuil n'est pas atteint
+- ❌ **Valider le format sans le fond** : JSON valide mais contenu faux → contrôle sémantique (cf. règles métier)
+- ❌ **LLM-as-judge non calibré** : juge complaisant → critères précis + cas de référence (golden set)
+- ❌ **Pas de boucle de correction** : on rejette sans réinjecter → evaluator-optimizer (cf. `error-recovery.md`)
+
+## Sources
+- **Anthropic — Building Effective Agents** (anthropic.com/engineering, déc. 2024) — pattern **evaluator-optimizer**
+- **INVEST** (Bill Wake, 2003) / **Gherkin** (Cucumber) — critères pour les outputs PO/QA · **DoD** (Scrum Guide 2020)
+
+## Voir aussi
+- [`error-recovery.md`](error-recovery.md) — reprise sur output invalide
+- [`workflow-monitoring.md`](workflow-monitoring.md) — taux de rejet en métrique
+- [`prompt-engineering-orchestration.md`](prompt-engineering-orchestration.md) — prompt de validation structuré
+- [`../critique_conformite/gate-validation-livrable.md`](../critique_conformite/gate-validation-livrable.md) — gate DoD avant promotion

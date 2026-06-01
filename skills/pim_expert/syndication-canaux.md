@@ -99,3 +99,23 @@ FORMAT AMAZON BULLET POINTS (5 × max 255 char.)
 
 ## Format de sortie
 Précise : **canaux cibles** (liste prioritaire), **PIM utilisé**, **nombre de références** à syndiquer, **fréquences attendues**, **systèmes tiers** à connecter (e-com, ERP, DAM), **contraintes légales** (prix TTC obligatoire, étiquetage réglementaire...).
+
+## Anti-patterns
+- ❌ **Pousser sans valider les contraintes du canal** (titre Amazon > 80 car., bullets > 255 car.) : rejet en masse → validation pre-push par canal
+- ❌ **GTIN absent** sur marketplace : produit non listable (Amazon/Google l'exigent) → GTIN obligatoire au filtre canal
+- ❌ **Syndiquer sous le seuil de complétude 100 %** du canal : fiches partielles publiées → blocage completeness
+- ❌ **Push sans gestion d'erreur / retry** : désynchronisation silencieuse → file de retry + monitoring
+- ❌ **Mêmes données pour tous les canaux** (pas d'adaptation) : non-conformité marketplace → règles de transformation par canal
+- ❌ **Prix HT diffusé là où le TTC est obligatoire** (B2C UE) : non-conformité → contrôle légal par canal
+
+## Sources
+- **GS1 General Specifications v24.0** (2024) — GTIN, **GTIN-14** (carton/EDI), GLN — gs1.org
+- **Amazon SP-API** (Selling Partner API) — developer-docs.amazon.com · **Google Merchant Center** (flux Shopping, Google Product Category) — support.google.com/merchants
+- **EANCOM / UN/EDIFACT** — messages EDI standardisés (UN/CEFACT) — unece.org/cefact
+- **Schema.org Product** — balisage produit web/SEO — schema.org/Product
+
+## Voir aussi
+- [`modelisation-catalogue.md`](modelisation-catalogue.md) — attributs et classification (GS1/ETIM) syndiqués
+- [`enrichissement-produit.md`](enrichissement-produit.md) — complétude par canal préalable à la syndication
+- [`kpis-catalogue.md`](kpis-catalogue.md) — suivi des synchronisations et de la couverture canal
+- [`../dam_expert/distribution-multicanal.md`](../dam_expert/distribution-multicanal.md) — distribution des assets associés aux fiches

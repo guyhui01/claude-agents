@@ -83,3 +83,23 @@ Taux erreurs import            ≤ 1%          > 5%           Lignes en erreur /
 
 ## Format de sortie
 Précise : **PIM utilisé**, **nombre de références** à enrichir par semaine, **nombre de canaux** et **locales**, **équipe disponible** (nombre d'enrichisseurs, localisateurs), **contrainte de délai** (time-to-market cible).
+
+## Anti-patterns
+- ❌ **Publier sous le seuil de complétude** (< 100 % canal) : fiches incomplètes en ligne → blocage publication strict par canal
+- ❌ **RACI confondant R et A** : aucun responsable clair de la validation → un seul A par tâche
+- ❌ **Règles de complétude identiques pour tous les canaux** : le print et l'e-commerce n'ont pas les mêmes besoins → completeness scopée par canal/locale
+- ❌ **Enrichissement sans SLA** : backlog ingérable → délai cible par type de produit
+- ❌ **Descriptions dupliquées entre produits** : pénalité SEO et perception qualité → contenu unique (cf. `pim-augmente-ia.md`)
+- ❌ **Workflow sans critère de passage objectif** : transitions au jugé → seuils mesurables (ex. completeness ≥ 80 % pour « In Review »)
+
+## Sources
+- **Akeneo PIM** (Serenity SaaS — Enterprise/Growth, releases mensuelles 2025) — concept de *completeness* par canal/locale — help.akeneo.com
+- **BPMN 2.0.2** — OMG (2013) — modélisation des workflows d'enrichissement — omg.org/spec/BPMN
+- **DAMA-DMBOK 2** (2017) — qualité et cycle de vie de la donnée produit — dama.org
+
+## Voir aussi
+- [`modelisation-catalogue.md`](modelisation-catalogue.md) — structure d'attributs conditionnant la complétude
+- [`scoring-qualite-produit.md`](scoring-qualite-produit.md) — mesure de la qualité des fiches enrichies
+- [`kpis-catalogue.md`](kpis-catalogue.md) — pilotage du time-to-market et de la complétude
+- [`localisation-i18n.md`](localisation-i18n.md) — enrichissement multilingue
+- [`pim-augmente-ia.md`](pim-augmente-ia.md) — accélération de l'enrichissement par IA

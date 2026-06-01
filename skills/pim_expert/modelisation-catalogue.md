@@ -87,3 +87,23 @@ GROUPE D'ATTRIBUTS : Médias
 
 ## Format de sortie
 Précise : **secteur** (retail, industrie, B2B…), **nombre de références** estimé, **canaux de distribution** cibles, **locales** et **PIM cible** (Akeneo, Pimcore, Salsify, inriver…).
+
+## Anti-patterns
+- ❌ **Arborescence trop profonde** (> N+3 niveaux) : maintenance lourde, navigation illisible → privilégier la largeur + attributs
+- ❌ **Catégories « maison » ignorant un standard** (GS1 GPC, ETIM) : pas d'interopérabilité pour la syndication marketplace → mapper sur GPC/ETIM
+- ❌ **`Number` sans unité** au lieu de `Metric` : ambiguïté (2,5 = kg ? L ?) → type `Metric` + unité par défaut
+- ❌ **`Select` > 200 options** ou MultiSelect non maîtrisé : explosion combinatoire → revoir le modèle
+- ❌ **Binaire stocké dans le PIM** (image en base) : performance et gouvernance dégradées → type `Asset` pointant vers le DAM
+- ❌ **Pas de gestion des variantes** (axes couleur/taille) : explosion de SKUs indépendants → produits configurables
+
+## Sources
+- **GS1 General Specifications v24.0** (2024) — GPC (Global Product Classification, 4 niveaux : Segment/Family/Class/Brick) · GTIN/GLN — gs1.org/standards/gpc
+- **ETIM 10.0** (ETIM International, déc. 2024 — 5 640 classes) — classification des produits techniques — etim-international.com
+- **Schema.org Product** — vocabulaire produit pour le web/SEO — schema.org/Product
+- **ISO 80000** — grandeurs et unités (attributs `Metric`) · **ISO 8601** — dates · **DAMA-DMBOK 2** (2017) — dama.org
+
+## Voir aussi
+- [`enrichissement-produit.md`](enrichissement-produit.md) — workflow d'enrichissement du modèle
+- [`gouvernance-donnees-produit.md`](gouvernance-donnees-produit.md) — golden record et sources de vérité
+- [`syndication-canaux.md`](syndication-canaux.md) — mapping GS1/Schema.org pour la diffusion
+- [`onboarding-donnees-produit.md`](onboarding-donnees-produit.md) — alimentation du modèle depuis les sources

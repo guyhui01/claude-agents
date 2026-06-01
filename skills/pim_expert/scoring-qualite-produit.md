@@ -82,3 +82,22 @@ quality_rules:
 
 ## Format de sortie
 Précise : **PIM utilisé**, **canaux à scorer** (e-com, print, marketplace…), **locales cibles**, **seuil de publication** (100% requis ou tolérance ?), **outils BI disponibles** pour le dashboard.
+
+## Anti-patterns
+- ❌ **Pondérations et pénalités arbitraires** non calibrées sur des cas réels (pourquoi -15 vs -20 ?) : score non représentatif → calibrer sur l'historique
+- ❌ **Score sans seuil bloquant de publication** : des fiches médiocres passent en ligne → gate completeness/score
+- ❌ **Mesurer la complétude sans l'exactitude** (cohérence vs ERP) : faux sentiment de qualité → inclure l'exactitude
+- ❌ **Dashboard sans backlog priorisé** : score contemplatif → relier chaque anomalie à une action d'enrichissement
+- ❌ **Dimensions/poids identiques pour tous les canaux** : non pertinent (print ≠ marketplace) → scoring scopé
+- ❌ **Scorer sans valider l'EAN** (chiffre de contrôle GS1) : identifiants faux non détectés → règle EAN bloquante
+
+## Sources
+- **Akeneo PIM** (Serenity) — completeness score natif par canal/locale — help.akeneo.com
+- **DAMA-DMBOK 2** (2017) · **ISO 8000** — 5 dimensions de qualité (complétude, exactitude, cohérence, unicité, actualité) — dama.org / iso.org
+- **GS1 General Specifications v24.0** (2024) — validation EAN-13/GTIN — gs1.org
+
+## Voir aussi
+- [`kpis-catalogue.md`](kpis-catalogue.md) — score qualité comme KPI de pilotage
+- [`enrichissement-produit.md`](enrichissement-produit.md) — actions d'enrichissement issues du score
+- [`gouvernance-donnees-produit.md`](gouvernance-donnees-produit.md) — règles métier et data quality
+- [`onboarding-donnees-produit.md`](onboarding-donnees-produit.md) — contrôle qualité dès l'entrée

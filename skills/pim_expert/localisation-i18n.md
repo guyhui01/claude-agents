@@ -85,3 +85,23 @@ non_localized_attributes:
 
 ## Format de sortie
 Précise : **marchés cibles** (pays, langues), **volume de fiches** à localiser, **TMS existant** (Phrase, memoQ, Crowdin…), **PIM cible**, **attributs à localiser** vs **non scopés**, **contraintes réglementaires** locales identifiées.
+
+## Anti-patterns
+- ❌ **Traduction circulaire** (DE → EN au lieu d'une source unique fr_FR) : dérive sémantique cumulative → toujours traduire depuis la source maître
+- ❌ **MT sans post-édition humaine** : erreurs terminologiques et réglementaires → post-édition + relecture native
+- ❌ **Localiser = traduire seulement** : ignorer unités, formats, devises, réglementations → adapter le fond (cf. matrice)
+- ❌ **Mentions légales / allergènes auto-traduits sans validation juridique** : risque de non-conformité → gate service juridique
+- ❌ **Pas de gel des textes source** avant export TMS : retours traducteurs en boucle → statut « Translation Lock »
+- ❌ **Pas de mémoire de traduction / glossaire** : incohérence et surcoût → TM + glossaire validés par marché
+
+## Sources
+- **Akeneo PIM** (Serenity) — locales scopées, fallback — help.akeneo.com
+- **BLEU** — Papineni et al., *BLEU: a Method for Automatic Evaluation of MT* (ACL, 2002) ; compléter par chrF/COMET pour la post-édition moderne
+- **ISO 80000** (unités) · **ISO 4217** (devises) · **ISO 639 / ISO 3166** (langues/pays) — normalisation locale — iso.org
+- **Marquages réglementaires** : CE (UE), RoHS, FCC (US), CCC (Chine), PSE (Japon) — validation par marché
+
+## Voir aussi
+- [`enrichissement-produit.md`](enrichissement-produit.md) — étape de traduction dans l'enrichissement
+- [`modelisation-catalogue.md`](modelisation-catalogue.md) — attributs scopés vs non scopés
+- [`syndication-canaux.md`](syndication-canaux.md) — diffusion multilingue par marché
+- [`pim-augmente-ia.md`](pim-augmente-ia.md) — pré-traduction assistée par IA

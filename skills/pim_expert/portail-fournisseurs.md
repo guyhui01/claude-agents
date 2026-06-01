@@ -73,3 +73,23 @@ Délai de correction : [Date + 5 jours ouvrés]
 
 ## Format de sortie
 Précise : **PIM utilisé** (Akeneo Supplier Data Manager, Contentserv, solution custom…), **nombre de fournisseurs** concernés, **familles produit** à couvrir, **volume** de fiches/an, **intégrations requises** (DAM pour assets, ERP pour création référence).
+
+## Anti-patterns
+- ❌ **SSO vague ou comptes partagés** entre fournisseurs : traçabilité perdue → SSO normalisé (SAML 2.0 / OpenID Connect), 1 compte = 1 contributeur
+- ❌ **Pas d'ACL par code fournisseur** : un fournisseur voit/modifie les produits d'un autre → cloisonnement strict
+- ❌ **EAN modifiable par le fournisseur** alors que l'ERP est maître : corruption du référentiel → attribut en lecture seule
+- ❌ **Absence d'audit trail** : impossible de tracer qui a contribué quoi → log date/user/valeur
+- ❌ **Formulaire sans aide contextuelle ni gabarit** : contributions de mauvaise qualité → champs guidés + règles + exemples
+- ❌ **RGPD des contacts fournisseurs ignoré** : données personnelles non encadrées → base légale + durée de conservation
+
+## Sources
+- **Akeneo Supplier Data Manager** — collecte fournisseurs native — akeneo.com
+- **SSO** — SAML 2.0 (OASIS) / OpenID Connect (OpenID Foundation) — authentification partenaires
+- **BPMN 2.0.2** — OMG (2013) — workflow de validation des contributions — omg.org/spec/BPMN
+- **GS1 General Specifications v24.0** (2024) — EAN/GTIN comme identifiant maître · **RGPD** (UE) 2016/679 — données contacts fournisseurs
+
+## Voir aussi
+- [`onboarding-donnees-produit.md`](onboarding-donnees-produit.md) — normalisation des contributions reçues
+- [`enrichissement-produit.md`](enrichissement-produit.md) — circuit de validation interne
+- [`gouvernance-donnees-produit.md`](gouvernance-donnees-produit.md) — Data Stewards et règles qualité
+- [`modelisation-catalogue.md`](modelisation-catalogue.md) — familles/attributs exposés aux fournisseurs

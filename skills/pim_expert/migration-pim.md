@@ -75,3 +75,23 @@ product_status          TINYINT     statut                  Select      0→arch
 
 ## Format de sortie
 Précise : **PIM source** (nom, version), **PIM cible**, **volume** (SKUs, variantes, locales), **intégrations à reconnecter** (ERP, DAM, e-com), **délai disponible** pour la migration, **contrainte de continuité** (peut-on geler la production ?).
+
+## Anti-patterns
+- ❌ **Big bang sans double-run ni rollback** : blocage total si le basculement échoue → procédure de rollback testée
+- ❌ **Migration sans gel + delta** : les fiches modifiées pendant la recette sont perdues → gel lecture seule + delta J0
+- ❌ **Migrer sans audit qualité du legacy** : on importe la dette (doublons, incohérences) → assainir en phase 1
+- ❌ **Réassociation des assets DAM oubliée** : images cassées en cible → migrer/réassocier les liens DAM
+- ❌ **Pas de validation des completeness scores post-import** : fiches dégradées publiées → recette sur scores + UAT
+- ❌ **EAN migré sans revalidation** du chiffre de contrôle → identifiants corrompus propagés
+
+## Sources
+- **Akeneo REST API** (`/api/rest/v1`) — import/chargement cible — api.akeneo.com
+- **DAMA-DMBOK 2** (2017) — gouvernance et lineage de la migration — dama.org
+- **GS1 General Specifications v24.0** (2024) — revalidation EAN/GTIN — gs1.org
+
+## Voir aussi
+- [`modelisation-catalogue.md`](modelisation-catalogue.md) — conception du catalogue cible
+- [`integration-erp-pim.md`](integration-erp-pim.md) — reconnexion des flux ERP
+- [`onboarding-donnees-produit.md`](onboarding-donnees-produit.md) — normalisation/contrôle qualité ETL
+- [`gouvernance-donnees-produit.md`](gouvernance-donnees-produit.md) — qualité et sources de vérité
+- [`../dam_expert/migration-dam.md`](../dam_expert/migration-dam.md) — migration coordonnée des assets

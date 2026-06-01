@@ -75,3 +75,23 @@ Nouveau fournisseur     ≤ 15 jours    ≥ 70% (phase 1)  Trimestrielle
 
 ## Format de sortie
 Précise : **PIM utilisé**, **canaux à couvrir** dans les KPIs, **outil BI disponible** (Power BI, Tableau, natif PIM…), **fréquence de reporting** (hebdo / mensuel / CODIR trimestriel), **profil des destinataires** (Data Stewards, direction, marketing).
+
+## Anti-patterns
+- ❌ **KPIs sans cible ni seuil d'alerte** : reporting contemplatif → chaque indicateur assorti d'une cible + action
+- ❌ **Complétude globale sans déclinaison par canal** : masque les écarts (e-com 96 % / print 85 %) → toujours décliner
+- ❌ **Aucun KPI d'impact business** (conversion, retours) : vanity metrics déconnectées de la valeur → relier qualité ↔ business
+- ❌ **Reporting CODIR > 1 page** : le décideur est noyé → synthèse Minto 1 page (cf. règle reporting)
+- ❌ **SLA uniformes pour tous les produits** : sur-investit la longue traîne, sous-investit les produits phares → SLA différenciés A/B/C
+- ❌ **KPIs figés sans revue** : indicateurs obsolètes → plan d'amélioration trimestriel (OKR)
+
+## Sources
+- **Akeneo PIM** (Serenity) — completeness/KPIs natifs — help.akeneo.com
+- **DAMA-DMBOK 2** (2017) · **ISO 8000** — dimensions de qualité de données (complétude, exactitude, cohérence, unicité, actualité) — dama.org / iso.org
+- **OKR** — Doerr J., *Measure What Matters* (2018) — plan d'amélioration trimestriel
+- **Pyramide de Minto** (1987) — structure du reporting CODIR 1 page
+
+## Voir aussi
+- [`scoring-qualite-produit.md`](scoring-qualite-produit.md) — score qualité alimentant l'axe 1
+- [`enrichissement-produit.md`](enrichissement-produit.md) — KPIs opérationnels (TTM, backlog)
+- [`syndication-canaux.md`](syndication-canaux.md) — couverture et erreurs de synchronisation
+- [`gouvernance-donnees-produit.md`](gouvernance-donnees-produit.md) — scorecard de gouvernance

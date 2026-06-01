@@ -85,3 +85,23 @@ def check_row(row: dict) -> list[str]:
 
 ## Format de sortie
 Précise : **sources d'onboarding** (ERP, fournisseurs, agences…), **formats reçus** (Excel, CSV, XML, API…), **volumétrie** (nb références/mois), **PIM cible** (Akeneo, Pimcore…), **délai de traitement acceptable** (temps réel, quotidien, hebdomadaire).
+
+## Anti-patterns
+- ❌ **Pas de quarantaine sur format invalide** : données polluées chargées en masse → rejet + notification expéditeur dès l'étape 1
+- ❌ **EAN/GTIN non validé** (chiffre de contrôle GS1) : identifiants faux dans le catalogue → validation bloquante
+- ❌ **Import direct en production sans staging** : pollution irréversible → pré-prod + échantillon validé
+- ❌ **Valeurs manquantes remplacées silencieusement** par défaut : fausses données invisibles → rejet ou flag explicite
+- ❌ **Pas de rapport d'anomalies renvoyé à l'expéditeur** : les mêmes erreurs reviennent → boucle de feedback fournisseur
+- ❌ **Onboarding sans template fournisseur normalisé** : chaque source dans son format → gabarit imposé (cf. `portail-fournisseurs.md`)
+
+## Sources
+- **GS1 General Specifications v24.0** (2024) — EAN-13/GTIN, algorithme du chiffre de contrôle — gs1.org
+- **ETIM 10.0** (déc. 2024) — classification des fichiers fournisseurs techniques — etim-international.com
+- **ISO 8601** (dates) · **ISO 80000** (unités) — normalisation à l'étape 2 — iso.org
+- **DAMA-DMBOK 2** (2017) — data quality à l'ingestion — dama.org
+
+## Voir aussi
+- [`integration-erp-pim.md`](integration-erp-pim.md) — flux ERP (source structurée)
+- [`portail-fournisseurs.md`](portail-fournisseurs.md) — collecte normalisée auprès des fournisseurs
+- [`gouvernance-donnees-produit.md`](gouvernance-donnees-produit.md) — règles de qualité et déduplication
+- [`modelisation-catalogue.md`](modelisation-catalogue.md) — modèle cible du mapping

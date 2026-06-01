@@ -87,3 +87,23 @@ def upsert_product(sku: str, attributes: dict) -> dict:
 
 ## Format de sortie
 Précise : **ERP source** (SAP S/4HANA, Oracle, Dynamics…), **PIM cible** (Akeneo, Pimcore…), **volumétrie** (articles, mouvements/jour), **pattern souhaité** (batch/API/queue), **délai de synchronisation acceptable**, **systèmes intermédiaires** existants (middleware, ESB, iPaaS).
+
+## Anti-patterns
+- ❌ **ERP et PIM tous deux « maîtres » du même champ** : conflits irrésolus → définir la source de vérité par attribut (cf. `gouvernance-donnees-produit.md`)
+- ❌ **Synchronisation sans gestion de delta** : ré-import complet à chaque run → coûteux et risqué → ne traiter que les changements (timestamp/event)
+- ❌ **EAN importé sans vérification du chiffre de contrôle** GS1 : identifiants faux propagés → valider à l'entrée
+- ❌ **Mapping en dur** (pas de table MATKL → famille) : non maintenable → table de correspondance externalisée
+- ❌ **Pas de runbook incident / relance manuelle** : blocages silencieux → procédure opérationnelle + monitoring
+- ❌ **Prix ou stock écrits dans le PIM** alors que l'ERP/WMS sont maîtres : incohérences → lecture seule côté PIM
+
+## Sources
+- **Akeneo REST API** (v1, `/api/rest/v1`) — help.akeneo.com / api.akeneo.com
+- **GS1 General Specifications v24.0** (2024) — GTIN/EAN-13, chiffre de contrôle — gs1.org
+- **SAP S/4HANA** (IDoc, tables MM) — help.sap.com · **Talend / MuleSoft / Azure Data Factory** — middleware ETL/iPaaS
+- **DAMA-DMBOK 2** (2017) — intégration et lineage de données — dama.org
+
+## Voir aussi
+- [`gouvernance-donnees-produit.md`](gouvernance-donnees-produit.md) — sources de vérité (MDM) ERP/PIM/DAM
+- [`onboarding-donnees-produit.md`](onboarding-donnees-produit.md) — normalisation et contrôle qualité à l'entrée
+- [`modelisation-catalogue.md`](modelisation-catalogue.md) — modèle cible des attributs ERP
+- [`migration-pim.md`](migration-pim.md) — reprise initiale du référentiel

@@ -169,7 +169,7 @@ EXIGENCES :
 Format : Markdown avec frontmatter YAML."""
 
     response = client.messages.create(
-        model="claude-opus-4-5",
+        model="claude-opus-4-8",
         max_tokens=8000,
         messages=[{"role": "user", "content": prompt}],
     )

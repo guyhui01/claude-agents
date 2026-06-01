@@ -12,7 +12,7 @@ const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 
 // Appel basique
 const message = await client.messages.create({
-  model: "claude-opus-4-5",
+  model: "claude-opus-4-8",
   max_tokens: 1024,
   system: "Tu es un expert PO Agile.",
   messages: [{ role: "user", content: userInput }]
@@ -21,7 +21,7 @@ const text = message.content[0].type === "text" ? message.content[0].text : ""
 
 // Streaming
 const stream = await client.messages.stream({
-  model: "claude-opus-4-5",
+  model: "claude-opus-4-8",
   max_tokens: 2048,
   messages: [{ role: "user", content: prompt }]
 })
@@ -32,10 +32,10 @@ for await (const chunk of stream) {
 }
 ```
 
-## Prompt Caching (économies jusqu'à 90%)
+## Prompt Caching (lecture de cache ~90% moins chère que l'input standard)
 ```typescript
 const message = await client.messages.create({
-  model: "claude-opus-4-5",
+  model: "claude-opus-4-8",
   max_tokens: 1024,
   system: [{ type: "text", text: longSystemPrompt,
     cache_control: { type: "ephemeral" }  // Cache ce bloc
@@ -81,3 +81,22 @@ if (!process.env.ANTHROPIC_API_KEY) throw new Error("ANTHROPIC_API_KEY manquante
 
 ## Format de sortie
 Précise : provider(s) · besoin de caching · streaming requis · volume de requêtes estimé
+
+## Anti-patterns
+- ❌ **Clé API LLM exposée côté client** : fuite de secret → appels server-side uniquement
+- ❌ **« 90 % » pris pour un gain global** : c'est ~90 % sur les **tokens en cache (lecture)** ; le gain réel dépend du ratio tokens cachés/total et du TTL (5 min) → mesurer
+- ❌ **Retry sans jitter ni plafond global** : effet « thundering herd » → backoff exponentiel **+ jitter** + budget d'essais
+- ❌ **Pas de suivi des coûts/tokens** (`usage`) : dérive budgétaire → logguer input/output tokens
+- ❌ **Modèle codé en dur** dispersé : centraliser l'ID (`claude-opus-4-8`) en config
+- ❌ **`content[0]` supposé `text`** sans vérifier le type : exception sur réponse à blocs → garde de type (déjà présent ✓)
+
+## Sources
+- **Anthropic API** — docs.anthropic.com (Messages API, **prompt caching** : lecture de cache ≈ 0,1× le prix input, TTL 5 min) · modèle courant **`claude-opus-4-8`**
+- **Anthropic TypeScript SDK** `@anthropic-ai/sdk` — github.com/anthropics/anthropic-sdk-typescript
+- **OpenAI SDK** `openai` (alternative provider) — platform.openai.com
+
+## Voir aussi
+- [`vercel-ai-sdk.md`](vercel-ai-sdk.md) — couche d'abstraction multi-provider
+- [`typescript-avance-ia.md`](typescript-avance-ia.md) — typage avancé des réponses LLM + retry générique
+- [`nextjs-ia.md`](nextjs-ia.md) — intégration côté serveur Next.js
+- [`edge-functions-ia.md`](edge-functions-ia.md) — exécution edge et rate limiting

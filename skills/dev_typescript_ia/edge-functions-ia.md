@@ -27,7 +27,7 @@ export async function POST(req: Request) {
   const { messages } = await req.json()
 
   const result = streamText({
-    model: anthropic("claude-opus-4-5"),
+    model: anthropic("claude-opus-4-8"),
     messages,
     system: "Tu es un assistant expert."
   })
@@ -87,3 +87,20 @@ export default {
 
 ## Format de sortie
 Précise : provider de déploiement (Vercel, Cloudflare) · besoin auth · volume de requêtes · régions cibles
+
+## Anti-patterns
+- ❌ **Dépendance Node (fs, modules natifs) en Edge Runtime** : erreur de build → vérifier la compat edge ou basculer en Node runtime
+- ❌ **Rate limiting en mémoire locale** : inefficace en edge multi-région → store distribué (Upstash Redis)
+- ❌ **`maxDuration` trop court** pour de longues générations : timeout en plein stream → calibrer
+- ❌ **Auth uniquement en middleware** sans contrôle côté route : bypass possible → défense en profondeur
+- ❌ **Modèle codé en dur** : centraliser l'ID (`claude-opus-4-8`)
+
+## Sources
+- **Vercel Edge Functions / Edge Runtime** — vercel.com/docs/functions · **Vercel AI SDK** — ai-sdk.dev
+- **Cloudflare Workers AI** — developers.cloudflare.com/workers-ai (ex. `@cf/meta/llama-3.1-8b-instruct`)
+- **Upstash Redis** (rate limiting serverless) — upstash.com · modèle courant **`claude-opus-4-8`**
+
+## Voir aussi
+- [`nextjs-ia.md`](nextjs-ia.md) — routes et runtime Next.js
+- [`vercel-ai-sdk.md`](vercel-ai-sdk.md) — streaming via le SDK
+- [`integration-apis-llm-ts.md`](integration-apis-llm-ts.md) — rate limiting et retry côté API

@@ -40,7 +40,7 @@ const tools = {
 
 // Utilisation dans streamText
 const result = streamText({
-  model: anthropic("claude-opus-4-5"),
+  model: anthropic("claude-opus-4-8"),
   tools,
   maxSteps: 10,
   messages
@@ -98,3 +98,22 @@ onToolCall: async ({ toolCall }) => {
 
 ## Format de sortie
 Précise : tools à implémenter · APIs backend disponibles · actions nécessitant confirmation · framework UI
+
+## Anti-patterns
+- ❌ **Tools destructifs sans human-in-the-loop** : l'agent supprime/modifie sans validation → confirmation obligatoire (tool sans `execute`)
+- ❌ **Exécuter des tools sensibles côté client** sans contrôle serveur (auth/ACL) : élévation de privilège → vérification backend systématique
+- ❌ **Pas d'affichage des tool calls** : opacité, l'utilisateur ne voit pas ce que fait l'agent → UI temps réel
+- ❌ **Pas de gestion d'erreur par tool** : un tool qui échoue casse la boucle → try/catch + retour structuré
+- ❌ **Syntaxe AI SDK v4** (`parameters`, `maxSteps`, `toolInvocations`) sur AI SDK 5 (`inputSchema`, `stopWhen`, `parts`) → vérifier la version
+- ❌ **Boucle d'agent sans borne** : coûts/incidents → limiter le nombre d'étapes (`stopWhen`/`maxSteps`)
+
+## Sources
+- **Vercel AI SDK** — ai-sdk.dev (tool calling ; AI SDK 5 : `inputSchema`/`outputSchema`, `stopWhen`, classe Agent)
+- **Anthropic Tool Use** — docs.anthropic.com/tool-use · modèle courant **`claude-opus-4-8`**
+- **Zod** — zod.dev (schémas de paramètres des tools)
+
+## Voir aussi
+- [`vercel-ai-sdk.md`](vercel-ai-sdk.md) — base du tool calling
+- [`mcp-server-dev.md`](mcp-server-dev.md) — exposer des tools via MCP (serveur)
+- [`integration-apis-llm-ts.md`](integration-apis-llm-ts.md) — tool use via le SDK Anthropic natif
+- [`react-patterns-ia.md`](react-patterns-ia.md) — affichage temps réel des tool calls

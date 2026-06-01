@@ -12,13 +12,13 @@ client = anthropic.Anthropic(api_key="...")
 
 # Appel basique
 message = client.messages.create(
-    model="claude-opus-4-5",
+    model="claude-opus-4-8",
     max_tokens=1024,
     messages=[{"role": "user", "content": "Explique le RAG"}]
 )
 
 # Streaming
-with client.messages.stream(model="claude-opus-4-5", max_tokens=1024,
+with client.messages.stream(model="claude-opus-4-8", max_tokens=1024,
     messages=[{"role": "user", "content": prompt}]) as stream:
     for text in stream.text_stream:
         print(text, end="", flush=True)
@@ -44,7 +44,7 @@ import litellm
 
 # Même interface pour tous les providers
 response = await litellm.acompletion(
-    model="anthropic/claude-opus-4-5",  # ou "openai/gpt-4o", "mistral/mistral-large"
+    model="anthropic/claude-opus-4-8",  # ou "openai/gpt-4o", "mistral/mistral-large"
     messages=[{"role": "user", "content": prompt}]
 )
 ```

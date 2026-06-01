@@ -33,7 +33,7 @@ const UserStorySchema = z.object({
 })
 
 const { object } = await generateObject({
-  model: anthropic("claude-opus-4-5"),
+  model: anthropic("claude-opus-4-8"),
   schema: UserStorySchema,
   prompt: "Génère une User Story pour..."
 })
@@ -79,3 +79,21 @@ class LLMError extends Error {
 
 ## Format de sortie
 Précise : framework (Next.js, Node.js) · version TypeScript · librairies existantes · cas d'usage
+
+## Anti-patterns
+- ❌ **Retry récursif sans borne** (`yield* streamLLM(prompt)`) : risque de récursion infinie → compteur d'essais + plafond
+- ❌ **Imports implicites** (`RateLimitError`, `sleep`, `client`) : code non autonome → imports explicites
+- ❌ **`any` au lieu de discriminated unions** : perte des garanties de typage → unions discriminées (`ToolResult`)
+- ❌ **`generateObject` sans contraintes Zod** (`.min`, `.max`, `.enum`) : sorties non fiables → schéma strict
+- ❌ **`usage` (tokens) non typé/non suivi** : pas de maîtrise des coûts → typer `LLMResponse<T>` avec `usage`
+- ❌ **`strict: false`** dans tsconfig : bugs silencieux → `strict: true` (déjà recommandé ✓)
+
+## Sources
+- **TypeScript Handbook** — typescriptlang.org/docs (Microsoft ; strict mode, discriminated unions, generics)
+- **Zod** — zod.dev (validation runtime + inférence de types) · **Vercel AI SDK** `generateObject` — ai-sdk.dev
+- **Anthropic SDK** `@anthropic-ai/sdk` (streaming, `RateLimitError`) — modèle courant **`claude-opus-4-8`**
+
+## Voir aussi
+- [`integration-apis-llm-ts.md`](integration-apis-llm-ts.md) — retry/backoff et gestion d'erreurs LLM
+- [`vercel-ai-sdk.md`](vercel-ai-sdk.md) — structured outputs typés (Zod)
+- [`tool-use-frontend.md`](tool-use-frontend.md) — typage des tools et résultats

@@ -31,7 +31,7 @@ export const runtime = "edge"  // Edge runtime pour la latence minimale
 export async function POST(req: Request) {
   const { messages } = await req.json()
   const result = streamText({
-    model: anthropic("claude-opus-4-5"),
+    model: anthropic("claude-opus-4-8"),
     system: "Tu es un assistant PO Agile expert.",
     messages,
     maxTokens: 2048
@@ -51,7 +51,7 @@ import { z } from "zod"
 
 export async function generateUserStory(feature: string) {
   const { object } = await generateObject({
-    model: anthropic("claude-opus-4-5"),
+    model: anthropic("claude-opus-4-8"),
     schema: UserStorySchema,
     prompt: `Génère une User Story pour : ${feature}`
   })
@@ -81,3 +81,22 @@ export async function generateUserStory(feature: string) {
 
 ## Format de sortie
 Précise : Next.js version · provider LLM · fonctionnalités (chat, génération, tools) · déploiement cible (Vercel, autre)
+
+## Anti-patterns
+- ❌ **Server Actions pour le streaming** : préférer les Route Handlers (déjà noté) → stream via `app/api/.../route.ts`
+- ❌ **Edge Runtime avec dépendances Node** : incompatibilité → choisir le runtime selon les libs
+- ❌ **Clé API LLM côté client** : fuite → server-side (route/action)
+- ❌ **Pas de cache sur générations répétitives** : coût inutile → `unstable_cache` / revalidation
+- ❌ **Version Next.js non épinglée** : ruptures App Router entre majeures → fixer la version (Next.js 15/16)
+- ❌ **`maxTokens` (AI SDK v4)** : sur AI SDK 5 c'est `maxOutputTokens` → vérifier la version
+
+## Sources
+- **Next.js** — nextjs.org (Vercel) : App Router, Server Actions, Route Handlers (Next.js **15/16**, + React 19)
+- **Vercel AI SDK** — ai-sdk.dev (`streamText`, `generateObject`) · **Zod** — zod.dev
+- **Anthropic** `@ai-sdk/anthropic` — modèle courant **`claude-opus-4-8`**
+
+## Voir aussi
+- [`vercel-ai-sdk.md`](vercel-ai-sdk.md) — API du SDK utilisées dans les routes
+- [`edge-functions-ia.md`](edge-functions-ia.md) — Edge Runtime et middleware
+- [`chat-ui-streaming.md`](chat-ui-streaming.md) — UI cliente du chat
+- [`integration-apis-llm-ts.md`](integration-apis-llm-ts.md) — couche d'intégration LLM

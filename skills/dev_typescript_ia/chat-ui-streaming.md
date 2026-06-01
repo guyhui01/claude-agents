@@ -89,3 +89,22 @@ function TypingIndicator() {
 
 ## Format de sortie
 Précise : framework CSS (Tailwind, shadcn/ui) · fonctionnalités souhaitées · multi-modal (images) · historique persistant
+
+## Anti-patterns
+- ❌ **Markdown LLM rendu sans sanitisation** : XSS via la réponse du modèle → sanitiser le HTML (rehype-sanitize)
+- ❌ **Pas de bouton Stop / d'abort** sur un stream long : l'utilisateur est bloqué → exposer `stop()`
+- ❌ **Pas d'`aria-live`** sur la zone de messages streamés : inaccessibilité lecteur d'écran → région live polie
+- ❌ **État d'erreur invisible** : échec silencieux → afficher l'erreur + retry (cf. `onError`)
+- ❌ **Auto-scroll forcé** quand l'utilisateur a remonté l'historique : frustrant → ne scroller que si déjà en bas
+- ❌ **`ai/react`** (AI SDK v4) : sur AI SDK 5, le hook vient de `@ai-sdk/react` → vérifier la version
+
+## Sources
+- **Vercel AI SDK** — ai-sdk.dev (`useChat`, streaming SSE ; AI SDK 5 → `@ai-sdk/react`)
+- **React 19** — react.dev (Meta) · **react-markdown** + **rehype-sanitize** — sécurité du rendu
+- **WAI-ARIA 1.2** — `aria-live` pour les messages dynamiques — w3.org/TR/wai-aria
+
+## Voir aussi
+- [`vercel-ai-sdk.md`](vercel-ai-sdk.md) — backend streaming consommé par cette UI
+- [`react-patterns-ia.md`](react-patterns-ia.md) — patterns d'état (optimistic, streaming, error boundary)
+- [`nextjs-ia.md`](nextjs-ia.md) — route API streaming associée
+- [`../cms_digital/accessibilite-numerique.md`](../cms_digital/accessibilite-numerique.md) — accessibilité (aria-live, WCAG)

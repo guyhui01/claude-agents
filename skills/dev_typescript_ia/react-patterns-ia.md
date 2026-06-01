@@ -95,3 +95,22 @@ class LLMErrorBoundary extends React.Component {
 
 ## Format de sortie
 Précise : type d'interface (chat, génération, copilot) · bibliothèque UI (shadcn, MUI, Tailwind) · cas d'usage précis
+
+## Anti-patterns
+- ❌ **Optimistic UI sans rollback** sur erreur : état incohérent → retirer/restaurer le placeholder en `catch` (fait ici ✓)
+- ❌ **Streaming sans annulation à l'unmount** : `setState` après démontage, fuite → flag `cancelled` + cleanup (fait ici ✓)
+- ❌ **Error Boundary sans reset** : l'utilisateur reste bloqué → bouton « Réessayer » qui réinitialise l'état
+- ❌ **Markdown LLM non sanitizé** : XSS → rehype-sanitize (cf. `chat-ui-streaming.md`)
+- ❌ **Dépendances implicites** (`streamText`, `toast`, `BlinkingCursor` non importés) : code non autonome → imports explicites
+- ❌ **Pas d'état de statut** (idle/streaming/done/error) : UX ambiguë → machine à états explicite
+
+## Sources
+- **React 19** — react.dev (Meta) : Suspense, transitions, Error Boundary
+- **Vercel AI SDK** — ai-sdk.dev (`useChat`/`useCompletion` pour l'état LLM côté client)
+- **react-markdown** + **rehype-sanitize** — rendu Markdown sécurisé
+
+## Voir aussi
+- [`chat-ui-streaming.md`](chat-ui-streaming.md) — composant chat complet (streaming, stop, scroll)
+- [`vercel-ai-sdk.md`](vercel-ai-sdk.md) — hooks et streaming du SDK
+- [`nextjs-ia.md`](nextjs-ia.md) — intégration App Router
+- [`tool-use-frontend.md`](tool-use-frontend.md) — affichage des tool calls

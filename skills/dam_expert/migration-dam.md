@@ -115,3 +115,24 @@ def migrate_asset(asset: dict, source_api: str, target_api: str) -> dict:
 
 ## Format de sortie
 Précise : **DAM source** (nom, version, API disponible ?), **DAM cible**, **volume** (nb assets, taille totale en Go), **intégrations à reconnecter** (CMS, PIM, CDN), **contraintes de disponibilité** (peut-on suspendre l'accès aux assets ?), **délai** disponible pour la migration.
+
+## Anti-patterns
+- ❌ **Migration sans déduplication par hash** (MD5/SHA256) : les doublons du legacy sont reportés tels quels → dédupliquer en phase 1
+- ❌ **Basculement sans gel + migration delta** : les assets créés/modifiés pendant la recette sont perdus → gel lecture seule + delta J0
+- ❌ **Migrer en masse les assets sans droits / orphelins** : on importe la dette juridique et documentaire → arbitrer migration/archivage/suppression en phase 2
+- ❌ **Ne pas conserver le master** (TIFF/RAW) en ne migrant que les renditions : perte de qualité irréversible pour le print → migrer le master + régénérer
+- ❌ **Absence de plan de rollback** : aucun retour arrière si le basculement échoue → procédure de rollback testée en recette
+- ❌ **Mapping de droits approximatif** (`copyright` texte libre → licence) : licences erronées en cible → table de correspondance validée juridiquement
+
+## Sources
+- **IPTC Photo Metadata Standard 2025.1** (oct. 2025) — métadonnées cible — iptc.org/standards/photo-metadata
+- **XMP** — ISO 16684-1:2019 (Adobe) · **Dublin Core** — ISO 15836-1:2017 (DCMI) — standards de mapping métadonnées
+- **Bynder API** — developer.bynder.com · **Widen** — widen.com — APIs source/cible
+- **DAMA-DMBOK 2** (2017) — gouvernance de la migration de données
+
+## Voir aussi
+- [`taxonomie-assets.md`](taxonomie-assets.md) — schéma cible de la migration
+- [`gestion-droits-licences.md`](gestion-droits-licences.md) — arbitrage des assets sans droits
+- [`gouvernance-dam.md`](gouvernance-dam.md) — politique d'archivage/purge du legacy
+- [`transformation-formats.md`](transformation-formats.md) — conversion de formats durant l'ETL
+- [`../cms_digital/migration-cms.md`](../cms_digital/migration-cms.md) — migration CMS coordonnée (assets référencés)

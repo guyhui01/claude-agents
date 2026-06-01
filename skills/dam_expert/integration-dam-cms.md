@@ -90,3 +90,23 @@ const openCloudinaryPicker = (sdk) => {
 
 ## Format de sortie
 Précise : **DAM source** (Bynder, AEM Assets, Cloudinary, Widen…), **CMS cible** (AEM Sites, Drupal 10, Contentful, WordPress…), **type d'intégration** souhaité (asset picker / API / sync CDN), **contraintes de performance** (SLA temps de réponse picker), **environnements** (dev, staging, prod).
+
+## Anti-patterns
+- ❌ **Upload direct sur le CMS** (contournement du DAM) : des assets non gouvernés, sans droits validés, sont publiés → asset picker imposé, upload CMS désactivé
+- ❌ **Stocker le fichier dans le CMS** au lieu de référencer l'URL DAM : doublons et désynchronisation → privilégier l'asset reference (URL/CDN)
+- ❌ **Pas de fallback si le DAM est indisponible** : pages cassées → image de repli + cache CDN
+- ❌ **API pull sans cache** : latence à chaque rendu éditeur → mise en cache des réponses DAM
+- ❌ **Pas de monitoring de la connexion** DAM↔CMS : disruptions silencieuses → alertes + tests de disponibilité
+- ❌ **Métadonnées (ALT, droits) non propagées** du DAM vers le CMS : accessibilité et conformité perdues → mapper ALT/droits à l'insertion
+
+## Sources
+- **Adobe AEM Assets** (Asset Picker, Dynamic Media/Scene7, Content Fragments, GraphQL) — experienceleague.adobe.com
+- **Bynder PHP SDK** (`bynder/bynder-php-sdk`) — developer.bynder.com · **Cloudinary** (`@cloudinary/url-gen`, Media Library Widget) — cloudinary.com/documentation
+- **Drupal 10/11** Media Source API — drupal.org · **Contentful App SDK** — contentful.com/developers
+- **OAuth 2.1** (RFC 9700) — authentification des connecteurs API
+
+## Voir aussi
+- [`distribution-multicanal.md`](distribution-multicanal.md) — diffusion CDN des assets référencés
+- [`taxonomie-assets.md`](taxonomie-assets.md) — métadonnées (ALT, droits) à propager au CMS
+- [`../cms_digital/integration-pim-dam.md`](../cms_digital/integration-pim-dam.md) — vue CMS de l'intégration PIM/DAM
+- [`../cms_digital/cms-headless.md`](../cms_digital/cms-headless.md) — consommation headless des assets

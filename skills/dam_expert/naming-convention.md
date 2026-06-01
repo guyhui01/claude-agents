@@ -113,3 +113,22 @@ def validate_filename(filename: str) -> tuple[bool, list[str]]:
 
 ## Format de sortie
 Précise : **marques** concernées, **types d'assets** (photos, vidéos, documents, templates…), **canaux de distribution** (pour liste des valeurs autorisées), **langues** actives, **agences / partenaires** qui livrent des assets (besoin de formation ?), **DAM cible** (règles de validation à l'upload).
+
+## Anti-patterns
+- ❌ **Espaces, accents ou majuscules** dans le nom (`Logo ACME FINAL.png`) : casse les URLs/CDN et crée des doublons (`img.jpg` ≠ `IMG.jpg`) → `[a-z0-9_-]` strict
+- ❌ **Date en `DD-MM-YYYY`** au lieu d'ISO 8601 `YYYYMMDD` : tri chronologique faux → toujours ISO 8601
+- ❌ **Versioning anarchique** (`final_FINAL_v2_def`) : ambiguïté sur la version de référence → suffixe normalisé `v1/v2/approved`
+- ❌ **Pas de préfixe `aigen_`** sur les assets générés par IA : traçabilité et conformité (droits, transparence AI Act) perdues
+- ❌ **Tout encoder dans le nom** sans renseigner les métadonnées IPTC/XMP : l'information disparaît à la conversion/export → le nom complète, ne remplace pas la métadonnée
+- ❌ **Convention non contrôlée à l'upload** : règle théorique sans validation automatique → dérive immédiate (cf. script de validation)
+
+## Sources
+- **IPTC Photo Metadata Standard 2025.1** (oct. 2025) — encodage des métadonnées descriptives/droits — iptc.org/standards/photo-metadata
+- **ISO 8601:2019** — *Date and time format* (YYYYMMDD) — iso.org
+- **AI Act UE** — Règlement (UE) 2024/1689, art. 50 (transparence des contenus générés par IA → justifie le préfixe `aigen_`) — eur-lex.europa.eu
+
+## Voir aussi
+- [`taxonomie-assets.md`](taxonomie-assets.md) — métadonnées IPTC/XMP complémentaires du nommage
+- [`gouvernance-dam.md`](gouvernance-dam.md) — gouvernance et contrôle qualité du nommage
+- [`workflow-validation-assets.md`](workflow-validation-assets.md) — validation du nommage à l'ingestion
+- [`migration-dam.md`](migration-dam.md) — renommage de masse du stock legacy

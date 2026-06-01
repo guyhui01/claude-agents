@@ -70,3 +70,23 @@ Asset partenaire externe 3 jours        5 jours      Notification partenaire
 
 ## Format de sortie
 Précise : **DAM utilisé**, **types d'assets** concernés, **acteurs impliqués** (équipes, agences, juristes), **contraintes de délai** (campagnes, lancements), **volumétrie** (nb uploads/semaine), **cas spéciaux** (mineurs, personnalités publiques, droits musicaux).
+
+## Anti-patterns
+- ❌ **Workflow sans SLA** : validations qui traînent, backlog ingérable → délai cible + max + escalade par type d'asset
+- ❌ **Pas de blocage automatique des mineurs identifiés** : risque RGPD (art. 9) et droit à l'image → contrôle bloquant
+- ❌ **Écrasement de fichier** au lieu d'une nouvelle version : perte d'historique et d'audit trail → versionning incrémental
+- ❌ **Étape « droits et licences » sautée** pour aller vite : diffusion d'assets sans droits valides → gate bloquant non contournable
+- ❌ **Trop d'étapes de validation** (sur-process) : goulot d'étranglement → calibrer le circuit selon l'enjeu de l'asset
+- ❌ **Validation purement déclarative** (pas de critères objectifs) : décisions subjectives → grille de contrôle explicite par étape
+
+## Sources
+- **BPMN 2.0.2** — OMG (Object Management Group, 2013) — modélisation des workflows de validation — omg.org/spec/BPMN
+- **RGPD** — Règlement (UE) 2016/679, art. 9 (mineurs, données sensibles) · **Code civil** art. 9 (droit à l'image) — cf. `gestion-droits-licences.md`
+- **AI Act UE** — Règlement (UE) 2024/1689, art. 50 (transparence contenus IA dans le circuit de validation)
+- **Bynder Workflow / AEM Assets Workflow / Canto** — documentation éditeurs — developer.bynder.com · experienceleague.adobe.com
+
+## Voir aussi
+- [`gestion-droits-licences.md`](gestion-droits-licences.md) — contrôle droits/RGPD dans le circuit de validation
+- [`taxonomie-assets.md`](taxonomie-assets.md) — métadonnées obligatoires contrôlées à la validation
+- [`naming-convention.md`](naming-convention.md) — conformité du nommage à l'ingestion
+- [`gouvernance-dam.md`](gouvernance-dam.md) — politique de cycle de vie et purge

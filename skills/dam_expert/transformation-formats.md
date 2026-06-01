@@ -107,3 +107,22 @@ Format moderne    <picture> avec fallback JPEG                  Compatibilité u
 
 ## Format de sortie
 Précise : **DAM utilisé**, **canaux cibles** (web, print, social, e-com…), **types d'assets** (photos, vidéos, documents…), **contraintes print** (profil CMJN, imprimeur), **CMS ou CDN** de distribution, **Core Web Vitals** à atteindre.
+
+## Anti-patterns
+- ❌ **Ne conserver que des renditions web** (tout en WebP, master supprimé) : impossible de régénérer en print/haute qualité → toujours archiver le master (TIFF/RAW)
+- ❌ **`width`/`height` HTML non définis** sur les images : dégrade le CLS → dimensions explicites systématiques
+- ❌ **Profil CMJN servi au web** (au lieu de sRGB) : couleurs fausses en navigateur → sRGB web / CMJN ISO coated print
+- ❌ **Sur-compression** (q < 60) : artefacts visibles → calibrer la qualité par canal
+- ❌ **Pas de fallback `<picture>`** pour AVIF/WebP : images cassées sur navigateurs anciens → balise `<picture>` + source JPEG
+- ❌ **Renditions générées à la volée sans cache CDN** : coût et latence → renditions pré-générées + cache
+
+## Sources
+- **Core Web Vitals** — web.dev/vitals (Google) : LCP < 2,5 s, CLS < 0,1, **INP < 200 ms** (INP a remplacé FID en mars 2024)
+- **WebP** (Google, ~25-34 % plus léger que JPEG à qualité égale) — developers.google.com/speed/webp · **AVIF** (Alliance for Open Media)
+- **Exif 3.0** — CIPA DC-008-2023 · **ICC / ECI** — profil *ISO Coated v2 (ECI)* pour le print — color.org / eci.org
+- **Cloudinary** — cloudinary.com/documentation · **AEM Assets** processing profiles — experienceleague.adobe.com
+
+## Voir aussi
+- [`distribution-multicanal.md`](distribution-multicanal.md) — diffusion des renditions par canal/CDN
+- [`taxonomie-assets.md`](taxonomie-assets.md) — métadonnées techniques (profil couleur, dimensions)
+- [`../cms_digital/performance-web.md`](../cms_digital/performance-web.md) — Core Web Vitals côté CMS (images optimisées)

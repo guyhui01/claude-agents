@@ -64,3 +64,23 @@ Expiry date J-7          Dépublication planifiée sur tous canaux    Tous canau
 
 ## Format de sortie
 Précise : **DAM utilisé**, **canaux de distribution** prioritaires, **CDN disponible** (Cloudinary, Akamai…), **CMS cibles** (AEM, Drupal, Contentful…), **contraintes print** (imprimeur, format, profil CMJN), **volumétrie** (nb assets distribués/semaine).
+
+## Anti-patterns
+- ❌ **Servir le master full-résolution sur tous les canaux** : poids et performance catastrophiques → renditions adaptées par canal
+- ❌ **Profil CMJN diffusé au web** : couleurs fausses en navigateur → sRGB web, CMJN réservé au print
+- ❌ **Pas de dépublication à l'`expiry_date`** : diffusion illégale après expiration des droits → désactivation automatique multicanale
+- ❌ **Distribution sans cache CDN** : coût et latence sur chaque requête → CDN + renditions pré-générées
+- ❌ **Specs print non validées par l'imprimeur** (profil/format au hasard) : rejet façonnier → profil CMJN + dimensions validés en amont
+- ❌ **ALT text absent** (e-mail/web) : accessibilité et délivrabilité dégradées → ALT obligatoire
+
+## Sources
+- **Core Web Vitals** — web.dev/vitals (Google) : budget poids/perf par canal
+- **Profils couleur** — sRGB IEC 61966-2-1 (web) · *ISO Coated v2 (ECI)* (print offset) — color.org / eci.org
+- **Cloudinary** — cloudinary.com/documentation · **Bynder** — developer.bynder.com · **Akamai / AWS CloudFront** — CDN
+- **Spécifications canaux sociaux** — recommandations officielles plateformes (Instagram, LinkedIn) — à revérifier (évolutives)
+
+## Voir aussi
+- [`transformation-formats.md`](transformation-formats.md) — génération des renditions par canal
+- [`gestion-droits-licences.md`](gestion-droits-licences.md) — droits par territoire/canal, dépublication
+- [`integration-dam-cms.md`](integration-dam-cms.md) — diffusion des assets vers le CMS
+- [`../cms_digital/performance-web.md`](../cms_digital/performance-web.md) — impact des assets sur la performance web

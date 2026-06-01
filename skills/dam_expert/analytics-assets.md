@@ -96,3 +96,22 @@ def get_unused_assets(days_without_download: int = 180) -> list:
 
 ## Format de sortie
 Précise : **DAM utilisé** et son API analytics (Bynder, Widen, AEM…), **outil BI disponible** (Power BI, Tableau, natif…), **fréquence de reporting** (hebdo, mensuel, CODIR), **types d'assets** prioritaires à suivre, **données de coût de production** disponibles (pour calcul ROI).
+
+## Anti-patterns
+- ❌ **Vanity metrics** : ne suivre que le volume de téléchargements sans réutilisation ni ROI → axer sur la valeur (réutilisation, coût évité)
+- ❌ **Pas de suivi des expirations de droits** : assets expirés encore diffusés → alertes J-90/J-30 (cf. `gestion-droits-licences.md`)
+- ❌ **Ignorer les recherches sans résultat** : les gaps du catalogue restent invisibles → les exploiter pour prioriser la production
+- ❌ **ROI sans coût de production** : le calcul devient factice → collecter les coûts studio en amont
+- ❌ **Dashboard sans cible** : chiffres non actionnables → chaque KPI assorti d'un seuil + d'une action
+- ❌ **Métriques en silo** (DAM seul, sans corrélation canal) : impossible de relier asset → performance business
+
+## Sources
+- **Bynder Analytics API** (v4) — developer.bynder.com · **Widen / AEM Assets** reporting — documentation éditeurs
+- **DAM KPIs** (asset reuse rate, time-to-asset, findability) — Henry Stewart DAM / *DAM Maturity Model* (DAM Foundation) — damfoundation.org
+- **ROI assets** = (réutilisations × coût de production évité) / coût de production — KPI sectoriel DAM (à calibrer)
+
+## Voir aussi
+- [`gouvernance-dam.md`](gouvernance-dam.md) — scorecard de gouvernance alimentée par ces métriques
+- [`gestion-droits-licences.md`](gestion-droits-licences.md) — suivi des expirations de droits
+- [`taxonomie-assets.md`](taxonomie-assets.md) — les recherches sans résultat révèlent les gaps de taxonomie
+- [`dam-augmente-ia.md`](dam-augmente-ia.md) — auto-tagging réduisant les recherches sans résultat

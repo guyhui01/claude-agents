@@ -75,3 +75,26 @@ dam:license_type    royalty_free · rights_managed · creative_commons · owned
 
 ## Format de sortie
 Précise : **DAM cible** (Bynder, AEM Assets, Cloudinary, Canto…), **marques concernées**, **types d'assets** principaux (photos, vidéos, documents, icons…), **contraintes RGPD** (personnes identifiables), **intégrations** (PIM, CMS), **volumétrie** estimée (nb assets).
+
+## Anti-patterns
+- ❌ **Taxonomie trop profonde** (> 3-4 niveaux) : assets enfouis, introuvables → privilégier une arborescence plate + métadonnées riches
+- ❌ **Champs libres sans vocabulaire contrôlé** : `dam:channel` saisi en texte libre → valeurs incohérentes (« web » / « Web » / « site ») → imposer des listes fermées
+- ❌ **`Iptc4xmpExt:PersonInImage` non renseigné** sur des photos de personnes identifiables → non-conformité RGPD (art. 9 si données sensibles)
+- ❌ **Absence de `dam:expiry_date`** : assets réutilisés après expiration des droits → risque juridique (cf. `gestion-droits-licences.md`)
+- ❌ **Tagging a posteriori** (pas à l'upload) : le backlog de re-tagging devient ingérable → métadonnées obligatoires bloquantes à l'ingestion
+- ❌ **Métadonnées propriétaires uniquement** (champs `dam:*` internes sans mapping IPTC/XMP) : perte à l'export inter-systèmes → toujours mapper sur un standard
+
+## Sources
+- **IPTC Photo Metadata Standard 2025.1** (oct. 2025 — IPTC Core 1.5 / Extension 1.9, ajout des propriétés de contenu généré par IA) — iptc.org/standards/photo-metadata
+- **XMP** — *Extensible Metadata Platform*, ISO 16684-1:2019 (Adobe) — adobe.com/products/xmp
+- **Exif 3.0** — CIPA DC-008-2023 (support UTF-8) — cipa.jp
+- **Dublin Core** — DCMI Metadata Terms / ISO 15836-1:2017 — dublincore.org
+- **RGPD** — Règlement (UE) 2016/679, art. 9 (données biométriques/identification) — eur-lex.europa.eu
+
+## Voir aussi
+- [`naming-convention.md`](naming-convention.md) — convention de nommage cohérente avec la taxonomie
+- [`gestion-droits-licences.md`](gestion-droits-licences.md) — droits, expiration, RGPD sur les assets
+- [`gouvernance-dam.md`](gouvernance-dam.md) — politique de gouvernance et archivage
+- [`migration-dam.md`](migration-dam.md) — migration des métadonnées legacy vers ce schéma
+- [`dam-augmente-ia.md`](dam-augmente-ia.md) — auto-tagging IA alimentant les vocabulaires contrôlés
+- [`../cms_digital/integration-pim-dam.md`](../cms_digital/integration-pim-dam.md) — exposition des assets et métadonnées au CMS

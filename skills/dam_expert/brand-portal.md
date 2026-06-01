@@ -89,3 +89,22 @@ KIT DE PRESSE — [Marque] — [Trimestre/Événement]
 
 ## Format de sortie
 Précise : **DAM utilisé** (Bynder, Brandfolder, AEM Assets…), **profils utilisateurs** (interne, agences, partenaires, presse), **marques** à couvrir, **types d'assets** prioritaires (logos, produits, presse…), **contraintes de branding** (domaine custom, SSO entreprise), **volume** d'utilisateurs externes estimé.
+
+## Anti-patterns
+- ❌ **Pas de watermark sur les previews sous droits** : fuite d'assets non libérés → filigrane systématique sur preview RM/non approuvés
+- ❌ **Accès uniforme sans ACL par profil** : la presse ou un revendeur accède aux campagnes confidentielles → matrice d'accès granulaire
+- ❌ **Kit de presse non maintenu** : logos/chiffres obsolètes diffusés → date de péremption + revue trimestrielle
+- ❌ **SSO vague / comptes partagés** : traçabilité perdue → SSO normalisé (SAML 2.0 ou OpenID Connect)
+- ❌ **Share links permanents** : URLs publiques incontrôlées → liens à expiration + mot de passe optionnel
+- ❌ **Guidelines séparées des assets** : l'utilisateur télécharge sans connaître l'usage correct → charte intégrée au portail
+
+## Sources
+- **Bynder Brand Portal** — bynder.com · **Brandfolder** (Smartsheet) — brandfolder.com · **AEM Assets Brand Portal** — experienceleague.adobe.com
+- **SSO** — SAML 2.0 (OASIS) / OpenID Connect (OpenID Foundation) — pour l'accès partenaires/agences
+- **Creative Commons 4.0** (2013) — si licences ouvertes proposées au téléchargement — creativecommons.org/licenses
+
+## Voir aussi
+- [`gestion-droits-licences.md`](gestion-droits-licences.md) — droits conditionnant le téléchargement (watermark, RM/RF)
+- [`gouvernance-dam.md`](gouvernance-dam.md) — gouvernance des accès et profils
+- [`workflow-validation-assets.md`](workflow-validation-assets.md) — seuls les assets « approved » alimentent le portail
+- [`distribution-multicanal.md`](distribution-multicanal.md) — conversion à la volée au téléchargement

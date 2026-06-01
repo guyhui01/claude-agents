@@ -83,3 +83,23 @@ Modification droits          Date · Utilisateur · Type de droits · Territoire
 
 ## Format de sortie
 Précise : **DAM utilisé**, **périmètre** (marques, BU, géographies), **contraintes légales** (secteur, réglementation applicable), **volumétrie** (nb assets, utilisateurs), **problèmes de gouvernance actuels** identifiés (si audit de l'existant).
+
+## Anti-patterns
+- ❌ **Gouvernance sans comité ni owner** : personne ne tranche les arbitrages → comité DAM + RACI nominatif
+- ❌ **Politique d'archivage jamais exécutée** : la purge théorique ne tourne pas → coût de stockage et dette documentaire → automatiser le purge schedule
+- ❌ **Durées de rétention non alignées sur les obligations légales** sectorielles : risque de conformité → valider les durées avec le juridique/DPO
+- ❌ **Absence d'audit trail** : impossible de prouver qui a fait quoi → journaliser les événements clés (upload, droits, suppression)
+- ❌ **Scorecard sans seuil d'alerte ni action** : gouvernance théorique → chaque KPI assorti d'une cible + alerte + responsable
+- ❌ **Confondre DAM Admin (technique) et DAM Manager (gouvernance)** : responsabilités diluées → RACI distinct
+
+## Sources
+- **ISO/IEC 42001:2023** — AI Management System (gouvernance de l'IA appliquée au DAM augmenté) — iso.org
+- **DAMA-DMBOK 2** (2017) — *Data Management Body of Knowledge*, gouvernance des données (CDMP) — dama.org
+- **DAM Maturity Model** — DAM Foundation — damfoundation.org
+- **RGPD** — Règlement (UE) 2016/679 (assets avec personnes) · obligations de **rétention légale** à préciser par secteur — eur-lex.europa.eu
+
+## Voir aussi
+- [`taxonomie-assets.md`](taxonomie-assets.md) — standards et vocabulaires contrôlés gouvernés
+- [`gestion-droits-licences.md`](gestion-droits-licences.md) — conformité droits/RGPD du pilier 5
+- [`workflow-validation-assets.md`](workflow-validation-assets.md) — cycle de vie et versionning
+- [`analytics-assets.md`](analytics-assets.md) — KPIs alimentant la scorecard de gouvernance

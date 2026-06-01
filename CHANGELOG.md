@@ -5,6 +5,21 @@
 
 ---
 
+## [3.18.1] — 2026-06-01 — Fix P0 factuel : benchmarks LLM fabriqués dans rh_ia
+> Modèle : Claude Opus 4.8
+
+### 🚨 Correctif factuel critique (`feedback_verification_factuelle`)
+3 skills `rh_ia/*` contenaient un **tableau/des mentions de benchmarks concurrents fabriqués** (versions de modèles concurrents invérifiables + scores exacts type « SWE-bench Pro / LMArena Elo » + dates) — incident du même type que v3.8.0.
+- **`evaluation-profils-techniques`** : la question d'entretien « choix de LLM » passe d'un **classement figé inventé** à une réponse **par méthode** (tiers + critères) + renvoi aux **leaderboards publics à jour** (lmarena.ai, swebench.com, llm-stats.com).
+- **`transformation-rh-ia`** : le « Référentiel LLM Frontier — Avril 2026 » (colonnes SWE-bench Pro / Elo chiffrées) → tableau **par tier sans score figé** + avertissement « les benchmarks changent en continu ».
+- **`redaction-offre-emploi`** : versions concurrentes inventées → familles génériques.
+- Versions Anthropic au courant : **Opus 4.8 / Sonnet 4.6 / Haiku 4.5**.
+
+### 📌 Note
+Ne traite **que** le P0 factuel ; l'audit complet du groupe rh_ia (11 skills, §3.5) reste à planifier. WebSearch préalable du paysage LLM réel avant correction.
+
+---
+
 ## [3.18.0] — 2026-06-01 — Méta-agents enrichis : ORCHESTRATEUR-WORKFLOW + PROMPT-ENGINEER (23 skills)
 > Modèle : Claude Opus 4.8
 

@@ -9,7 +9,7 @@ Accompagner les équipes RH dans l'intégration de l'IA dans leurs processus : c
 ```
 RECRUTEMENT
 ──────────────────────────────────────────────────────
-Rédaction d'offres       → LLM (Claude Sonnet 4.6, GPT-5.5, Gemini 3.1 Pro) sur brief RH structuré
+Rédaction d'offres       → LLM (Claude Sonnet 4.6 ou équivalent marché) sur brief RH structuré
 Sourcing booléen         → LinkedIn Recruiter, Seek Out, Hireez
 Screening CV             → ATS IA : Greenhouse, Lever, SmartRecruiters
 Qualification initiale   → Chatbot RH : MYA, Paradox (Olivia), Eightfold AI
@@ -22,7 +22,7 @@ FORMATION & DÉVELOPPEMENT
 ──────────────────────────────────────────────────────
 Détection gaps compétences → Analyse SIRH + LLM
 Recommandations parcours  → LMS IA : 360Learning, Cornerstone, Docebo AI
-Génération contenu formation → Claude Opus 4.7 / Sonnet 4.6, GPT-5.5 + LMS
+Génération contenu formation → Claude Opus 4.8 / Sonnet 4.6 (ou équivalent marché) + LMS
 Évaluation post-formation  → Quiz génératif + analyse résultats
 
 PEOPLE ANALYTICS
@@ -51,7 +51,7 @@ WORKFLOW RECRUTEMENT IA — 6 ÉTAPES
 ──────────────────────────────────────────────────────
 ÉTAPE 1 — BRIEF & OFFRE (IA générative)
   Input : Brief manager (poste, stack, contexte)
-  Outil : Claude Sonnet 4.6 / Opus 4.7 · GPT-5.5 · Gemini 3.1 Pro + template structuré
+  Outil : Claude Sonnet 4.6 / Opus 4.8 (ou équivalent frontier du marché) + template structuré
   Output: Offre rédigée, vérifiée, publiée automatiquement
 
 ÉTAPE 2 — SOURCING (IA de matching)
@@ -175,19 +175,20 @@ PHASE 4 — GÉNÉRALISATION (M5-M6)
 | Satisfaction manager | 3.6/5 | 4.2/5 | +17% |
 *Sources : LinkedIn Talent Trends 2024, Greenhouse State of Recruiting 2024*
 
-## Référentiel LLM Frontier — Avril 2026
+## Référentiel LLM par tier
 
-| Modèle | Éditeur | Tier | Points forts RH | SWE-bench Pro | LM Arena Elo |
-|---|---|---|---|---|---|
-| **Claude Opus 4.7** | Anthropic | Premium | Raisonnement adaptatif · vision HR · mode "max effort" | **64,3 %** | **1504** |
-| **GPT-5.5** | OpenAI | Premium | #1 classement général · code avancé · agents complexes | 58,6 % | — |
-| **Gemini 3.1 Pro** | Google | Premium | Génération texte · multimodal · Google Workspace natif | — | Top 3 |
-| **Grok 3** | xAI | Premium | Temps réel (X/Twitter) · actualité · veille marché | — | — |
-| Claude Sonnet 4.6 | Anthropic | Production | 1M tokens contexte · meilleur ratio qualité/prix | Frontier-class | — |
-| GPT-4o | OpenAI | Production | Multimodal mature · forte communauté intégrations | — | — |
-| Gemini 2.5 Flash | Google | Éco/rapide | Latence faible · coût réduit · Cloud natif | — | — |
-| Mistral Large 2 | Mistral AI | Souverain | On-premise · RGPD FR/EU · déployable en interne | — | — |
-| LLaMA 3.3 405B | Meta | Open-source | Self-hosted · coût infra uniquement · customisable | — | — |
+> ⚠️ Le paysage LLM évolue en continu — **aucun score figé ici**. Pour les benchmarks
+> (SWE-bench, GPQA, LMArena Elo), se référer aux **classements publics à jour** :
+> lmarena.ai · swebench.com · llm-stats.com. Un « #1 » écrit dans un support est faux le mois suivant.
+
+| Tier | Modèles (familles) | Usage RH typique |
+|---|---|---|
+| **Frontier / Premium** | Claude **Opus 4.8** · OpenAI GPT · Google Gemini · xAI Grok · DeepSeek | Analyse CV complexe, offres premium, évaluation senior, agents de sourcing |
+| **Production** | Claude **Sonnet 4.6** · équivalents multimodaux | Qualification initiale, scoring ATS, people analytics, chatbots RH |
+| **Éco / rapide** | Claude **Haiku 4.5** · modèles « flash/mini » concurrents | Tâches simples à fort volume, latence faible |
+| **Souverain / on-premise** | Mistral (RGPD FR/EU) · Llama (open-source, self-hosted) | Données sensibles, contraintes de résidence data EU |
+
+> Critères de sélection : qualité sur la tâche (evals maison) · coût/token · latence · context window · multimodal · souveraineté/résidence data · réversibilité (anti lock-in).
 
 **Usage RH recommandé par tier :**
 - **Premium** → analyse CV complexe, génération d'offres premium, questions d'évaluation senior, agents de sourcing autonomes

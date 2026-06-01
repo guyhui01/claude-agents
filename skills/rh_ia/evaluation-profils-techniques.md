@@ -43,37 +43,29 @@ Score : 0-3
 
 NIVEAU 3 — Leadership & Design (seniors)
 ──────────────────────────────────────────────────────
-Q : Comment choisissez-vous entre les LLM du marché pour un use case donné ? (Frontier 2026 : Claude Opus 4.7, GPT-5.5, Gemini 3.1 Pro, Grok 3…)
-Réponse attendue :
+Q : Comment choisissez-vous entre les LLM du marché pour un use case donné ?
+Réponse attendue (le paysage évolue très vite → la MÉTHODE prime sur un « top du moment » figé) :
 
-  FRONTIER — Raisonnement complexe, agents, code avancé
-  · Claude Opus 4.7 (avr. 2026) : #1 SWE-bench Pro (64,3%) · #1 LM Arena (1504 Elo)
-    mode "max effort" · vision HR 3x · raisonnement adaptatif → tâches critiques
-  · GPT-5.5 (avr. 2026) : #1 classement général · SWE-bench Pro 58,6%
-    → génération de code, agents complexes, raisonnement multi-étapes
-  · Gemini 3.1 Pro : leader génération texte · fort sur LM Arena
-    → multimodal, intégration Google Workspace, contexte long
+  Raisonner par TIER et par CRITÈRES, pas par classement instantané :
+  · FRONTIER (raisonnement complexe, agents, code avancé) :
+    Claude Opus 4.8 · familles concurrentes frontier (OpenAI GPT, Google Gemini, xAI Grok, DeepSeek)
+  · PRODUCTION (équilibre qualité/coût, gros volumes) :
+    Claude Sonnet 4.6 · alternatives multimodales/économiques selon le besoin
+  · RAPIDE / SIMPLE (latence, scripts) :
+    Claude Haiku 4.5 · modèles « flash/mini » concurrents
+  · SOUVERAINETÉ / ON-PREMISE :
+    Mistral (déployable, RGPD FR/EU) · Llama (open-source, self-hosted)
 
-  PRODUCTION — Équilibre qualité/coût
-  · Claude Sonnet 4.6 : frontier-class · 1M tokens contexte · meilleur ratio
-    qualité/prix Anthropic → production, RAG, assistants métier
-  · GPT-4o / o4-mini : multimodal mature · forte communauté d'intégrations
-  · Gemini 2.5 Flash : latence faible · coût réduit · Google Cloud natif
+  Critères de choix (le cœur de la réponse) : qualité sur la tâche (evals maison) ·
+  coût/token · latence · context window · multimodal · souveraineté / résidence data (EU) ·
+  disponibilité API régionale · réversibilité (anti lock-in)
 
-  RÉACTIF / TEMPS RÉEL
-  · Grok 3 (xAI) : connecté en temps réel à X · fort sur actualité
-    → veille, analyse marché live, environnements réactifs
-
-  SOUVERAINETÉ / ON-PREMISE
-  · Mistral Large 2 : déployable on-premise · RGPD FR/EU · Mistral AI Paris
-  · LLaMA 3.3 405B (Meta) : open-source · self-hosted · coût infra uniquement
-
-  Critères clés du choix : coût/token · latence · context window ·
-  benchmark sur tâche spécifique (evals) · contraintes souveraineté data ·
-  disponibilité API régionale (EU)
+  ⚠️ Benchmarks (SWE-bench, GPQA, LMArena Elo) : se référer aux CLASSEMENTS PUBLICS À JOUR
+  (lmarena.ai · swebench.com · llm-stats.com) — ils changent en continu ; ne jamais figer
+  un score ou un « #1 » dans un support (il sera faux le mois suivant).
 
 Score : 0-3 (0 = cite 1 modèle sans critère · 2 = tier + critères · 3 = grille multicritère
-         avec benchmarks + justification use case + contraintes RGPD)
+         + evals sur tâche + contraintes RGPD + renvoi aux leaderboards à jour)
 ```
 
 ### Questions comportementales STAR

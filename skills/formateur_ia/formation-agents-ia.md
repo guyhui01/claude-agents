@@ -108,3 +108,22 @@ n8n/Make        Low-code, visuel        Scalabilité limite   Non-tech
 ## Format de sortie
 
 Précise : **profil des participants** (dev / PO / architecte / mixte), **durée disponible** (2h / demi-journée / journée), **framework cible** (Claude SDK / LangGraph / CrewAI / no preference), **cas métier disponible** (optionnel pour TP), **niveau IA actuel** (1-5).
+
+## Sources
+- **Anthropic** — *Building Effective Agents* (2024) — patterns workflow & agents
+- **Anthropic** — *Model Context Protocol (MCP)* (2024) — connexion outils
+- **Wei et al.** — *Chain-of-Thought Prompting* (NeurIPS 2022) ; **Yao et al.** — *ReAct* (2023)
+- Documentation **LangGraph** (LangChain), **CrewAI**, **AutoGen** (Microsoft)
+
+## Anti-patterns
+- Enseigner les frameworks (LangGraph/CrewAI) avant les patterns fondamentaux (ReAct, tool use)
+- TP « agent » sans garde-fous (coûts, boucles infinies, observabilité)
+- Présenter les patterns (ReAct, CoT) sans les attribuer aux publications
+- Multi-agent par défaut alors qu'un prompt unique suffirait (sur-ingénierie)
+- Ne pas évaluer ni monitorer l'agent produit en TP
+
+## Voir aussi
+- [formation-claude-code.md](formation-claude-code.md) — socle Claude Code / API
+- [prompt-engineering-formation.md](prompt-engineering-formation.md) — prompts d'agents
+- [`../prompt_engineer/system-prompt-design.md`](../prompt_engineer/system-prompt-design.md) — cadrer le comportement d'un agent
+- [`../prompt_engineer/chain-of-thought.md`](../prompt_engineer/chain-of-thought.md) — raisonnement structuré

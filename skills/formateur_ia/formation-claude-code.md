@@ -129,3 +129,22 @@ Données          Géré par Anthropic         Configurable (no-logging opt)
 ## Format de sortie
 
 Précise : **profil** (dev / PO / consultant / mixte), **module souhaité** (A / B / C / sur-mesure), **durée** (demi-journée / journée), **contexte** (formation initiale / montée en compétences / certification), **outils intégrés** à démontrer (Jira, Confluence, GitHub, autres).
+
+## Sources
+- **Anthropic** — documentation *Claude Code* (CLAUDE.md, MCP, hooks) & *Messages API* — [docs.anthropic.com](https://docs.anthropic.com/)
+- **Anthropic** — *Prompt Engineering Guide*
+- **Anthropic** — *Model Context Protocol (MCP)* (2024)
+- Modèles à jour : **Claude Opus 4.8 / Sonnet 4.6 / Haiku 4.5** (politique de tiers)
+
+## Anti-patterns
+- Former à l'outil sans cadrage de gouvernance et de sécurité des données
+- Démonstrations sur des données clients réelles (RGPD) en session
+- Citer des versions de modèles obsolètes
+- TP sans codebase réelle → compétence non transférable
+- Confondre Claude.ai Teams et API/SDK selon le besoin
+
+## Voir aussi
+- [prompt-engineering-formation.md](prompt-engineering-formation.md) — compétence prompt en amont
+- [formation-agents-ia.md](formation-agents-ia.md) — aller vers les agents
+- [formation-ia-sensibilisation.md](formation-ia-sensibilisation.md) — prérequis non-tech
+- [`../prompt_engineer/prompt-optimization.md`](../prompt_engineer/prompt-optimization.md) — optimisation des prompts

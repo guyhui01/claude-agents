@@ -1,6 +1,6 @@
 # Skill — Conception de Parcours de Formation IA
 
-> Certifications : ATD Instructional Design, CPLP 2026, Learning & Development Professional (SHRM), Articulate Storyline 360 Certified, Qualiopi Ingénierie Pédagogique
+> Certifications : ATD Instructional Design, CPTD 2026, Learning & Development Professional (SHRM), Articulate Storyline 360 Certified, Qualiopi Ingénierie Pédagogique
 
 ## Objectif
 
@@ -126,12 +126,13 @@ chain-of-thought vues en module 2, avec un taux de pertinence
 | Flashcards | 5 min | Anki, Brainscape | Mémorisation glossaire IA |
 | Challenge pratique | 15 min | — | Application immédiate |
 
-### Règle des 3-5-10 pour le microlearning
+### Repères pratiques 3-5-10 pour le microlearning
+> Heuristiques de terrain (non normatives). L'espacement des rappels s'appuie sur l'**effet d'espacement** et la courbe de l'oubli (Ebbinghaus, 1885), pas sur un intervalle fixe.
 
 ```
-3 minutes maximum pour une vidéo de concept
-5 jours pour espacer les rappels (spaced repetition)
-10% du temps de formation = microlearning de renforcement
+~3 minutes pour une vidéo de concept (format court, charge cognitive maîtrisée)
+rappels espacés et croissants (J+1, J+3, J+7…) plutôt qu'un rappel unique
+~10% du temps de formation consacré au microlearning de renforcement
 ```
 
 ## Livrables
@@ -146,3 +147,23 @@ chain-of-thought vues en module 2, avec un taux de pertinence
 ## Format de sortie
 
 Précise : **titre et thème de la formation**, **public cible** (profil, niveau actuel, effectif), **durée totale** disponible, **format souhaité** (présentiel / e-learning / blended), **outils disponibles** (LMS, authoring), **niveau Bloom visé** (application ou création), **contraintes budget et délai**.
+
+## Sources
+- **Benjamin Bloom (dir.)** — *Taxonomy of Educational Objectives* (1956) ; révision **Anderson & Krathwohl** (2001) — verbes opérationnels, « Créer » au sommet
+- **Florida State University / US Army** — modèle **ADDIE** (1975)
+- **Michael Allen & Richard Sites** — *Leaving ADDIE for SAM* (2012)
+- **John Sweller** — *Cognitive Load Theory* (1988) — charge cognitive et segmentation
+- **Hermann Ebbinghaus** — *Über das Gedächtnis* (1885) — courbe de l'oubli / effet d'espacement
+
+## Anti-patterns
+- Objectifs pédagogiques sans verbe Bloom mesurable (« sensibiliser à… »)
+- ADDIE en cascade rigide là où l'itératif (SAM) serait adapté
+- Microlearning = saucissonnage de slides, sans objectif par grain
+- Présenter « 3-5-10 » ou un intervalle fixe comme une règle scientifique
+- Surcharge cognitive : trop de concepts nouveaux par module (Sweller)
+
+## Voir aussi
+- [analyse-besoins-formation.md](analyse-besoins-formation.md) — écarts de compétences en entrée
+- [evaluation-formation.md](evaluation-formation.md) — aligner objectifs Bloom et évaluation
+- [elearning-rapid-learning.md](elearning-rapid-learning.md) — produire les grains microlearning
+- [`../prompt_engineer/chain-of-thought.md`](../prompt_engineer/chain-of-thought.md) — exemple de contenu technique à structurer

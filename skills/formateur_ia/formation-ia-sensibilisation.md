@@ -42,7 +42,7 @@ DURÉE    SÉQUENCE                              FORMAT
 
 3. La qualité de la RÉPONSE = qualité de la QUESTION
    → C'est la promesse du prompt engineering
-   → Investir 2 min de plus dans son prompt = 10× meilleure sortie
+   → Quelques minutes investies dans la formulation améliorent nettement la pertinence de la réponse
 
 4. L'IA est un ASSISTANT, pas un ORACLE
    → Vérifier les faits, les chiffres, les sources
@@ -164,3 +164,22 @@ DÉBRIEF : L'IA peut-elle remplacer un manager ? Débat 10 min.
 ## Format de sortie
 
 Précise : **secteur d'activité**, **métiers représentés dans la session**, **durée disponible** (1h30 / demi-journée / journée), **format** (présentiel / distanciel / e-learning), **niveau IA des participants** (estimer 1-5), **outils IA approuvés** dans l'organisation, **contraintes RGPD / sécurité** à mentionner.
+
+## Sources
+- **Malcolm Knowles** — andragogie (1970/1980) — apprentissage adulte par l'expérience
+- **Richard Mayer** — *Multimedia Learning* (2001) — supports accessibles
+- **CNIL** — guides *IA & RGPD* — usage responsable des données
+- **Anthropic / OpenAI** — guides d'usage responsable des LLM
+
+## Anti-patterns
+- Survendre l'IA avec des chiffres « magiques » non sourcés
+- Sensibilisation 100 % théorique, sans manipulation réelle d'un LLM
+- Ignorer le volet données / RGPD et éthique
+- Mêmes exemples pour tous les métiers (pas d'ancrage par fonction)
+- Anthropomorphisme : « l'IA comprend / pense / sait »
+
+## Voir aussi
+- [formation-claude-code.md](formation-claude-code.md) — suite outillée pour profils tech
+- [prompt-engineering-formation.md](prompt-engineering-formation.md) — approfondir la formulation
+- [evaluation-formation.md](evaluation-formation.md) — quiz L1/L2 de sensibilisation
+- [`../redacteur_ia/storytelling-ia.md`](../redacteur_ia/storytelling-ia.md) — ancrer le propos par le récit

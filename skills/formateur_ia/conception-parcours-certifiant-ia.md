@@ -157,3 +157,22 @@ MÉTRIQUES DE SUIVI
 ## Format de sortie
 
 Précise : **certification(s) ciblée(s)**, **profil(s) des apprenants**, **délai souhaité**, **budget disponible** (certification payante ou non), **mode** (individuel / collectif), **accompagnement attendu** (plan seul / coaching / animation).
+
+## Sources
+- **ATD** — *Talent Development Body of Knowledge (TDBoK)* — ingénierie des dispositifs certifiants
+- **Donald Kirkpatrick** — *Evaluating Training Programs* (1994) — alignement objectifs ↔ évaluation
+- **Anthropic** — parcours de certification Claude (Claude 101, Claude Code 101, Claude Code in Action) — [anthropic.skilljar.com](https://anthropic.skilljar.com/)
+- Référentiels officiels des certifications citées : AWS *AI Practitioner* (AIF-C01), Microsoft *AI-102*, *CAP IABAC*, *ISTQB AI Testing*, *SAFe*
+
+## Anti-patterns
+- Choisir la certification « à la mode » sans matrice profil × objectif professionnel
+- Plan de préparation sans mock exam ni jalons d'évaluation intermédiaires
+- Promettre un taux de réussite sans diagnostic du niveau initial
+- Certifier pour le badge sans transfert opérationnel (Kirkpatrick L3)
+- Banque de questions non alignée sur le référentiel officiel de l'examen
+
+## Voir aussi
+- [prompt-engineering-formation.md](prompt-engineering-formation.md) — préparer la compétence prompt
+- [formation-claude-code.md](formation-claude-code.md) — préparer les certifs Claude Code
+- [formation-agents-ia.md](formation-agents-ia.md) — préparer les compétences agents
+- [evaluation-formation.md](evaluation-formation.md) — mesurer transfert et ROI du parcours certifiant

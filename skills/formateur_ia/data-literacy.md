@@ -199,3 +199,23 @@ Certification_Data_Literacy_Interne:
 ## Format de sortie
 
 Précise : **population totale cible** (nb collaborateurs), **répartition par rôle** (opérationnels / managers / directeurs), **niveau de départ estimé** (1-4), **outil BI en place** (Power BI / Tableau / Looker / autre), **LMS disponible**, **budget programme**, **horizon de déploiement** (6 mois / 12 mois / 18 mois), **sponsor RH ou CDO**.
+
+## Sources
+- **DAMA International** — *DMBOK 2* (2017) — socle de gouvernance et culture de la donnée
+- **Edward Tufte** — *The Visual Display of Quantitative Information* (1983) — principes de dataviz
+- **Alberto Cairo** — *The Functional Art* (2012) / *The Truthful Art* (2016)
+- **Barbara Minto** — *The Minto Pyramid Principle* (1987) — structuration du message data
+- **Qlik / Data Literacy Project** & Gartner — cadres de littératie data en entreprise
+
+## Anti-patterns
+- Confondre data literacy (lire / interpréter / communiquer) et maîtrise d'un outil BI
+- Programme uniforme, sans différenciation par rôle et par niveau (1-4)
+- Dataviz trompeuses (axes tronqués, camemberts surchargés) — anti-Tufte
+- Certifier sans mise en pratique sur des données métier réelles
+- Citer « Pyramid Principle » sans l'attribuer à Barbara Minto
+
+## Voir aussi
+- [conception-parcours.md](conception-parcours.md) — structurer les 4 niveaux (Bloom)
+- [evaluation-formation.md](evaluation-formation.md) — mesurer la montée en littératie
+- [`../redacteur_ia/redaction-rapport.md`](../redacteur_ia/redaction-rapport.md) — communiquer les données (Minto)
+- [`../business_analyst/reporting-moa.md`](../business_analyst/reporting-moa.md) — restitution data côté MOA

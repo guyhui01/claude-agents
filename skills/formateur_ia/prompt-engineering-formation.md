@@ -222,3 +222,24 @@ Puis génère une version améliorée en corrigeant les lacunes identifiées."
 ## Format de sortie
 
 Précise : **niveau cible** (débutant / intermédiaire / avancé / multi-niveaux), **outil LLM principal** de l'organisation (Claude / ChatGPT / Gemini / Copilot), **métiers des participants**, **durée disponible** (2h / demi-journée / journée / parcours), **format** (présentiel / e-learning / blended), **cas d'usage métier** prioritaires à traiter.
+
+## Sources
+- **Anthropic** — *Prompt Engineering Guide* (docs.anthropic.com)
+- **Wei et al.** — *Chain-of-Thought Prompting Elicits Reasoning in LLMs* (NeurIPS 2022)
+- **Brown et al.** — *Language Models are Few-Shot Learners* (NeurIPS 2020, GPT-3)
+- **Wang et al.** — *Self-Consistency* (2023) ; **Yao et al.** — *ReAct* (2023)
+- **Anderson & Krathwohl** — taxonomie de Bloom révisée (2001) — progression des niveaux
+
+## Anti-patterns
+- Enseigner des « formules magiques » figées plutôt que des principes transférables
+- Présenter Few-shot / CoT sans attribution académique
+- Comparatif LLM avec des fenêtres de contexte non datées (elles évoluent vite)
+- Pas de projet fil rouge → compétence non ancrée
+- Négliger l'évaluation de la qualité des prompts (itération, self-critique)
+
+## Voir aussi
+- [formation-claude-code.md](formation-claude-code.md) — mise en pratique outillée
+- [formation-agents-ia.md](formation-agents-ia.md) — prompts d'orchestration d'agents
+- [`../prompt_engineer/few-shot-learning.md`](../prompt_engineer/few-shot-learning.md) — few-shot approfondi
+- [`../prompt_engineer/chain-of-thought.md`](../prompt_engineer/chain-of-thought.md) — CoT approfondi
+- [`../redacteur_ia/prompt-engineering-redaction.md`](../redacteur_ia/prompt-engineering-redaction.md) — prompts pour la rédaction

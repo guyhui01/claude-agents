@@ -178,3 +178,23 @@ Séquence de facilitation :
 ## Format de sortie
 
 Précise : **thème et durée de la session**, **effectif et profil des apprenants**, **format** (présentiel / distanciel / hybride), **niveau IA des participants** (débutant / intermédiaire / expert), **objectifs comportementaux** visés, **contraintes techniques** (outils disponibles), **nombre de formateurs** disponibles.
+
+## Sources
+- **Morgan McCall, Michael Lombardo & Robert Eichinger (CCL)** — modèle **70-20-10** (années 1980 ; *Career Architect*, 1996) — cadre **indicatif et empirique**, non un ratio mesuré
+- **Henri Lipmanowicz & Keith McCandless** — *The Surprising Power of Liberating Structures* (2014)
+- **Malcolm Knowles** — andragogie (*The Modern Practice of Adult Education*, 1970/1980) — postures de l'apprenant adulte
+- **Sharon Bowman** — *Training from the Back of the Room!* (2009) — pédagogie active
+
+## Anti-patterns
+- Exposés magistraux > 10 min d'affilée → décrochage attentionnel
+- Présenter le 70-20-10 comme un ratio scientifiquement mesuré
+- Jeux pédagogiques « gadgets » sans objectif d'apprentissage (Bloom) explicite
+- Hybride mal géré : participants distants sans dispositif d'Equal Voice
+- Laisser le biais HiPPO monopoliser la parole
+- **Véhiculer des neuromythes** (styles VAK, pyramide de l'apprentissage) pour justifier un format
+
+## Voir aussi
+- [conception-parcours.md](conception-parcours.md) — objectifs Bloom des activités animées
+- [formation-ia-sensibilisation.md](formation-ia-sensibilisation.md) — ateliers de sensibilisation
+- [`../ux_design/facilitation-ateliers.md`](../ux_design/facilitation-ateliers.md) — Design Sprint & co-design
+- [`../business_analyst/animation-atelier-metier.md`](../business_analyst/animation-atelier-metier.md) — ateliers métier/MOA

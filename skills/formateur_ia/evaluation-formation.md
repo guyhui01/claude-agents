@@ -1,6 +1,6 @@
 # Skill — Évaluation de la Formation IA
 
-> Certifications : Kirkpatrick Certified Evaluator 2026, ATD CPLP (Learning & Performance), Qualiopi Évaluation, Data Analytics for L&D (LinkedIn Learning Certificate)
+> Certifications : Kirkpatrick Certified Evaluator 2026, ATD CPTD (Talent Development), Qualiopi Évaluation, Data Analytics for L&D (LinkedIn Learning Certificate)
 
 ## Objectif
 
@@ -141,7 +141,7 @@ COÛTS TOTAUX :
   Temps apprenants (2 jours × 50 × 450€):  45 000 €
   TOTAL COÛTS                          :  95 000 €
 
-BÉNÉFICES MESURÉS à T+3 mois :
+BÉNÉFICES ANNUELS ESTIMÉS (productivité projetée sur 45 semaines) :
   Gain productivité (1h/semaine × 50 pers × 45 sem × 55 €) : 123 750 €
   Réduction sous-traitance contenu IA                      :  30 000 €
   Accélération 3 projets IA (time-to-value)                :  50 000 €
@@ -149,8 +149,8 @@ BÉNÉFICES MESURÉS à T+3 mois :
 
 ROI = [(203 750 - 95 000) / 95 000] × 100 = 114%
 
-Interprétation : Pour 1 € investi, 2,14 € de valeur générée
-Payback : 1,5 mois après fin formation
+Interprétation : Pour 1 € investi, 2,14 € de valeur générée sur 12 mois
+Payback : ≈ 5,6 mois (95 000 € ÷ 203 750 € de bénéfices annuels × 12)
 ```
 
 ## Tableau de bord L&D pour formations IA
@@ -176,3 +176,22 @@ Payback : 1,5 mois après fin formation
 ## Format de sortie
 
 Précise : **nom et thème de la formation**, **public** (profil, nb apprenants), **niveaux Kirkpatrick à évaluer** (L1 à L4), **KPIs business** disponibles pour L4, **outils de collecte** (SurveyMonkey / Typeform / LMS natif), **délai de suivi** post-formation, **sponsor RH ou manager** impliqué dans L3.
+
+## Sources
+- **Donald Kirkpatrick** — *Evaluating Training Programs* (articles 1959 ; livre 1994) ; *New World Kirkpatrick Model* (Jim & Wendy Kirkpatrick, 2016)
+- **Jack J. Phillips** — *Return on Investment in Training and Performance Improvement Programs* (1997) — niveau 5 ROI + principe d'isolation des effets
+- **Fred Reichheld** — *The One Number You Need to Grow* (HBR, 2003) — Net Promoter Score
+- **Robert Brinkerhoff** — *The Success Case Method* (2003) — évaluation du transfert
+
+## Anti-patterns
+- S'arrêter au L1 (« smiley sheets ») et en conclure à l'efficacité
+- Annoncer un ROI sans isoler l'effet formation des autres facteurs (Phillips)
+- Confondre bénéfices annualisés et bénéfices observés à court terme (cf. calcul de payback)
+- Présenter le NPS comme une mesure d'apprentissage (c'est de la satisfaction, L1)
+- Fixer des cibles (> 75 %, > 85 %) sans baseline mesurée
+
+## Voir aussi
+- [analyse-besoins-formation.md](analyse-besoins-formation.md) — objectifs L3/L4 définis dès l'amont
+- [conception-parcours.md](conception-parcours.md) — objectifs Bloom évaluables
+- [data-literacy.md](data-literacy.md) — KPIs de montée en compétence
+- [`../business_analyst/reporting-moa.md`](../business_analyst/reporting-moa.md) — reporting d'impact côté MOA

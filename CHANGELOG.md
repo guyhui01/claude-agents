@@ -5,6 +5,34 @@
 
 ---
 
+## [3.22.0] — 2026-06-02 — Audit complet + V1+ du groupe FORMATEUR-IA (11 skills, §3.5)
+> Modèle : Claude Opus 4.8
+
+### 🎯 Contexte
+Audit-first complet de **AGENT-FORMATEUR-IA** (sous-domaine Pédagogie/Formation de la grille §3.5). Extraction Explore des 11 skills (3 lots) · **passe de vérification factuelle** (WebSearch préalable sur 14 référentiels pédagogiques **+ neuromythes**) · cotation D1/D2/D3. Rapport : `audits/audit-formateur-ia-2026-06-02.md`. Cotation : **0 ✓ pur** · 0 P0 · 2 P1 · 2 P2. Profil : **groupe le plus actionnable audité** (skills 111-225 L, templates/ROI/exercices) mais 0/11 sources/anti-patterns/cross-links à l'entrée.
+
+### ✅ Passe de vérification — neuromythes exclus, 1 calcul corrigé
+- **Aucun neuromythe présent** ; la recherche préalable (pyramide NTL, cône de Dale chiffré, « 10/20/90 % », styles VAK — tous réfutés) a servi à les **inscrire en anti-patterns**.
+- 0 client réel · 0 ID modèle obsolète (Opus 4.8 / Sonnet 4.6 / Haiku 4.5 corrects).
+
+### 🟠 P1 — Corrections factuelles
+- **`evaluation-formation`** : **payback « 1,5 mois » faux** → recalcul **≈ 5,6 mois** (bénéfices 203 750 € annualisés sur 45 sem. ÷ coûts 95 000 € × 12). Label « T+3 mois » → « bénéfices annuels estimés ». ROI 114 % et « 2,14 € » confirmés. *(Incident type v3.15.0.)*
+- **`formation-ia-sensibilisation`** : « 2 min de plus = **10× meilleure sortie** » → multiplicateur **fabriqué** retiré, reformulé sans chiffre.
+
+### 🟡 P2 — Corrections factuelles
+- **`conception-parcours`** : « **Règle des 3-5-10** » + « 5 jours spaced repetition » → requalifiés en **repères pratiques non normatifs** + ancrage effet d'espacement / Ebbinghaus 1885 (intervalles croissants).
+- **`CPLP → CPTD`** (3 headers + README) : l'ATD a renommé le CPLP en CPTD en 2020 (« CPLP 2026 » impossible).
+
+### ✨ V1+ standard sur les 11 skills
+- **`## Sources`** datées/attribuées (11/11) · **`## Anti-patterns`** (11/11, tous créés, dont anti-pattern « ne pas véhiculer les neuromythes ») · **`## Voir aussi`** (11/11) — maillage intra + cross-agents (`prompt_engineer`, `redacteur_ia`, `business_analyst`, `ux_design`).
+- Attributions ajoutées : Bloom 1956 / **Anderson & Krathwohl 2001** · ADDIE **FSU/US Army 1975** · SAM **Allen & Sites 2012** · Kirkpatrick **1959/1994 + New World 2016** · Phillips ROI niveau 5 (1997) · Knowles **1970/1980** · Sweller **1988** · Mayer **2001** · 70-20-10 **McCall/Lombardo/Eichinger** (empirique) · Ebbinghaus **1885** · Lipmanowicz & McCandless 2014 · Minto 1987 · CoT Wei 2022 · Few-shot Brown 2020.
+
+### ✅ Notes
+- **Faux positifs Explore écartés** : certifs **Claude 101 / Code 101 / Code in Action** (réelles, Anthropic) ; **CPTD / CPTM** (réelles).
+- Contrôles finaux : 0 lien orphelin · 0 client réel · 0 ID modèle obsolète · 11/11 sections présentes.
+
+---
+
 ## [3.21.0] — 2026-06-02 — Audit complet + V1+ du groupe UX-DESIGNER (20 skills, §3.5)
 > Modèle : Claude Opus 4.8
 

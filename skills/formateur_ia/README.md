@@ -1,7 +1,7 @@
 # Skills — Formateur IA & Learning Designer
 
 > Dossier rattaché à `AGENT-FORMATEUR-IA.md`
-> Référentiels : ATD APTD / CPLP / CPTD · Training Industry CPTM · ICF CCP · Interaction Design Foundation · Google Educator · CAP IABAC · Qualiopi · DeepLearning.AI · Anthropic Claude Code in Action
+> Référentiels : ATD APTD / CPTD · Training Industry CPTM · ICF CCP · Interaction Design Foundation · Google Educator · CAP IABAC · Qualiopi · DeepLearning.AI · Anthropic Claude Code in Action
 
 ---
 
@@ -76,7 +76,7 @@ Tu veux ...
 
 ## Référentiels et standards utilisés
 
-- **ATD APTD / CPLP / CPTD** : https://www.td.org/certification
+- **ATD APTD / CPTD** (le CPLP a été renommé CPTD en 2020) : https://www.td.org/certification
 - **Training Industry CPTM** : https://www.trainingindustry.com/cptm/
 - **Bloom's Taxonomy** (révisée 2001)
 - **70-20-10 Model** (Center for Creative Leadership)

@@ -176,3 +176,22 @@ Configuration_parcours_IA:
 ## Format de sortie
 
 Précise : **outil auteur disponible** (Storyline / Rise / Captivate / iSpring), **LMS cible** (Moodle / 360Learning / Docebo / autre), **standard requis** (SCORM 1.2 / SCORM 2004 / xAPI), **durée du module**, **niveau d'interactivité** (lecture passive / quiz / simulation / scénario branché), **public** et **thème IA**.
+
+## Sources
+- **Richard Mayer** — *Multimedia Learning* (2001) — principes multimédia (cohérence, segmentation, redondance)
+- **John Sweller** — *Cognitive Load Theory* (1988)
+- **ADL Initiative** — standards *SCORM* (1.2 / 2004) et *xAPI* (Experience API / Tin Can)
+- **Michael Allen & Richard Sites** — *Leaving ADDIE for SAM* (2012) — production itérative
+
+## Anti-patterns
+- « Page-turner » : slides/PDF linéaires sans interaction ni feedback
+- Violer les principes de Mayer (narration audio + texte écran redondants)
+- Module trop long (> 15-20 min) sans segmentation
+- Choisir xAPI/SCORM sans vérifier la compatibilité du LMS cible
+- Vidéo IA (Synthesia) générée sans script pédagogique structuré
+
+## Voir aussi
+- [conception-parcours.md](conception-parcours.md) — design pédagogique amont (ADDIE/SAM, Bloom)
+- [animation-formation.md](animation-formation.md) — articulation présentiel / distanciel
+- [evaluation-formation.md](evaluation-formation.md) — quiz et complétion suivis dans le LMS
+- [data-literacy.md](data-literacy.md) — exemple de programme multi-niveaux à médiatiser

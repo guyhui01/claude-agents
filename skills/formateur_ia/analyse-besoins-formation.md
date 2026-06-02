@@ -1,6 +1,6 @@
 # Skill — Analyse des Besoins de Formation (TNA)
 
-> Certifications : ATD CPLP (Certified Professional in Learning & Performance) 2026, Qualiopi Référentiel Qualité Formation, CNAM Ingénierie de Formation, HEC Executive Education Design
+> Certifications : ATD CPTD (Certified Professional in Talent Development) 2026, Qualiopi Référentiel Qualité Formation, CNAM Ingénierie de Formation, HEC Executive Education Design
 
 ## Objectif
 
@@ -141,3 +141,22 @@ Persona_3:
 ## Format de sortie
 
 Précise : **secteur et taille de l'organisation**, **population cible** (nb, fonctions, niveaux hiérarchiques), **objectifs business** de la formation, **contraintes** (budget, délai, présentiel/distanciel), **outils IA actuellement utilisés** dans l'organisation, **TNA déjà réalisée ou à initier**.
+
+## Sources
+- **Allison Rossett** — *Training Needs Assessment* (Educational Technology Publications, 1987)
+- **Roger Kaufman** — *Needs Assessment* / Organizational Elements Model — alignement besoin ↔ résultats
+- **Donald Kirkpatrick & James Kirkpatrick** — *Evaluating Training Programs* (1994 ; New World Model, 2016) — niveaux L3/L4 visés dès l'analyse
+- **France compétences** — Qualiopi / Référentiel National Qualité — exigence d'analyse du besoin
+
+## Anti-patterns
+- Partir de la solution (« il faut une formation IA ») avant de mesurer l'écart de compétences réel
+- TNA fondée uniquement sur le déclaratif du sponsor, sans données terrain
+- Personas inventés, non issus des entretiens / sondages / observations
+- Confondre besoin de formation et problème d'organisation ou d'outillage
+- Aucun lien entre les écarts identifiés et les objectifs business (L3/L4)
+
+## Voir aussi
+- [conception-parcours.md](conception-parcours.md) — concevoir le parcours répondant aux écarts
+- [evaluation-formation.md](evaluation-formation.md) — boucler la TNA par la mesure d'impact
+- [data-literacy.md](data-literacy.md) — cas d'usage data/IA par niveau
+- [`../business_analyst/elicitation-besoins.md`](../business_analyst/elicitation-besoins.md) — techniques d'élicitation côté MOA

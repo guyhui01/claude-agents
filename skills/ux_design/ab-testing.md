@@ -19,7 +19,7 @@ Comparer deux versions d'une interface pour déterminer laquelle performe le mie
 6. Décider : déployer A, déployer B, ou relancer
 
 ## Outils
-VWO · Optimizely · Google Optimize · AB Tasty · Statsig
+VWO · Optimizely · AB Tasty · Statsig · GrowthBook (open-source) — *Google Optimize fermé le 30/09/2023*
 
 ## Livrables
 - Brief de test (hypothèse, variantes, métriques, durée)
@@ -27,3 +27,22 @@ VWO · Optimizely · Google Optimize · AB Tasty · Statsig
 
 ## Format de sortie
 Précise : élément à tester · métrique cible · trafic mensuel disponible · outil utilisé
+
+## Sources
+- **Ron Kohavi, Diane Tang & Ya Xu** — *Trustworthy Online Controlled Experiments* (Cambridge University Press, 2020) — référence de l'expérimentation en ligne
+- **Jacob Cohen** — *Statistical Power Analysis for the Behavioral Sciences* (2e éd., 1988) — origine de la puissance statistique 80 % (seuil conventionnel)
+- **Ronald A. Fisher** — *The Design of Experiments* (1935) — seuil de signification p < 0,05
+- Documentation produit : Optimizely Stats Engine, VWO SmartStats (inférence séquentielle vs test fixe)
+
+## Anti-patterns
+- **Peeking** : arrêter le test dès qu'un résultat « gagne » avant la taille d'échantillon calculée → faux positifs
+- Lancer un test multivarié sans le trafic suffisant (combinatoire = dilution de la puissance)
+- Conclure sur une métrique proxy (CTR) sans vérifier la métrique business (conversion, rétention)
+- Ignorer la saisonnalité : test < 1 cycle business complet (jours ouvrés vs week-end)
+- **HARKing** : formuler l'hypothèse *après* avoir vu les données
+
+## Voir aussi
+- [metriques-ux.md](metriques-ux.md) — définir la métrique cible et son baseline
+- [tests-utilisateurs.md](tests-utilisateurs.md) — complément qualitatif au quantitatif A/B
+- [audit-ux-heuristiques.md](audit-ux-heuristiques.md) — générer les hypothèses à tester
+- [`../growth_ia/experimentation-ab-testing.md`](../growth_ia/experimentation-ab-testing.md) — expérimentation côté acquisition/activation

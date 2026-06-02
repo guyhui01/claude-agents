@@ -32,3 +32,22 @@ Transmettre les designs aux développeurs de façon claire et complète pour év
 
 ## Format de sortie
 Précise : stack front-end (React, Flutter, iOS…) · Design System utilisé · niveau d'animation à spécifier
+
+## Sources
+- **Figma** — documentation *Dev Mode* (inspection CSS/iOS/Android, statuts de prêt-au-dev)
+- **Design Tokens Community Group (W3C)** — *Design Tokens Format Module* (1re version stable 2025.10, format JSON `.tokens`)
+- **Brad Frost** — *Atomic Design* (2016) — composition foundations → composants → patterns
+- **Nathan Curtis (EightShapes)** — articles sur la spécification et la documentation de composants
+
+## Anti-patterns
+- Valeurs « hardcodées » au lieu de tokens/composants → dérive entre design et code
+- Handoff = simple lien Figma sans annotations de comportement ni règles métier
+- États incomplets : seul le « happy path » livré (oubli de error / empty / loading / disabled)
+- Pas de changelog : le dev ne sait pas ce qui a changé entre deux versions
+- Accessibilité non annotée (ordre de focus, alt text) reportée sur le dev sans consigne
+
+## Voir aussi
+- [design-system.md](design-system.md) — source des composants et tokens transmis
+- [accessibilite-wcag.md](accessibilite-wcag.md) — critères d'accessibilité à annoter
+- [motion-design-ui.md](motion-design-ui.md) — spécifier les animations (durées, easing)
+- [prototypage-figma.md](prototypage-figma.md) — prototype de référence joint au handoff

@@ -5,6 +5,36 @@
 
 ---
 
+## [3.21.0] — 2026-06-02 — Audit complet + V1+ du groupe UX-DESIGNER (20 skills, §3.5)
+> Modèle : Claude Opus 4.8
+
+### 🎯 Contexte
+Audit-first complet de **AGENT-UX-DESIGNER** (sous-domaine UX/Contenu de la grille §3.5). Extraction Explore des 20 skills (4 lots parallèles) · **passe de vérification factuelle** (WebSearch préalable sur 14 référentiels UX) · cotation D1/D2/D3. Rapport : `audits/audit-ux-design-2026-06-02.md`. Cotation : **0 ✓ pur** · 0 P0 · 6 P1 · 2 P2. Profil du groupe : « mince mais sain » — skills courts, actionnables, mais 0/20 sources, 0/20 anti-patterns, 0/20 cross-links à l'entrée.
+
+### ✅ Passe de vérification — aucun chiffre fabriqué
+Contraste avec v3.19.0/v3.20.0 : **aucune statistique inventée**. Les chiffres présents (ratios WCAG, durées motion, tailles tactiles, seuils SUS/NPS) sont des **conventions réelles**, corrigées en datation/attribution. 0 client réel · 0 ID modèle obsolète.
+
+### 🟠 P1 — Corrections factuelles
+- **`responsive-mobile-first`** : « Breakpoints **standards** 2026 » → « **conventions courantes** » (aucun standard normatif de breakpoints). Tailles tactiles 44pt/48dp confirmées.
+- **`metriques-ux`** : SUS daté **Brooke 1986/1996** (seuils Sauro/Bangor) · HEART → **Rodden et al. 2010** · NPS → **Reichheld 2003** (« > 50 » requalifié en ordre de grandeur sectoriel) · CUQ → **Holmes et al. 2019**.
+- **`tests-utilisateurs`** + **`user-research`** : règle des **« 5 utilisateurs »** attribuée (Nielsen & Landauer 1993 / NN/g 2000) **avec nuance** (variabilité réelle, études CUE de Molich) ; affinity mapping → Beyer & Holtzblatt 1998.
+- **`personas-jtbd`** : JTBD attribué **aux deux écoles** — **Ulwick (ODI 1999)** + **Christensen (2003)**.
+- **`ab-testing`** : **Google Optimize fermé le 30/09/2023** → retiré (GrowthBook ajouté) ; seuils 95 %/80 % attribués (Fisher / Cohen 1988).
+
+### 🟡 P2 — Corrections factuelles
+- **`accessibilite-wcag`** : WCAG 2.2 daté **5 oct. 2023** (= ISO/IEC 40500:2025) · ajout **European Accessibility Act** (dir. UE 2019/882, applicable 28/06/2025) · RGAA **4.1.2** · WCAG 3.0 signalé **non normatif** (Working Draft).
+- **`motion-design-ui`** : 12 principes → **Thomas & Johnston 1981** · durées reliées à Material / **seuil de Doherty 1982** · ajout `prefers-reduced-motion` (WCAG 2.3.3).
+
+### ✨ V1+ standard sur les 20 skills
+- **`## Sources`** datées/attribuées (20/20) · **`## Anti-patterns`** (20/20, tous créés) · **`## Voir aussi`** (20/20) — maillage intra-ux_design + cross-agents (`redacteur_ia`, `business_analyst`, `prompt_engineer`, `growth_ia`), réciprocité avec les liens existants de `redacteur_ia/ux-writing`.
+- Attributions ajoutées : Nielsen (1994) · Atomic Design **Frost 2016** · Hick (1952) · Fitts (1954) · ISO 9241-210:2019 · Design Sprint **Knapp 2016** · Mobile-first **Wroblewski 2011** / Responsive **Marcotte 2010** · Information Architecture **Rosenfeld-Morville-Arango 2015** · Design Tokens Community Group (2025.10, non-standard W3C).
+
+### ✅ Notes
+- **Faux positif Explore écarté** : `benchmark-concurrent` « Airbnb pour le e-commerce » = usage **correct** du benchmark inspirationnel (best-in-class hors secteur), pas une erreur.
+- Contrôles finaux : 0 lien orphelin · 0 client réel · 0 ID modèle obsolète · 20/20 sections présentes.
+
+---
+
 ## [3.20.0] — 2026-06-01 — Audit complet + V1+ du groupe REDACTEUR-IA (16 skills, §3.5)
 > Modèle : Claude Opus 4.8
 

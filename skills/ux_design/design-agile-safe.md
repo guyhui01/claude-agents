@@ -32,3 +32,23 @@ Intégrer les activités UX dans les cycles Agile (Scrum) et SAFe sans créer de
 
 ## Format de sortie
 Précise : cadre (Scrum / SAFe / autre) · taille de l'équipe · maturité UX actuelle
+
+## Sources
+- **Desirée Sy & Lynn Miller** — *Adapting Usability Investigations for Agile User-Centered Design* (2007) — origine du Dual Track
+- **Jeff Patton** — *User Story Mapping* (O'Reilly, 2014) et formalisation Discovery/Delivery
+- **Marty Cagan** — *Inspired* (2e éd. 2018) & *Empowered* (2020, SVPG) — discovery continue en équipe produit
+- **Scaled Agile, Inc.** — *SAFe 6.0* (2023) — PI Planning, Enabler Stories, Inspect & Adapt
+- **Teresa Torres** — *Continuous Discovery Habits* (2021) — cadence de discovery hebdomadaire
+
+## Anti-patterns
+- « Sprint 0 design » figé : tout le design en amont au lieu d'un flux continu de discovery
+- Discovery et delivery menés par des personnes cloisonnées (pas d'équipe produit unie)
+- UX réduite à du « pixel polishing » en fin de sprint, sans recherche en amont
+- Definition of Done sans critère d'accessibilité ni de test utilisateur
+- Design Spike ouvert sans question de recherche ni timebox
+
+## Voir aussi
+- [facilitation-ateliers.md](facilitation-ateliers.md) — ateliers de discovery (Design Sprint)
+- [design-handoff.md](design-handoff.md) — handoff propre en fin de delivery track
+- [design-system.md](design-system.md) — accélérateur de delivery (composants réutilisables)
+- [`../business_analyst/pilotage-projet.md`](../business_analyst/pilotage-projet.md) — articulation avec le pilotage projet

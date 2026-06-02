@@ -34,3 +34,22 @@ Analyser les produits concurrents et de référence pour identifier les standard
 
 ## Format de sortie
 Précise : secteur · liste des concurrents connus · parcours à analyser · livrables attendus
+
+## Sources
+- **Robert C. Camp** — *Benchmarking* (ASQC Quality Press, 1989) — fondement méthodologique du benchmarking (Xerox)
+- **Jeff Sauro (MeasuringU)** — benchmarking UX comparatif (SUS, taux de succès inter-produits)
+- **Kathy Baxter, Catherine Courage & Kelly Caine** — *Understanding Your Users* (2e éd. 2015) — analyse concurrentielle UX
+- **Nielsen Norman Group** — *Competitive Usability Evaluations* — protocole d'évaluation comparative
+
+## Anti-patterns
+- Copier un concurrent sans comprendre son contexte ni ses utilisateurs (« cargo cult UX »)
+- Comparer sans grille de critères commune → notes non rigoureuses
+- Se limiter aux concurrents directs en ignorant l'inspirationnel hors secteur
+- Confondre benchmark (état du marché) et test utilisateur (avec de vrais usagers)
+- Notes 1-5 sans justification écrite → subjectivité non traçable
+
+## Voir aussi
+- [audit-ux-heuristiques.md](audit-ux-heuristiques.md) — grille d'évaluation appliquée aux concurrents
+- [metriques-ux.md](metriques-ux.md) — benchmark quantitatif (SUS comparé)
+- [design-for-ai.md](design-for-ai.md) — évaluer la dimension « Design for AI » des concurrents
+- [`../growth_ia/growth-frameworks.md`](../growth_ia/growth-frameworks.md) — positionnement marché côté growth

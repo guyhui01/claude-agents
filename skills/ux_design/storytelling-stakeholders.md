@@ -34,3 +34,22 @@ Convaincre les parties prenantes de la valeur des décisions UX grâce à une na
 
 ## Format de sortie
 Précise : public cible · durée de la présentation · décision attendue · données research disponibles
+
+## Sources
+- **Nancy Duarte** — *Resonate* (2010) & *slide:ology* (2008) — structure narrative et visuelle des présentations
+- **Cole Nussbaumer Knaflic** — *Storytelling with Data* (Wiley, 2015) — narration par les données
+- **Chip & Dan Heath** — *Made to Stick* (2007) — principes des messages mémorables (SUCCESs)
+- **Aristote** — *Rhétorique* — ethos / pathos / logos (fondement de l'argumentation)
+
+## Anti-patterns
+- Présenter le process design plutôt que la valeur business pour le décideur
+- Noyer le message sous les slides au lieu de 3 insights priorisés
+- Données sans narration (ou narration sans données) → ni crédible ni mémorable
+- Citer un chiffre (« X % échouaient ») sans en donner la source ni la méthode
+- Ne pas formuler de décision attendue claire en fin de présentation
+
+## Voir aussi
+- [metriques-ux.md](metriques-ux.md) — chiffrer l'impact présenté
+- [journey-mapping.md](journey-mapping.md) — support visuel du récit de parcours
+- [`../redacteur_ia/storytelling-ia.md`](../redacteur_ia/storytelling-ia.md) — techniques narratives rédactionnelles
+- [`../redacteur_ia/presentation-pitch.md`](../redacteur_ia/presentation-pitch.md) — structurer un pitch convaincant

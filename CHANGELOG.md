@@ -5,6 +5,24 @@
 
 ---
 
+## 🏁 Jalon de fin de chantier — 2026-06-03 (contrôle structurel, non versionné)
+> Modèle : Claude Opus 4.8
+
+Clôture du chantier audit qualité v2.8 : **check de cohérence interne des 38 `AGENT-*.md`** une fois tout le contenu des skills stabilisé (tous les groupes audités, v3.12 → v3.24).
+
+- **Méthode** : checks transverses (grep) + fan-out **Explore ×5 par groupe** (cotation par preuve), aucun WebSearch requis (cohérence interne, pas de publication de chiffres).
+- **6 dimensions contrôlées — 0 écart sur 38/38 fiches** :
+  - **C1** table de skills ↔ dossier réel : 0 référence orpheline, 0 skill non référencé (domaines partagés `scrum` 28/28 et `qa_testing` 23/23 entièrement couverts).
+  - **C2** certifications déclarées : 0 cert fabriquée (« CIA » déjà retiré en v3.24.0).
+  - **C3** cross-réfs inter-agents : 0 lien vers une fiche inexistante.
+  - **C4** anonymisation : 0 client réel.
+  - **C5** IDs modèles : 0 ID obsolète.
+  - **C6** compteurs : « 38 agents · 37 dossiers skills · 10 workflows · 3 MCP » cohérents (README/START/Orchestrateur).
+- **Conclusion** : catalogue intégralement cohérent. Aucune correction requise → entrée documentaire seule, pas de bump de version (cf. convention `CLAUDE.md` : doc-only = pas de tag).
+- **Chantier audit qualité v2.8 : CLÔTURÉ.**
+
+---
+
 ## [3.24.0] — 2026-06-02 — Audit complet + V1+ du groupe VEILLE-STRATEGIQUE (6 skills, §3.5) — 🏁 dernier groupe Transverse/Méta
 > Modèle : Claude Opus 4.8
 

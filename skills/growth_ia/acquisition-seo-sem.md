@@ -235,7 +235,7 @@ result = calculate_target_cpa(
     ltv=12_000, close_rate=0.25, sqls_to_trial_rate=0.4,
     trial_conversion_rate=0.30, payback_months=12
 )
-# target_cpa_trial: ~90€, target_cpa_sql: ~150€
+# target_cpa_trial: 54.0€, target_cpa_sql: 375.0€, max_cpc_estimate: 5.4€
 ```
 
 ## Livrables
@@ -248,3 +248,23 @@ result = calculate_target_cpa(
 
 ## Format de sortie
 Précise : secteur (B2B/B2C), ICP (persona cible), budget publicité mensuel, mots-clés prioritaires, objectif (trafic / leads / ROAS), marché géographique, stack analytics (GA4/Mixpanel/autre), délai pour premiers résultats.
+
+## Sources
+- **Google Search Central** — documentation officielle SEO (Core Web Vitals, données structurées Schema.org, indexation)
+- **Google** — *Search Quality Rater Guidelines* + E-E-A-T (le 2ᵉ « E », Experience, ajouté en décembre 2022)
+- **HubSpot** — *Pillar–Cluster model* (topic clusters, 2017) — architecture de contenu par silos thématiques
+- **Semrush / Ahrefs** — documentation officielle — volumes de recherche et difficulté mots-clés (les volumes cités sont illustratifs, à re-sourcer par outil)
+- **Google Ads Help** — Smart Bidding (tCPA/tROAS) ; le CPA cible se dérive de la LTV et du payback (cf. [attribution-ltv-cac.md](attribution-ltv-cac.md))
+
+## Anti-patterns
+- **Bourrage de mots-clés** (keyword stuffing) au lieu d'un contenu utile « people-first » — pénalisé par le Helpful Content System.
+- **Publier du contenu IA non relu** : risque factuel, absence d'expérience réelle (E-E-A-T), duplication — toujours faire relire/enrichir par un humain.
+- **Fixer les enchères sans modèle de payback** : un CPA décorrélé de la LTV/marge brûle le budget (cf. exemple CPA du skill).
+- **Cannibalisation** : plusieurs pages ciblant la même intention se concurrencent dans la SERP.
+- **Ignorer les Core Web Vitals / l'intention de recherche** au profit du seul volume.
+
+## Voir aussi
+- [attribution-ltv-cac.md](attribution-ltv-cac.md) — dériver le CPA/CAC cible de la LTV et du payback
+- [product-analytics.md](product-analytics.md) — mesurer la conversion acquisition → activation
+- [`../redacteur_ia/seo-content.md`](../redacteur_ia/seo-content.md) — production éditoriale SEO (E-E-A-T, structure)
+- [`../redacteur_ia/copywriting-ia.md`](../redacteur_ia/copywriting-ia.md) — rédaction persuasive des annonces et landing pages

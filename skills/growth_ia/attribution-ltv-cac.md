@@ -217,3 +217,23 @@ def optimize_channel_mix(
 
 ## Format de sortie
 Précise : type de business (SaaS/e-commerce/marketplace), données disponibles (CRM, analytics, ad platforms), modèle d'attribution actuel, canaux d'acquisition actifs et spend mensuel, outils analytiques (dbt/Snowflake/BigQuery), objectif LTV:CAC cible, fréquence d'achat moyenne.
+
+## Sources
+- **David Skok (Matrix Partners)** — *SaaS Metrics 2.0* (~2010) — règle **LTV:CAC ≈ 3:1** et **payback < 12 mois**, établie pour des SaaS **matures en régime stable** (à contextualiser par stade : seed ≠ scale)
+- **Bessemer Venture Partners** — *State of the Cloud* / *Good-Better-Best* — benchmarks LTV/CAC, NRR, payback par segment (les fourchettes du tableau du skill sont indicatives)
+- **Lloyd Shapley** (1953, Nobel 2012) — valeurs de Shapley, fondement de l'attribution **data-driven**
+- **Google Analytics 4** : attribution **data-driven (Shapley) par défaut** ; les modèles à règles **first-click, linear, time-decay, position-based ont été dépréciés en 2023** (restent data-driven + last-click)
+- **Net Revenue Retention (NRR)** — métrique SaaS standard (expansion − churn) ; cibles >100 % / >110 % / >120 % selon segment
+
+## Anti-patterns
+- **Last-touch par défaut** sur des cycles d'achat longs : sur-crédite le dernier canal (souvent le brand/direct) et tue l'investissement haut de funnel.
+- **LTV sur churn instable / cohortes jeunes** : extrapoler une LTV alors que le churn n'est pas stabilisé.
+- **Appliquer le 3:1 hors contexte** : un ratio « trop bon » (>5:1) peut signaler un sous-investissement en acquisition, pas une réussite.
+- **Ignorer le payback (trésorerie)** : un bon ratio LTV/CAC avec un payback à 24 mois peut asphyxier le cash.
+- **Confondre revenu et marge brute** : la LTV se calcule sur la marge brute, pas sur le chiffre d'affaires.
+
+## Voir aussi
+- [acquisition-seo-sem.md](acquisition-seo-sem.md) — dériver le CPA/CAC max par canal pour les enchères
+- [product-analytics.md](product-analytics.md) — cohortes et rétention en amont de la LTV
+- [lifecycle-marketing.md](lifecycle-marketing.md) — rétention et expansion (leviers de LTV/NRR)
+- [`../../AGENT-FINANCIAL-ANALYST.md`](../../AGENT-FINANCIAL-ANALYST.md) — modélisation financière, unit economics et business case

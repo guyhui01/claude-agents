@@ -203,10 +203,10 @@ backlog = [
 
 for rank, init in enumerate(prioritize_initiatives(backlog), 1):
     print(f"{rank}. [{init.ice_score:4.1f}] {init.title} ({init.effort_days}j)")
-# 1. [5.0] Onboarding tooltip contextuel (3j)
-# 2. [4.8] Email séquence réengagement D7 (2j)
-# 3. [3.2] Intégration Slack native (20j)
-# 4. [1.8] Referral program 2-sided (15j)
+# 1. [5.0] Onboarding tooltip contextuel (3j)    -> (7*8*9)/100
+# 2. [3.8] Email séquence réengagement D7 (2j)    -> (6*8*8)/100
+# 3. [1.8] Referral program 2-sided (15j)         -> (9*5*4)/100
+# 4. [1.4] Intégration Slack native (20j)         -> (8*6*3)/100
 ```
 
 ## Growth Loops vs Funnels
@@ -241,3 +241,23 @@ Product Loop    : Feature utilisée → Recommandation → Adoption → Revenue
 
 ## Format de sortie
 Précise : type de produit et modèle business (SaaS/marketplace/e-commerce/app), métriques disponibles, North Star actuelle (ou à définir), budget growth mensuel, équipe growth (size), principaux leviers actuels, objectif croissance (% ARR / nouveaux utilisateurs / etc.).
+
+## Sources
+- **Dave McClure** — *Startup Metrics for Pirates (AARRR)*, 2007 (Ignite Seattle / 500 Startups)
+- **Sean Ellis** — *North Star Metric* (~2010) et *ICE Scoring* (GrowthHackers) ; à distinguer du **RICE** d'**Intercom** (Sean McBride, 2017) qui ajoute le Reach
+- **Kerry Rodden, Hilary Hutchinson, Xin Fu (Google)** — *Measuring the User Experience on a Large Scale: HEART* (CHI 2010)
+- **Reforge** — *Growth Loops* (Brian Balfour, Casey Winters, Kevin Kwok) ; *Racecar Growth Framework* (Dan Hockenmaier & Lenny Rachitsky)
+- **Quick Ratio (SaaS)** — popularisé par Social Capital (Mamoon Hamid, ~2015) ; les benchmarks (activation, rétention, K-factor, Quick Ratio > 4) sont des **ordres de grandeur** variables selon secteur/stade
+
+## Anti-patterns
+- **North Star = vanity metric** : choisir un indicateur qui ne capture pas la valeur client (ex. inscrits cumulés).
+- **AARRR sans bottleneck** : optimiser partout au lieu de concentrer l'effort sur l'étape qui fuit le plus.
+- **ICE pris comme vérité absolue** : les scores sont subjectifs → outil de discussion, pas de décision automatique.
+- **Funnel-only** : ignorer les growth loops (boucles auto-renforçantes) et raisonner uniquement en entonnoir linéaire.
+- **Copier les benchmarks d'un autre secteur/stade** sans les contextualiser.
+
+## Voir aussi
+- [product-analytics.md](product-analytics.md) — instrumenter et mesurer AARRR / North Star
+- [experimentation-ab-testing.md](experimentation-ab-testing.md) — exécuter les expériences priorisées par ICE
+- [attribution-ltv-cac.md](attribution-ltv-cac.md) — relier la croissance à l'économie unitaire
+- [`../scrum/product-vision.md`](../scrum/product-vision.md) — North Star, OKR et vision produit (côté PO)

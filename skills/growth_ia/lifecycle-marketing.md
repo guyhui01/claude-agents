@@ -244,3 +244,22 @@ def calculate_lead_score(lead: Lead) -> dict:
 
 ## Format de sortie
 Précise : type de business (B2B SaaS/B2C/e-commerce), outil automation (HubSpot/Braze/Klaviyo/Mailchimp), CRM utilisé (Salesforce/HubSpot), données disponibles (historique achats, events produit), objectif principal (activation/retention/churn), volume de contacts, segment(s) prioritaire(s).
+
+## Sources
+- **RFM** — modèle historique du marketing direct ; formalisé par **Arthur Hughes**, *Strategic Database Marketing* (1994) et **Bult & Wansbeek** (*Marketing Science*, 1995)
+- **Fred Reichheld** — *The One Number You Need to Grow* (Harvard Business Review, déc. 2003) — Net Promoter Score (NPS)
+- **MQL / SQL** — modèle de qualification popularisé par SiriusDecisions / Forrester (Demand Waterfall) — les seuils de points sont à **calibrer** sur les données de conversion réelles
+- **HubSpot** — *Lifecycle stages* & *Flywheel* — documentation officielle onboarding / nurturing / rétention
+
+## Anti-patterns
+- **Email fatigue** : envoyer sans frequency cap ni gestion de pression marketing → désabonnements et spam complaints.
+- **Lead scoring non calibré** : poids fixés à l'intuition, jamais re-pondérés sur les taux de conversion observés.
+- **Segmenter sans action** : produire des segments RFM sans plan d'activation différencié par segment.
+- **NPS sans verbatim** : suivre le score sans analyser les commentaires → aucune action corrective.
+- **Onboarding générique** : même séquence pour tous, sans déclencheur lié à l'« aha moment ».
+
+## Voir aussi
+- [ia-personalisation.md](ia-personalisation.md) — personnaliser messages et scoring par ML
+- [attribution-ltv-cac.md](attribution-ltv-cac.md) — LTV par cohorte et impact rétention sur la valeur
+- [automation-growth.md](automation-growth.md) — automatiser les séquences lifecycle
+- [`../redacteur_ia/newsletter-email.md`](../redacteur_ia/newsletter-email.md) — rédaction des emails (objets, CTA, délivrabilité)

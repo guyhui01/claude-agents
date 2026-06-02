@@ -257,3 +257,23 @@ Module 7 : Si score >= 60 → Notifier commercial Slack
 
 ## Format de sortie
 Précise : volume de leads à traiter (semaine/mois), outils existants (CRM, email, enrichissement), ICP cible (secteur, taille entreprise, rôle), objectif (outbound volume, qualify inbound, nurturing), contraintes RGPD (B2B Europe), budget outils (Clay, Apollo, Instantly), ressources disponibles pour setup.
+
+## Sources
+- **RGPD UE 2016/679** — base légale du traitement, intérêt légitime B2B, droit d'opposition (prospection)
+- **CAN-SPAM Act (US, 2003)** — règles d'envoi commercial (opt-out, identification de l'expéditeur)
+- **LinkedIn — User Agreement / ToS** — encadre le scraping et l'automatisation sur la plateforme (Sales Navigator)
+- **Documentation officielle** : n8n, Make, Clay, HubSpot (workflows, API) ; **Anthropic API** (modèles Claude — scoring/génération)
+- Les seuils de scoring (0-100), incréments et délais des séquences cités sont des **valeurs de départ à calibrer** par A/B testing (cf. [experimentation-ab-testing.md](experimentation-ab-testing.md))
+
+## Anti-patterns
+- **Outbound non conforme** : scraping/prospection en violation du RGPD, du CAN-SPAM ou des ToS LinkedIn.
+- **Sur-automatisation sans QA humaine** : laisser un LLM envoyer des emails en production sans relecture (risque d'hallucination, ton hors-marque).
+- **Pas de fallback API** : workflow qui casse si un enrichissement (Clearbit) échoue, sans plan B.
+- **Séquences génériques à grande échelle** : volume sans personnalisation pertinente → perçu comme spam, nuit à la délivrabilité.
+- **Compliance déclarée mais non implémentée** : citer le RGPD sans opt-out réel ni gestion des désinscriptions.
+
+## Voir aussi
+- [lifecycle-marketing.md](lifecycle-marketing.md) — séquences nurturing et lead scoring côté lifecycle
+- [ia-personalisation.md](ia-personalisation.md) — scoring ML et personnalisation des messages
+- [`../prompt_engineer/system-prompt-design.md`](../prompt_engineer/system-prompt-design.md) — fiabiliser les prompts LLM utilisés dans les workflows
+- [`../../AGENT-ORCHESTRATEUR-WORKFLOW.md`](../../AGENT-ORCHESTRATEUR-WORKFLOW.md) — orchestration multi-étapes et gouvernance des workflows

@@ -235,3 +235,22 @@ def calculate_engagement_metrics(df: pd.DataFrame, date: str) -> dict:
 
 ## Format de sortie
 Précise : type de produit (B2B SaaS/B2C/marketplace), stack analytics actuelle (GA4/Mixpanel/Amplitude/autre), warehouse disponible (Snowflake/BigQuery/Redshift), outil de BI (Looker/Metabase/Tableau), objectif principal (activation/retention/monetisation), accès aux événements existants ou setup from scratch.
+
+## Sources
+- **Dave McClure** — *Startup Metrics for Pirates (AARRR)*, 2007 (Ignite Seattle / 500 Startups) — funnel Acquisition→Activation→Rétention→Référence→Revenu
+- **Sean Ellis** (~2010) — *North Star Metric* / *One Metric That Matters* ; framework codifié par **Amplitude** (*The North Star Playbook*, 2017+)
+- **Amplitude / Mixpanel** — documentation officielle : plan de tracking (event taxonomy), funnels, cohortes, courbes de rétention
+- **Stickiness DAU/MAU** : ratio popularisé par Mixpanel/Amplitude — les seuils (≈0,2 « bon » / ≈0,3 « excellent ») sont des **ordres de grandeur** variables selon le type de produit, à valider par cohorte
+
+## Anti-patterns
+- **Vanity metrics** : suivre des totaux cumulés (inscrits, pages vues) au lieu de métriques actionnables par cohorte.
+- **Tracking sans plan** : event sprawl, nommage incohérent → données inexploitables (définir la taxonomy AVANT d'instrumenter).
+- **Pas de définition explicite de l'activation / « aha moment »** : funnel d'activation non mesurable.
+- **North Star = revenu** : choisir un indicateur retardé plutôt qu'un proxy avancé de la valeur client.
+- **Cohortes trop courtes** : conclure sur la rétention avant d'avoir le recul temporel suffisant.
+
+## Voir aussi
+- [growth-frameworks.md](growth-frameworks.md) — AARRR, North Star et arbre de décomposition des métriques
+- [attribution-ltv-cac.md](attribution-ltv-cac.md) — du funnel à la valeur économique (LTV/CAC)
+- [experimentation-ab-testing.md](experimentation-ab-testing.md) — tester les leviers identifiés par l'analyse
+- [`../scrum/product-vision.md`](../scrum/product-vision.md) — relier North Star et vision produit (côté PO)

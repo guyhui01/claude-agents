@@ -76,9 +76,13 @@ result = calculate_sample_size(
     alpha=0.05,
     power=0.80,
 )
-print(f"Taille par variante : {result['n_per_variant']:,}")  # ~2,700 par variante
+print(f"Taille par variante : {result['n_per_variant']:,}")  # 11 858 par variante
 duration = estimate_test_duration(result["n_per_variant"], daily_visitors=800)
-print(f"Durée estimée : {duration['weeks_needed']} semaines")  # ~3.5 semaines
+print(f"Durée estimée : {duration['weeks_needed']} semaines")  # 8.6 semaines
+print(duration["warning"])  # "Trop long (>8 semaines) — augmenter le MDE"
+# Leçon : détecter +20 % relatif sur une base de 3,5 % avec 800 visiteurs/j
+# demande ~9 semaines → le garde-fou se déclenche. Préférer augmenter le MDE
+# visé (cible plus ambitieuse) ou le trafic alloué plutôt que d'étirer la durée.
 ```
 
 ### Analyse des Résultats
@@ -148,8 +152,8 @@ test = ABTestResult("CTA rouge vs vert", 3200, 112, 3150, 142)
 result = test.analyze()
 for k, v in result.items():
     print(f"{k:25s}: {v}")
-# relative_lift_pct       : +26.0%
-# p_value                 : 0.0231
+# relative_lift_pct       : +28.8%
+# p_value                 : 0.0404
 # winner                  : VARIANT
 ```
 
@@ -246,3 +250,23 @@ common_mistakes:
 
 ## Format de sortie
 Précise : métrique primaire à améliorer (conversion, retention, NPS), trafic mensuel disponible, plateforme d'expérimentation actuelle, capacités statistiques de l'équipe, budget pour outils, objectif (quick wins ou expérimentation à long terme).
+
+## Sources
+- **Ronald A. Fisher** — *The Design of Experiments* (1935) — fondements du test d'hypothèse et de la randomisation
+- **Neyman & Pearson** (1933) — cadre erreurs de type I (α) / type II (β) et puissance
+- **Carlo Bonferroni** (1936) — correction des comparaisons multiples
+- **Kohavi, Tang & Xu** — *Trustworthy Online Controlled Experiments* (Cambridge, 2020) — référence A/B testing à grande échelle (peeking, SRM, novelty effect)
+- **Documentation officielle** : Optimizely, Statsig, LaunchDarkly / OpenFeature (feature flags), GA4 (expérimentations)
+
+## Anti-patterns
+- **Peeking / optional stopping** : arrêter le test à la 1ʳᵉ significativité observée gonfle le taux de faux positifs.
+- **HARKing** : redéfinir la métrique primaire ou l'hypothèse après avoir vu les données.
+- **Comparaisons multiples non corrigées** : tester N variantes/métriques sans Bonferroni (ou équivalent).
+- **Sample Ratio Mismatch (SRM)** : répartition réelle ≠ 50/50 → biais d'assignation, test invalide.
+- **Confondre significativité statistique et pratique** : un lift de +0,1 % « significatif » sans valeur business.
+- **Sous-dimensionner / ignorer le novelty effect** : durée trop courte (cf. garde-fou >8 semaines du calculateur).
+
+## Voir aussi
+- [product-analytics.md](product-analytics.md) — définir les métriques et le funnel à tester
+- [growth-frameworks.md](growth-frameworks.md) — prioriser les expériences (ICE) et relier à la North Star
+- [`../data_scientist/experimentation-ab-ds.md`](../data_scientist/experimentation-ab-ds.md) — expérimentation côté data science (puissance, tests avancés)

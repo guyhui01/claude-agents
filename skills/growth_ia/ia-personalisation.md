@@ -242,3 +242,23 @@ Ton : Valorisant, expert.""",
 
 ## Format de sortie
 Précise : volume d'utilisateurs, données disponibles (events, achats, profil), latence tolérable pour la recommandation (< 50ms = pré-calcul requis), cas d'usage prioritaire (churn/conversion/recommandation), stack ML (SageMaker/Vertex/Azure ML), framework de serving (FastAPI/BentoML/Ray Serve).
+
+## Sources
+- **Hu, Koren & Volinsky** — *Collaborative Filtering for Implicit Feedback Datasets* (ICDM 2008) — fondement de l'ALS (Alternating Least Squares)
+- **Lundberg & Lee** — *A Unified Approach to Interpreting Model Predictions (SHAP)* (NeurIPS 2017) — explicabilité par valeurs de Shapley
+- **Jerome Friedman** — *Greedy Function Approximation: A Gradient Boosting Machine* (Annals of Statistics, 2001) — scoring de churn/propension
+- **Platt (1999) / calibration** — `CalibratedClassifierCV` : indispensable pour interpréter les scores comme des probabilités
+- **AI Act UE 2024/1689 & RGPD** — personnalisation/scoring : base légale, transparence, droit d'opposition (les hyperparamètres ALS et seuils de churn cités sont des **valeurs de départ à valider**, non des standards)
+
+## Anti-patterns
+- **Filter bubble** : recommandations sans diversité/exploration → enfermement et saturation.
+- **Scores de churn non calibrés** : traiter une sortie de modèle non calibrée comme une probabilité.
+- **Personnalisation sans base légale** : profilage/scoring sans consentement ni information (RGPD, AI Act).
+- **Modèle non monitoré** : pas de détection de data drift ni de ré-entraînement → dégradation silencieuse.
+- **Dynamic pricing opaque/discriminatoire** : risque juridique et réputationnel.
+
+## Voir aussi
+- [lifecycle-marketing.md](lifecycle-marketing.md) — activer le churn scoring dans les séquences
+- [automation-growth.md](automation-growth.md) — orchestrer la personnalisation dans les workflows
+- [`../data_scientist/modelisation-ml.md`](../data_scientist/modelisation-ml.md) — entraînement, évaluation et calibration des modèles
+- [`../../AGENT-AI-ARCHITECT.md`](../../AGENT-AI-ARCHITECT.md) — architecture de serving ML (latence, feature store)

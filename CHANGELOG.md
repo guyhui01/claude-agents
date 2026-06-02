@@ -5,6 +5,30 @@
 
 ---
 
+## [3.23.0] — 2026-06-02 — Audit complet + V1+ du groupe GROWTH-IA (8 skills, §3.5)
+> Modèle : Claude Opus 4.8
+
+### 🎯 Contexte
+Audit-first complet de **AGENT-GROWTH-IA** (sous-domaine Engagement/Croissance de la grille §3.5). Extraction Explore des 8 skills (2 lots) · **passe de vérification factuelle avec exécution réelle du code** (scipy/numpy) · cotation D1/D2/D3. Rapport : `audits/audit-growth-ia-2026-06-02.md`. Cotation : **0 ✓ pur** · 0 P0 · **4 P1** · 3 P2. Profil : skills denses et très actionnables (code Python/SQL/TS, formules, dashboards) mais 0/8 sources, 1/8 anti-patterns, 0/8 cross-links à l'entrée.
+
+### 🟠 P1 — Exemples chiffrés faux corrigés (incident type v3.15.0, valeurs ré-exécutées)
+- **`growth-frameworks`** : scores **ICE** des commentaires faux → recalcul `(I·C·E)/100` : G-03 **3,8** (et non 4,8), G-04 **1,4** (et non 3,2) ; **classement corrigé** (Referral 1,8 > Slack 1,4).
+- **`experimentation-ab-testing`** (2 exemples) : taille d'échantillon **~2 700/variante & ~3,5 sem → 11 858/variante & 8,6 sem** (×4,4) — la vraie sortie déclenche le garde-fou `>8 semaines`, désormais **exposé** comme leçon (augmenter le MDE/trafic). A/B test CTA : lift **+26,0 % → +28,8 %**, p-value **0,0231 → 0,0404** (reste significatif, winner=VARIANT inchangé).
+- **`acquisition-seo-sem`** : CPA cible **~90 € / ~150 € → 54 € / 375 €** (max_cpc 5,4 €).
+- ✅ **Contrôle négatif** : `attribution-ltv-cac` (LTV 15 167 € · 8,4x · payback 6,6 mois) **exact** à l'exécution — sert de référence.
+
+### ✨ V1+ standard sur les 8 skills
+- **`## Sources`** datées/attribuées (8/8) · **`## Anti-patterns`** (8/8) · **`## Voir aussi`** (8/8) — maillage intra-growth + cross-agents (`redacteur_ia`, `data_scientist`, `scrum/product-vision`, `prompt_engineer`, AGENT-FINANCIAL-ANALYST / AI-ARCHITECT / ORCHESTRATEUR-WORKFLOW).
+- Attributions vérifiées WebSearch : **AARRR — Dave McClure 2007** · **North Star — Sean Ellis ~2010 / Amplitude 2017** · **ICE — Sean Ellis** (vs **RICE — Intercom 2017**) · **HEART — Rodden et al., Google, CHI 2010** · **Growth Loops — Reforge (Balfour/Winters/Kwok)** · **LTV:CAC 3:1 — David Skok / Matrix Partners ~2010** (régime stable, non « Bessemer ») · **NPS — Reichheld, HBR 2003** · **RFM — Hughes 1994** · **ALS — Hu/Koren/Volinsky 2008** · **SHAP — Lundberg & Lee, NeurIPS 2017**.
+- Précision factuelle ajoutée : **GA4 a déprécié les modèles à règles (first-click, linear, time-decay, position-based) en 2023**, conservant data-driven (Shapley) + last-click.
+- Benchmarks non sourcés (activation 40 %, signup 3 %, K-factor, Quick Ratio > 4, fourchettes LTV/CAC) requalifiés en **ordres de grandeur** à contextualiser par secteur/stade.
+
+### ✅ Notes
+- **Anonymisation OK** : 0 client réel (illustrations North Star Slack/Airbnb/Spotify/LinkedIn = usage inspirationnel admis). 0 ID modèle obsolète (Opus 4.8 / Haiku 4.5 corrects).
+- Contrôles finaux : **8/8/8 sections présentes** · 0 lien orphelin (cibles vérifiées) · 5 exemples chiffrés ré-exécutés.
+
+---
+
 ## [3.22.0] — 2026-06-02 — Audit complet + V1+ du groupe FORMATEUR-IA (11 skills, §3.5)
 > Modèle : Claude Opus 4.8
 

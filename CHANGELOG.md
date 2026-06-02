@@ -5,6 +5,35 @@
 
 ---
 
+## [3.24.0] — 2026-06-02 — Audit complet + V1+ du groupe VEILLE-STRATEGIQUE (6 skills, §3.5) — 🏁 dernier groupe Transverse/Méta
+> Modèle : Claude Opus 4.8
+
+### 🎯 Contexte
+Audit-first complet de **AGENT-VEILLE-STRATEGIQUE** (sous-domaine Engagement/Croissance de la grille §3.5) — **dernier groupe Transverse/Méta du chantier**. Extraction Explore des 6 skills (1 lot) · **passe de vérification factuelle** (7 WebSearch préalables) · cotation D1/D2/D3. Rapport : `audits/audit-veille-strategique-2026-06-02.md`. Cotation : **0 ✓ · 1 P0 · 4 P1 · 1 P2**. Profil mince et personnalisé : 0/6 sources/anti-patterns/cross-links + **frameworks canoniques absents** (Porter, Ansoff, Hype Cycle, 3 Horizons, Wardley).
+
+### 🔴 P0 — Statistique fabriquée attribuée à une source nommée (incident type « 87 % » / « Greenhouse 2024 »)
+- **`analyse-tendances`** : « Marché GenAI entreprise **+45 %/an (Gartner 2026)** » faux → requalifié avec chiffres Gartner réels (**dépenses GenAI +76 % en 2025 / IA globale +47 % en 2026**) ; « coûts API **−60 % en 2 ans** » non sourcé → neutralisé.
+
+### 🟠 P1
+- **Versions modèles anachroniques** (`veille-ia-llm`, `benchmark-outils-ia`) : Gemini 1.5 Pro / Llama 3.1 405B / GPT-4o mini (modèles **2024**) étiquetés « 2026 » → tables converties en trames à actualiser, cadrage par **tier** + ancrage Anthropic (Opus 4.8 / Sonnet 4.6 / Haiku 4.5) + renvoi leaderboards vivants.
+- **Pricing/scores LLM fabriqués** (`benchmark-outils-ia`) : 3-5 $/MTok + scores 4,5÷5 inventés → neutralisés (grille 6 critères pondérés conservée).
+- **Porter absent** de `veille-concurrentielle` + TJM fabriqués (1800-2500 €/j) → ajout **Porter Five Forces (HBR 1979)** + SWOT ; TJM en fourchettes indicatives.
+- **Ansoff absent** de `detection-signaux-faibles` + « +40 % offres LinkedIn » fabriqué → ajout **Ansoff weak signals (1975)** ; pourcentage neutralisé.
+- **Certifications erronées** : « CIA (SCIP) » **introuvable** + « SCIP CI » imprécis → **SIC (SCIP — Strategic Consortium of Intelligence Professionals)** ; corrigé sur README + 5 headers.
+
+### 🟡 P2
+- **`synthese-periodique`** : ajout **Pyramide de Minto (1987)** + SCQA. **HF Open LLM Leaderboard archivé (juin 2024)** signalé (README + 2 skills) → renvoi LMArena / Papers With Code / Artificial Analysis.
+
+### ✨ V1+ standard sur les 6 skills
+- **`## Sources`** datées (6/6) : **Gartner Hype Cycle 1995** (Fenn) · **McKinsey 3 Horizons 1999** (Baghai/Coley/White) · **Wardley Maps 2005** (CC BY-SA) · **Porter 1979** · **Ansoff 1975** · **Minto 1987** — toutes vérifiées WebSearch.
+- **`## Anti-patterns`** (6/6) + **`## Voir aussi`** (6/6) — maillage intra + cross-agents (`growth_ia`, `consultant_ia`, `juridique_ia/veille-reglementaire`, `redacteur_ia`, `prompt_engineer`, `financial_analyst`).
+
+### ✅ Notes
+- **Anonymisation OK** : 0 client réel (« CAC40 » employé comme segment) · 0 ID modèle obsolète. Mentions « Guy HUIBONHOA » (profil d'activation) conservées, valeurs chiffrées fabriquées associées neutralisées.
+- **🏁 Tous les groupes du catalogue audités.** Prochain jalon : check des 38 `AGENT-*.md` (compteurs, certifs, cross-refs, anonymisation).
+
+---
+
 ## [3.23.0] — 2026-06-02 — Audit complet + V1+ du groupe GROWTH-IA (8 skills, §3.5)
 > Modèle : Claude Opus 4.8
 

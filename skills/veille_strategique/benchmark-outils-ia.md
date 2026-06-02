@@ -1,5 +1,5 @@
 # Skill — Benchmark et Évaluation d'Outils IA
-> Certifications : Anthropic Claude Code in Action (2026), SCIP CI (SCIP), PMI-PBA (PMI)
+> Certifications : Anthropic Claude Code in Action (2026), SIC (SCIP — Strategic Consortium of Intelligence Professionals), PMI-PBA (PMI)
 
 ## Objectif
 Évaluer et comparer des outils IA sur des critères objectifs — performance, coût, conformité, ergonomie — pour recommander les solutions les plus adaptées aux projets de Guy HUIBONHOA et à ses clients.
@@ -15,19 +15,24 @@
 | Ergonomie / UX | 10% | Facilité d'utilisation, courbe d'apprentissage |
 | Communauté / Support | 10% | Docs, forum, réactivité support |
 
-## Benchmark LLM — Assistants IA 2026
+## Benchmark LLM — Trame (à renseigner à chaque édition)
 
-| Critère | Claude Sonnet 4.6 | GPT-4o | Gemini 1.5 Pro | Mistral Large |
+> ⚠️ **Ne jamais figer pricing, contexte ni scores** : ces valeurs changent en semaines (cycle veille IA). Renseigner depuis les **pages de pricing officielles** et les **leaderboards publics** (LMArena / Chatbot Arena ; *Open LLM Leaderboard archivé depuis juin 2024* → ne plus l'utiliser comme source vive ; Papers With Code ; Artificial Analysis). Comparer par **tier** (frontier / standard / éco) plutôt que par chiffre brut.
+
+| Critère | Modèle A (frontier) | Modèle B | Modèle C | Modèle D (éco/open) |
 |---|---|---|---|---|
-| Qualité raisonnement | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ |
-| Coût / MTok input | 3$ | 5$ | 3.5$ | 4$ |
-| Contexte max | 200K | 128K | 1M | 128K |
-| RGPD / EU | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| API qualité | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
-| Multimodal | ✅ | ✅ | ✅ | ⚠ Limité |
-| **Score global** | **4.5/5** | **4.0/5** | **3.8/5** | **3.5/5** |
+| Qualité raisonnement | [⭐ via leaderboard daté] | … | … | … |
+| Coût / MTok input | [pricing officiel] | … | … | … |
+| Contexte max | [doc éditeur] | … | … | … |
+| RGPD / EU (hébergement, DPA) | [à vérifier] | … | … | … |
+| API qualité (SDK, docs) | … | … | … | … |
+| Multimodal | … | … | … | … |
+
+> **Ancrage de référence (à actualiser)** : famille Anthropic au moment de rédaction — Claude **Opus 4.8** (raisonnement/agents), **Sonnet 4.6** (haut volume/vision), **Haiku 4.5** (rapide/éco). Pour les autres éditeurs, citer la version + sa date de sortie (éviter d'étiqueter un modèle ancien comme « 2026 »).
 
 ## Benchmark Workflow / Automation
+
+> Prix et notes ci-dessous = repères indicatifs à vérifier sur les sites éditeurs (les plans évoluent).
 
 | Outil | Usage | Force | Limite | Prix | Note |
 |---|---|---|---|---|---|
@@ -69,3 +74,21 @@ Alternative à considérer : [autre outil]
 
 ## Format de sortie
 Précise : catégorie d'outils (LLM / workflow / RAG / agents), cas d'usage prioritaire, contraintes (budget, RGPD, intégrations requises).
+
+## Anti-patterns
+- ❌ **Scores « X/5 » fabriqués** sans protocole de test ni date — préférer un renvoi aux leaderboards datés et un verdict qualifié.
+- ❌ **Pricing/contexte figés** dans le skill : table vouée à l'obsolescence → renseigner à chaque édition depuis les sources officielles.
+- ❌ **Comparer des modèles de tiers différents** (frontier vs éco) sans le préciser : fausse le verdict coût/qualité.
+- ❌ **Ignorer la conformité** (hébergement EU, DPA, SOC2) face au seul critère performance.
+
+## Voir aussi
+- [`veille-ia-llm.md`](veille-ia-llm.md) — suivi des sorties de modèles
+- [`synthese-periodique.md`](synthese-periodique.md) — diffusion du benchmark
+- `AGENT-CONSULTANT-IA.md` (`benchmark-solutions-ia`) — méthode RFI/RFP/POC/TCO en mission
+- `AGENT-FINANCIAL-ANALYST.md` — analyse financière TCO/ROI (frontière)
+
+## Sources
+- **Méthodes d'évaluation marché** : Gartner Magic Quadrant + Hype Cycle (1995) · Forrester Wave · IDC MarketScape · ISO/IEC 25010:2023 (qualité logicielle)
+- **Leaderboards publics** : LMArena / Chatbot Arena · Papers With Code · Artificial Analysis · *Open LLM Leaderboard (HuggingFace) — archivé juin 2024, ne plus utiliser comme source vive*
+- **Pricing & specs** : pages officielles des éditeurs (anthropic.com, openai.com, ai.google.dev, mistral.ai)
+- **Modèles Anthropic au moment de rédaction** : Opus 4.8 / Sonnet 4.6 / Haiku 4.5 (à actualiser)

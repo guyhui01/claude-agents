@@ -1,10 +1,12 @@
 # Skill — Détection de Signaux Faibles et Opportunités
-> Certifications : SCIP CI (SCIP), CIA (SCIP), SAFe LPM (Scaled Agile)
+> Certifications : SIC (SCIP — Strategic Consortium of Intelligence Professionals), SAFe LPM (Scaled Agile)
 
 ## Objectif
 Identifier les signaux faibles dans l'écosystème IA et du conseil — technologies émergentes, besoins clients non exprimés, opportunités de marché en formation — pour anticiper les évolutions et positionner Guy HUIBONHOA en avance de phase.
 
 ## Définition — Signal faible vs tendance
+
+> Concept fondateur : **H. I. Ansoff, « Managing Strategic Surprise by Response to Weak Signals », *California Management Review*, 1975** — un *signal faible* est une information partielle et précoce sur une discontinuité, perçue avant que la menace/opportunité ne soit confirmée. L'enjeu : adapter la **réponse** au **niveau de connaissance** disponible, sans attendre la certitude (qui arrive trop tard).
 
 ```
 SIGNAL FORT    : Tendance confirmée, consensus marché, presse grand public
@@ -43,7 +45,7 @@ Bruit                  → Ignorer
 
 | Signal | Source | Fiabilité | Horizon | Opportunité pour Guy |
 |---|---|---|---|---|
-| Entreprises cherchent des "PO IA" | Offres emploi LinkedIn +40% | Élevée | 3-6 mois | Positionner comme PO IA certifié Anthropic |
+| Entreprises cherchent des "PO IA" | Hausse des offres d'emploi LinkedIn (à quantifier) | Élevée | 3-6 mois | Positionner comme PO IA certifié Anthropic |
 | Demande AI Act compliance | RFP CAC40 mentionnent "AI Act" | Élevée | Immédiat | Offre conseil conformité IA |
 | Agents IA pour PO (rituels Agile) | GitHub repos, blogs tech | Moyenne | 6-12 mois | Développer catalogue agents PO |
 | Vibe-coding se démocratise chez non-devs | Reddit, LinkedIn anecdotes | Moyenne | 6 mois | Formation vibe-coding pour POs |
@@ -55,7 +57,7 @@ Bruit                  → Ignorer
 OPPORTUNITÉS IMMÉDIATES (3 mois)
 ────────────────────────────────────────────────────────────
 🎯 Positionnement "PO IA certifié Anthropic" sur LinkedIn
-   Signal : +40% offres "PO IA" · Signal fort · Agir maintenant
+   Signal : hausse des offres "PO IA" · Signal fort · Agir maintenant
 
 🎯 Offre conseil AI Act pour clients CAC40
    Signal : RFP mentionnent AI Act dès 2026 · Immédiat
@@ -82,3 +84,22 @@ SIGNAUX À SURVEILLER (12-24 mois)
 
 ## Format de sortie
 Précise : domaine de surveillance (marché conseil IA / opportunités missions / technologies), horizon (3 mois / 12 mois / 3 ans), niveau de risque acceptable.
+
+## Anti-patterns
+- ❌ **Confondre signal faible et bruit** : un signal faible doit se répéter via des sources *indépendantes* — une anecdote isolée n'en est pas un.
+- ❌ **Attendre la confirmation** : par définition le signal faible se traite dans l'incertitude (Ansoff) ; attendre le consensus = perdre l'avance.
+- ❌ **Quantifier un signal avec un chiffre inventé** (« +40 % ») : qualifier la tendance (hausse/baisse) et la source plutôt que fabriquer un pourcentage.
+- ❌ **Détection sans plan d'action** : chaque signal qualifié doit déboucher sur surveiller / expérimenter / agir.
+
+## Voir aussi
+- [`analyse-tendances.md`](analyse-tendances.md) — Hype Cycle : le signal faible précède le « Innovation Trigger »
+- [`veille-concurrentielle.md`](veille-concurrentielle.md) — Porter, menaces concurrentielles
+- [`veille-ia-llm.md`](veille-ia-llm.md) — sources techniques amont (ArXiv, GitHub)
+- `AGENT-CONSULTANT-IA.md` — transformer un signal en offre de mission
+- `AGENT-GROWTH-IA.md` — exploitation acquisition (frontière)
+
+## Sources
+- **Ansoff** : H. I. Ansoff, *Managing Strategic Surprise by Response to Weak Signals*, California Management Review 18(2), 1975
+- **SCIP** — Strategic Consortium of Intelligence Professionals · scip.org (cycle du renseignement, déontologie)
+- **Strategic Early Warning System** — détection précoce (filiation Ansoff)
+- Sources ouvertes amont : ArXiv, GitHub Trending, appels d'offres, communautés spécialisées

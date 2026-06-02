@@ -1,5 +1,5 @@
 # Skill — Veille IA et LLM
-> Certifications : Anthropic Claude Code in Action (2026), SCIP CI (SCIP), CIA (SCIP)
+> Certifications : Anthropic Claude Code in Action (2026), SIC (SCIP — Strategic Consortium of Intelligence Professionals)
 
 ## Objectif
 Surveiller en continu l'écosystème IA et LLM — nouveaux modèles, outils, frameworks, tendances des labs (Anthropic, OpenAI, Google, Meta) — pour anticiper les évolutions et alimenter les décisions stratégiques et commerciales.
@@ -29,6 +29,8 @@ ArXiv cs.AI/cs.CL              : Papers de recherche
 Papers With Code               : Benchmarks et SOTA
 Hugging Face Hub               : Modèles open source
 GitHub Trending (AI)           : Frameworks émergents
+LMArena / Chatbot Arena        : Classement par votes (leaderboard vivant)
+⚠ Open LLM Leaderboard (HF)    : ARCHIVÉ depuis juin 2024 — historique seul
 
 COMMUNAUTÉS
 ────────────────────────────────────────────────────────────
@@ -39,12 +41,17 @@ LinkedIn : #GenAI #LLM #ArtificialIntelligence
 
 ## Tableau de veille LLM — Template mensuel
 
-| Modèle | Éditeur | Date | Contexte | Points forts | Pertinence Guy |
+> ⚠️ **Renseigner à chaque édition** avec la version courante de chaque éditeur et sa **date de sortie réelle** (ne pas étiqueter un modèle ancien à la date de veille). Croiser avec les leaderboards vivants (LMArena). Raisonner par **tier** : *frontier* (raisonnement/agents), *standard* (haut volume/vision), *éco/open* (coût, local).
+
+| Modèle | Éditeur | Sortie | Contexte | Tier | Pertinence |
 |---|---|---|---|---|---|
-| Claude Sonnet 4.6 | Anthropic | 2026-05 | 200K tokens | Raisonnement, code | ⭐⭐⭐ |
-| GPT-4o mini | OpenAI | 2026-04 | 128K | Coût bas, multimodal | ⭐⭐ |
-| Gemini 1.5 Pro | Google | 2026-03 | 1M tokens | Context très long | ⭐⭐ |
-| Llama 3.1 405B | Meta | 2026-02 | 128K | Open source, local | ⭐⭐ |
+| Claude Opus 4.8 | Anthropic | [AAAA-MM] | [doc] | frontier | ⭐⭐⭐ |
+| Claude Sonnet 4.6 | Anthropic | [AAAA-MM] | [doc] | standard | ⭐⭐⭐ |
+| [version courante] | OpenAI | [AAAA-MM] | [doc] | … | … |
+| [version courante] | Google | [AAAA-MM] | [doc] | … | … |
+| [version open] | Meta / Mistral | [AAAA-MM] | [doc] | éco/open | … |
+
+> *Ancrage Anthropic au moment de rédaction (à actualiser)* : Opus 4.8 · Sonnet 4.6 · Haiku 4.5.
 
 ## Synthèse mensuelle IA — Template
 
@@ -86,3 +93,22 @@ Préparée par : Guy HUIBONHOA | Source : Anthropic, OpenAI, ArXiv
 
 ## Format de sortie
 Précise : périmètre de veille (modèles / outils / réglementation), fréquence souhaitée, format de diffusion (note interne / LinkedIn / newsletter).
+
+## Anti-patterns
+- ❌ **Table de modèles figée** avec dates/contextes datés du jour de veille → obsolète en semaines ; renseigner depuis la doc éditeur.
+- ❌ **Scores de benchmark recopiés sans date ni source** (cf. Open LLM Leaderboard archivé) — toujours dater et lier.
+- ❌ **Veille = collecte sans tri** : sans hiérarchisation (faits / tendances / signaux faibles), le flux noie le signal.
+- ❌ **Synthèse sans recommandation** : chaque veille se clôt par 2-3 actions concrètes.
+
+## Voir aussi
+- [`benchmark-outils-ia.md`](benchmark-outils-ia.md) — évaluation comparative outillée
+- [`analyse-tendances.md`](analyse-tendances.md) — mise en perspective macro (Hype Cycle)
+- [`synthese-periodique.md`](synthese-periodique.md) — format de diffusion
+- `AGENT-PROMPT-ENGINEER.md` — exploitation des nouveautés modèles
+- `AGENT-JURIDIQUE-IA.md` (`veille-reglementaire`) — volet AI Act / RGPD
+
+## Sources
+- **Sources primaires labs** : anthropic.com/news · openai.com/blog · blog.google/technology/ai · ai.meta.com/blog · mistral.ai/news
+- **Leaderboards** : LMArena / Chatbot Arena · Papers With Code · Artificial Analysis · *Open LLM Leaderboard (HF) — archivé juin 2024*
+- **Analyses** : The Batch (deeplearning.ai) · Import AI (Jack Clark) · Stratechery
+- **Recherche** : ArXiv cs.AI / cs.CL · Hugging Face Hub

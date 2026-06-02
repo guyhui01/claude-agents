@@ -1,7 +1,8 @@
 # Skills — Veille Stratégique & Intelligence Économique
 
 > Dossier rattaché à `AGENT-VEILLE-STRATEGIQUE.md`
-> Référentiels : SCIP CI (Strategic & Competitive Intelligence Professionals) · CIA (Certified Intelligence Analyst) · PMI-PBA · SAFe LPM · Google Analytics · HubSpot Content · Anthropic Claude Code in Action
+> Référentiels : SCIP / SIC (Strategic Consortium of Intelligence Professionals) · PMI-PBA · SAFe LPM · Google Analytics · HubSpot Content · Anthropic Claude Code in Action
+> Cadres méthodologiques : Porter Five Forces (1979) · Ansoff weak signals (1975) · Gartner Hype Cycle (1995) · McKinsey Three Horizons (1999) · Wardley Maps (2005) · PESTEL · SWOT · Pyramide de Minto (1987)
 
 ---
 
@@ -9,12 +10,12 @@
 
 | # | Skill | Quand l'invoquer | Certification |
 |---|---|---|---|
-| 1 | [`veille-ia-llm.md`](veille-ia-llm.md) | Surveiller l'écosystème IA et LLM (Anthropic, OpenAI, Google) | Anthropic · SCIP CI · CIA |
-| 2 | [`veille-concurrentielle.md`](veille-concurrentielle.md) | Analyser la concurrence et le marché (positionnement, offres, tarifs) | SCIP CI · CIA · PMI-PBA |
-| 3 | [`analyse-tendances.md`](analyse-tendances.md) | Analyser tendances tech et sectorielles (IA Act, usages CAC40) | SCIP CI · CIA · SAFe LPM |
-| 4 | [`synthese-periodique.md`](synthese-periodique.md) | Produire une synthèse périodique de veille (hebdomadaire/mensuelle) | SCIP CI · HubSpot · Google Analytics |
-| 5 | [`benchmark-outils-ia.md`](benchmark-outils-ia.md) | Benchmarker des outils IA (LLM, agents, no-code, automation) | Anthropic · SCIP CI · PMI-PBA |
-| 6 | [`detection-signaux-faibles.md`](detection-signaux-faibles.md) | Détecter signaux faibles et opportunités business | SCIP CI · CIA · SAFe LPM |
+| 1 | [`veille-ia-llm.md`](veille-ia-llm.md) | Surveiller l'écosystème IA et LLM (Anthropic, OpenAI, Google) | Anthropic · SIC (SCIP) |
+| 2 | [`veille-concurrentielle.md`](veille-concurrentielle.md) | Analyser la concurrence et le marché (positionnement, offres, tarifs) | SIC (SCIP) · PMI-PBA |
+| 3 | [`analyse-tendances.md`](analyse-tendances.md) | Analyser tendances tech et sectorielles (IA Act, usages grands comptes) | SIC (SCIP) · SAFe LPM |
+| 4 | [`synthese-periodique.md`](synthese-periodique.md) | Produire une synthèse périodique de veille (hebdomadaire/mensuelle) | SIC (SCIP) · HubSpot · Google Analytics |
+| 5 | [`benchmark-outils-ia.md`](benchmark-outils-ia.md) | Benchmarker des outils IA (LLM, agents, no-code, automation) | Anthropic · SIC (SCIP) · PMI-PBA |
+| 6 | [`detection-signaux-faibles.md`](detection-signaux-faibles.md) | Détecter signaux faibles et opportunités business | SIC (SCIP) · SAFe LPM |
 
 ---
 
@@ -64,11 +65,14 @@ Tu veux ...
 
 ## Référentiels et standards utilisés
 
-- **SCIP** (Strategic & Competitive Intelligence Professionals) : https://www.scip.org/
+- **SCIP** (Strategic Consortium of Intelligence Professionals) : https://www.scip.org/ — certification SIC
 - **Méthode PESTEL** : Politique / Économique / Social / Tech / Environnemental / Légal
 - **Analyse SWOT** : Strengths / Weaknesses / Opportunities / Threats
-- **Modèle Porter** (5 forces) : analyse concurrentielle
-- **Wardley Mapping** : cartographie stratégique
+- **Porter — 5 forces** (HBR 1979) : analyse concurrentielle
+- **Ansoff — weak signals** (*California Mgmt Review* 1975) : détection précoce
+- **Gartner Hype Cycle** (1995) · **McKinsey Three Horizons** (1999) : maturité & horizons d'adoption
+- **Wardley Mapping** (Simon Wardley, 2005, CC BY-SA) : cartographie stratégique
+- **Pyramide de Minto** (1987) : structuration des synthèses
 - **Anthropic / OpenAI / Google AI Blog** : sources primaires
-- **Hugging Face / Papers with Code** : pour LLMs et research
-- **HuggingFace Open LLM Leaderboard** : pour benchmark modèles
+- **LMArena / Papers with Code / Artificial Analysis** : benchmarks LLM vivants
+- ⚠️ **HuggingFace Open LLM Leaderboard** : **archivé depuis juin 2024** (historique uniquement — ne plus utiliser comme source vive)

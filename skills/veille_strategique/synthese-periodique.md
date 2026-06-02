@@ -1,8 +1,11 @@
 # Skill — Production de Synthèses Périodiques de Veille
-> Certifications : SCIP CI (SCIP), HubSpot Content Marketing (HubSpot), Google Analytics IQ (Google)
+> Certifications : SIC (SCIP — Strategic Consortium of Intelligence Professionals), HubSpot Content Marketing (HubSpot), Google Analytics Certification (Google)
 
 ## Objectif
 Produire des synthèses de veille claires, sourcées et actionnables — hebdomadaires ou mensuelles — adaptées à différents formats de diffusion (note interne, LinkedIn, newsletter, présentation CODIR).
+
+## Principe de structuration — Pyramide de Minto
+> **B. Minto, *The Pyramid Principle*, 1987.** Commencer par le message-clé (la réponse / le « so what »), puis dérouler les arguments groupés, enfin les détails/sources. Format **SCQA** pour l'accroche : *Situation → Complication → Question → Answer*. Une synthèse de veille = 1 message principal soutenu par 3-5 faits hiérarchisés, chacun sourcé et daté.
 
 ## Template — Synthèse hebdomadaire (format court)
 
@@ -105,3 +108,20 @@ Vous avez expérimenté ça ? Partagez en commentaire 👇
 
 ## Format de sortie
 Précise : format souhaité (hebdo / mensuel / LinkedIn), périmètre de veille, audience cible, ton (expert / vulgarisation).
+
+## Anti-patterns
+- ❌ **Synthèse sans message-clé** : empiler des news sans hiérarchie Minto → le lecteur ne retient rien.
+- ❌ **Chiffres « clés » sans source ni date** : la section « chiffres clés » exige source primaire + année (jamais de stat fabriquée).
+- ❌ **Pas de recommandation** : chaque synthèse se clôt par l'actionnable (« ce que ça change pour vous »).
+- ❌ **Ton uniforme tous canaux** : adapter au support (CODIR ≠ LinkedIn ≠ note interne).
+
+## Voir aussi
+- [`veille-ia-llm.md`](veille-ia-llm.md) — matière première (faits modèles)
+- [`analyse-tendances.md`](analyse-tendances.md) · [`detection-signaux-faibles.md`](detection-signaux-faibles.md) — contenu à synthétiser
+- `AGENT-REDACTEUR-IA.md` — mise en forme éditoriale pour diffusion (frontière : VEILLE produit la matière)
+- `AGENT-PROMPT-ENGINEER.md` — gabarits de génération assistée
+
+## Sources
+- **Minto** : Barbara Minto, *The Pyramid Principle: Logic in Writing and Thinking* (1987)
+- **SCIP** — Strategic Consortium of Intelligence Professionals · scip.org (règle d'or : sourcer date + source primaire + fiabilité)
+- Méthode SCQA (Situation-Complication-Question-Answer) pour les accroches

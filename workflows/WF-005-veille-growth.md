@@ -1,7 +1,7 @@
 # WF-005 — Veille Stratégique & Growth
 
 > Signal marché / cadence hebdo → synthèse qualifiée → contenu thought-leadership → publication  
-> Certifications mobilisées : SCIP CI · CIA · HubSpot Content Marketing · Google Analytics IQ · PMI-ACP
+> Certifications mobilisées : SIC (SCIP) · HubSpot Content Marketing · Google Analytics · PMI-ACP
 
 ---
 

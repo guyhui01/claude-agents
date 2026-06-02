@@ -1,7 +1,7 @@
 # WF-004 — Mission Conseil IA
 
 > Signature mission → audit maturité → stratégie → plan formation → livrables executive  
-> Certifications mobilisées : PMP · PROSCI · SCIP CI · CIA · CFA · CAP IABAC · TOGAF 10
+> Certifications mobilisées : PMP · PROSCI · SIC (SCIP) · CFA · CAP IABAC · TOGAF 10
 
 ---
 

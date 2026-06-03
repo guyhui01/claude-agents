@@ -5,6 +5,27 @@
 
 ---
 
+## [3.25.0] — 2026-06-03 — Densification BA/MOA (recette, spec fonctionnelle, gestion exigences) + intégrité d'audit ISO 19011
+> Modèle : Claude Opus 4.8
+
+### 🎯 Contexte
+Chantier post-audit (gaps réels confirmés par passe de preuve du 2026-06-03). Enrichissement ciblé de 3 skills `business_analyst` (cœur MOA cycle V, différenciateur AMOA) + inscription d'un principe d'intégrité d'audit. **4 WebSearch préalables** (ISTQB CTFL v4.0, ISO/IEC/IEEE 29119, ISO/IEC/IEEE 29148:2018, Cockburn 2001), 0 invention. Exemples chiffrés secteur **assurance** (arithmétique vérifiée).
+
+### ✨ A — Densification 3 skills BA/MOA
+- **`recette-moa`** (55 → 112 L) : stratégie de test *risk-based*, techniques de conception ISTQB (partition d'équivalence, BVA, table de décision, transition d'états), critères entrée/sortie, **RTM tests ↔ exigences**, **PV avec réserves & dérogations**, exemple assurance (178/184 = 96,7 %). Référentiels **ISTQB CTFL v4.0 · ISO/IEC/IEEE 29119 · ISO/IEC/IEEE 29148**.
+- **`specification-fonctionnelle`** (69 → 133 L) : **délimitation SFG ≠ SFD** (niveaux StRS/SyRS/SRS ISO 29148), **méthode use cases Cockburn** (niveaux de but, scénario nominal + extensions, template), **caractéristiques d'exigence ISO 29148 en remplacement du « SMART »** impropre (Doran 1981 = cadre d'objectifs), traçabilité + critères d'acceptation SFD.
+- **`gestion-exigences`** (47 → 89 L) : recentrage **BABOK KA #5 Requirements Life Cycle Management** (non-redite explicite avec l'élicitation KA #4) — états, baselining/versioning, **traçabilité bidirectionnelle**, change control/CCB, métriques de couverture.
+- Les 3 : ajout `## Sources` datées · `## Anti-patterns` · `## Voir aussi` (cross-links vérifiés, 0 orphelin).
+
+### ✨ B — Intégrité d'audit « projet avant validation sociale »
+- **`AGENT-AUDIT-METHODO-IA`** : nouvelle règle load-bearing (ISO 19011) — servir la qualité du projet, jamais la validation sociale de l'owner ; un « bravo »/« ok » ne valide pas le fond.
+- **`skills/critique_conformite/audit-qualite-catalogue.md`** : rattachement au principe 1 *Intégrité* de la table ISO 19011 (sans doublon).
+
+### 🆕 Normes ISO officielles introduites
+ISO/IEC/IEEE 29119 (Software testing) · ISO/IEC/IEEE 29148:2018 (Requirements engineering, remplace IEEE 830-1998).
+
+---
+
 ## 🏁 Jalon de fin de chantier — 2026-06-03 (contrôle structurel, non versionné)
 > Modèle : Claude Opus 4.8
 

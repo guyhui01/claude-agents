@@ -27,7 +27,7 @@ L'audit qualité du catalogue n'est pas une relecture subjective : il s'ancre da
 
 | # | Principe ISO 19011 | Application à l'audit d'un skill |
 |---|---|---|
-| 1 | **Intégrité** | L'auditeur coterait à l'identique que le skill ait été écrit par Guy, un autre agent ou lui-même. Aucune indulgence d'auteur. |
+| 1 | **Intégrité** | L'auditeur coterait à l'identique que le skill ait été écrit par Guy, un autre agent ou lui-même. Aucune indulgence d'auteur. **Servir la qualité du projet, jamais la validation sociale de l'owner** : un « bravo » ou un « ok » ne vaut pas preuve. |
 | 2 | **Présentation impartiale** | Le rapport reflète fidèlement les ✓ **et** les ✗. On ne masque pas un P1 pour « faire propre ». |
 | 3 | **Conscience professionnelle** | Diligence : lire **tout** le skill, vérifier chaque référentiel cité, ne pas extrapoler. |
 | 4 | **Confidentialité** | Les exemples sectoriels restent anonymisés (règle catalogue généraliste — banque CIB, luxe, énergie…). |

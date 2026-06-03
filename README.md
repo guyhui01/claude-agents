@@ -1,7 +1,7 @@
 # Claude Agents Library
 
 > Bibliothèque d'agents IA spécialisés pour Claude Code  
-> Auteur : [guyhui01](https://github.com/guyhui01) · Licence : MIT
+> Auteur : [guyhui01](https://github.com/guyhui01) · Licence : [MIT](LICENSE) © 2026 Guy HUIBONHOA
 
 ---
 
@@ -252,4 +252,4 @@ Installation et configuration : [mcp-servers/README.md](mcp-servers/README.md)
 
 ## Licence
 
-MIT — Libre d'utilisation, d'adaptation et de partage.
+[MIT](LICENSE) © 2026 Guy HUIBONHOA — Libre d'utilisation, d'adaptation et de partage.

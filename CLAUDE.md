@@ -50,7 +50,7 @@ ClaudeCode/
 - **Commits OK sans demande**, mais push uniquement sur accord explicite
 - **Réponses concises**, en français
 - Pour les actions destructrices ou irréversibles (`rm -rf`, `git reset --hard`, force push) → demander avant
-- Pour les éditions mécaniques (Sonnet 4.6 suffit), pour les arbitrages d'architecture (Opus 4.7)
+- Pour les éditions mécaniques (Sonnet 4.6 suffit), pour les arbitrages d'architecture (Opus 4.8)
 
 ---
 
@@ -58,7 +58,7 @@ ClaudeCode/
 
 | Tâche | Modèle recommandé |
 |---|---|
-| Audit, raisonnement complexe, arbitrage d'architecture | **Opus 4.7** |
+| Audit, raisonnement complexe, arbitrage d'architecture | **Opus 4.8** |
 | Édits ciblés, refactoring mécanique, génération de skills | **Sonnet 4.6** |
 | Génération massive de boilerplate, scripts simples | **Haiku 4.5** |
 

@@ -14,8 +14,8 @@ domaine: "Management & Conseil"
 declencheur: "Signature d'une mission conseil IA / réception d'un RFP client"
 resultat_final: "Rapport audit maturité + roadmap stratégique + plan formation + synthèse executive"
 duree_estimee: "60-90 min"
-modele_recommande: "claude-opus-4-7"
-modele_raison: "Workflow stratégique à haute valeur : audit maturité, ROI, roadmap 12-24 mois, ADKAR, plan formation et synthèse executive. Requiert un raisonnement stratégique profond et une capacité de synthèse multi-sources. Opus 4.7 recommandé pour la qualité des livrables clients CAC40."
+modele_recommande: "claude-opus-4-8"
+modele_raison: "Workflow stratégique à haute valeur : audit maturité, ROI, roadmap 12-24 mois, ADKAR, plan formation et synthèse executive. Requiert un raisonnement stratégique profond et une capacité de synthèse multi-sources. Opus 4.8 recommandé pour la qualité des livrables clients CAC40."
 modele_alternatif: "claude-sonnet-4-6"  # pour des missions courtes de diagnostic seul (sans roadmap ni rapport complet)
 agents_core:
   - CONSULTANT-IA        # diagnostic maturité IA, recommandations

@@ -16,7 +16,7 @@ resultat_final: "Candidat sélectionné + offre émise + dossier recrutement com
 duree_estimee: "60-90 min"
 modele_recommande: "claude-sonnet-4-6"
 modele_raison: "Workflow opérationnel RH : rédaction d'offres, grilles d'évaluation, scoring de CVs. Sonnet 4.6 assure une qualité suffisante pour ces livrables standards."
-modele_alternatif: "claude-opus-4-7"  # si recrutement de profils très séniors (CDO, AI Architect, CISO) ou contexte politique tendu
+modele_alternatif: "claude-opus-4-8"  # si recrutement de profils très séniors (CDO, AI Architect, CISO) ou contexte politique tendu
 agents_core:
   - RH-IA               # sourcing, évaluation profils, scoring ATS, anti-fraude
   - BUSINESS-ANALYST    # analyse besoin métier, profil fonctionnel, exigences MOA

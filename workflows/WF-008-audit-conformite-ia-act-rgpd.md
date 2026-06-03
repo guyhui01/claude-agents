@@ -14,8 +14,8 @@ domaine: "Conformité & Gouvernance"
 declencheur: "Demande d'audit conformité d'un système IA (production ou projet) — pression réglementaire, contrôle CNIL/AI Office, due diligence M&A"
 resultat_final: "Rapport d'audit conformité + cartographie risques + plan de remédiation priorisé + gouvernance cible"
 duree_estimee: "90-150 min"
-modele_recommande: "claude-opus-4-7"
-modele_raison: "Workflow réglementaire à très haut enjeu : qualification du tier de risque AI Act, analyse RGPD multi-articles, threat modeling, gouvernance IA. Erreur de qualification = exposition à sanctions (jusqu'à 7% du CA mondial sous AI Act). Opus 4.7 indispensable pour la fiabilité du raisonnement juridico-technique multi-référentiels."
+modele_recommande: "claude-opus-4-8"
+modele_raison: "Workflow réglementaire à très haut enjeu : qualification du tier de risque AI Act, analyse RGPD multi-articles, threat modeling, gouvernance IA. Erreur de qualification = exposition à sanctions (jusqu'à 7% du CA mondial sous AI Act). Opus 4.8 indispensable pour la fiabilité du raisonnement juridico-technique multi-référentiels."
 modele_alternatif: "claude-sonnet-4-6"  # uniquement pour des pré-audits express (système IA de risque limité, périmètre < 1 cas d'usage)
 agents_core:
   - JURIDIQUE-IA           # cartographie obligations AI Act / RGPD / NIS2

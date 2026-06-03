@@ -18,7 +18,7 @@ Concevoir, entraîner et déployer des modèles de deep learning pour les tâche
 | Tâche | Architecture | Framework |
 |---|---|---|
 | Classification texte | BERT, RoBERTa, CamemBERT | HuggingFace |
-| Génération texte | GPT-4o, Claude 3.5, Mistral | API / vLLM |
+| Génération texte | GPT-4o, Claude Sonnet 4.6, Mistral | API / vLLM |
 | RAG | Embeddings + Vector DB | LangChain / LlamaIndex |
 | Fine-tuning | LoRA / QLoRA | PEFT / Unsloth |
 

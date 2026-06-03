@@ -16,7 +16,7 @@ resultat_final: "Plan de démarrage validé + kit J1 remis + cadrage J5 complét
 duree_estimee: "45-75 min"
 modele_recommande: "claude-sonnet-4-6"
 modele_raison: "Workflow structuré et opérationnel : production de livrables documentaires (plan, kit J1, fiche client). Sonnet 4.6 suffit pour la génération et la mise en forme de ces contenus standards."
-modele_alternatif: "claude-opus-4-7"  # si la mission est particulièrement complexe (transformation, contexte politique tendu)
+modele_alternatif: "claude-opus-4-8"  # si la mission est particulièrement complexe (transformation, contexte politique tendu)
 agents_core:
   - CHEF-PROJET-IA      # plan de démarrage, planning J1-J5, gestion des parties prenantes
   - BUSINESS-ANALYST    # cartographie du SI et des processus client, analyse de l'existant

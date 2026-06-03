@@ -16,7 +16,7 @@ resultat_final: "Rapport REX complet + plan d'amélioration priorisé + capitali
 duree_estimee: "45-75 min"
 modele_recommande: "claude-sonnet-4-6"
 modele_raison: "Workflow documentaire et analytique : collecte de faits, analyse causale, rédaction rapport. Sonnet 4.6 produit des REX de qualité professionnelle."
-modele_alternatif: "claude-opus-4-7"  # si post-mortem à fort enjeu (incident critique, litige, COMEX)
+modele_alternatif: "claude-opus-4-8"  # si post-mortem à fort enjeu (incident critique, litige, COMEX)
 agents_core:
   - CHEF-PROJET-IA    # facilitation REX, timeline, analyse causale, plan d'amélioration
   - QA-AGILE          # analyse qualité livrables, couverture tests, dettes techniques

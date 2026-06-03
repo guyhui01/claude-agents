@@ -16,7 +16,7 @@ resultat_final: "Synthèse veille qualifiée + contenu thought-leadership prêt 
 duree_estimee: "30-60 min"
 modele_recommande: "claude-sonnet-4-6"
 modele_raison: "Workflow léger : 3 agents, tâches de collecte, qualification et rédaction éditoriale. Sonnet 4.6 est suffisant et optimal — rapidité et coût maîtrisé pour une cadence hebdomadaire."
-modele_alternatif: "claude-opus-4-7"  # si synthèse mensuelle stratégique approfondie avec analyse tendances PESTEL
+modele_alternatif: "claude-opus-4-8"  # si synthèse mensuelle stratégique approfondie avec analyse tendances PESTEL
 agents_core:
   - VEILLE-STRATEGIQUE   # collecte, qualification, synthèse intelligence
   - GROWTH-IA            # stratégie de contenu, SEO, acquisition

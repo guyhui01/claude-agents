@@ -130,7 +130,7 @@ Chaque agent référence ses skills dans son fichier (table "Skills disponibles"
 ## 5. Commandes utiles
 
 ```
-/model              # Changer de modèle (Opus 4.7, Sonnet 4.6, Haiku 4.5)
+/model              # Changer de modèle (Opus 4.8, Sonnet 4.6, Haiku 4.5)
 /clear              # Nettoyer le contexte conversation
 /help               # Aide Claude Code
 ! <commande>        # Exécuter une commande shell directement
@@ -139,4 +139,4 @@ Chaque agent référence ses skills dans son fichier (table "Skills disponibles"
 ---
 
 > 💡 **Astuce** : pour les tâches mécaniques (édit, refactor), reste sur Sonnet 4.6.
-> Bascule sur Opus 4.7 pour les vrais arbitrages d'architecture, audits et raisonnements complexes.
+> Bascule sur Opus 4.8 pour les vrais arbitrages d'architecture, audits et raisonnements complexes.

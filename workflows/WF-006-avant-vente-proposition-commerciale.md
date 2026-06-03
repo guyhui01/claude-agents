@@ -14,8 +14,8 @@ domaine: "Management & Conseil"
 declencheur: "RFP / appel d'offre / demande de proposition reçu d'un prospect"
 resultat_final: "Proposition technico-commerciale complète : périmètre, architecture, planning, chiffrage J/H, prix, ROI prospect"
 duree_estimee: "75-120 min"
-modele_recommande: "claude-opus-4-7"
-modele_raison: "Workflow stratégique à fort enjeu commercial : qualification GO/NO-GO, architecture cible, chiffrage J/H, pricing, ROI prospect. La qualité du raisonnement et de la synthèse multi-dimensions conditionne le taux de conversion commerciale. Opus 4.7 recommandé pour les propositions à destination de clients CAC40 / GAFA / licornes."
+modele_recommande: "claude-opus-4-8"
+modele_raison: "Workflow stratégique à fort enjeu commercial : qualification GO/NO-GO, architecture cible, chiffrage J/H, pricing, ROI prospect. La qualité du raisonnement et de la synthèse multi-dimensions conditionne le taux de conversion commerciale. Opus 4.8 recommandé pour les propositions à destination de clients CAC40 / GAFA / licornes."
 modele_alternatif: "claude-sonnet-4-6"  # pour des demandes simples de devis (forfait court, scope cadré, < 20 J/H)
 agents_core:
   - CONSULTANT-IA        # qualification du besoin client + grille GO/NO-GO

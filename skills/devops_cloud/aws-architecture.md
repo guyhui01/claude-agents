@@ -121,7 +121,7 @@ class BedrockClient:
     def invoke_with_streaming(
         self,
         prompt: str,
-        model_id: str = "anthropic.claude-3-5-sonnet-20241022-v2:0",
+        model_id: str = "anthropic.claude-sonnet-4-6",
         max_tokens: int = 4096,
     ) -> Iterator[str]:
         """Invocation Bedrock avec streaming."""
@@ -233,7 +233,7 @@ with Run(experiment_name="fine-tuning-llm", sagemaker_session=session) as run:
     {
       "Effect": "Allow",
       "Action": ["bedrock:InvokeModel"],
-      "Resource": "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-5-sonnet*"
+      "Resource": "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-sonnet-4-6*"
     },
     {
       "Effect": "Deny",

@@ -135,7 +135,7 @@ Référentiel **AI Management System** certifiable (équivalent ISO 27001 pour c
 ### Phase 3 — Analyse (semaines 5-6)
 - Cotation 8 dimensions par triangulation sources + pondération
 - Positionnement Gartner AI Maturity (1-5)
-- Classification cohort MIT Sloan (Implementers/Builders/Practitioners/Leaders)
+- Classification cohort MIT Sloan (Pioneers/Investigators/Experimenters/Passives)
 - Quadrant Cap Gemini (Beginners/Conservatives/Fashionistas/Digital Masters)
 - Couplage NIST AI RMF (Govern/Map/Measure/Manage gaps)
 - Benchmark sectoriel (McKinsey + Stanford AI Index + Gartner Hype Cycle)

@@ -56,12 +56,12 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités de veille stratégique : su
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Surveiller l'écosystème IA et LLM | `skills\veille_strategique\veille-ia-llm.md` | Anthropic Claude Code in Action · SIC (SCIP) |
-| Analyser la concurrence et le marché | `skills\veille_strategique\veille-concurrentielle.md` | SIC (SCIP) · PMI-PBA |
-| Analyser les tendances tech et sectorielles | `skills\veille_strategique\analyse-tendances.md` | SIC (SCIP) · SAFe LPM |
-| Produire une synthèse périodique de veille | `skills\veille_strategique\synthese-periodique.md` | SIC (SCIP) · HubSpot · Google Analytics |
-| Benchmarker des outils IA | `skills\veille_strategique\benchmark-outils-ia.md` | Anthropic Claude Code in Action · SIC (SCIP) · PMI-PBA |
-| Détecter des signaux faibles et opportunités | `skills\veille_strategique\detection-signaux-faibles.md` | SIC (SCIP) · SAFe LPM |
+| Surveiller l'écosystème IA et LLM | `skills/veille_strategique/veille-ia-llm.md` | Anthropic Claude Code in Action · SIC (SCIP) |
+| Analyser la concurrence et le marché | `skills/veille_strategique/veille-concurrentielle.md` | SIC (SCIP) · PMI-PBA |
+| Analyser les tendances tech et sectorielles | `skills/veille_strategique/analyse-tendances.md` | SIC (SCIP) · SAFe LPM |
+| Produire une synthèse périodique de veille | `skills/veille_strategique/synthese-periodique.md` | SIC (SCIP) · HubSpot · Google Analytics |
+| Benchmarker des outils IA | `skills/veille_strategique/benchmark-outils-ia.md` | Anthropic Claude Code in Action · SIC (SCIP) · PMI-PBA |
+| Détecter des signaux faibles et opportunités | `skills/veille_strategique/detection-signaux-faibles.md` | SIC (SCIP) · SAFe LPM |
 
 ---
 

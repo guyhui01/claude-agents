@@ -76,34 +76,34 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités de Product Owner Scrum : vi
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Définir la vision produit | `skills\scrum\product-vision.md` | PSPO II · PSPO III |
-| Conduire le customer discovery | `skills\scrum\customer-discovery.md` | PSPO II · ICAgile ICP-APO |
-| Piloter les métriques produit (EBM) | `skills\scrum\product-metrics-ebm.md` | PSPO II · PSPO III |
-| Modéliser le Business Model Canvas | `skills\scrum\business-model-canvas.md` | PSPO II · PSPO III |
-| Cartographier les stakeholders | `skills\scrum\stakeholder-map.md` | PSPO II · ICAgile ICP-APO |
-| Rédiger une User Story | `skills\scrum\po-user-story.md` | PSPO I |
-| Gérer le Product Backlog (structure, DoR, refinement) | `skills\scrum\po-backlog.md` | PSPO I · PSPO II |
-| Prioriser le backlog (MoSCoW, RICE, Kano, Value/Effort, Buy a Feature, 100$, Opportunity Scoring) | `skills\scrum\priorisation-techniques.md` | PSPO II · PSPO III · ICAgile ICP-APO |
-| Animer un atelier User Story Mapping (Jeff Patton) | `skills\scrum\story-mapping.md` | PSPO II · PSU-I · ICAgile ICP-APO |
-| Rédiger des stories techniques (tech debt, spikes, infra) | `skills\scrum\stories-techniques.md` | PSPO I · PSPO II · ICAgile ICP-APO |
-| Rédiger des tests d'acceptation | `skills\scrum\po-acceptance-tests.md` | PSPO I |
-| Définir la DoR et la DoD | `skills\scrum\dor-dod.md` | PSPO I · PSPO II · PSU-I |
-| Intégrer l'UX dans le sprint (Dual Track) | `skills\scrum\ux-sprint.md` | PSU-I |
-| Gérer le Kanban flow & métriques de flux | `skills\scrum\kanban-flow.md` | PSK-I |
-| Gérer un produit IA (Responsible AI) | `skills\scrum\po-ai-product.md` | PSPO-AI |
-| Rédiger des User Stories pour l'IA | `skills\scrum\ai-user-stories.md` | PSPO-AI · PSPO I |
-| Compte rendu de réunion | `skills\scrum\compte-rendu.md` | PSPO I |
-| Page Confluence | `skills\scrum\confluence-page.md` | PSPO I |
-| Reporting KPI sprint | `skills\scrum\reporting-kpi.md` | PSPO I · PSPO II |
-| Matrice des risques / RACI | `skills\scrum\gestion-risques.md` | PSPO II |
-| Email stakeholder | `skills\scrum\email-stakeholder.md` | PSPO I |
-| Ticket incident | `skills\scrum\ticket-incident.md` | PSPO I |
-| Intégrer Lean UX & Design Thinking | `skills\scrum\lean-ux.md` | PSPO II · PSU-I |
-| Piloter le développement par hypothèses | `skills\scrum\hypothesis-driven.md` | PSPO II · PSPO III |
-| Forecasting & planification probabiliste | `skills\scrum\forecasting-planning.md` | PSPO II · PSPO III |
-| Négocier scope & trade-offs stakeholders | `skills\scrum\stakeholder-negotiation.md` | PSPO II · PSPO III |
-| Décomposer la valeur (Value Stream Mapping) | `skills\scrum\value-decomposition.md` | PSPO II · PSPO III |
-| Coacher des Product Owners | `skills\scrum\coaching-pos.md` | PSPO III |
+| Définir la vision produit | `skills/scrum/product-vision.md` | PSPO II · PSPO III |
+| Conduire le customer discovery | `skills/scrum/customer-discovery.md` | PSPO II · ICAgile ICP-APO |
+| Piloter les métriques produit (EBM) | `skills/scrum/product-metrics-ebm.md` | PSPO II · PSPO III |
+| Modéliser le Business Model Canvas | `skills/scrum/business-model-canvas.md` | PSPO II · PSPO III |
+| Cartographier les stakeholders | `skills/scrum/stakeholder-map.md` | PSPO II · ICAgile ICP-APO |
+| Rédiger une User Story | `skills/scrum/po-user-story.md` | PSPO I |
+| Gérer le Product Backlog (structure, DoR, refinement) | `skills/scrum/po-backlog.md` | PSPO I · PSPO II |
+| Prioriser le backlog (MoSCoW, RICE, Kano, Value/Effort, Buy a Feature, 100$, Opportunity Scoring) | `skills/scrum/priorisation-techniques.md` | PSPO II · PSPO III · ICAgile ICP-APO |
+| Animer un atelier User Story Mapping (Jeff Patton) | `skills/scrum/story-mapping.md` | PSPO II · PSU-I · ICAgile ICP-APO |
+| Rédiger des stories techniques (tech debt, spikes, infra) | `skills/scrum/stories-techniques.md` | PSPO I · PSPO II · ICAgile ICP-APO |
+| Rédiger des tests d'acceptation | `skills/scrum/po-acceptance-tests.md` | PSPO I |
+| Définir la DoR et la DoD | `skills/scrum/dor-dod.md` | PSPO I · PSPO II · PSU-I |
+| Intégrer l'UX dans le sprint (Dual Track) | `skills/scrum/ux-sprint.md` | PSU-I |
+| Gérer le Kanban flow & métriques de flux | `skills/scrum/kanban-flow.md` | PSK-I |
+| Gérer un produit IA (Responsible AI) | `skills/scrum/po-ai-product.md` | PSPO-AI |
+| Rédiger des User Stories pour l'IA | `skills/scrum/ai-user-stories.md` | PSPO-AI · PSPO I |
+| Compte rendu de réunion | `skills/scrum/compte-rendu.md` | PSPO I |
+| Page Confluence | `skills/scrum/confluence-page.md` | PSPO I |
+| Reporting KPI sprint | `skills/scrum/reporting-kpi.md` | PSPO I · PSPO II |
+| Matrice des risques / RACI | `skills/scrum/gestion-risques.md` | PSPO II |
+| Email stakeholder | `skills/scrum/email-stakeholder.md` | PSPO I |
+| Ticket incident | `skills/scrum/ticket-incident.md` | PSPO I |
+| Intégrer Lean UX & Design Thinking | `skills/scrum/lean-ux.md` | PSPO II · PSU-I |
+| Piloter le développement par hypothèses | `skills/scrum/hypothesis-driven.md` | PSPO II · PSPO III |
+| Forecasting & planification probabiliste | `skills/scrum/forecasting-planning.md` | PSPO II · PSPO III |
+| Négocier scope & trade-offs stakeholders | `skills/scrum/stakeholder-negotiation.md` | PSPO II · PSPO III |
+| Décomposer la valeur (Value Stream Mapping) | `skills/scrum/value-decomposition.md` | PSPO II · PSPO III |
+| Coacher des Product Owners | `skills/scrum/coaching-pos.md` | PSPO III |
 
 ---
 

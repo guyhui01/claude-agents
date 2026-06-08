@@ -66,18 +66,18 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités DAM : architecture taxonomi
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Concevoir la taxonomie et le modèle de métadonnées | `skills\dam_expert\taxonomie-assets.md` | Henry Stewart DAM Practitioner · IPTC · Bynder Certified |
-| Définir les workflows de validation et cycle de vie | `skills\dam_expert\workflow-validation-assets.md` | Bynder Certified · AEM Assets Specialist · Canto |
-| Gérer les droits d'usage et licences assets | `skills\dam_expert\gestion-droits-licences.md` | Henry Stewart DAM Practitioner · Bynder Certified · Widen |
-| Distribuer les assets sur les canaux (CMS, social, print) | `skills\dam_expert\distribution-multicanal.md` | Cloudinary Dev Expert · Bynder Certified · AEM Assets |
-| Gérer les transformations de formats et renditions | `skills\dam_expert\transformation-formats.md` | Cloudinary Dev Expert · AEM Assets Specialist · Adobe CC |
-| Intégrer le DAM au CMS (AEM, Drupal, Contentful…) | `skills\dam_expert\integration-dam-cms.md` | AEM Assets Specialist · Cloudinary · Widen / Acquia |
-| Déployer un brand portal et portail de marque | `skills\dam_expert\brand-portal.md` | Bynder Certified · Brandfolder · AEM Assets Specialist |
-| Mettre en place la gouvernance DAM | `skills\dam_expert\gouvernance-dam.md` | Henry Stewart DAM Practitioner · ISO/IEC 42001 · CDMP |
-| Piloter une migration DAM (inventaire, mapping, ETL) | `skills\dam_expert\migration-dam.md` | Henry Stewart DAM Practitioner · Bynder · Widen |
-| Enrichir les assets par IA (auto-tagging, smart search) | `skills\dam_expert\dam-augmente-ia.md` | Claude Code in Action · Cloudinary · ISO/IEC 42001 |
-| Analyser la performance et l'usage des assets | `skills\dam_expert\analytics-assets.md` | Bynder Certified · Widen · Henry Stewart DAM |
-| Définir et appliquer la convention de nommage | `skills\dam_expert\naming-convention.md` | Henry Stewart DAM Practitioner · IPTC · Bynder |
+| Concevoir la taxonomie et le modèle de métadonnées | `skills/dam_expert/taxonomie-assets.md` | Henry Stewart DAM Practitioner · IPTC · Bynder Certified |
+| Définir les workflows de validation et cycle de vie | `skills/dam_expert/workflow-validation-assets.md` | Bynder Certified · AEM Assets Specialist · Canto |
+| Gérer les droits d'usage et licences assets | `skills/dam_expert/gestion-droits-licences.md` | Henry Stewart DAM Practitioner · Bynder Certified · Widen |
+| Distribuer les assets sur les canaux (CMS, social, print) | `skills/dam_expert/distribution-multicanal.md` | Cloudinary Dev Expert · Bynder Certified · AEM Assets |
+| Gérer les transformations de formats et renditions | `skills/dam_expert/transformation-formats.md` | Cloudinary Dev Expert · AEM Assets Specialist · Adobe CC |
+| Intégrer le DAM au CMS (AEM, Drupal, Contentful…) | `skills/dam_expert/integration-dam-cms.md` | AEM Assets Specialist · Cloudinary · Widen / Acquia |
+| Déployer un brand portal et portail de marque | `skills/dam_expert/brand-portal.md` | Bynder Certified · Brandfolder · AEM Assets Specialist |
+| Mettre en place la gouvernance DAM | `skills/dam_expert/gouvernance-dam.md` | Henry Stewart DAM Practitioner · ISO/IEC 42001 · CDMP |
+| Piloter une migration DAM (inventaire, mapping, ETL) | `skills/dam_expert/migration-dam.md` | Henry Stewart DAM Practitioner · Bynder · Widen |
+| Enrichir les assets par IA (auto-tagging, smart search) | `skills/dam_expert/dam-augmente-ia.md` | Claude Code in Action · Cloudinary · ISO/IEC 42001 |
+| Analyser la performance et l'usage des assets | `skills/dam_expert/analytics-assets.md` | Bynder Certified · Widen · Henry Stewart DAM |
+| Définir et appliquer la convention de nommage | `skills/dam_expert/naming-convention.md` | Henry Stewart DAM Practitioner · IPTC · Bynder |
 
 ---
 

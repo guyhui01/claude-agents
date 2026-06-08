@@ -60,14 +60,14 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités de growth marketing IA : ac
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Définir la stratégie d'acquisition (SEO/SEM) | `skills\growth_ia\acquisition-seo-sem.md` | Semrush SEO · Google Ads · CXL Growth |
-| Concevoir et analyser un test A/B | `skills\growth_ia\experimentation-ab-testing.md` | CXL Growth · Google Analytics 4 |
-| Piloter le product analytics (funnels, cohortes) | `skills\growth_ia\product-analytics.md` | Mixpanel · Amplitude · GA4 |
-| Créer une stratégie lifecycle marketing | `skills\growth_ia\lifecycle-marketing.md` | HubSpot Marketing · HubSpot Revenue |
-| Appliquer un framework growth (AARRR, ICE) | `skills\growth_ia\growth-frameworks.md` | CXL Growth · Reforge |
-| Calculer et optimiser LTV / CAC / attribution | `skills\growth_ia\attribution-ltv-cac.md` | GA4 · Mixpanel · Amplitude |
-| Personnaliser l'expérience par IA | `skills\growth_ia\ia-personalisation.md` | Anthropic · CXL Growth · Reforge |
-| Automatiser les campagnes growth (n8n, Make) | `skills\growth_ia\automation-growth.md` | HubSpot Revenue · Anthropic · CXL |
+| Définir la stratégie d'acquisition (SEO/SEM) | `skills/growth_ia/acquisition-seo-sem.md` | Semrush SEO · Google Ads · CXL Growth |
+| Concevoir et analyser un test A/B | `skills/growth_ia/experimentation-ab-testing.md` | CXL Growth · Google Analytics 4 |
+| Piloter le product analytics (funnels, cohortes) | `skills/growth_ia/product-analytics.md` | Mixpanel · Amplitude · GA4 |
+| Créer une stratégie lifecycle marketing | `skills/growth_ia/lifecycle-marketing.md` | HubSpot Marketing · HubSpot Revenue |
+| Appliquer un framework growth (AARRR, ICE) | `skills/growth_ia/growth-frameworks.md` | CXL Growth · Reforge |
+| Calculer et optimiser LTV / CAC / attribution | `skills/growth_ia/attribution-ltv-cac.md` | GA4 · Mixpanel · Amplitude |
+| Personnaliser l'expérience par IA | `skills/growth_ia/ia-personalisation.md` | Anthropic · CXL Growth · Reforge |
+| Automatiser les campagnes growth (n8n, Make) | `skills/growth_ia/automation-growth.md` | HubSpot Revenue · Anthropic · CXL |
 
 ---
 

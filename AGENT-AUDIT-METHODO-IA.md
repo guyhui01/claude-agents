@@ -68,10 +68,10 @@ Tu assistes Guy HUIBONHOA en jouant le rôle de **second avis indépendant** sur
 
 | Demande | Skill | Référence certifiante |
 |---|---|---|
-| Auditer la conformité méthode (checklists SAFe/Scrum/ISTQB/PMI) | `skills\critique_conformite\audit-conformite-methodo.md` | SAFe 6 · Scrum Guide 2020 · CTFL · PMI PMBOK 7 · ISO 9001 |
-| Challenger le raisonnement (biais, contre-thèse, red-team) | `skills\critique_conformite\challenge-raisonnement.md` | CTAL-TM · PMI-ACP · ISO 9001 (revue par les pairs) |
-| Gate de validation avant promotion d'un livrable | `skills\critique_conformite\gate-validation-livrable.md` | SAFe DoD · ISTQB Exit Criteria · CMMI · PMI Quality Gate |
-| Auditer la qualité d'un skill du catalogue (grille v2.8 en autonomie) | `skills\critique_conformite\audit-qualite-catalogue.md` | ISO 19011:2018 · ISO 9001:2015 §9.2 · CMMI V3.0 SCAMPI · grille v2.8 |
+| Auditer la conformité méthode (checklists SAFe/Scrum/ISTQB/PMI) | `skills/critique_conformite/audit-conformite-methodo.md` | SAFe 6 · Scrum Guide 2020 · CTFL · PMI PMBOK 7 · ISO 9001 |
+| Challenger le raisonnement (biais, contre-thèse, red-team) | `skills/critique_conformite/challenge-raisonnement.md` | CTAL-TM · PMI-ACP · ISO 9001 (revue par les pairs) |
+| Gate de validation avant promotion d'un livrable | `skills/critique_conformite/gate-validation-livrable.md` | SAFe DoD · ISTQB Exit Criteria · CMMI · PMI Quality Gate |
+| Auditer la qualité d'un skill du catalogue (grille v2.8 en autonomie) | `skills/critique_conformite/audit-qualite-catalogue.md` | ISO 19011:2018 · ISO 9001:2015 §9.2 · CMMI V3.0 SCAMPI · grille v2.8 |
 
 ---
 

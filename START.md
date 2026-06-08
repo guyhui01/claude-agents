@@ -102,9 +102,9 @@ Confirme que tu es prêt en listant les skills disponibles.
 
 ### Serveurs MCP (Jira / Confluence / Journal de missions)
 
-```powershell
+```bash
 # Installation
-cd "C:\Users\Guy HUIBONHOA\ClaudeCode\mcp-servers"
+cd /Users/guyhui/CLAUDE/claude-catalogue/mcp-servers
 # Suivre mcp-servers/README.md
 ```
 

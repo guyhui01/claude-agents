@@ -66,7 +66,7 @@ LEÇONS APPRISES :
 Signé : [Guy HUIBONHOA] — QA Lead — [Date]
 ```
 
-cat > /mnt/user-data/outputs/ClaudeCode/skills/qa-cyclev/environnements.md << 'EOF'
+cat > /mnt/user-data/outputs/claude-catalogue/skills/qa-cyclev/environnements.md << 'EOF'
 # Skill QA Cycle V — Gestion des Environnements de Test
 
 ## Environnements types

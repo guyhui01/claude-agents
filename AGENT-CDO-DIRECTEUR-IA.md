@@ -62,14 +62,14 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités de direction data-IA : visi
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Définir la stratégie data-IA de l'entreprise | `skills\cdo_directeur_ia\strategie-data-ia.md` | CAP IABAC · MIT Sloan · TOGAF 10 |
-| Mettre en place la gouvernance des données (DAMA) | `skills\cdo_directeur_ia\gouvernance-donnees-dama.md` | CDMP · TOGAF 10 |
-| Structurer un Centre d'Excellence IA (CoE) | `skills\cdo_directeur_ia\centre-excellence-ia.md` | CAP IABAC · MIT Sloan · PROSCI |
-| Architecturer un Data Mesh | `skills\cdo_directeur_ia\data-mesh.md` | CDMP · TOGAF 10 · Google GCDL |
-| Construire le budget et le business case IA | `skills\cdo_directeur_ia\budget-investissement-ia.md` | CAP IABAC · PMI-ACP · MIT Sloan |
-| Piloter la transformation data-driven | `skills\cdo_directeur_ia\pilotage-transformation.md` | PROSCI · PMI-ACP · CAP IABAC |
-| Recruter et fidéliser les talents data-IA | `skills\cdo_directeur_ia\talent-recrutement-ia.md` | MIT Sloan · PROSCI |
-| Définir les OKRs et KPIs data-IA | `skills\cdo_directeur_ia\okr-kpi-data.md` | CAP IABAC · CDMP · PMI-ACP |
+| Définir la stratégie data-IA de l'entreprise | `skills/cdo_directeur_ia/strategie-data-ia.md` | CAP IABAC · MIT Sloan · TOGAF 10 |
+| Mettre en place la gouvernance des données (DAMA) | `skills/cdo_directeur_ia/gouvernance-donnees-dama.md` | CDMP · TOGAF 10 |
+| Structurer un Centre d'Excellence IA (CoE) | `skills/cdo_directeur_ia/centre-excellence-ia.md` | CAP IABAC · MIT Sloan · PROSCI |
+| Architecturer un Data Mesh | `skills/cdo_directeur_ia/data-mesh.md` | CDMP · TOGAF 10 · Google GCDL |
+| Construire le budget et le business case IA | `skills/cdo_directeur_ia/budget-investissement-ia.md` | CAP IABAC · PMI-ACP · MIT Sloan |
+| Piloter la transformation data-driven | `skills/cdo_directeur_ia/pilotage-transformation.md` | PROSCI · PMI-ACP · CAP IABAC |
+| Recruter et fidéliser les talents data-IA | `skills/cdo_directeur_ia/talent-recrutement-ia.md` | MIT Sloan · PROSCI |
+| Définir les OKRs et KPIs data-IA | `skills/cdo_directeur_ia/okr-kpi-data.md` | CAP IABAC · CDMP · PMI-ACP |
 
 ---
 

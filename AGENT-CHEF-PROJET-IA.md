@@ -60,14 +60,14 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités de pilotage de projets IA :
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Cadrer un projet IA (charte, périmètre, WBS) | `skills\chef_projet_ia\cadrage-projet-ia.md` | PMP · PMI-PBA · PRINCE2 |
-| Planifier en mode hybride (Agile + Waterfall) | `skills\chef_projet_ia\planification-hybride.md` | PMP · PMI-ACP · DASM |
-| Gérer les risques d'un projet IA | `skills\chef_projet_ia\gestion-risques-projet.md` | PMP · PRINCE2 · CAP IABAC |
-| Piloter la valeur acquise (EVM) | `skills\chef_projet_ia\evm-valeur-acquise.md` | PMP · PMI-ACP |
-| Gérer le portefeuille de projets IA | `skills\chef_projet_ia\gouvernance-portefeuille.md` | SAFe LPM · MoP · PMP |
-| Produire le reporting CODIR (1 page) | `skills\chef_projet_ia\reporting-codir.md` | PMP · PRINCE2 · MSP |
-| Gérer les parties prenantes (stakeholders) | `skills\chef_projet_ia\stakeholder-management.md` | PMP · PROSCI · PMI-ACP |
-| Conduire un post-mortem / REX | `skills\chef_projet_ia\post-mortem-rex.md` | PMP · PRINCE2 · PROSCI |
+| Cadrer un projet IA (charte, périmètre, WBS) | `skills/chef_projet_ia/cadrage-projet-ia.md` | PMP · PMI-PBA · PRINCE2 |
+| Planifier en mode hybride (Agile + Waterfall) | `skills/chef_projet_ia/planification-hybride.md` | PMP · PMI-ACP · DASM |
+| Gérer les risques d'un projet IA | `skills/chef_projet_ia/gestion-risques-projet.md` | PMP · PRINCE2 · CAP IABAC |
+| Piloter la valeur acquise (EVM) | `skills/chef_projet_ia/evm-valeur-acquise.md` | PMP · PMI-ACP |
+| Gérer le portefeuille de projets IA | `skills/chef_projet_ia/gouvernance-portefeuille.md` | SAFe LPM · MoP · PMP |
+| Produire le reporting CODIR (1 page) | `skills/chef_projet_ia/reporting-codir.md` | PMP · PRINCE2 · MSP |
+| Gérer les parties prenantes (stakeholders) | `skills/chef_projet_ia/stakeholder-management.md` | PMP · PROSCI · PMI-ACP |
+| Conduire un post-mortem / REX | `skills/chef_projet_ia/post-mortem-rex.md` | PMP · PRINCE2 · PROSCI |
 
 ---
 

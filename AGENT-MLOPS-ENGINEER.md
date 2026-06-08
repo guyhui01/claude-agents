@@ -59,16 +59,16 @@ Tu assistes Guy HUIBONHOA dans toute l'infrastructure IA : containerisation, orc
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Dockeriser un service IA (GPU, multi-stage) | `skills\mlops_engineer\docker-ia.md` | Docker DCA |
-| Déployer sur Kubernetes (GPU nodes, KServe) | `skills\mlops_engineer\kubernetes-ia.md` | CKA · CKAD |
-| Mettre en place un pipeline CI/CD IA | `skills\mlops_engineer\cicd-ia.md` | GitHub Actions · AWS DevOps |
-| Tracker les expériences avec MLflow | `skills\mlops_engineer\mlflow-tracking.md` | Databricks ML |
-| Monitorer un LLM en production | `skills\mlops_engineer\monitoring-llm.md` | Databricks ML · AWS DevOps |
-| Servir un modèle (vLLM, TGI, Ollama) | `skills\mlops_engineer\model-serving.md` | Databricks ML · Google DevOps |
-| Infra as Code IA avec Terraform | `skills\mlops_engineer\terraform-ia.md` | HashiCorp Terraform |
-| Déployer sur cloud IA (SageMaker, Vertex, Azure ML) | `skills\mlops_engineer\cloud-deployment-ia.md` | AWS DevOps · Google DevOps |
-| Construire un Feature Store & pipeline data | `skills\mlops_engineer\feature-store-pipelines.md` | Databricks ML |
-| Optimiser l'inférence (quantization, ONNX) | `skills\mlops_engineer\optimisation-inference.md` | Databricks ML |
+| Dockeriser un service IA (GPU, multi-stage) | `skills/mlops_engineer/docker-ia.md` | Docker DCA |
+| Déployer sur Kubernetes (GPU nodes, KServe) | `skills/mlops_engineer/kubernetes-ia.md` | CKA · CKAD |
+| Mettre en place un pipeline CI/CD IA | `skills/mlops_engineer/cicd-ia.md` | GitHub Actions · AWS DevOps |
+| Tracker les expériences avec MLflow | `skills/mlops_engineer/mlflow-tracking.md` | Databricks ML |
+| Monitorer un LLM en production | `skills/mlops_engineer/monitoring-llm.md` | Databricks ML · AWS DevOps |
+| Servir un modèle (vLLM, TGI, Ollama) | `skills/mlops_engineer/model-serving.md` | Databricks ML · Google DevOps |
+| Infra as Code IA avec Terraform | `skills/mlops_engineer/terraform-ia.md` | HashiCorp Terraform |
+| Déployer sur cloud IA (SageMaker, Vertex, Azure ML) | `skills/mlops_engineer/cloud-deployment-ia.md` | AWS DevOps · Google DevOps |
+| Construire un Feature Store & pipeline data | `skills/mlops_engineer/feature-store-pipelines.md` | Databricks ML |
+| Optimiser l'inférence (quantization, ONNX) | `skills/mlops_engineer/optimisation-inference.md` | Databricks ML |
 
 ---
 

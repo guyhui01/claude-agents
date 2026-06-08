@@ -5,6 +5,25 @@
 
 ---
 
+## [3.25.1] — 2026-06-08 — Migration macOS : assainissement des chemins Windows
+> Modèle : Claude Opus 4.8
+
+### 🎯 Contexte
+Post-migration Windows 11 → Mac mini M4 (juin 2026) + renommage du dossier local `ClaudeCode` → `claude-catalogue` (nom GitHub `claude-agents` inchangé). Solde de la **dette de portabilité** : tous les chemins/commandes Windows rendaient l'exécution non fonctionnelle sur macOS. **44 fichiers** corrigés, vérifiés (0 lien mort, 0 corruption de code/table).
+
+### 🔧 Fixed
+- **Références de skills** (38 `AGENT-*.md`) : 425 chemins `skills\dir\fichier.md` → `skills/dir/fichier.md` (séparateurs POSIX). Regex ciblée préservant les échappements de code (`\n`, `\t`) et de tableaux Markdown (`\|`). Vérifié : 425/425 chemins résolvent (0 lien mort).
+- **Config MCP exécution** (`mcp-servers/claude_code_settings.json`) : chemins `C:/Users/Guy HUIBONHOA/ClaudeCode/mcp-servers/*/server.ts` et `WORKFLOW_LOG_PATH` → `/Users/guyhui/CLAUDE/claude-catalogue/...`. JSON validé. *(corrigeait des chemins qui empêchaient le démarrage des 3 serveurs MCP sur Mac).*
+- **Doc install MCP** (`mcp-servers/README.md`) : commandes PowerShell → zsh/bash (`New-Item`→`mkdir -p`, `Copy-Item`→`cp`, `$env:USERPROFILE`→`~`), chemins macOS, fences ` ```powershell ` → ` ```bash `.
+- **`START.md`, `CLAUDE.md`** (arbo), **`.env.example`** (exemple macOS), **`skills/qa_testing/reporting-qualite.md`** : chemins Windows / ancien nom `ClaudeCode` → macOS / `claude-catalogue`.
+
+### Notes
+- **Conservé** : le nom d'auteur « Guy HUIBONHOA » (profil d'activation, décision 2026-05-30) — non confondu avec les chemins.
+- **Non touché** (volontaire) : 1 occurrence `skills\safe\...` dans une entrée CHANGELOG passée = enregistrement historique (règle d'immuabilité de l'historique).
+- Compteurs inchangés (38 agents / 37 skills / 10 workflows).
+
+---
+
 ## [3.25.0] — 2026-06-03 — Densification BA/MOA (recette, spec fonctionnelle, gestion exigences) + intégrité d'audit ISO 19011
 > Modèle : Claude Opus 4.8
 

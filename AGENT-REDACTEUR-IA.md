@@ -65,22 +65,22 @@ Tu assistes Guy HUIBONHOA dans toute sa production écrite professionnelle : rap
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Rédiger un rapport professionnel | `skills\redacteur_ia\redaction-rapport.md` | HubSpot Content · Google Digital |
-| Rédiger une synthèse exécutive (1 page) | `skills\redacteur_ia\synthese-executive.md` | HubSpot Content · Copyblogger |
-| Créer une newsletter IA | `skills\redacteur_ia\newsletter-email.md` | HubSpot Email · Semrush |
-| Rédiger une note de cadrage | `skills\redacteur_ia\note-cadrage.md` | HubSpot Content · Google Digital |
-| Structurer une présentation / pitch | `skills\redacteur_ia\presentation-pitch.md` | Copyblogger · LinkedIn Marketing |
-| Rédiger des posts et articles LinkedIn | `skills\redacteur_ia\linkedin-thought-leadership.md` | LinkedIn Marketing · HubSpot |
-| Rédiger un email professionnel impactant | `skills\redacteur_ia\redaction-email-pro.md` | HubSpot Email · Google Digital |
-| Rédiger un compte rendu avancé | `skills\redacteur_ia\compte-rendu-pro.md` | HubSpot Content |
-| Créer des prompts de rédaction IA | `skills\redacteur_ia\prompt-engineering-redaction.md` | Anthropic Claude Code |
-| Appliquer le storytelling écrit | `skills\redacteur_ia\storytelling-ia.md` | Copyblogger · HubSpot Content |
-| Définir une stratégie de contenu IA | `skills\redacteur_ia\content-strategy.md` | HubSpot Content · Google Digital · LinkedIn Marketing |
-| Copywriting & rédaction persuasive | `skills\redacteur_ia\copywriting-ia.md` | Copyblogger · HubSpot Content |
-| Rédiger une documentation technique | `skills\redacteur_ia\documentation-technique.md` | Anthropic Claude Code · Google Digital |
-| Optimiser un contenu SEO (Semrush, GA4) | `skills\redacteur_ia\seo-content.md` | Semrush SEO · Google Digital · HubSpot Content |
-| Traduire et localiser un contenu | `skills\redacteur_ia\traduction-localisation.md` | Google Digital · HubSpot Content |
-| Rédiger l'UX Writing / microcopy | `skills\redacteur_ia\ux-writing.md` | Google UX · HubSpot Content |
+| Rédiger un rapport professionnel | `skills/redacteur_ia/redaction-rapport.md` | HubSpot Content · Google Digital |
+| Rédiger une synthèse exécutive (1 page) | `skills/redacteur_ia/synthese-executive.md` | HubSpot Content · Copyblogger |
+| Créer une newsletter IA | `skills/redacteur_ia/newsletter-email.md` | HubSpot Email · Semrush |
+| Rédiger une note de cadrage | `skills/redacteur_ia/note-cadrage.md` | HubSpot Content · Google Digital |
+| Structurer une présentation / pitch | `skills/redacteur_ia/presentation-pitch.md` | Copyblogger · LinkedIn Marketing |
+| Rédiger des posts et articles LinkedIn | `skills/redacteur_ia/linkedin-thought-leadership.md` | LinkedIn Marketing · HubSpot |
+| Rédiger un email professionnel impactant | `skills/redacteur_ia/redaction-email-pro.md` | HubSpot Email · Google Digital |
+| Rédiger un compte rendu avancé | `skills/redacteur_ia/compte-rendu-pro.md` | HubSpot Content |
+| Créer des prompts de rédaction IA | `skills/redacteur_ia/prompt-engineering-redaction.md` | Anthropic Claude Code |
+| Appliquer le storytelling écrit | `skills/redacteur_ia/storytelling-ia.md` | Copyblogger · HubSpot Content |
+| Définir une stratégie de contenu IA | `skills/redacteur_ia/content-strategy.md` | HubSpot Content · Google Digital · LinkedIn Marketing |
+| Copywriting & rédaction persuasive | `skills/redacteur_ia/copywriting-ia.md` | Copyblogger · HubSpot Content |
+| Rédiger une documentation technique | `skills/redacteur_ia/documentation-technique.md` | Anthropic Claude Code · Google Digital |
+| Optimiser un contenu SEO (Semrush, GA4) | `skills/redacteur_ia/seo-content.md` | Semrush SEO · Google Digital · HubSpot Content |
+| Traduire et localiser un contenu | `skills/redacteur_ia/traduction-localisation.md` | Google Digital · HubSpot Content |
+| Rédiger l'UX Writing / microcopy | `skills/redacteur_ia/ux-writing.md` | Google UX · HubSpot Content |
 
 ---
 

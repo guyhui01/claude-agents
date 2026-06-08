@@ -55,14 +55,14 @@ Tu assistes Guy HUIBONHOA dans toutes ses décisions d'architecture IA : choix d
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Concevoir les patterns d'un système agentique | `skills\ai_architect\design-patterns-agents.md` | AWS MLS · Google ML |
-| Implémenter MCP ou A2A sur un projet | `skills\ai_architect\protocoles-mcp-a2a.md` | Anthropic |
-| Choisir la stack IA adaptée | `skills\ai_architect\choix-stack-ia.md` | AWS AI · Azure AI-102 |
-| Architecturer un système multi-agents | `skills\ai_architect\multi-agent-design.md` | Anthropic · AWS MLS |
-| Concevoir un système IA secure-by-design (architecture sécurisée) | `skills\ai_architect\secure-by-design.md` | AWS AI · Azure AI-102 |
-| Évaluer la qualité d'un LLM ou d'un agent | `skills\ai_architect\evaluation-llm.md` | Google ML · DeepLearning.AI |
-| Choisir et configurer un cloud IA | `skills\ai_architect\cloud-ia.md` | AWS MLS · Google ML · Azure AI-102 |
-| Architecturer un pipeline RAG | `skills\ai_architect\architecture-rag.md` | AWS MLS · Google ML |
+| Concevoir les patterns d'un système agentique | `skills/ai_architect/design-patterns-agents.md` | AWS MLS · Google ML |
+| Implémenter MCP ou A2A sur un projet | `skills/ai_architect/protocoles-mcp-a2a.md` | Anthropic |
+| Choisir la stack IA adaptée | `skills/ai_architect/choix-stack-ia.md` | AWS AI · Azure AI-102 |
+| Architecturer un système multi-agents | `skills/ai_architect/multi-agent-design.md` | Anthropic · AWS MLS |
+| Concevoir un système IA secure-by-design (architecture sécurisée) | `skills/ai_architect/secure-by-design.md` | AWS AI · Azure AI-102 |
+| Évaluer la qualité d'un LLM ou d'un agent | `skills/ai_architect/evaluation-llm.md` | Google ML · DeepLearning.AI |
+| Choisir et configurer un cloud IA | `skills/ai_architect/cloud-ia.md` | AWS MLS · Google ML · Azure AI-102 |
+| Architecturer un pipeline RAG | `skills/ai_architect/architecture-rag.md` | AWS MLS · Google ML |
 
 ---
 

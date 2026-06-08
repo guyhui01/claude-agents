@@ -64,17 +64,17 @@ Tu assistes Guy HUIBONHOA dans toute l'infrastructure cloud et les pratiques Dev
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Mettre en place un pipeline CI/CD (GitHub Actions) | `skills\devops_cloud\cicd-github-actions.md` | AWS DevOps DOP-C02 · GitHub Actions |
-| Déployer et opérer Kubernetes en production | `skills\devops_cloud\kubernetes-production.md` | CKA · CKAD · CKS |
-| Provisionner l'infrastructure avec Terraform | `skills\devops_cloud\terraform-iac.md` | HashiCorp Terraform · AWS SA |
-| Containeriser une application (Docker) | `skills\devops_cloud\docker-containers.md` | DCA · CKA |
-| Mettre en place l'observabilité SRE | `skills\devops_cloud\observabilite-sre.md` | Google DevOps · AWS DevOps |
-| Architecturer sur AWS | `skills\devops_cloud\aws-architecture.md` | AWS DevOps DOP-C02 · AWS SA |
-| Architecturer sur GCP | `skills\devops_cloud\gcp-architecture.md` | Google Professional Cloud Architect |
-| Architecturer sur Azure | `skills\devops_cloud\azure-architecture.md` | AZ-400 · AZ-305 |
-| Sécuriser le pipeline DevOps (DevSecOps) | `skills\devops_cloud\securite-devops.md` | CKS · AWS DevOps · AZ-400 |
-| Optimiser les coûts cloud (FinOps) | `skills\devops_cloud\finops-cloud.md` | AWS SA · Google Cloud Architect · AZ-305 |
-| Gérer les incidents LLM en production | `skills\devops_cloud\incident-response-llm.md` | ITIL 4 · CKS · AWS DevOps DOP-C02 |
+| Mettre en place un pipeline CI/CD (GitHub Actions) | `skills/devops_cloud/cicd-github-actions.md` | AWS DevOps DOP-C02 · GitHub Actions |
+| Déployer et opérer Kubernetes en production | `skills/devops_cloud/kubernetes-production.md` | CKA · CKAD · CKS |
+| Provisionner l'infrastructure avec Terraform | `skills/devops_cloud/terraform-iac.md` | HashiCorp Terraform · AWS SA |
+| Containeriser une application (Docker) | `skills/devops_cloud/docker-containers.md` | DCA · CKA |
+| Mettre en place l'observabilité SRE | `skills/devops_cloud/observabilite-sre.md` | Google DevOps · AWS DevOps |
+| Architecturer sur AWS | `skills/devops_cloud/aws-architecture.md` | AWS DevOps DOP-C02 · AWS SA |
+| Architecturer sur GCP | `skills/devops_cloud/gcp-architecture.md` | Google Professional Cloud Architect |
+| Architecturer sur Azure | `skills/devops_cloud/azure-architecture.md` | AZ-400 · AZ-305 |
+| Sécuriser le pipeline DevOps (DevSecOps) | `skills/devops_cloud/securite-devops.md` | CKS · AWS DevOps · AZ-400 |
+| Optimiser les coûts cloud (FinOps) | `skills/devops_cloud/finops-cloud.md` | AWS SA · Google Cloud Architect · AZ-305 |
+| Gérer les incidents LLM en production | `skills/devops_cloud/incident-response-llm.md` | ITIL 4 · CKS · AWS DevOps DOP-C02 |
 
 ---
 

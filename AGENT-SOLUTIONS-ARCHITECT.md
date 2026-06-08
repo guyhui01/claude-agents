@@ -62,14 +62,14 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités d'architecture d'entreprise
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Conduire un cycle TOGAF ADM | `skills\solutions_architect\togaf-adm.md` | TOGAF 10 Foundation & Practitioner |
-| Modéliser avec Archimate 3 | `skills\solutions_architect\archimate-modeling.md` | ArchiMate 3 Practitioner · TOGAF 10 |
-| Cartographier le SI (urbanisme) | `skills\solutions_architect\urbanisme-si.md` | TOGAF 10 · CITA-A · IASA |
-| Concevoir l'architecture BDAT cible | `skills\solutions_architect\architecture-bdat.md` | TOGAF 10 Practitioner · CITA-A |
-| Sélectionner les patterns d'intégration | `skills\solutions_architect\integration-patterns.md` | AWS SAP-C02 · Google Cloud Architect · AZ-305 |
-| Définir la stratégie de migration cloud | `skills\solutions_architect\migration-cloud.md` | AWS SAP-C02 · Google Cloud Architect · AZ-305 |
-| Mettre en place la gouvernance architecturale | `skills\solutions_architect\gouvernance-architecturale.md` | TOGAF 10 · CITA-A · IASA |
-| Construire la roadmap de transformation SI | `skills\solutions_architect\roadmap-transformation-si.md` | TOGAF 10 · PMP · IASA |
+| Conduire un cycle TOGAF ADM | `skills/solutions_architect/togaf-adm.md` | TOGAF 10 Foundation & Practitioner |
+| Modéliser avec Archimate 3 | `skills/solutions_architect/archimate-modeling.md` | ArchiMate 3 Practitioner · TOGAF 10 |
+| Cartographier le SI (urbanisme) | `skills/solutions_architect/urbanisme-si.md` | TOGAF 10 · CITA-A · IASA |
+| Concevoir l'architecture BDAT cible | `skills/solutions_architect/architecture-bdat.md` | TOGAF 10 Practitioner · CITA-A |
+| Sélectionner les patterns d'intégration | `skills/solutions_architect/integration-patterns.md` | AWS SAP-C02 · Google Cloud Architect · AZ-305 |
+| Définir la stratégie de migration cloud | `skills/solutions_architect/migration-cloud.md` | AWS SAP-C02 · Google Cloud Architect · AZ-305 |
+| Mettre en place la gouvernance architecturale | `skills/solutions_architect/gouvernance-architecturale.md` | TOGAF 10 · CITA-A · IASA |
+| Construire la roadmap de transformation SI | `skills/solutions_architect/roadmap-transformation-si.md` | TOGAF 10 · PMP · IASA |
 
 ---
 

@@ -64,21 +64,21 @@ Tu assistes Guy HUIBONHOA dans la conception, l'orchestration et le pilotage de 
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Concevoir un workflow agentique (BPMN, flow) | `skills\orchestrateur_workflow\workflow-design.md` | TOGAF 10 · BPMN 2.0 OCM · PMP |
-| Sélectionner et router vers les bons agents | `skills\orchestrateur_workflow\agent-routing.md` | TOGAF 10 · PMI-ACP · Anthropic Claude Code in Action |
-| Gérer le contexte et les transferts inter-agents | `skills\orchestrateur_workflow\context-handoff.md` | Anthropic Claude Code in Action · AWS SA · GCP Architect |
-| Gérer les erreurs, fallbacks et reprises | `skills\orchestrateur_workflow\error-recovery.md` | ITIL 4 · PMP · AWS SA |
-| Cartographier les dépendances et séquencer | `skills\orchestrateur_workflow\dependency-mapping.md` | BPMN 2.0 OCM · PMP · SAFe 6 Agilist |
-| Orchestrer en parallèle vs séquentiel | `skills\orchestrateur_workflow\parallel-orchestration.md` | BPMN 2.0 OCM · AWS SA · GCP Architect |
-| Valider les outputs inter-agents | `skills\orchestrateur_workflow\output-validation.md` | PMP · PMI-ACP · ITIL 4 |
-| Gérer le catalogue de workflows | `skills\orchestrateur_workflow\workflow-catalog.md` | TOGAF 10 · SAFe LPM · PMP |
-| Gérer les déclencheurs et conditions | `skills\orchestrateur_workflow\trigger-management.md` | BPMN 2.0 OCM · AWS SA · ITIL 4 |
-| Monitorer l'exécution et produire les métriques | `skills\orchestrateur_workflow\workflow-monitoring.md` | ITIL 4 · PMP · AWS SA · GCP Architect |
-| Orchestrer via MCP servers et protocole A2A | `skills\orchestrateur_workflow\mcp-orchestration.md` | Anthropic Claude Code in Action · AWS SA · GCP Architect |
-| Intégrer l'Anthropic SDK (chaining, tool use, cache) | `skills\orchestrateur_workflow\claude-api-integration.md` | Anthropic Claude Code in Action · Claude Code 101 · AWS SA |
-| Rédiger les prompts techniques d'orchestration | `skills\orchestrateur_workflow\prompt-engineering-orchestration.md` | Anthropic Claude Code in Action · Claude 101 · PMI-ACP |
-| Automatiser via GitHub Actions, n8n, Make, webhooks | `skills\orchestrateur_workflow\workflow-automation.md` | AWS SA · GCP Architect · Anthropic Claude Code in Action · ITIL 4 |
-| Implémenter les patterns LangGraph / CrewAI / AutoGen | `skills\orchestrateur_workflow\langgraph-crewai-patterns.md` | Anthropic Claude Code in Action · AWS SA · GCP Architect |
+| Concevoir un workflow agentique (BPMN, flow) | `skills/orchestrateur_workflow/workflow-design.md` | TOGAF 10 · BPMN 2.0 OCM · PMP |
+| Sélectionner et router vers les bons agents | `skills/orchestrateur_workflow/agent-routing.md` | TOGAF 10 · PMI-ACP · Anthropic Claude Code in Action |
+| Gérer le contexte et les transferts inter-agents | `skills/orchestrateur_workflow/context-handoff.md` | Anthropic Claude Code in Action · AWS SA · GCP Architect |
+| Gérer les erreurs, fallbacks et reprises | `skills/orchestrateur_workflow/error-recovery.md` | ITIL 4 · PMP · AWS SA |
+| Cartographier les dépendances et séquencer | `skills/orchestrateur_workflow/dependency-mapping.md` | BPMN 2.0 OCM · PMP · SAFe 6 Agilist |
+| Orchestrer en parallèle vs séquentiel | `skills/orchestrateur_workflow/parallel-orchestration.md` | BPMN 2.0 OCM · AWS SA · GCP Architect |
+| Valider les outputs inter-agents | `skills/orchestrateur_workflow/output-validation.md` | PMP · PMI-ACP · ITIL 4 |
+| Gérer le catalogue de workflows | `skills/orchestrateur_workflow/workflow-catalog.md` | TOGAF 10 · SAFe LPM · PMP |
+| Gérer les déclencheurs et conditions | `skills/orchestrateur_workflow/trigger-management.md` | BPMN 2.0 OCM · AWS SA · ITIL 4 |
+| Monitorer l'exécution et produire les métriques | `skills/orchestrateur_workflow/workflow-monitoring.md` | ITIL 4 · PMP · AWS SA · GCP Architect |
+| Orchestrer via MCP servers et protocole A2A | `skills/orchestrateur_workflow/mcp-orchestration.md` | Anthropic Claude Code in Action · AWS SA · GCP Architect |
+| Intégrer l'Anthropic SDK (chaining, tool use, cache) | `skills/orchestrateur_workflow/claude-api-integration.md` | Anthropic Claude Code in Action · Claude Code 101 · AWS SA |
+| Rédiger les prompts techniques d'orchestration | `skills/orchestrateur_workflow/prompt-engineering-orchestration.md` | Anthropic Claude Code in Action · Claude 101 · PMI-ACP |
+| Automatiser via GitHub Actions, n8n, Make, webhooks | `skills/orchestrateur_workflow/workflow-automation.md` | AWS SA · GCP Architect · Anthropic Claude Code in Action · ITIL 4 |
+| Implémenter les patterns LangGraph / CrewAI / AutoGen | `skills/orchestrateur_workflow/langgraph-crewai-patterns.md` | Anthropic Claude Code in Action · AWS SA · GCP Architect |
 
 ---
 

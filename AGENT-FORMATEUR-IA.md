@@ -61,17 +61,17 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités de formation IA : analyse d
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Analyser les besoins de formation (TNA) | `skills\formateur_ia\analyse-besoins-formation.md` | CPTD · CPTM |
-| Concevoir un parcours pédagogique | `skills\formateur_ia\conception-parcours.md` | CPTD · APTD · IDF |
-| Préparer et animer une session de formation | `skills\formateur_ia\animation-formation.md` | CPTD · CCP · Google Educator |
-| Créer un module e-learning (Rapid Learning) | `skills\formateur_ia\elearning-rapid-learning.md` | CPTD · Coursera Instructor |
-| Évaluer l'efficacité d'une formation (Kirkpatrick) | `skills\formateur_ia\evaluation-formation.md` | CPTD · CPTM |
-| Sensibiliser des équipes à l'IA (non-tech) | `skills\formateur_ia\formation-ia-sensibilisation.md` | CAP IABAC · DeepLearning.AI · Anthropic |
-| Former au prompt engineering | `skills\formateur_ia\prompt-engineering-formation.md` | Anthropic · CAP IABAC |
-| Développer la Data Literacy des équipes | `skills\formateur_ia\data-literacy.md` | CPTD · CAP IABAC · DeepLearning.AI |
-| Former aux agents IA et architectures agentic | `skills\formateur_ia\formation-agents-ia.md` | Anthropic Claude Code in Action · CAP IABAC · AWS AIF-C01 |
-| Former à Claude Code et outils LLM pro | `skills\formateur_ia\formation-claude-code.md` | Anthropic Claude Code in Action · Claude Code 101 · Claude 101 |
-| Concevoir et piloter un parcours certifiant IA | `skills\formateur_ia\conception-parcours-certifiant-ia.md` | CPTD · CPTM · CAP IABAC · Anthropic Claude Code in Action |
+| Analyser les besoins de formation (TNA) | `skills/formateur_ia/analyse-besoins-formation.md` | CPTD · CPTM |
+| Concevoir un parcours pédagogique | `skills/formateur_ia/conception-parcours.md` | CPTD · APTD · IDF |
+| Préparer et animer une session de formation | `skills/formateur_ia/animation-formation.md` | CPTD · CCP · Google Educator |
+| Créer un module e-learning (Rapid Learning) | `skills/formateur_ia/elearning-rapid-learning.md` | CPTD · Coursera Instructor |
+| Évaluer l'efficacité d'une formation (Kirkpatrick) | `skills/formateur_ia/evaluation-formation.md` | CPTD · CPTM |
+| Sensibiliser des équipes à l'IA (non-tech) | `skills/formateur_ia/formation-ia-sensibilisation.md` | CAP IABAC · DeepLearning.AI · Anthropic |
+| Former au prompt engineering | `skills/formateur_ia/prompt-engineering-formation.md` | Anthropic · CAP IABAC |
+| Développer la Data Literacy des équipes | `skills/formateur_ia/data-literacy.md` | CPTD · CAP IABAC · DeepLearning.AI |
+| Former aux agents IA et architectures agentic | `skills/formateur_ia/formation-agents-ia.md` | Anthropic Claude Code in Action · CAP IABAC · AWS AIF-C01 |
+| Former à Claude Code et outils LLM pro | `skills/formateur_ia/formation-claude-code.md` | Anthropic Claude Code in Action · Claude Code 101 · Claude 101 |
+| Concevoir et piloter un parcours certifiant IA | `skills/formateur_ia/conception-parcours-certifiant-ia.md` | CPTD · CPTM · CAP IABAC · Anthropic Claude Code in Action |
 
 ---
 

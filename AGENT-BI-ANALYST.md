@@ -65,18 +65,18 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités Business Intelligence : con
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Concevoir un modèle dimensionnel (étoile, flocon, Vault) | `skills\bi_analyst\modelisation-dimensionnelle.md` | PL-300 · DP-600 · Databricks Analyst |
-| Développer un rapport Power BI (Desktop, Service, Fabric) | `skills\bi_analyst\power-bi-reporting.md` | PL-300 Microsoft · DP-600 Microsoft |
-| Développer un dashboard Tableau | `skills\bi_analyst\tableau-dashboard.md` | Tableau Certified Data Analyst (Salesforce) |
-| Développer avec Looker / LookML | `skills\bi_analyst\looker-lookml.md` | Looker BI & Data Analytics (Google) |
-| Écrire du SQL analytique avancé (dbt, window functions) | `skills\bi_analyst\sql-analytique.md` | dbt Certified Analytics Engineer · Databricks Analyst |
-| Construire le catalogue de KPIs et métriques | `skills\bi_analyst\catalogue-kpis.md` | PL-300 · Tableau Analyst · Google Data Analytics |
-| Produire un reporting CODIR / exécutif | `skills\bi_analyst\reporting-codir.md` | PL-300 · Tableau Analyst · Google Data Analytics |
-| Mettre en place la gouvernance BI (RLS, lineage, certs) | `skills\bi_analyst\gouvernance-bi.md` | PL-300 · DP-600 · Databricks Analyst |
-| Former les utilisateurs au self-service BI | `skills\bi_analyst\self-service-bi.md` | PL-300 · Tableau Analyst · Google Data Analytics |
-| Concevoir sur Microsoft Fabric (OneLake, Semantic Model) | `skills\bi_analyst\microsoft-fabric.md` | DP-600 Microsoft Fabric · PL-300 · Databricks |
-| Mettre en place le monitoring et les alertes BI | `skills\bi_analyst\monitoring-alertes-bi.md` | PL-300 · DP-600 · Tableau Analyst |
-| Utiliser la BI augmentée IA (Copilot, Q&A, narratives) | `skills\bi_analyst\bi-augmentee-ia.md` | PL-300 · DP-600 · Claude Code 101 · Claude Code in Action |
+| Concevoir un modèle dimensionnel (étoile, flocon, Vault) | `skills/bi_analyst/modelisation-dimensionnelle.md` | PL-300 · DP-600 · Databricks Analyst |
+| Développer un rapport Power BI (Desktop, Service, Fabric) | `skills/bi_analyst/power-bi-reporting.md` | PL-300 Microsoft · DP-600 Microsoft |
+| Développer un dashboard Tableau | `skills/bi_analyst/tableau-dashboard.md` | Tableau Certified Data Analyst (Salesforce) |
+| Développer avec Looker / LookML | `skills/bi_analyst/looker-lookml.md` | Looker BI & Data Analytics (Google) |
+| Écrire du SQL analytique avancé (dbt, window functions) | `skills/bi_analyst/sql-analytique.md` | dbt Certified Analytics Engineer · Databricks Analyst |
+| Construire le catalogue de KPIs et métriques | `skills/bi_analyst/catalogue-kpis.md` | PL-300 · Tableau Analyst · Google Data Analytics |
+| Produire un reporting CODIR / exécutif | `skills/bi_analyst/reporting-codir.md` | PL-300 · Tableau Analyst · Google Data Analytics |
+| Mettre en place la gouvernance BI (RLS, lineage, certs) | `skills/bi_analyst/gouvernance-bi.md` | PL-300 · DP-600 · Databricks Analyst |
+| Former les utilisateurs au self-service BI | `skills/bi_analyst/self-service-bi.md` | PL-300 · Tableau Analyst · Google Data Analytics |
+| Concevoir sur Microsoft Fabric (OneLake, Semantic Model) | `skills/bi_analyst/microsoft-fabric.md` | DP-600 Microsoft Fabric · PL-300 · Databricks |
+| Mettre en place le monitoring et les alertes BI | `skills/bi_analyst/monitoring-alertes-bi.md` | PL-300 · DP-600 · Tableau Analyst |
+| Utiliser la BI augmentée IA (Copilot, Q&A, narratives) | `skills/bi_analyst/bi-augmentee-ia.md` | PL-300 · DP-600 · Claude Code 101 · Claude Code in Action |
 
 ---
 

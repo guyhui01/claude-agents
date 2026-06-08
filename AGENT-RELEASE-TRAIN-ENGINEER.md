@@ -56,13 +56,13 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités RTE : facilitation du PI Pl
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Préparer et faciliter le PI Planning | `skills\release_train_engineer\facilitation-pi-planning.md` | SAFe RTE · SAFe SPC · SAFe POPM 6 |
-| Coordonner l'Agile Release Train (ART) | `skills\release_train_engineer\coordination-art.md` | SAFe RTE · SAFe 6 Agilist |
-| Gérer les impediments et dépendances ART | `skills\release_train_engineer\gestion-impediments-art.md` | SAFe RTE · SAFe SPC · PMP |
-| Faciliter l'Inspect & Adapt (I&A) | `skills\safe\inspect-adapt.md` | SAFe RTE · SAFe SPC · SAFe 6 Agilist |
-| Piloter les métriques ART et Flow | `skills\release_train_engineer\metriques-art.md` | SAFe RTE · SAFe POPM 6 · SAFe LPM |
-| Animer le Scrum of Scrums | `skills\release_train_engineer\scrum-of-scrums.md` | SAFe RTE · PSM I · SAFe 6 Agilist |
-| Piloter l'amélioration continue de l'ART | `skills\release_train_engineer\amelioration-continue-art.md` | SAFe RTE · SAFe SPC · SAFe 6 Agilist |
+| Préparer et faciliter le PI Planning | `skills/release_train_engineer/facilitation-pi-planning.md` | SAFe RTE · SAFe SPC · SAFe POPM 6 |
+| Coordonner l'Agile Release Train (ART) | `skills/release_train_engineer/coordination-art.md` | SAFe RTE · SAFe 6 Agilist |
+| Gérer les impediments et dépendances ART | `skills/release_train_engineer/gestion-impediments-art.md` | SAFe RTE · SAFe SPC · PMP |
+| Faciliter l'Inspect & Adapt (I&A) | `skills/safe/inspect-adapt.md` | SAFe RTE · SAFe SPC · SAFe 6 Agilist |
+| Piloter les métriques ART et Flow | `skills/release_train_engineer/metriques-art.md` | SAFe RTE · SAFe POPM 6 · SAFe LPM |
+| Animer le Scrum of Scrums | `skills/release_train_engineer/scrum-of-scrums.md` | SAFe RTE · PSM I · SAFe 6 Agilist |
+| Piloter l'amélioration continue de l'ART | `skills/release_train_engineer/amelioration-continue-art.md` | SAFe RTE · SAFe SPC · SAFe 6 Agilist |
 
 ---
 

@@ -55,23 +55,23 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités QA en projet Cycle en V : s
 
 ## Skills disponibles
 
-> ℹ️ **Dossier partagé** : les skills résident dans `skills\qa_testing\`, mutualisé avec AGENT-QA-AGILE.md. Cet agent ne pioche que dans les skills orientés **plan formel / niveaux de test / UAT / Cycle en V** listés ci-dessous.
+> ℹ️ **Dossier partagé** : les skills résident dans `skills/qa_testing/`, mutualisé avec AGENT-QA-AGILE.md. Cet agent ne pioche que dans les skills orientés **plan formel / niveaux de test / UAT / Cycle en V** listés ci-dessous.
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Rédiger une stratégie de tests | `skills\qa_testing\strategie-tests.md` | CTAL-TM · CTFL |
-| Rédiger un plan de tests (Master Test Plan) | `skills\qa_testing\plan-tests.md` | CTAL-TM · CTFL |
-| Rédiger des cas de test | `skills\qa_testing\cas-de-test.md` | CTAL-TA · CTFL |
-| Gérer le cycle de vie d'une anomalie | `skills\qa_testing\gestion-anomalies.md` | CTAL-TM · CTAL-TA |
-| Tests de régression / TNR | `skills\qa_testing\regression-tnr.md` | CTAL-TA · ISTQB Test Automation Engineer |
-| Tests d'intégration | `skills\qa_testing\tests-integration.md` | CTAL-TTA · CTFL |
-| Tests système | `skills\qa_testing\tests-systeme.md` | CTAL-TA · CTFL |
-| Tests d'acceptance (UAT) | `skills\qa_testing\tests-uat.md` | CTAL-TA · CTFL |
-| Tests de performance | `skills\qa_testing\tests-performance.md` | ISTQB Performance Testing · CTAL-TTA |
-| Tests de sécurité | `skills\qa_testing\tests-securite.md` | ISTQB Security Tester · CTAL-TTA |
-| Revues et inspections | `skills\qa_testing\revues-inspections.md` | CTFL · CTAL-TM |
-| Reporting qualité & métriques | `skills\qa_testing\reporting-qualite.md` | CTAL-TM · Expert Test Management |
-| Gestion des environnements de test | `skills\qa_testing\environnements.md` | CTAL-TM · CTAL-TTA |
+| Rédiger une stratégie de tests | `skills/qa_testing/strategie-tests.md` | CTAL-TM · CTFL |
+| Rédiger un plan de tests (Master Test Plan) | `skills/qa_testing/plan-tests.md` | CTAL-TM · CTFL |
+| Rédiger des cas de test | `skills/qa_testing/cas-de-test.md` | CTAL-TA · CTFL |
+| Gérer le cycle de vie d'une anomalie | `skills/qa_testing/gestion-anomalies.md` | CTAL-TM · CTAL-TA |
+| Tests de régression / TNR | `skills/qa_testing/regression-tnr.md` | CTAL-TA · ISTQB Test Automation Engineer |
+| Tests d'intégration | `skills/qa_testing/tests-integration.md` | CTAL-TTA · CTFL |
+| Tests système | `skills/qa_testing/tests-systeme.md` | CTAL-TA · CTFL |
+| Tests d'acceptance (UAT) | `skills/qa_testing/tests-uat.md` | CTAL-TA · CTFL |
+| Tests de performance | `skills/qa_testing/tests-performance.md` | ISTQB Performance Testing · CTAL-TTA |
+| Tests de sécurité | `skills/qa_testing/tests-securite.md` | ISTQB Security Tester · CTAL-TTA |
+| Revues et inspections | `skills/qa_testing/revues-inspections.md` | CTFL · CTAL-TM |
+| Reporting qualité & métriques | `skills/qa_testing/reporting-qualite.md` | CTAL-TM · Expert Test Management |
+| Gestion des environnements de test | `skills/qa_testing/environnements.md` | CTAL-TM · CTAL-TTA |
 
 ---
 

@@ -19,17 +19,17 @@
 
 ### Étape 1 — Installer les dépendances (une fois par serveur)
 
-```powershell
+```bash
 # Jira
-cd "C:\Users\Guy HUIBONHOA\ClaudeCode\mcp-servers\mcp-jira"
+cd /Users/guyhui/CLAUDE/claude-catalogue/mcp-servers/mcp-jira
 npm install
 
 # Confluence
-cd "C:\Users\Guy HUIBONHOA\ClaudeCode\mcp-servers\mcp-confluence"
+cd /Users/guyhui/CLAUDE/claude-catalogue/mcp-servers/mcp-confluence
 npm install
 
 # Workflow Log (pas de dépendances externes)
-cd "C:\Users\Guy HUIBONHOA\ClaudeCode\mcp-servers\mcp-workflow-log"
+cd /Users/guyhui/CLAUDE/claude-catalogue/mcp-servers/mcp-workflow-log
 npm install
 ```
 
@@ -44,15 +44,15 @@ Si tu utilises **Jira Cloud / Confluence Cloud** (domaine `.atlassian.net`) :
 
 Copie le fichier `claude_code_settings.json` dans le dossier global Claude :
 
-```powershell
+```bash
 # Créer le dossier si inexistant
-New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude"
+mkdir -p ~/.claude
 
 # Copier la config (ATTENTION : écrase settings.json existant — sauvegarder d'abord)
-Copy-Item "C:\Users\Guy HUIBONHOA\ClaudeCode\mcp-servers\claude_code_settings.json" "$env:USERPROFILE\.claude\settings.json"
+cp "/Users/guyhui/CLAUDE/claude-catalogue/mcp-servers/claude_code_settings.json" ~/.claude/settings.json
 ```
 
-Puis éditer `C:\Users\Guy HUIBONHOA\.claude\settings.json` et remplacer :
+Puis éditer `~/.claude/settings.json` et remplacer :
 - `<ton-domaine>` par ton domaine Atlassian (ex: `monentreprise`)
 - `<ton-api-token-jira>` et `<ton-api-token-confluence>` par ton API token
 - `<CLE-PROJET>` par la clé du projet Jira (ex: `PROJ`)
@@ -143,7 +143,7 @@ Enregistre cette mission dans le journal avec log_workflow_run :
 ## Dépannage
 
 **Erreur `npx tsx not found`**  
-```powershell
+```bash
 npm install -g tsx
 ```
 
@@ -161,9 +161,9 @@ npm install -g tsx
 - Sur Confluence Cloud, l'URL doit être `https://domaine.atlassian.net` (sans `/wiki`)
 
 **Les serveurs ne démarrent pas**  
-```powershell
+```bash
 # Tester manuellement depuis le dossier du serveur
-cd "C:\Users\Guy HUIBONHOA\ClaudeCode\mcp-servers\mcp-jira"
+cd /Users/guyhui/CLAUDE/claude-catalogue/mcp-servers/mcp-jira
 npx tsx server.ts
 # Doit rester en attente sans erreur (stdio transport)
 ```

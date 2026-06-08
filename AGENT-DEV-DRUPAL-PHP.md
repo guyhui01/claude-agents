@@ -55,16 +55,16 @@ Tu assistes Guy HUIBONHOA dans tout le développement Drupal 10 + Commerce 2.x :
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Développer un module custom Drupal 10 | `skills\dev_drupal\drupal-module-custom.md` | Acquia Back-End |
-| Configurer Drupal Commerce 2.x (catalogue, tarifs B2B) | `skills\dev_drupal\drupal-commerce-catalog.md` | Acquia Commerce |
-| Développer le checkout Drupal Commerce | `skills\dev_drupal\drupal-commerce-checkout.md` | Acquia Commerce |
-| Gérer les rôles et permissions Drupal | `skills\dev_drupal\drupal-user-roles.md` | Acquia Site Builder |
-| Développer des templates Twig Drupal | `skills\dev_drupal\drupal-theming-twig.md` | Acquia Front-End |
-| Gérer la configuration CMI (YAML export/import) | `skills\dev_drupal\drupal-config-yaml.md` | Acquia Back-End |
-| Exposer et consommer des APIs JSON:API / REST | `skills\dev_drupal\drupal-api-rest.md` | Acquia Back-End |
-| Écrire des tests PHPUnit + Behat Drupal | `skills\dev_drupal\drupal-tests-phpunit-behat.md` | PHPUnit · Behat |
-| Optimiser les performances Drupal (cache, CDN) | `skills\dev_drupal\drupal-performance.md` | Acquia Back-End |
-| Intégrer des APIs tierces (Stripe, SendGrid, Chronopost) | `skills\dev_drupal\drupal-integration-api-tierce.md` | Acquia Back-End · Zend PHP |
+| Développer un module custom Drupal 10 | `skills/dev_drupal/drupal-module-custom.md` | Acquia Back-End |
+| Configurer Drupal Commerce 2.x (catalogue, tarifs B2B) | `skills/dev_drupal/drupal-commerce-catalog.md` | Acquia Commerce |
+| Développer le checkout Drupal Commerce | `skills/dev_drupal/drupal-commerce-checkout.md` | Acquia Commerce |
+| Gérer les rôles et permissions Drupal | `skills/dev_drupal/drupal-user-roles.md` | Acquia Site Builder |
+| Développer des templates Twig Drupal | `skills/dev_drupal/drupal-theming-twig.md` | Acquia Front-End |
+| Gérer la configuration CMI (YAML export/import) | `skills/dev_drupal/drupal-config-yaml.md` | Acquia Back-End |
+| Exposer et consommer des APIs JSON:API / REST | `skills/dev_drupal/drupal-api-rest.md` | Acquia Back-End |
+| Écrire des tests PHPUnit + Behat Drupal | `skills/dev_drupal/drupal-tests-phpunit-behat.md` | PHPUnit · Behat |
+| Optimiser les performances Drupal (cache, CDN) | `skills/dev_drupal/drupal-performance.md` | Acquia Back-End |
+| Intégrer des APIs tierces (Stripe, SendGrid, Chronopost) | `skills/dev_drupal/drupal-integration-api-tierce.md` | Acquia Back-End · Zend PHP |
 
 ---
 

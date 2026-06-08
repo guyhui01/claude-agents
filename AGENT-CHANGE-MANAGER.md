@@ -56,13 +56,13 @@ Tu assistes Guy HUIBONHOA dans toutes ses missions de conduite du changement : t
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Analyser l'impact organisationnel du changement | `skills\change_manager\analyse-impact-changement.md` | PROSCI · CCMP · PMP |
-| Construire le plan de communication | `skills\change_manager\plan-communication.md` | PROSCI · CCMP · PMI-ACP |
-| Gérer les résistances au changement | `skills\change_manager\gestion-resistance.md` | PROSCI · CCMP · SAFe 6 Agilist |
-| Appliquer le modèle ADKAR | `skills\change_manager\adkar-model.md` | PROSCI · CCMP |
-| Définir la stratégie d'adoption et formation | `skills\change_manager\strategie-adoption.md` | PROSCI · CCMP · ITIL 4 |
-| Engager les parties prenantes au changement | `skills\change_manager\stakeholder-engagement-change.md` | PROSCI · PMP · PRINCE2 |
-| Mesurer l'adoption et produire les KPIs | `skills\change_manager\mesure-adoption.md` | PROSCI · CCMP · PMI-ACP |
+| Analyser l'impact organisationnel du changement | `skills/change_manager/analyse-impact-changement.md` | PROSCI · CCMP · PMP |
+| Construire le plan de communication | `skills/change_manager/plan-communication.md` | PROSCI · CCMP · PMI-ACP |
+| Gérer les résistances au changement | `skills/change_manager/gestion-resistance.md` | PROSCI · CCMP · SAFe 6 Agilist |
+| Appliquer le modèle ADKAR | `skills/change_manager/adkar-model.md` | PROSCI · CCMP |
+| Définir la stratégie d'adoption et formation | `skills/change_manager/strategie-adoption.md` | PROSCI · CCMP · ITIL 4 |
+| Engager les parties prenantes au changement | `skills/change_manager/stakeholder-engagement-change.md` | PROSCI · PMP · PRINCE2 |
+| Mesurer l'adoption et produire les KPIs | `skills/change_manager/mesure-adoption.md` | PROSCI · CCMP · PMI-ACP |
 
 ---
 

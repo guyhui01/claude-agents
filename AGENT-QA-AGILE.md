@@ -60,20 +60,20 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités QA en contexte Agile (Scrum
 
 ## Skills disponibles
 
-> ℹ️ **Dossier partagé** : les skills résident dans `skills\qa_testing\`, mutualisé avec AGENT-QA-CYCLEV.md. Cet agent ne pioche que dans les skills orientés **Agile / shift-left / sprint** listés ci-dessous.
+> ℹ️ **Dossier partagé** : les skills résident dans `skills/qa_testing/`, mutualisé avec AGENT-QA-CYCLEV.md. Cet agent ne pioche que dans les skills orientés **Agile / shift-left / sprint** listés ci-dessous.
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Stratégie de tests Agile (shift-left) | `skills\qa_testing\strategie-agile.md` | CTFL-AT · CTAL-ATT |
-| Rédiger des scénarios BDD (Gherkin) | `skills\qa_testing\bdd-gherkin.md` | CTFL-AT · CTAL-ATT |
-| Tests exploratoires (session-based) | `skills\qa_testing\tests-exploratoires.md` | CTFL-AT · CTAL-TA |
-| Definition of Done orientée qualité | `skills\qa_testing\dod-qualite.md` | CTFL-AT · CTAL-TM |
-| Pyramide d'automatisation | `skills\qa_testing\pyramide-automatisation.md` | ISTQB Test Automation Engineer |
-| Tests d'acceptance en sprint (ATDD) | `skills\qa_testing\atdd-sprint.md` | CTFL-AT · CTAL-ATT |
-| Tests de régression automatisés CI/CD | `skills\qa_testing\regression-cicd.md` | ISTQB Test Automation Engineer · CTAL-ATT |
-| Métriques qualité Agile | `skills\qa_testing\metriques-qualite.md` | CTAL-TM · CTFL-AT |
-| Rétrospective QA / amélioration continue | `skills\qa_testing\retrospective-qa.md` | CTFL-AT · CTAL-TM |
-| Tests IA / modèles (ISTQB AI Testing) | `skills\qa_testing\tests-ia.md` | ISTQB AI Testing · ISTQB Model-Based Tester |
+| Stratégie de tests Agile (shift-left) | `skills/qa_testing/strategie-agile.md` | CTFL-AT · CTAL-ATT |
+| Rédiger des scénarios BDD (Gherkin) | `skills/qa_testing/bdd-gherkin.md` | CTFL-AT · CTAL-ATT |
+| Tests exploratoires (session-based) | `skills/qa_testing/tests-exploratoires.md` | CTFL-AT · CTAL-TA |
+| Definition of Done orientée qualité | `skills/qa_testing/dod-qualite.md` | CTFL-AT · CTAL-TM |
+| Pyramide d'automatisation | `skills/qa_testing/pyramide-automatisation.md` | ISTQB Test Automation Engineer |
+| Tests d'acceptance en sprint (ATDD) | `skills/qa_testing/atdd-sprint.md` | CTFL-AT · CTAL-ATT |
+| Tests de régression automatisés CI/CD | `skills/qa_testing/regression-cicd.md` | ISTQB Test Automation Engineer · CTAL-ATT |
+| Métriques qualité Agile | `skills/qa_testing/metriques-qualite.md` | CTAL-TM · CTFL-AT |
+| Rétrospective QA / amélioration continue | `skills/qa_testing/retrospective-qa.md` | CTFL-AT · CTAL-TM |
+| Tests IA / modèles (ISTQB AI Testing) | `skills/qa_testing/tests-ia.md` | ISTQB AI Testing · ISTQB Model-Based Tester |
 
 ---
 

@@ -1,9 +1,9 @@
 {
   "_comment": "Exemple de configuration MCP pour Claude Code CLI.",
   "_instructions": [
-    "1. Copier ce fichier dans : C:\\Users\\Guy HUIBONHOA\\.claude\\settings.json",
+    "1. Copier ce fichier dans : ~/.claude/settings.json",
     "2. Remplacer les valeurs entre <> par tes vraies valeurs",
-    "3. Adapter les chemins si le repo n'est pas dans C:\\Users\\Guy HUIBONHOA\\ClaudeCode\\",
+    "3. Adapter les chemins si le repo n'est pas dans /Users/guyhui/CLAUDE/claude-catalogue/",
     "4. Redémarrer Claude Code CLI pour prendre en compte les changements",
     "5. Vérifier avec : claude mcp list"
   ],
@@ -12,7 +12,7 @@
       "command": "npx",
       "args": [
         "tsx",
-        "C:/Users/Guy HUIBONHOA/ClaudeCode/mcp-servers/mcp-jira/server.ts"
+        "/Users/guyhui/CLAUDE/claude-catalogue/mcp-servers/mcp-jira/server.ts"
       ],
       "env": {
         "JIRA_BASE_URL": "https://<ton-domaine>.atlassian.net",
@@ -26,7 +26,7 @@
       "command": "npx",
       "args": [
         "tsx",
-        "C:/Users/Guy HUIBONHOA/ClaudeCode/mcp-servers/mcp-confluence/server.ts"
+        "/Users/guyhui/CLAUDE/claude-catalogue/mcp-servers/mcp-confluence/server.ts"
       ],
       "env": {
         "CONFLUENCE_BASE_URL": "https://<ton-domaine>.atlassian.net",
@@ -39,10 +39,10 @@
       "command": "npx",
       "args": [
         "tsx",
-        "C:/Users/Guy HUIBONHOA/ClaudeCode/mcp-servers/mcp-workflow-log/server.ts"
+        "/Users/guyhui/CLAUDE/claude-catalogue/mcp-servers/mcp-workflow-log/server.ts"
       ],
       "env": {
-        "WORKFLOW_LOG_PATH": "C:/Users/Guy HUIBONHOA/ClaudeCode/mcp-servers/mcp-workflow-log/workflow_log.json"
+        "WORKFLOW_LOG_PATH": "/Users/guyhui/CLAUDE/claude-catalogue/mcp-servers/mcp-workflow-log/workflow_log.json"
       }
     }
   }

@@ -14,7 +14,7 @@ Bibliothèque de **38 agents IA spécialisés** + **37 dossiers de skills** + **
 ## Architecture
 
 ```
-ClaudeCode/
+claude-catalogue/
 ├── AGENT-*.md          # 38 agents (rôles + skills associés)
 ├── skills/             # 37 dossiers de skills actionnables (un par agent)
 ├── workflows/          # 10 workflows BPMN orchestrés
@@ -158,7 +158,7 @@ Pour le repo `main` :
 Remote configuré en SSH : `git@github.com:guyhui01/claude-agents.git`
 Aucun token nécessaire pour les opérations `git push` / `git pull`.
 
-```powershell
+```bash
 # Vérifier la connexion SSH
 ssh -T git@github.com
 ```

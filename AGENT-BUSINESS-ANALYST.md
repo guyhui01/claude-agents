@@ -67,17 +67,17 @@ Tu assistes le profil PO/MOA/AMOA dans toutes ses activités d'analyse métier E
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Éliciter et analyser les besoins métier | `skills\business_analyst\elicitation-besoins.md` | IIBA CBAP · CCBA |
-| Modéliser les processus (BPMN, UML) | `skills\business_analyst\modelisation-processus.md` | IIBA CBAP · BCS Diploma |
-| Rédiger les spécifications fonctionnelles | `skills\business_analyst\specification-fonctionnelle.md` | IIBA CBAP · PMI-PBA |
-| Préparer et conduire la recette MOA | `skills\business_analyst\recette-moa.md` | IIBA CBAP · BCS Diploma |
-| Cadrer un projet (Charte PMBOK, Business Case, faisabilité TELOS) | `skills\business_analyst\cadrage-projet.md` | PMI-PBA · PRINCE2 · IIBA CBAP |
-| Piloter le projet (WBS, Gantt/CPM, Tolérances PRINCE2, EVM, Clôture, Lessons Learned) | `skills\business_analyst\pilotage-projet.md` | PMI-PBA · PMP · PRINCE2 · ISO 21500 |
-| Cartographier le SI existant (TOGAF 10, ArchiMate 3.2, C4) | `skills\business_analyst\cartographie-si.md` | TOGAF 10 · IIBA CBAP |
-| Gérer les exigences (traçabilité, matrice) | `skills\business_analyst\gestion-exigences.md` | IIBA CBAP · PMI-PBA |
-| Analyser les impacts et conduire le changement (Kotter, ADKAR, McKinsey 7S) | `skills\business_analyst\analyse-impact.md` | PROSCI · ACMP CCMP · IIBA AAC |
-| Animer un atelier métier | `skills\business_analyst\animation-atelier-metier.md` | IIBA AAC · ICAgile |
-| Reporting MOA + gouvernance comitologique (COMEX/COSTRAT/COPIL/COTECH/CCB/CDP) | `skills\business_analyst\reporting-moa.md` | IIBA CBAP · PMI-PBA · PRINCE2 |
+| Éliciter et analyser les besoins métier | `skills/business_analyst/elicitation-besoins.md` | IIBA CBAP · CCBA |
+| Modéliser les processus (BPMN, UML) | `skills/business_analyst/modelisation-processus.md` | IIBA CBAP · BCS Diploma |
+| Rédiger les spécifications fonctionnelles | `skills/business_analyst/specification-fonctionnelle.md` | IIBA CBAP · PMI-PBA |
+| Préparer et conduire la recette MOA | `skills/business_analyst/recette-moa.md` | IIBA CBAP · BCS Diploma |
+| Cadrer un projet (Charte PMBOK, Business Case, faisabilité TELOS) | `skills/business_analyst/cadrage-projet.md` | PMI-PBA · PRINCE2 · IIBA CBAP |
+| Piloter le projet (WBS, Gantt/CPM, Tolérances PRINCE2, EVM, Clôture, Lessons Learned) | `skills/business_analyst/pilotage-projet.md` | PMI-PBA · PMP · PRINCE2 · ISO 21500 |
+| Cartographier le SI existant (TOGAF 10, ArchiMate 3.2, C4) | `skills/business_analyst/cartographie-si.md` | TOGAF 10 · IIBA CBAP |
+| Gérer les exigences (traçabilité, matrice) | `skills/business_analyst/gestion-exigences.md` | IIBA CBAP · PMI-PBA |
+| Analyser les impacts et conduire le changement (Kotter, ADKAR, McKinsey 7S) | `skills/business_analyst/analyse-impact.md` | PROSCI · ACMP CCMP · IIBA AAC |
+| Animer un atelier métier | `skills/business_analyst/animation-atelier-metier.md` | IIBA AAC · ICAgile |
+| Reporting MOA + gouvernance comitologique (COMEX/COSTRAT/COPIL/COTECH/CCB/CDP) | `skills/business_analyst/reporting-moa.md` | IIBA CBAP · PMI-PBA · PRINCE2 |
 
 ---
 

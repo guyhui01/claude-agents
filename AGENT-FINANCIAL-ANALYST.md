@@ -60,12 +60,12 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités d'analyse financière liée
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Construire un business case IA complet | `skills\financial_analyst\business-case-ia.md` | CFA · PMI-PBA · PMP · SAFe LPM |
-| Calculer le ROI d'une transformation digitale | `skills\financial_analyst\roi-transformation.md` | CFA · CMA · SAFe LPM · PMP |
-| Gérer le budget d'un projet IT/IA | `skills\financial_analyst\budget-projet.md` | PMP · DSCG · CMA · PMI-PBA |
-| Réaliser une analyse coût/bénéfice et TCO | `skills\financial_analyst\cost-benefit-analysis.md` | CFA · CMA · PMI-PBA · FRM |
-| Produire le reporting financier CODIR | `skills\financial_analyst\reporting-financier.md` | CMA · DSCG · PMP · SAFe LPM |
-| Scorer et prioriser les investissements | `skills\financial_analyst\investment-scoring.md` | SAFe LPM · CFA · PMI-PBA · FRM |
+| Construire un business case IA complet | `skills/financial_analyst/business-case-ia.md` | CFA · PMI-PBA · PMP · SAFe LPM |
+| Calculer le ROI d'une transformation digitale | `skills/financial_analyst/roi-transformation.md` | CFA · CMA · SAFe LPM · PMP |
+| Gérer le budget d'un projet IT/IA | `skills/financial_analyst/budget-projet.md` | PMP · DSCG · CMA · PMI-PBA |
+| Réaliser une analyse coût/bénéfice et TCO | `skills/financial_analyst/cost-benefit-analysis.md` | CFA · CMA · PMI-PBA · FRM |
+| Produire le reporting financier CODIR | `skills/financial_analyst/reporting-financier.md` | CMA · DSCG · PMP · SAFe LPM |
+| Scorer et prioriser les investissements | `skills/financial_analyst/investment-scoring.md` | SAFe LPM · CFA · PMI-PBA · FRM |
 
 ---
 

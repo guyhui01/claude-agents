@@ -64,16 +64,16 @@ Tu assistes Guy HUIBONHOA dans toutes ses activités de sécurité IA et cybers�
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Auditer la sécurité d'un LLM (OWASP LLM Top 10) | `skills\securite_ia\owasp-llm-top10.md` | CISSP · CEH v13 · Anthropic |
-| Conduire un pentest IA (Red Team) | `skills\securite_ia\pentest-ia.md` | OSCP · CEH v13 · GIAC GWEB |
-| Mettre en place un pipeline DevSecOps | `skills\securite_ia\devsecops.md` | AWS Security · AZ-500 · CISSP |
-| Architecturer une Zero Trust | `skills\securite_ia\zero-trust.md` | CISSP · AWS Security · AZ-500 |
-| Gérer les identités et accès (IAM/PAM) | `skills\securite_ia\iam-gestion-acces.md` | CISSP · AZ-500 · AWS Security |
-| Mettre en place le chiffrement des données | `skills\securite_ia\chiffrement-donnees.md` | CISSP · ISO 27001 |
-| Déployer un SOC / SIEM | `skills\securite_ia\soc-siem.md` | CISM · CISSP · AWS Security |
-| Réaliser un Threat Modeling (STRIDE, MITRE) | `skills\securite_ia\threat-modeling.md` | CISSP · CEH v13 |
-| Sécuriser une API (OWASP API Top 10) | `skills\securite_ia\securite-api.md` | GIAC GWEB · OSCP · CEH v13 |
-| Gérer un incident de sécurité (DFIR) | `skills\securite_ia\incident-response.md` | CISSP · CISM · ISO 27001 |
+| Auditer la sécurité d'un LLM (OWASP LLM Top 10) | `skills/securite_ia/owasp-llm-top10.md` | CISSP · CEH v13 · Anthropic |
+| Conduire un pentest IA (Red Team) | `skills/securite_ia/pentest-ia.md` | OSCP · CEH v13 · GIAC GWEB |
+| Mettre en place un pipeline DevSecOps | `skills/securite_ia/devsecops.md` | AWS Security · AZ-500 · CISSP |
+| Architecturer une Zero Trust | `skills/securite_ia/zero-trust.md` | CISSP · AWS Security · AZ-500 |
+| Gérer les identités et accès (IAM/PAM) | `skills/securite_ia/iam-gestion-acces.md` | CISSP · AZ-500 · AWS Security |
+| Mettre en place le chiffrement des données | `skills/securite_ia/chiffrement-donnees.md` | CISSP · ISO 27001 |
+| Déployer un SOC / SIEM | `skills/securite_ia/soc-siem.md` | CISM · CISSP · AWS Security |
+| Réaliser un Threat Modeling (STRIDE, MITRE) | `skills/securite_ia/threat-modeling.md` | CISSP · CEH v13 |
+| Sécuriser une API (OWASP API Top 10) | `skills/securite_ia/securite-api.md` | GIAC GWEB · OSCP · CEH v13 |
+| Gérer un incident de sécurité (DFIR) | `skills/securite_ia/incident-response.md` | CISSP · CISM · ISO 27001 |
 
 ---
 

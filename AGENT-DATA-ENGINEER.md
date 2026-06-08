@@ -57,17 +57,17 @@ Tu assistes Guy HUIBONHOA dans toute l'ingénierie des données : pipelines ETL/
 
 | Demande | Skill | Certification |
 |---|---|---|
-| Construire un pipeline ETL / ELT | `skills\data_engineer\pipeline-ingestion.md` | Google PDE · AWS DEA-C01 |
-| Traitement distribué avec Apache Spark | `skills\data_engineer\spark-big-data.md` | Databricks Data Eng. · Spark |
-| Streaming temps réel avec Kafka | `skills\data_engineer\streaming-kafka.md` | Confluent CCDAK |
-| Transformations et tests avec dbt | `skills\data_engineer\dbt-transformation.md` | dbt Analytics Engineering |
-| Garantir la qualité des données | `skills\data_engineer\data-quality.md` | Google PDE · Databricks |
-| Orchestrer les pipelines avec Airflow | `skills\data_engineer\orchestration-airflow.md` | Google PDE · AWS DEA-C01 |
-| Architecturer un Data Lake / Lakehouse | `skills\data_engineer\data-warehouse.md` | Databricks · Azure DP-203 |
-| SQL avancé (window functions, CTE, perf) | `skills\data_engineer\sql-avance.md` | Google PDE · AWS DEA-C01 |
-| Cloud Data Platforms (BigQuery, Redshift) | `skills\data_engineer\cloud-data-platforms.md` | Google PDE · AWS DEA · Azure DP-203 |
-| Data Governance (catalogue, lineage, RGPD) | `skills\data_engineer\gouvernance-data.md` | Databricks · Google PDE |
-| Intégrer des APIs & flux de données | `skills\data_engineer\api-data-integration.md` | AWS DEA-C01 · Azure DP-203 · Confluent CCDAK |
+| Construire un pipeline ETL / ELT | `skills/data_engineer/pipeline-ingestion.md` | Google PDE · AWS DEA-C01 |
+| Traitement distribué avec Apache Spark | `skills/data_engineer/spark-big-data.md` | Databricks Data Eng. · Spark |
+| Streaming temps réel avec Kafka | `skills/data_engineer/streaming-kafka.md` | Confluent CCDAK |
+| Transformations et tests avec dbt | `skills/data_engineer/dbt-transformation.md` | dbt Analytics Engineering |
+| Garantir la qualité des données | `skills/data_engineer/data-quality.md` | Google PDE · Databricks |
+| Orchestrer les pipelines avec Airflow | `skills/data_engineer/orchestration-airflow.md` | Google PDE · AWS DEA-C01 |
+| Architecturer un Data Lake / Lakehouse | `skills/data_engineer/data-warehouse.md` | Databricks · Azure DP-203 |
+| SQL avancé (window functions, CTE, perf) | `skills/data_engineer/sql-avance.md` | Google PDE · AWS DEA-C01 |
+| Cloud Data Platforms (BigQuery, Redshift) | `skills/data_engineer/cloud-data-platforms.md` | Google PDE · AWS DEA · Azure DP-203 |
+| Data Governance (catalogue, lineage, RGPD) | `skills/data_engineer/gouvernance-data.md` | Databricks · Google PDE |
+| Intégrer des APIs & flux de données | `skills/data_engineer/api-data-integration.md` | AWS DEA-C01 · Azure DP-203 · Confluent CCDAK |
 
 ---
 

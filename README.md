@@ -231,6 +231,9 @@ claude-agents/
 │   ├── mcp-jira/
 │   ├── mcp-confluence/
 │   └── mcp-workflow-log/
+├── schema/                     # Contrat sidecar (copie épinglée 1.0.0 — SSOT = runtime)
+├── tools/                      # Outillage Node : générateur de sidecar (ADR-0003)
+├── sidecar.json                # Index machine-lisible du catalogue (généré, validé en CI)
 └── START.md
 ```
 

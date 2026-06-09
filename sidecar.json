@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "1.0.0",
+  "catalog": {
+    "name": "claude-agents",
+    "version": "v3.26.0"
+  },
+  "generatedAt": "2026-06-09T09:48:11.625Z",
+  "assets": [
+    {
+      "id": "AGENT-BUSINESS-ANALYST",
+      "type": "agent",
+      "path": "AGENT-BUSINESS-ANALYST.md",
+      "title": "Business Analyst / MOA / AMOA Expert",
+      "description": "Business Analysis & MOA & AMOA — analyse, spécifications, pilotage projet, recette, conduite du changement (Agile + Cycle V)",
+      "catalogVersion": "v3.26.0",
+      "source": {
+        "file": "AGENT-BUSINESS-ANALYST.md",
+        "catalogTag": "v3.26.0"
+      },
+      "dependsOn": []
+    },
+    {
+      "id": "AGENT-PO-SCRUM",
+      "type": "agent",
+      "path": "AGENT-PO-SCRUM.md",
+      "title": "Product Owner Scrum Expert",
+      "description": "Product Owner Scrum — backlog, user stories, DoD, cérémonies Scrum",
+      "catalogVersion": "v3.26.0",
+      "source": {
+        "file": "AGENT-PO-SCRUM.md",
+        "catalogTag": "v3.26.0"
+      },
+      "dependsOn": []
+    },
+    {
+      "id": "AGENT-QA-AGILE",
+      "type": "agent",
+      "path": "AGENT-QA-AGILE.md",
+      "title": "QA Testeur Expert ISTQB® Agile",
+      "description": "QA Agile ISTQB — BDD/Gherkin, ATDD, tests exploratoires, CI/CD",
+      "catalogVersion": "v3.26.0",
+      "source": {
+        "file": "AGENT-QA-AGILE.md",
+        "catalogTag": "v3.26.0"
+      },
+      "dependsOn": []
+    }
+  ]
+}

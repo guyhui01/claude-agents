@@ -1,0 +1,18 @@
+{
+  "name": "claude-agents-catalogue",
+  "version": "3.26.0",
+  "private": true,
+  "type": "module",
+  "description": "Catalogue claude-agents — outillage de génération du sidecar (index machine-lisible, ADR-0003).",
+  "scripts": {
+    "generate:sidecar": "node tools/generate-sidecar.mjs",
+    "validate:sidecar": "node tools/generate-sidecar.mjs --check",
+    "check:schema-drift": "node tools/check-schema-drift.mjs"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

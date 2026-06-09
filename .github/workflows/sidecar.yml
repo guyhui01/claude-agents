@@ -1,0 +1,31 @@
+name: sidecar
+
+# Validation du sidecar côté CATALOGUE (ADR-0003) : le générateur et sa validation
+# appartiennent à ce repo ; le runtime ne fait que lire le sidecar produit.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sidecar-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm ci
+      # sidecar.json committé : valide (schéma ajv + intégrité) ET à jour vs la prose
+      - run: npm run validate:sidecar
+      # drift-check : ignoré proprement en CI (runtime non checkout) ; actif en local
+      - run: npm run check:schema-drift

@@ -23,6 +23,9 @@ claude-catalogue/
 ├── backup/             # Sauvegardes (gitignored)
 ├── sandbox/            # Espace de test (gitignored)
 ├── projects/           # Projets clients (gitignored — repo séparé claude-projects)
+├── schema/             # Contrat sidecar (copie épinglée 1.0.0 — SSOT = runtime)
+├── tools/              # Outillage Node : générateur de sidecar (ADR-0003)
+├── sidecar.json        # Index machine-lisible du catalogue (généré, validé en CI)
 ├── README.md           # Catalogue complet
 ├── START.md            # Quick-start hub
 └── CLAUDE.md           # Ce fichier

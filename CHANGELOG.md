@@ -5,6 +5,35 @@
 
 ---
 
+## [3.26.0] — 2026-06-09 — Générateur de sidecar (index machine-lisible, ADR-0003)
+> Modèle : Claude Opus 4.8
+
+### 🎯 Contexte
+Le runtime `claude-agentic-runtime` a besoin d'un **sidecar réel** (index machine-lisible du catalogue) pour dérouler ses spines : c'est le verrou qui débloque le run live de WF-001 (§2.4-B.3) puis le déclencheur d'audit ISO. Conformément à **ADR-0003**, le générateur et sa validation appartiennent au **catalogue** ; le runtime ne fait que **lire** le sidecar. Périmètre initial : le **backbone WF-001** (3 agents), extensible.
+
+### ✨ Added
+- **Générateur** (`tools/generate-sidecar.mjs`) : parcourt les `AGENT-*.md` (titre H1 + ligne `> **Domaine :**`), émet `sidecar.json` conforme au schéma de référence du runtime. Périmètre : `AGENT-BUSINESS-ANALYST`, `AGENT-PO-SCRUM`, `AGENT-QA-AGILE`. Chaque asset porte les 7 champs requis + `dependsOn: []` (requis par le schéma pour `type:"agent"` ; câblage des skills repoussé — un `dependsOn` orphelin déclencherait `DANGLING_REFERENCE`).
+- **`sidecar.json`** (racine) : 3 agents, `catalog v3.26.0`, validé **schéma ajv + intégrité** (unicité id · référentiel · accessibilité réelle des fichiers).
+- **Schéma vendoré** (`schema/sidecar.schema.json` + `schema/README.md`) : copie épinglée `1.0.0` du contrat runtime (SSOT = `claude-agentic-runtime`), pour une validation CI **autonome** côté catalogue.
+- **Garde anti-dérive** (`tools/check-schema-drift.mjs`), 2 niveaux : (1) **pin d'identité** `$id == urn:claude-agents:sidecar:1.0.0` — toujours actif, donc protecteur en **CI GitHub** (runtime non checkout) ; (2) comparaison au contrat runtime (SSOT) si joignable, sinon skip propre.
+- **CI** (`.github/workflows/sidecar.yml`) : `npm ci` + `validate:sidecar` (sidecar valide ET à jour vs la prose) + `check:schema-drift`, sur `push`/`PR` vers `main`.
+- **Outillage Node** (`package.json` + `ajv` devDep, `engines node>=20`) : premiers scripts npm du repo (`generate:sidecar`, `validate:sidecar`, `check:schema-drift`). `node_modules/` déjà ignoré.
+
+### 📝 Changed
+- **Doc Architecture** (`CLAUDE.md`, `README.md`) : `schema/`, `tools/`, `sidecar.json` ajoutés au plan du repo (cohérence pré-commit).
+
+### ✅ Vérification (poussée)
+- `npm run generate:sidecar` puis `validate:sidecar` : 3 assets, schéma + intégrité **OK**.
+- **Consommation runtime prouvée** (test temporaire, exécuté puis retiré) : `loadSidecar` (schéma + intégrité sur fichiers réels) → `loadSpine` (3 `assetId` du backbone WF-001 résolus) → `toAgentDefinition` (prose réelle lue). Suite runtime complète relancée : **94 tests verts**, sans régression.
+- `check:schema-drift` (runtime en sibling) : schéma vendoré **identique** au contrat runtime ; pin actif même runtime absent (CI réelle simulée : copie altérée → échec).
+- **Chemins d'échec testés (fail-closed)** : `--check` rejette un sidecar désynchronisé / absent / non conforme au schéma ; `check:schema-drift` rejette une dérive. Tous verts.
+
+### Notes
+- Compteurs catalogue inchangés (38 agents / 37 skills / 10 workflows) — ajout d'outillage, pas de contenu.
+- **Reste à faire** (autre repo) : brancher `createQueryRunner` dans `runSpine` côté runtime, puis **run live sur accord explicite + run observé** (auth OAuth abonnement, caps `maxBudgetUsd`/`maxTurns`, `permissionMode:"plan"`).
+
+---
+
 ## [3.25.1] — 2026-06-08 — Migration macOS : assainissement des chemins Windows
 > Modèle : Claude Opus 4.8
 

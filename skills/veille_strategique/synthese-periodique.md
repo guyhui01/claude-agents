@@ -11,7 +11,7 @@ Produire des synthèses de veille claires, sourcées et actionnables — hebdoma
 
 ```markdown
 # VEILLE IA — Semaine [N] — [DATE]
-*Par Guy HUIBONHOA | 5 min de lecture*
+*Par Guy HUI-BON-HOA | 5 min de lecture*
 
 ## ⚡ Le fait marquant
 **[TITRE ACCROCHEUR]**
@@ -39,7 +39,7 @@ Lien : [URL]
 
 ```markdown
 # VEILLE STRATÉGIQUE IA — [MOIS ANNÉE]
-Préparée par Guy HUIBONHOA | Consultant PO IA
+Préparée par Guy HUI-BON-HOA | Consultant PO IA
 
 ## 📊 CHIFFRES CLÉS DU MOIS
 - [Statistique 1 avec source]

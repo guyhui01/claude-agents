@@ -13,7 +13,7 @@ Référence : [SFD-XXX / UC-XXX]
 Niveau : ☐ Unitaire ☐ Intégration ☐ Système ☐ UAT
 Type : ☐ Fonctionnel ☐ Régression ☐ Performance ☐ Sécurité
 Priorité : ☐ Haute ☐ Moyenne ☐ Basse
-Auteur : [Guy HUIBONHOA]  |  Date : [JJ/MM/AAAA]
+Auteur : [Guy HUI-BON-HOA]  |  Date : [JJ/MM/AAAA]
 
 PRÉCONDITIONS :
 - [état du système requis]

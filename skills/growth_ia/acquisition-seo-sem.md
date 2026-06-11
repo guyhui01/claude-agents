@@ -97,7 +97,7 @@ const articleSchema = {
   headline: "Titre de l article",
   datePublished: "2026-05-19",
   dateModified: "2026-05-19",
-  author: { "@type": "Person", name: "Guy Huibonhoa" },
+  author: { "@type": "Person", name: "Guy Hui-Bon-Hoa" },
   publisher: {
     "@type": "Organization",
     name: "Company IA",

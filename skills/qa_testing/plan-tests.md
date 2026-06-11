@@ -28,7 +28,7 @@
 
 ```
 MASTER TEST PLAN — [Projet] — v[X.X] — [Date]
-Auteur : [Guy HUIBONHOA]  |  Statut : ☐ Brouillon ☐ Validé
+Auteur : [Guy HUI-BON-HOA]  |  Statut : ☐ Brouillon ☐ Validé
 
 1. INTRODUCTION
    Objectif : [...]

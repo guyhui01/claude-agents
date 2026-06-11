@@ -2,7 +2,7 @@
 > Certifications : SIC (SCIP — Strategic Consortium of Intelligence Professionals), PMI-PBA (PMI)
 
 ## Objectif
-Analyser le positionnement concurrentiel sur le marché du conseil IA et de la transformation digitale — acteurs, offres, tarifs, différenciation — pour affiner le positionnement de Guy HUIBONHOA et identifier les opportunités de missions.
+Analyser le positionnement concurrentiel sur le marché du conseil IA et de la transformation digitale — acteurs, offres, tarifs, différenciation — pour affiner le positionnement de Guy HUI-BON-HOA et identifier les opportunités de missions.
 
 ## Carte des acteurs — Conseil IA France
 
@@ -53,7 +53,7 @@ PRODUITS SUBSTITUTS    : montants (plateformes no-code, agents IA internalisés)
 ## Analyse différenciation — Matrice
 
 ```
-AVANTAGES CONCURRENTIELS GUY HUIBONHOA
+AVANTAGES CONCURRENTIELS GUY HUI-BON-HOA
 ────────────────────────────────────────────────────────────
 ✅ Triple expertise rare : PO Agile + IA générative + Change
 ✅ Certifié Anthropic Claude Code in Action 2026

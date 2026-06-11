@@ -134,7 +134,7 @@ LTV 15 167€ · ratio 8.4x · payback 6.6 mois → **conformes au code**. Seul 
 
 ## 7. Anonymisation & versions
 - **Clients réels** : aucun. Exemples génériques (SaaS B2B) + illustrations publiques North Star (Slack/Airbnb/Spotify/LinkedIn = usage inspirationnel admis).
-- Mention « Guy Huibonhoa » dans un exemple Schema.org JSON-LD (`acquisition-seo-sem.md` l. 100) : profil d'activation perso, admis (cf. `feedback_catalogue_generaliste`).
+- Mention « Guy Hui-Bon-Hoa » dans un exemple Schema.org JSON-LD (`acquisition-seo-sem.md` l. 100) : profil d'activation perso, admis (cf. `feedback_catalogue_generaliste`).
 - **Modèles IA** : `claude-opus-4-8`, `claude-haiku-4-5` → **à jour, 0 ID obsolète**.
 
 ---

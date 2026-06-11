@@ -72,7 +72,7 @@
 
 ## 5. Cas particulier — `offre-mission.md` (décision Guy requise)
 
-Ce skill est **fortement personnel** (TJM, frais plateformes Malt/Comet 2026, CV « Guy HUIBONHOA 20 ans », « grands groupes CAC40 — telecom/luxe/finance/hôtellerie »). Questions :
+Ce skill est **fortement personnel** (TJM, frais plateformes Malt/Comet 2026, CV « Guy HUI-BON-HOA 20 ans », « grands groupes CAC40 — telecom/luxe/finance/hôtellerie »). Questions :
 - **Généraliste ou outil perso ?** Le catalogue est public/généraliste (cf. `feedback_catalogue_generaliste`). Soit on le **généralise** (méthode de construction d'offre, sans TJM/plateformes datés), soit on l'**assume comme outil perso** (et on le sort du périmètre qualité).
 - **« CAC40 »** : à remplacer par « grands comptes » (cf. `feedback_anonymisation_clients`).
 

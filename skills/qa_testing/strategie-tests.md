@@ -31,7 +31,7 @@ Conception détail  ←→   Tests unitaires
 
 ```
 STRATÉGIE DE TESTS — [Projet] — v[X.X] — [Date]
-Auteur : [Guy HUIBONHOA]  |  Validé par : [nom]
+Auteur : [Guy HUI-BON-HOA]  |  Validé par : [nom]
 
 1. CONTEXTE
    Projet : [description]

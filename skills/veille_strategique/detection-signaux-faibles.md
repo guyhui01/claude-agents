@@ -2,7 +2,7 @@
 > Certifications : SIC (SCIP — Strategic Consortium of Intelligence Professionals), SAFe LPM (Scaled Agile)
 
 ## Objectif
-Identifier les signaux faibles dans l'écosystème IA et du conseil — technologies émergentes, besoins clients non exprimés, opportunités de marché en formation — pour anticiper les évolutions et positionner Guy HUIBONHOA en avance de phase.
+Identifier les signaux faibles dans l'écosystème IA et du conseil — technologies émergentes, besoins clients non exprimés, opportunités de marché en formation — pour anticiper les évolutions et positionner Guy HUI-BON-HOA en avance de phase.
 
 ## Définition — Signal faible vs tendance
 

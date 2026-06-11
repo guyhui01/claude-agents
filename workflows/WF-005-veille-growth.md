@@ -197,7 +197,7 @@ etape:
 
 ```markdown
 # VEILLE IA — Semaine [N] — [DATE]
-*Par Guy HUIBONHOA | 5 min de lecture*
+*Par Guy HUI-BON-HOA | 5 min de lecture*
 
 ## Le fait marquant
 **[TITRE ACCROCHEUR]**

@@ -2,7 +2,7 @@
 > Certifications : Anthropic Claude Code in Action (2026), SIC (SCIP — Strategic Consortium of Intelligence Professionals), PMI-PBA (PMI)
 
 ## Objectif
-Évaluer et comparer des outils IA sur des critères objectifs — performance, coût, conformité, ergonomie — pour recommander les solutions les plus adaptées aux projets de Guy HUIBONHOA et à ses clients.
+Évaluer et comparer des outils IA sur des critères objectifs — performance, coût, conformité, ergonomie — pour recommander les solutions les plus adaptées aux projets de Guy HUI-BON-HOA et à ses clients.
 
 ## Grille d'évaluation universelle — Outils IA
 
@@ -46,7 +46,7 @@
 
 ```markdown
 # BENCHMARK [OUTIL] — [DATE]
-Testeur : Guy HUIBONHOA
+Testeur : Guy HUI-BON-HOA
 
 ## Cas de test
 1. [Test cas nominal — description + résultat]

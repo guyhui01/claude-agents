@@ -14,7 +14,7 @@ SESSION DE TEST EXPLORATOIRE
 
 ID session : SE-[XXX]
 Date : [JJ/MM/AAAA]  |  Durée : [60-90 min]
-Testeur : [Guy HUIBONHOA]
+Testeur : [Guy HUI-BON-HOA]
 Charter (mission) : [Ce que je veux explorer et pourquoi]
 
 Zone explorée : [module / fonctionnalité / flux]

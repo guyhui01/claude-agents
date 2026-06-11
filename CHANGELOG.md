@@ -42,12 +42,12 @@ Post-migration Windows 11 → Mac mini M4 (juin 2026) + renommage du dossier loc
 
 ### 🔧 Fixed
 - **Références de skills** (38 `AGENT-*.md`) : 425 chemins `skills\dir\fichier.md` → `skills/dir/fichier.md` (séparateurs POSIX). Regex ciblée préservant les échappements de code (`\n`, `\t`) et de tableaux Markdown (`\|`). Vérifié : 425/425 chemins résolvent (0 lien mort).
-- **Config MCP exécution** (`mcp-servers/claude_code_settings.json`) : chemins `C:/Users/Guy HUIBONHOA/ClaudeCode/mcp-servers/*/server.ts` et `WORKFLOW_LOG_PATH` → `/Users/guyhui/CLAUDE/claude-catalogue/...`. JSON validé. *(corrigeait des chemins qui empêchaient le démarrage des 3 serveurs MCP sur Mac).*
+- **Config MCP exécution** (`mcp-servers/claude_code_settings.json`) : chemins `C:/Users/Guy HUI-BON-HOA/ClaudeCode/mcp-servers/*/server.ts` et `WORKFLOW_LOG_PATH` → `/Users/guyhui/CLAUDE/claude-catalogue/...`. JSON validé. *(corrigeait des chemins qui empêchaient le démarrage des 3 serveurs MCP sur Mac).*
 - **Doc install MCP** (`mcp-servers/README.md`) : commandes PowerShell → zsh/bash (`New-Item`→`mkdir -p`, `Copy-Item`→`cp`, `$env:USERPROFILE`→`~`), chemins macOS, fences ` ```powershell ` → ` ```bash `.
 - **`START.md`, `CLAUDE.md`** (arbo), **`.env.example`** (exemple macOS), **`skills/qa_testing/reporting-qualite.md`** : chemins Windows / ancien nom `ClaudeCode` → macOS / `claude-catalogue`.
 
 ### Notes
-- **Conservé** : le nom d'auteur « Guy HUIBONHOA » (profil d'activation, décision 2026-05-30) — non confondu avec les chemins.
+- **Conservé** : le nom d'auteur « Guy HUI-BON-HOA » (profil d'activation, décision 2026-05-30) — non confondu avec les chemins.
 - **Non touché** (volontaire) : 1 occurrence `skills\safe\...` dans une entrée CHANGELOG passée = enregistrement historique (règle d'immuabilité de l'historique).
 - Compteurs inchangés (38 agents / 37 skills / 10 workflows).
 
@@ -116,7 +116,7 @@ Audit-first complet de **AGENT-VEILLE-STRATEGIQUE** (sous-domaine Engagement/Cro
 - **`## Anti-patterns`** (6/6) + **`## Voir aussi`** (6/6) — maillage intra + cross-agents (`growth_ia`, `consultant_ia`, `juridique_ia/veille-reglementaire`, `redacteur_ia`, `prompt_engineer`, `financial_analyst`).
 
 ### ✅ Notes
-- **Anonymisation OK** : 0 client réel (« CAC40 » employé comme segment) · 0 ID modèle obsolète. Mentions « Guy HUIBONHOA » (profil d'activation) conservées, valeurs chiffrées fabriquées associées neutralisées.
+- **Anonymisation OK** : 0 client réel (« CAC40 » employé comme segment) · 0 ID modèle obsolète. Mentions « Guy HUI-BON-HOA » (profil d'activation) conservées, valeurs chiffrées fabriquées associées neutralisées.
 - **🏁 Tous les groupes du catalogue audités.** Prochain jalon : check des 38 `AGENT-*.md` (compteurs, certifs, cross-refs, anonymisation).
 
 ---
@@ -578,7 +578,7 @@ WebSearch préalables ont **confirmé** les affirmations suivantes des V2 antér
 ### 🔜 Suite — Phase 2 chantier COMPLET
 
 - **🏆 Phase 2 maintenant 100% factuel** (9/9 P1 stratégiques publiés + corrections appliquées)
-- **Sweep généralisation catalogue** (futur, demain) : retirer mentions "Guy HUIBONHOA" dans AGENT-*.md (violation `feedback_catalogue_generaliste`)
+- **Sweep généralisation catalogue** (futur, demain) : retirer mentions "Guy HUI-BON-HOA" dans AGENT-*.md (violation `feedback_catalogue_generaliste`)
 - **Phase 3 V3 bundles cross-agents** (optionnel) : Sources Frameworks · Anti-patterns · Cross-links · Diversification
 
 ---
@@ -657,7 +657,7 @@ WebSearch préalables ont **confirmé** les affirmations suivantes des V2 antér
 ### 🔜 Suite post-Phase 2
 
 - **Phase 3 V3 bundles cross-agents** (optionnel, ~12-15h) : Sources Frameworks · Anti-patterns · Cross-links · Diversification organisations
-- **Sweep généralisation catalogue** (futur) : retirer mentions "Guy HUIBONHOA" dans AGENT-*.md (violation [[feedback-catalogue-generaliste]])
+- **Sweep généralisation catalogue** (futur) : retirer mentions "Guy HUI-BON-HOA" dans AGENT-*.md (violation [[feedback-catalogue-generaliste]])
 - **NEXT_STEPS.md** actualisé post-v3.10.0 (clôture Phase 2)
 
 ---
@@ -783,7 +783,7 @@ WebSearch préalables ont **confirmé** les affirmations suivantes des V2 antér
 
 ### 🔜 Suite
 - **Phase 2 P2.8** : `consultant_ia/benchmark-solutions-ia.md` (Gartner Magic Quadrant + Forrester Wave + IDC MarketScape, ~1.5h, v3.9.0)
-- **Sweep généralisation catalogue** (futur) : retirer mentions "Guy HUIBONHOA" dans AGENT-*.md (violation [[feedback-catalogue-generaliste]] — hors scope v3.8.1)
+- **Sweep généralisation catalogue** (futur) : retirer mentions "Guy HUI-BON-HOA" dans AGENT-*.md (violation [[feedback-catalogue-generaliste]] — hors scope v3.8.1)
 - NEXT_STEPS.md actualisé post-v3.8.1
 
 ---

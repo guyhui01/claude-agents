@@ -7,7 +7,7 @@
 ```
 COMPTE RENDU — [Titre]
 Date : [JJ/MM/AAAA]  |  Durée : [X h]  |  Lieu : [Teams / présentiel]
-Animateur : [prénom]  |  Rédacteur : [Guy HUIBONHOA]
+Animateur : [prénom]  |  Rédacteur : [Guy HUI-BON-HOA]
 
 Participants : [liste avec rôles]
 Absents excusés : [liste]

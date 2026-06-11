@@ -53,7 +53,7 @@ La **Phase 2** a transformé les P1 stratégiques identifiés en Phase 1 en **9 
 ### II.4 — Décisions méthodologiques tracées
 
 - ✅ **Pas d'AGENT-CHEF-PROJET-MOA séparé** : convention AMOA française dominante = fusion BA/MOA/CdP MOA dans `AGENT-BUSINESS-ANALYST` (renommé « BA/MOA/AMOA Expert »). 38 agents inchangés.
-- ✅ **Mentions « Guy HUIBONHOA » conservées** dans les `AGENT-*.md` (décision 2026-05-30) : profil d'activation perso ; les autres utilisateurs adaptent leur nom. Le **contenu** des skills reste généraliste/anonymisé (catalogue public).
+- ✅ **Mentions « Guy HUI-BON-HOA » conservées** dans les `AGENT-*.md` (décision 2026-05-30) : profil d'activation perso ; les autres utilisateurs adaptent leur nom. Le **contenu** des skills reste généraliste/anonymisé (catalogue public).
 - ✅ **Séparation stricte Scrum vs cycle V** : pas de SFG/SFD/recette MOA dans `skills/scrum/`.
 - ✅ **Sweep généralisation (retrait mentions Guy)** : ABANDONNÉ (décision 2026-05-30).
 - ✅ **Skill méta-procédural mérite la profondeur** (2026-05-31) : `audit-qualite-catalogue.md` refondu au standard profond (parité structurelle `product-vision.md`) après challenge Guy — une fiche de procédure ne suffit pas pour l'objectif final du chantier.

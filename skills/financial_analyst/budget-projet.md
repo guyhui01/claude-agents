@@ -14,7 +14,7 @@ budget_projet:
   version: "v1.2 — Validé Steering Committee"
   date_validation: "2026-04-01"
   sponsor: "DSI / DRH"
-  chef_projet: "Guy HUIBONHOA"
+  chef_projet: "Guy HUI-BON-HOA"
   
   enveloppe_totale: 300_000  # €
   

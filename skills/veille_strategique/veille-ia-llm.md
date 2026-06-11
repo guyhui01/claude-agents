@@ -57,7 +57,7 @@ LinkedIn : #GenAI #LLM #ArtificialIntelligence
 
 ```markdown
 # VEILLE IA — [MOIS ANNÉE]
-Préparée par : Guy HUIBONHOA | Source : Anthropic, OpenAI, ArXiv
+Préparée par : Guy HUI-BON-HOA | Source : Anthropic, OpenAI, ArXiv
 
 ## 🔥 LES 3 FAITS MARQUANTS DU MOIS
 1. **[FAIT 1]** — [Description courte + lien]

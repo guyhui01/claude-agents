@@ -63,7 +63,7 @@ LEÇONS APPRISES :
 - [point 1]
 - [point 2]
 
-Signé : [Guy HUIBONHOA] — QA Lead — [Date]
+Signé : [Guy HUI-BON-HOA] — QA Lead — [Date]
 ```
 
 cat > /mnt/user-data/outputs/claude-catalogue/skills/qa-cyclev/environnements.md << 'EOF'

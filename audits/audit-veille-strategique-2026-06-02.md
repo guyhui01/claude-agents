@@ -74,7 +74,7 @@ La passe de vérification révèle le pattern récurrent du chantier (incidents 
 ## 5. Anonymisation & cohérence
 
 - ✅ **Aucun client réel** cité (Orange/CA/CHANEL/Accor/EDF/MBDA absents). « CAC40 » employé comme **segment** (conforme `feedback_anonymisation_clients`).
-- ℹ️ Mentions « Guy HUIBONHOA » présentes dans les corps de skills (profil d'activation) — conservées (décision 2026-05-30) ; seules les valeurs chiffrées fabriquées associées sont neutralisées.
+- ℹ️ Mentions « Guy HUI-BON-HOA » présentes dans les corps de skills (profil d'activation) — conservées (décision 2026-05-30) ; seules les valeurs chiffrées fabriquées associées sont neutralisées.
 - ✅ Versions Anthropic alignées (Opus 4.8 / Sonnet 4.6 / Haiku 4.5).
 
 ---

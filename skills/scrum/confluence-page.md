@@ -9,7 +9,7 @@
 > [Résumé en 1-2 phrases]
 
 Statut : ☐ Brouillon  ☐ En revue  ☐ Validé
-Mise à jour : [date]  |  Auteur : Guy HUIBONHOA
+Mise à jour : [date]  |  Auteur : Guy HUI-BON-HOA
 
 ---
 ## Contexte

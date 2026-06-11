@@ -8,7 +8,7 @@
 - 3 paragraphes max : contexte → message clé → action attendue
 - Pas de formules creuses
 - Toujours terminer par une action avec deadline
-- Signature : Guy HUIBONHOA | Product Owner
+- Signature : Guy HUI-BON-HOA | Product Owner
 
 ## Templates
 
@@ -25,7 +25,7 @@ Suite à notre réunion du [date], voici la synthèse et le plan d'actions.
 
 Merci de confirmer votre accord avant le [date].
 
-Cordialement, Guy HUIBONHOA
+Cordialement, Guy HUI-BON-HOA
 ```
 
 ### Point d'alerte / escalade
@@ -42,7 +42,7 @@ Délai : [date limite]
 
 Disponible pour en discuter.
 
-Cordialement, Guy HUIBONHOA
+Cordialement, Guy HUI-BON-HOA
 ```
 
 ### Demande de validation
@@ -59,5 +59,5 @@ Points clés :
 
 Retour attendu : [date] | Lien : [URL Confluence/Jira]
 
-Cordialement, Guy HUIBONHOA
+Cordialement, Guy HUI-BON-HOA
 ```

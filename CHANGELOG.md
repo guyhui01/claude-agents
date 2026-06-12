@@ -5,6 +5,25 @@
 
 ---
 
+## [3.26.2] — 2026-06-12 — Sidecar étendu aux backbones WF-002/003 (3 → 14 agents)
+> Modèle : Claude Opus 4.8
+
+### 🎯 Contexte
+Le générateur de sidecar (§2.3, livré en 3.26.0) n'indexait que le **backbone WF-001** (3 agents). Le runtime modélise désormais WF-002 et WF-003 comme leurs propres backbones et a besoin que leurs agents soient **résolubles depuis le sidecar réel**. Bump **patch** (et non mutation de `v3.26.1`) pour préserver la **reproductibilité** : le `catalogTag` épinglé par les consommateurs reste un artefact immuable par version.
+
+### ✨ Added
+- **Générateur** (`tools/generate-sidecar.mjs`) : `WORKFLOW_BACKBONES` couvre les 3 backbones réels (cf. `claude-agentic-runtime/src/spines/wf-00{1,2,3}-*.ts`). Union **dédupliquée** via `Set` — `AGENT-QA-AGILE` est partagé WF-001/003 ; un id dupliqué ferait échouer le contrôle d'intégrité.
+- **`sidecar.json`** : **14 agents** (WF-001 : BUSINESS-ANALYST, PO-SCRUM, QA-AGILE · WF-002 : PRODUCT-MANAGER-SAFE, RELEASE-TRAIN-ENGINEER, PO-SAFE, SCRUM-MASTER, CHEF-PROJET-IA · WF-003 : FINANCIAL-ANALYST, PROMPT-ENGINEER, AI-ARCHITECT, DEV-PYTHON-IA, DEVOPS-CLOUD, SECURITE-IA), `catalog v3.26.2`, validé **schéma ajv + intégrité** + `--check`. `dependsOn: []` inchangé (skills toujours non indexées).
+
+### 📝 Changed
+- **`mcp-servers/claude_code_settings.json`** : chemins du gabarit repointés `claude-catalogue` → `claude-agents` (nom réel du repo).
+
+### Notes
+- Consommabilité prouvée côté runtime (`run-wf-001-real-sidecar.test.ts`, suite verte) ; assertion de périmètre passée en **inclusion** (le runtime ne dépend que de ce qu'il consomme — l'inventaire exact reste la propriété de ce générateur + son `--check` CI, ADR-0002/0003).
+- Compteurs catalogue inchangés (38 agents / 37 skills / 10 workflows) — le sidecar n'indexe qu'un sous-ensemble (backbones).
+
+---
+
 ## [3.26.1] — 2026-06-12 — Changement de licence : MIT → PolyForm Noncommercial 1.0.0
 > Modèle : Claude Opus 4.8
 

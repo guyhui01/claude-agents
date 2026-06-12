@@ -2,20 +2,98 @@
   "schemaVersion": "1.0.0",
   "catalog": {
     "name": "claude-agents",
-    "version": "v3.26.0"
+    "version": "v3.26.2"
   },
-  "generatedAt": "2026-06-09T09:48:11.625Z",
+  "generatedAt": "2026-06-12T21:26:55.917Z",
   "assets": [
+    {
+      "id": "AGENT-AI-ARCHITECT",
+      "type": "agent",
+      "path": "AGENT-AI-ARCHITECT.md",
+      "title": "AI Architect Expert",
+      "description": "Architecture IA — RAG, multi-agents, MCP/A2A, évaluation LLM, cloud IA",
+      "catalogVersion": "v3.26.2",
+      "source": {
+        "file": "AGENT-AI-ARCHITECT.md",
+        "catalogTag": "v3.26.2"
+      },
+      "dependsOn": []
+    },
     {
       "id": "AGENT-BUSINESS-ANALYST",
       "type": "agent",
       "path": "AGENT-BUSINESS-ANALYST.md",
       "title": "Business Analyst / MOA / AMOA Expert",
       "description": "Business Analysis & MOA & AMOA — analyse, spécifications, pilotage projet, recette, conduite du changement (Agile + Cycle V)",
-      "catalogVersion": "v3.26.0",
+      "catalogVersion": "v3.26.2",
       "source": {
         "file": "AGENT-BUSINESS-ANALYST.md",
-        "catalogTag": "v3.26.0"
+        "catalogTag": "v3.26.2"
+      },
+      "dependsOn": []
+    },
+    {
+      "id": "AGENT-CHEF-PROJET-IA",
+      "type": "agent",
+      "path": "AGENT-CHEF-PROJET-IA.md",
+      "title": "Chef de Projet IA & PMO Expert",
+      "description": "Gestion de Projet IA — cadrage, planning, gestion risques, EVM",
+      "catalogVersion": "v3.26.2",
+      "source": {
+        "file": "AGENT-CHEF-PROJET-IA.md",
+        "catalogTag": "v3.26.2"
+      },
+      "dependsOn": []
+    },
+    {
+      "id": "AGENT-DEV-PYTHON-IA",
+      "type": "agent",
+      "path": "AGENT-DEV-PYTHON-IA.md",
+      "title": "Dev Python IA Expert",
+      "description": "Développement Python & IA — LangChain, RAG, PyTorch, fine-tuning, agents",
+      "catalogVersion": "v3.26.2",
+      "source": {
+        "file": "AGENT-DEV-PYTHON-IA.md",
+        "catalogTag": "v3.26.2"
+      },
+      "dependsOn": []
+    },
+    {
+      "id": "AGENT-DEVOPS-CLOUD",
+      "type": "agent",
+      "path": "AGENT-DEVOPS-CLOUD.md",
+      "title": "DevOps & Cloud Engineer Expert",
+      "description": "DevOps & Cloud — CI/CD, Kubernetes, Terraform, AWS/GCP/Azure",
+      "catalogVersion": "v3.26.2",
+      "source": {
+        "file": "AGENT-DEVOPS-CLOUD.md",
+        "catalogTag": "v3.26.2"
+      },
+      "dependsOn": []
+    },
+    {
+      "id": "AGENT-FINANCIAL-ANALYST",
+      "type": "agent",
+      "path": "AGENT-FINANCIAL-ANALYST.md",
+      "title": "Financial Analyst Expert",
+      "description": "Analyse financière — business case IA, ROI transformation digitale, budget projets, reporting CODIR, scoring investissements",
+      "catalogVersion": "v3.26.2",
+      "source": {
+        "file": "AGENT-FINANCIAL-ANALYST.md",
+        "catalogTag": "v3.26.2"
+      },
+      "dependsOn": []
+    },
+    {
+      "id": "AGENT-PO-SAFE",
+      "type": "agent",
+      "path": "AGENT-PO-SAFE.md",
+      "title": "Product Owner SAFe Expert",
+      "description": "Product Owner SAFe — PI Planning, ART, WSJF, features, program backlog opérationnel",
+      "catalogVersion": "v3.26.2",
+      "source": {
+        "file": "AGENT-PO-SAFE.md",
+        "catalogTag": "v3.26.2"
       },
       "dependsOn": []
     },
@@ -25,10 +103,36 @@
       "path": "AGENT-PO-SCRUM.md",
       "title": "Product Owner Scrum Expert",
       "description": "Product Owner Scrum — backlog, user stories, DoD, cérémonies Scrum",
-      "catalogVersion": "v3.26.0",
+      "catalogVersion": "v3.26.2",
       "source": {
         "file": "AGENT-PO-SCRUM.md",
-        "catalogTag": "v3.26.0"
+        "catalogTag": "v3.26.2"
+      },
+      "dependsOn": []
+    },
+    {
+      "id": "AGENT-PRODUCT-MANAGER-SAFE",
+      "type": "agent",
+      "path": "AGENT-PRODUCT-MANAGER-SAFE.md",
+      "title": "Product Manager SAFe Expert",
+      "description": "Product Management SAFe — vision produit, roadmap Programme, centricité client, cadre économique, stratégie de release",
+      "catalogVersion": "v3.26.2",
+      "source": {
+        "file": "AGENT-PRODUCT-MANAGER-SAFE.md",
+        "catalogTag": "v3.26.2"
+      },
+      "dependsOn": []
+    },
+    {
+      "id": "AGENT-PROMPT-ENGINEER",
+      "type": "agent",
+      "path": "AGENT-PROMPT-ENGINEER.md",
+      "title": "Prompt Engineer Expert",
+      "description": "Prompt Engineering — conception, optimisation et évaluation de prompts pour LLM (Claude, GPT, Gemini)",
+      "catalogVersion": "v3.26.2",
+      "source": {
+        "file": "AGENT-PROMPT-ENGINEER.md",
+        "catalogTag": "v3.26.2"
       },
       "dependsOn": []
     },
@@ -38,10 +142,49 @@
       "path": "AGENT-QA-AGILE.md",
       "title": "QA Testeur Expert ISTQB® Agile",
       "description": "QA Agile ISTQB — BDD/Gherkin, ATDD, tests exploratoires, CI/CD",
-      "catalogVersion": "v3.26.0",
+      "catalogVersion": "v3.26.2",
       "source": {
         "file": "AGENT-QA-AGILE.md",
-        "catalogTag": "v3.26.0"
+        "catalogTag": "v3.26.2"
+      },
+      "dependsOn": []
+    },
+    {
+      "id": "AGENT-RELEASE-TRAIN-ENGINEER",
+      "type": "agent",
+      "path": "AGENT-RELEASE-TRAIN-ENGINEER.md",
+      "title": "Release Train Engineer Expert",
+      "description": "Release Train Engineer SAFe — coordination ART, PI Planning, impediments, métriques de flux, amélioration continue",
+      "catalogVersion": "v3.26.2",
+      "source": {
+        "file": "AGENT-RELEASE-TRAIN-ENGINEER.md",
+        "catalogTag": "v3.26.2"
+      },
+      "dependsOn": []
+    },
+    {
+      "id": "AGENT-SCRUM-MASTER",
+      "type": "agent",
+      "path": "AGENT-SCRUM-MASTER.md",
+      "title": "Scrum Master Expert",
+      "description": "Scrum Master — facilitation, coaching équipe, métriques agiles, scaling",
+      "catalogVersion": "v3.26.2",
+      "source": {
+        "file": "AGENT-SCRUM-MASTER.md",
+        "catalogTag": "v3.26.2"
+      },
+      "dependsOn": []
+    },
+    {
+      "id": "AGENT-SECURITE-IA",
+      "type": "agent",
+      "path": "AGENT-SECURITE-IA.md",
+      "title": "Sécurité IA & Cybersécurité Expert",
+      "description": "Cybersécurité & Sécurité IA — OWASP LLM, red teaming, CISSP, Zero Trust",
+      "catalogVersion": "v3.26.2",
+      "source": {
+        "file": "AGENT-SECURITE-IA.md",
+        "catalogTag": "v3.26.2"
       },
       "dependsOn": []
     }

@@ -7,8 +7,9 @@
  * Le runtime ne fait que LIRE ce fichier (ADR-0001) ; la génération ET la validation
  * vivent ici, côté catalogue (ADR-0003).
  *
- * Périmètre initial : le backbone de WF-001 (3 agents). Extensible : ajouter des ids
- * dans WF_001_BACKBONE (puis d'autres workflows) — la mécanique est générique.
+ * Périmètre : les backbones de WF-001/002/003 (14 agents, union dédupliquée —
+ * AGENT-QA-AGILE est partagé WF-001/003). Extensible : ajouter un backbone dans
+ * WORKFLOW_BACKBONES (puis d'autres workflows) — la mécanique est générique.
  *
  * Chaque asset porte les 7 champs requis (id, type, path, title, description,
  * catalogVersion, source{file, catalogTag}) + `dependsOn` (requis par le schéma pour
@@ -33,14 +34,34 @@ const SIDECAR_PATH = join(REPO_ROOT, "sidecar.json");
 const SIDECAR_SCHEMA_VERSION = "1.0.0";
 
 /**
- * Agents du backbone WF-001 (cf. claude-agentic-runtime/src/spines/wf-001-cadrage.ts).
+ * Backbones des workflows réels (cf. claude-agentic-runtime/src/spines/wf-00{1,2,3}-*.ts).
  * Les `id` DOIVENT matcher les `assetId` des spines pour que `loadSpine` résolve.
  */
-const WF_001_BACKBONE = [
-  "AGENT-BUSINESS-ANALYST",
-  "AGENT-PO-SCRUM",
-  "AGENT-QA-AGILE",
-];
+const WORKFLOW_BACKBONES = {
+  "WF-001": ["AGENT-BUSINESS-ANALYST", "AGENT-PO-SCRUM", "AGENT-QA-AGILE"],
+  "WF-002": [
+    "AGENT-PRODUCT-MANAGER-SAFE",
+    "AGENT-RELEASE-TRAIN-ENGINEER",
+    "AGENT-PO-SAFE",
+    "AGENT-SCRUM-MASTER",
+    "AGENT-CHEF-PROJET-IA",
+  ],
+  "WF-003": [
+    "AGENT-FINANCIAL-ANALYST",
+    "AGENT-PROMPT-ENGINEER",
+    "AGENT-AI-ARCHITECT",
+    "AGENT-DEV-PYTHON-IA",
+    "AGENT-QA-AGILE",
+    "AGENT-DEVOPS-CLOUD",
+    "AGENT-SECURITE-IA",
+  ],
+};
+
+/**
+ * Union dédupliquée des ids de tous les backbones (AGENT-QA-AGILE est partagé
+ * WF-001/003) — le `Set` évite un id dupliqué, qui ferait échouer l'intégrité.
+ */
+const CATALOG_AGENT_IDS = [...new Set(Object.values(WORKFLOW_BACKBONES).flat())];
 
 /** Tag épinglé du catalogue = `v` + version du package (source unique). */
 function catalogTag() {
@@ -96,7 +117,7 @@ function buildAgentAsset(id, tag) {
 /** Construit le sidecar complet (assets triés par id pour un diff stable). */
 function buildSidecar(generatedAt) {
   const tag = catalogTag();
-  const assets = WF_001_BACKBONE.map((id) => buildAgentAsset(id, tag)).sort((a, b) =>
+  const assets = CATALOG_AGENT_IDS.map((id) => buildAgentAsset(id, tag)).sort((a, b) =>
     a.id.localeCompare(b.id),
   );
   return {

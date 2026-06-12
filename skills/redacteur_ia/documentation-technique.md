@@ -45,7 +45,7 @@ from module import Class
 [lien vers CONTRIBUTING.md]
 
 ## 📄 Licence
-MIT
+[Licence du projet — ex. MIT, Apache-2.0, PolyForm-Noncommercial-1.0.0]
 ```
 
 ## Prompt documentation technique IA

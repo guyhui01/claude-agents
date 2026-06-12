@@ -1,6 +1,7 @@
-# Claude Agents Library
+# Claude Agents — Catalogue agentique
 
-> Bibliothèque d'agents IA spécialisés pour Claude Code  
+> **Catalogue agentique orienté delivery produit pour Claude Code**  
+> 38 agents spécialisés, 37 skills et 10 workflows orchestrés (BPMN), indexés en *sidecar* machine-lisible (validé en CI) et exécutables via le runtime [`claude-agentic-runtime`](https://github.com/guyhui01/claude-agentic-runtime). Fondé sur les méthodes d'entreprise (Scrum, SAFe, ISTQB, TOGAF), avec intégrations MCP (Jira, Confluence).  
 > Auteur : [guyhui01](https://github.com/guyhui01) · Licence : [PolyForm Noncommercial 1.0.0](LICENSE) © 2026 Guy HUI-BON-HOA
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/license-PolyForm%20Noncommercial%201.0.0-blue)](LICENSE)

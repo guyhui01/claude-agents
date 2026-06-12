@@ -54,29 +54,35 @@ jobs:
                 ? '🔬 semestrielle (modèles + skills IA)'
                 : '✅ trimestrielle (modèles LLM)';
 
-            const duree = isAnnual ? '3-4h' : isSemiAnnual ? '2-3h' : '15-30 min';
+            const duree  = isAnnual ? '3-4h' : isSemiAnnual ? '2-3h' : '15-30 min';
+            const niveau = isAnnual ? 'annuelle' : isSemiAnnual ? 'semestrielle' : 'trimestrielle';
 
             const actionUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/workflows/maintenance-reminder.yml`;
 
-            const body = `# 🔔 Rappel maintenance catalogue — Q${quarter} ${year}
-
-> Rappel automatique — **aucune action n'a été effectuée automatiquement.**
-> C'est toi qui décides quand lancer la maintenance.
-
-## Ce qui est dû ce trimestre
-
-Révision **${revisionType}**
-Durée estimée : **${duree}**
-
-## Pour lancer la maintenance
-
-1. Va sur : [Actions → maintenance-reminder.yml](${actionUrl})
-2. Clique **"Run workflow"**
-3. Choisis le niveau : \`${isAnnual ? 'annuelle' : isSemiAnnual ? 'semestrielle' : 'trimestrielle'}\`
-4. Lance → une issue avec la checklist complète sera créée
-
----
-*Ferme cette issue quand la maintenance est effectuée.*`;
+            // Corps construit en tableau de lignes (.join) : chaque ligne reste
+            // indentée DANS le bloc YAML `script: |`, tout en produisant un markdown
+            // sans indentation parasite à la racine de l'issue.
+            const body = [
+              `# 🔔 Rappel maintenance catalogue — Q${quarter} ${year}`,
+              '',
+              "> Rappel automatique — **aucune action n'a été effectuée automatiquement.**",
+              "> C'est toi qui décides quand lancer la maintenance.",
+              '',
+              '## Ce qui est dû ce trimestre',
+              '',
+              `Révision **${revisionType}**`,
+              `Durée estimée : **${duree}**`,
+              '',
+              '## Pour lancer la maintenance',
+              '',
+              `1. Va sur : [Actions → maintenance-reminder.yml](${actionUrl})`,
+              '2. Clique **"Run workflow"**',
+              `3. Choisis le niveau : \`${niveau}\``,
+              '4. Lance → une issue avec la checklist complète sera créée',
+              '',
+              '---',
+              '*Ferme cette issue quand la maintenance est effectuée.*',
+            ].join('\n');
 
             const response = await github.rest.issues.create({
               owner: context.repo.owner,
@@ -110,66 +116,68 @@ Durée estimée : **${duree}**
             const isAnnual     = type === 'annuelle';
 
             // ── Checklist trimestrielle (toujours incluse) ───────────────────
-            const quarterly = `
-## ✅ Révision TRIMESTRIELLE — Modèles LLM
-
-- [ ] Vérifier les \`modele_recommande\` dans les 5 workflows (\`workflows/WF-00*.md\`)
-- [ ] Vérifier les model_id dans les 30 agents \`AGENT-*.md\`
-- [ ] Mettre à jour le benchmark LLM dans \`skills/veille_strategique/benchmark-outils-ia.md\`
-- [ ] Vérifier si un modèle Anthropic a été déprécié ou un nouveau annoncé
-      → https://docs.anthropic.com/en/docs/about-claude/models/overview
-- [ ] Grep pour repérer les références obsolètes dans le repo :
-      \`\`\`
-      grep -r "GPT-4\\|Gemini 1.5\\|claude-2\\|claude-3-opus\\|claude-3-sonnet" --include="*.md" .
-      \`\`\`
-`;
+            const quarterly = [
+              '## ✅ Révision TRIMESTRIELLE — Modèles LLM',
+              '',
+              '- [ ] Vérifier les `modele_recommande` dans les 5 workflows (`workflows/WF-00*.md`)',
+              '- [ ] Vérifier les model_id dans les 30 agents `AGENT-*.md`',
+              '- [ ] Mettre à jour le benchmark LLM dans `skills/veille_strategique/benchmark-outils-ia.md`',
+              '- [ ] Vérifier si un modèle Anthropic a été déprécié ou un nouveau annoncé',
+              '      → https://docs.anthropic.com/en/docs/about-claude/models/overview',
+              '- [ ] Grep pour repérer les références obsolètes dans le repo :',
+              '      ```',
+              '      grep -r "GPT-4\\|Gemini 1.5\\|claude-2\\|claude-3-opus\\|claude-3-sonnet" --include="*.md" .',
+              '      ```',
+            ];
 
             // ── Checklist semestrielle ───────────────────────────────────────
-            const semiAnnual = isSemiAnnual ? `
-## 🔬 Révision SEMESTRIELLE — Skills IA & Techniques
-
-### Dossiers à relire en priorité
-- [ ] \`skills/prompt_engineer/\` — patterns CoT, RAG, multimodal toujours actuels ?
-- [ ] \`skills/dev_ia/\` — SDK Anthropic, LangChain, MCP : nouvelles versions majeures ?
-- [ ] \`skills/orchestrateur_workflow/\` — patterns multi-agents, LangGraph, CrewAI : évolutions ?
-- [ ] \`skills/securite_ia/\` — OWASP LLM Top 10 : nouvelle version publiée ?
-- [ ] \`skills/devops_cloud/\` — Terraform, Kubernetes, GitHub Actions : breaking changes ?
-
-### MCP Servers — dépendances npm
-- [ ] \`cd mcp-servers/mcp-jira && npm outdated\`
-- [ ] \`cd mcp-servers/mcp-confluence && npm outdated\`
-- [ ] \`cd mcp-servers/mcp-workflow-log && npm outdated\`
-
-### Catalogue agents
-- [ ] Identifier si un nouvel agent est à créer (signaux WF-005 des 6 derniers mois)
-- [ ] Vérifier si un agent est devenu redondant ou obsolète
-- [ ] Mettre à jour \`README.md\` si les compteurs ont changé
-` : '';
+            const semiAnnual = isSemiAnnual ? [
+              '',
+              '## 🔬 Révision SEMESTRIELLE — Skills IA & Techniques',
+              '',
+              '### Dossiers à relire en priorité',
+              '- [ ] `skills/prompt_engineer/` — patterns CoT, RAG, multimodal toujours actuels ?',
+              '- [ ] `skills/dev_ia/` — SDK Anthropic, LangChain, MCP : nouvelles versions majeures ?',
+              '- [ ] `skills/orchestrateur_workflow/` — patterns multi-agents, LangGraph, CrewAI : évolutions ?',
+              '- [ ] `skills/securite_ia/` — OWASP LLM Top 10 : nouvelle version publiée ?',
+              '- [ ] `skills/devops_cloud/` — Terraform, Kubernetes, GitHub Actions : breaking changes ?',
+              '',
+              '### MCP Servers — dépendances npm',
+              '- [ ] `cd mcp-servers/mcp-jira && npm outdated`',
+              '- [ ] `cd mcp-servers/mcp-confluence && npm outdated`',
+              '- [ ] `cd mcp-servers/mcp-workflow-log && npm outdated`',
+              '',
+              '### Catalogue agents',
+              '- [ ] Identifier si un nouvel agent est à créer (signaux WF-005 des 6 derniers mois)',
+              '- [ ] Vérifier si un agent est devenu redondant ou obsolète',
+              '- [ ] Mettre à jour `README.md` si les compteurs ont changé',
+            ] : [];
 
             // ── Checklist annuelle ───────────────────────────────────────────
-            const annual = isAnnual ? `
-## 📋 Révision ANNUELLE — Certifications & Méthodologies
-
-### Certifications Agile & Management
-- [ ] **SAFe** — nouvelle version ? → https://scaledagile.com/blog/safe-release-notes/
-      Si SAFe 7+ : mettre à jour RTE, PM-SAFE, PO-SAFE, SCRUM-MASTER, ORCHESTRATEUR
-- [ ] **PMI** (PMP, PMI-ACP, PMI-PBA) — révision majeure du référentiel PMBOK ?
-- [ ] **ISTQB** — nouvelle version du syllabus Foundation / Agile Tester ?
-- [ ] **PROSCI** — mise à jour du modèle ADKAR ou nouvelle certification ?
-- [ ] **SCIP** — évolution du référentiel ou nouvelles certifications ?
-
-### Certifications Techniques
-- [ ] **Anthropic** — nouvelles certifications ? → https://www.anthropic.com/learn
-- [ ] **AWS / GCP / Azure** — nouvelles certifications SA, ML, Security ?
-- [ ] **CKA / CKAD** — nouvelle version du programme Kubernetes ?
-
-### Audit complet
-- [ ] Relire les 5 workflows : compositions d'agents toujours optimales ?
-- [ ] Relire les 3 serveurs MCP : outils pertinents, intégrations manquantes ?
-- [ ] Audit \`README.md\` complet : sections, liens, compteurs
-- [ ] Archiver ou supprimer les agents/skills obsolètes
-- [ ] Mettre à jour \`version:\` dans les fichiers YAML modifiés (ex: 1.1 → 1.2)
-` : '';
+            const annual = isAnnual ? [
+              '',
+              '## 📋 Révision ANNUELLE — Certifications & Méthodologies',
+              '',
+              '### Certifications Agile & Management',
+              '- [ ] **SAFe** — nouvelle version ? → https://scaledagile.com/blog/safe-release-notes/',
+              '      Si SAFe 7+ : mettre à jour RTE, PM-SAFE, PO-SAFE, SCRUM-MASTER, ORCHESTRATEUR',
+              '- [ ] **PMI** (PMP, PMI-ACP, PMI-PBA) — révision majeure du référentiel PMBOK ?',
+              '- [ ] **ISTQB** — nouvelle version du syllabus Foundation / Agile Tester ?',
+              '- [ ] **PROSCI** — mise à jour du modèle ADKAR ou nouvelle certification ?',
+              '- [ ] **SCIP** — évolution du référentiel ou nouvelles certifications ?',
+              '',
+              '### Certifications Techniques',
+              '- [ ] **Anthropic** — nouvelles certifications ? → https://www.anthropic.com/learn',
+              '- [ ] **AWS / GCP / Azure** — nouvelles certifications SA, ML, Security ?',
+              '- [ ] **CKA / CKAD** — nouvelle version du programme Kubernetes ?',
+              '',
+              '### Audit complet',
+              '- [ ] Relire les 5 workflows : compositions d\'agents toujours optimales ?',
+              '- [ ] Relire les 3 serveurs MCP : outils pertinents, intégrations manquantes ?',
+              '- [ ] Audit `README.md` complet : sections, liens, compteurs',
+              '- [ ] Archiver ou supprimer les agents/skills obsolètes',
+              '- [ ] Mettre à jour `version:` dans les fichiers YAML modifiés (ex: 1.1 → 1.2)',
+            ] : [];
 
             const duree = isAnnual ? '3-4h' : isSemiAnnual ? '2-3h' : '15-30 min';
             const label = isAnnual
@@ -178,16 +186,21 @@ Durée estimée : **${duree}**
                 ? '🔬 Semestrielle'
                 : '✅ Trimestrielle';
 
-            const body = `# 🔧 Maintenance catalogue — Q${quarter} ${year} (${label})
-
-> Lancée manuellement le ${now.toLocaleDateString('fr-FR')} · Durée estimée : **${duree}**
-
-${quarterly}${semiAnnual}${annual}
----
-
-**Workflow de veille :** Lancer WF-005 si des signaux ont été captés depuis la dernière révision
-**Référence modèles :** https://docs.anthropic.com/en/docs/about-claude/models/overview
-*Ferme cette issue quand toutes les cases sont cochées.*`;
+            const body = [
+              `# 🔧 Maintenance catalogue — Q${quarter} ${year} (${label})`,
+              '',
+              `> Lancée manuellement le ${now.toLocaleDateString('fr-FR')} · Durée estimée : **${duree}**`,
+              '',
+              ...quarterly,
+              ...semiAnnual,
+              ...annual,
+              '',
+              '---',
+              '',
+              '**Workflow de veille :** Lancer WF-005 si des signaux ont été captés depuis la dernière révision',
+              '**Référence modèles :** https://docs.anthropic.com/en/docs/about-claude/models/overview',
+              '*Ferme cette issue quand toutes les cases sont cochées.*',
+            ].join('\n');
 
             const response = await github.rest.issues.create({
               owner: context.repo.owner,

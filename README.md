@@ -3,6 +3,8 @@
 > Bibliothèque d'agents IA spécialisés pour Claude Code  
 > Auteur : [guyhui01](https://github.com/guyhui01) · Licence : [PolyForm Noncommercial 1.0.0](LICENSE) © 2026 Guy HUI-BON-HOA
 
+[![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/license-PolyForm%20Noncommercial%201.0.0-blue)](LICENSE)
+
 ---
 
 ## Agents disponibles (38)

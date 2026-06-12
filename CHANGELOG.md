@@ -5,6 +5,23 @@
 
 ---
 
+## [3.26.1] — 2026-06-12 — Changement de licence : MIT → PolyForm Noncommercial 1.0.0
+> Modèle : Claude Opus 4.8
+
+### 🎯 Contexte
+Le catalogue passe de **MIT** (permissive, autorise la revente) à **PolyForm Noncommercial 1.0.0** (source-available) pour **réserver l'usage commercial à l'auteur** tout en laissant l'usage non commercial libre (étude, recherche, projets perso, organisations à but non lucratif). En tant que titulaire des droits, l'auteur reste libre d'utiliser le catalogue commercialement, y compris en mission client.
+
+### 📝 Changed
+- **`LICENSE`** : texte officiel PolyForm Noncommercial 1.0.0 + `Required Notice` au nom de Guy HUI-BON-HOA.
+- **`package.json`** : champ `license` = `PolyForm-Noncommercial-1.0.0` (identifiant SPDX).
+- **`README.md`** : mentions de licence (en-tête + section Licence) mises à jour, avec la portée non commerciale explicitée.
+
+### Notes
+- Repo désormais **source-available** (public et consultable) — ce n'est plus « open source » au sens OSI, choix assumé.
+- Compteurs catalogue inchangés (38 agents / 37 skills / 10 workflows).
+
+---
+
 ## [3.26.0] — 2026-06-09 — Générateur de sidecar (index machine-lisible, ADR-0003)
 > Modèle : Claude Opus 4.8
 

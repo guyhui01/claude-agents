@@ -1,7 +1,8 @@
 {
   "name": "claude-agents-catalogue",
-  "version": "3.26.0",
+  "version": "3.26.1",
   "private": true,
+  "license": "PolyForm-Noncommercial-1.0.0",
   "type": "module",
   "description": "Catalogue claude-agents — outillage de génération du sidecar (index machine-lisible, ADR-0003).",
   "scripts": {

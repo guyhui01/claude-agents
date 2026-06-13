@@ -1,224 +1,224 @@
-# Claude Agents — Catalogue agentique
+# Claude Agents — Agentic catalog
 
-> **Catalogue agentique orienté delivery produit pour Claude Code**  
-> 38 agents spécialisés, 37 skills et 10 workflows orchestrés (BPMN), indexés en *sidecar* machine-lisible (validé en CI) et exécutables via le runtime [`claude-agentic-runtime`](https://github.com/guyhui01/claude-agentic-runtime). Fondé sur les méthodes d'entreprise (Scrum, SAFe, ISTQB, TOGAF), avec intégrations MCP (Jira, Confluence).  
-> Auteur : [guyhui01](https://github.com/guyhui01) · Licence : [PolyForm Noncommercial 1.0.0](LICENSE) © 2026 Guy HUI-BON-HOA
+> **Product-delivery agentic catalog for Claude Code**  
+> 38 specialized agents, 37 skills, and 10 orchestrated (BPMN) workflows, indexed in a machine-readable *sidecar* (CI-validated) and executable through the [`claude-agentic-runtime`](https://github.com/guyhui01/claude-agentic-runtime) runtime. Built on enterprise frameworks (Scrum, SAFe, ISTQB, TOGAF), with MCP integrations (Jira, Confluence).  
+> Author: [guyhui01](https://github.com/guyhui01) · License: [PolyForm Noncommercial 1.0.0](LICENSE) © 2026 Guy HUI-BON-HOA
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/license-PolyForm%20Noncommercial%201.0.0-blue)](LICENSE)
 
 ---
 
-## Agents disponibles (38)
+## Available agents (38)
 
-### Développement & Technique
+### Development & Engineering
 
-| Agent | Rôle | Skills |
+| Agent | Role | Skills |
 |---|---|---|
-| `AGENT-DEV-PYTHON-IA.md` | Développeur Python IA | LangChain, RAG, PyTorch, fine-tuning, agents |
-| `AGENT-DEV-TYPESCRIPT-IA.md` | Développeur TypeScript IA | Next.js, Vercel AI SDK, MCP, streaming |
-| `AGENT-DEV-DRUPAL-PHP.md` | Développeur Drupal / PHP | Modules custom, Commerce, Twig, PHPUnit |
-| `AGENT-CMS-DIGITAL.md` | Expert CMS & Digital Platform Manager | AEM, Drupal 10, Headless CMS, migration, PIM/DAM, accessibilité, SEO |
-| `AGENT-TECH-LEAD.md` | Tech Lead / Lead Developer IA | Code review, architecture applicative, API design, CI/CD, mentoring, IA dev |
-| `AGENT-BI-ANALYST.md` | Business Intelligence Analyst | Power BI/Fabric, Tableau, Looker, modélisation dimensionnelle, KPIs, self-service |
-| `AGENT-PIM-EXPERT.md` | Expert PIM & Catalogue Produit | Modélisation catalogue, enrichissement, syndication, gouvernance données produit, PIM IA |
-| `AGENT-DAM-EXPERT.md` | Expert DAM & Assets Digitaux | Taxonomie, droits, distribution multicanal, brand portal, DAM augmenté IA |
-| `AGENT-AI-ARCHITECT.md` | Architecte IA | RAG, multi-agents, MCP/A2A, évaluation LLM |
-| `AGENT-SOLUTIONS-ARCHITECT.md` | Solutions Architect (Entreprise) | TOGAF, ArchiMate, urbanisme SI, BDAT, roadmap transformation |
-| `AGENT-MLOPS-ENGINEER.md` | MLOps Engineer | MLflow, Kubeflow, monitoring modèles, CI/CD ML |
-| `AGENT-DATA-ENGINEER.md` | Data Engineer | Pipelines ETL, Spark, dbt, Airflow, Kafka |
-| `AGENT-DATA-SCIENTIST.md` | Data Scientist | ML, stats, modélisation, MLflow, Python |
+| `AGENT-DEV-PYTHON-IA.md` | AI Python Developer | LangChain, RAG, PyTorch, fine-tuning, agents |
+| `AGENT-DEV-TYPESCRIPT-IA.md` | AI TypeScript Developer | Next.js, Vercel AI SDK, MCP, streaming |
+| `AGENT-DEV-DRUPAL-PHP.md` | Drupal / PHP Developer | Custom modules, Commerce, Twig, PHPUnit |
+| `AGENT-CMS-DIGITAL.md` | CMS Expert & Digital Platform Manager | AEM, Drupal 10, Headless CMS, migration, PIM/DAM, accessibility, SEO |
+| `AGENT-TECH-LEAD.md` | Tech Lead / AI Lead Developer | Code review, application architecture, API design, CI/CD, mentoring, AI dev |
+| `AGENT-BI-ANALYST.md` | Business Intelligence Analyst | Power BI/Fabric, Tableau, Looker, dimensional modeling, KPIs, self-service |
+| `AGENT-PIM-EXPERT.md` | PIM & Product Catalog Expert | Catalog modeling, enrichment, syndication, product data governance, AI PIM |
+| `AGENT-DAM-EXPERT.md` | DAM & Digital Assets Expert | Taxonomy, rights, multichannel distribution, brand portal, AI-augmented DAM |
+| `AGENT-AI-ARCHITECT.md` | AI Architect | RAG, multi-agent, MCP/A2A, LLM evaluation |
+| `AGENT-SOLUTIONS-ARCHITECT.md` | Solutions Architect (Enterprise) | TOGAF, ArchiMate, enterprise IT architecture, BDAT, transformation roadmap |
+| `AGENT-MLOPS-ENGINEER.md` | MLOps Engineer | MLflow, Kubeflow, model monitoring, ML CI/CD |
+| `AGENT-DATA-ENGINEER.md` | Data Engineer | ETL pipelines, Spark, dbt, Airflow, Kafka |
+| `AGENT-DATA-SCIENTIST.md` | Data Scientist | ML, stats, modeling, MLflow, Python |
 | `AGENT-DEVOPS-CLOUD.md` | DevOps / Cloud Engineer | CI/CD, Kubernetes, Terraform, AWS/GCP/Azure |
-| `AGENT-SECURITE-IA.md` | Expert Sécurité IA | Cybersécurité, OWASP LLM, red teaming, CISSP |
+| `AGENT-SECURITE-IA.md` | AI Security Expert | Cybersecurity, OWASP LLM, red teaming, CISSP |
 | `AGENT-PROMPT-ENGINEER.md` | Prompt Engineer | System prompts, few-shot, CoT, RAG prompts, multimodal, evals |
 
-### Agile, Produit & Qualité
+### Agile, Product & Quality
 
-| Agent | Rôle | Skills |
+| Agent | Role | Skills |
 |---|---|---|
-| `AGENT-PO-SCRUM.md` | Product Owner Scrum | Backlog, user stories, priorisation (MoSCoW/RICE/Kano), story mapping, DoD |
+| `AGENT-PO-SCRUM.md` | Product Owner Scrum | Backlog, user stories, prioritization (MoSCoW/RICE/Kano), story mapping, DoD |
 | `AGENT-PO-SAFE.md` | Product Owner SAFe | PI Planning, ART, WSJF, portfolio epics |
-| `AGENT-SCRUM-MASTER.md` | Scrum Master | Facilitation, coaching équipe, métriques agiles |
-| `AGENT-QA-AGILE.md` | QA Agile (ISTQB) | BDD/Gherkin, ATDD, tests exploratoires, CI/CD |
-| `AGENT-QA-CYCLEV.md` | QA Cycle en V (ISTQB) | Plan de tests, recette, UAT, performance |
+| `AGENT-SCRUM-MASTER.md` | Scrum Master | Facilitation, team coaching, agile metrics |
+| `AGENT-QA-AGILE.md` | QA Agile (ISTQB) | BDD/Gherkin, ATDD, exploratory testing, CI/CD |
+| `AGENT-QA-CYCLEV.md` | QA Waterfall-Model (ISTQB) | Test plans, UAT, performance |
 | `AGENT-UX-DESIGNER.md` | UX / UI Designer | Research, Figma, wireframing, design system |
-| `AGENT-BUSINESS-ANALYST.md` | Business Analyst / MOA | Élicitation, BPMN, spécifications, recette MOA |
-| `AGENT-PRODUCT-MANAGER-SAFE.md` | Product Manager SAFe | Vision produit Programme, roadmap ART, go-to-market, WSJF |
-| `AGENT-RELEASE-TRAIN-ENGINEER.md` | Release Train Engineer | PI Planning, coordination ART, impediments, Flow Metrics, I&A |
-| `AGENT-CHANGE-MANAGER.md` | Change Manager | ADKAR, plan de communication, gestion résistances, adoption IA |
-| `AGENT-AUDIT-METHODO-IA.md` | Auditeur Méthodo IA (Contrôle & Challenge) | Audit conformité méthode SAFe/Scrum/ISTQB/PMI, challenge raisonnement, gate validation livrable, audit qualité catalogue (grille v2.8) |
+| `AGENT-BUSINESS-ANALYST.md` | Business Analyst / MOA | Elicitation, BPMN, specifications, business UAT |
+| `AGENT-PRODUCT-MANAGER-SAFE.md` | Product Manager SAFe | Program product vision, ART roadmap, go-to-market, WSJF |
+| `AGENT-RELEASE-TRAIN-ENGINEER.md` | Release Train Engineer | PI Planning, ART coordination, impediments, Flow Metrics, I&A |
+| `AGENT-CHANGE-MANAGER.md` | Change Manager | ADKAR, communication plan, resistance management, AI adoption |
+| `AGENT-AUDIT-METHODO-IA.md` | AI Methodology Auditor (Control & Challenge) | SAFe/Scrum/ISTQB/PMI methodology compliance audit, reasoning challenge, deliverable validation gate, catalog quality audit (v2.8 rubric) |
 
 ### Orchestration & Workflows
 
-| Agent | Rôle | Skills |
+| Agent | Role | Skills |
 |---|---|---|
-| `AGENT-ORCHESTRATEUR-WORKFLOW.md` | Orchestrateur de Workflows Agentiques | Design BPMN, routage agents, context handoff, error recovery, monitoring |
+| `AGENT-ORCHESTRATEUR-WORKFLOW.md` | Agentic Workflow Orchestrator | BPMN design, agent routing, context handoff, error recovery, monitoring |
 
-### Management, Conseil & Contenus
+### Management, Consulting & Content
 
-| Agent | Rôle | Skills |
+| Agent | Role | Skills |
 |---|---|---|
-| `AGENT-CHEF-PROJET-IA.md` | Chef de Projet IA | Cadrage, planning, gestion risques, EVM |
-| `AGENT-CONSULTANT-IA.md` | Consultant IA | Diagnostic maturité, feuille de route, ROI |
-| `AGENT-CDO-DIRECTEUR-IA.md` | CDO / Directeur IA | Stratégie data, gouvernance, OKR, talent |
-| `AGENT-FORMATEUR-IA.md` | Formateur IA | Conception parcours, animation, e-learning |
-| `AGENT-GROWTH-IA.md` | Growth / Marketing IA | Acquisition, automation marketing, analytics |
-| `AGENT-REDACTEUR-IA.md` | Rédacteur IA | Copywriting, SEO, prompting éditorial |
-| `AGENT-JURIDIQUE-IA.md` | Juridique IA | RGPD, AI Act, conformité, contrats IA |
-| `AGENT-FINANCIAL-ANALYST.md` | Financial Analyst | Business case IA, ROI transformation, TCO, EVM, reporting CODIR |
-| `AGENT-VEILLE-STRATEGIQUE.md` | Veille Stratégique | Veille IA/LLM, signaux faibles, benchmark outils, synthèses périodiques |
+| `AGENT-CHEF-PROJET-IA.md` | AI Project Manager | Scoping, planning, risk management, EVM |
+| `AGENT-CONSULTANT-IA.md` | AI Consultant | Maturity assessment, roadmap, ROI |
+| `AGENT-CDO-DIRECTEUR-IA.md` | CDO / AI Director | Data strategy, governance, OKR, talent |
+| `AGENT-FORMATEUR-IA.md` | AI Trainer | Curriculum design, facilitation, e-learning |
+| `AGENT-GROWTH-IA.md` | AI Growth / Marketing | Acquisition, marketing automation, analytics |
+| `AGENT-REDACTEUR-IA.md` | AI Content Writer | Copywriting, SEO, editorial prompting |
+| `AGENT-JURIDIQUE-IA.md` | AI Legal | GDPR, AI Act, compliance, AI contracts |
+| `AGENT-FINANCIAL-ANALYST.md` | Financial Analyst | AI business case, transformation ROI, TCO, EVM, executive reporting |
+| `AGENT-VEILLE-STRATEGIQUE.md` | Strategic Intelligence | AI/LLM intelligence, weak signals, tool benchmarking, periodic briefings |
 
-### RH & Talent
+### HR & Talent
 
-| Agent | Rôle | Skills |
+| Agent | Role | Skills |
 |---|---|---|
-| `AGENT-RH-IA.md` | RH IA & Talent Acquisition IT | Sourcing IT/IA, GEPP, anti-fraude CV/deepfake, ATS scoring, people analytics |
+| `AGENT-RH-IA.md` | AI HR & IT Talent Acquisition | IT/AI sourcing, workforce planning (GEPP), CV/deepfake fraud prevention, ATS scoring, people analytics |
 
 ---
 
-## Skills disponibles (37 dossiers)
+## Available skills (37 folders)
 
-### Développement & Technique
+### Development & Engineering
 
-| Dossier | Contenu |
+| Folder | Contents |
 |---|---|
-| `skills/dev_python_ia/` | Python avancé, LangChain, RAG, Hugging Face, PyTorch, fine-tuning, agents |
-| `skills/dev_typescript_ia/` | TypeScript IA, Next.js, Vercel AI SDK, MCP server, streaming, Edge Functions |
-| `skills/ai_architect/` | Architecture RAG, multi-agents, MCP/A2A, évaluation LLM, choix stack IA |
-| `skills/mlops_engineer/` | MLflow, Kubeflow, DVC, monitoring drift, CI/CD ML, Feature Store |
-| `skills/dev_drupal/` | Modules Drupal 10, Commerce 2.x, Twig, Config CMI, APIs REST, PHPUnit |
-| `skills/data_engineer/` | Pipelines ETL/ELT, Spark, dbt, Airflow, Kafka, Databricks, lakehouse |
-| `skills/data_scientist/` | ML supervisé/non supervisé, stats, modélisation, MLflow, Python, SQL |
+| `skills/dev_python_ia/` | Advanced Python, LangChain, RAG, Hugging Face, PyTorch, fine-tuning, agents |
+| `skills/dev_typescript_ia/` | AI TypeScript, Next.js, Vercel AI SDK, MCP server, streaming, Edge Functions |
+| `skills/ai_architect/` | RAG architecture, multi-agent, MCP/A2A, LLM evaluation, AI stack selection |
+| `skills/mlops_engineer/` | MLflow, Kubeflow, DVC, drift monitoring, ML CI/CD, Feature Store |
+| `skills/dev_drupal/` | Drupal 10 modules, Commerce 2.x, Twig, CMI config, REST APIs, PHPUnit |
+| `skills/data_engineer/` | ETL/ELT pipelines, Spark, dbt, Airflow, Kafka, Databricks, lakehouse |
+| `skills/data_scientist/` | Supervised/unsupervised ML, stats, modeling, MLflow, Python, SQL |
 | `skills/devops_cloud/` | CI/CD GitHub Actions, Kubernetes, Terraform, Docker, AWS, GCP, Azure |
-| `skills/securite_ia/` | Cybersécurité IA, OWASP LLM Top 10, red teaming, CISSP, Zero Trust |
-| `skills/cms_digital/` | AEM, Drupal 10, Headless CMS, migration, gouvernance éditoriale, PIM/DAM, accessibilité RGAA, SEO |
-| `skills/tech_lead/` | Code review, architecture applicative, API design, CI/CD, sécurité OWASP, dette technique, mentoring |
-| `skills/bi_analyst/` | Modélisation dimensionnelle, Power BI/Fabric, Tableau, Looker, SQL analytique, KPIs, self-service BI |
-| `skills/pim_expert/` | Modélisation catalogue, enrichissement produit, gouvernance MDM, syndication canaux, localisation, ETL ERP→PIM, scoring qualité, migration PIM, portail fournisseurs, PIM IA |
-| `skills/dam_expert/` | Taxonomie assets, workflow validation, droits & licences, distribution multicanal, renditions, intégration DAM-CMS, brand portal, gouvernance DAM, migration DAM, DAM IA, analytics assets, naming convention |
+| `skills/securite_ia/` | AI cybersecurity, OWASP LLM Top 10, red teaming, CISSP, Zero Trust |
+| `skills/cms_digital/` | AEM, Drupal 10, Headless CMS, migration, editorial governance, PIM/DAM, RGAA accessibility, SEO |
+| `skills/tech_lead/` | Code review, application architecture, API design, CI/CD, OWASP security, technical debt, mentoring |
+| `skills/bi_analyst/` | Dimensional modeling, Power BI/Fabric, Tableau, Looker, analytical SQL, KPIs, self-service BI |
+| `skills/pim_expert/` | Catalog modeling, product enrichment, MDM governance, channel syndication, localization, ERP→PIM ETL, quality scoring, PIM migration, supplier portal, AI PIM |
+| `skills/dam_expert/` | Asset taxonomy, validation workflow, rights & licensing, multichannel distribution, renditions, DAM-CMS integration, brand portal, DAM governance, DAM migration, AI DAM, asset analytics, naming conventions |
 
-### Agile, Produit & Qualité
+### Agile, Product & Quality
 
-| Dossier | Contenu |
+| Folder | Contents |
 |---|---|
-| `skills/scrum/` | User stories, backlog, priorisation (MoSCoW/RICE/Kano), story mapping, DoR/DoD, KPI, EBM |
-| `skills/safe/` | PI Planning, WSJF, features, ART, portfolio epics, OKR SAFe |
-| `skills/scrum_master/` | Facilitation cérémonies, coaching équipe, métriques agiles, scaling |
-| `skills/qa_testing/` | BDD/Gherkin, ATDD, plan de tests, UAT, performance, sécurité, CI/CD |
+| `skills/scrum/` | User stories, backlog, prioritization (MoSCoW/RICE/Kano), story mapping, DoR/DoD, KPI, EBM |
+| `skills/safe/` | PI Planning, WSJF, features, ART, portfolio epics, SAFe OKR |
+| `skills/scrum_master/` | Event facilitation, team coaching, agile metrics, scaling |
+| `skills/qa_testing/` | BDD/Gherkin, ATDD, test plans, UAT, performance, security, CI/CD |
 | `skills/ux_design/` | User research, personas, wireframing, Figma, design system, WCAG, A/B |
-| `skills/business_analyst/` | Élicitation, BPMN, UML, spécifications fonctionnelles, recette MOA |
-| `skills/product_manager_safe/` | Vision produit Programme, roadmap ART, customer-centricity, Lean Business Case, go-to-market |
-| `skills/release_train_engineer/` | Facilitation PI Planning, coordination ART, métriques Flow, Inspect & Adapt, Scrum of Scrums |
-| `skills/change_manager/` | ADKAR, analyse impact, plan de communication, gestion résistances, mesure adoption |
-| `skills/critique_conformite/` | Audit conformité méthode (SAFe/Scrum/ISTQB/PMI), challenge raisonnement, gate validation livrable, audit qualité d'un skill du catalogue (grille v2.8 autonome) |
+| `skills/business_analyst/` | Elicitation, BPMN, UML, functional specifications, business UAT |
+| `skills/product_manager_safe/` | Program product vision, ART roadmap, customer-centricity, Lean Business Case, go-to-market |
+| `skills/release_train_engineer/` | PI Planning facilitation, ART coordination, Flow metrics, Inspect & Adapt, Scrum of Scrums |
+| `skills/change_manager/` | ADKAR, impact analysis, communication plan, resistance management, adoption measurement |
+| `skills/critique_conformite/` | Methodology compliance audit (SAFe/Scrum/ISTQB/PMI), reasoning challenge, deliverable validation gate, catalog skill quality audit (standalone v2.8 rubric) |
 
 ### Orchestration & Workflows
 
-| Dossier | Contenu |
+| Folder | Contents |
 |---|---|
 | `skills/orchestrateur_workflow/` | Workflow design, agent routing, context handoff, error recovery, dependency mapping, parallel orchestration, output validation, catalog, triggers, monitoring |
 
-### Management, Conseil & Contenus
+### Management, Consulting & Content
 
-| Dossier | Contenu |
+| Folder | Contents |
 |---|---|
-| `skills/chef_projet_ia/` | Cadrage, planning, gestion risques, EVM, COPIL, conduite du changement |
-| `skills/consultant_ia/` | Diagnostic maturité IA, feuille de route, ROI, benchmark, POC |
-| `skills/cdo_directeur_ia/` | Stratégie data, gouvernance DAMA, OKR, data mesh, talent IA |
-| `skills/formateur_ia/` | Analyse besoins, conception parcours, animation, e-learning, data literacy |
-| `skills/growth_ia/` | Acquisition, automation marketing, SEO IA, analytics, A/B testing |
-| `skills/redacteur_ia/` | Copywriting, SEO, prompting éditorial, contenus multiformat |
-| `skills/juridique_ia/` | RGPD, AI Act, conformité, contrats IA, responsabilité algorithmique |
-| `skills/financial_analyst/` | Business case IA, ROI transformation, TCO, EVM, budget projet, reporting CODIR |
-| `skills/veille_strategique/` | Veille IA/LLM, analyse tendances, signaux faibles, benchmark outils, synthèses périodiques |
-| `skills/prompt_engineer/` | System prompt design, few-shot, CoT, RAG prompts, multimodal, évaluation, optimisation coûts |
+| `skills/chef_projet_ia/` | Scoping, planning, risk management, EVM, steering committee, change management |
+| `skills/consultant_ia/` | AI maturity assessment, roadmap, ROI, benchmark, PoC |
+| `skills/cdo_directeur_ia/` | Data strategy, DAMA governance, OKR, data mesh, AI talent |
+| `skills/formateur_ia/` | Needs analysis, curriculum design, facilitation, e-learning, data literacy |
+| `skills/growth_ia/` | Acquisition, marketing automation, AI SEO, analytics, A/B testing |
+| `skills/redacteur_ia/` | Copywriting, SEO, editorial prompting, multi-format content |
+| `skills/juridique_ia/` | GDPR, AI Act, compliance, AI contracts, algorithmic accountability |
+| `skills/financial_analyst/` | AI business case, transformation ROI, TCO, EVM, project budget, executive reporting |
+| `skills/veille_strategique/` | AI/LLM intelligence, trend analysis, weak signals, tool benchmarking, periodic briefings |
+| `skills/prompt_engineer/` | System prompt design, few-shot, CoT, RAG prompts, multimodal, evaluation, cost optimization |
 
-### RH & Talent
+### HR & Talent
 
-| Dossier | Contenu |
+| Folder | Contents |
 |---|---|
-| `skills/rh_ia/` | Sourcing IT/IA, rédaction offres, évaluation profils, GEPP, people analytics, benchmark rémunération, transformation RH IA, anti-fraude CV/deepfake, vérification références, parsing ATS |
-| `skills/solutions_architect/` | TOGAF ADM, ArchiMate 3, urbanisme SI, architecture BDAT, patterns intégration, migration cloud, gouvernance ARB, roadmap transformation SI |
+| `skills/rh_ia/` | IT/AI sourcing, job posting writing, candidate evaluation, workforce planning (GEPP), people analytics, compensation benchmarking, AI HR transformation, CV/deepfake fraud prevention, reference checks, ATS parsing |
+| `skills/solutions_architect/` | TOGAF ADM, ArchiMate 3, enterprise IT architecture, BDAT architecture, integration patterns, cloud migration, ARB governance, IS transformation roadmap |
 
 ---
 
-## Workflows disponibles (10)
+## Available workflows (10)
 
-| ID | Workflow | Domaine | Agents | Durée |
+| ID | Workflow | Domain | Agents | Duration |
 |---|---|---|---|---|
-| [WF-001](workflows/WF-001-cadrage-produit-ia.md) | Cadrage Produit IA | Agile & Produit | 4-6 | 45-90 min |
-| [WF-002](workflows/WF-002-delivery-safe.md) | Delivery Agile SAFe | Agile & Produit | 6 | 60-120 min |
-| [WF-003](workflows/WF-003-lancement-app-ia.md) | Lancement Application IA | Dev & Technique | 5-6 | 90-180 min |
-| [WF-004](workflows/WF-004-mission-conseil-ia.md) | Mission Conseil IA | Management & Conseil | 6 | 60-90 min |
-| [WF-005](workflows/WF-005-veille-growth.md) | Veille Stratégique & Growth | Management & Conseil | 3-4 | 30-60 min |
-| [WF-006](workflows/WF-006-avant-vente-proposition-commerciale.md) | Avant-vente / Proposition commerciale | Management & Conseil | 6-9 | 75-120 min |
-| [WF-007](workflows/WF-007-onboarding-mission-j1.md) | Onboarding Mission J1 | Management & Conseil | 4 | 45-75 min |
-| [WF-008](workflows/WF-008-audit-conformite-ia-act-rgpd.md) | Audit conformité IA Act / RGPD | Conformité & Gouvernance | 7-9 | 90-150 min |
-| [WF-009](workflows/WF-009-recrutement-it-ia.md) | Recrutement IT / IA | RH & Talent | 4-7 | 60-90 min |
-| [WF-010](workflows/WF-010-post-mortem-projet.md) | Post-mortem Projet | Management & Conseil | 4-7 | 45-75 min |
+| [WF-001](workflows/WF-001-cadrage-produit-ia.md) | AI Product Scoping | Agile & Product | 4-6 | 45-90 min |
+| [WF-002](workflows/WF-002-delivery-safe.md) | SAFe Agile Delivery | Agile & Product | 6 | 60-120 min |
+| [WF-003](workflows/WF-003-lancement-app-ia.md) | AI Application Launch | Dev & Engineering | 5-6 | 90-180 min |
+| [WF-004](workflows/WF-004-mission-conseil-ia.md) | AI Consulting Engagement | Management & Consulting | 6 | 60-90 min |
+| [WF-005](workflows/WF-005-veille-growth.md) | Strategic Intelligence & Growth | Management & Consulting | 3-4 | 30-60 min |
+| [WF-006](workflows/WF-006-avant-vente-proposition-commerciale.md) | Pre-sales / Commercial Proposal | Management & Consulting | 6-9 | 75-120 min |
+| [WF-007](workflows/WF-007-onboarding-mission-j1.md) | Day-1 Engagement Onboarding | Management & Consulting | 4 | 45-75 min |
+| [WF-008](workflows/WF-008-audit-conformite-ia-act-rgpd.md) | AI Act / GDPR Compliance Audit | Compliance & Governance | 7-9 | 90-150 min |
+| [WF-009](workflows/WF-009-recrutement-it-ia.md) | IT / AI Recruitment | HR & Talent | 4-7 | 60-90 min |
+| [WF-010](workflows/WF-010-post-mortem-projet.md) | Project Post-mortem | Management & Consulting | 4-7 | 45-75 min |
 
-Voir `workflows/README.md` pour le guide de sélection complet.
-
----
-
-## Démarrage rapide
-
-```
-# Charger un agent seul :
-Lis le fichier AGENT-DEV-PYTHON-IA.md et adopte ce rôle.
-Confirme que tu es prêt en listant les skills disponibles.
-
-# Lancer un workflow complet :
-Lis le fichier AGENT-ORCHESTRATEUR-WORKFLOW.md et adopte le rôle d'orchestrateur.
-Charge ensuite workflows/WF-001-cadrage-produit-ia.md et lance le workflow.
-```
-
-Voir `START.md` pour toutes les commandes de démarrage.
+See `workflows/README.md` for the full selection guide.
 
 ---
 
-## Structure du repo
+## Quick start
+
+```
+# Load a single agent:
+Read the AGENT-DEV-PYTHON-IA.md file and take on this role.
+Confirm you are ready by listing the available skills.
+
+# Run a full workflow:
+Read the AGENT-ORCHESTRATEUR-WORKFLOW.md file and take on the orchestrator role.
+Then load workflows/WF-001-cadrage-produit-ia.md and start the workflow.
+```
+
+See `START.md` for all startup commands.
+
+---
+
+## Repository structure
 
 ```
 claude-agents/
-├── AGENT-*.md              # 38 agents spécialisés
+├── AGENT-*.md              # 38 specialized agents
 ├── skills/
-│   ├── ai_architect/       # Architecture IA · RAG · multi-agents · MCP/A2A
-│   ├── dev_python_ia/      # Python IA · LangChain · RAG · agents
-│   ├── dev_typescript_ia/  # TypeScript IA · Next.js · Vercel AI SDK · MCP
+│   ├── ai_architect/       # AI architecture · RAG · multi-agent · MCP/A2A
+│   ├── dev_python_ia/      # AI Python · LangChain · RAG · agents
+│   ├── dev_typescript_ia/  # AI TypeScript · Next.js · Vercel AI SDK · MCP
 │   ├── mlops_engineer/     # Docker · K8s · MLflow · model serving
 │   ├── dev_drupal/         # Drupal / PHP
 │   ├── data_engineer/      # Data Engineering
 │   ├── data_scientist/     # Data Science & ML
 │   ├── devops_cloud/       # DevOps & Cloud
-│   ├── securite_ia/        # Cybersécurité IA
+│   ├── securite_ia/        # AI cybersecurity
 │   ├── prompt_engineer/    # Prompt Engineering · System prompts · CoT · RAG
 │   ├── scrum/              # Product Owner Scrum
 │   ├── safe/               # Product Owner SAFe
 │   ├── scrum_master/       # Scrum Master
-│   ├── qa_testing/         # QA Agile & Cycle en V
+│   ├── qa_testing/         # QA Agile & Waterfall-Model
 │   ├── ux_design/          # UX / UI Design
 │   ├── business_analyst/   # Business Analysis & MOA
-│   ├── product_manager_safe/ # Product Manager SAFe Programme
+│   ├── product_manager_safe/ # Product Manager SAFe Program
 │   ├── release_train_engineer/ # RTE · PI Planning · ART · I&A
-│   ├── change_manager/     # Change Management · ADKAR · Adoption IA
-│   ├── chef_projet_ia/     # Gestion de Projet IA
-│   ├── consultant_ia/      # Conseil IA
-│   ├── cdo_directeur_ia/   # Direction IA & Data
-│   ├── formateur_ia/       # Formation IA
-│   ├── growth_ia/          # Growth & Marketing IA
-│   ├── redacteur_ia/       # Rédaction IA
-│   ├── juridique_ia/       # Juridique IA
-│   ├── financial_analyst/  # Analyse Financière · Business Case · EVM
-│   ├── veille_strategique/ # Veille IA · Signaux faibles · Benchmark
-│   ├── rh_ia/              # Recrutement IT/IA · GEPP · anti-fraude · ATS
-│   ├── solutions_architect/ # TOGAF · ArchiMate · Urbanisme SI · BDAT · roadmap transformation
+│   ├── change_manager/     # Change Management · ADKAR · AI adoption
+│   ├── chef_projet_ia/     # AI Project Management
+│   ├── consultant_ia/      # AI Consulting
+│   ├── cdo_directeur_ia/   # AI & Data Leadership
+│   ├── formateur_ia/       # AI Training
+│   ├── growth_ia/          # AI Growth & Marketing
+│   ├── redacteur_ia/       # AI Writing
+│   ├── juridique_ia/       # AI Legal
+│   ├── financial_analyst/  # Financial Analysis · Business Case · EVM
+│   ├── veille_strategique/ # AI Intelligence · Weak signals · Benchmark
+│   ├── rh_ia/              # IT/AI Recruitment · GEPP · fraud prevention · ATS
+│   ├── solutions_architect/ # TOGAF · ArchiMate · Enterprise IT architecture · BDAT · transformation roadmap
 │   ├── cms_digital/        # CMS & Digital Platform · AEM · Drupal · Headless · migration
 │   ├── tech_lead/          # Tech Lead · Code review · API design · CI/CD · mentoring
 │   ├── bi_analyst/         # BI & Reporting · Power BI/Fabric · Tableau · KPIs · self-service
-│   ├── critique_conformite/  # Contre-expertise IA · audit méthode · challenge · gate validation
-│   └── orchestrateur_workflow/ # Orchestration workflows agentiques
+│   ├── critique_conformite/  # AI peer review · methodology audit · challenge · validation gate
+│   └── orchestrateur_workflow/ # Agentic workflow orchestration
 ├── workflows/
-│   ├── README.md               # Index et grille de sélection
+│   ├── README.md               # Index and selection guide
 │   ├── WF-001-cadrage-produit-ia.md
 │   ├── WF-002-delivery-safe.md
 │   ├── WF-003-lancement-app-ia.md
@@ -229,33 +229,33 @@ claude-agents/
 │   ├── WF-008-audit-conformite-ia-act-rgpd.md
 │   ├── WF-009-recrutement-it-ia.md
 │   └── WF-010-post-mortem-projet.md
-├── mcp-servers/                # Intégrations MCP : Jira, Confluence, journal missions
+├── mcp-servers/                # MCP integrations: Jira, Confluence, mission log
 │   ├── README.md
 │   ├── mcp-jira/
 │   ├── mcp-confluence/
 │   └── mcp-workflow-log/
-├── schema/                     # Contrat sidecar (copie épinglée 1.0.0 — SSOT = runtime)
-├── tools/                      # Outillage Node : générateur de sidecar (ADR-0003)
-├── sidecar.json                # Index machine-lisible du catalogue (généré, validé en CI)
+├── schema/                     # Sidecar contract (pinned copy 1.0.0 — SSOT = runtime)
+├── tools/                      # Node tooling: sidecar generator (ADR-0003)
+├── sidecar.json                # Machine-readable catalog index (generated, CI-validated)
 └── START.md
 ```
 
 ---
 
-## Intégrations MCP
+## MCP integrations
 
-3 serveurs MCP permettent de pousser tes livrables directement depuis Claude Code :
+Three MCP servers let you push your deliverables straight from Claude Code:
 
-| Serveur | Usage |
+| Server | Usage |
 |---|---|
-| [mcp-jira](mcp-servers/mcp-jira/) | Créer User Stories, backlogs, epics depuis WF-001 / WF-002 |
-| [mcp-confluence](mcp-servers/mcp-confluence/) | Publier rapports et livrables depuis WF-004 |
-| [mcp-workflow-log](mcp-servers/mcp-workflow-log/) | Journal de bord missions et résumé mensuel |
+| [mcp-jira](mcp-servers/mcp-jira/) | Create user stories, backlogs, and epics from WF-001 / WF-002 |
+| [mcp-confluence](mcp-servers/mcp-confluence/) | Publish reports and deliverables from WF-004 |
+| [mcp-workflow-log](mcp-servers/mcp-workflow-log/) | Mission logbook and monthly summary |
 
-Installation et configuration : [mcp-servers/README.md](mcp-servers/README.md)
+Installation and configuration: [mcp-servers/README.md](mcp-servers/README.md)
 
 ---
 
-## Licence
+## License
 
-[PolyForm Noncommercial 1.0.0](LICENSE) © 2026 Guy HUI-BON-HOA — Usage **non commercial** libre (étude, recherche, projets perso, organisations à but non lucratif). Usage commercial réservé à l'auteur (licence commerciale sur demande).
+[PolyForm Noncommercial 1.0.0](LICENSE) © 2026 Guy HUI-BON-HOA — Free for **non-commercial** use (study, research, personal projects, nonprofits). Commercial use reserved to the author (commercial license on request).

@@ -1,38 +1,38 @@
-# Skill — Tests automatisés Drupal — PHPUnit & Behat
-> Certifications : PHPUnit / Behat — Automated Testing Drupal · Acquia Cloud
+# Skill — Drupal Automated Testing — PHPUnit & Behat
+> Certifications: PHPUnit / Behat — Automated Testing Drupal · Acquia Cloud
 
-## Objectif
-Écrire des tests PHPUnit (unitaires, kernel, fonctionnels) et des tests Behat (BDD) pour garantir la non-régression des modules custom Drupal.
+## Objective
+Write PHPUnit tests (unit, kernel, functional) and Behat (BDD) tests to guard against regressions in custom Drupal modules.
 
-## Types de tests PHPUnit Drupal
+## Drupal PHPUnit test types
 
-| Type | Classe de base | Vitesse | Contexte |
+| Type | Base class | Speed | Context |
 |------|---------------|---------|----------|
-| Unit | `UnitTestCase` | Très rapide | Pas de BDD, pas de Drupal bootstrap |
-| Kernel | `KernelTestBase` | Moyen | BDD + services Drupal chargés |
-| Functional | `BrowserTestBase` | Lent | Navigateur simulé, pages complètes |
-| FunctionalJS | `WebDriverTestBase` | Très lent | Chrome headless (JavaScript) |
+| Unit | `UnitTestCase` | Very fast | No DB, no Drupal bootstrap |
+| Kernel | `KernelTestBase` | Medium | DB + Drupal services loaded |
+| Functional | `BrowserTestBase` | Slow | Simulated browser, full pages |
+| FunctionalJS | `WebDriverTestBase` | Very slow | Headless Chrome (JavaScript) |
 
-## Test unitaire — SiretValidator
+## Unit test — SiretValidator
 ```php
 // tests/src/Unit/SiretValidatorTest.php
 class SiretValidatorTest extends UnitTestCase {
   public function testValidSiret(): void {
     $validator = new SiretConstraintValidator();
-    $this->assertTrue($validator->isValid('12345678901234')); // 14 chiffres ✅
+    $this->assertTrue($validator->isValid('12345678901234')); // 14 digits ✅
   }
 
   public function testInvalidSiretTooShort(): void {
-    $this->assertFalse($validator->isValid('1234567'));        // 7 chiffres ❌
+    $this->assertFalse($validator->isValid('1234567'));        // 7 digits ❌
   }
 
   public function testInvalidSiretWithLetters(): void {
-    $this->assertFalse($validator->isValid('1234567890ABCD')); // lettres ❌
+    $this->assertFalse($validator->isValid('1234567890ABCD')); // letters ❌
   }
 }
 ```
 
-## Test Kernel — AccountValidationService
+## Kernel test — AccountValidationService
 ```php
 // tests/src/Kernel/AccountValidationServiceTest.php
 class AccountValidationServiceTest extends KernelTestBase {
@@ -40,91 +40,91 @@ class AccountValidationServiceTest extends KernelTestBase {
 
   public function testValidateAccount(): void {
     $user = User::create(['name' => 'test', 'mail' => 'test@b2b.fr',
-                          'field_compte_statut' => 'en_attente']);
+                          'field_account_status' => 'pending']);
     $user->save();
 
     $this->container->get('client_b2b.account_validation')->validate($user);
 
     $user = User::load($user->id());
-    $this->assertEquals('actif', $user->get('field_compte_statut')->value);
+    $this->assertEquals('active', $user->get('field_account_status')->value);
   }
 }
 ```
 
-## Test Behat — scénario BDD (depuis les .feature QA)
+## Behat test — BDD scenario (from the QA .feature files)
 ```gherkin
 # tests/behat/features/US-005-creation-compte.feature
-# (copie du fichier QA bdd_gherkin/US-005.feature)
-Feature: Création de compte professionnel B2B
+# (copy of the QA file bdd_gherkin/US-005.feature)
+Feature: B2B professional account creation
 
-  Scenario: SIRET invalide — pas 14 chiffres
-    Given je suis sur la page d'inscription B2B
-    When je saisis le SIRET "1234567"
-    And je valide le formulaire
-    Then le message "Le SIRET doit contenir exactement 14 chiffres" s'affiche
-    And la soumission est bloquée
+  Scenario: Invalid SIRET — not 14 digits
+    Given I am on the B2B signup page
+    When I enter the SIRET "1234567"
+    And I submit the form
+    Then the message "The SIRET must contain exactly 14 digits" is shown
+    And the submission is blocked
 ```
 
 ```php
 // tests/behat/features/bootstrap/FeatureContext.php
 class FeatureContext extends RawDrupalContext {
   /**
-   * @When je saisis le SIRET :siret
+   * @When I enter the SIRET :siret
    */
-  public function jeSaisisLeSiret(string $siret): void {
+  public function iEnterTheSiret(string $siret): void {
     $this->getSession()->getPage()->fillField('SIRET', $siret);
   }
 
   /**
-   * @Then le message :message s'affiche
+   * @Then the message :message is shown
    */
-  public function leMessageSAffiche(string $message): void {
+  public function theMessageIsShown(string $message): void {
     $this->assertSession()->pageTextContains($message);
   }
 }
 ```
 
-## Commandes
+## Commands
 ```bash
 # PHPUnit
 ./vendor/bin/phpunit web/modules/custom/client_b2b/ --testdox
 
-# Behat (tous les scénarios Sprint 1)
+# Behat (all Sprint 1 scenarios)
 ./vendor/bin/behat --tags=sprint1
 
-# Behat (une US spécifique)
+# Behat (a specific US)
 ./vendor/bin/behat features/US-005-creation-compte.feature
 ```
 
-## Bonnes pratiques
-- 1 test unitaire par méthode de service (SiretValidator, AccountValidation)
-- Tests Kernel pour les interactions avec la BDD Drupal
-- Scénarios Behat = copie des .feature QA → alignement QA / DEV garanti
-- `@tags` Behat par sprint pour exécution sélective en CI
+## Best practices
+- 1 unit test per service method (SiretValidator, AccountValidation)
+- Kernel tests for interactions with the Drupal DB
+- Behat scenarios = copies of the QA `.feature` files → guaranteed QA / DEV alignment
+- Behat `@tags` per sprint for selective execution in CI
 
-## Livrables
-- Tests unitaires pour chaque Constraint et Service custom
-- Tests Kernel pour les workflows d'entités
-- FeatureContext Behat avec step definitions fr
+## Deliverables
+- Unit tests for each custom Constraint and Service
+- Kernel tests for entity workflows
+- Behat FeatureContext with step definitions
 
-## Format de sortie
-Précise : classe / service à tester · comportements à valider · scénarios Gherkin QA disponibles · niveau de couverture cible
+## Output format
+Specify: class / service to test · behaviors to validate · available QA Gherkin scenarios · target coverage level
 
 ## Anti-patterns
-- ❌ **Tester uniquement le happy path** : les cas limites cassent en prod → couvrir invalides/erreurs (fait ici ✓)
-- ❌ **Valider le SIRET sur la longueur seule** (14 chiffres) sans la **clé de Luhn** : faux SIRET acceptés → contrôle Luhn
-- ❌ **Test Functional pour ce qui peut être Kernel/Unit** : CI lente → choisir le niveau le moins coûteux suffisant
-- ❌ **Behat désaligné des `.feature` QA** : dérive QA/DEV → réutiliser les scénarios Gherkin de la QA
-- ❌ **Pas de tests en CI** : régressions silencieuses → exécution PHPUnit + Behat en pipeline
-- ❌ **Pas de versions épinglées** (PHPUnit/Behat) : tests cassés à la montée → fixer via Composer
+- ❌ **Testing only the happy path**: edge cases break in prod → cover invalid/error cases (done here ✓)
+- ❌ **Validating the SIRET on length alone** (14 digits) without the **Luhn check**: fake SIRETs accepted → Luhn check
+- ❌ **Functional test for what could be Kernel/Unit**: slow CI → pick the cheapest sufficient level
+- ❌ **Behat out of sync with the QA `.feature` files**: QA/DEV drift → reuse the QA Gherkin scenarios
+- ❌ **No tests in CI**: silent regressions → run PHPUnit + Behat in the pipeline
+- ❌ **No pinned versions** (PHPUnit/Behat): tests broken on upgrade → pin via Composer
 
 ## Sources
 - **PHPUnit** — phpunit.de (Sebastian Bergmann) · **Behat** — behat.org (BDD) · **Gherkin** — cucumber.io/docs/gherkin
 - **Drupal Testing** (UnitTestCase / KernelTestBase / BrowserTestBase / WebDriverTestBase) — drupal.org/docs/automated-testing
 - **Drupal 10/11** — drupal.org (PHP 8.3)
 
-## Voir aussi
-- [`drupal-module-custom.md`](drupal-module-custom.md) — services/contraintes à tester
-- [`drupal-commerce-checkout.md`](drupal-commerce-checkout.md) — workflows à couvrir en Kernel/Functional
-- [`drupal-user-roles.md`](drupal-user-roles.md) — tests d'accès par rôle
-- [`../qa_testing/`](../qa_testing/) — scénarios Gherkin QA source (alignement QA/DEV)
+## See also
+- [`drupal-module-custom.md`](drupal-module-custom.md) — services/constraints to test
+- [`drupal-commerce-checkout.md`](drupal-commerce-checkout.md) — workflows to cover in Kernel/Functional
+- [`drupal-user-roles.md`](drupal-user-roles.md) — per-role access tests
+- [`../qa_testing/`](../qa_testing/) — source QA Gherkin scenarios (QA/DEV alignment)

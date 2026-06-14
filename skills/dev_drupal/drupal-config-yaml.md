@@ -1,92 +1,92 @@
-# Skill — Configuration Management Drupal (CMI — YAML)
-> Certifications : Acquia Certified Drupal Developer
+# Skill — Drupal Configuration Management (CMI — YAML)
+> Certifications: Acquia Certified Drupal Developer
 
-## Objectif
-Gérer toute la configuration Drupal via fichiers YAML versionnés (CMI), garantir la cohérence entre environnements local / staging / production.
+## Objective
+Manage all Drupal configuration through versioned YAML files (CMI), ensuring consistency across local / staging / production environments.
 
-## Principe CMI
+## CMI principle
 ```
-Base de données (runtime)  ←→  config/sync/*.yml (versionné git)
+Database (runtime)  ←→  config/sync/*.yml (versioned in git)
         ↑ drush config:import
         ↓ drush config:export
 ```
 
-## Workflow quotidien
+## Daily workflow
 ```bash
-# Après une modif en UI admin locale
-drush config:export          # export BDD → YAML
+# After a change in the local admin UI
+drush config:export          # export DB → YAML
 git add config/sync/
-git commit -m "config: ajouter champ field_siret sur user"
+git commit -m "config: add field_siret on user"
 git push
 
-# Sur staging / prod
+# On staging / prod
 git pull
-drush updatedb -y            # mises à jour BDD (update hooks)
-drush config:import -y       # import YAML → BDD
+drush updatedb -y            # DB updates (update hooks)
+drush config:import -y       # import YAML → DB
 drush cr                     # rebuild caches
 ```
 
-## Config d'installation de module (config/install/)
+## Module install config (config/install/)
 ```yaml
 # modules/custom/client_b2b/config/install/client_b2b.settings.yml
-# Chargée automatiquement lors du premier enable du module
+# Loaded automatically on the module's first enable
 admin_email: 'admin@client-b2b.fr'
 account_validation_delay_hours: 24
 flood_limit: 5
 flood_window: 900
 ```
 
-## Lire la config dans le code
+## Read the config in code
 ```php
-// Lecture
+// Read
 $config = \Drupal::config('client_b2b.settings');
 $adminEmail = $config->get('admin_email');
 
-// Écriture (ConfigFactory — service injecté)
+// Write (ConfigFactory — injected service)
 $this->configFactory->getEditable('client_b2b.settings')
   ->set('admin_email', $newEmail)
   ->save();
 ```
 
-## Override par environnement (settings.php)
+## Per-environment override (settings.php)
 ```php
-// web/sites/default/settings.local.php (non versionné)
+// web/sites/default/settings.local.php (not versioned)
 $config['client_b2b.settings']['admin_email'] = 'dev-local@client-b2b.fr';
 
-// Production (settings.php ou settings.prod.php)
+// Production (settings.php or settings.prod.php)
 $config['sendgrid_integration.settings']['apikey'] = getenv('SENDGRID_API_KEY');
 ```
 
-## Pièges à éviter
-| Piège | Solution |
+## Pitfalls to avoid
+| Pitfall | Solution |
 |-------|----------|
-| Config créée en UI et non exportée | Toujours `drush cex` avant commit |
-| `drush cim` écrase des modifs locales | Vérifier `drush config:status` avant import |
-| UUID différents entre envs | Ne jamais copier de YAML d'un env à l'autre manuellement |
-| Config sensible (clés API) en YAML | Utiliser override via `settings.php` + variables d'env |
+| Config created in the UI and not exported | Always `drush cex` before commit |
+| `drush cim` overwrites local changes | Check `drush config:status` before import |
+| Different UUIDs across environments | Never copy YAML from one env to another by hand |
+| Sensitive config (API keys) in YAML | Use an override via `settings.php` + env variables |
 
-## Bonnes pratiques
-- `config/sync/` versionné dans git, `config/install/` dans le module custom
-- Jamais de clés API ni secrets dans les YAML versionnés
-- Tester `drush config:import --preview` avant d'importer en prod
+## Best practices
+- `config/sync/` versioned in git, `config/install/` inside the custom module
+- Never put API keys or secrets in versioned YAML
+- Test `drush config:import --preview` before importing to prod
 
-## Livrables
-- Config YAML exportée et committée à chaque US
-- `config/install/` pour la config initiale du module
-- Procédure de déploiement documentée
+## Deliverables
+- YAML config exported and committed with every US
+- `config/install/` for the module's initial config
+- Documented deployment procedure
 
-## Format de sortie
-Précise : configuration à gérer (champs, rôles, vues, workflows) · environnements cibles · secrets à externaliser
+## Output format
+Specify: configuration to manage (fields, roles, views, workflows) · target environments · secrets to externalize
 
-> Les « Pièges à éviter » ci-dessus tiennent lieu d'anti-patterns pour ce skill.
+> The "Pitfalls to avoid" above serve as the anti-patterns for this skill.
 
 ## Sources
-- **Configuration Management (CMI)** — drupal.org/docs/configuration-management (Drupal 10/11 ; CMI depuis Drupal 8)
-- **Config Split** — drupal.org/project/config_split (config différenciée par environnement)
+- **Configuration Management (CMI)** — drupal.org/docs/configuration-management (Drupal 10/11; CMI since Drupal 8)
+- **Config Split** — drupal.org/project/config_split (per-environment differentiated config)
 - **Drush** — drush.org (`config:export/import/status`)
 
-## Voir aussi
-- [`drupal-module-custom.md`](drupal-module-custom.md) — `config/install/` du module
-- [`drupal-commerce-checkout.md`](drupal-commerce-checkout.md) — workflow de commande en YAML
-- [`drupal-integration-api-tierce.md`](drupal-integration-api-tierce.md) — secrets externalisés (settings.php/env)
-- [`drupal-user-roles.md`](drupal-user-roles.md) — rôles et permissions versionnés
+## See also
+- [`drupal-module-custom.md`](drupal-module-custom.md) — the module's `config/install/`
+- [`drupal-commerce-checkout.md`](drupal-commerce-checkout.md) — order workflow in YAML
+- [`drupal-integration-api-tierce.md`](drupal-integration-api-tierce.md) — externalized secrets (settings.php/env)
+- [`drupal-user-roles.md`](drupal-user-roles.md) — versioned roles and permissions

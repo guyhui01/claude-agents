@@ -1,16 +1,16 @@
-# Skill — Drupal Commerce 2.x — Checkout & Workflow commande
-> Certifications : Drupal Association Commerce 2.x Specialist
+# Skill — Drupal Commerce 2.x — Checkout & Order Workflow
+> Certifications: Drupal Association Commerce 2.x Specialist
 
-## Objectif
-Configurer le tunnel de commande Drupal Commerce (CheckoutFlow, CheckoutPanes) et le workflow des états de commande.
+## Objective
+Configure the Drupal Commerce checkout funnel (CheckoutFlow, CheckoutPanes) and the order-state workflow.
 
-## CheckoutPane custom (ex : N° bon de commande)
+## Custom CheckoutPane (e.g., purchase order number)
 ```php
 // src/Plugin/Commerce/CheckoutPane/PurchaseOrderPane.php
 /**
  * @CommerceCheckoutPane(
  *   id = "purchase_order_number",
- *   label = @Translation("Numéro de bon de commande"),
+ *   label = @Translation("Purchase order number"),
  *   default_step = "order_information",
  * )
  */
@@ -18,7 +18,7 @@ class PurchaseOrderPane extends CheckoutPaneBase {
   public function buildPaneForm(array $pane_form, FormStateInterface $form_state, array &$complete_form): array {
     $pane_form['po_number'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Numéro de bon de commande interne'),
+      '#title' => $this->t('Internal purchase order number'),
       '#required' => TRUE,
       '#default_value' => $this->order->get('field_purchase_order_number')->value,
     ];
@@ -31,28 +31,28 @@ class PurchaseOrderPane extends CheckoutPaneBase {
 }
 ```
 
-## Workflow commande en YAML
+## Order workflow in YAML
 ```yaml
 # config/sync/workflows.workflow.b2b_order.yml
 id: b2b_order
-label: 'Commande B2B'
+label: 'B2B Order'
 type: commerce_order
 states:
-  draft:      { label: Brouillon }
-  pending:    { label: 'En attente' }
-  processing: { label: 'En préparation' }
-  shipped:    { label: Expédié }
-  completed:  { label: Livré }
-  canceled:   { label: Annulé }
+  draft:      { label: Draft }
+  pending:    { label: 'Pending' }
+  processing: { label: 'Processing' }
+  shipped:    { label: Shipped }
+  completed:  { label: Delivered }
+  canceled:   { label: Canceled }
 transitions:
-  place:     { label: Passer,       from: [draft],          to: pending }
-  process:   { label: 'Traiter',    from: [pending],        to: processing }
-  ship:      { label: Expédier,     from: [processing],     to: shipped }
-  complete:  { label: Livrer,       from: [shipped],        to: completed }
-  cancel:    { label: Annuler,      from: [pending, processing], to: canceled }
+  place:     { label: Place,       from: [draft],          to: pending }
+  process:   { label: 'Process',   from: [pending],        to: processing }
+  ship:      { label: Ship,        from: [processing],     to: shipped }
+  complete:  { label: Complete,    from: [shipped],        to: completed }
+  cancel:    { label: Cancel,      from: [pending, processing], to: canceled }
 ```
 
-## EventSubscriber sur transitions commande
+## EventSubscriber on order transitions
 ```php
 // src/EventSubscriber/OrderStatusSubscriber.php
 class OrderStatusSubscriber implements EventSubscriberInterface {
@@ -71,33 +71,33 @@ class OrderStatusSubscriber implements EventSubscriberInterface {
 }
 ```
 
-## Bonnes pratiques
-- Un CheckoutPane = un plugin annoté (pas de hook_form_alter sur le checkout)
-- Workflow en YAML — transitions validées via Guards si règles métier complexes
-- EventSubscriber sur `post_transition` (pas `pre_transition`) pour les emails
+## Best practices
+- One CheckoutPane = one annotated plugin (no hook_form_alter on checkout)
+- Workflow in YAML — transitions validated via Guards when business rules are complex
+- EventSubscriber on `post_transition` (not `pre_transition`) for emails
 
-## Livrables
-- CheckoutPane custom avec validation
-- Workflow commande YAML complet
-- EventSubscriber email par transition
+## Deliverables
+- Custom CheckoutPane with validation
+- Complete YAML order workflow
+- EventSubscriber sending email per transition
 
-## Format de sortie
-Précise : étapes checkout souhaitées · champs custom sur la commande · états du workflow · email à déclencher par transition
+## Output format
+Specify: desired checkout steps · custom fields on the order · workflow states · email to trigger per transition
 
 ## Anti-patterns
-- ❌ **`hook_form_alter` sur le checkout** au lieu d'un CheckoutPane plugin : fragile et non maintenable → plugin annoté
-- ❌ **EventSubscriber sur `pre_transition`** pour les emails : envoi avant validation de l'état → utiliser `post_transition`
-- ❌ **Workflow sans Guards** pour les règles métier : transitions invalides possibles → `state_machine` Guards
-- ❌ **Pas de gestion d'erreur d'envoi email** : commande bloquée si le mailer échoue → try/catch + file d'attente
-- ❌ **Commerce 2.x sans plan 3.x** : Commerce 3.0 (janv. 2025) compatible D11 → anticiper la migration
+- ❌ **`hook_form_alter` on checkout** instead of a CheckoutPane plugin: fragile and unmaintainable → annotated plugin
+- ❌ **EventSubscriber on `pre_transition`** for emails: sent before the state is validated → use `post_transition`
+- ❌ **Workflow without Guards** for business rules: invalid transitions possible → `state_machine` Guards
+- ❌ **No email-send error handling**: order stuck if the mailer fails → try/catch + queue
+- ❌ **Commerce 2.x without a 3.x plan**: Commerce 3.0 (Jan. 2025) is D11 compatible → anticipate the migration
 
 ## Sources
-- **Drupal Commerce** — drupalcommerce.org (CheckoutFlow/CheckoutPane ; Commerce 2.x → **3.0** janv. 2025, D10.3+/11)
-- **state_machine** (workflows de commande, transitions, Guards) — drupal.org/project/state_machine
+- **Drupal Commerce** — drupalcommerce.org (CheckoutFlow/CheckoutPane; Commerce 2.x → **3.0** Jan. 2025, D10.3+/11)
+- **state_machine** (order workflows, transitions, Guards) — drupal.org/project/state_machine
 - **Drupal 10/11** — drupal.org
 
-## Voir aussi
-- [`drupal-commerce-catalog.md`](drupal-commerce-catalog.md) — catalogue et tarifs B2B
-- [`drupal-config-yaml.md`](drupal-config-yaml.md) — workflow YAML versionné
-- [`drupal-integration-api-tierce.md`](drupal-integration-api-tierce.md) — paiement (Stripe) et emails transactionnels
-- [`drupal-module-custom.md`](drupal-module-custom.md) — structure du module et services
+## See also
+- [`drupal-commerce-catalog.md`](drupal-commerce-catalog.md) — catalog and B2B pricing
+- [`drupal-config-yaml.md`](drupal-config-yaml.md) — versioned YAML workflow
+- [`drupal-integration-api-tierce.md`](drupal-integration-api-tierce.md) — payment (Stripe) and transactional emails
+- [`drupal-module-custom.md`](drupal-module-custom.md) — module structure and services

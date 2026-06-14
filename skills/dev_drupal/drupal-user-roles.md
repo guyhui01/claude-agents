@@ -1,14 +1,14 @@
-# Skill — Gestion des rôles et permissions Drupal
-> Certifications : Acquia Certified Site Builder · Acquia Certified Developer
+# Skill — Drupal Roles and Permissions Management
+> Certifications: Acquia Certified Site Builder · Acquia Certified Developer
 
-## Objectif
-Créer et configurer les rôles Drupal (YAML), gérer les permissions, implémenter des contrôles d'accès custom via EventSubscriber et hooks.
+## Objective
+Create and configure Drupal roles (YAML), manage permissions, and implement custom access controls via EventSubscriber and hooks.
 
-## Rôles en YAML
+## Roles in YAML
 ```yaml
 # config/sync/user.role.b2b_buyer.yml
 id: b2b_buyer
-label: 'Acheteur B2B'
+label: 'B2B Buyer'
 weight: 3
 permissions:
   - 'access content'
@@ -21,7 +21,7 @@ permissions:
 ```yaml
 # config/sync/user.role.client_admin.yml
 id: client_admin
-label: 'Administrateur Client télécom'
+label: 'Telecom Client Administrator'
 weight: 4
 permissions:
   - 'administer users'
@@ -30,24 +30,24 @@ permissions:
   - 'manage b2b_accounts'
 ```
 
-## Champs custom sur User
+## Custom fields on User
 ```yaml
-# config/sync/field.field.user.user.field_compte_statut.yml
-field_name: field_compte_statut
+# config/sync/field.field.user.user.field_account_status.yml
+field_name: field_account_status
 entity_type: user
-label: 'Statut compte B2B'
+label: 'B2B account status'
 field_type: list_string
 required: true
 default_value:
-  - value: en_attente
+  - value: pending
 settings:
   allowed_values:
-    - { value: en_attente,  label: 'En attente' }
-    - { value: actif,       label: 'Actif' }
-    - { value: refuse,      label: 'Refusé' }
+    - { value: pending,  label: 'Pending' }
+    - { value: active,   label: 'Active' }
+    - { value: rejected, label: 'Rejected' }
 ```
 
-## EventSubscriber — contrôle connexion par statut
+## EventSubscriber — login control by status
 ```php
 // src/EventSubscriber/B2bLoginSubscriber.php
 class B2bLoginSubscriber implements EventSubscriberInterface {
@@ -56,11 +56,11 @@ class B2bLoginSubscriber implements EventSubscriberInterface {
   }
 
   public function onUserLogin(UserLoginEvent $event): void {
-    $status = $event->getAccount()->get('field_compte_statut')->value;
+    $status = $event->getAccount()->get('field_account_status')->value;
     match($status) {
-      'en_attente' => $this->blockWithMessage('Votre compte est en cours de validation (délai 24h).'),
-      'refuse'     => $this->blockWithMessage('Votre demande a été refusée. Contactez-nous.'),
-      default      => null,
+      'pending'  => $this->blockWithMessage('Your account is being validated (within 24h).'),
+      'rejected' => $this->blockWithMessage('Your request was rejected. Contact us.'),
+      default    => null,
     };
   }
 
@@ -72,46 +72,46 @@ class B2bLoginSubscriber implements EventSubscriberInterface {
 }
 ```
 
-## hook_entity_access — restreindre l'accès par rôle
+## hook_entity_access — restrict access by role
 ```php
 function client_b2b_entity_access(EntityInterface $entity, string $operation, AccountInterface $account): AccessResultInterface {
   if ($entity->getEntityTypeId() === 'commerce_product' && $operation === 'view price') {
     return $account->hasRole('b2b_buyer')
       ? AccessResult::allowed()
-      : AccessResult::forbidden('Prix réservé aux acheteurs B2B.');
+      : AccessResult::forbidden('Price restricted to B2B buyers.');
   }
   return AccessResult::neutral();
 }
 ```
 
-## Bonnes pratiques
-- Rôles toujours en YAML — jamais configurés uniquement via l'UI admin
-- `AccessResult::neutral()` par défaut — ne jamais retourner `forbidden()` sur des entités non concernées
-- Tester les permissions avec un compte anonyme ET un compte B2B actif
+## Best practices
+- Roles always in YAML — never configured only via the admin UI
+- `AccessResult::neutral()` by default — never return `forbidden()` on unrelated entities
+- Test permissions with an anonymous account AND an active B2B account
 
-## Livrables
-- YAML des rôles + permissions versionnés
-- Champs custom User en YAML
-- EventSubscriber login avec contrôle statut
+## Deliverables
+- Versioned YAML for roles + permissions
+- Custom User fields in YAML
+- Login EventSubscriber with status control
 
-## Format de sortie
-Précise : rôles à créer · permissions requises par rôle · champs custom à ajouter sur l'utilisateur · règles d'accès à implémenter
+## Output format
+Specify: roles to create · permissions required per role · custom fields to add on the user · access rules to implement
 
 ## Anti-patterns
-- ❌ **Rôles configurés en UI non versionnés** : drift entre environnements → YAML CMI
-- ❌ **`AccessResult::forbidden()` sur des entités non concernées** : blocages inattendus → `neutral()` par défaut (fait ici ✓)
-- ❌ **Permissions trop larges** (ex. `administer users` à un rôle client) : sur-privilège → principe du moindre privilège
-- ❌ **Ne tester qu'un seul profil** : régressions d'accès → tester anonyme + B2B actif + en_attente/refusé
-- ❌ **Logique d'accès dispersée** (hook + subscriber sans cohérence) : règles contradictoires → centraliser
-- ❌ **Statut de compte non vérifié au login** : accès d'un compte non validé → contrôle `UserLoginEvent`
+- ❌ **Roles configured in the UI, unversioned**: drift across environments → CMI YAML
+- ❌ **`AccessResult::forbidden()` on unrelated entities**: unexpected blocks → `neutral()` by default (done here ✓)
+- ❌ **Overly broad permissions** (e.g., `administer users` on a client role): over-privilege → least-privilege principle
+- ❌ **Testing only one profile**: access regressions → test anonymous + active B2B + pending/rejected
+- ❌ **Scattered access logic** (hook + subscriber out of sync): contradictory rules → centralize
+- ❌ **Account status not checked at login**: access for an unvalidated account → `UserLoginEvent` control
 
 ## Sources
 - **Drupal User / Access API** — `AccessResult`, `hook_entity_access`, `UserLoginEvent` — api.drupal.org
-- **Permissions & rôles** — drupal.org/docs/user_guide (Drupal 10/11)
-- **PSR-3 logging** pour l'audit des accès — php-fig.org
+- **Permissions & roles** — drupal.org/docs/user_guide (Drupal 10/11)
+- **PSR-3 logging** for access auditing — php-fig.org
 
-## Voir aussi
-- [`drupal-commerce-catalog.md`](drupal-commerce-catalog.md) — prix conditionné au rôle `b2b_buyer`
-- [`drupal-config-yaml.md`](drupal-config-yaml.md) — rôles et champs en YAML versionné
-- [`drupal-module-custom.md`](drupal-module-custom.md) — service de validation de compte
-- [`drupal-api-rest.md`](drupal-api-rest.md) — exposition par rôle et champs masqués
+## See also
+- [`drupal-commerce-catalog.md`](drupal-commerce-catalog.md) — price gated on the `b2b_buyer` role
+- [`drupal-config-yaml.md`](drupal-config-yaml.md) — roles and fields in versioned YAML
+- [`drupal-module-custom.md`](drupal-module-custom.md) — account validation service
+- [`drupal-api-rest.md`](drupal-api-rest.md) — exposure by role and hidden fields

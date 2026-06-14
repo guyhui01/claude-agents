@@ -1,10 +1,10 @@
-# Skill — Kubernetes pour l'IA
-> Certifications : CKA · CKAD
+# Skill — Kubernetes for AI
+> Certifications: CKA · CKAD
 
-## Objectif
-Déployer et orchestrer des services IA sur Kubernetes avec scaling GPU et haute disponibilité.
+## Objective
+Deploy and orchestrate AI services on Kubernetes with GPU scaling and high availability.
 
-## Deployment pour une API LLM
+## Deployment for an LLM API
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -68,7 +68,7 @@ spec:
           averageUtilization: 70
 ```
 
-## GPU Node — Déploiement modèle local
+## GPU Node — Local model deployment
 ```yaml
 spec:
   containers:
@@ -86,18 +86,18 @@ spec:
     accelerator: nvidia-gpu
 ```
 
-## Secrets pour les API keys
+## Secrets for API keys
 ```bash
 kubectl create secret generic llm-secrets \
   --from-literal=anthropic-api-key=$ANTHROPIC_API_KEY \
   --from-literal=openai-api-key=$OPENAI_API_KEY
 ```
 
-## Livrables
-- Manifests Kubernetes (Deployment, Service, HPA, Secrets)
-- Configuration GPU nodes (si modèles locaux)
-- Ingress avec TLS
+## Deliverables
+- Kubernetes manifests (Deployment, Service, HPA, Secrets)
+- GPU node configuration (if local models)
+- Ingress with TLS
 - Monitoring (Prometheus + Grafana)
 
-## Format de sortie
-Précise : cloud provider (EKS, GKE, AKS) · GPU requis · réplicas min/max · contraintes réseau
+## Output format
+Specify: cloud provider (EKS, GKE, AKS) · GPU required · min/max replicas · network constraints

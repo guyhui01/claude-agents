@@ -1,17 +1,17 @@
-# Skill — Optimisation de l'Inférence LLM
-> Certifications : Databricks Certified ML Professional · NVIDIA Deep Learning
+# Skill — LLM Inference Optimization
+> Certifications: Databricks Certified ML Professional · NVIDIA Deep Learning
 
-## Objectif
-Réduire la latence et le coût d'inférence des LLM sans dégradation significative de la qualité.
+## Objective
+Reduce LLM inference latency and cost without significant quality degradation.
 
-## Techniques de quantization
+## Quantization techniques
 
 ### INT8 / INT4 (GPTQ, AWQ, GGUF)
 ```python
 from transformers import AutoModelForCausalLM, BitsAndBytesConfig
 import torch
 
-# Quantization 4-bit (BitsAndBytes)
+# 4-bit quantization (BitsAndBytes)
 bnb_config = BitsAndBytesConfig(
     load_in_4bit=True,
     bnb_4bit_quant_type="nf4",
@@ -21,42 +21,42 @@ bnb_config = BitsAndBytesConfig(
 model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.1-8B", quantization_config=bnb_config)
 ```
 
-| Format | Réduction mémoire | Perte qualité | Vitesse |
+| Format | Memory reduction | Quality loss | Speed |
 |---|---|---|---|
-| FP16 | 50% vs FP32 | Nulle | +2x |
+| FP16 | 50% vs FP32 | None | +2x |
 | INT8 | 75% vs FP32 | ~1% | +2-3x |
 | INT4 (NF4) | 87.5% vs FP32 | ~2-3% | +3-4x |
 | GGUF Q4_K_M | 87.5% vs FP32 | ~3-5% | +4-6x (CPU) |
 
-## ONNX — Portabilité et optimisation
+## ONNX — Portability and optimization
 ```python
 from optimum.onnxruntime import ORTModelForCausalLM
 from transformers import AutoTokenizer
 
-# Convertir et optimiser avec ONNX Runtime
+# Convert and optimize with ONNX Runtime
 model = ORTModelForCausalLM.from_pretrained("gpt2", export=True)
 tokenizer = AutoTokenizer.from_pretrained("gpt2")
 
-# 2-3x plus rapide sur CPU que PyTorch natif
-inputs = tokenizer("Bonjour", return_tensors="pt")
+# 2-3x faster on CPU than native PyTorch
+inputs = tokenizer("Hello", return_tensors="pt")
 outputs = model.generate(**inputs, max_new_tokens=50)
 ```
 
-## Techniques de batching
+## Batching techniques
 
 ### Continuous Batching (vLLM)
-- Traiter plusieurs requêtes simultanément sans attendre la fin de toutes
-- Throughput multiplié par 5-10x vs batching naïf
-- Activé par défaut dans vLLM
+- Process several requests simultaneously without waiting for all to finish
+- Throughput multiplied by 5-10x vs naive batching
+- Enabled by default in vLLM
 
-### Spéculative Decoding
-- Un petit modèle "draft" génère plusieurs tokens
-- Le grand modèle vérifie en une passe
-- 2-3x plus rapide sans perte de qualité
+### Speculative Decoding
+- A small "draft" model generates several tokens
+- The large model verifies in a single pass
+- 2-3x faster with no quality loss
 
 ## Prompt Caching (Anthropic)
 ```python
-# Cacher les 1024+ premiers tokens du prompt
+# Cache the first 1024+ tokens of the prompt
 messages = [{
     "role": "user",
     "content": [
@@ -64,18 +64,18 @@ messages = [{
         {"type": "text", "text": user_question}
     ]
 }]
-# Économie : jusqu'à 90% du coût sur les appels répétés avec le même contexte
+# Savings: up to 90% of the cost on repeated calls with the same context
 ```
 
 ## KV Cache Management
-- Augmenter `--max-num-seqs` pour plus de requêtes concurrentes
-- `--gpu-memory-utilization 0.9` pour maximiser le KV cache
-- Eviction policies : LRU pour les longues conversations
+- Increase `--max-num-seqs` for more concurrent requests
+- `--gpu-memory-utilization 0.9` to maximize the KV cache
+- Eviction policies: LRU for long conversations
 
-## Livrables
-- Benchmark before/after (latence p50/p95, coût/requête, qualité)
-- Configuration optimale recommandée
-- Rapport trade-off qualité/performance/coût
+## Deliverables
+- Before/after benchmark (p50/p95 latency, cost/request, quality)
+- Recommended optimal configuration
+- Quality/performance/cost trade-off report
 
-## Format de sortie
-Précise : modèle · GPU disponible (VRAM) · contrainte latence · volume · budget
+## Output format
+Specify: model · available GPU (VRAM) · latency constraint · volume · budget

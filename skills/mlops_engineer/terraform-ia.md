@@ -1,23 +1,23 @@
-# Skill — Infrastructure as Code IA (Terraform)
-> Certifications : HashiCorp Terraform Associate
+# Skill — AI Infrastructure as Code (Terraform)
+> Certifications: HashiCorp Terraform Associate
 
-## Objectif
-Provisionner l'infrastructure IA (GPU instances, vector DB, services LLM) avec Terraform.
+## Objective
+Provision AI infrastructure (GPU instances, vector DB, LLM services) with Terraform.
 
-## Structure de projet Terraform IA
+## AI Terraform project structure
 ```
 terraform/
-├── main.tf          ← ressources principales
-├── variables.tf     ← variables d'entrée
-├── outputs.tf       ← valeurs exportées
-├── providers.tf     ← configuration des providers
+├── main.tf          ← main resources
+├── variables.tf     ← input variables
+├── outputs.tf       ← exported values
+├── providers.tf     ← provider configuration
 └── modules/
-    ├── gpu-cluster/ ← cluster K8s avec nœuds GPU
-    ├── vector-db/   ← Qdrant ou pgvector
+    ├── gpu-cluster/ ← K8s cluster with GPU nodes
+    ├── vector-db/   ← Qdrant or pgvector
     └── monitoring/  ← Grafana + Prometheus
 ```
 
-## Exemple — GPU Instance AWS pour vLLM
+## Example — AWS GPU Instance for vLLM
 ```hcl
 # providers.tf
 terraform {
@@ -53,7 +53,7 @@ resource "aws_instance" "vllm_server" {
   })
 }
 
-# Auto Scaling Group pour haute dispo
+# Auto Scaling Group for high availability
 resource "aws_autoscaling_group" "vllm_asg" {
   min_size         = 1
   max_size         = 4
@@ -62,17 +62,17 @@ resource "aws_autoscaling_group" "vllm_asg" {
 }
 ```
 
-## Modules réutilisables IA
+## Reusable AI modules
 ```hcl
-# Module vector DB (Qdrant sur ECS)
+# Vector DB module (Qdrant on ECS)
 module "qdrant" {
   source         = "./modules/vector-db"
-  instance_type  = "r6g.xlarge"  # Optimisé mémoire
+  instance_type  = "r6g.xlarge"  # Memory-optimized
   storage_gb     = 500
   environment    = var.environment
 }
 
-# Module monitoring LLM
+# LLM monitoring module
 module "monitoring" {
   source          = "./modules/monitoring"
   grafana_version = "10.2"
@@ -80,26 +80,26 @@ module "monitoring" {
 }
 ```
 
-## Variables et secrets
+## Variables and secrets
 ```hcl
 # variables.tf
 variable "anthropic_api_key" {
-  description = "Clé API Anthropic"
+  description = "Anthropic API key"
   type        = string
-  sensitive   = true  # Masqué dans les logs
+  sensitive   = true  # Masked in the logs
 }
 
-# Utiliser AWS Secrets Manager pour les secrets
+# Use AWS Secrets Manager for secrets
 data "aws_secretsmanager_secret_version" "llm_keys" {
   secret_id = "prod/llm-api-keys"
 }
 ```
 
-## Livrables
-- Infrastructure Terraform modulaire et versionée
-- State backend sécurisé (S3 + DynamoDB lock)
-- Variables d'environnement (dev/staging/prod)
-- Estimation de coût (`terraform plan` + Infracost)
+## Deliverables
+- Modular, versioned Terraform infrastructure
+- Secure state backend (S3 + DynamoDB lock)
+- Environment variables (dev/staging/prod)
+- Cost estimate (`terraform plan` + Infracost)
 
-## Format de sortie
-Précise : cloud provider · ressources nécessaires · environnements (dev/prod) · budget mensuel cible
+## Output format
+Specify: cloud provider · required resources · environments (dev/prod) · target monthly budget

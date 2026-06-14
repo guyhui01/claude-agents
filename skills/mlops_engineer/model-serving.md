@@ -1,12 +1,12 @@
 # Skill — Model Serving (vLLM · TGI · Ollama · BentoML)
-> Certifications : Databricks Certified ML Professional · Google Professional DevOps Engineer
+> Certifications: Databricks Certified ML Professional · Google Professional DevOps Engineer
 
-## Objectif
-Servir des LLM open source en production avec haute performance et scalabilité.
+## Objective
+Serve open-source LLMs in production with high performance and scalability.
 
-## vLLM — Production haute performance
+## vLLM — High-performance production
 ```bash
-# Démarrer vLLM avec API OpenAI-compatible
+# Start vLLM with an OpenAI-compatible API
 docker run --gpus all -p 8000:8000 \
   vllm/vllm-openai:latest \
   --model meta-llama/Llama-3.1-8B-Instruct \
@@ -16,7 +16,7 @@ docker run --gpus all -p 8000:8000 \
 ```
 
 ```python
-# Utiliser vLLM avec le client OpenAI
+# Use vLLM with the OpenAI client
 from openai import AsyncOpenAI
 
 client = AsyncOpenAI(base_url="http://localhost:8000/v1", api_key="not-needed")
@@ -26,7 +26,7 @@ response = await client.chat.completions.create(
 )
 ```
 
-**Points forts vLLM :** PagedAttention (meilleure gestion mémoire), continuous batching, ~3-5x plus rapide que Hugging Face naïf.
+**vLLM strengths:** PagedAttention (better memory management), continuous batching, ~3-5x faster than naive Hugging Face.
 
 ## TGI (Text Generation Inference — Hugging Face)
 ```bash
@@ -36,40 +36,40 @@ docker run --gpus all -p 8080:80 \
   --max-total-tokens 4096
 ```
 
-## Ollama — Dev local et edge
+## Ollama — Local dev and edge
 ```bash
-ollama serve                           # Démarrer le serveur
-ollama pull llama3.2:3b                # Télécharger un modèle
-ollama run llama3.2:3b "Bonjour !"     # Tester en CLI
+ollama serve                           # Start the server
+ollama pull llama3.2:3b                # Download a model
+ollama run llama3.2:3b "Hello!"        # Test in the CLI
 ```
 
 ```python
-# API Ollama (OpenAI-compatible)
+# Ollama API (OpenAI-compatible)
 client = AsyncOpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
 ```
 
-**Idéal pour :** dev local, edge IA, pas de GPU cloud, démo offline.
+**Ideal for:** local dev, edge AI, no cloud GPU, offline demo.
 
-## Comparatif
-| Solution | Points forts | GPU requis | Cas d'usage |
+## Comparison
+| Solution | Strengths | GPU required | Use case |
 |---|---|---|---|
-| vLLM | Performance maximale, batching | Oui (A100+) | Production haute charge |
-| TGI | HuggingFace natif, quantization | Oui | Production mid-range |
-| Ollama | Ultra simple, multiplateforme | Optionnel | Dev local, edge |
-| BentoML | Multi-modèles, scalable | Optionnel | Production flexible |
+| vLLM | Maximum performance, batching | Yes (A100+) | High-load production |
+| TGI | Native HuggingFace, quantization | Yes | Mid-range production |
+| Ollama | Ultra simple, cross-platform | Optional | Local dev, edge |
+| BentoML | Multi-model, scalable | Optional | Flexible production |
 
-## Quantization pour réduire les coûts
+## Quantization to cut costs
 ```python
-# Charger en 4-bit avec vLLM
---quantization awq   # AWQ : meilleur ratio qualité/vitesse
---quantization gptq  # GPTQ : compatible plus de modèles
+# Load in 4-bit with vLLM
+--quantization awq   # AWQ: best quality/speed ratio
+--quantization gptq  # GPTQ: compatible with more models
 ```
 
-## Livrables
-- Service de serving déployé et testé
-- Benchmark throughput (requêtes/s, tokens/s)
-- Configuration quantization si contrainte GPU
-- Endpoint compatible OpenAI (drop-in replacement)
+## Deliverables
+- Serving service deployed and tested
+- Throughput benchmark (requests/s, tokens/s)
+- Quantization configuration if GPU-constrained
+- OpenAI-compatible endpoint (drop-in replacement)
 
-## Format de sortie
-Précise : modèle à servir · GPU disponible (VRAM) · charge cible (req/s) · contraintes latence · environnement (dev/prod)
+## Output format
+Specify: model to serve · available GPU (VRAM) · target load (req/s) · latency constraints · environment (dev/prod)

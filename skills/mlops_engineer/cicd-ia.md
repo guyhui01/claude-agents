@@ -1,12 +1,12 @@
-# Skill — CI/CD pour les Pipelines IA
-> Certifications : GitHub Actions Certification · AWS DevOps Engineer Professional
+# Skill — CI/CD for AI Pipelines
+> Certifications: GitHub Actions Certification · AWS DevOps Engineer Professional
 
-## Objectif
-Automatiser les tests, l'évaluation et le déploiement des systèmes IA via des pipelines CI/CD.
+## Objective
+Automate the testing, evaluation and deployment of AI systems via CI/CD pipelines.
 
-## Pipeline GitHub Actions complet
+## Complete GitHub Actions pipeline
 ```yaml
-name: CI/CD IA Pipeline
+name: CI/CD AI Pipeline
 
 on:
   push:
@@ -25,11 +25,11 @@ jobs:
           cache: "pip"
       - run: pip install -r requirements.txt -r requirements-test.txt
 
-      # Tests unitaires classiques
+      # Classic unit tests
       - name: Unit Tests
         run: pytest tests/unit/ -v --cov=src --cov-report=xml
 
-      # Tests d'intégration LLM (avec mock)
+      # LLM integration tests (with mock)
       - name: Integration Tests (LLM mocked)
         run: pytest tests/integration/ -v
         env:
@@ -41,12 +41,12 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
-      # Évaluation RAGAs sur golden dataset
+      # RAGAs evaluation on the golden dataset
       - name: LLM Evaluation
         run: python scripts/evaluate_rag.py --dataset tests/golden_dataset.json
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-      # Fail si les métriques sont sous le seuil
+      # Fail if the metrics are below the threshold
       - name: Check Metrics Threshold
         run: python scripts/check_metrics.py --faithfulness 0.85 --relevance 0.80
 
@@ -70,15 +70,15 @@ jobs:
         run: kubectl set image deployment/llm-api llm-api=registry/llm-api:${{ github.sha }}
 ```
 
-## Tests LLM spécifiques
+## LLM-specific tests
 ```python
 # tests/integration/test_rag.py
 import pytest
 from unittest.mock import patch
 
 @pytest.mark.parametrize("query,expected_topics", [
-    ("Qu'est-ce que le PI Planning ?", ["SAFe", "PI", "planning"]),
-    ("Comment rédiger une User Story ?", ["utilisateur", "besoin", "valeur"]),
+    ("What is PI Planning?", ["SAFe", "PI", "planning"]),
+    ("How do I write a User Story?", ["user", "need", "value"]),
 ])
 async def test_rag_relevance(query, expected_topics, rag_chain):
     response = await rag_chain.ainvoke({"query": query})
@@ -86,11 +86,11 @@ async def test_rag_relevance(query, expected_topics, rag_chain):
         assert topic.lower() in response["answer"].lower()
 ```
 
-## Livrables
-- Pipeline GitHub Actions complet (test → eval → build → deploy)
-- Golden dataset pour l'évaluation LLM automatisée
-- Scripts d'évaluation avec seuils configurables
-- Notifications Slack/Teams en cas d'échec
+## Deliverables
+- Complete GitHub Actions pipeline (test → eval → build → deploy)
+- Golden dataset for automated LLM evaluation
+- Evaluation scripts with configurable thresholds
+- Slack/Teams notifications on failure
 
-## Format de sortie
-Précise : plateforme CI (GitHub, GitLab, Jenkins) · cloud cible · seuils de métriques · fréquence de déploiement
+## Output format
+Specify: CI platform (GitHub, GitLab, Jenkins) · target cloud · metric thresholds · deployment frequency

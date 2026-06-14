@@ -1,16 +1,16 @@
-# Skill — Feature Store & Data Pipelines IA
-> Certifications : Databricks Certified ML Professional
+# Skill — Feature Store & AI Data Pipelines
+> Certifications: Databricks Certified ML Professional
 
-## Objectif
-Construire des pipelines de données robustes pour alimenter les modèles IA en features de qualité.
+## Objective
+Build robust data pipelines to feed AI models with quality features.
 
-## Architecture Data Pipeline IA
+## AI Data Pipeline architecture
 ```
-Sources → Ingestion → Transformation → Feature Store → Modèle
+Sources → Ingestion → Transformation → Feature Store → Model
 (S3, DB)   (Kafka)      (Spark/dbt)     (Feast)        (LLM/ML)
 ```
 
-## dbt — Transformation et feature engineering
+## dbt — Transformation and feature engineering
 ```sql
 -- models/features/user_context.sql
 WITH recent_interactions AS (
@@ -33,25 +33,25 @@ from feast import FeatureStore, FeatureService
 
 store = FeatureStore(repo_path="./feast_repo")
 
-# Récupérer les features pour l'inférence (online)
+# Retrieve features for inference (online)
 feature_vector = store.get_online_features(
     features=["user_stats:interaction_count_7d", "user_stats:top_categories"],
     entity_rows=[{"user_id": user_id}]
 ).to_dict()
 
-# Récupérer les features pour l'entraînement (offline)
+# Retrieve features for training (offline)
 training_df = store.get_historical_features(
     entity_df=entity_df,
     features=["user_stats:interaction_count_7d", "user_stats:churn_probability"]
 ).to_df()
 ```
 
-## Pipeline RAG — Ingestion incrémentale
+## RAG pipeline — Incremental ingestion
 ```python
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 async def incremental_ingestion():
-    """Ingérer les nouveaux documents depuis la dernière exécution."""
+    """Ingest the new documents since the last run."""
     last_run = await db.get_last_ingestion_timestamp()
     new_docs = await fetch_documents_since(last_run)
 
@@ -67,7 +67,7 @@ scheduler.add_job(incremental_ingestion, "interval", hours=1)
 scheduler.start()
 ```
 
-## Polars — Traitement rapide de données
+## Polars — Fast data processing
 ```python
 import polars as pl
 
@@ -84,11 +84,11 @@ features = (
 )
 ```
 
-## Livrables
-- Pipeline d'ingestion incrémentale (documents ou événements)
-- Feature Store configuré (Feast ou Databricks Feature Store)
-- Transformations dbt documentées et testées
-- Monitoring data quality (Great Expectations)
+## Deliverables
+- Incremental ingestion pipeline (documents or events)
+- Configured Feature Store (Feast or Databricks Feature Store)
+- Documented and tested dbt transformations
+- Data quality monitoring (Great Expectations)
 
-## Format de sortie
-Précise : sources de données · fréquence d'ingestion · volume · features nécessaires · stack data existante
+## Output format
+Specify: data sources · ingestion frequency · volume · required features · existing data stack

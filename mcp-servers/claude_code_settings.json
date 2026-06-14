@@ -1,11 +1,11 @@
 {
-  "_comment": "Exemple de configuration MCP pour Claude Code CLI.",
+  "_comment": "Example MCP configuration for Claude Code CLI.",
   "_instructions": [
-    "1. Copier ce fichier dans : ~/.claude/settings.json",
-    "2. Remplacer les valeurs entre <> par tes vraies valeurs",
-    "3. Adapter les chemins si le repo n'est pas dans /Users/guyhui/CLAUDE/claude-agents/",
-    "4. Redémarrer Claude Code CLI pour prendre en compte les changements",
-    "5. Vérifier avec : claude mcp list"
+    "1. Copy this file to: ~/.claude/settings.json",
+    "2. Replace the values between <> with your real values",
+    "3. Adjust the paths if the repo is not located in /Users/guyhui/CLAUDE/claude-agents/",
+    "4. Restart Claude Code CLI to apply the changes",
+    "5. Verify with: claude mcp list"
   ],
   "mcpServers": {
     "jira": {
@@ -15,10 +15,10 @@
         "/Users/guyhui/CLAUDE/claude-agents/mcp-servers/mcp-jira/server.ts"
       ],
       "env": {
-        "JIRA_BASE_URL": "https://<ton-domaine>.atlassian.net",
-        "JIRA_EMAIL": "guy.hui@adservio.fr",
-        "JIRA_API_TOKEN": "<ton-api-token-jira>",
-        "JIRA_PROJECT_KEY": "<CLE-PROJET>",
+        "JIRA_BASE_URL": "https://<your-domain>.atlassian.net",
+        "JIRA_EMAIL": "<your-email>",
+        "JIRA_API_TOKEN": "<your-jira-api-token>",
+        "JIRA_PROJECT_KEY": "<PROJECT-KEY>",
         "JIRA_STORY_POINTS_FIELD": "customfield_10016"
       }
     },
@@ -29,10 +29,10 @@
         "/Users/guyhui/CLAUDE/claude-agents/mcp-servers/mcp-confluence/server.ts"
       ],
       "env": {
-        "CONFLUENCE_BASE_URL": "https://<ton-domaine>.atlassian.net",
-        "CONFLUENCE_EMAIL": "guy.hui@adservio.fr",
-        "CONFLUENCE_API_TOKEN": "<ton-api-token-confluence>",
-        "CONFLUENCE_DEFAULT_SPACE": "<CLE-ESPACE>"
+        "CONFLUENCE_BASE_URL": "https://<your-domain>.atlassian.net",
+        "CONFLUENCE_EMAIL": "<your-email>",
+        "CONFLUENCE_API_TOKEN": "<your-confluence-api-token>",
+        "CONFLUENCE_DEFAULT_SPACE": "<SPACE-KEY>"
       }
     },
     "workflow-log": {

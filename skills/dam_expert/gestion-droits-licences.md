@@ -1,107 +1,107 @@
-# Skill — Gestion des Droits d'Usage et Licences Assets
-> Certifications : Henry Stewart DAM Practitioner · Bynder Certified Partner · Widen Certified DAM Specialist
-> Référentiels juridiques : **RGPD UE 2016/679** (art. 6, 9, 13-14, 17, 35) · **Code de la propriété intellectuelle FR** (CPI art. L121-1 droit moral, L131-3 droits patrimoniaux) · **Code civil FR art. 9** (droit à l'image / vie privée) · **AI Act UE 2024/1689** art. 50 (transparence GenAI) · CNIL — *Guide droit à l'image* (cnil.fr) · Creative Commons (creativecommons.org/licenses)
+# Skill — Asset Usage Rights and License Management
+> Certifications: Henry Stewart DAM Practitioner · Bynder Certified Partner · Widen Certified DAM Specialist
+> Legal frameworks: **EU GDPR 2016/679** (art. 6, 9, 13-14, 17, 35) · **French Intellectual Property Code** (CPI art. L121-1 moral rights, L131-3 economic rights) · **French Civil Code art. 9** (image rights / privacy) · **EU AI Act 2024/1689** art. 50 (GenAI transparency) · CNIL — *Image rights guide* (cnil.fr) · Creative Commons (creativecommons.org/licenses)
 
-## Objectif
-Gérer les droits d'usage des assets digitaux conformément au cadre légal **français et européen** : identification des types de licences, définition des restrictions (territoire, canal, durée, résolution), intégration des alertes d'expiration et **conformité RGPD + Code civil art. 9** pour les assets avec personnes identifiables.
+## Objective
+Manage digital asset usage rights in compliance with the **French and European** legal framework: identify license types, define restrictions (territory, channel, duration, resolution), build in expiration alerts and **GDPR + French Civil Code art. 9 compliance** for assets featuring identifiable people.
 
-## Types de licences et leurs contraintes
+## License types and their constraints
 
 ```
-TYPE DE LICENCE         DESCRIPTION                              RESTRICTIONS TYPIQUES
+LICENSE TYPE            DESCRIPTION                              TYPICAL RESTRICTIONS
 ──────────────────────  ──────────────────────────────────────   ─────────────────────────────────────────
-Owned (Production)      Assets produits en interne               Aucune (usage illimité)
-Royalty-Free (RF)       Paiement unique, usage étendu            Parfois limitation de tirage ou géo
-Rights-Managed (RM)     Paiement par usage (canal, taille, tir.) Canal · résolution · territoire · durée
-Creative Commons        Licence ouverte avec conditions          Attribution · NC · ND · SA selon variante
-Editorial uniquement    Usage journalistique / pédagogique only  Pas usage commercial
-Droits d'auteur photo   Cession partielle ou totale             Durée · territoire · supports définis
-Droits musicaux (sync)  Vidéo avec musique sous licence          Durée · territoire · canal
-Droit à l'image         Usage de l'identité d'une personne       Durée · territoire · support · contexte
+Owned (Production)      Assets produced in-house                 None (unlimited use)
+Royalty-Free (RF)       One-time payment, broad use              Sometimes print-run or geo limits
+Rights-Managed (RM)     Pay per use (channel, size, print run)   Channel · resolution · territory · duration
+Creative Commons        Open license with conditions             Attribution · NC · ND · SA per variant
+Editorial only          Journalistic / educational use only      No commercial use
+Photo copyright         Partial or full assignment               Defined duration · territory · media
+Music rights (sync)     Video with licensed music                Duration · territory · channel
+Image rights            Use of a person's identity               Duration · territory · medium · context
 ```
 
-## Matrice droits × canaux × territoires
+## Rights × channels × territories matrix
 
 ```
-ASSET             LICENCE    WEB FR  PRINT EU  SOCIAL WW  MARKETPLACE  OUTDOOR FR  EXPIRY
+ASSET             LICENSE    WEB FR  PRINT EU  SOCIAL WW  MARKETPLACE  OUTDOOR FR  EXPIRY
 ───────────────   ─────────  ──────  ────────  ─────────  ───────────  ──────────  ──────────
 photo_model_01    RM         ✅       ✅          ❌          ❌            ✅           2027-03-31
-logo_partenaire   RF         ✅       ✅          ✅           ✅            ✅           Illimité
-video_promo_fr    Owned      ✅       N/A         ✅ (FR)      ❌            N/A         Illimité
-photo_lieu_NYC    Editorial  ❌       ❌           ❌           ❌            ❌           N/A
-musique_spot_v2   Sync       ✅       N/A         ✅           N/A           N/A         2026-12-31
-photo_enfant      RM+Droit   ✅       ✅           ❌           ❌            ❌           2026-06-30
+logo_partner      RF         ✅       ✅          ✅           ✅            ✅           Unlimited
+video_promo_fr    Owned      ✅       N/A         ✅ (FR)      ❌            N/A         Unlimited
+photo_location_NYC Editorial ❌       ❌           ❌           ❌            ❌           N/A
+music_spot_v2     Sync       ✅       N/A         ✅           N/A           N/A         2026-12-31
+photo_child       RM+Rights  ✅       ✅           ❌           ❌            ❌           2026-06-30
 ```
 
-## Politique d'alerte d'expiration
+## Expiration alert policy
 
 ```
-DÉLAI AVANT EXPIRATION   ALERTE                             DESTINATAIRES
+TIME BEFORE EXPIRY       ALERT                              RECIPIENTS
 ──────────────────────   ────────────────────────────────   ────────────────────────────────
-90 jours                 Notification préventive e-mail     DAM Manager + Chef de produit
-30 jours                 Alerte urgente e-mail + dashboard  DAM Manager + Juriste + Marketing
-7 jours                  Alerte critique — restriction pub. DAM Manager + Direction Marketing
-0 jour (expiry)          Asset automatiquement restreint    Notification équipes canal
-Expiré depuis 30j        Archivage automatique              Rapport mensuel purge
+90 days                  Preventive email notification      DAM Manager + Product Manager
+30 days                  Urgent email alert + dashboard      DAM Manager + Legal + Marketing
+7 days                   Critical alert — publishing limit  DAM Manager + Marketing Leadership
+0 days (expiry)          Asset automatically restricted     Channel team notification
+Expired for 30d          Automatic archiving                Monthly purge report
 ```
 
-## RGPD + Droit à l'image — Cadre légal et contrôles techniques
+## GDPR + Image rights — Legal framework and technical controls
 
-### Sources légales applicables
+### Applicable legal sources
 
-| Texte | Articles | Portée |
+| Text | Articles | Scope |
 |---|---|---|
-| **RGPD UE 2016/679** | Art. 6 (bases légales) · Art. 9 (données sensibles dont image biométrique) · Art. 13-14 (information personnes) · Art. 17 (droit à l'oubli) · Art. 35 (DPIA si traitement à grande échelle) | Traitement images = données personnelles dès identification |
-| **Code civil FR** | **Art. 9** (droit au respect de la vie privée — fondement du droit à l'image) | Toute personne dispose d'un droit exclusif sur son image, opposable même si captée dans lieu public |
-| **Code de la propriété intellectuelle FR** | Art. L121-1 (droit moral — incessible, perpétuel) · Art. L131-3 (cession droits patrimoniaux — écrit obligatoire avec étendue/durée/territoire) | Photographe = auteur de l'œuvre, distinct du modèle |
-| **AI Act UE 2024/1689** | Art. 50 (transparence images GenAI / deepfakes) | Mention obligatoire si contenu généré ou modifié significativement par IA |
-| **Loi pour une République numérique 2016** | Art. 63 (droit à l'oubli) | Renforce art. 17 RGPD sur retrait images |
-| **CNIL — Guide droit à l'image** | cnil.fr/fr/le-droit-a-limage | Doctrine appliquée (contrôles et sanctions) |
+| **EU GDPR 2016/679** | Art. 6 (legal bases) · Art. 9 (sensitive data incl. biometric image) · Art. 13-14 (informing individuals) · Art. 17 (right to erasure) · Art. 35 (DPIA for large-scale processing) | Processing images = personal data once identifiable |
+| **French Civil Code** | **Art. 9** (right to privacy — basis of image rights) | Everyone has an exclusive right to their image, enforceable even when captured in a public place |
+| **French Intellectual Property Code** | Art. L121-1 (moral right — inalienable, perpetual) · Art. L131-3 (assignment of economic rights — written form required with scope/duration/territory) | The photographer is the author of the work, distinct from the model |
+| **EU AI Act 2024/1689** | Art. 50 (transparency for GenAI images / deepfakes) | Mandatory disclosure if content is significantly AI-generated or modified |
+| **French Digital Republic Act 2016** | Art. 63 (right to erasure) | Reinforces GDPR art. 17 on image removal |
+| **CNIL — Image rights guide** | cnil.fr/fr/le-droit-a-limage | Applied doctrine (controls and sanctions) |
 
-### Distinction Model Release (USA) vs Droit à l'image (France/UE)
+### Model Release (USA) vs Image rights (France/EU) distinction
 
-| Aspect | Model Release (USA) | Droit à l'image (France/UE) |
+| Aspect | Model Release (USA) | Image rights (France/EU) |
 |---|---|---|
-| **Fondement légal** | Common law + contrats états | Code civil art. 9 + RGPD |
-| **Cession** | Possible large + perpétuelle | **Pas de cession totale** (art. L131-3 CPI : écrit + étendue/durée/territoire spécifiques) |
-| **Retrait consentement** | Difficile post-signature | **Possible à tout moment** (art. 17 RGPD + art. 63 Loi République numérique) |
-| **Mineurs** | Parental consent | **Autorisation des 2 parents obligatoire** + intérêt de l'enfant (CNIL 2024) |
-| **Personnalité publique** | Limites moins strictes | Droit à l'image conservé hors actualité (Cass. civ. 1ère, 13 nov. 2003) |
+| **Legal basis** | Common law + state contracts | French Civil Code art. 9 + GDPR |
+| **Assignment** | Can be broad + perpetual | **No full assignment** (CPI art. L131-3: written + specific scope/duration/territory) |
+| **Consent withdrawal** | Difficult post-signature | **Possible at any time** (GDPR art. 17 + Digital Republic Act art. 63) |
+| **Minors** | Parental consent | **Both parents' authorization required** + the child's best interest (CNIL 2024) |
+| **Public figure** | Less strict limits | Image rights retained outside of news context (Cass. civ. 1ère, Nov 13, 2003) |
 
-### Contrôles techniques DAM (mapping légal)
+### DAM technical controls (legal mapping)
 
-| Règle légale | Source | Contrôle DAM | Sanction non-conformité |
+| Legal rule | Source | DAM control | Non-compliance penalty |
 |---|---|---|---|
-| Autorisation écrite obligatoire (cession droits) | CPI art. L131-3 + Code civ. art. 9 | Flag `droit_image_signed = true` + lien doc signé | Blocage publication + RGPD 4% CA mondial |
-| Mineurs : autorisation **des 2 parents** | Art. 372 Code civ. + CNIL 2024 | Flag `minor = true` → validation juriste obligatoire | Blocage absolu + alerte DPO + risque pénal |
-| Personne publique : limite à l'actualité | Cass. civ. 1ère 2003 | Flag `public_figure = true` + contexte usage | Vérification juriste + risque dommages-intérêts |
-| **Droit à l'oubli** (suppression sur demande) | RGPD art. 17 + Loi 2016 art. 63 | Workflow suppression DAM **72h** (RGPD art. 12) + propagation CDN | Plainte CNIL + sanction administrative |
-| Conservation autorisation 5 ans | Code civ. art. 2224 (prescription civile) | Audit trail accessible 5 ans + sauvegarde |Litige sans preuve = perte du procès |
-| Mention IA si modification significative | AI Act art. 50 | Flag `ai_generated = true` + mention publication | Sanction AI Act 7% CA mondial (entrée 2026) |
+| Written authorization required (rights assignment) | CPI art. L131-3 + Civil Code art. 9 | Flag `image_rights_signed = true` + signed-doc link | Publishing block + GDPR 4% global revenue |
+| Minors: authorization from **both parents** | Civil Code art. 372 + CNIL 2024 | Flag `minor = true` → mandatory legal validation | Absolute block + DPO alert + criminal risk |
+| Public figure: limited to news context | Cass. civ. 1ère 2003 | Flag `public_figure = true` + usage context | Legal review + damages risk |
+| **Right to erasure** (deletion on request) | GDPR art. 17 + 2016 Act art. 63 | DAM deletion workflow **72h** (GDPR art. 12) + CDN propagation | CNIL complaint + administrative penalty |
+| Keep authorization 5 years | Civil Code art. 2224 (civil limitation) | Audit trail accessible 5 years + backup | Dispute without proof = lose the case |
+| AI disclosure if significant modification | AI Act art. 50 | Flag `ai_generated = true` + publication notice | AI Act penalty 7% global revenue (in force 2026) |
 
-### Workflow droit à l'oubli (RGPD art. 17 — 72h max)
+### Right-to-erasure workflow (GDPR art. 17 — 72h max)
 
 ```
-J0    Demande retrait reçue (email DPO / formulaire RGPD)
-        ├→ Identification asset(s) concerné(s) dans DAM
-        └→ Vérification légitimité demande (art. 17.1 RGPD)
-J+24h Notification équipe DAM + flag "deletion_requested" sur assets
-J+48h Retrait actif :
-        ├→ Suppression DAM (asset + métadonnées personnelles)
-        ├→ Purge cache CDN (Cloudflare/Akamai purge by URL)
-        ├→ Notification équipes ayant téléchargé (révocation usage)
-        └→ Communications publiées : retrait OU floutage selon contexte
-J+72h Confirmation écrite au demandeur (obligation art. 12 RGPD)
-        └→ Audit trail conservé 5 ans (preuve traitement)
+D0    Erasure request received (DPO email / GDPR form)
+        ├→ Identify the asset(s) concerned in the DAM
+        └→ Verify request legitimacy (GDPR art. 17.1)
+D+24h Notify the DAM team + flag "deletion_requested" on the assets
+D+48h Active removal:
+        ├→ DAM deletion (asset + personal metadata)
+        ├→ CDN cache purge (Cloudflare/Akamai purge by URL)
+        ├→ Notify teams that downloaded it (usage revocation)
+        └→ Published communications: removal OR blurring per context
+D+72h Written confirmation to the requester (GDPR art. 12 obligation)
+        └→ Audit trail kept 5 years (proof of processing)
 ```
 
-## Livrables
-- Dictionnaire des types de licences (définitions + contraintes par type)
-- Matrice droits × canaux × territoires (pour chaque campagne)
-- Configuration du module droits dans le DAM (champs, alertes, restrictions)
-- Procédure de collecte et archivage des autorisations (droit à l'image, licences)
-- Rapport d'audit droits (assets expirants, assets sans droits documentés)
-- Procédure de traitement des demandes RGPD (droit à l'oubli sur assets)
+## Deliverables
+- License-type dictionary (definitions + constraints per type)
+- Rights × channels × territories matrix (for each campaign)
+- Rights module configuration in the DAM (fields, alerts, restrictions)
+- Authorization collection and archiving procedure (image rights, licenses)
+- Rights audit report (expiring assets, assets with no documented rights)
+- GDPR request handling procedure (right to erasure on assets)
 
-## Format de sortie
-Précise : **DAM utilisé**, **types d'assets** principaux (photos studio, lifestyle, vidéos…), **marchés géographiques** (territoires), **canaux de distribution** (web, print, social, OOH…), **présence de personnes** (modèles, collaborateurs, personnalités publiques, mineurs).
+## Output format
+Specify: **DAM used**, main **asset types** (studio photos, lifestyle, videos…), **geographic markets** (territories), **distribution channels** (web, print, social, OOH…), **presence of people** (models, employees, public figures, minors).

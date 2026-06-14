@@ -1,105 +1,105 @@
-# Skill — Gouvernance DAM (Politiques, Rôles, Archivage, Audit)
-> Certifications : Henry Stewart DAM Practitioner · ISO/IEC 42001:2023 · CDMP DAMA
+# Skill — DAM Governance (Policies, Roles, Archiving, Audit)
+> Certifications: Henry Stewart DAM Practitioner · ISO/IEC 42001:2023 · CDMP DAMA
 
-## Objectif
-Mettre en place le cadre de gouvernance du DAM : définition des politiques d'usage, des rôles et responsabilités, des règles d'archivage et de purge, des processus d'audit — pour garantir la pérennité, la conformité et la maîtrise des assets digitaux sur le long terme.
+## Objective
+Set up the DAM governance framework: define usage policies, roles and responsibilities, archiving and purge rules, audit processes — to guarantee the durability, compliance and control of digital assets over the long term.
 
-## Les 5 piliers de la gouvernance DAM
+## The 5 pillars of DAM governance
 
 ```
-PILIER              CONTENU                                    LIVRABLE ASSOCIÉ
+PILLAR              CONTENT                                    ASSOCIATED DELIVERABLE
 ──────────────────  ─────────────────────────────────────────  ─────────────────────────────────
-1. Organisation     Rôles · Responsabilités · Comité DAM       RACI · Charte gouvernance · Comité
-2. Politiques       Règles d'usage · Standards · Cycle de vie  Data Policy DAM · Naming convention
-3. Qualité          Standards techniques · Contrôle qualité    Grille de validation · Scorecard
-4. Archivage/Purge  Règles de rétention · Archivage légal      Politique d'archivage · Purge schedule
-5. Conformité       RGPD · Droits image · Droits d'auteur      Audit droits · Rapport conformité
+1. Organization     Roles · Responsibilities · DAM council     RACI · Governance charter · Council
+2. Policies         Usage rules · Standards · Lifecycle        DAM Data Policy · Naming convention
+3. Quality          Technical standards · Quality control      Validation grid · Scorecard
+4. Archiving/Purge  Retention rules · Legal archiving          Archiving policy · Purge schedule
+5. Compliance       GDPR · Image rights · Copyright            Rights audit · Compliance report
 ```
 
-## RACI des rôles DAM
+## DAM roles RACI
 
 ```
-RÔLE                 DESCRIPTION                                   RESPONSABILITÉS CLÉS
+ROLE                 DESCRIPTION                                   KEY RESPONSIBILITIES
 ───────────────────  ────────────────────────────────────────────  ─────────────────────────────────────────
-DAM Admin            Administration technique du DAM               Configuration · Utilisateurs · Sauvegardes
-DAM Manager          Gouvernance opérationnelle quotidienne         Validation · Droits · Taxonomie · KPIs
-Brand Manager        Gardien de la cohérence de marque             Validation brand compliance
-Contributeur         Upload et enrichissement des assets            Soumission assets · Métadonnées
-Lecteur interne      Consultation et téléchargement assets          Recherche · Download
-Lecteur externe      Accès limité (agence, partenaire, presse)      Accès portail · Droits restreints
-Juriste / DPO        Validation droits, RGPD, droits à l'image      Validation licences · RGPD assets
+DAM Admin            Technical DAM administration                  Configuration · Users · Backups
+DAM Manager          Day-to-day operational governance              Validation · Rights · Taxonomy · KPIs
+Brand Manager        Keeper of brand consistency                   Brand compliance validation
+Contributor          Asset upload and enrichment                    Asset submission · Metadata
+Internal reader      Asset consultation and download                Search · Download
+External reader      Limited access (agency, partner, press)        Portal access · Restricted rights
+Legal / DPO          Rights, GDPR, image-rights validation          License validation · Asset GDPR
 ```
 
-## Politique d'archivage et de purge
+## Archiving and purge policy
 
 ```
-CATÉGORIE ASSET              RÉTENTION ACTIVE   ARCHIVAGE       PURGE DÉFINITIVE
+ASSET CATEGORY              ACTIVE RETENTION   ARCHIVING       FINAL PURGE
 ──────────────────────────   ────────────────   ─────────────   ──────────────────────
-Asset campagne en cours      Durée campagne     +3 ans          +7 ans (légal)
-Asset produit actif          Durée de vie prod  +5 ans          +10 ans
-Asset produit discontinué    0 (archivage imm.) +7 ans          +10 ans
-Asset droits expirés         0 (restriction)    +1 an           +3 ans (audit)
-Kit de presse                Permanent          Permanent       Jamais (archivage)
-Master assets haute réso.    Permanent          Permanent       Sur décision Direction
-Drafts non approuvés         30 jours           Archivage auto  +90 jours (purge auto)
-Assets orphelins (non liés)  Identification J0  +30 jours       +60 jours si non réclamé
+Active campaign asset        Campaign duration  +3 years        +7 years (legal)
+Active product asset         Product lifetime   +5 years        +10 years
+Discontinued product asset   0 (immediate arch) +7 years        +10 years
+Rights-expired asset         0 (restriction)    +1 year         +3 years (audit)
+Press kit                    Permanent          Permanent       Never (archived)
+High-res master assets       Permanent          Permanent       On leadership decision
+Unapproved drafts            30 days            Auto archive    +90 days (auto purge)
+Orphan assets (unlinked)     Identification D0  +30 days        +60 days if unclaimed
 ```
 
-## Scorecard de gouvernance DAM (mensuel)
+## DAM governance scorecard (monthly)
 
 ```
-INDICATEUR                              CIBLE        ALERTE        MESURE
+INDICATOR                               TARGET       ALERT         MEASURE
 ─────────────────────────────────────   ──────────   ──────────    ──────────────────────────────
-Assets sans propriétaire identifié      ≤ 2%         > 5%          Champ "owner" vide
-Assets sans date d'expiration droits    ≤ 5%         > 15%         Champ "expiry_date" vide
-Assets non taggés (< 5 tags)            ≤ 3%         > 10%         Count tags < 5
-Assets dupliqués non traités            ≤ 1%         > 3%          Détection hash MD5/SHA256
-Temps moyen de validation               ≤ 24h        > 72h         Date upload → date approved
-Purges planifiées effectuées            100%         < 100%        Purge policy exécutée
-Utilisateurs inactifs (>90 jours)       ≤ 10%        > 20%         Audit comptes accès
+Assets with no identified owner         ≤ 2%         > 5%          Empty "owner" field
+Assets with no rights expiry date       ≤ 5%         > 15%         Empty "expiry_date" field
+Untagged assets (< 5 tags)              ≤ 3%         > 10%         Tag count < 5
+Unhandled duplicate assets              ≤ 1%         > 3%          MD5/SHA256 hash detection
+Average validation time                 ≤ 24h        > 72h         Upload date → approved date
+Scheduled purges executed               100%         < 100%        Purge policy run
+Inactive users (>90 days)               ≤ 10%        > 20%         Access account audit
 ```
 
-## Audit trail — Événements à loguer
+## Audit trail — Events to log
 
 ```
-ÉVÉNEMENT                    DONNÉES À CONSERVER
+EVENT                        DATA TO KEEP
 ──────────────────────────   ──────────────────────────────────────────────────────
-Upload asset                 Date · Utilisateur · Nom fichier · Hash · Métadonnées
-Modification métadonnées     Date · Utilisateur · Champ modifié · Ancienne valeur
-Changement de statut         Date · Utilisateur · Statut avant → après
-Téléchargement               Date · Utilisateur · Asset · Canal · IP (si externe)
-Partage externe              Date · Utilisateur · Destinataire · Durée validité
-Suppression / Archivage      Date · Utilisateur · Motif · Backup confirmé
-Modification droits          Date · Utilisateur · Type de droits · Territoire
+Asset upload                 Date · User · File name · Hash · Metadata
+Metadata change              Date · User · Changed field · Old value
+Status change                Date · User · Status before → after
+Download                     Date · User · Asset · Channel · IP (if external)
+External share               Date · User · Recipient · Validity duration
+Deletion / Archiving         Date · User · Reason · Backup confirmed
+Rights change                Date · User · Rights type · Territory
 ```
 
-## Livrables
-- Charte de gouvernance DAM (politiques, rôles, principes directeurs)
-- RACI complet des responsabilités DAM
-- Politique d'archivage et de purge (par catégorie d'assets)
-- Scorecard mensuel de gouvernance (KPIs + alertes)
-- Rapport d'audit annuel (conformité droits, RGPD, qualité, orphelins)
-- Plan de continuité DAM (sauvegarde, reprise, procédure de sinistre)
+## Deliverables
+- DAM governance charter (policies, roles, guiding principles)
+- Complete DAM responsibilities RACI
+- Archiving and purge policy (per asset category)
+- Monthly governance scorecard (KPIs + alerts)
+- Annual audit report (rights, GDPR, quality, orphans compliance)
+- DAM continuity plan (backup, recovery, disaster procedure)
 
-## Format de sortie
-Précise : **DAM utilisé**, **périmètre** (marques, BU, géographies), **contraintes légales** (secteur, réglementation applicable), **volumétrie** (nb assets, utilisateurs), **problèmes de gouvernance actuels** identifiés (si audit de l'existant).
+## Output format
+Specify: **DAM used**, **scope** (brands, BUs, geographies), **legal constraints** (sector, applicable regulation), **volume** (# assets, users), **current governance problems** identified (if auditing the existing setup).
 
 ## Anti-patterns
-- ❌ **Gouvernance sans comité ni owner** : personne ne tranche les arbitrages → comité DAM + RACI nominatif
-- ❌ **Politique d'archivage jamais exécutée** : la purge théorique ne tourne pas → coût de stockage et dette documentaire → automatiser le purge schedule
-- ❌ **Durées de rétention non alignées sur les obligations légales** sectorielles : risque de conformité → valider les durées avec le juridique/DPO
-- ❌ **Absence d'audit trail** : impossible de prouver qui a fait quoi → journaliser les événements clés (upload, droits, suppression)
-- ❌ **Scorecard sans seuil d'alerte ni action** : gouvernance théorique → chaque KPI assorti d'une cible + alerte + responsable
-- ❌ **Confondre DAM Admin (technique) et DAM Manager (gouvernance)** : responsabilités diluées → RACI distinct
+- ❌ **Governance with no council or owner**: nobody settles the trade-offs → DAM council + named RACI
+- ❌ **Archiving policy never executed**: the theoretical purge never runs → storage cost and documentary debt → automate the purge schedule
+- ❌ **Retention durations not aligned with sector legal obligations**: compliance risk → validate durations with legal/DPO
+- ❌ **No audit trail**: impossible to prove who did what → log key events (upload, rights, deletion)
+- ❌ **Scorecard with no alert threshold or action**: theoretical governance → every KPI with a target + alert + owner
+- ❌ **Confusing DAM Admin (technical) and DAM Manager (governance)**: diluted responsibilities → distinct RACI
 
 ## Sources
-- **ISO/IEC 42001:2023** — AI Management System (gouvernance de l'IA appliquée au DAM augmenté) — iso.org
-- **DAMA-DMBOK 2** (2017) — *Data Management Body of Knowledge*, gouvernance des données (CDMP) — dama.org
+- **ISO/IEC 42001:2023** — AI Management System (AI governance applied to the augmented DAM) — iso.org
+- **DAMA-DMBOK 2** (2017) — *Data Management Body of Knowledge*, data governance (CDMP) — dama.org
 - **DAM Maturity Model** — DAM Foundation — damfoundation.org
-- **RGPD** — Règlement (UE) 2016/679 (assets avec personnes) · obligations de **rétention légale** à préciser par secteur — eur-lex.europa.eu
+- **GDPR** — Regulation (EU) 2016/679 (assets with people) · **legal retention** obligations to be specified per sector — eur-lex.europa.eu
 
-## Voir aussi
-- [`taxonomie-assets.md`](taxonomie-assets.md) — standards et vocabulaires contrôlés gouvernés
-- [`gestion-droits-licences.md`](gestion-droits-licences.md) — conformité droits/RGPD du pilier 5
-- [`workflow-validation-assets.md`](workflow-validation-assets.md) — cycle de vie et versionning
-- [`analytics-assets.md`](analytics-assets.md) — KPIs alimentant la scorecard de gouvernance
+## See also
+- [`taxonomie-assets.md`](taxonomie-assets.md) — governed standards and controlled vocabularies
+- [`gestion-droits-licences.md`](gestion-droits-licences.md) — rights/GDPR compliance of pillar 5
+- [`workflow-validation-assets.md`](workflow-validation-assets.md) — lifecycle and versioning
+- [`analytics-assets.md`](analytics-assets.md) — KPIs feeding the governance scorecard

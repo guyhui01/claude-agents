@@ -1,60 +1,60 @@
-# Skill — Analytics & Performance des Assets Digitaux
-> Certifications : Bynder Certified Partner · Widen Certified DAM Specialist · Henry Stewart DAM Practitioner
+# Skill — Digital Asset Analytics & Performance
+> Certifications: Bynder Certified Partner · Widen Certified DAM Specialist · Henry Stewart DAM Practitioner
 
-## Objectif
-Mesurer et analyser l'usage et la performance des assets digitaux : suivi des téléchargements, de la réutilisation par canal, du ROI des assets, des zones géographiques d'usage et des comportements de recherche — pour justifier les investissements de production et prioriser les créations futures.
+## Objective
+Measure and analyze digital asset usage and performance: download tracking, per-channel reuse, asset ROI, geographic usage zones and search behavior — to justify production investments and prioritize future creations.
 
-## Framework d'analytics assets (4 axes)
+## Asset analytics framework (4 axes)
 
 ```
-AXE 1 — USAGE & ADOPTION
-  □ Volume de téléchargements par asset, type, marque, période
-  □ Taux de réutilisation (nb canaux où l'asset est utilisé)
-  □ Utilisateurs actifs vs inactifs (adoption de la plateforme)
-  □ Recherches sans résultat (gaps dans le catalogue d'assets)
-  □ Temps moyen pour trouver un asset (efficacité de la taxonomie)
+AXIS 1 — USAGE & ADOPTION
+  □ Download volume per asset, type, brand, period
+  □ Reuse rate (# of channels where the asset is used)
+  □ Active vs inactive users (platform adoption)
+  □ No-result searches (gaps in the asset catalog)
+  □ Average time to find an asset (taxonomy effectiveness)
 
-AXE 2 — PERFORMANCE PAR CANAL
-  □ Assets les plus utilisés par canal (web, print, social, e-com)
-  □ Formats les plus demandés (JPEG vs WebP vs SVG vs TIFF)
-  □ Corrélation asset → performance canal (taux de clic, conversion)
-  □ Assets sur-sollicités vs sous-utilisés (rééquilibrage production)
+AXIS 2 — PERFORMANCE BY CHANNEL
+  □ Most-used assets per channel (web, print, social, e-com)
+  □ Most-requested formats (JPEG vs WebP vs SVG vs TIFF)
+  □ Asset → channel performance correlation (click-through, conversion)
+  □ Over-used vs under-used assets (production rebalancing)
 
-AXE 3 — CYCLE DE VIE & DROITS
-  □ Assets approchant l'expiration des droits (J-90/J-30)
-  □ Assets expirés encore utilisés (risque légal)
-  □ Taux d'assets archivés vs actifs (santé du catalogue)
-  □ Délai moyen création → publication (time-to-asset)
+AXIS 3 — LIFECYCLE & RIGHTS
+  □ Assets nearing rights expiration (D-90/D-30)
+  □ Expired assets still in use (legal risk)
+  □ Archived vs active asset rate (catalog health)
+  □ Average creation → publishing time (time-to-asset)
 
-AXE 4 — PRODUCTION & ROI
-  □ Coût de production par asset (si données studio disponibles)
-  □ ROI par asset = (nb réutilisations × coût évité) / coût production
-  □ Assets jamais utilisés après production (gaspillage budget)
-  □ Top assets générateurs de valeur (base pour briefs futurs)
+AXIS 4 — PRODUCTION & ROI
+  □ Production cost per asset (if studio data available)
+  □ ROI per asset = (# reuses × cost avoided) / production cost
+  □ Assets never used after production (budget waste)
+  □ Top value-generating assets (basis for future briefs)
 ```
 
-## Dashboard analytics DAM — Template
+## DAM analytics dashboard — Template
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────┐
-│  DAM ANALYTICS — Mai 2026                                                      │
+│  DAM ANALYTICS — May 2026                                                      │
 ├─────────────────────────────┬──────────────┬────────────┬──────────────────────┤
-│  INDICATEUR                 │  VALEUR      │  CIBLE     │  vs mois précédent   │
+│  INDICATOR                  │  VALUE       │  TARGET    │  vs previous month   │
 ├─────────────────────────────┼──────────────┼────────────┼──────────────────────┤
-│  Assets actifs              │  24 350      │  —         │  ▲ +412              │
-│  Téléchargements / mois     │  8 720       │  ≥ 7 000   │  ▲ +18%              │
-│  Utilisateurs actifs        │  186 / 230   │  ≥ 80%     │  81%                 │
-│  Taux réutilisation moyen   │  4.2 canaux  │  ≥ 3       │  ▲ +0.3              │
-│  Assets expiration J-30     │  23 assets   │  ≤ 10      │  ⚠️ Action requise   │
-│  Recherches sans résultat   │  127 / mois  │  ≤ 50      │  ▼ -12% (en baisse)  │
-│  Time-to-asset              │  3.1 jours   │  ≤ 2 jours │  ▼ amélioration req. │
+│  Active assets              │  24,350      │  —         │  ▲ +412              │
+│  Downloads / month          │  8,720       │  ≥ 7,000   │  ▲ +18%              │
+│  Active users               │  186 / 230   │  ≥ 80%     │  81%                 │
+│  Average reuse rate         │  4.2 channels│  ≥ 3       │  ▲ +0.3              │
+│  Assets expiring D-30       │  23 assets   │  ≤ 10      │  ⚠️ Action required  │
+│  No-result searches         │  127 / month │  ≤ 50      │  ▼ -12% (declining)  │
+│  Time-to-asset              │  3.1 days    │  ≤ 2 days  │  ▼ improvement req.  │
 ├─────────────────────────────┴──────────────┴────────────┴──────────────────────┤
-│  🏆 TOP 3 ASSETS : photo_packshot_prodX · video_hero_marque · logo_marque_rgb  │
-│  🔍 TOP RECHERCHES SANS RÉSULTAT : "packshot automne", "photo équipe 2026"      │
+│  🏆 TOP 3 ASSETS: photo_packshot_prodX · video_hero_brand · logo_brand_rgb     │
+│  🔍 TOP NO-RESULT SEARCHES: "autumn packshot", "team photo 2026"                │
 └────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-## Requêtes analytics Bynder API (Python)
+## Bynder API analytics queries (Python)
 
 ```python
 import requests
@@ -63,7 +63,7 @@ BYNDER_URL = "https://[brand].getbynder.com/api/v4"
 TOKEN = "Bearer <token>"
 
 def get_top_downloaded_assets(period_days: int = 30, limit: int = 20) -> list:
-    """Retourne les N assets les plus téléchargés sur la période"""
+    """Return the N most-downloaded assets over the period"""
     response = requests.get(
         f"{BYNDER_URL}/media/",
         headers={"Authorization": TOKEN},
@@ -77,7 +77,7 @@ def get_top_downloaded_assets(period_days: int = 30, limit: int = 20) -> list:
     return response.json().get("media", [])
 
 def get_unused_assets(days_without_download: int = 180) -> list:
-    """Retourne les assets jamais téléchargés depuis N jours"""
+    """Return assets never downloaded in the last N days"""
     response = requests.get(
         f"{BYNDER_URL}/media/",
         headers={"Authorization": TOKEN},
@@ -86,32 +86,32 @@ def get_unused_assets(days_without_download: int = 180) -> list:
     return [a for a in response.json().get("media", []) if a.get("downloads", 0) == 0]
 ```
 
-## Livrables
-- Framework d'analytics assets (indicateurs, formules, sources de données)
-- Dashboard DAM analytics (Power BI / natif DAM / Metabase)
-- Rapport mensuel performance assets (top assets, gaps, expirations)
-- Rapport ROI assets (coût production vs valeur générée)
-- Recommandations production (quels assets manquent, lesquels surproduire)
-- Alertes automatiques (expirations, assets jamais utilisés, recherches sans résultat)
+## Deliverables
+- Asset analytics framework (indicators, formulas, data sources)
+- DAM analytics dashboard (Power BI / native DAM / Metabase)
+- Monthly asset performance report (top assets, gaps, expirations)
+- Asset ROI report (production cost vs value generated)
+- Production recommendations (which assets are missing, which to over-produce)
+- Automatic alerts (expirations, never-used assets, no-result searches)
 
-## Format de sortie
-Précise : **DAM utilisé** et son API analytics (Bynder, Widen, AEM…), **outil BI disponible** (Power BI, Tableau, natif…), **fréquence de reporting** (hebdo, mensuel, CODIR), **types d'assets** prioritaires à suivre, **données de coût de production** disponibles (pour calcul ROI).
+## Output format
+Specify: **DAM used** and its analytics API (Bynder, Widen, AEM…), **available BI tool** (Power BI, Tableau, native…), **reporting frequency** (weekly, monthly, leadership), priority **asset types** to track, available **production cost data** (for ROI calculation).
 
 ## Anti-patterns
-- ❌ **Vanity metrics** : ne suivre que le volume de téléchargements sans réutilisation ni ROI → axer sur la valeur (réutilisation, coût évité)
-- ❌ **Pas de suivi des expirations de droits** : assets expirés encore diffusés → alertes J-90/J-30 (cf. `gestion-droits-licences.md`)
-- ❌ **Ignorer les recherches sans résultat** : les gaps du catalogue restent invisibles → les exploiter pour prioriser la production
-- ❌ **ROI sans coût de production** : le calcul devient factice → collecter les coûts studio en amont
-- ❌ **Dashboard sans cible** : chiffres non actionnables → chaque KPI assorti d'un seuil + d'une action
-- ❌ **Métriques en silo** (DAM seul, sans corrélation canal) : impossible de relier asset → performance business
+- ❌ **Vanity metrics**: tracking only download volume with no reuse or ROI → focus on value (reuse, cost avoided)
+- ❌ **No rights-expiration tracking**: expired assets still distributed → D-90/D-30 alerts (cf. `gestion-droits-licences.md`)
+- ❌ **Ignoring no-result searches**: catalog gaps stay invisible → use them to prioritize production
+- ❌ **ROI without production cost**: the calculation becomes fake → collect studio costs upfront
+- ❌ **Dashboard with no target**: non-actionable numbers → every KPI with a threshold + action
+- ❌ **Siloed metrics** (DAM only, no channel correlation): impossible to link asset → business performance
 
 ## Sources
-- **Bynder Analytics API** (v4) — developer.bynder.com · **Widen / AEM Assets** reporting — documentation éditeurs
+- **Bynder Analytics API** (v4) — developer.bynder.com · **Widen / AEM Assets** reporting — vendor documentation
 - **DAM KPIs** (asset reuse rate, time-to-asset, findability) — Henry Stewart DAM / *DAM Maturity Model* (DAM Foundation) — damfoundation.org
-- **ROI assets** = (réutilisations × coût de production évité) / coût de production — KPI sectoriel DAM (à calibrer)
+- **Asset ROI** = (reuses × production cost avoided) / production cost — DAM sector KPI (to calibrate)
 
-## Voir aussi
-- [`gouvernance-dam.md`](gouvernance-dam.md) — scorecard de gouvernance alimentée par ces métriques
-- [`gestion-droits-licences.md`](gestion-droits-licences.md) — suivi des expirations de droits
-- [`taxonomie-assets.md`](taxonomie-assets.md) — les recherches sans résultat révèlent les gaps de taxonomie
-- [`dam-augmente-ia.md`](dam-augmente-ia.md) — auto-tagging réduisant les recherches sans résultat
+## See also
+- [`gouvernance-dam.md`](gouvernance-dam.md) — governance scorecard fed by these metrics
+- [`gestion-droits-licences.md`](gestion-droits-licences.md) — rights-expiration tracking
+- [`taxonomie-assets.md`](taxonomie-assets.md) — no-result searches reveal taxonomy gaps
+- [`dam-augmente-ia.md`](dam-augmente-ia.md) — auto-tagging reducing no-result searches

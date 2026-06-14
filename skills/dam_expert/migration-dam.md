@@ -1,83 +1,83 @@
-# Skill — Migration DAM (Inventaire, Mapping Taxonomie, ETL Média)
-> Certifications : Henry Stewart DAM Practitioner · Bynder Certified Partner · Widen Certified DAM Specialist
+# Skill — DAM Migration (Inventory, Taxonomy Mapping, Media ETL)
+> Certifications: Henry Stewart DAM Practitioner · Bynder Certified Partner · Widen Certified DAM Specialist
 
-## Objectif
-Piloter une migration de DAM ou d'assets vers un nouveau système : inventaire des assets existants, audit qualité, mapping de la taxonomie, extraction et transformation des médias, migration des métadonnées et recette — en garantissant l'intégrité des assets, la conservation des droits et la continuité d'accès.
+## Objective
+Run a DAM or asset migration to a new system: inventory existing assets, quality audit, taxonomy mapping, media extraction and transformation, metadata migration and UAT — guaranteeing asset integrity, rights preservation and access continuity.
 
-## Plan de migration DAM en 6 phases
-
-```
-PHASE 1 — INVENTAIRE & AUDIT (J-120 à J-90)
-  □ Extraction inventaire complet (liste assets, métadonnées, droits, taille)
-  □ Déduplication par hash (MD5/SHA256) — identification doublons exacts
-  □ Évaluation qualité technique (résolution, format, profil couleur, poids)
-  □ Audit des droits (assets sans expiry, sans licence, sans crédit)
-  □ Identification assets orphelins (non référencés dans CMS/PIM)
-  □ Estimation volumes : nb assets, taille totale (Go/To), nb métadonnées
-
-PHASE 2 — CONCEPTION CIBLE (J-90 à J-60)
-  □ Nouvelle architecture taxonomique (cf. skill taxonomie-assets)
-  □ Mapping métadonnées source → cible (champs, standards, vocabulaires)
-  □ Stratégie de migration (all-at-once vs phased par marque ou type)
-  □ Décision sur assets orphelins et assets sans droits (migration/archivage/suppression)
-  □ Plan de basculement (fenêtre de migration, double run si nécessaire)
-
-PHASE 3 — DÉVELOPPEMENT ETL MÉDIA (J-60 à J-20)
-  □ Scripts d'extraction (API DAM legacy ou export direct storage)
-  □ Scripts de transformation métadonnées (normalisation, enrichissement)
-  □ Conversion formats si nécessaire (ex: TIFF master → garder + générer WebP)
-  □ Scripts de chargement (API nouveau DAM, avec métadonnées normalisées)
-  □ Tests pilotes (10% des assets, 1 marque ou 1 type)
-
-PHASE 4 — RECETTE (J-20 à J-5)
-  □ Migration complète en environnement de recette
-  □ Validation taxonomie (arborescence, vocabulaires, recherche)
-  □ Validation métadonnées (complétude, exactitude, droits)
-  □ UAT équipes métier (DA, Brand, Marketing, Presse)
-  □ Tests d'intégration (CMS, PIM — assets toujours accessibles)
-  □ Vérification audit trail migré (si requis légalement)
-
-PHASE 5 — BASCULEMENT (J0)
-  □ Gel DAM legacy (lecture seule + export)
-  □ Migration delta (assets créés/modifiés pendant la recette)
-  □ Activation nouveau DAM (DNS, configurations, accès utilisateurs)
-  □ Bascule des connecteurs (CMS, PIM, CDN) vers le nouveau DAM
-  □ Smoke tests (upload, download, search, renditions, droits)
-
-PHASE 6 — POST-MIGRATION (J+7 à J+30)
-  □ Surveillance anomalies (assets manquants, erreurs droits, 404)
-  □ Formation équipes (nouvelles interfaces, nouvelles recherches)
-  □ Désactivation DAM legacy (après période de garantie)
-  □ Archivage DAM legacy (snapshot du stockage)
-  □ Bilan de migration (métriques, incidents, leçons apprises)
-```
-
-## Mapping métadonnées — Template
+## 6-phase DAM migration plan
 
 ```
-MÉTADONNÉE SOURCE (ancien DAM)    CHAMP CIBLE (nouveau DAM)    TRANSFORMATION
+PHASE 1 — INVENTORY & AUDIT (D-120 to D-90)
+  □ Extract a full inventory (asset list, metadata, rights, size)
+  □ Hash deduplication (MD5/SHA256) — identify exact duplicates
+  □ Technical quality assessment (resolution, format, color profile, weight)
+  □ Rights audit (assets with no expiry, no license, no credit)
+  □ Identify orphan assets (not referenced in CMS/PIM)
+  □ Volume estimation: # assets, total size (GB/TB), # metadata
+
+PHASE 2 — TARGET DESIGN (D-90 to D-60)
+  □ New taxonomy architecture (cf. taxonomie-assets skill)
+  □ Source → target metadata mapping (fields, standards, vocabularies)
+  □ Migration strategy (all-at-once vs phased by brand or type)
+  □ Decision on orphan assets and rights-less assets (migrate/archive/delete)
+  □ Cut-over plan (migration window, double run if needed)
+
+PHASE 3 — MEDIA ETL DEVELOPMENT (D-60 to D-20)
+  □ Extraction scripts (legacy DAM API or direct storage export)
+  □ Metadata transformation scripts (normalization, enrichment)
+  □ Format conversion if needed (e.g. TIFF master → keep + generate WebP)
+  □ Load scripts (new DAM API, with normalized metadata)
+  □ Pilot tests (10% of assets, 1 brand or 1 type)
+
+PHASE 4 — UAT (D-20 to D-5)
+  □ Full migration in a UAT environment
+  □ Taxonomy validation (tree, vocabularies, search)
+  □ Metadata validation (completeness, accuracy, rights)
+  □ Business-team UAT (AD, Brand, Marketing, Press)
+  □ Integration tests (CMS, PIM — assets still accessible)
+  □ Migrated audit-trail check (if legally required)
+
+PHASE 5 — CUT-OVER (D0)
+  □ Freeze the legacy DAM (read-only + export)
+  □ Delta migration (assets created/modified during UAT)
+  □ Activate the new DAM (DNS, configurations, user access)
+  □ Switch the connectors (CMS, PIM, CDN) to the new DAM
+  □ Smoke tests (upload, download, search, renditions, rights)
+
+PHASE 6 — POST-MIGRATION (D+7 to D+30)
+  □ Anomaly monitoring (missing assets, rights errors, 404s)
+  □ Team training (new interfaces, new searches)
+  □ Decommission the legacy DAM (after the warranty period)
+  □ Archive the legacy DAM (storage snapshot)
+  □ Migration review (metrics, incidents, lessons learned)
+```
+
+## Metadata mapping — Template
+
+```
+SOURCE METADATA (old DAM)         TARGET FIELD (new DAM)       TRANSFORMATION
 ───────────────────────────────   ──────────────────────────   ──────────────────────────────
-asset_name                        dc:title                     Suppression extension + trim
-asset_desc                        dc:description               HTML → texte brut si nécessaire
-keywords (comma-separated)        dc:subject (array)           Split "," → Array de tags
-copyright                         xmpRights:UsageTerms         Mapping droits → licence type
-photographer                      photoshop:Credit             Trim + formatage nom
-expiry_date (DD/MM/YYYY)          dam:expiry_date (ISO 8601)   Format date normalisé
-brand_tag (string)                dam:brand (vocabulary)       Mapping vocabulaire contrôlé
-channel (1=web, 2=print)          dam:channel (array)          Mapping numérique → labels
+asset_name                        dc:title                     Remove extension + trim
+asset_desc                        dc:description               HTML → plain text if needed
+keywords (comma-separated)        dc:subject (array)           Split "," → Array of tags
+copyright                         xmpRights:UsageTerms         Rights mapping → license type
+photographer                      photoshop:Credit             Trim + name formatting
+expiry_date (DD/MM/YYYY)          dam:expiry_date (ISO 8601)   Normalized date format
+brand_tag (string)                dam:brand (vocabulary)       Controlled-vocabulary mapping
+channel (1=web, 2=print)          dam:channel (array)          Numeric → labels mapping
 status (0/1/2)                    dam:status (workflow)        0→draft, 1→approved, 2→archived
 ```
 
-## Script de migration (Python + API)
+## Migration script (Python + API)
 
 ```python
 import requests, hashlib, json
 from pathlib import Path
 
 def migrate_asset(asset: dict, source_api: str, target_api: str) -> dict:
-    """Migre un asset avec ses métadonnées d'un DAM à un autre"""
+    """Migrate an asset with its metadata from one DAM to another"""
 
-    # 1. Téléchargement depuis le DAM source
+    # 1. Download from the source DAM
     response = requests.get(
         f"{source_api}/assets/{asset['id']}/download",
         headers={"Authorization": f"Bearer {SOURCE_TOKEN}"}
@@ -85,17 +85,17 @@ def migrate_asset(asset: dict, source_api: str, target_api: str) -> dict:
     file_content = response.content
     file_hash = hashlib.sha256(file_content).hexdigest()
 
-    # 2. Transformation des métadonnées
+    # 2. Metadata transformation
     metadata_target = {
         "title":       asset.get("name", "").replace(Path(asset["name"]).suffix, ""),
         "description": asset.get("description", ""),
         "tags":        asset.get("keywords", "").split(","),
         "rights":      map_license(asset.get("copyright", "")),
         "expiry":      normalize_date(asset.get("expiry_date")),
-        "hash":        file_hash,  # Pour déduplication future
+        "hash":        file_hash,  # For future deduplication
     }
 
-    # 3. Upload dans le DAM cible
+    # 3. Upload to the target DAM
     upload = requests.post(
         f"{target_api}/assets",
         headers={"Authorization": f"Bearer {TARGET_TOKEN}"},
@@ -105,34 +105,34 @@ def migrate_asset(asset: dict, source_api: str, target_api: str) -> dict:
     return upload.json()
 ```
 
-## Livrables
-- Rapport d'inventaire et d'audit du DAM legacy (volumétrie, qualité, droits)
-- Mapping taxonomie source → cible (arborescence + métadonnées)
-- Scripts ETL média (extraction + transformation + chargement)
-- Plan de basculement et procédure de rollback
-- Rapport de recette (assets migrés, erreurs, métadonnées validées)
-- Bilan post-migration (métriques finales, dossiers résiduels, leçons apprises)
+## Deliverables
+- Legacy DAM inventory and audit report (volume, quality, rights)
+- Source → target taxonomy mapping (tree + metadata)
+- Media ETL scripts (extraction + transformation + load)
+- Cut-over plan and rollback procedure
+- UAT report (migrated assets, errors, validated metadata)
+- Post-migration review (final metrics, residual items, lessons learned)
 
-## Format de sortie
-Précise : **DAM source** (nom, version, API disponible ?), **DAM cible**, **volume** (nb assets, taille totale en Go), **intégrations à reconnecter** (CMS, PIM, CDN), **contraintes de disponibilité** (peut-on suspendre l'accès aux assets ?), **délai** disponible pour la migration.
+## Output format
+Specify: **source DAM** (name, version, API available?), **target DAM**, **volume** (# assets, total size in GB), **integrations to reconnect** (CMS, PIM, CDN), **availability constraints** (can asset access be suspended?), **time** available for the migration.
 
 ## Anti-patterns
-- ❌ **Migration sans déduplication par hash** (MD5/SHA256) : les doublons du legacy sont reportés tels quels → dédupliquer en phase 1
-- ❌ **Basculement sans gel + migration delta** : les assets créés/modifiés pendant la recette sont perdus → gel lecture seule + delta J0
-- ❌ **Migrer en masse les assets sans droits / orphelins** : on importe la dette juridique et documentaire → arbitrer migration/archivage/suppression en phase 2
-- ❌ **Ne pas conserver le master** (TIFF/RAW) en ne migrant que les renditions : perte de qualité irréversible pour le print → migrer le master + régénérer
-- ❌ **Absence de plan de rollback** : aucun retour arrière si le basculement échoue → procédure de rollback testée en recette
-- ❌ **Mapping de droits approximatif** (`copyright` texte libre → licence) : licences erronées en cible → table de correspondance validée juridiquement
+- ❌ **Migration without hash deduplication** (MD5/SHA256): legacy duplicates are carried over as-is → deduplicate in phase 1
+- ❌ **Cut-over without freeze + delta migration**: assets created/modified during UAT are lost → read-only freeze + D0 delta
+- ❌ **Mass-migrating rights-less / orphan assets**: you import legal and documentary debt → decide migrate/archive/delete in phase 2
+- ❌ **Not keeping the master** (TIFF/RAW) by migrating only renditions: irreversible quality loss for print → migrate the master + regenerate
+- ❌ **No rollback plan**: no way back if the cut-over fails → rollback procedure tested in UAT
+- ❌ **Approximate rights mapping** (`copyright` free text → license): wrong licenses in the target → legally validated correspondence table
 
 ## Sources
-- **IPTC Photo Metadata Standard 2025.1** (oct. 2025) — métadonnées cible — iptc.org/standards/photo-metadata
-- **XMP** — ISO 16684-1:2019 (Adobe) · **Dublin Core** — ISO 15836-1:2017 (DCMI) — standards de mapping métadonnées
-- **Bynder API** — developer.bynder.com · **Widen** — widen.com — APIs source/cible
-- **DAMA-DMBOK 2** (2017) — gouvernance de la migration de données
+- **IPTC Photo Metadata Standard 2025.1** (Oct. 2025) — target metadata — iptc.org/standards/photo-metadata
+- **XMP** — ISO 16684-1:2019 (Adobe) · **Dublin Core** — ISO 15836-1:2017 (DCMI) — metadata mapping standards
+- **Bynder API** — developer.bynder.com · **Widen** — widen.com — source/target APIs
+- **DAMA-DMBOK 2** (2017) — data migration governance
 
-## Voir aussi
-- [`taxonomie-assets.md`](taxonomie-assets.md) — schéma cible de la migration
-- [`gestion-droits-licences.md`](gestion-droits-licences.md) — arbitrage des assets sans droits
-- [`gouvernance-dam.md`](gouvernance-dam.md) — politique d'archivage/purge du legacy
-- [`transformation-formats.md`](transformation-formats.md) — conversion de formats durant l'ETL
-- [`../cms_digital/migration-cms.md`](../cms_digital/migration-cms.md) — migration CMS coordonnée (assets référencés)
+## See also
+- [`taxonomie-assets.md`](taxonomie-assets.md) — target migration schema
+- [`gestion-droits-licences.md`](gestion-droits-licences.md) — handling rights-less assets
+- [`gouvernance-dam.md`](gouvernance-dam.md) — legacy archiving/purge policy
+- [`transformation-formats.md`](transformation-formats.md) — format conversion during the ETL
+- [`../cms_digital/migration-cms.md`](../cms_digital/migration-cms.md) — coordinated CMS migration (referenced assets)

@@ -1,30 +1,30 @@
-# Skill — Transformation de Formats & Renditions
-> Certifications : Cloudinary Media Developer Expert · Adobe AEM Assets Specialist · Adobe Certified Professional Creative Cloud
+# Skill — Format Transformation & Renditions
+> Certifications: Cloudinary Media Developer Expert · Adobe AEM Assets Specialist · Adobe Certified Professional Creative Cloud
 
-## Objectif
-Gérer la transformation automatique des formats d'assets et la génération des renditions : conversion de formats (JPEG, WebP, AVIF, TIFF, SVG, MP4, WebM), redimensionnement intelligent, optimisation poids/qualité, gestion des profils colorimétriques et normalisation des spécifications techniques par canal.
+## Objective
+Manage automatic asset format transformation and rendition generation: format conversion (JPEG, WebP, AVIF, TIFF, SVG, MP4, WebM), smart resizing, weight/quality optimization, color-profile management and per-channel technical-spec normalization.
 
-## Formats clés et cas d'usage
+## Key formats and use cases
 
 ```
-FORMAT       TYPE       AVANTAGES                        LIMITATIONS              CAS D'USAGE IDÉAL
+FORMAT       TYPE       PROS                             LIMITATIONS              IDEAL USE CASE
 ──────────   ────────   ──────────────────────────────   ──────────────────────   ─────────────────────────
-JPEG         Raster     Universel · Compressé            Avec perte · Pas alpha   Packshots · Photos web
-WebP         Raster     30% + léger que JPEG · Alpha     Support ancien navigat.  Web moderne prioritaire
-AVIF         Raster     50% + léger que JPEG · HDR       Support encore limité    Web cutting-edge
-PNG          Raster     Lossless · Alpha                 Lourd                    Logos sur fond · Icons
-SVG          Vectoriel  Scalable · Léger                 Complexité pour photos   Logos · Icônes · Pictog.
-TIFF         Raster     Lossless · Profil CMJN           Très lourd               Print · Archivage master
-PDF/X-4      Vecteur    Standard print ISO               Éditeur requis           Fichiers façonneurs
-GIF          Raster     Animation simple                 256 couleurs · Lourd     Petites animations web
-MP4 (H.264)  Vidéo      Universel · Bonne compression    Qualité compressée       Web · Social · E-com
-WebM (VP9)   Vidéo      30% + léger que MP4              Support partiel          Web moderne
+JPEG         Raster     Universal · Compressed           Lossy · No alpha         Packshots · Web photos
+WebP         Raster     30% lighter than JPEG · Alpha    Old-browser support      Modern web (priority)
+AVIF         Raster     50% lighter than JPEG · HDR      Still limited support    Cutting-edge web
+PNG          Raster     Lossless · Alpha                 Heavy                    Logos on bg · Icons
+SVG          Vector     Scalable · Light                 Complex for photos       Logos · Icons · Pictograms
+TIFF         Raster     Lossless · CMYK profile          Very heavy               Print · Master archiving
+PDF/X-4      Vector     ISO print standard               Editor required          Finisher files
+GIF          Raster     Simple animation                 256 colors · Heavy       Small web animations
+MP4 (H.264)  Video      Universal · Good compression     Compressed quality       Web · Social · E-com
+WebM (VP9)   Video      30% lighter than MP4             Partial support          Modern web
 ```
 
-## Configuration des renditions (AEM Assets)
+## Rendition configuration (AEM Assets)
 
 ```xml
-<!-- Profil de traitement AEM Assets — Renditions automatiques -->
+<!-- AEM Assets processing profile — Automatic renditions -->
 <processingProfile>
   <rendition name="web.1280.jpeg">
     <format>jpeg</format>
@@ -54,7 +54,7 @@ WebM (VP9)   Vidéo      30% + léger que MP4              Support partiel      
 </processingProfile>
 ```
 
-## Transformation intelligente (Cloudinary)
+## Smart transformation (Cloudinary)
 
 ```python
 import cloudinary
@@ -62,14 +62,14 @@ import cloudinary.uploader
 import cloudinary.api
 
 cloudinary.config(
-    cloud_name="mon-cloud",
+    cloud_name="my-cloud",
     api_key="KEY",
     api_secret="SECRET"
 )
 
 def generate_renditions(public_id: str) -> dict:
-    """Génère toutes les renditions d'un asset via l'API Cloudinary"""
-    base_url = f"https://res.cloudinary.com/mon-cloud/image/upload"
+    """Generate all renditions of an asset via the Cloudinary API"""
+    base_url = f"https://res.cloudinary.com/my-cloud/image/upload"
 
     renditions = {
         "web_desktop":  f"{base_url}/f_auto,q_auto,w_1200/{public_id}",
@@ -79,50 +79,50 @@ def generate_renditions(public_id: str) -> dict:
         "email":        f"{base_url}/f_jpg,q_70,w_600/{public_id}",
     }
 
-    # Smart crop avec détection de visage (portrait)
+    # Smart crop with face detection (portrait)
     renditions["portrait_smart"] = (
         f"{base_url}/c_fill,g_face,ar_3:4,w_900,f_webp/{public_id}"
     )
     return renditions
 ```
 
-## Optimisation Core Web Vitals
+## Core Web Vitals optimization
 
 ```
-MÉTRIQUE          RECOMMANDATION FORMAT                         IMPACT LCP/CLS
+METRIC            FORMAT RECOMMENDATION                         LCP/CLS IMPACT
 ───────────────   ────────────────────────────────────────────  ──────────────────────────
-LCP (image hero)  WebP/AVIF · preload · lazy=eager             Réduction LCP de 30-40%
-CLS (images)      Toujours définir width + height HTML         Élimination CLS images
-Images retina     srcset x2 pour HiDPI screens                 Netteté sans surcharge
-Format moderne    <picture> avec fallback JPEG                  Compatibilité universelle
+LCP (hero image)  WebP/AVIF · preload · lazy=eager             30-40% LCP reduction
+CLS (images)      Always set HTML width + height               Eliminates image CLS
+Retina images     srcset x2 for HiDPI screens                  Sharpness without bloat
+Modern format     <picture> with JPEG fallback                  Universal compatibility
 ```
 
-## Livrables
-- Spécifications techniques par canal (format, résolution, poids, profil couleur)
-- Configuration des renditions automatiques dans le DAM (AEM, Cloudinary, Bynder)
-- Scripts de conversion batch (ImageMagick, FFmpeg, Sharp, Cloudinary API)
-- Profils colorimétriques validés (sRGB web, CMJN print ISO coated)
-- Guide technique créatifs (spécifications de livraison assets masters)
-- Rapport de performance (poids moyen, taux optimisation, gain bande passante)
+## Deliverables
+- Per-channel technical specs (format, resolution, weight, color profile)
+- Automatic rendition configuration in the DAM (AEM, Cloudinary, Bynder)
+- Batch conversion scripts (ImageMagick, FFmpeg, Sharp, Cloudinary API)
+- Validated color profiles (sRGB web, CMYK print ISO coated)
+- Creative technical guide (master asset delivery specs)
+- Performance report (average weight, optimization rate, bandwidth savings)
 
-## Format de sortie
-Précise : **DAM utilisé**, **canaux cibles** (web, print, social, e-com…), **types d'assets** (photos, vidéos, documents…), **contraintes print** (profil CMJN, imprimeur), **CMS ou CDN** de distribution, **Core Web Vitals** à atteindre.
+## Output format
+Specify: **DAM used**, **target channels** (web, print, social, e-com…), **asset types** (photos, videos, documents…), **print constraints** (CMYK profile, printer), distribution **CMS or CDN**, **Core Web Vitals** to hit.
 
 ## Anti-patterns
-- ❌ **Ne conserver que des renditions web** (tout en WebP, master supprimé) : impossible de régénérer en print/haute qualité → toujours archiver le master (TIFF/RAW)
-- ❌ **`width`/`height` HTML non définis** sur les images : dégrade le CLS → dimensions explicites systématiques
-- ❌ **Profil CMJN servi au web** (au lieu de sRGB) : couleurs fausses en navigateur → sRGB web / CMJN ISO coated print
-- ❌ **Sur-compression** (q < 60) : artefacts visibles → calibrer la qualité par canal
-- ❌ **Pas de fallback `<picture>`** pour AVIF/WebP : images cassées sur navigateurs anciens → balise `<picture>` + source JPEG
-- ❌ **Renditions générées à la volée sans cache CDN** : coût et latence → renditions pré-générées + cache
+- ❌ **Keeping only web renditions** (all WebP, master deleted): impossible to regenerate for print/high quality → always archive the master (TIFF/RAW)
+- ❌ **HTML `width`/`height` not set** on images: degrades CLS → explicit dimensions systematically
+- ❌ **CMYK profile served to the web** (instead of sRGB): wrong colors in the browser → sRGB web / CMYK ISO coated print
+- ❌ **Over-compression** (q < 60): visible artifacts → calibrate quality per channel
+- ❌ **No `<picture>` fallback** for AVIF/WebP: broken images on old browsers → `<picture>` tag + JPEG source
+- ❌ **Renditions generated on the fly with no CDN cache**: cost and latency → pre-generated renditions + cache
 
 ## Sources
-- **Core Web Vitals** — web.dev/vitals (Google) : LCP < 2,5 s, CLS < 0,1, **INP < 200 ms** (INP a remplacé FID en mars 2024)
-- **WebP** (Google, ~25-34 % plus léger que JPEG à qualité égale) — developers.google.com/speed/webp · **AVIF** (Alliance for Open Media)
-- **Exif 3.0** — CIPA DC-008-2023 · **ICC / ECI** — profil *ISO Coated v2 (ECI)* pour le print — color.org / eci.org
+- **Core Web Vitals** — web.dev/vitals (Google): LCP < 2.5s, CLS < 0.1, **INP < 200 ms** (INP replaced FID in March 2024)
+- **WebP** (Google, ~25-34% lighter than JPEG at equal quality) — developers.google.com/speed/webp · **AVIF** (Alliance for Open Media)
+- **Exif 3.0** — CIPA DC-008-2023 · **ICC / ECI** — *ISO Coated v2 (ECI)* profile for print — color.org / eci.org
 - **Cloudinary** — cloudinary.com/documentation · **AEM Assets** processing profiles — experienceleague.adobe.com
 
-## Voir aussi
-- [`distribution-multicanal.md`](distribution-multicanal.md) — diffusion des renditions par canal/CDN
-- [`taxonomie-assets.md`](taxonomie-assets.md) — métadonnées techniques (profil couleur, dimensions)
-- [`../cms_digital/performance-web.md`](../cms_digital/performance-web.md) — Core Web Vitals côté CMS (images optimisées)
+## See also
+- [`distribution-multicanal.md`](distribution-multicanal.md) — distributing renditions per channel/CDN
+- [`taxonomie-assets.md`](taxonomie-assets.md) — technical metadata (color profile, dimensions)
+- [`../cms_digital/performance-web.md`](../cms_digital/performance-web.md) — Core Web Vitals on the CMS side (optimized images)

@@ -1,92 +1,92 @@
-# Skill — Workflows de Validation & Cycle de Vie des Assets
-> Certifications : Bynder Certified Partner · Adobe Certified Expert AEM Assets Specialist · Canto Certified Professional
+# Skill — Asset Validation Workflows & Lifecycle
+> Certifications: Bynder Certified Partner · Adobe Certified Expert AEM Assets Specialist · Canto Certified Professional
 
-## Objectif
-Définir et mettre en œuvre les workflows de validation des assets digitaux : circuit de revue, approbation, versionning et gestion du cycle de vie complet — pour garantir que seuls des assets de qualité, conformes et aux droits valides sont distribués sur les canaux.
+## Objective
+Define and implement digital asset validation workflows: review circuit, approval, versioning and full lifecycle management — to ensure that only quality, compliant, rights-valid assets are distributed across channels.
 
-## Cycle de vie d'un asset DAM
+## DAM asset lifecycle
 
 ```
-STATUT            DESCRIPTION                              ACTEUR                   TRANSITIONS
+STATUS            DESCRIPTION                              ACTOR                    TRANSITIONS
 ───────────────   ──────────────────────────────────────   ──────────────────────   ─────────────────────────
-Upload            Asset brut reçu (agence, studio)         Système / Contributeur   → In Review (auto)
-In Review         En attente de validation technique       DAM Manager              → Approved / Rejected
-Rejected          Asset refusé (qualité, droits, brief)    DAM Manager              → Archive (ou re-upload)
-Approved          Validé, prêt à l'emploi                  DAM Manager              → Published / Expired
-Published         Actif sur les canaux autorisés           Système (auto)           → Expired (date échéance)
-Expired           Droits expirés ou campagne terminée      Système (auto)           → Archived / Deleted
-Archived          Conservation longue durée (non visible)  DAM Admin                → Deleted (après purge policy)
-Deleted           Supprimé définitivement                  DAM Admin                → (irréversible)
+Upload            Raw asset received (agency, studio)      System / Contributor     → In Review (auto)
+In Review         Awaiting technical validation            DAM Manager              → Approved / Rejected
+Rejected          Asset refused (quality, rights, brief)   DAM Manager              → Archive (or re-upload)
+Approved          Validated, ready to use                  DAM Manager              → Published / Expired
+Published         Live on the authorized channels          System (auto)            → Expired (expiry date)
+Expired           Rights expired or campaign ended         System (auto)            → Archived / Deleted
+Archived          Long-term retention (not visible)        DAM Admin                → Deleted (after purge policy)
+Deleted           Permanently removed                      DAM Admin                → (irreversible)
 ```
 
-## Workflow de validation — Critères par étape
+## Validation workflow — Criteria per step
 
 ```
-ÉTAPE DE VALIDATION     CRITÈRES DE CONTRÔLE                          RESPONSABLE
+VALIDATION STEP         CONTROL CRITERIA                              OWNER
 ─────────────────────   ───────────────────────────────────────────   ──────────────────
-Conformité technique    Résolution ≥ seuil canal · Format accepté     DAM Manager (auto)
-                        Poids ≤ limite · Profil colorimétrique correct
-Conformité brief        Asset correspond au brief créatif validé      Directeur Artistique
-Droits et licences      Copyright identifié · Droits territoire OK    Juriste / DAM Manager
-                        Date d'expiration renseignée
-RGPD (si personnes)     Autorisation droit à l'image signée           Juriste
-                        Mineurs identifiés → blocage automatique
-Brand compliance        Charte graphique respectée (logo, couleurs)   Brand Manager
-Métadonnées             Tags ≥ 5 · Titre renseigné · Canal défini     DAM Manager
+Technical compliance    Resolution ≥ channel threshold · Accepted fmt DAM Manager (auto)
+                        Weight ≤ limit · Correct color profile
+Brief compliance        Asset matches the approved creative brief     Art Director
+Rights and licenses     Copyright identified · Territory rights OK    Legal / DAM Manager
+                        Expiry date filled in
+GDPR (if people)        Signed image-rights authorization             Legal
+                        Identified minors → automatic block
+Brand compliance        Brand guidelines respected (logo, colors)     Brand Manager
+Metadata                Tags ≥ 5 · Title filled · Channel defined     DAM Manager
 ```
 
-## Politique de versionning
+## Versioning policy
 
 ```
-RÈGLE                                    IMPLÉMENTATION
+RULE                                     IMPLEMENTATION
 ──────────────────────────────────────   ─────────────────────────────────────────────────────
-Toute modification = nouvelle version    Pas d'écrasement de fichier — incrémentation auto (v1, v2…)
-Conservation des versions majeures       v1, v2, v3 conservées indéfiniment
-Purge des versions intermédiaires        Versions mineures (v1.1, v1.2) → purge après 6 mois
-Version active = version actuelle        Seule la dernière version approved est distribuée
-Restauration possible                    Toute version validée peut être réactivée si besoin
-Audit trail complet                      Date, auteur, action loggés sur chaque version
+Every change = a new version             No file overwrite — auto increment (v1, v2…)
+Keep major versions                      v1, v2, v3 kept indefinitely
+Purge intermediate versions              Minor versions (v1.1, v1.2) → purge after 6 months
+Active version = current version         Only the latest approved version is distributed
+Restore possible                         Any validated version can be reactivated if needed
+Full audit trail                         Date, author, action logged on each version
 ```
 
-## SLA de validation
+## Validation SLA
 
 ```
-TYPE D'ASSET             DÉLAI CIBLE    DÉLAI MAX    ESCALADE SI DÉPASSÉ
+ASSET TYPE               TARGET TIME    MAX TIME     ESCALATION IF EXCEEDED
 ──────────────────────   ────────────   ─────────    ─────────────────────────────
-Photo produit (packshot) 24h            48h          Notification DAM Manager
-Vidéo produit            48h            72h          Notification DA + Manager
-Asset campagne urgente   4h             8h           Appel direct responsable DAM
-Document légal           48h            5 jours      Escalade service juridique
-Asset partenaire externe 3 jours        5 jours      Notification partenaire
+Product photo (packshot) 24h            48h          DAM Manager notification
+Product video            48h            72h          AD + Manager notification
+Urgent campaign asset    4h             8h           Direct call to the DAM lead
+Legal document           48h            5 days       Escalation to the legal team
+External partner asset   3 days         5 days       Partner notification
 ```
 
-## Livrables
-- Diagramme de workflow validation (BPMN, statuts, transitions, acteurs)
-- Critères de contrôle par étape (grille de validation)
-- Politique de versionning (règles, purge, restauration)
-- SLA de validation par type d'asset
-- Configuration du workflow dans le DAM (Bynder Workflow, AEM Workflow, Canto)
-- Rapport mensuel de performance workflow (délais, taux de rejet, backlog)
+## Deliverables
+- Validation workflow diagram (BPMN, statuses, transitions, actors)
+- Per-step control criteria (validation grid)
+- Versioning policy (rules, purge, restore)
+- Validation SLA per asset type
+- Workflow configuration in the DAM (Bynder Workflow, AEM Workflow, Canto)
+- Monthly workflow performance report (lead times, rejection rate, backlog)
 
-## Format de sortie
-Précise : **DAM utilisé**, **types d'assets** concernés, **acteurs impliqués** (équipes, agences, juristes), **contraintes de délai** (campagnes, lancements), **volumétrie** (nb uploads/semaine), **cas spéciaux** (mineurs, personnalités publiques, droits musicaux).
+## Output format
+Specify: **DAM used**, **asset types** involved, **actors involved** (teams, agencies, legal), **deadline constraints** (campaigns, launches), **volume** (# uploads/week), **special cases** (minors, public figures, music rights).
 
 ## Anti-patterns
-- ❌ **Workflow sans SLA** : validations qui traînent, backlog ingérable → délai cible + max + escalade par type d'asset
-- ❌ **Pas de blocage automatique des mineurs identifiés** : risque RGPD (art. 9) et droit à l'image → contrôle bloquant
-- ❌ **Écrasement de fichier** au lieu d'une nouvelle version : perte d'historique et d'audit trail → versionning incrémental
-- ❌ **Étape « droits et licences » sautée** pour aller vite : diffusion d'assets sans droits valides → gate bloquant non contournable
-- ❌ **Trop d'étapes de validation** (sur-process) : goulot d'étranglement → calibrer le circuit selon l'enjeu de l'asset
-- ❌ **Validation purement déclarative** (pas de critères objectifs) : décisions subjectives → grille de contrôle explicite par étape
+- ❌ **Workflow without an SLA**: validations drag on, unmanageable backlog → target + max time + escalation per asset type
+- ❌ **No automatic block of identified minors**: GDPR risk (art. 9) and image rights → blocking check
+- ❌ **File overwrite** instead of a new version: loss of history and audit trail → incremental versioning
+- ❌ **"Rights and licenses" step skipped** to go faster: distribution of assets without valid rights → non-bypassable blocking gate
+- ❌ **Too many validation steps** (over-process): bottleneck → calibrate the circuit to the asset's stakes
+- ❌ **Purely declarative validation** (no objective criteria): subjective decisions → explicit control grid per step
 
 ## Sources
-- **BPMN 2.0.2** — OMG (Object Management Group, 2013) — modélisation des workflows de validation — omg.org/spec/BPMN
-- **RGPD** — Règlement (UE) 2016/679, art. 9 (mineurs, données sensibles) · **Code civil** art. 9 (droit à l'image) — cf. `gestion-droits-licences.md`
-- **AI Act UE** — Règlement (UE) 2024/1689, art. 50 (transparence contenus IA dans le circuit de validation)
-- **Bynder Workflow / AEM Assets Workflow / Canto** — documentation éditeurs — developer.bynder.com · experienceleague.adobe.com
+- **BPMN 2.0.2** — OMG (Object Management Group, 2013) — validation workflow modeling — omg.org/spec/BPMN
+- **GDPR** — Regulation (EU) 2016/679, art. 9 (minors, sensitive data) · **French Civil Code** art. 9 (image rights) — cf. `gestion-droits-licences.md`
+- **EU AI Act** — Regulation (EU) 2024/1689, art. 50 (transparency for AI content in the validation circuit)
+- **Bynder Workflow / AEM Assets Workflow / Canto** — vendor documentation — developer.bynder.com · experienceleague.adobe.com
 
-## Voir aussi
-- [`gestion-droits-licences.md`](gestion-droits-licences.md) — contrôle droits/RGPD dans le circuit de validation
-- [`taxonomie-assets.md`](taxonomie-assets.md) — métadonnées obligatoires contrôlées à la validation
-- [`naming-convention.md`](naming-convention.md) — conformité du nommage à l'ingestion
-- [`gouvernance-dam.md`](gouvernance-dam.md) — politique de cycle de vie et purge
+## See also
+- [`gestion-droits-licences.md`](gestion-droits-licences.md) — rights/GDPR control in the validation circuit
+- [`taxonomie-assets.md`](taxonomie-assets.md) — required metadata checked at validation
+- [`naming-convention.md`](naming-convention.md) — naming compliance at ingestion
+- [`gouvernance-dam.md`](gouvernance-dam.md) — lifecycle and purge policy

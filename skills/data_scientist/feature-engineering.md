@@ -1,71 +1,71 @@
-# Skill — Feature Engineering & Préparation des Données
-> Certifications : IBM Data Science · Azure DP-100 · Databricks ML Associate
+# Skill — Feature Engineering & Data Preparation
+> Certifications: IBM Data Science · Azure DP-100 · Databricks ML Associate
 
-## Objectif
-Transformer les données brutes en features pertinentes pour maximiser la performance des modèles ML.
+## Objective
+Transform raw data into relevant features to maximize ML model performance.
 
-## Pipeline de préparation des données
+## Data preparation pipeline
 
-### 1. Nettoyage
+### 1. Cleaning
 ```python
 from sklearn.impute import SimpleImputer, KNNImputer
 
-# Imputation numérique
+# Numeric imputation
 imputer = SimpleImputer(strategy='median')
 X_num = imputer.fit_transform(df[num_cols])
 
-# Imputation catégorielle
+# Categorical imputation
 imputer_cat = SimpleImputer(strategy='most_frequent')
 X_cat = imputer_cat.fit_transform(df[cat_cols])
 ```
 
-### 2. Encodage des variables catégorielles
+### 2. Categorical variable encoding
 ```python
 from sklearn.preprocessing import OrdinalEncoder, OneHotEncoder
 
-# Ordinal (catégories avec ordre)
-enc = OrdinalEncoder(categories=[['faible','moyen','élevé']])
+# Ordinal (ordered categories)
+enc = OrdinalEncoder(categories=[['low','medium','high']])
 
-# One-Hot (catégories sans ordre, faible cardinalité)
+# One-Hot (unordered categories, low cardinality)
 ohe = OneHotEncoder(drop='first', sparse=False)
 
-# Target Encoding (haute cardinalité)
+# Target Encoding (high cardinality)
 from category_encoders import TargetEncoder
 te = TargetEncoder()
 ```
 
-### 3. Normalisation / Standardisation
+### 3. Normalization / Standardization
 ```python
 from sklearn.preprocessing import StandardScaler, MinMaxScaler, RobustScaler
 
-# StandardScaler : données gaussiennes (mean=0, std=1)
-# MinMaxScaler : données bornées [0,1]
-# RobustScaler : données avec outliers (résistant aux extrêmes)
+# StandardScaler: Gaussian data (mean=0, std=1)
+# MinMaxScaler: bounded data [0,1]
+# RobustScaler: data with outliers (resistant to extremes)
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 ```
 
-### 4. Feature Engineering avancé
+### 4. Advanced feature engineering
 ```python
-# Combinaisons de features
+# Feature combinations
 df['ratio_A_B'] = df['A'] / (df['B'] + 1e-6)
 df['interaction'] = df['A'] * df['B']
 
-# Features temporelles
+# Time features
 df['hour'] = df['timestamp'].dt.hour
 df['day_of_week'] = df['timestamp'].dt.dayofweek
 df['is_weekend'] = df['day_of_week'].isin([5, 6]).astype(int)
 
-# Transformation log (distributions asymétriques)
+# Log transformation (skewed distributions)
 df['log_amount'] = np.log1p(df['amount'])
 ```
 
-### 5. Sélection de features
+### 5. Feature selection
 ```python
 from sklearn.feature_selection import SelectKBest, f_classif, RFE
 from sklearn.ensemble import RandomForestClassifier
 
-# Importance par Random Forest
+# Importance via Random Forest
 rf = RandomForestClassifier()
 rf.fit(X, y)
 importances = pd.Series(rf.feature_importances_, index=X.columns)
@@ -76,7 +76,7 @@ rfe = RFE(estimator=rf, n_features_to_select=20)
 X_selected = rfe.fit_transform(X, y)
 ```
 
-## Pipeline sklearn complet
+## Complete sklearn pipeline
 ```python
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
@@ -92,11 +92,11 @@ pipeline = Pipeline([
 ])
 ```
 
-## Livrables
-- Pipeline de preprocessing réutilisable
-- Rapport d'importance des features
-- Dataset transformé prêt pour la modélisation
-- Documentation des choix de transformation
+## Deliverables
+- Reusable preprocessing pipeline
+- Feature importance report
+- Transformed dataset ready for modeling
+- Documentation of the transformation choices
 
-## Format de sortie
-Précise : type de données (tabular, texte, image, time series) · variable cible · algorithme prévu · contraintes (temps de calcul, interprétabilité)
+## Output format
+Specify: data type (tabular, text, image, time series) · target variable · planned algorithm · constraints (compute time, interpretability)

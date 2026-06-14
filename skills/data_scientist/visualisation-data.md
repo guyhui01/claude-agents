@@ -1,32 +1,32 @@
-# Skill — Visualisation des Données & Dashboarding
-> Certifications : Google Advanced Data Analytics · IBM Data Science · Kaggle
+# Skill — Data Visualization & Dashboarding
+> Certifications: Google Advanced Data Analytics · IBM Data Science · Kaggle
 
-## Objectif
-Transformer les données et résultats en visualisations claires et actionnables pour les équipes techniques et les décideurs.
+## Objective
+Turn data and results into clear, actionable visualizations for technical teams and decision-makers.
 
-## Choisir le bon type de graphique
-| Question | Graphique recommandé |
+## Choosing the right chart type
+| Question | Recommended chart |
 |---|---|
-| Distribution d'une variable | Histogramme, Box plot, Violin plot |
-| Comparaison entre groupes | Bar chart, Grouped bar, Facets |
-| Évolution dans le temps | Line chart, Area chart |
-| Corrélation entre 2 variables | Scatter plot, Heatmap |
-| Composition (parts d'un tout) | Pie chart (< 5 parts), Treemap, Stacked bar |
-| Géographique | Choropleth, Bubble map |
-| Importance des features ML | Bar chart horizontal, SHAP summary plot |
+| Distribution of a variable | Histogram, Box plot, Violin plot |
+| Comparison between groups | Bar chart, Grouped bar, Facets |
+| Evolution over time | Line chart, Area chart |
+| Correlation between 2 variables | Scatter plot, Heatmap |
+| Composition (parts of a whole) | Pie chart (< 5 parts), Treemap, Stacked bar |
+| Geographic | Choropleth, Bubble map |
+| ML feature importance | Horizontal bar chart, SHAP summary plot |
 
-## Python — Stack de visualisation 2026
+## Python — 2026 visualization stack
 ```python
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
 import plotly.graph_objects as go
 
-# Style professionnel
+# Professional style
 plt.style.use('seaborn-v0_8-whitegrid')
 sns.set_palette('husl')
 
-# Graphique interactif (recommandé pour dashboards)
+# Interactive chart (recommended for dashboards)
 fig = px.scatter(df, x='feature_1', y='target',
                  color='category', size='importance',
                  hover_data=['id', 'label'],
@@ -34,48 +34,48 @@ fig = px.scatter(df, x='feature_1', y='target',
 fig.show()
 ```
 
-## Dashboard Streamlit (déploiement rapide)
+## Streamlit dashboard (quick deployment)
 ```python
 import streamlit as st
 import plotly.express as px
 
 st.set_page_config(page_title="ML Dashboard", layout="wide")
-st.title("Dashboard Performance Modèle IA")
+st.title("AI Model Performance Dashboard")
 
 col1, col2, col3 = st.columns(3)
 with col1:
     st.metric("AUC-ROC", "0.923", delta="+0.02")
 with col2:
-    st.metric("Précision", "87.4%", delta="+1.2%")
+    st.metric("Precision", "87.4%", delta="+1.2%")
 with col3:
-    st.metric("Rappel", "83.1%", delta="-0.5%")
+    st.metric("Recall", "83.1%", delta="-0.5%")
 
-# Graphique interactif
+# Interactive chart
 fig = px.line(df_metrics, x='epoch', y=['train_loss', 'val_loss'])
 st.plotly_chart(fig, use_container_width=True)
 ```
 
-## Outils BI pour les décideurs
-| Outil | Usage | Avantage |
+## BI tools for decision-makers
+| Tool | Use | Advantage |
 |---|---|---|
-| **Power BI** | Enterprise Microsoft | Intégration M365, DAX |
-| **Tableau** | Visualisation avancée | Drag & drop, storytelling |
-| **Looker** | Google Cloud | SQL natif, gouvernance |
-| **Metabase** | Open source | Rapide à déployer |
-| **Streamlit** | Data scientists | Python natif, ML-ready |
+| **Power BI** | Microsoft enterprise | M365 integration, DAX |
+| **Tableau** | Advanced visualization | Drag & drop, storytelling |
+| **Looker** | Google Cloud | Native SQL, governance |
+| **Metabase** | Open source | Fast to deploy |
+| **Streamlit** | Data scientists | Native Python, ML-ready |
 
-## Principes de Data Viz (Edward Tufte)
-- **Data-ink ratio** : maximiser l'info, minimiser l'encre
-- **Chart junk** : supprimer décorations inutiles (3D, ombres)
-- **Échelles honnêtes** : axes commençant à 0 pour les comparaisons
-- **Couleurs accessibles** : palette daltonien-friendly (ColorBrewer)
-- **Titre informatif** : dire ce que montre le graphique, pas juste le nom de la variable
+## Data Viz principles (Edward Tufte)
+- **Data-ink ratio**: maximize the info, minimize the ink
+- **Chart junk**: remove useless decorations (3D, shadows)
+- **Honest scales**: axes starting at 0 for comparisons
+- **Accessible colors**: colorblind-friendly palette (ColorBrewer)
+- **Informative title**: say what the chart shows, not just the variable name
 
-## Livrables
-- Dashboard interactif (Streamlit / Power BI)
-- Rapport visuel (PDF / HTML)
-- Bibliothèque de graphiques standards (templates)
-- Guide de présentation des résultats ML
+## Deliverables
+- Interactive dashboard (Streamlit / Power BI)
+- Visual report (PDF / HTML)
+- Standard chart library (templates)
+- ML results presentation guide
 
-## Format de sortie
-Précise : audience (technique / métier / CODIR) · données disponibles · outil cible (Python, Power BI, Tableau) · type de rapport (ad hoc / temps réel / automatisé)
+## Output format
+Specify: audience (technical / business / leadership) · available data · target tool (Python, Power BI, Tableau) · report type (ad hoc / real-time / automated)

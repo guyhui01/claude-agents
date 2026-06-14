@@ -1,74 +1,74 @@
-# Skill — Analyse Exploratoire des Données (EDA)
-> Certifications : IBM Data Science · Google Advanced Data Analytics · Kaggle
+# Skill — Exploratory Data Analysis (EDA)
+> Certifications: IBM Data Science · Google Advanced Data Analytics · Kaggle
 
-## Objectif
-Comprendre, nettoyer et visualiser un dataset pour en extraire des insights avant toute modélisation.
+## Objective
+Understand, clean and visualize a dataset to extract insights before any modeling.
 
-## Checklist EDA standard
+## Standard EDA checklist
 
-### 1. Vue d'ensemble du dataset
+### 1. Dataset overview
 ```python
 import pandas as pd
 import numpy as np
 
-df.shape          # (lignes, colonnes)
-df.dtypes         # types de données
-df.info()         # aperçu complet
-df.describe()     # statistiques descriptives
-df.head(10)       # premiers enregistrements
-df.isnull().sum() # valeurs manquantes
-df.duplicated().sum() # doublons
+df.shape          # (rows, columns)
+df.dtypes         # data types
+df.info()         # full overview
+df.describe()     # descriptive statistics
+df.head(10)       # first records
+df.isnull().sum() # missing values
+df.duplicated().sum() # duplicates
 ```
 
-### 2. Analyse des valeurs manquantes
+### 2. Missing-value analysis
 ```python
-# Taux de complétude par colonne
+# Completeness rate per column
 missing_rate = df.isnull().mean().sort_values(ascending=False)
 
-# Seuils de décision :
-# < 5%  → imputation (médiane, moyenne, mode)
-# 5-20% → imputation avancée (KNN, régression)
-# > 20% → évaluer suppression de la colonne
+# Decision thresholds:
+# < 5%  → imputation (median, mean, mode)
+# 5-20% → advanced imputation (KNN, regression)
+# > 20% → consider dropping the column
 ```
 
-### 3. Distribution des variables
+### 3. Variable distribution
 ```python
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Variables numériques
+# Numeric variables
 df.hist(figsize=(15,10))
 
-# Variables catégorielles
+# Categorical variables
 df['col'].value_counts().plot(kind='bar')
 
-# Détection outliers (IQR)
+# Outlier detection (IQR)
 Q1, Q3 = df['col'].quantile([0.25, 0.75])
 IQR = Q3 - Q1
 outliers = df[(df['col'] < Q1-1.5*IQR) | (df['col'] > Q3+1.5*IQR)]
 ```
 
-### 4. Corrélations
+### 4. Correlations
 ```python
-# Matrice de corrélation
+# Correlation matrix
 sns.heatmap(df.corr(), annot=True, cmap='coolwarm')
 
-# Scatter plot paires de variables
+# Scatter plot of variable pairs
 sns.pairplot(df, hue='target')
 ```
 
-## Questions à répondre à l'issue de l'EDA
-- Quelle est la qualité globale des données (score /10) ?
-- Quelles features semblent les plus prédictives de la cible ?
-- Y a-t-il un déséquilibre de classes (classification) ?
-- Des transformations sont-elles nécessaires (log, normalisation, encodage) ?
-- Des anomalies ou erreurs de données ont-elles été détectées ?
+## Questions to answer at the end of the EDA
+- What is the overall data quality (score /10)?
+- Which features look most predictive of the target?
+- Is there class imbalance (classification)?
+- Are transformations needed (log, normalization, encoding)?
+- Were any anomalies or data errors detected?
 
-## Livrables
-- Notebook EDA complet (Jupyter)
-- Rapport de qualité données (1 page)
-- Liste des transformations recommandées
-- Visualisations clés (5-10 graphiques commentés)
+## Deliverables
+- Complete EDA notebook (Jupyter)
+- Data quality report (1 page)
+- List of recommended transformations
+- Key visualizations (5-10 annotated charts)
 
-## Format de sortie
-Précise : dataset (nom, taille, source) · variable cible · type de problème (classification, régression, clustering) · contraintes métier
+## Output format
+Specify: dataset (name, size, source) · target variable · problem type (classification, regression, clustering) · business constraints

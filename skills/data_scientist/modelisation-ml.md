@@ -1,33 +1,33 @@
-# Skill — Modélisation Machine Learning
-> Certifications : IBM Data Science · Google Advanced Data Analytics · Databricks ML Associate · DeepLearning.AI ML Specialization
+# Skill — Machine Learning Modeling
+> Certifications: IBM Data Science · Google Advanced Data Analytics · Databricks ML Associate · DeepLearning.AI ML Specialization
 
-## Objectif
-Sélectionner, entraîner et optimiser les modèles ML les plus adaptés au problème et aux données.
+## Objective
+Select, train and optimize the ML models best suited to the problem and the data.
 
-## Sélection du bon algorithme
+## Choosing the right algorithm
 
 ### Classification
-| Algorithme | Avantages | Quand l'utiliser |
+| Algorithm | Advantages | When to use |
 |---|---|---|
-| Logistic Regression | Interprétable, rapide | Baseline, features linéaires |
-| Random Forest | Robuste, feature importance | Données tabulaires, peu de tuning |
-| XGBoost / LightGBM | Très performant | Compétitions, données mixtes |
-| SVM | Efficace haute dimension | Texte, petits datasets |
-| Neural Network | Complexité non-linéaire | Gros datasets, image, texte |
+| Logistic Regression | Interpretable, fast | Baseline, linear features |
+| Random Forest | Robust, feature importance | Tabular data, little tuning |
+| XGBoost / LightGBM | Very performant | Competitions, mixed data |
+| SVM | Effective in high dimensions | Text, small datasets |
+| Neural Network | Non-linear complexity | Large datasets, image, text |
 
-### Régression
-| Algorithme | Avantages | Quand l'utiliser |
+### Regression
+| Algorithm | Advantages | When to use |
 |---|---|---|
-| Linear Regression | Interprétable | Baseline, relations linéaires |
-| Ridge / Lasso | Régularisation | Multicolinéarité, feature selection |
-| Gradient Boosting | Précis | Prédictions complexes |
-| Neural Network | Très flexible | Séries temporelles, relations complexes |
+| Linear Regression | Interpretable | Baseline, linear relationships |
+| Ridge / Lasso | Regularization | Multicollinearity, feature selection |
+| Gradient Boosting | Accurate | Complex predictions |
+| Neural Network | Very flexible | Time series, complex relationships |
 
-## Entraînement et validation
+## Training and validation
 ```python
 from sklearn.model_selection import train_test_split, cross_val_score, StratifiedKFold
 
-# Split stratifié (important pour classes déséquilibrées)
+# Stratified split (important for imbalanced classes)
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42, stratify=y
 )
@@ -38,12 +38,12 @@ scores = cross_val_score(model, X_train, y_train, cv=cv, scoring='roc_auc')
 print(f"AUC: {scores.mean():.3f} ± {scores.std():.3f}")
 ```
 
-## Optimisation des hyperparamètres
+## Hyperparameter optimization
 ```python
 from sklearn.model_selection import RandomizedSearchCV
 import optuna
 
-# Optuna (recommandé 2026)
+# Optuna (recommended 2026)
 def objective(trial):
     params = {
         'n_estimators': trial.suggest_int('n_estimators', 100, 1000),
@@ -57,33 +57,33 @@ study = optuna.create_study(direction='maximize')
 study.optimize(objective, n_trials=100)
 ```
 
-## Métriques d'évaluation
-| Problème | Métriques clés | Quand les utiliser |
+## Evaluation metrics
+| Problem | Key metrics | When to use |
 |---|---|---|
-| Classification binaire | AUC-ROC, F1, Precision, Recall | Toujours |
-| Classification déséquilibrée | F1-macro, PR-AUC | Classes rares |
-| Régression | MAE, RMSE, R² | Toujours |
-| Ranking | NDCG, MAP | Recommandation |
+| Binary classification | AUC-ROC, F1, Precision, Recall | Always |
+| Imbalanced classification | F1-macro, PR-AUC | Rare classes |
+| Regression | MAE, RMSE, R² | Always |
+| Ranking | NDCG, MAP | Recommendation |
 
-## Interprétabilité (SHAP)
+## Interpretability (SHAP)
 ```python
 import shap
 
 explainer = shap.TreeExplainer(model)
 shap_values = explainer.shap_values(X_test)
 
-# Importance globale
+# Global importance
 shap.summary_plot(shap_values, X_test)
 
-# Explication locale (1 prédiction)
+# Local explanation (1 prediction)
 shap.waterfall_plot(explainer(X_test)[0])
 ```
 
-## Livrables
-- Notebook d'expérimentation (MLflow tracké)
-- Rapport de performance (métriques + visualisations)
-- Modèle sérialisé (joblib / ONNX)
-- Rapport d'interprétabilité SHAP
+## Deliverables
+- Experimentation notebook (MLflow-tracked)
+- Performance report (metrics + visualizations)
+- Serialized model (joblib / ONNX)
+- SHAP interpretability report
 
-## Format de sortie
-Précise : type de problème · métriques prioritaires · contraintes de performance (latence, mémoire) · interprétabilité requise (réglementaire)
+## Output format
+Specify: problem type · priority metrics · performance constraints (latency, memory) · required interpretability (regulatory)

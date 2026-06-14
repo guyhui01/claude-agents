@@ -4,7 +4,7 @@
     "name": "claude-agents",
     "version": "v3.26.2"
   },
-  "generatedAt": "2026-06-12T21:26:55.917Z",
+  "generatedAt": "2026-06-14T11:55:41.080Z",
   "assets": [
     {
       "id": "AGENT-AI-ARCHITECT",
@@ -49,8 +49,8 @@
       "id": "AGENT-DEV-PYTHON-IA",
       "type": "agent",
       "path": "AGENT-DEV-PYTHON-IA.md",
-      "title": "Dev Python IA Expert",
-      "description": "Développement Python & IA — LangChain, RAG, PyTorch, fine-tuning, agents",
+      "title": "Python AI Developer Expert",
+      "description": "Python & AI development — LangChain, RAG, PyTorch, fine-tuning, agents",
       "catalogVersion": "v3.26.2",
       "source": {
         "file": "AGENT-DEV-PYTHON-IA.md",

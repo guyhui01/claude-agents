@@ -1,28 +1,28 @@
 # Skill — LangChain & LangGraph
-> Certifications : DeepLearning.AI LangChain · DeepLearning.AI AI Agents in LangGraph
+> Certifications: DeepLearning.AI LangChain · DeepLearning.AI AI Agents in LangGraph
 
-## Objectif
-Construire des chaînes LLM et des agents stateful avec LangChain et LangGraph.
+## Objective
+Build LLM chains and stateful agents with LangChain and LangGraph.
 
-## LangChain — Concepts clés
+## LangChain — Key concepts
 ```python
 from langchain_anthropic import ChatAnthropic
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
-# Chain basique (LCEL)
+# Basic chain (LCEL)
 chain = prompt | llm | StrOutputParser()
-result = await chain.ainvoke({"input": "Bonjour"})
+result = await chain.ainvoke({"input": "Hello"})
 ```
 
-### Composants principaux
-- **LCEL** (LangChain Expression Language) : pipe `|` pour chaîner
-- **Runnables** : composants enchaînables (prompt, llm, parser, retriever)
-- **Memory** : ConversationBufferMemory, ConversationSummaryMemory
-- **Tools** : @tool decorator, StructuredTool, BaseTool
-- **Retrievers** : VectorStoreRetriever, MultiQueryRetriever, EnsembleRetriever
+### Main components
+- **LCEL** (LangChain Expression Language): pipe `|` to chain components
+- **Runnables**: chainable components (prompt, llm, parser, retriever)
+- **Memory**: ConversationBufferMemory, ConversationSummaryMemory
+- **Tools**: @tool decorator, StructuredTool, BaseTool
+- **Retrievers**: VectorStoreRetriever, MultiQueryRetriever, EnsembleRetriever
 
-## LangGraph — Agents Stateful
+## LangGraph — Stateful agents
 ```python
 from langgraph.graph import StateGraph, END
 from typing import TypedDict
@@ -37,24 +37,24 @@ graph.add_node("tools", tool_node)
 graph.add_conditional_edges("agent", should_continue, {"tools": "tools", "end": END})
 ```
 
-### Concepts LangGraph
-- **StateGraph** : graphe avec état partagé typé
-- **Nodes** : fonctions Python (agent, tools, retriever...)
-- **Edges** : transitions (conditionnelles ou fixes)
-- **Checkpointer** : persistance de l'état (SQLite, PostgreSQL)
-- **Human-in-the-loop** : `interrupt_before` / `interrupt_after`
-- **Subgraphs** : graphes imbriqués pour multi-agents
+### LangGraph concepts
+- **StateGraph**: graph with a typed shared state
+- **Nodes**: Python functions (agent, tools, retriever, ...)
+- **Edges**: transitions (conditional or fixed)
+- **Checkpointer**: state persistence (SQLite, PostgreSQL)
+- **Human-in-the-loop**: `interrupt_before` / `interrupt_after`
+- **Subgraphs**: nested graphs for multi-agent setups
 
-## Pattern ReAct avec LangGraph
+## ReAct pattern with LangGraph
 ```
-START → Agent → [Tool appelé ?] → Tools → Agent → ... → END
+START → Agent → [Tool called?] → Tools → Agent → ... → END
 ```
 
-## Livrables
-- Chain ou graph LangGraph fonctionnel
-- State typé (TypedDict ou Pydantic)
-- Tests des nodes individuels
-- Schéma du graph (Mermaid)
+## Deliverables
+- Working LangGraph chain or graph
+- Typed state (TypedDict or Pydantic)
+- Tests for individual nodes
+- Graph diagram (Mermaid)
 
-## Format de sortie
-Précise : pattern agent souhaité · tools disponibles · LLM · besoin de persistance (checkpointer) · version LangGraph
+## Output format
+Specify: desired agent pattern · available tools · LLM · persistence need (checkpointer) · LangGraph version

@@ -1,25 +1,25 @@
 # Skill — Hugging Face Transformers
-> Certifications : Hugging Face NLP Course · DeepLearning.AI
+> Certifications: Hugging Face NLP Course · DeepLearning.AI
 
-## Objectif
-Utiliser l'écosystème Hugging Face pour l'inférence, le fine-tuning et le déploiement de modèles.
+## Objective
+Use the Hugging Face ecosystem for inference, fine-tuning, and model deployment.
 
-## Pipeline d'inférence (le plus rapide)
+## Inference pipeline (the fastest path)
 ```python
 from transformers import pipeline
 
-# Génération de texte
+# Text generation
 generator = pipeline("text-generation", model="meta-llama/Llama-3.1-8B-Instruct", device="cuda")
-result = generator("Explique le RAG en 3 phrases :", max_new_tokens=200)
+result = generator("Explain RAG in 3 sentences:", max_new_tokens=200)
 
 # Classification
 classifier = pipeline("text-classification", model="cardiffnlp/twitter-roberta-base-sentiment")
 
-# Résumé
+# Summarization
 summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
 ```
 
-## Tokenizer & Model (contrôle fin)
+## Tokenizer & Model (fine-grained control)
 ```python
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
@@ -36,27 +36,27 @@ with torch.no_grad():
 ```python
 from datasets import load_dataset, Dataset
 
-# Charger un dataset public
+# Load a public dataset
 ds = load_dataset("squad", split="train[:1000]")
 
-# Créer un dataset custom
+# Create a custom dataset
 data = {"input": [...], "output": [...]}
 custom_ds = Dataset.from_dict(data)
 ```
 
-## Modèles clés 2026
-| Catégorie | Modèles recommandés |
+## Key models for 2026
+| Category | Recommended models |
 |---|---|
-| LLM généraliste | Llama 3.3 70B · Mistral Large · Qwen 2.5 72B |
-| LLM petit/edge | Phi-3.5 · Gemma 2 9B · Llama 3.2 3B |
+| General-purpose LLM | Llama 3.3 70B · Mistral Large · Qwen 2.5 72B |
+| Small / edge LLM | Phi-3.5 · Gemma 2 9B · Llama 3.2 3B |
 | Embedding | bge-m3 · e5-mistral-7b · text-embedding-3-large |
 | Code | DeepSeek-Coder-V2 · Qwen2.5-Coder |
 | Vision | LLaVA · InternVL2 · Qwen2-VL |
 
-## Livrables
-- Script d'inférence fonctionnel
-- Pipeline configuré et testé
-- Benchmark de performance (latence, qualité)
+## Deliverables
+- Working inference script
+- Configured and tested pipeline
+- Performance benchmark (latency, quality)
 
-## Format de sortie
-Précise : tâche NLP · modèle souhaité ou à recommander · GPU disponible · contraintes RAM/VRAM
+## Output format
+Specify: NLP task · desired model or model to recommend · available GPU · RAM/VRAM constraints

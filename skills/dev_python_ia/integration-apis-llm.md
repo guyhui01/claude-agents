@@ -1,8 +1,8 @@
-# Skill — Intégration APIs LLM (Python)
-> Certifications : DeepLearning.AI · Anthropic Claude Code in Action
+# Skill — LLM API Integration (Python)
+> Certifications: DeepLearning.AI · Anthropic Claude Code in Action
 
-## Objectif
-Intégrer et utiliser les principales APIs LLM en Python de façon robuste et économique.
+## Objective
+Integrate and use the main LLM APIs in Python in a robust and cost-efficient way.
 
 ## Anthropic SDK (Claude)
 ```python
@@ -10,11 +10,11 @@ import anthropic
 
 client = anthropic.Anthropic(api_key="...")
 
-# Appel basique
+# Basic call
 message = client.messages.create(
     model="claude-opus-4-8",
     max_tokens=1024,
-    messages=[{"role": "user", "content": "Explique le RAG"}]
+    messages=[{"role": "user", "content": "Explain RAG"}]
 )
 
 # Streaming
@@ -38,26 +38,26 @@ response = await client.chat.completions.create(
 )
 ```
 
-## Abstraction multi-provider (LiteLLM)
+## Multi-provider abstraction (LiteLLM)
 ```python
 import litellm
 
-# Même interface pour tous les providers
+# Same interface for every provider
 response = await litellm.acompletion(
-    model="anthropic/claude-opus-4-8",  # ou "openai/gpt-4o", "mistral/mistral-large"
+    model="anthropic/claude-opus-4-8",  # or "openai/gpt-4o", "mistral/mistral-large"
     messages=[{"role": "user", "content": prompt}]
 )
 ```
 
-## Optimisation des coûts
-| Technique | Économie estimée |
+## Cost optimization
+| Technique | Estimated saving |
 |---|---|
-| **Prompt Caching** (Anthropic) | jusqu'à 90% sur les prompts répétés |
-| **Batch API** (Anthropic/OpenAI) | 50% de réduction si pas de temps réel |
-| **Modèle plus petit** (Haiku vs Opus) | 90% moins cher, suffisant pour tâches simples |
-| **Max tokens limité** | Évite les réponses inutilement longues |
+| **Prompt Caching** (Anthropic) | up to 90% on repeated prompts |
+| **Batch API** (Anthropic/OpenAI) | 50% reduction when real-time isn't needed |
+| **Smaller model** (Haiku vs Opus) | 90% cheaper, enough for simple tasks |
+| **Capped max tokens** | Avoids needlessly long responses |
 
-## Gestion des erreurs
+## Error handling
 ```python
 from anthropic import RateLimitError, APIError
 from tenacity import retry, stop_after_attempt, wait_exponential
@@ -67,10 +67,10 @@ from tenacity import retry, stop_after_attempt, wait_exponential
 async def call_claude(prompt: str) -> str: ...
 ```
 
-## Livrables
-- Client LLM configuré avec retry et gestion d'erreurs
-- Estimation du coût mensuel selon le volume
-- Tests d'intégration avec mock pour les tests unitaires
+## Deliverables
+- LLM client configured with retry and error handling
+- Monthly cost estimate based on volume
+- Integration tests with mocks for unit testing
 
-## Format de sortie
-Précise : provider(s) · modèle(s) cibles · volume de requêtes/jour · besoin streaming · tools à implémenter
+## Output format
+Specify: provider(s) · target model(s) · requests/day volume · streaming need · tools to implement

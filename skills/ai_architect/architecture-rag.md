@@ -1,66 +1,66 @@
-# Skill — Architecture RAG (Retrieval-Augmented Generation)
-> Certifications : AWS MLS-C01 · Google Professional ML Engineer · DeepLearning.AI RAG
+# Skill — RAG Architecture (Retrieval-Augmented Generation)
+> Certifications: AWS MLS-C01 · Google Professional ML Engineer · DeepLearning.AI RAG
 
-## Objectif
-Concevoir et optimiser un pipeline RAG pour ancrer les réponses LLM dans des données fiables.
+## Objective
+Design and optimize a RAG pipeline to ground LLM answers in reliable data.
 
-## Pipeline RAG standard
+## Standard RAG pipeline
 
 ```mermaid
 flowchart LR
-    subgraph Indexation[Indexation - offline]
+    subgraph Indexing[Indexing - offline]
         D[Documents<br/>PDF/DOCX/HTML] --> C[Chunking<br/>recursive 512-1024 tokens]
         C --> E[Embedding<br/>voyage-3-large]
         E --> VS[(Vector Store<br/>Qdrant / pgvector)]
     end
     subgraph Runtime[Runtime - online]
-        Q[Query utilisateur] --> QE[Query Embedding]
-        QE --> R[Hybrid Retrieval<br/>vectoriel + BM25]
+        Q[User query] --> QE[Query Embedding]
+        QE --> R[Hybrid Retrieval<br/>vector + BM25]
         VS --> R
         R --> RR[Reranking<br/>Cohere rerank-v3]
         RR --> L[LLM<br/>Claude Sonnet 4.6]
-        L --> A[Réponse + sources citées]
+        L --> A[Answer + cited sources]
     end
 ```
 
-## Étapes détaillées
+## Detailed steps
 
 ### 1. Ingestion
-- Formats supportés : PDF, DOCX, HTML, Markdown, JSON, CSV
-- Extraction : LlamaParse, Unstructured, PDFPlumber
-- Nettoyage : suppression headers/footers, normalisation
+- Supported formats: PDF, DOCX, HTML, Markdown, JSON, CSV
+- Extraction: LlamaParse, Unstructured, PDFPlumber
+- Cleaning: remove headers/footers, normalization
 
-### 2. Chunking (découpage)
-| Stratégie | Taille | Idéal pour |
+### 2. Chunking
+| Strategy | Size | Ideal for |
 |---|---|---|
-| Fixed size | 512-1024 tokens | Documents homogènes |
-| Recursive | Variable | Texte structuré |
-| Semantic | Variable | Précision maximale |
-| Parent-child | Hiérarchique | Context riche + précision |
+| Fixed size | 512-1024 tokens | Homogeneous documents |
+| Recursive | Variable | Structured text |
+| Semantic | Variable | Maximum precision |
+| Parent-child | Hierarchical | Rich context + precision |
 
 ### 3. Embedding (2026)
-- **Voyage AI** voyage-3-large (1024 dim) — partenaire Anthropic, leader benchmark MTEB 2025
-- **OpenAI** text-embedding-3-large (3072 dim) — qualité, plus cher
-- **Cohere** embed-multilingual-v3 — multilingue excellent
-- **HuggingFace** bge-m3 — open source, multilingue, self-hosted
+- **Voyage AI** voyage-3-large (1024 dim) — Anthropic partner, MTEB 2025 benchmark leader
+- **OpenAI** text-embedding-3-large (3072 dim) — quality, pricier
+- **Cohere** embed-multilingual-v3 — excellent multilingual
+- **HuggingFace** bge-m3 — open source, multilingual, self-hosted
 
-### Code de chunking récursif (référence Python)
+### Recursive chunking code (Python reference)
 
 ```python
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_voyageai import VoyageAIEmbeddings
 from langchain_qdrant import QdrantVectorStore
 
-# Hiérarchie de séparateurs : on tente de couper à \n\n, puis \n, puis phrases, puis mots
+# Separator hierarchy: try to split at \n\n, then \n, then sentences, then words
 splitter = RecursiveCharacterTextSplitter(
-    chunk_size=1000,            # ~750 tokens, sweet spot retrieval
-    chunk_overlap=200,           # 20% de chevauchement → continuité sémantique
+    chunk_size=1000,            # ~750 tokens, retrieval sweet spot
+    chunk_overlap=200,           # 20% overlap → semantic continuity
     separators=["\n\n", "\n", ". ", " ", ""],
     length_function=len,
 )
 chunks = splitter.split_documents(docs)
 
-# Métadonnées propagées automatiquement aux chunks (source, page, section)
+# Metadata propagated automatically to the chunks (source, page, section)
 for chunk in chunks:
     chunk.metadata["chunk_id"] = f"{chunk.metadata['source']}-{chunk.metadata.get('page', 0)}"
 
@@ -72,28 +72,28 @@ vs = QdrantVectorStore.from_documents(chunks, embeddings, url="http://localhost:
 - pgvector (PostgreSQL) · Qdrant · Pinecone · Weaviate
 
 ### 5. Retrieval
-- **Similarity search** : cosine similarity de base
-- **Hybrid search** : vectoriel + BM25 (keyword) → meilleure précision
-- **MMR** (Maximal Marginal Relevance) : diversité des résultats
+- **Similarity search**: basic cosine similarity
+- **Hybrid search**: vector + BM25 (keyword) → better precision
+- **MMR** (Maximal Marginal Relevance): result diversity
 
-### 6. Reranking (optionnel mais recommandé)
+### 6. Reranking (optional but recommended)
 - Cohere Rerank · CrossEncoder (HuggingFace)
-- Améliore la précision de 10-30%
+- Improves precision by 10-30%
 
 ### Advanced RAG patterns
-- **HyDE** (Hypothetical Document Embeddings) : générer un doc hypothétique avant d'embedder la query
-- **RAG Fusion** : multi-query + fusion des résultats
-- **Self-RAG** : l'agent décide s'il a besoin de retrieval
-- **CRAG** (Corrective RAG) : évaluation de la pertinence des chunks récupérés
+- **HyDE** (Hypothetical Document Embeddings): generate a hypothetical doc before embedding the query
+- **RAG Fusion**: multi-query + result fusion
+- **Self-RAG**: the agent decides whether it needs retrieval
+- **CRAG** (Corrective RAG): relevance assessment of the retrieved chunks
 
-## Métriques de qualité RAG
+## RAG quality metrics
 Context Precision · Context Recall · Faithfulness · Answer Relevance (via RAGAs)
 
-## Livrables
-- Diagramme du pipeline RAG
-- Choix justifiés (chunking, embedding, vector DB, reranking)
-- Rapport RAGAs (métriques de qualité)
-- Recommandations d'optimisation
+## Deliverables
+- RAG pipeline diagram
+- Justified choices (chunking, embedding, vector DB, reranking)
+- RAGAs report (quality metrics)
+- Optimization recommendations
 
-## Format de sortie
-Précise : type de documents · volume (nb docs, taille moy.) · langue · contraintes latence · LLM cible
+## Output format
+Specify: document type · volume (# docs, avg size) · language · latency constraints · target LLM

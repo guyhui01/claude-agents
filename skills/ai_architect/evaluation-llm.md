@@ -1,119 +1,119 @@
-# Skill — Évaluation LLM & Agents
-> Certifications : Google Professional ML Engineer · DeepLearning.AI
+# Skill — LLM & Agent Evaluation
+> Certifications: Google Professional ML Engineer · DeepLearning.AI
 
-## Objectif
-Mesurer objectivement la qualité d'un LLM, d'un pipeline RAG ou d'un système agentique.
+## Objective
+Objectively measure the quality of an LLM, a RAG pipeline or an agentic system.
 
-## Dimensions d'évaluation
+## Evaluation dimensions
 
-### 1. Qualité des réponses LLM
-| Métrique | Description | Outil |
+### 1. LLM response quality
+| Metric | Description | Tool |
 |---|---|---|
-| **Faithfulness** | La réponse est-elle fidèle aux sources ? | RAGAs, RAGAS |
-| **Answer Relevance** | La réponse répond-elle à la question ? | RAGAs |
-| **Hallucination Rate** | % de faits inventés | DeepEval, TruLens |
-| **Coherence** | Logique interne de la réponse | LangSmith |
-| **Toxicity** | Contenu nuisible, biais | Perspective API |
+| **Faithfulness** | Is the answer faithful to the sources? | RAGAs, RAGAS |
+| **Answer Relevance** | Does the answer address the question? | RAGAs |
+| **Hallucination Rate** | % of invented facts | DeepEval, TruLens |
+| **Coherence** | Internal logic of the answer | LangSmith |
+| **Toxicity** | Harmful content, bias | Perspective API |
 
-### 2. Évaluation RAG spécifique (RAGAs framework)
-- **Context Precision** : le contexte récupéré est-il pertinent ?
-- **Context Recall** : toute l'info nécessaire est-elle récupérée ?
-- **Answer Faithfulness** : la réponse se base-t-elle sur le contexte ?
-- **Answer Relevance** : la réponse est-elle utile à la question ?
+### 2. RAG-specific evaluation (RAGAs framework)
+- **Context Precision**: is the retrieved context relevant?
+- **Context Recall**: is all the necessary info retrieved?
+- **Answer Faithfulness**: is the answer grounded in the context?
+- **Answer Relevance**: is the answer useful to the question?
 
-### 3. Évaluation agents
-- **Task Completion Rate** : % de tâches complétées avec succès
-- **Steps Efficiency** : nombre d'étapes pour compléter la tâche
-- **Tool Usage Accuracy** : bons tools appelés avec bons paramètres
-- **Human Escalation Rate** : % de cas nécessitant intervention humaine
+### 3. Agent evaluation
+- **Task Completion Rate**: % of tasks completed successfully
+- **Steps Efficiency**: number of steps to complete the task
+- **Tool Usage Accuracy**: right tools called with the right parameters
+- **Human Escalation Rate**: % of cases requiring human intervention
 
-## Benchmarks publics de référence (2025-2026)
+## Reference public benchmarks (2025-2026)
 
-| Benchmark | Ce qu'il mesure | État 2026 |
+| Benchmark | What it measures | State in 2026 |
 |---|---|---|
-| **GPQA Diamond** | Raisonnement PhD-level (bio/physique/chimie) | Actif — référence raisonnement |
-| **IFEval** | Suivi d'instructions complexes | Actif — capacité contrôle |
-| **MMLU-Pro** | MMLU + raisonnement (remplace MMLU classique) | Actif |
-| **HumanEval+** / **LiveCodeBench** | Génération de code (saturé sur HumanEval pur) | Actif — code |
-| **TruthfulQA** | Résistance aux fausses idées populaires | Actif |
-| **SWE-bench Verified** | Capacité à résoudre des issues GitHub réelles | Référence agents code |
-| **τ-bench** (Tau-Bench) | Tâches agentiques avec tools (airline, retail) | Référence agents 2025+ |
-| **LMArena Elo** | Préférences humaines comparatives | Référence vibes |
-| **MMLU** / **HumanEval** | ⚠ Saturés (2023) — éviter comme métrique principale | Obsolètes |
+| **GPQA Diamond** | PhD-level reasoning (bio/physics/chemistry) | Active — reasoning reference |
+| **IFEval** | Following complex instructions | Active — control capability |
+| **MMLU-Pro** | MMLU + reasoning (replaces classic MMLU) | Active |
+| **HumanEval+** / **LiveCodeBench** | Code generation (saturated on plain HumanEval) | Active — code |
+| **TruthfulQA** | Resistance to popular misconceptions | Active |
+| **SWE-bench Verified** | Ability to solve real GitHub issues | Code-agent reference |
+| **τ-bench** (Tau-Bench) | Agentic tasks with tools (airline, retail) | Agent reference 2025+ |
+| **LMArena Elo** | Comparative human preferences | Vibes reference |
+| **MMLU** / **HumanEval** | ⚠ Saturated (2023) — avoid as a primary metric | Obsolete |
 
-## Outils d'évaluation (2026)
+## Evaluation tools (2026)
 
-| Outil | Usage | Note |
+| Tool | Use | Note |
 |---|---|---|
-| **RAGAs** | Pipelines RAG (faithfulness, context_recall) | Standard de fait |
-| **DeepEval** | Tests LLM (pytest-like, ~40 métriques) | Pour CI/CD |
-| **Braintrust** | Eval + logging + dataset management | SaaS, recommandé prod |
-| **LangSmith** | Tracing + évaluation LangChain | Couplé LangChain |
-| **Promptfoo** | Comparaison de prompts (matrix tests) | CLI léger |
-| **Inspect AI** (UK AISI) | Évaluations sécurité / red-team | Open source |
-| **OpenAI Evals** | Framework de tests OpenAI | Si stack OpenAI |
+| **RAGAs** | RAG pipelines (faithfulness, context_recall) | De facto standard |
+| **DeepEval** | LLM tests (pytest-like, ~40 metrics) | For CI/CD |
+| **Braintrust** | Eval + logging + dataset management | SaaS, recommended for prod |
+| **LangSmith** | Tracing + LangChain evaluation | Coupled with LangChain |
+| **Promptfoo** | Prompt comparison (matrix tests) | Lightweight CLI |
+| **Inspect AI** (UK AISI) | Security / red-team evaluations | Open source |
+| **OpenAI Evals** | OpenAI test framework | If on an OpenAI stack |
 
 ## Golden Dataset — Template
 
-Un golden dataset est la **vérité terrain** contre laquelle tu mesures le système. Curé manuellement, versionné en git.
+A golden dataset is the **ground truth** you measure the system against. Manually curated, versioned in git.
 
 ```yaml
-# golden_dataset.yaml — versionné en git, revu par un expert métier
+# golden_dataset.yaml — versioned in git, reviewed by a domain expert
 version: "2026.05"
-domain: "support_client_assurance"
+domain: "insurance_customer_support"
 samples:
   - id: "GS-001"
-    category: "sinistre_simple"
+    category: "simple_claim"
     difficulty: "easy"
-    question: "Comment déclarer un dégât des eaux ?"
-    expected_answer_contains:        # mots-clés obligatoires
-      - "formulaire en ligne"
-      - "constat amiable"
-      - "5 jours ouvrés"
-    must_cite_source: "art-L113-2"   # référence légale attendue
-    must_not_contain:                # garde-fous (hallucination)
-      - "remboursement immédiat"
-      - "100% pris en charge"
+    question: "How do I report water damage?"
+    expected_answer_contains:        # required keywords
+      - "online form"
+      - "claim statement"
+      - "5 business days"
+    must_cite_source: "art-L113-2"   # expected legal reference
+    must_not_contain:                # guardrails (hallucination)
+      - "immediate reimbursement"
+      - "100% covered"
   - id: "GS-002"
     category: "edge_case"
     difficulty: "hard"
-    question: "Mon assurance couvre-t-elle un sinistre à l'étranger pendant un télétravail ?"
+    question: "Does my insurance cover a claim abroad while working remotely?"
     expected_answer_contains:
-      - "extension territoriale"
-      - "vérification contrat"
-    must_escalate_to_human: true     # le système doit déclencher l'escalade
+      - "territorial extension"
+      - "policy verification"
+    must_escalate_to_human: true     # the system must trigger an escalation
 ```
 
-**Taille recommandée** : 50 cas minimum (POC), 200-500 (production), avec 20-30% d'edge cases.
+**Recommended size**: 50 cases minimum (POC), 200-500 (production), with 20-30% edge cases.
 
-## Format de rapport mensuel
+## Monthly report format
 
 ```
-RAPPORT D'ÉVAL — [Système] — [Mois]
+EVAL REPORT — [System] — [Month]
 ====================================
-Modèle      : claude-sonnet-4-6
+Model       : claude-sonnet-4-6
 Dataset     : golden_v2026.05 (N=247)
 
-SCORES :
-  Faithfulness         : 0.91 (cible ≥ 0.90)  ✓
-  Context Recall       : 0.84 (cible ≥ 0.80)  ✓
-  Answer Relevancy     : 0.88 (cible ≥ 0.85)  ✓
-  Hallucination Rate   : 3.2% (cible ≤ 5%)    ✓
-  Escalation Precision : 0.76 (cible ≥ 0.80)  ✗ → action plan
+SCORES:
+  Faithfulness         : 0.91 (target ≥ 0.90)  ✓
+  Context Recall       : 0.84 (target ≥ 0.80)  ✓
+  Answer Relevancy     : 0.88 (target ≥ 0.85)  ✓
+  Hallucination Rate   : 3.2% (target ≤ 5%)    ✓
+  Escalation Precision : 0.76 (target ≥ 0.80)  ✗ → action plan
 
-RÉGRESSIONS vs MOIS-1 :
-  - 4 cas dégradés (cf. cases_regressed.csv)
+REGRESSIONS vs MONTH-1:
+  - 4 degraded cases (cf. cases_regressed.csv)
 
-ACTIONS :
-  1. Améliorer le prompt d'escalade (voir PR #142)
-  2. Enrichir le golden set avec 15 nouveaux edge cases télétravail
+ACTIONS:
+  1. Improve the escalation prompt (see PR #142)
+  2. Enrich the golden set with 15 new remote-work edge cases
 ```
 
-## Livrables
-- Rapport d'évaluation avec scores par dimension
-- Golden dataset de référence (50-200 Q/A)
-- Tableau de bord métriques en continu
-- Recommandations d'amélioration (prompt, RAG, modèle)
+## Deliverables
+- Evaluation report with scores per dimension
+- Reference golden dataset (50-200 Q/A)
+- Continuous metrics dashboard
+- Improvement recommendations (prompt, RAG, model)
 
-## Format de sortie
-Précise : type de système (LLM seul, RAG, agent) · cas d'usage · métriques prioritaires · fréquence d'évaluation
+## Output format
+Specify: system type (LLM only, RAG, agent) · use case · priority metrics · evaluation frequency

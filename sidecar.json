@@ -4,14 +4,14 @@
     "name": "claude-agents",
     "version": "v3.26.2"
   },
-  "generatedAt": "2026-06-14T12:00:00.521Z",
+  "generatedAt": "2026-06-14T16:59:54.778Z",
   "assets": [
     {
       "id": "AGENT-AI-ARCHITECT",
       "type": "agent",
       "path": "AGENT-AI-ARCHITECT.md",
       "title": "AI Architect Expert",
-      "description": "Architecture IA — RAG, multi-agents, MCP/A2A, évaluation LLM, cloud IA",
+      "description": "AI architecture — RAG, multi-agent, MCP/A2A, LLM evaluation, AI cloud",
       "catalogVersion": "v3.26.2",
       "source": {
         "file": "AGENT-AI-ARCHITECT.md",

@@ -1,59 +1,59 @@
-# Skill — Choix de Stack IA
-> Certifications : AWS AIF-C01 · Azure AI-102 · Google Professional ML Engineer
+# Skill — AI Stack Selection
+> Certifications: AWS AIF-C01 · Azure AI-102 · Google Professional ML Engineer
 
-## Objectif
-Choisir la stack technique IA adaptée au projet en évaluant les trade-offs make vs. buy.
+## Objective
+Choose the AI technical stack that fits the project by weighing make vs. buy trade-offs.
 
-## Framework de décision
+## Decision framework
 
-### 1. LLM — Quel modèle ?
-| Critère | Cloud (API) | On-premise / Self-hosted |
+### 1. LLM — Which model?
+| Criterion | Cloud (API) | On-premise / Self-hosted |
 |---|---|---|
-| Facilité | ✓✓✓ | ✗ |
-| Coût à grande échelle | ✗ | ✓✓ |
-| Privacy / RGPD | Risque | ✓✓✓ |
-| Performance | ✓✓✓ | Dépend du modèle |
+| Ease | ✓✓✓ | ✗ |
+| Cost at scale | ✗ | ✓✓ |
+| Privacy / GDPR | Risk | ✓✓✓ |
+| Performance | ✓✓✓ | Depends on the model |
 
-**Modèles 2026 :**
-- Frontier : Claude 4 (Anthropic) · GPT-4o (OpenAI) · Gemini 2.0 (Google)
-- Open source : Llama 3.3 · Mistral Large · Qwen 2.5 · DeepSeek V3
+**2026 models:**
+- Frontier: Claude 4 (Anthropic) · GPT-4o (OpenAI) · Gemini 2.0 (Google)
+- Open source: Llama 3.3 · Mistral Large · Qwen 2.5 · DeepSeek V3
 
-### 2. Orchestration — Quel framework agent ?
-| Framework | Points forts | Idéal pour |
+### 2. Orchestration — Which agent framework?
+| Framework | Strengths | Ideal for |
 |---|---|---|
-| LangGraph | Graphes stateful, cycles, human-in-the-loop | Agents complexes Python |
-| Claude Agent SDK | Natif Anthropic, MCP natif | Projets Claude-first |
-| CrewAI | Role-based, simple à configurer | Équipes d'agents |
-| AutoGen | Multi-agent conversationnel | Recherche, prototypage |
-| Semantic Kernel | Enterprise .NET + Python | Contexte Microsoft |
+| LangGraph | Stateful graphs, cycles, human-in-the-loop | Complex Python agents |
+| Claude Agent SDK | Native Anthropic, native MCP | Claude-first projects |
+| CrewAI | Role-based, simple to configure | Agent teams |
+| AutoGen | Conversational multi-agent | Research, prototyping |
+| Semantic Kernel | Enterprise .NET + Python | Microsoft context |
 
-### 3. RAG — Quelle Vector DB ?
-| DB | Points forts | Hébergement |
+### 3. RAG — Which Vector DB?
+| DB | Strengths | Hosting |
 |---|---|---|
-| pgvector | Intégré PostgreSQL | Self-hosted / cloud |
-| Pinecone | Managé, performant | SaaS |
+| pgvector | Built into PostgreSQL | Self-hosted / cloud |
+| Pinecone | Managed, performant | SaaS |
 | Qdrant | Open source, performant | Self-hosted / cloud |
 | Weaviate | Multimodal, GraphQL | Self-hosted / cloud |
 
-### 4. Cloud IA — Quel provider ?
-| Provider | Points forts | Modèles dispo |
+### 4. AI cloud — Which provider?
+| Provider | Strengths | Available models |
 |---|---|---|
-| AWS Bedrock | Accès multi-modèles, IAM robuste | Claude, Llama, Mistral |
-| Azure OpenAI | Conformité enterprise, RGPD EU | GPT-4o, Claude |
-| GCP Vertex AI | Gemini natif, MLOps intégré | Gemini, Llama, Claude |
+| AWS Bedrock | Multi-model access, robust IAM | Claude, Llama, Mistral |
+| Azure OpenAI | Enterprise compliance, EU GDPR | GPT-4o, Claude |
+| GCP Vertex AI | Native Gemini, integrated MLOps | Gemini, Llama, Claude |
 
-## Matrice de décision rapide
+## Quick decision matrix
 ```
-Budget limité + RGPD critique  → Llama 3 + Qdrant self-hosted + LangGraph
-Rapidité + qualité max         → Claude 4 API + LangGraph + Pinecone
-Enterprise Microsoft           → Azure OpenAI + Semantic Kernel
-Full Google                    → Gemini + Vertex AI + LangGraph
+Limited budget + critical GDPR  → Llama 3 + Qdrant self-hosted + LangGraph
+Speed + max quality             → Claude 4 API + LangGraph + Pinecone
+Microsoft enterprise            → Azure OpenAI + Semantic Kernel
+Full Google                     → Gemini + Vertex AI + LangGraph
 ```
 
-## Livrables
-- Architecture Decision Record (ADR) documenté
-- Comparatif des options avec scoring
-- Estimation du coût mensuel par option
+## Deliverables
+- Documented Architecture Decision Record (ADR)
+- Option comparison with scoring
+- Monthly cost estimate per option
 
-## Format de sortie
-Précise : cas d'usage · budget · contraintes RGPD · stack existante · équipe technique
+## Output format
+Specify: use case · budget · GDPR constraints · existing stack · technical team

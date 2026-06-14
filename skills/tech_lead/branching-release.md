@@ -1,43 +1,43 @@
-# Skill — Branching Strategy et Release Management
-> Certifications : GitHub Actions Certifications · GitHub Certifications · CKAD Linux Foundation
+# Skill — Branching Strategy and Release Management
+> Certifications: GitHub Actions Certifications · GitHub Certifications · CKAD Linux Foundation
 
-## Objectif
-Définir et mettre en place la stratégie de branches et le processus de release : GitFlow vs Trunk-Based, semantic versioning, release notes automatisées — adapté à la taille de l'équipe et à la cadence de déploiement.
+## Objective
+Define and roll out the branching strategy and release process: GitFlow vs Trunk-Based, semantic versioning, automated release notes — tailored to team size and deployment cadence.
 
-## Comparatif des stratégies de branches
+## Branching strategies — Comparison
 
 ```
-STRATÉGIE       DESCRIPTION                          ÉQUIPE     DÉPLOIEMENT    COMPLEXITÉ
+STRATEGY        DESCRIPTION                          TEAM       DEPLOYMENT     COMPLEXITY
 ──────────────  ───────────────────────────────────  ─────────  ─────────────  ──────────
-Trunk-Based     Commits directs sur main             5-15 devs  Continu (CD)   Faible
-Development     Feature flags pour l'isolation        Feature    Plusieurs/jour
-                Branches courtes (< 1 jour)          flags requis
+Trunk-Based     Direct commits to main               5-15 devs  Continuous (CD) Low
+Development     Feature flags for isolation           Feature    Several/day
+                Short branches (< 1 day)             flags required
 
-GitHub Flow     main + feature branches              1-10 devs  À chaque PR    Faible
-(recommandé)    PR → review → merge → deploy         Solo/petit  merged
-                Simple, efficace pour CD
+GitHub Flow     main + feature branches              1-10 devs  On each PR      Low
+(recommended)   PR → review → merge → deploy         Solo/small  merged
+                Simple, effective for CD
 
-GitFlow         main + develop + feature             > 20 devs  Release planif. Élevée
-                + release + hotfix                   Multi-équipes Mensuel/trimestr.
-                Adapté aux releases cadencées
+GitFlow         main + develop + feature             > 20 devs  Planned release High
+                + release + hotfix                   Multi-teams  Monthly/quarterly
+                Suited to cadenced releases
 
-Scaled Trunk    Trunk-Based + feature flags          > 50 devs  Continu        Moyenne
-(SAFe/FAANG)    Release trains, experimentation      PI / ART    Multi/jour
+Scaled Trunk    Trunk-Based + feature flags          > 50 devs  Continuous      Medium
+(SAFe/FAANG)    Release trains, experimentation      PI / ART    Multiple/day
 ```
 
-## GitHub Flow — Configuration recommandée
+## GitHub Flow — Recommended configuration
 
 ```bash
-# Convention de nommage des branches
-feat/PROJ-123-add-order-cancellation   # Nouvelle feature
-fix/PROJ-456-null-pointer-checkout     # Correction de bug
+# Branch naming convention
+feat/PROJ-123-add-order-cancellation   # New feature
+fix/PROJ-456-null-pointer-checkout     # Bug fix
 refactor/cleanup-order-service         # Refactoring
 docs/update-api-readme                 # Documentation
 chore/upgrade-node-22                  # Maintenance
 
-# Workflow type
+# Typical workflow
 git checkout -b feat/PROJ-123-description
-# ... développement ...
+# ... development ...
 git commit -m "feat(orders): add bulk cancellation endpoint
 
 Closes #123
@@ -46,34 +46,34 @@ Closes #123
 - Emit OrderCancelled events for each order"
 
 git push -u origin feat/PROJ-123-description
-# Créer la PR → Review → Merge squash → Deploy auto
+# Open the PR → Review → Squash merge → Auto deploy
 ```
 
 ## Semantic Versioning (SemVer)
 
 ```
-VERSION FORMAT : MAJOR.MINOR.PATCH (ex: 2.4.1)
+VERSION FORMAT: MAJOR.MINOR.PATCH (e.g. 2.4.1)
 
 MAJOR (X.0.0) — Breaking change
-  Exemples : suppression d'un endpoint, changement de schéma DB,
-             refactoring d'API incompatible en arrière
-  → Nécessite migration documentée pour les clients
+  Examples: removing an endpoint, DB schema change,
+            backward-incompatible API refactoring
+  → Requires documented migration for clients
 
-MINOR (X.Y.0) — Nouvelle feature rétrocompatible
-  Exemples : nouvel endpoint, nouveau champ optionnel,
-             nouvelle configuration facultative
-  → Rétrocompatible, upgrade transparent
+MINOR (X.Y.0) — Backward-compatible new feature
+  Examples: new endpoint, new optional field,
+            new optional configuration
+  → Backward-compatible, transparent upgrade
 
-PATCH (X.Y.Z) — Bug fix rétrocompatible
-  Exemples : correction bug, amélioration perf,
-             mise à jour dépendance de sécurité
-  → Déployable immédiatement, 0 risk
+PATCH (X.Y.Z) — Backward-compatible bug fix
+  Examples: bug fix, perf improvement,
+            security dependency update
+  → Immediately deployable, 0 risk
 
-PRE-RELEASE : 2.4.0-alpha.1, 2.4.0-beta.3, 2.4.0-rc.1
-BUILD : 2.4.1+20260526
+PRE-RELEASE: 2.4.0-alpha.1, 2.4.0-beta.3, 2.4.0-rc.1
+BUILD: 2.4.1+20260526
 ```
 
-## Release automatisée — semantic-release
+## Automated release — semantic-release
 
 ```json
 // .releaserc.json
@@ -93,37 +93,37 @@ BUILD : 2.4.1+20260526
 }
 ```
 
-## Conventional Commits — Convention obligatoire
+## Conventional Commits — Mandatory convention
 
 ```
-FORMAT : <type>(<scope>): <description>
+FORMAT: <type>(<scope>): <description>
 
-TYPES RECONNUS PAR semantic-release :
+TYPES RECOGNIZED BY semantic-release:
   feat     → bump MINOR
   fix      → bump PATCH
   BREAKING CHANGE (footer) → bump MAJOR
   perf     → bump PATCH
-  refactor → pas de bump
-  docs     → pas de bump
-  chore    → pas de bump
-  test     → pas de bump
-  ci       → pas de bump
+  refactor → no bump
+  docs     → no bump
+  chore    → no bump
+  test     → no bump
+  ci       → no bump
 
-EXEMPLES :
+EXAMPLES:
   feat(orders): add bulk cancellation API
   fix(auth): prevent session fixation on login
   refactor(payments): extract PaymentProcessor service
   feat!: remove deprecated v1 endpoints   ← BREAKING (!)
-  
+
   feat(orders): support recurring orders
-  
+
   BREAKING CHANGE: RecurringOrder replaces ScheduledOrder type
 ```
 
-## Protection de branches — GitHub
+## Branch protection — GitHub
 
 ```yaml
-# Exemple configuration via GitHub API / Terraform
+# Example configuration via GitHub API / Terraform
 branch_protection_rule:
   pattern: "main"
   required_status_checks:
@@ -133,18 +133,18 @@ branch_protection_rule:
   required_approving_review_count: 1
   dismiss_stale_reviews: true
   require_code_owner_reviews: true
-  required_linear_history: true    # Squash merge uniquement
+  required_linear_history: true    # Squash merge only
   allow_force_pushes: false
   allow_deletions: false
 ```
 
-## Livrables
-- Stratégie de branches documentée (guide équipe)
-- Configuration branch protection (GitHub)
-- Configuration semantic-release (CHANGELOG auto)
-- Workflow Git illustré (diagramme)
-- Checklist pre-release (smoke tests, migration, rollback plan)
-- Runbook de hotfix (procédure d'urgence)
+## Deliverables
+- Documented branching strategy (team guide)
+- Branch protection configuration (GitHub)
+- semantic-release configuration (auto CHANGELOG)
+- Illustrated Git workflow (diagram)
+- Pre-release checklist (smoke tests, migration, rollback plan)
+- Hotfix runbook (emergency procedure)
 
-## Format de sortie
-Précise : **taille équipe** (1, 5, 20+ devs), **fréquence de déploiement** (continu, hebdo, mensuel), **contraintes** (plusieurs environnements, clients avec contrat de version, compliance), **état actuel** (chaos git ou stratégie existante à affiner).
+## Output format
+Specify: **team size** (1, 5, 20+ devs), **deployment frequency** (continuous, weekly, monthly), **constraints** (multiple environments, clients with version contracts, compliance), **current state** (git chaos or existing strategy to refine).

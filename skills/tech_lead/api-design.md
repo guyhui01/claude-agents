@@ -1,38 +1,38 @@
 # Skill — API Design (REST, GraphQL, AsyncAPI)
-> Certifications : Postman API Fundamentals Expert (Postman 2024) · AWS DVA-C02 · Google Professional Cloud Developer
+> Certifications: Postman API Fundamentals Expert (Postman 2024) · AWS DVA-C02 · Google Professional Cloud Developer
 
-## Objectif
-Concevoir des APIs lisibles, cohérentes et évolutives : conventions REST, schéma GraphQL, contrat AsyncAPI pour les événements — avec documentation OpenAPI 3.x et stratégie de versioning.
+## Objective
+Design readable, consistent and evolvable APIs: REST conventions, GraphQL schema, AsyncAPI event contract — with OpenAPI 3.x documentation and a versioning strategy.
 
-## REST — Conventions de nommage
+## REST — Naming conventions
 
 ```
-RESSOURCE       URL                              MÉTHODE   DESCRIPTION
+RESOURCE        URL                              METHOD    DESCRIPTION
 ────────────    ──────────────────────────────   ───────   ───────────────────────────────
-Collection      GET    /api/v1/orders            GET       Lister les commandes
-Singleton       GET    /api/v1/orders/{id}       GET       Obtenir une commande
-Créer           POST   /api/v1/orders            POST      Créer une commande
-Remplacer       PUT    /api/v1/orders/{id}        PUT       Remplacer entièrement
-Modifier        PATCH  /api/v1/orders/{id}        PATCH     Modifier partiellement
-Supprimer       DELETE /api/v1/orders/{id}        DELETE    Supprimer
+Collection      GET    /api/v1/orders            GET       List orders
+Singleton       GET    /api/v1/orders/{id}       GET       Get one order
+Create          POST   /api/v1/orders            POST      Create an order
+Replace         PUT    /api/v1/orders/{id}        PUT       Full replacement
+Update          PATCH  /api/v1/orders/{id}        PATCH     Partial update
+Delete          DELETE /api/v1/orders/{id}        DELETE    Delete
 
-Actions         POST   /api/v1/orders/{id}/cancel POST      Action métier (verbe OK)
-Sous-ressource  GET    /api/v1/orders/{id}/items  GET       Items d'une commande
+Actions         POST   /api/v1/orders/{id}/cancel POST      Business action (verb OK)
+Sub-resource    GET    /api/v1/orders/{id}/items  GET       Items of an order
 ```
 
-## OpenAPI 3.1 — Schéma complet
+## OpenAPI 3.1 — Full schema
 
 ```yaml
 openapi: "3.1.0"
 info:
   title: Orders API
   version: "1.0.0"
-  description: API de gestion des commandes
+  description: Order management API
 
 paths:
   /orders:
     get:
-      summary: Lister les commandes
+      summary: List orders
       tags: [Orders]
       parameters:
         - name: status
@@ -46,7 +46,7 @@ paths:
           schema: { type: integer, default: 20, maximum: 100 }
       responses:
         "200":
-          description: Liste paginée de commandes
+          description: Paginated list of orders
           content:
             application/json:
               schema: { $ref: '#/components/schemas/OrderPage' }
@@ -65,35 +65,35 @@ components:
         createdAt: { type: string, format: date-time }
 ```
 
-## Codes HTTP — Bonne utilisation
+## HTTP codes — Proper usage
 
 ```
-SUCCÈS          CODE    CAS D'USAGE
+SUCCESS         CODE    USE CASE
 ────────────    ─────   ──────────────────────────────
-200 OK           200    GET, PUT, PATCH réussis
-201 Created      201    POST avec ressource créée (+ Location header)
-204 No Content   204    DELETE réussi, PATCH sans corps retourné
-206 Partial      206    Range requests (pagination de fichiers)
+200 OK           200    Successful GET, PUT, PATCH
+201 Created      201    POST with created resource (+ Location header)
+204 No Content   204    Successful DELETE, PATCH with no body returned
+206 Partial      206    Range requests (file pagination)
 
-ERREURS CLIENT
-400 Bad Request  400    Corps de requête invalide, validation échouée
-401 Unauthorized 401    Non authentifié (pas de token)
-403 Forbidden    403    Authentifié mais pas autorisé
-404 Not Found    404    Ressource inexistante
-409 Conflict     409    Conflit (ex: doublon email)
-422 Unprocessable 422   Syntaxe OK mais logique métier invalide
-429 Too Many     429    Rate limit atteint
+CLIENT ERRORS
+400 Bad Request  400    Invalid request body, failed validation
+401 Unauthorized 401    Not authenticated (no token)
+403 Forbidden    403    Authenticated but not authorized
+404 Not Found    404    Nonexistent resource
+409 Conflict     409    Conflict (e.g. duplicate email)
+422 Unprocessable 422   Valid syntax but invalid business logic
+429 Too Many     429    Rate limit reached
 
-ERREURS SERVEUR
-500 Internal     500    Erreur inattendue côté serveur
-502 Bad Gateway  502    Backend downstream KO
-503 Unavailable  503    Service indisponible (maintenance, surcharge)
+SERVER ERRORS
+500 Internal     500    Unexpected server-side error
+502 Bad Gateway  502    Downstream backend failing
+503 Unavailable  503    Service unavailable (maintenance, overload)
 ```
 
-## GraphQL — Schéma et résolveurs
+## GraphQL — Schema and resolvers
 
 ```typescript
-// Schema GraphQL
+// GraphQL schema
 const typeDefs = gql`
   type Query {
     orders(status: OrderStatus, page: Int, limit: Int): OrderPage!
@@ -121,35 +121,35 @@ const typeDefs = gql`
   enum OrderStatus { PENDING CONFIRMED SHIPPED DELIVERED CANCELLED }
 `
 
-// DataLoader pour éviter le N+1
+// DataLoader to avoid N+1
 const userLoader = new DataLoader(async (userIds: string[]) => {
   const users = await User.findAll({ where: { id: userIds } })
   return userIds.map(id => users.find(u => u.id === id))
 })
 ```
 
-## Versioning d'API — Stratégies
+## API versioning — Strategies
 
 ```
-STRATÉGIE        EXEMPLE                    AVANTAGES               INCONVÉNIENTS
+STRATEGY         EXAMPLE                    PROS                    CONS
 ───────────────  ─────────────────────────  ──────────────────────  ────────────────────
-URL path         /api/v1/orders             Explicite, cacheable    Duplication de routes
+URL path         /api/v1/orders             Explicit, cacheable     Route duplication
                  /api/v2/orders
 
-Query param      /api/orders?version=2      Facile à tester         Non cacheable proprement
+Query param      /api/orders?version=2      Easy to test            Not cleanly cacheable
 
-Header           Accept: vnd.api.v2+json    Propre (URL inchangée)  Moins visible/testable
+Header           Accept: vnd.api.v2+json    Clean (URL unchanged)   Less visible/testable
 
-Évolutive        Champs optionnels          Pas de breaking change  Discipline stricte requise
-(recommandée)    Déprécation progressive    Rétrocompatible         @deprecated dans schema
+Evolutionary     Optional fields            No breaking change      Strict discipline required
+(recommended)    Gradual deprecation        Backward-compatible     @deprecated in schema
 ```
 
-## Livrables
-- Spécification OpenAPI 3.1 (YAML complet)
-- Collection Postman / Bruno documentée
-- Guide des conventions API du projet
-- Stratégie de versioning documentée
-- Tests de contrat (Pact ou OpenAPI Validator)
+## Deliverables
+- OpenAPI 3.1 specification (full YAML)
+- Documented Postman / Bruno collection
+- Project API conventions guide
+- Documented versioning strategy
+- Contract tests (Pact or OpenAPI Validator)
 
-## Format de sortie
-Précise : **type d'API** (REST, GraphQL, AsyncAPI/Events), **consommateurs** (frontend SPA, mobile, services tiers), **contraintes** (auth, rate limiting, versionning), **ressources** à exposer, **SLA** (latence max, disponibilité attendue).
+## Output format
+Specify: **API type** (REST, GraphQL, AsyncAPI/Events), **consumers** (frontend SPA, mobile, third-party services), **constraints** (auth, rate limiting, versioning), **resources** to expose, **SLA** (max latency, expected availability).

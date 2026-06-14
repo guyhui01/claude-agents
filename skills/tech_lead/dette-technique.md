@@ -1,65 +1,65 @@
-# Skill — Gestion de la Dette Technique
-> Certifications : ISTQB FL v4.0 · GitHub Certifications · AWS DVA-C02
+# Skill — Technical Debt Management
+> Certifications: ISTQB FL v4.0 · GitHub Certifications · AWS DVA-C02
 
-## Objectif
-Identifier, prioriser et résorber la dette technique : audit de code, classification (intentionnelle vs accidentelle), plan de refactoring progressif — pour maintenir la vélocité de l'équipe dans la durée.
+## Objective
+Identify, prioritize and pay down technical debt: code audit, classification (intentional vs accidental), progressive refactoring plan — to keep the team's velocity sustainable over time.
 
-## Taxonomy de la dette technique
+## Technical debt taxonomy
 
 ```
-TYPE                   DESCRIPTION                                EXEMPLES
+TYPE                   DESCRIPTION                                EXAMPLES
 ─────────────────────  ─────────────────────────────────────────  ────────────────────────────────
-Intentionnelle         Compromis délibéré pour livrer vite       "On reviendra sur les tests après"
-consciente             (décision documentée)                      → OK si tracée + deadline fixée
+Intentional            Deliberate trade-off to ship fast         "We'll revisit the tests later"
+deliberate             (documented decision)                      → OK if tracked + deadline set
 
-Intentionnelle         Compromis délibéré mais oublié             Code "temporaire" de 2022 encore là
-inconsciente           (décision non documentée)                  → Dangereux : personne n'ose toucher
+Intentional            Deliberate trade-off but forgotten         "Temporary" code from 2022 still there
+inadvertent            (undocumented decision)                    → Dangerous: nobody dares touch it
 
-Accidentelle           Erreur ou manque de connaissance           Copier/coller massif, pattern dépassé
-prudente               de bonne foi                               → Former l'équipe, corriger au fil de l'eau
+Accidental             Good-faith mistake or knowledge gap        Massive copy/paste, outdated pattern
+prudent                                                           → Train the team, fix as you go
 
-Accidentelle           Négligence ou rush permanent               Code sans tests, pas de reviews
-imprudente             sans conscience du problème               → Alerte critique, ralentira l'équipe
+Accidental             Negligence or permanent rush               Code with no tests, no reviews
+reckless               with no awareness of the problem           → Critical alert, will slow the team down
 ```
 
-## Audit de la dette — Signaux d'alerte
+## Debt audit — Warning signals
 
 ```
-SIGNAL                              OUTIL                    SEUIL D'ALERTE
+SIGNAL                              TOOL                     ALERT THRESHOLD
 ──────────────────────────────────  ─────────────────────    ──────────────────────────────
-Complexité cyclomatique élevée      SonarQube, Complexity    > 10 par fonction = refactoring requis
-Méthodes trop longues               SonarQube, ESLint        > 30 lignes par méthode
-Code dupliqué                       SonarQube (Duplication)  > 3% de duplication
-Dépendances obsolètes               npm audit, Dependabot    CVE critique ou > 2 ans sans update
-Couverture de tests faible          Jest, JaCoCo             < 60% = zone à risque
-TODO/FIXME non résolus              grep TODO | wc -l        > 50 = backlog caché
-Temps de build croissant            Métriques CI/CD          > 15% de croissance mensuelle
+High cyclomatic complexity          SonarQube, Complexity    > 10 per function = refactoring required
+Methods too long                    SonarQube, ESLint        > 30 lines per method
+Duplicated code                     SonarQube (Duplication)  > 3% duplication
+Outdated dependencies               npm audit, Dependabot    Critical CVE or > 2 years without update
+Low test coverage                   Jest, JaCoCo             < 60% = at-risk area
+Unresolved TODO/FIXME               grep TODO | wc -l        > 50 = hidden backlog
+Growing build time                  CI/CD metrics            > 15% monthly growth
 ```
 
-## Technical Radar — Priorisation
+## Technical Radar — Prioritization
 
 ```
-PRIORITÉ  CATÉGORIE           CRITÈRES                          ACTION
+PRIORITY  CATEGORY            CRITERIA                          ACTION
 ────────  ──────────────────  ────────────────────────────────  ─────────────────────────────
-P1        Critique            CVE connue, blocage fonctionnel   Corriger en sprint courant
-          (rouge)             Risque de sécurité élevé
+P1        Critical            Known CVE, functional blocker     Fix in the current sprint
+          (red)               High security risk
 
-P2        Important           Ralentit l'équipe > 20%           Planifier en sprint dédié (Refacto Sprint)
-          (orange)            Complexité > 15, 0 tests          1 sprint par trimestre
+P2        Important           Slows the team down > 20%         Schedule a dedicated sprint (Refactoring Sprint)
+          (orange)            Complexity > 15, 0 tests          1 sprint per quarter
 
-P3        À surveiller        Duplication, nommage confus       Corriger lors du passage (Boy Scout Rule)
-          (jaune)             TODO tracés                       Chaque PR améliore un peu
+P3        To watch            Duplication, confusing naming     Fix when passing through (Boy Scout Rule)
+          (yellow)            Tracked TODOs                     Each PR improves it a little
 
-P4        Cosmétique          Style, conventions mineures       Automatiser (lint, formatter)
-          (vert)              Formatting inconsistant           Régler la config, ne plus y toucher
+P4        Cosmetic            Style, minor conventions          Automate (lint, formatter)
+          (green)             Inconsistent formatting           Set the config, never touch again
 ```
 
-## Règle du Boy Scout
+## Boy Scout Rule
 
-> "Laisse le code dans un état légèrement meilleur que tu ne l'as trouvé."
+> "Leave the code a little better than you found it."
 
 ```typescript
-// Avant (code trouvé) — Complexité élevée, nommage flou
+// Before (code as found) — High complexity, vague naming
 function p(d: any[], f: any) {
   let r = []
   for(let i=0;i<d.length;i++){
@@ -68,7 +68,7 @@ function p(d: any[], f: any) {
   return r
 }
 
-// Après (code laissé) — Lisible, typé, fonctionnel
+// After (code as left) — Readable, typed, functional
 function filterActiveItems<T extends { status: number }>(
   items: T[],
   predicate: (item: T) => boolean
@@ -77,35 +77,35 @@ function filterActiveItems<T extends { status: number }>(
 }
 ```
 
-## Plan de refactoring — Template
+## Refactoring plan — Template
 
 ```markdown
-## Dette technique — Sprint Refacto Q3 2026
+## Technical debt — Refactoring Sprint Q3 2026
 
-### Objectif
-Réduire la complexité cyclomatique du module Orders de 18 à < 10
-et augmenter la couverture de tests de 45% à 75%.
+### Objective
+Reduce the cyclomatic complexity of the Orders module from 18 to < 10
+and raise test coverage from 45% to 75%.
 
-### Items priorisés
-| # | Fichier | Problème | Effort | Impact |
-|---|---------|---------|--------|--------|
-| 1 | order.service.ts | CC = 22, méthode de 120 lignes | 3 jours | Élevé |
-| 2 | payment.controller.ts | 0 tests, 3 CVE dépendances | 2 jours | Critique |
-| 3 | utils/helpers.ts | 40% duplication avec cart/helpers | 1 jour | Moyen |
+### Prioritized items
+| # | File | Problem | Effort | Impact |
+|---|------|---------|--------|--------|
+| 1 | order.service.ts | CC = 22, 120-line method | 3 days | High |
+| 2 | payment.controller.ts | 0 tests, 3 dependency CVEs | 2 days | Critical |
+| 3 | utils/helpers.ts | 40% duplication with cart/helpers | 1 day | Medium |
 
-### Critères de succès
-- [ ] CC moyen module < 10 (SonarQube)
-- [ ] Couverture > 75% (Jest)
-- [ ] 0 CVE critique (npm audit)
-- [ ] Temps de build stable (± 5%)
+### Success criteria
+- [ ] Module average CC < 10 (SonarQube)
+- [ ] Coverage > 75% (Jest)
+- [ ] 0 critical CVE (npm audit)
+- [ ] Stable build time (± 5%)
 ```
 
-## Livrables
-- Rapport d'audit de dette (SonarQube export + analyse)
-- Technical Radar priorisé (P1→P4)
-- Plan de refactoring (sprints, effort, critères)
-- Dashboard dette (tendances : complexité, couverture, deps)
-- Guide Boy Scout Rule pour l'équipe
+## Deliverables
+- Debt audit report (SonarQube export + analysis)
+- Prioritized Technical Radar (P1→P4)
+- Refactoring plan (sprints, effort, criteria)
+- Debt dashboard (trends: complexity, coverage, deps)
+- Boy Scout Rule guide for the team
 
-## Format de sortie
-Précise : **stack et taille du codebase** (LOC, ancienneté), **symptômes observés** (vélocité en baisse, bugs fréquents, onboarding lent), **contraintes** (time-box refactoring, feature freeze possible ?), **objectif** (quick wins vs plan long terme).
+## Output format
+Specify: **stack and codebase size** (LOC, age), **observed symptoms** (declining velocity, frequent bugs, slow onboarding), **constraints** (refactoring time-box, feature freeze possible?), **goal** (quick wins vs long-term plan).

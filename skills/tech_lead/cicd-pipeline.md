@@ -1,10 +1,10 @@
 # Skill — CI/CD Pipeline (GitHub Actions, GitLab CI)
-> Certifications : GitHub Actions Certifications (GitHub 2024) · CKAD (Linux Foundation 2024) · AWS DVA-C02
+> Certifications: GitHub Actions Certifications (GitHub 2024) · CKAD (Linux Foundation 2024) · AWS DVA-C02
 
-## Objectif
-Concevoir et implémenter un pipeline CI/CD robuste : build, lint, tests, sécurité, déploiement progressif — pour automatiser la livraison de valeur en garantissant la qualité et la sécurité.
+## Objective
+Design and implement a robust CI/CD pipeline: build, lint, tests, security, progressive deployment — to automate value delivery while guaranteeing quality and security.
 
-## Pipeline CI/CD — Stages types
+## CI/CD pipeline — Typical stages
 
 ```
 ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐
@@ -15,7 +15,7 @@ Concevoir et implémenter un pipeline CI/CD robuste : build, lint, tests, sécur
 └──────────┘  └──────────┘  └──────────┘  └──────────┘  └──────────┘  └──────────┘
 ```
 
-## GitHub Actions — Pipeline complet
+## GitHub Actions — Full pipeline
 
 ```yaml
 # .github/workflows/ci-cd.yml
@@ -99,16 +99,16 @@ jobs:
           kubectl rollout status deployment/app --timeout=5m
 ```
 
-## Stratégies de déploiement
+## Deployment strategies
 
 ```
-STRATÉGIE       DESCRIPTION                          DOWNTIME  ROLLBACK   COMPLEXITÉ
+STRATEGY        DESCRIPTION                          DOWNTIME  ROLLBACK   COMPLEXITY
 ──────────────  ───────────────────────────────────  ────────  ─────────  ──────────
-Recreate        Stop all → Deploy new                Oui       Simple     Faible
-Rolling Update  Replace instances progressivement    Non       Auto K8s   Faible
-Blue/Green      2 envs, switch trafic                Non       Immédiat   Moyen
-Canary          % trafic progressif (5→25→100%)      Non       Immédiat   Élevé
-Feature Flags   Deploy complet, activation par flag  Non       Toggle     Élevé
+Recreate        Stop all → Deploy new                Yes       Simple     Low
+Rolling Update  Replace instances progressively      No        Auto K8s   Low
+Blue/Green      2 envs, switch traffic               No        Immediate  Medium
+Canary          Progressive % traffic (5→25→100%)    No        Immediate  High
+Feature Flags   Full deploy, activation by flag      No        Toggle     High
 ```
 
 ## Kubernetes — Canary Deployment
@@ -120,12 +120,12 @@ kind: Deployment
 metadata:
   name: app-canary
 spec:
-  replicas: 1  # 1 pod canary sur 10 = 10% du trafic
+  replicas: 1  # 1 canary pod out of 10 = 10% of traffic
   selector:
-    matchLabels: { app: mon-app, track: canary }
+    matchLabels: { app: my-app, track: canary }
   template:
     metadata:
-      labels: { app: mon-app, track: canary }
+      labels: { app: my-app, track: canary }
     spec:
       containers:
         - name: app
@@ -139,12 +139,12 @@ spec:
             periodSeconds: 10
 ```
 
-## Livrables
-- Pipeline CI/CD complet (GitHub Actions ou GitLab CI YAML)
-- Dockerfile optimisé (multi-stage, non-root user)
-- Configuration Kubernetes (Deployment, Service, HPA, PDB)
-- Runbook de déploiement et rollback
-- Tableau de bord CI (temps de build, taux d'échec, DORA metrics)
+## Deliverables
+- Complete CI/CD pipeline (GitHub Actions or GitLab CI YAML)
+- Optimized Dockerfile (multi-stage, non-root user)
+- Kubernetes configuration (Deployment, Service, HPA, PDB)
+- Deployment and rollback runbook
+- CI dashboard (build time, failure rate, DORA metrics)
 
-## Format de sortie
-Précise : **plateforme CI/CD** (GitHub Actions, GitLab, Jenkins…), **stack** (Node.js, Python, Java…), **cible de déploiement** (K8s, ECS, Cloud Run, Vercel…), **stratégie de déploiement souhaitée**, **contraintes** (SLA, downtime toléré, tests de régression).
+## Output format
+Specify: **CI/CD platform** (GitHub Actions, GitLab, Jenkins…), **stack** (Node.js, Python, Java…), **deployment target** (K8s, ECS, Cloud Run, Vercel…), **desired deployment strategy**, **constraints** (SLA, tolerated downtime, regression tests).

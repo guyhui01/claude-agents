@@ -1,32 +1,32 @@
-# Skill — Stratégie de Tests (Pyramide, TDD, BDD)
-> Certifications : ISTQB Certified Tester Foundation Level v4.0 · GitHub Certifications
+# Skill — Test Strategy (Pyramid, TDD, BDD)
+> Certifications: ISTQB Certified Tester Foundation Level v4.0 · GitHub Certifications
 
-## Objectif
-Définir et mettre en place une stratégie de tests complète : pyramide de tests, TDD/BDD, couverture, mutation testing — pour garantir la qualité sans ralentir la vélocité.
+## Objective
+Define and roll out a complete test strategy: test pyramid, TDD/BDD, coverage, mutation testing — to guarantee quality without slowing velocity down.
 
-## Pyramide de tests
+## Test pyramid
 
 ```
           ┌───────────────┐
-          │  E2E / UI     │  10%  — Lents, coûteux, fragiles (Playwright, Cypress)
-          │   Tests       │         Valident les parcours utilisateur critiques
+          │  E2E / UI     │  10%  — Slow, costly, brittle (Playwright, Cypress)
+          │   Tests       │         Validate critical user journeys
           ├───────────────┤
-          │  Integration  │  30%  — Moyens, testent les contrats entre couches
+          │  Integration  │  30%  — Medium, test contracts between layers
           │    Tests      │         (API tests, DB, services)
           ├───────────────┤
-          │     Unit      │  60%  — Rapides, isolés, grand nombre
-          │    Tests      │         (fonctions, classes, composants)
+          │     Unit      │  60%  — Fast, isolated, large numbers
+          │    Tests      │         (functions, classes, components)
           └───────────────┘
 
-  COÛT       ▲ Élevé       ────────────────────────────▶ Faible
-  VITESSE    ▼ Lente       ────────────────────────────▶ Rapide
-  ISOLATION  ▼ Faible      ────────────────────────────▶ Forte
+  COST       ▲ High        ────────────────────────────▶ Low
+  SPEED      ▼ Slow        ────────────────────────────▶ Fast
+  ISOLATION  ▼ Low         ────────────────────────────▶ Strong
 ```
 
 ## TDD — Red / Green / Refactor
 
 ```typescript
-// 1. RED — Écrire le test qui échoue
+// 1. RED — Write the failing test
 describe('OrderService', () => {
   it('should throw when creating order with empty items', async () => {
     const service = new OrderService(mockRepo)
@@ -35,7 +35,7 @@ describe('OrderService', () => {
   })
 })
 
-// 2. GREEN — Implémenter le minimum pour passer
+// 2. GREEN — Implement the minimum to pass
 class OrderService {
   async create(dto: CreateOrderDto): Promise<Order> {
     if (dto.items.length === 0) {
@@ -45,7 +45,7 @@ class OrderService {
   }
 }
 
-// 3. REFACTOR — Améliorer sans casser le test
+// 3. REFACTOR — Improve without breaking the test
 class OrderService {
   async create(dto: CreateOrderDto): Promise<Order> {
     this.validateItems(dto.items)
@@ -62,32 +62,32 @@ class OrderService {
 
 ```gherkin
 # features/order/create-order.feature
-Feature: Création de commande
+Feature: Order creation
 
   Background:
-    Given l'utilisateur "alice@example.com" est connecté
+    Given the user "alice@example.com" is logged in
 
-  Scenario: Commande valide avec plusieurs articles
-    Given le panier contient:
-      | produit     | quantité | prix |
-      | MacBook Pro | 1        | 2999 |
-      | Magic Mouse | 2        | 79   |
-    When l'utilisateur confirme la commande
-    Then la commande est créée avec le statut "pending"
-    And le total est de 3157 euros
-    And un email de confirmation est envoyé
+  Scenario: Valid order with several items
+    Given the cart contains:
+      | product     | quantity | price |
+      | MacBook Pro | 1        | 2999  |
+      | Magic Mouse | 2        | 79    |
+    When the user confirms the order
+    Then the order is created with status "pending"
+    And the total is 3157 euros
+    And a confirmation email is sent
 
-  Scenario Outline: Commande invalide
-    Given le panier est vide
-    When l'utilisateur confirme la commande
-    Then une erreur "<message>" est affichée
+  Scenario Outline: Invalid order
+    Given the cart is empty
+    When the user confirms the order
+    Then an error "<message>" is displayed
 
     Examples:
-      | message                              |
-      | Le panier ne peut pas être vide      |
+      | message                    |
+      | The cart cannot be empty   |
 ```
 
-## Tests E2E — Playwright
+## E2E tests — Playwright
 
 ```typescript
 // tests/e2e/checkout.spec.ts
@@ -100,17 +100,17 @@ test.describe('Checkout flow', () => {
   })
 
   test('complete purchase with credit card', async ({ page }) => {
-    await page.getByRole('link', { name: 'Voir le panier' }).click()
-    await page.getByRole('button', { name: 'Commander' }).click()
+    await page.getByRole('link', { name: 'View cart' }).click()
+    await page.getByRole('button', { name: 'Checkout' }).click()
 
-    // Remplir formulaire paiement
-    await page.getByLabel('Numéro de carte').fill('4242424242424242')
-    await page.getByLabel('Date expiration').fill('12/28')
+    // Fill in the payment form
+    await page.getByLabel('Card number').fill('4242424242424242')
+    await page.getByLabel('Expiry date').fill('12/28')
     await page.getByLabel('CVV').fill('123')
 
-    await page.getByRole('button', { name: 'Payer' }).click()
+    await page.getByRole('button', { name: 'Pay' }).click()
 
-    await expect(page.getByRole('heading', { name: 'Commande confirmée' }))
+    await expect(page.getByRole('heading', { name: 'Order confirmed' }))
       .toBeVisible({ timeout: 10_000 })
   })
 })
@@ -119,35 +119,35 @@ test.describe('Checkout flow', () => {
 ## Mutation Testing
 
 ```bash
-# Stryker (JavaScript/TypeScript) — vérifie que les tests détectent les vrais bugs
+# Stryker (JavaScript/TypeScript) — checks that tests catch real bugs
 npx stryker run
 
-# Résultats cibles
-# Mutation Score ≥ 80% = bonne couverture effective
-# < 60% = les tests passent mais ne détectent pas les régressions
+# Target results
+# Mutation Score ≥ 80% = good effective coverage
+# < 60% = tests pass but do not catch regressions
 ```
 
-## Tableau de bord qualité — Seuils
+## Quality dashboard — Thresholds
 
 ```
-MÉTRIQUE                   SEUIL ACCEPTABLE    SEUIL CIBLE
+METRIC                     ACCEPTABLE THRESHOLD  TARGET THRESHOLD
 ─────────────────────────  ──────────────────  ────────────
-Couverture lignes          > 70%               > 85%
-Couverture branches        > 60%               > 80%
+Line coverage              > 70%               > 85%
+Branch coverage            > 60%               > 80%
 Mutation score             > 60%               > 80%
-Tests en échec             0                   0
-Flaky tests (instables)    < 2%                0%
-Durée suite unitaire       < 2 min             < 1 min
-Durée suite intégration    < 10 min            < 5 min
+Failing tests              0                   0
+Flaky tests (unstable)     < 2%                0%
+Unit suite duration        < 2 min             < 1 min
+Integration suite duration < 10 min            < 5 min
 ```
 
-## Livrables
-- Stratégie de tests documentée (pyramide, niveaux, outils)
-- Exemples de tests unitaires, intégration et E2E
-- Configuration coverage (Istanbul/nyc, JaCoCo)
-- Configuration mutation testing (Stryker, PITest)
-- Tableau de bord CI/CD (métriques qualité)
-- Guide de contribution test (conventions, patterns, AAA)
+## Deliverables
+- Documented test strategy (pyramid, levels, tools)
+- Sample unit, integration and E2E tests
+- Coverage configuration (Istanbul/nyc, JaCoCo)
+- Mutation testing configuration (Stryker, PITest)
+- CI/CD dashboard (quality metrics)
+- Test contribution guide (conventions, patterns, AAA)
 
-## Format de sortie
-Précise : **stack technique** (TypeScript, Python, Java…), **état actuel** (0 test ou couverture existante), **type de projet** (API, frontend, microservice), **contraintes** (délai, complexité métier), **objectif** (TDD from scratch ou amélioration couverture).
+## Output format
+Specify: **technical stack** (TypeScript, Python, Java…), **current state** (0 tests or existing coverage), **project type** (API, frontend, microservice), **constraints** (deadline, business complexity), **goal** (TDD from scratch or coverage improvement).

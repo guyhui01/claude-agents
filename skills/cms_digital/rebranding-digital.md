@@ -1,64 +1,64 @@
-# Skill — Rebranding Digital Multisite
-> Certifications : Adobe AEM Sites Business Practitioner · TOGAF 10 Foundation · Acquia Certified Site Builder
+# Skill — Multisite Digital Rebranding
+> Certifications: Adobe AEM Sites Business Practitioner · TOGAF 10 Foundation · Acquia Certified Site Builder
 
-## Objectif
-Piloter un rebranding digital sur une plateforme CMS multisite : nouvelle identité visuelle, migration des templates, mise à jour des contenus, coordination internationale — en assurant la continuité de service et la cohérence de marque.
+## Objective
+Lead a digital rebranding on a multisite CMS platform: new visual identity, template migration, content updates, international coordination — while ensuring service continuity and brand consistency.
 
-## Phases d'un rebranding digital
+## Phases of a digital rebranding
 
 ```
-PHASE 1 — CADRAGE & AUDIT (sem. 1-2)
-  □ Inventaire des assets (logos, couleurs, typographies actuelles)
-  □ Cartographie des sites/langues/marchés impactés
-  □ Analyse des dépendances (design system, composants partagés)
-  □ Identification des contraintes (légales, contractuelles, délais marché)
+PHASE 1 — SCOPING & AUDIT (weeks 1-2)
+  □ Asset inventory (current logos, colors, typography)
+  □ Map of impacted sites/languages/markets
+  □ Dependency analysis (design system, shared components)
+  □ Constraint identification (legal, contractual, market deadlines)
 
-PHASE 2 — DESIGN SYSTEM NOUVEAU (sem. 3-6)
-  □ Nouveau design tokens (couleurs, typographies, espacements)
-  □ Refonte des composants atomiques (boutons, formulaires, navigation)
-  □ Templates de pages (homepage, page produit, article, landing)
-  □ Documentation Figma / Storybook (composants + usage)
+PHASE 2 — NEW DESIGN SYSTEM (weeks 3-6)
+  □ New design tokens (colors, typography, spacing)
+  □ Atomic component redesign (buttons, forms, navigation)
+  □ Page templates (homepage, product page, article, landing)
+  □ Figma / Storybook documentation (components + usage)
 
-PHASE 3 — DÉVELOPPEMENT CMS (sem. 5-10)
-  □ Mise à jour du thème/skin CMS (CSS variables, tokens)
-  □ Refonte des templates/components AEM ou Drupal
-  □ Migration des assets (logos, icônes) dans le DAM
-  □ Tests de régression visuels (Percy, Chromatic)
+PHASE 3 — CMS DEVELOPMENT (weeks 5-10)
+  □ Update the CMS theme/skin (CSS variables, tokens)
+  □ Redesign AEM or Drupal templates/components
+  □ Migrate assets (logos, icons) into the DAM
+  □ Visual regression tests (Percy, Chromatic)
 
-PHASE 4 — MIGRATION CONTENUS (sem. 8-12)
-  □ Script de remplacement en masse (logos, mentions de marque)
-  □ Mise à jour des métadonnées SEO (Open Graph, favicons)
-  □ Validation par marché (review locale + juridique)
-  □ Publication progressive (par marché, par canal)
+PHASE 4 — CONTENT MIGRATION (weeks 8-12)
+  □ Bulk replacement script (logos, brand mentions)
+  □ Update SEO metadata (Open Graph, favicons)
+  □ Per-market validation (local review + legal)
+  □ Progressive publication (by market, by channel)
 
-PHASE 5 — BASCULEMENT & POST-LANCEMENT (sem. 12-14)
-  □ Go-live coordonné (DNS, CDN flush, cache purge)
-  □ Monitoring erreurs 500/404 (Datadog, New Relic)
-  □ Surveillance SEO post-lancement (GSC, positions)
-  □ Communication interne (guide de marque diffusé aux équipes)
+PHASE 5 — CUTOVER & POST-LAUNCH (weeks 12-14)
+  □ Coordinated go-live (DNS, CDN flush, cache purge)
+  □ 500/404 error monitoring (Datadog, New Relic)
+  □ Post-launch SEO monitoring (GSC, rankings)
+  □ Internal communication (brand guide shared with teams)
 ```
 
-## Design Tokens — Structure CSS
+## Design Tokens — CSS structure
 
 ```css
-/* tokens/brand.css — Nouveau design system */
+/* tokens/brand.css — New design system */
 :root {
-  /* Couleurs primaires */
+  /* Primary colors */
   --color-primary-500:    #0066CC;
   --color-primary-600:    #0052A3;
   --color-primary-700:    #003D7A;
 
-  /* Couleurs neutres */
+  /* Neutral colors */
   --color-neutral-50:     #F8FAFC;
   --color-neutral-900:    #1A1A2E;
 
-  /* Typographies */
+  /* Typography */
   --font-family-heading:  'Brand Sans', system-ui, sans-serif;
   --font-family-body:     'Brand Text', Georgia, serif;
   --font-size-base:       1rem;
   --line-height-base:     1.6;
 
-  /* Espacements */
+  /* Spacing */
   --spacing-4:  0.25rem;
   --spacing-8:  0.5rem;
   --spacing-16: 1rem;
@@ -75,71 +75,71 @@ PHASE 5 — BASCULEMENT & POST-LANCEMENT (sem. 12-14)
 }
 ```
 
-## Script de migration masse (Assets DAM)
+## Bulk migration script (DAM assets)
 
 ```python
 import re
 
 def rebrand_content(text: str, mapping: dict) -> str:
-    """Remplace les références d'ancienne marque par la nouvelle."""
+    """Replace old brand references with the new one."""
     for old, new in mapping.items():
         text = re.sub(re.escape(old), new, text, flags=re.IGNORECASE)
     return text
 
 BRAND_MAPPING = {
-    "AncienneMarque":       "NouvelleMarque",
-    "anciennemarque.com":   "nouvellemarque.com",
-    "AncienneMarque Group": "NouvelleMarque Alliance",
+    "OldBrand":             "NewBrand",
+    "oldbrand.com":         "newbrand.com",
+    "OldBrand Group":       "NewBrand Alliance",
     # logos
     "/dam/logos/old-logo.svg": "/dam/logos/new-logo.svg",
 }
 
-# Appliquer sur tous les nœuds Drupal
+# Apply to all Drupal nodes
 for node in get_all_nodes():
     node['body'] = rebrand_content(node['body'], BRAND_MAPPING)
     node['meta_description'] = rebrand_content(node['meta_description'], BRAND_MAPPING)
     save_node(node)
 ```
 
-## Coordination internationale multisite
+## International multisite coordination
 
 ```
-MARCHÉ     LANGUE    ÉQUIPE LOCALE     VALIDATION REQUISE         GO-LIVE
+MARKET     LANGUAGE  LOCAL TEAM        REQUIRED VALIDATION        GO-LIVE
 ─────────  ────────  ────────────────  ─────────────────────────  ─────────────
-France     FR        Brand team FR     Juridique + Direction       Sem. 12
-EMEA       EN/DE/ES  Local web teams   Local brand manager        Sem. 13
-APAC       ZH/JA     External agency   Legal local + Brand HQ     Sem. 14
-Amériques  EN/PT/ES  Internal team     Americas Brand Director     Sem. 15
+France     FR        Brand team FR     Legal + Management          Week 12
+EMEA       EN/DE/ES  Local web teams   Local brand manager        Week 13
+APAC       ZH/JA     External agency   Local legal + Brand HQ     Week 14
+Americas   EN/PT/ES  Internal team     Americas Brand Director     Week 15
 ```
 
-## Livrables
-- Plan de rebranding (phases, jalons, RACI)
-- Design tokens et design system mis à jour (Figma + Storybook)
-- Composants CMS rebranded (templates, thèmes)
-- Scripts de migration masse (logos, textes, métadonnées)
-- Rapport de tests de régression visuels
-- Guide de marque digital (usage composants, do/don't)
-- Tableau de bord post-lancement (SEO + performance + erreurs)
+## Deliverables
+- Rebranding plan (phases, milestones, RACI)
+- Updated design tokens and design system (Figma + Storybook)
+- Rebranded CMS components (templates, themes)
+- Bulk migration scripts (logos, text, metadata)
+- Visual regression test report
+- Digital brand guide (component usage, do/don't)
+- Post-launch dashboard (SEO + performance + errors)
 
-## Format de sortie
-Précise : **CMS et version**, **nombre de sites/marchés**, **périmètre** (visuel seul ou contenus aussi), **contraintes** (deadline événementielle, validation juridique), **équipes** (centralisée ou distribuée par marché), **stack design** (Figma, Storybook, design tokens).
+## Output format
+Specify: **CMS and version**, **number of sites/markets**, **scope** (visual only or content too), **constraints** (event deadline, legal sign-off), **teams** (centralized or distributed by market), **design stack** (Figma, Storybook, design tokens).
 
 ## Anti-patterns
-- ❌ **Rebranding sans design system / tokens** : incohérence visuelle entre sites → design tokens centralisés
-- ❌ **Remplacement regex naïf** (IGNORECASE global) : faux positifs et contenus corrompus → mapping ciblé + revue
-- ❌ **Pas de tests de régression visuels** (Percy/Chromatic) : régressions UI non détectées → visual diff en CI
-- ❌ **Go-live non coordonné multimarché** : marque incohérente en transition → fenêtre de bascule planifiée par marché
-- ❌ **Oublier favicons / Open Graph / e-mails / PDF** dans le périmètre : marque résiduelle visible → checklist exhaustive
-- ❌ **Pas de purge CDN/cache au go-live** : ancien branding encore servi → flush coordonné
+- ❌ **Rebranding without a design system / tokens**: visual inconsistency across sites → centralized design tokens
+- ❌ **Naive regex replacement** (global IGNORECASE): false positives and corrupted content → targeted mapping + review
+- ❌ **No visual regression tests** (Percy/Chromatic): undetected UI regressions → visual diff in CI
+- ❌ **Uncoordinated multi-market go-live**: inconsistent brand in transition → planned cutover window per market
+- ❌ **Forgetting favicons / Open Graph / emails / PDFs** in scope: residual brand visible → exhaustive checklist
+- ❌ **No CDN/cache purge at go-live**: old branding still served → coordinated flush
 
 ## Sources
-- **Design Tokens** — W3C Design Tokens Community Group (format standard) — tr.designtokens.org
-- **Atomic Design** (Brad Frost, 2016) — atomicdesign.bradfrost.com · **Figma / Storybook** — design system et documentation
-- **Tests de régression visuels** — Percy (BrowserStack) / Chromatic — outils de visual diff
-- **TOGAF 10** (2022) — coordination de la trajectoire multisite — opengroup.org
+- **Design Tokens** — W3C Design Tokens Community Group (standard format) — tr.designtokens.org
+- **Atomic Design** (Brad Frost, 2016) — atomicdesign.bradfrost.com · **Figma / Storybook** — design system and documentation
+- **Visual regression testing** — Percy (BrowserStack) / Chromatic — visual diff tools
+- **TOGAF 10** (2022) — multisite trajectory coordination — opengroup.org
 
-## Voir aussi
-- [`architecture-cms.md`](architecture-cms.md) — composants et design system de l'architecture
-- [`migration-cms.md`](migration-cms.md) — coordination avec une éventuelle migration
-- [`../dam_expert/brand-portal.md`](../dam_expert/brand-portal.md) — diffusion de la nouvelle charte aux équipes
-- [`../dam_expert/naming-convention.md`](../dam_expert/naming-convention.md) — renommage des assets de marque
+## See also
+- [`architecture-cms.md`](architecture-cms.md) — the architecture's components and design system
+- [`migration-cms.md`](migration-cms.md) — coordination with a possible migration
+- [`../dam_expert/brand-portal.md`](../dam_expert/brand-portal.md) — rolling out the new guidelines to teams
+- [`../dam_expert/naming-convention.md`](../dam_expert/naming-convention.md) — renaming brand assets

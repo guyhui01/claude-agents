@@ -1,23 +1,23 @@
-# Skill — CMS Headless (Contentful, Strapi, Sanity, Prismic)
-> Certifications : Contentful Certified Professional · Adobe AEM Sites Developer (Headless mode)
+# Skill — Headless CMS (Contentful, Strapi, Sanity, Prismic)
+> Certifications: Contentful Certified Professional · Adobe AEM Sites Developer (Headless mode)
 
-## Objectif
-Mettre en œuvre une architecture CMS headless : configuration du CMS API-first, modélisation du contenu, consommation des API depuis un frontend découplé, et gestion des prévisualisations.
+## Objective
+Implement a headless CMS architecture: configure the API-first CMS, model the content, consume the APIs from a decoupled frontend, and handle previews.
 
-## Comparatif plateformes headless
+## Headless platform comparison
 
-| CMS | Type | Points forts | Limites | Idéal pour |
+| CMS | Type | Strengths | Limits | Best for |
 |-----|------|-------------|---------|-----------|
-| **Contentful** | SaaS | Scalabilité, écosystème riche, CDN global | Coût en prod, vendor lock-in | Grandes entreprises, multicanal |
-| **Strapi** | Open-source self-hosted | Flexibilité totale, plugins, REST+GraphQL | Maintenance infra | PME, projets custom, budget limité |
-| **Sanity** | SaaS + open-source | Studio personnalisable, GROQ, temps réel | Courbe d'apprentissage | Équipes dev, contenus complexes |
-| **Prismic** | SaaS | Slice Machine, DX excellente | Moins puissant à grande échelle | Agences, sites marketing |
-| **Payload CMS** | Open-source | TypeScript natif, headless + admin | Jeune écosystème | Projets Next.js, full-stack TS |
+| **Contentful** | SaaS | Scalability, rich ecosystem, global CDN | Cost in prod, vendor lock-in | Large enterprises, multichannel |
+| **Strapi** | Open-source self-hosted | Full flexibility, plugins, REST+GraphQL | Infra maintenance | SMEs, custom projects, limited budget |
+| **Sanity** | SaaS + open-source | Customizable Studio, GROQ, real-time | Learning curve | Dev teams, complex content |
+| **Prismic** | SaaS | Slice Machine, excellent DX | Less powerful at large scale | Agencies, marketing sites |
+| **Payload CMS** | Open-source | Native TypeScript, headless + admin | Young ecosystem | Next.js projects, full-stack TS |
 
-## Contentful — Modélisation de contenu
+## Contentful — Content modeling
 
 ```typescript
-// Content Model : Article de blog
+// Content Model: Blog article
 {
   name: "Article",
   fields: [
@@ -32,7 +32,7 @@ Mettre en œuvre une architecture CMS headless : configuration du CMS API-first,
 }
 ```
 
-## Contentful — Consommation API
+## Contentful — API consumption
 
 ```typescript
 import { createClient } from 'contentful'
@@ -42,7 +42,7 @@ const client = createClient({
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
 })
 
-// Récupérer les articles (avec preview draft si besoin)
+// Fetch the articles (with preview draft if needed)
 export async function getArticles(preview = false) {
   const client = preview ? previewClient : deliveryClient
 
@@ -50,14 +50,14 @@ export async function getArticles(preview = false) {
     content_type: 'article',
     order: ['-fields.publishedAt'],
     limit: 10,
-    include: 2,  // profondeur des liens
+    include: 2,  // link depth
     'fields.slug[ne]': 'draft',
   })
 
   return entries.items
 }
 
-// Webhook pour revalidation Next.js ISR
+// Webhook for Next.js ISR revalidation
 export async function POST(req: Request) {
   const body = await req.json()
   if (body.sys.type === 'Entry') {
@@ -67,7 +67,7 @@ export async function POST(req: Request) {
 }
 ```
 
-## Strapi — Configuration et API
+## Strapi — Configuration and API
 
 ```javascript
 // strapi/src/api/article/content-types/article/schema.json
@@ -83,11 +83,11 @@ export async function POST(req: Request) {
   }
 }
 
-// Appel API REST
+// REST API call
 GET /api/articles?populate=author,image&filters[publishedAt][$notNull]=true&sort=publishedAt:desc
 ```
 
-## Gestion de la prévisualisation (Next.js)
+## Preview handling (Next.js)
 
 ```typescript
 // app/api/preview/route.ts
@@ -100,7 +100,7 @@ export async function GET(req: Request) {
     return new Response('Invalid token', { status: 401 })
   }
 
-  // Activer le mode draft
+  // Enable draft mode
   const cookieStore = cookies()
   cookieStore.set('__prerender_bypass', generatePreviewCookie())
 
@@ -108,32 +108,32 @@ export async function GET(req: Request) {
 }
 ```
 
-## Livrables
-- Modèles de contenu configurés (avec validations)
-- SDK / hooks de consommation API
-- Webhooks de revalidation (ISR/CDN purge)
-- Documentation éditeurs (guide création contenu)
-- Tests d'intégration (MSW mocks ou sandbox CMS)
+## Deliverables
+- Configured content models (with validations)
+- API consumption SDK / hooks
+- Revalidation webhooks (ISR/CDN purge)
+- Editor documentation (content creation guide)
+- Integration tests (MSW mocks or CMS sandbox)
 
-## Format de sortie
-Précise : **CMS headless cible** (Contentful, Strapi, Sanity…), **framework frontend** (Next.js, Nuxt, Astro…), **cas d'usage** (blog, e-commerce, multisite), **gestion du cache** (SSR, ISR, SSG), **contraintes** (multilingue, prévisualisation, droits).
+## Output format
+Specify: **target headless CMS** (Contentful, Strapi, Sanity…), **frontend framework** (Next.js, Nuxt, Astro…), **use case** (blog, e-commerce, multisite), **cache strategy** (SSR, ISR, SSG), **constraints** (multilingual, preview, permissions).
 
 ## Anti-patterns
-- ❌ **Modèle de contenu calqué sur les pages** (au lieu de contenu structuré réutilisable) : anti-headless → modéliser par entité, pas par gabarit
-- ❌ **Pas de SSR/ISR** sur un site public : contenu JS non indexé → SEO dégradé (cf. `seo-technique-cms.md`)
-- ❌ **Webhooks de revalidation absents** : contenu périmé en cache CDN/ISR → revalidation à la publication
-- ❌ **Vendor lock-in non anticipé** (Contentful) : coût de sortie élevé → abstraire la couche d'accès au contenu
-- ❌ **Preview non sécurisée** (sans secret) : fuite de drafts → token de prévisualisation
-- ❌ **Sur-fetch** (`include` trop profond, pas de pagination) : latence et coût API → requêtes ciblées
+- ❌ **Content model mirroring the pages** (instead of reusable structured content): anti-headless → model by entity, not by layout
+- ❌ **No SSR/ISR** on a public site: unindexed JS content → degraded SEO (see `seo-technique-cms.md`)
+- ❌ **Missing revalidation webhooks**: stale content in the CDN/ISR cache → revalidate on publish
+- ❌ **Vendor lock-in not anticipated** (Contentful): high exit cost → abstract the content access layer
+- ❌ **Unsecured preview** (no secret): draft leak → preview token
+- ❌ **Over-fetching** (`include` too deep, no pagination): API latency and cost → targeted queries
 
 ## Sources
-- **Contentful / Strapi / Sanity / Prismic / Payload** — documentations éditeurs
-- **Next.js 15/16** (React 19, App Router, ISR) — nextjs.org (Vercel) · **Nuxt / Astro** — frameworks frontend
+- **Contentful / Strapi / Sanity / Prismic / Payload** — vendor documentation
+- **Next.js 15/16** (React 19, App Router, ISR) — nextjs.org (Vercel) · **Nuxt / Astro** — frontend frameworks
 - **GraphQL** — spec.graphql.org (GraphQL Foundation) · **MACH Alliance** (Microservices/API/Cloud/Headless) — machalliance.org
 - **JAMstack / composable commerce** — jamstack.org
 
-## Voir aussi
-- [`architecture-cms.md`](architecture-cms.md) — headless vs hybride vs monolithique (MACH)
-- [`seo-technique-cms.md`](seo-technique-cms.md) — SSR/ISR pour l'indexabilité
-- [`performance-web.md`](performance-web.md) — ISR/SSG et Core Web Vitals
-- [`../dam_expert/integration-dam-cms.md`](../dam_expert/integration-dam-cms.md) — assets DAM en headless
+## See also
+- [`architecture-cms.md`](architecture-cms.md) — headless vs hybrid vs monolithic (MACH)
+- [`seo-technique-cms.md`](seo-technique-cms.md) — SSR/ISR for indexability
+- [`performance-web.md`](performance-web.md) — ISR/SSG and Core Web Vitals
+- [`../dam_expert/integration-dam-cms.md`](../dam_expert/integration-dam-cms.md) — DAM assets in headless

@@ -1,61 +1,61 @@
-# Skill — Architecture CMS (Headless / Hybride / Monolithique)
-> Certifications : TOGAF 10 Foundation · Contentful Certified Professional · Adobe AEM Sites Developer
+# Skill — CMS Architecture (Headless / Hybrid / Monolithic)
+> Certifications: TOGAF 10 Foundation · Contentful Certified Professional · Adobe AEM Sites Developer
 
-## Objectif
-Concevoir l'architecture CMS cible adaptée aux besoins métier : choisir entre CMS monolithique, hybride ou headless, définir les composants et les intégrations, et produire l'architecture de référence.
+## Objective
+Design the target CMS architecture suited to the business needs: choose between a monolithic, hybrid, or headless CMS, define the components and integrations, and produce the reference architecture.
 
-## Modèles d'architecture CMS
+## CMS architecture models
 
 ```
-MODÈLE        DESCRIPTION                          CAS D'USAGE
+MODEL         DESCRIPTION                          USE CASE
 ────────────  ───────────────────────────────────  ─────────────────────────────────────
-Monolithique  Frontend intégré au CMS              Sites simples, équipes petites, budget limité
-              (AEM Sites, Drupal Classic,           Ex : site vitrine PME, intranet
+Monolithic    Frontend integrated into the CMS     Simple sites, small teams, limited budget
+              (AEM Sites, Drupal Classic,          E.g.: SME showcase site, intranet
               WordPress, TYPO3)
 
-Hybride       Backend CMS + frontend découplé       Multicanal limité, PWA, refontes progressives
-              API-driven mais CMS gère le rendu     Ex : site institutionnel avec app mobile
-              partiel (AEM Headless + AEM Sites)
+Hybrid        CMS backend + decoupled frontend     Limited multichannel, PWA, progressive redesigns
+              API-driven but the CMS handles       E.g.: institutional site with a mobile app
+              partial rendering (AEM Headless + AEM Sites)
 
-Headless      CMS = pure API Content Platform       Omnicanal, IoT, kiosques, apps mobiles
-              Frontend entièrement découplé         Ex : Contentful + Next.js, Strapi + React
+Headless      CMS = pure API content platform      Omnichannel, IoT, kiosks, mobile apps
+              Fully decoupled frontend             E.g.: Contentful + Next.js, Strapi + React
               (Contentful, Sanity, Prismic)
 
-Composable    MACH Architecture                     E-commerce complexe, grande échelle
-(MACH)        Microservices + API + Cloud-native    Ex : plateforme hôtelière mondiale, e-commerce luxe international
+Composable    MACH architecture                    Complex e-commerce, large scale
+(MACH)        Microservices + API + cloud-native   E.g.: global hotel platform, international luxury e-commerce
               + Headless (Contentful + Commercetools
               + Algolia + Cloudflare)
 ```
 
-## Grille de décision CMS
+## CMS decision grid
 
-| Critère | Monolithique | Hybride | Headless | Composable |
+| Criterion | Monolithic | Hybrid | Headless | Composable |
 |---------|-------------|---------|----------|------------|
-| Time-to-market | Rapide | Moyen | Long | Très long |
-| Coût initial | Faible | Moyen | Moyen | Élevé |
-| Scalabilité | Limitée | Bonne | Excellente | Excellente |
-| Expérience éditoriale | Intégrée | Bonne | Variable | Fragmentée |
-| Multicanal | Non | Partiel | Oui | Oui |
-| Compétences requises | CMS pur | CMS + Front | API + Front | Architecture MACH |
+| Time-to-market | Fast | Medium | Long | Very long |
+| Initial cost | Low | Medium | Medium | High |
+| Scalability | Limited | Good | Excellent | Excellent |
+| Editorial experience | Integrated | Good | Variable | Fragmented |
+| Multichannel | No | Partial | Yes | Yes |
+| Skills required | Pure CMS | CMS + Front | API + Front | MACH architecture |
 
-## Template de cadrage architecture CMS
+## CMS architecture scoping template
 
 ```
-ARCHITECTURE CMS — FICHE DE CADRAGE
+CMS ARCHITECTURE — SCOPING SHEET
 ──────────────────────────────────────────────────────────────
-Contexte client       : [Nom, secteur, périmètre]
-Modèle cible          : [Monolithique / Hybride / Headless / Composable]
-CMS sélectionné       : [AEM / Drupal / Contentful / Strapi / autre]
-Canaux couverts       : [Web, Mobile, Kiosque, Email, IoT…]
-Langues / Marchés     : [FR, EN, DE… — multisite ou multidomain]
-Intégrations clés     : [PIM, DAM, CRM, CDP, E-commerce…]
-Volume contenu        : [pages / assets / SKU]
-Équipe éditoriale     : [Profils, autonomie attendue]
-Contraintes legacy    : [Systèmes à conserver / décommissionner]
-Contraintes réglementaires : [RGPD, AI Act, accessibilité RGAA]
+Client context        : [Name, sector, scope]
+Target model          : [Monolithic / Hybrid / Headless / Composable]
+Selected CMS          : [AEM / Drupal / Contentful / Strapi / other]
+Channels covered      : [Web, Mobile, Kiosk, Email, IoT…]
+Languages / Markets   : [FR, EN, DE… — multisite or multidomain]
+Key integrations      : [PIM, DAM, CRM, CDP, E-commerce…]
+Content volume        : [pages / assets / SKU]
+Editorial team        : [Profiles, expected autonomy]
+Legacy constraints    : [Systems to keep / decommission]
+Regulatory constraints: [GDPR, AI Act, RGAA accessibility]
 ```
 
-## Architecture MACH — Composants types
+## MACH architecture — Typical components
 
 ```
 ┌─────────────────────────────────────────────────────┐
@@ -74,32 +74,32 @@ Contraintes réglementaires : [RGPD, AI Act, accessibilité RGAA]
 └─────┘  └──────┘  └───────┘  └────────┘
 ```
 
-## Livrables
-- Fiche de cadrage architecture CMS
-- Diagramme de composants (C4 ou Archimate)
-- Grille de décision commentée
-- Matrice d'intégrations (systèmes source / cible / protocole)
-- Roadmap de migration si transition depuis CMS existant
+## Deliverables
+- CMS architecture scoping sheet
+- Component diagram (C4 or ArchiMate)
+- Annotated decision grid
+- Integration matrix (source / target system / protocol)
+- Migration roadmap if transitioning from an existing CMS
 
-## Format de sortie
-Précise : **canaux cibles** (web, mobile, IoT…), **volume** (pages, assets, langues), **contraintes** (budget, legacy, réglementation), **profil équipe** (développeurs disponibles, expertise CMS), **horizon** (court / moyen terme).
+## Output format
+Specify: **target channels** (web, mobile, IoT…), **volume** (pages, assets, languages), **constraints** (budget, legacy, regulation), **team profile** (available developers, CMS expertise), **horizon** (short / medium term).
 
 ## Anti-patterns
-- ❌ **Choisir headless/MACH par effet de mode** sans besoin omnicanal réel : complexité et coût injustifiés → décider sur la grille, pas la hype
-- ❌ **Monolithique pour un besoin clairement omnicanal** : mur de scalabilité → headless/composable
-- ❌ **Composable sans API Gateway / BFF** : couplage fort frontend ↔ microservices → couche d'orchestration
-- ❌ **Ignorer l'expérience éditoriale** dans le choix : rejet des contributeurs → pondérer l'authoring
-- ❌ **Architecture sans matrice d'intégration** (PIM/DAM/CRM/CDP) : silos → cartographier les flux dès le cadrage
-- ❌ **Pas de stratégie de sortie / réversibilité** (vendor lock-in) : dépendance → standards ouverts, abstraction
+- ❌ **Choosing headless/MACH as a trend** with no real omnichannel need: unjustified complexity and cost → decide on the grid, not the hype
+- ❌ **Monolithic for a clearly omnichannel need**: scalability wall → headless/composable
+- ❌ **Composable without an API Gateway / BFF**: tight frontend ↔ microservices coupling → orchestration layer
+- ❌ **Ignoring the editorial experience** in the choice: contributor rejection → weight the authoring side
+- ❌ **Architecture without an integration matrix** (PIM/DAM/CRM/CDP): silos → map the flows from the scoping stage
+- ❌ **No exit / reversibility strategy** (vendor lock-in): dependency → open standards, abstraction
 
 ## Sources
-- **TOGAF 10** (The Open Group, 2022) — cadre d'architecture d'entreprise — opengroup.org
+- **TOGAF 10** (The Open Group, 2022) — enterprise architecture framework — opengroup.org
 - **MACH Alliance** (Microservices, API-first, Cloud-native, Headless) — machalliance.org
-- **C4 Model** (Simon Brown) — c4model.com · **ArchiMate 3.2** (The Open Group) — diagrammes d'architecture
-- **Atomic Design** (Brad Frost, 2016) — atomicdesign.bradfrost.com · **Forrester Wave DXP** / **Gartner MQ DXP** — benchmarks plateformes
+- **C4 Model** (Simon Brown) — c4model.com · **ArchiMate 3.2** (The Open Group) — architecture diagrams
+- **Atomic Design** (Brad Frost, 2016) — atomicdesign.bradfrost.com · **Forrester Wave DXP** / **Gartner MQ DXP** — platform benchmarks
 
-## Voir aussi
-- [`cms-headless.md`](cms-headless.md) — mise en œuvre headless/composable
-- [`migration-cms.md`](migration-cms.md) — trajectoire depuis l'architecture existante
-- [`integration-pim-dam.md`](integration-pim-dam.md) — intégrations PIM/DAM de l'architecture
-- [`../business_analyst/cartographie-si.md`](../business_analyst/cartographie-si.md) — cartographie SI (TOGAF/ArchiMate)
+## See also
+- [`cms-headless.md`](cms-headless.md) — headless/composable implementation
+- [`migration-cms.md`](migration-cms.md) — trajectory from the existing architecture
+- [`integration-pim-dam.md`](integration-pim-dam.md) — the architecture's PIM/DAM integrations
+- [`../business_analyst/cartographie-si.md`](../business_analyst/cartographie-si.md) — IS mapping (TOGAF/ArchiMate)

@@ -1,78 +1,79 @@
 # Skills — CMS & Digital Platform
 
-> Dossier rattaché à `AGENT-CMS-DIGITAL.md`
-> Référentiels : Adobe AEM · Acquia Drupal 10 · Contentful · Sitecore · TYPO3 · Optimizely · HubSpot · Shopify · TOGAF 10 · WCAG 2.2 / RGAA 4.1
+> Folder attached to `AGENT-CMS-DIGITAL.md`
+> Frameworks: Adobe AEM · Acquia Drupal 10 · Contentful · Sitecore · TYPO3 · Optimizely · HubSpot · Shopify · TOGAF 10 · WCAG 2.2 / RGAA 4.1
 
 ---
 
-## Index des skills (12)
+## Skill index (12)
 
-| # | Skill | Quand l'invoquer | Certification |
+| # | Skill | When to use it | Certification |
 |---|---|---|---|
-| 1 | [`architecture-cms.md`](architecture-cms.md) | Concevoir l'architecture CMS cible (headless / hybride / composable) | TOGAF 10 · Contentful · AEM Dev |
-| 2 | [`aem-sites-assets.md`](aem-sites-assets.md) | Configurer et développer sur Adobe AEM (Sites, Assets, AEM as Cloud Service) | Adobe AEM Sites Dev · Business Practitioner |
-| 3 | [`drupal-developpement.md`](drupal-developpement.md) | Développer sur Drupal 10 (modules custom, Commerce, REST API, PHPUnit) | Acquia Certified Dev · Site Builder |
-| 4 | [`cms-headless.md`](cms-headless.md) | Mettre en œuvre un CMS Headless (Contentful, Strapi, Sanity, Payload) | Contentful Certified · AEM Dev |
-| 5 | [`migration-cms.md`](migration-cms.md) | Piloter une migration CMS (carve-out, replatform, ETL éditorial) | Acquia Dev · AEM Dev · TOGAF 10 |
-| 6 | [`gouvernance-editoriale.md`](gouvernance-editoriale.md) | Définir la gouvernance éditoriale et workflows de publication | AEM Business Practitioner · Acquia Site Builder |
-| 7 | [`integration-pim-dam.md`](integration-pim-dam.md) | Intégrer un PIM ou un DAM au CMS | AEM Dev · Acquia Dev · Contentful |
-| 8 | [`performance-web.md`](performance-web.md) | Auditer et améliorer la performance web (Core Web Vitals, CDN) | AEM Dev · Acquia Dev |
-| 9 | [`accessibilite-numerique.md`](accessibilite-numerique.md) | Auditer l'accessibilité (RGAA 4.1 / WCAG 2.2) | WCAG 2.2 / RGAA 4.1 |
-| 10 | [`seo-technique-cms.md`](seo-technique-cms.md) | Optimiser le SEO technique (sitemap, schema.org, hreflang) | AEM Business Practitioner · Acquia Site Builder |
-| 11 | [`rebranding-digital.md`](rebranding-digital.md) | Gérer un rebranding digital multisite (carve-out de marque) | AEM Business Practitioner · TOGAF 10 · Acquia |
-| 12 | [`personnalisation-segmentation.md`](personnalisation-segmentation.md) | Concevoir personnalisation et segmentation (Adobe Target, Optimizely) | Adobe AEM Sites Dev · Sitecore XP 10 |
+| 1 | [`architecture-cms.md`](architecture-cms.md) | Design the target CMS architecture (headless / hybrid / composable) | TOGAF 10 · Contentful · AEM Dev |
+| 2 | [`aem-sites-assets.md`](aem-sites-assets.md) | Configure and develop on Adobe AEM (Sites, Assets, AEM as Cloud Service) | Adobe AEM Sites Dev · Business Practitioner |
+| 3 | [`drupal-developpement.md`](drupal-developpement.md) | Develop on Drupal 10 (custom modules, Commerce, REST API, PHPUnit) | Acquia Certified Dev · Site Builder |
+| 4 | [`cms-headless.md`](cms-headless.md) | Implement a Headless CMS (Contentful, Strapi, Sanity, Payload) | Contentful Certified · AEM Dev |
+| 5 | [`migration-cms.md`](migration-cms.md) | Lead a CMS migration (carve-out, replatform, editorial ETL) | Acquia Dev · AEM Dev · TOGAF 10 |
+| 6 | [`gouvernance-editoriale.md`](gouvernance-editoriale.md) | Define editorial governance and publishing workflows | AEM Business Practitioner · Acquia Site Builder |
+| 7 | [`integration-pim-dam.md`](integration-pim-dam.md) | Integrate a PIM or DAM with the CMS | AEM Dev · Acquia Dev · Contentful |
+| 8 | [`performance-web.md`](performance-web.md) | Audit and improve web performance (Core Web Vitals, CDN) | AEM Dev · Acquia Dev |
+| 9 | [`accessibilite-numerique.md`](accessibilite-numerique.md) | Audit accessibility (RGAA 4.1 / WCAG 2.2) | WCAG 2.2 / RGAA 4.1 |
+| 10 | [`seo-technique-cms.md`](seo-technique-cms.md) | Optimize technical SEO (sitemap, schema.org, hreflang) | AEM Business Practitioner · Acquia Site Builder |
+| 11 | [`rebranding-digital.md`](rebranding-digital.md) | Manage a multisite digital rebranding (brand carve-out) | AEM Business Practitioner · TOGAF 10 · Acquia |
+| 12 | [`personnalisation-segmentation.md`](personnalisation-segmentation.md) | Design personalization and segmentation (Adobe Target, Optimizely) | Adobe AEM Sites Dev · Sitecore XP 10 |
 
 ---
 
-## Choisir le bon skill — Arbre de décision
+## Choosing the right skill — Decision tree
 
 ```
-Tu veux ...
+You want to ...
 
-  ... CONCEVOIR UNE PLATEFORME CMS ?
-    → architecture-cms.md (headless vs hybride vs monolithique)
-    → cms-headless.md (si choix headless)
-    → aem-sites-assets.md / drupal-developpement.md (si stack ciblée)
+  ... DESIGN A CMS PLATFORM?
+    → architecture-cms.md (headless vs hybrid vs monolithic)
+    → cms-headless.md (if going headless)
+    → aem-sites-assets.md / drupal-developpement.md (if the stack is set)
 
-  ... MIGRER OU REBRANDER ?
+  ... MIGRATE OR REBRAND?
     → migration-cms.md (carve-out, replatform, mapping)
-    → rebranding-digital.md (multisite international)
+    → rebranding-digital.md (international multisite)
 
-  ... GOUVERNER LE CONTENU ?
-    → gouvernance-editoriale.md (workflows, rôles, taxonomie)
-    → integration-pim-dam.md (sources de données produit et assets)
+  ... GOVERN CONTENT?
+    → gouvernance-editoriale.md (workflows, roles, taxonomy)
+    → integration-pim-dam.md (product data and asset sources)
 
-  ... OPTIMISER LA PLATEFORME ?
+  ... OPTIMIZE THE PLATFORM?
     → performance-web.md (Core Web Vitals)
     → accessibilite-numerique.md (RGAA / WCAG)
-    → seo-technique-cms.md (référencement)
-    → personnalisation-segmentation.md (A/B test, ciblage)
+    → seo-technique-cms.md (search ranking)
+    → personnalisation-segmentation.md (A/B testing, targeting)
 ```
 
 ---
 
-## Frontières avec les autres agents
+## Boundaries with other agents
 
-| Sujet voisin | Agent concerné | Frontière |
+| Adjacent topic | Relevant agent | Boundary |
 |---|---|---|
-| Gestion des données produit textuelles | `AGENT-PIM-EXPERT.md` | CMS = publication ; PIM = données produit |
-| Gestion des assets binaires (images, vidéos) | `AGENT-DAM-EXPERT.md` | CMS = publication ; DAM = bibliothèque d'assets |
-| Développement frontend généraliste | `AGENT-DEV-TYPESCRIPT-IA.md` | CMS = templates + intégration ; DEV-TS = frontend SPA Next.js |
-| Infrastructure Cloud / Kubernetes | `AGENT-DEVOPS-CLOUD.md` | CMS = configuration ; DEVOPS = infrastructure |
-| Architecture SI globale TOGAF | `AGENT-SOLUTIONS-ARCHITECT.md` | CMS = applicatif ; SOLUTIONS = SI complet |
-| UX Research et design system | `AGENT-UX-DESIGNER.md` | CMS = templates UI ; UX = design système et research |
-| Conformité RGPD et IA Act | `AGENT-JURIDIQUE-IA.md` | CMS = implémentation ; JURIDIQUE = obligations légales |
+| Textual product data management | `AGENT-PIM-EXPERT.md` | CMS = publishing; PIM = product data |
+| Binary asset management (images, videos) | `AGENT-DAM-EXPERT.md` | CMS = publishing; DAM = asset library |
+| General-purpose frontend development | `AGENT-DEV-TYPESCRIPT-IA.md` | CMS = templates + integration; DEV-TS = Next.js SPA frontend |
+| Cloud / Kubernetes infrastructure | `AGENT-DEVOPS-CLOUD.md` | CMS = configuration; DEVOPS = infrastructure |
+| Overall TOGAF IS architecture | `AGENT-SOLUTIONS-ARCHITECT.md` | CMS = application; SOLUTIONS = full IS |
+| UX research and design system | `AGENT-UX-DESIGNER.md` | CMS = UI templates; UX = design system and research |
+| GDPR and AI Act compliance | `AGENT-JURIDIQUE-IA.md` | CMS = implementation; JURIDIQUE = legal obligations |
 
 ---
 
-## Référentiels et standards utilisés
+## Frameworks and standards used
 
-- **Adobe AEM** : https://experienceleague.adobe.com/docs/experience-manager.html
-- **Drupal 10** : https://www.drupal.org/docs/10
-- **Contentful** : https://www.contentful.com/developers/docs/
-- **TYPO3** : https://docs.typo3.org/
-- **WCAG 2.2** : https://www.w3.org/TR/WCAG22/
-- **RGAA 4.1** : https://accessibilite.numerique.gouv.fr/
-- **Core Web Vitals** : https://web.dev/vitals/
-- **schema.org** : https://schema.org/
-- **TOGAF 10** : pour la couche architecture
+- **Adobe AEM**: https://experienceleague.adobe.com/docs/experience-manager.html
+- **Drupal 10**: https://www.drupal.org/docs/10
+- **Contentful**: https://www.contentful.com/developers/docs/
+- **TYPO3**: https://docs.typo3.org/
+- **WCAG 2.2**: https://www.w3.org/TR/WCAG22/
+- **RGAA 4.1**: https://accessibilite.numerique.gouv.fr/
+- **Core Web Vitals**: https://web.dev/vitals/
+- **schema.org**: https://schema.org/
+- **TOGAF 10**: for the architecture layer
+```

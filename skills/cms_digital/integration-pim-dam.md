@@ -1,41 +1,41 @@
-# Skill — Intégration PIM / DAM au CMS
-> Certifications : Adobe AEM Sites Developer · Acquia Certified Developer — Drupal 10 · Contentful Certified Professional
+# Skill — PIM / DAM Integration with the CMS
+> Certifications: Adobe AEM Sites Developer · Acquia Certified Developer — Drupal 10 · Contentful Certified Professional
 
-## Objectif
-Connecter un CMS à un PIM (Product Information Management) et/ou un DAM (Digital Asset Management) : cartographier les flux de données, implémenter les connecteurs et synchronisations, et garantir la cohérence des contenus entre systèmes.
+## Objective
+Connect a CMS to a PIM (Product Information Management) and/or a DAM (Digital Asset Management): map the data flows, implement the connectors and synchronizations, and ensure content consistency across systems.
 
-## Cartographie des flux PIM / DAM / CMS
+## PIM / DAM / CMS flow mapping
 
 ```
-┌──────────────┐   API REST/GraphQL   ┌──────────────┐   API REST   ┌──────────────┐
+┌──────────────┐   REST/GraphQL API   ┌──────────────┐   REST API   ┌──────────────┐
 │     PIM      │ ──────────────────▶  │    CMS       │ ──────────▶  │   FRONTEND   │
-│ SAP Hybris   │   Produits/Attributs │ AEM / Drupal │  HTML/JSON   │ Web/Mobile   │
+│ SAP Hybris   │   Products/Attributes│ AEM / Drupal │  HTML/JSON   │ Web/Mobile   │
 │ Akeneo       │ ◀──────────────────  │ Contentful   │              │              │
-│ Pimcore      │   Statuts/Retours    └──────────────┘              └──────────────┘
+│ Pimcore      │   Statuses/Feedback  └──────────────┘              └──────────────┘
 └──────────────┘                             ▲
-                                             │ Assets (images, vidéos, PDF)
-┌──────────────┐   API REST / Webhook        │
+                                             │ Assets (images, videos, PDF)
+┌──────────────┐   REST API / Webhook        │
 │     DAM      │ ──────────────────────────▶ │
-│ AEM Assets   │   Upload, rendus auto       │
+│ AEM Assets   │   Upload, auto renditions   │
 │ Cloudinary   │ ◀───────────────────────── │
-│ Bynder       │   Approbations, tags        │
+│ Bynder       │   Approvals, tags           │
 │ Ooyala       │
 └──────────────┘
 ```
 
-## Flux de synchronisation PIM → CMS
+## PIM → CMS synchronization flow
 
 ```
-ÉVÉNEMENT PIM              ACTION CMS                    FRÉQUENCE
+PIM EVENT                  CMS ACTION                    FREQUENCY
 ─────────────────────────  ────────────────────────────  ──────────────────
-Nouveau produit créé       Créer une page produit        Temps réel (webhook)
-Attribut produit modifié   Mettre à jour les champs      Temps réel (webhook)
-Produit désactivé          Dépublier / archiver la page  Temps réel (webhook)
-Catalogue synchronisé      Sync complète (bulk import)   Nuit (cron job)
-Prix mis à jour            Mise à jour prix affichés     Toutes les heures
+New product created        Create a product page         Real time (webhook)
+Product attribute changed  Update the fields             Real time (webhook)
+Product disabled           Unpublish / archive the page  Real time (webhook)
+Catalog synchronized       Full sync (bulk import)       Nightly (cron job)
+Price updated              Update displayed prices       Hourly
 ```
 
-## Connecteur Akeneo → Drupal (exemple)
+## Akeneo → Drupal connector (example)
 
 ```php
 <?php
@@ -44,10 +44,10 @@ Prix mis à jour            Mise à jour prix affichés     Toutes les heures
 class AkeneoProductSync {
 
     public function syncProduct(string $akeneo_code): void {
-        // 1. Récupérer le produit depuis l'API Akeneo
+        // 1. Fetch the product from the Akeneo API
         $product = $this->akeneoClient->getProductApi()->get($akeneo_code);
 
-        // 2. Mapper les attributs Akeneo → champs Drupal
+        // 2. Map Akeneo attributes → Drupal fields
         $data = [
             'type'              => 'product',
             'title'             => $product['values']['name'][0]['data'] ?? $akeneo_code,
@@ -57,7 +57,7 @@ class AkeneoProductSync {
             'field_status'      => $product['enabled'] ? 1 : 0,
         ];
 
-        // 3. Créer ou mettre à jour le nœud Drupal
+        // 3. Create or update the Drupal node
         $existing = $this->findNodeBySku($akeneo_code);
         if ($existing) {
             $node = $this->nodeStorage->load($existing);
@@ -73,10 +73,10 @@ class AkeneoProductSync {
 }
 ```
 
-## Intégration DAM Cloudinary → CMS
+## Cloudinary DAM → CMS integration
 
 ```typescript
-// Uploader un asset et obtenir les rendus automatiques
+// Upload an asset and get the automatic renditions
 import { v2 as cloudinary } from 'cloudinary'
 
 cloudinary.config({
@@ -90,7 +90,7 @@ export async function uploadAsset(file: Buffer, folder: string, tags: string[]) 
     folder,
     tags,
     transformation: [
-      { quality: 'auto', fetch_format: 'auto' },       // WebP/AVIF auto
+      { quality: 'auto', fetch_format: 'auto' },       // auto WebP/AVIF
     ],
     eager: [
       { width: 1920, crop: 'limit', format: 'webp' },  // Hero 1920px
@@ -103,52 +103,52 @@ export async function uploadAsset(file: Buffer, folder: string, tags: string[]) 
   return {
     publicId: result.public_id,
     url: result.secure_url,
-    rendus: result.eager,
+    renditions: result.eager,
   }
 }
 ```
 
-## Mapping d'attributs PIM → CMS
+## PIM → CMS attribute mapping
 
 ```
-ATTRIBUT AKENEO         CHAMP DRUPAL / CONTENTFUL   TRANSFORMATION
+AKENEO ATTRIBUTE        DRUPAL / CONTENTFUL FIELD   TRANSFORMATION
 ──────────────────────  ──────────────────────────  ────────────────────────────
 name[fr_FR]             field_title                 Trim, capitalize first letter
 description_html[fr_FR] field_body                  HTML sanitize + truncate 500 chars
-price.EUR               field_price                 Float, arrondi 2 décimales
-categories[]            field_category (taxonomy)   Mapping slugs ↔ term IDs
-images[0].url           field_image (media)         Réupload via DAM API
+price.EUR               field_price                 Float, rounded to 2 decimals
+categories[]            field_category (taxonomy)   Map slugs ↔ term IDs
+images[0].url           field_image (media)         Re-upload via DAM API
 enabled                 status (published/unpublished) Boolean → 0/1
-weight.value            field_weight                Conversion g → kg si nécessaire
+weight.value            field_weight                g → kg conversion if needed
 ```
 
-## Livrables
-- Cartographie des flux (PIM/DAM → CMS, diagramme)
-- Spécifications du mapping d'attributs (tableau source → cible)
-- Connecteurs développés (modules / microservices)
-- Configuration des webhooks (événements, retry, monitoring)
-- Documentation opérationnelle (procédures de resync, gestion des erreurs)
-- Tests d'intégration (couverture flux critiques)
+## Deliverables
+- Flow mapping (PIM/DAM → CMS, diagram)
+- Attribute mapping specifications (source → target table)
+- Developed connectors (modules / microservices)
+- Webhook configuration (events, retry, monitoring)
+- Operational documentation (resync procedures, error handling)
+- Integration tests (coverage of critical flows)
 
-## Format de sortie
-Précise : **PIM source** (Akeneo, SAP Hybris, Pimcore…), **DAM** (AEM Assets, Cloudinary, Bynder…), **CMS cible**, **volume** (SKU, assets), **mode de sync** (temps réel via webhook ou batch nocturne), **contraintes** (multilingue, multimarché).
+## Output format
+Specify: **source PIM** (Akeneo, SAP Hybris, Pimcore…), **DAM** (AEM Assets, Cloudinary, Bynder…), **target CMS**, **volume** (SKU, assets), **sync mode** (real time via webhook or nightly batch), **constraints** (multilingual, multi-market).
 
 ## Anti-patterns
-- ❌ **Upload direct des assets dans le CMS** (bypass du DAM) : assets non gouvernés, sans droits → asset reference depuis le DAM
-- ❌ **Stocker les données produit dans le CMS** au lieu de référencer le PIM : double maîtrise et désynchronisation → le PIM reste source de vérité
-- ❌ **Synchronisation sans gestion d'erreur / retry / idempotence** : doublons ou désync silencieuse → webhooks idempotents + file de retry
-- ❌ **Sync complète permanente** au lieu de delta/événementiel : charge inutile → webhook sur événement + bulk nocturne
-- ❌ **Pas de monitoring des flux** PIM/DAM → CMS : pannes invisibles → alertes + dashboard
-- ❌ **Citer/maintenir des outils discontinués** : ex. *Ooyala* (OVP arrêté en 2019) → tenir la liste d'outils à jour (DAM vidéo actuels : Bynder, Cloudinary, AEM Assets)
+- ❌ **Uploading assets directly into the CMS** (bypassing the DAM): ungoverned assets, no rights → reference assets from the DAM
+- ❌ **Storing product data in the CMS** instead of referencing the PIM: dual ownership and desync → the PIM stays the source of truth
+- ❌ **Sync without error handling / retry / idempotency**: duplicates or silent desync → idempotent webhooks + retry queue
+- ❌ **Permanent full sync** instead of delta/event-driven: needless load → webhook on event + nightly bulk
+- ❌ **No flow monitoring** PIM/DAM → CMS: invisible failures → alerts + dashboard
+- ❌ **Citing/maintaining discontinued tools**: e.g., *Ooyala* (OVP shut down in 2019) → keep the tool list current (current video DAM: Bynder, Cloudinary, AEM Assets)
 
 ## Sources
-- **PIM** : Akeneo (Serenity) — akeneo.com · SAP Commerce/Hybris PCM — sap.com · Pimcore — pimcore.com
-- **DAM** : Adobe AEM Assets — experienceleague.adobe.com · Cloudinary — cloudinary.com · Bynder — developer.bynder.com *(Ooyala OVP arrêté en 2019 — exemple historique)*
-- **GS1 General Specifications v24.0** (2024) — GTIN/GLN pour l'appariement produit — gs1.org
-- **Webhooks / REST / GraphQL** — patterns d'intégration événementielle
+- **PIM**: Akeneo (Serenity) — akeneo.com · SAP Commerce/Hybris PCM — sap.com · Pimcore — pimcore.com
+- **DAM**: Adobe AEM Assets — experienceleague.adobe.com · Cloudinary — cloudinary.com · Bynder — developer.bynder.com *(Ooyala OVP shut down in 2019 — historical example)*
+- **GS1 General Specifications v24.0** (2024) — GTIN/GLN for product matching — gs1.org
+- **Webhooks / REST / GraphQL** — event-driven integration patterns
 
-## Voir aussi
-- [`../pim_expert/syndication-canaux.md`](../pim_expert/syndication-canaux.md) — diffusion produit vers les canaux
-- [`../dam_expert/integration-dam-cms.md`](../dam_expert/integration-dam-cms.md) — vue DAM de l'intégration au CMS
-- [`cms-headless.md`](cms-headless.md) — consommation headless des contenus produit
-- [`architecture-cms.md`](architecture-cms.md) — place du PIM/DAM dans l'architecture composable
+## See also
+- [`../pim_expert/syndication-canaux.md`](../pim_expert/syndication-canaux.md) — product distribution to channels
+- [`../dam_expert/integration-dam-cms.md`](../dam_expert/integration-dam-cms.md) — DAM view of CMS integration
+- [`cms-headless.md`](cms-headless.md) — headless consumption of product content
+- [`architecture-cms.md`](architecture-cms.md) — the place of PIM/DAM in a composable architecture

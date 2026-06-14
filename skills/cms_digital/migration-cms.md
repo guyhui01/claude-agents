@@ -1,107 +1,107 @@
-# Skill — Migration CMS (Carve-out, Replatform, Rehost)
-> Certifications : Acquia Certified Developer — Drupal 10 · Adobe AEM Sites Developer · TOGAF 10 Foundation
+# Skill — CMS Migration (Carve-out, Replatform, Rehost)
+> Certifications: Acquia Certified Developer — Drupal 10 · Adobe AEM Sites Developer · TOGAF 10 Foundation
 
-## Objectif
-Planifier et exécuter une migration CMS : audit de l'existant, mapping de contenu, stratégie de migration (big bang vs phased), ETL éditorial, recette et basculement — en minimisant les risques de perte de données et d'indisponibilité.
+## Objective
+Plan and execute a CMS migration: audit the existing system, content mapping, migration strategy (big bang vs phased), editorial ETL, UAT and cutover — minimizing the risk of data loss and downtime.
 
-## Stratégies de migration
+## Migration strategies
 
 ```
-STRATÉGIE       DESCRIPTION                          RISQUE    DURÉE     CAS D'USAGE
+STRATEGY        DESCRIPTION                          RISK      DURATION  USE CASE
 ──────────────  ───────────────────────────────────  ────────  ────────  ──────────────────────────
-Rehost          Même CMS, nouvelle infra             Faible    Court     Cloud lift & shift
+Rehost          Same CMS, new infra                  Low       Short     Cloud lift & shift
                 (on-prem → cloud)
 
-Replatform      Même CMS, version majeure            Moyen     Moyen     Drupal 7→10, AEM 6.5→Cloud
-                (upgrade avec refactoring)
+Replatform      Same CMS, major version              Medium    Medium    Drupal 7→10, AEM 6.5→Cloud
+                (upgrade with refactoring)
 
-Replatform+     Changement de CMS                    Élevé     Long      Drupal → Contentful, TYPO3→AEM
-(Migration)     Conservation du contenu
+Replatform+     CMS change                           High      Long      Drupal → Contentful, TYPO3→AEM
+(Migration)     Content preserved
 
-Rebuild         Nouveau CMS + nouveau contenu         Très      Très long Rebranding total, fusion
-                (contenu recréé/migré sélectivement) élevé               entités (carve-out)
+Rebuild         New CMS + new content                Very      Very long Total rebranding, entity
+                (content selectively recreated/migr.) high                merger (carve-out)
 ```
 
-## Plan de migration en 6 phases
+## 6-phase migration plan
 
 ```
-PHASE 1 — AUDIT & INVENTAIRE (J-90 à J-60)
-  □ Inventaire exhaustif : pages, assets, taxonomies, utilisateurs
-  □ Analyse SEO : URLs canoniques, redirections existantes, backlinks
-  □ Cartographie des intégrations (PIM, DAM, CRM, Analytics)
-  □ Analyse de la dette technique (modules obsolètes, customisations)
+PHASE 1 — AUDIT & INVENTORY (D-90 to D-60)
+  □ Exhaustive inventory: pages, assets, taxonomies, users
+  □ SEO analysis: canonical URLs, existing redirects, backlinks
+  □ Mapping of integrations (PIM, DAM, CRM, Analytics)
+  □ Technical debt analysis (obsolete modules, customizations)
 
-PHASE 2 — CONCEPTION (J-60 à J-30)
-  □ Mapping des content types Ancien CMS → Nouveau CMS
-  □ Mapping des champs (transformations, valeurs par défaut)
-  □ Stratégie redirections (301 map exhaustive)
-  □ Architecture cible validée (modèles de données, intégrations)
+PHASE 2 — DESIGN (D-60 to D-30)
+  □ Content type mapping Old CMS → New CMS
+  □ Field mapping (transformations, default values)
+  □ Redirect strategy (exhaustive 301 map)
+  □ Validated target architecture (data models, integrations)
 
-PHASE 3 — DÉVELOPPEMENT ETL (J-30 à J-10)
-  □ Scripts d'extraction (API, export CSV/XML, scraping)
-  □ Scripts de transformation (normalisation, enrichissement)
-  □ Scripts de chargement (import API nouveau CMS)
-  □ Tests sur environnement de staging (échantillon 10%)
+PHASE 3 — ETL DEVELOPMENT (D-30 to D-10)
+  □ Extraction scripts (API, CSV/XML export, scraping)
+  □ Transformation scripts (normalization, enrichment)
+  □ Loading scripts (import to the new CMS API)
+  □ Tests on a staging environment (10% sample)
 
-PHASE 4 — RECETTE (J-10 à J-3)
-  □ Migration complète en staging
-  □ UAT éditeurs (validation contenu clé)
-  □ Tests SEO (redirections, métadonnées, sitemap)
-  □ Tests de performance (LCP, CLS, TTI)
-  □ Tests d'accessibilité (RGAA 4.1 / WCAG 2.2)
+PHASE 4 — UAT (D-10 to D-3)
+  □ Full migration on staging
+  □ Editor UAT (key content validation)
+  □ SEO tests (redirects, metadata, sitemap)
+  □ Performance tests (LCP, CLS, TTI)
+  □ Accessibility tests (RGAA 4.1 / WCAG 2.2)
 
-PHASE 5 — BASCULEMENT (J0)
-  □ Migration finale en production (delta ou full)
-  □ Vérification DNS / CDN
-  □ Validation smoke tests critiques
-  □ Activation monitoring et alertes
+PHASE 5 — CUTOVER (D0)
+  □ Final migration to production (delta or full)
+  □ DNS / CDN verification
+  □ Critical smoke-test validation
+  □ Enable monitoring and alerts
 
-PHASE 6 — POST-MIGRATION (J+7 à J+30)
-  □ Surveillance SEO (Search Console, taux d'erreur 404)
-  □ Correction anomalies résiduelles
-  □ Formation équipes éditoriales
-  □ Documentation opérationnelle (runbook)
+PHASE 6 — POST-MIGRATION (D+7 to D+30)
+  □ SEO monitoring (Search Console, 404 error rate)
+  □ Fix residual anomalies
+  □ Editorial team training
+  □ Operational documentation (runbook)
 ```
 
-## Mapping de contenu — Template
+## Content mapping — Template
 
 ```
 CONTENT TYPE MAPPING
 ──────────────────────────────────────────────────────────────────────
-Source (Ancien CMS)          Cible (Nouveau CMS)       Transformation
+Source (Old CMS)             Target (New CMS)           Transformation
 ───────────────────────────  ─────────────────────────  ──────────────
-node/article                 Entry[content_type=article] Aucune
+node/article                 Entry[content_type=article] None
 field_body (text_long)       body (RichText)            HTML → Rich Text JSON
-field_image (image)          heroImage (Asset)          Réupload + crop auto
-field_tags (taxonomy_term)   tags (Array<Symbol>)       Extraction labels
+field_image (image)          heroImage (Asset)          Re-upload + auto crop
+field_tags (taxonomy_term)   tags (Array<Symbol>)       Label extraction
 field_author (entity_ref)    author (Entry reference)   UUID mapping
-path alias (/blog/mon-titre) slug (mon-titre)           Extraction path final
+path alias (/blog/my-title)  slug (my-title)            Final path extraction
 ```
 
-## Script ETL Drupal → Contentful (exemple)
+## ETL script Drupal → Contentful (example)
 
 ```python
 import requests
 import json
 
 def migrate_article(drupal_node, contentful_space, cda_token):
-    # Extraction Drupal JSON:API
+    # Extraction from Drupal JSON:API
     node_data = requests.get(
-        f"https://mon-drupal.com/jsonapi/node/article/{drupal_node['id']}",
+        f"https://my-drupal.com/jsonapi/node/article/{drupal_node['id']}",
         params={"include": "field_image,field_author"}
     ).json()['data']
 
     # Transformation
     entry = {
         "fields": {
-            "title":       {"fr-FR": node_data['attributes']['title']},
-            "slug":        {"fr-FR": node_data['attributes']['path']['alias'].lstrip('/blog/')},
-            "body":        {"fr-FR": html_to_rich_text(node_data['attributes']['body']['value'])},
-            "publishedAt": {"fr-FR": node_data['attributes']['created']},
+            "title":       {"en-US": node_data['attributes']['title']},
+            "slug":        {"en-US": node_data['attributes']['path']['alias'].lstrip('/blog/')},
+            "body":        {"en-US": html_to_rich_text(node_data['attributes']['body']['value'])},
+            "publishedAt": {"en-US": node_data['attributes']['created']},
         }
     }
 
-    # Chargement Contentful Management API
+    # Loading via the Contentful Management API
     response = requests.post(
         f"https://api.contentful.com/spaces/{contentful_space}/entries",
         headers={"Authorization": f"Bearer {cda_token}", "X-Contentful-Content-Type": "article"},
@@ -110,34 +110,34 @@ def migrate_article(drupal_node, contentful_space, cda_token):
     return response.json()
 ```
 
-## Livrables
-- Rapport d'audit de l'existant (inventaire, dette, SEO)
-- Plan de migration détaillé (phases, jalons, responsables)
-- Mapping de contenu (tableau source → cible)
-- Scripts ETL (extraction + transformation + chargement)
-- Plan de redirections 301 (fichier CSV complet)
-- Rapport de recette (UAT + SEO + performance + accessibilité)
-- Runbook post-migration
+## Deliverables
+- Audit report of the existing system (inventory, debt, SEO)
+- Detailed migration plan (phases, milestones, owners)
+- Content mapping (source → target table)
+- ETL scripts (extraction + transformation + loading)
+- 301 redirect plan (complete CSV file)
+- UAT report (UAT + SEO + performance + accessibility)
+- Post-migration runbook
 
-## Format de sortie
-Précise : **CMS source** et **CMS cible**, **volume** (pages, assets, langues), **contraintes SEO** (conservation des URLs ?), **stratégie** (big bang vs phased), **délai** et **équipe disponible**.
+## Output format
+Specify: **source CMS** and **target CMS**, **volume** (pages, assets, languages), **SEO constraints** (preserve URLs?), **strategy** (big bang vs phased), **timeline** and **available team**.
 
 ## Anti-patterns
-- ❌ **Big bang sans rollback testé** : aucun retour arrière si échec → procédure de rollback + double-run si critique
-- ❌ **Pas de plan de redirections 301 exhaustif** : perte SEO massive (404, backlinks cassés) → map complète source → cible
-- ❌ **Migration sans gel + delta** : contenu créé pendant la recette perdu → gel lecture seule + delta J0
-- ❌ **Pas de recette SEO/perf/accessibilité** avant bascule : régressions en prod → UAT + tests automatisés
-- ❌ **Migrer la dette** (contenu obsolète, taxonomies anarchiques) : on déménage le désordre → assainir en phase 1
-- ❌ **Drupal 7/9 ou AEM ancien non anticipé** (EOL) : urgence sécurité → planifier vers Drupal 10/11 ou AEM Cloud
+- ❌ **Big bang without a tested rollback**: no way back on failure → rollback procedure + dual-run if critical
+- ❌ **No exhaustive 301 redirect plan**: massive SEO loss (404, broken backlinks) → full source → target map
+- ❌ **Migration without freeze + delta**: content created during UAT lost → read-only freeze + D0 delta
+- ❌ **No SEO/perf/accessibility UAT** before cutover: regressions in prod → UAT + automated tests
+- ❌ **Migrating the debt** (obsolete content, anarchic taxonomies): you just move the mess → clean up in phase 1
+- ❌ **Drupal 7/9 or old AEM not anticipated** (EOL): security emergency → plan toward Drupal 10/11 or AEM Cloud
 
 ## Sources
-- **TOGAF 10** (2022) — trajectoire de migration — opengroup.org
-- **APIs de migration** : Drupal Migrate API / JSON:API — drupal.org · Contentful Management API — contentful.com · AEM — experienceleague.adobe.com
-- **Redirections 301** (HTTP, RFC 9110) · **Google Search Console** — search.google.com/search-console
-- **WCAG 2.2** (W3C, 2023) — recette accessibilité post-migration
+- **TOGAF 10** (2022) — migration trajectory — opengroup.org
+- **Migration APIs**: Drupal Migrate API / JSON:API — drupal.org · Contentful Management API — contentful.com · AEM — experienceleague.adobe.com
+- **301 redirects** (HTTP, RFC 9110) · **Google Search Console** — search.google.com/search-console
+- **WCAG 2.2** (W3C, 2023) — post-migration accessibility UAT
 
-## Voir aussi
-- [`drupal-developpement.md`](drupal-developpement.md) — migration Drupal (Migrate API)
-- [`architecture-cms.md`](architecture-cms.md) — architecture cible de la migration
-- [`seo-technique-cms.md`](seo-technique-cms.md) — plan de redirections 301 et SEO
-- [`../dam_expert/migration-dam.md`](../dam_expert/migration-dam.md) — migration coordonnée des assets
+## See also
+- [`drupal-developpement.md`](drupal-developpement.md) — Drupal migration (Migrate API)
+- [`architecture-cms.md`](architecture-cms.md) — the migration's target architecture
+- [`seo-technique-cms.md`](seo-technique-cms.md) — 301 redirect plan and SEO
+- [`../dam_expert/migration-dam.md`](../dam_expert/migration-dam.md) — coordinated asset migration

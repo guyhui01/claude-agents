@@ -1,12 +1,12 @@
-# Skill — Architecture GCP : IA & Data
-> Certifications : Google Cloud Professional Data Engineer (2026), Google Cloud Professional ML Engineer, Google Cloud Professional DevOps Engineer
+# Skill — GCP Architecture: AI & Data
+> Certifications: Google Cloud Professional Data Engineer (2026), Google Cloud Professional ML Engineer, Google Cloud Professional DevOps Engineer
 
-## Objectif
-Concevoir des architectures GCP orientées IA/Data — GKE autopilot, Vertex AI pipelines, BigQuery ML et patterns event-driven avec Pub/Sub et Cloud Composer pour l'orchestration.
+## Objective
+Design AI/Data-oriented GCP architectures — GKE Autopilot, Vertex AI pipelines, BigQuery ML and event-driven patterns with Pub/Sub and Cloud Composer for orchestration.
 
-## Services Clés & Patterns
+## Key services & patterns
 
-### Architecture Data-IA sur GCP
+### Data-AI architecture on GCP
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
@@ -18,37 +18,37 @@ Concevoir des architectures GCP orientées IA/Data — GKE autopilot, Vertex AI 
                              │
 ┌────────────────────────────▼─────────────────────────────────┐
 │              STORAGE & PROCESSING                            │
-│  BigQuery (data warehouse) — tables partitionnées + clustered│
-│  GCS (data lake) — format Parquet/Avro/ORC                   │
+│  BigQuery (data warehouse) — partitioned + clustered tables  │
+│  GCS (data lake) — Parquet/Avro/ORC format                   │
 │  Dataflow (Apache Beam) — streaming + batch                  │
-│  Dataproc (Spark) — workloads Spark existants                │
+│  Dataproc (Spark) — existing Spark workloads                 │
 └────────────────────────────┬─────────────────────────────────┘
                              │
 ┌────────────────────────────▼─────────────────────────────────┐
 │              MACHINE LEARNING (Vertex AI)                    │
 │  Vertex AI Pipelines (Kubeflow) ──► Model Registry           │
 │  Vertex AI Training ──► Vertex AI Prediction (endpoints)     │
-│  Gemini API (Vertex) ──► RAG via Vertex AI Search            │
-│  BigQuery ML ──► Modèles SQL directement dans BQ             │
+│  Gemini API (Vertex) ──► RAG via Vertex AI Search           │
+│  BigQuery ML ──► SQL models directly in BQ                   │
 └────────────────────────────┬─────────────────────────────────┘
                              │
 ┌────────────────────────────▼─────────────────────────────────┐
 │                SERVING & ORCHESTRATION                       │
 │  GKE Autopilot ──► Cloud Run ──► API Gateway                 │
-│  Cloud Composer (Airflow) ──► orchestration des pipelines    │
+│  Cloud Composer (Airflow) ──► pipeline orchestration         │
 │  Looker / Looker Studio ──► BI & dashboards                  │
 └──────────────────────────────────────────────────────────────┘
 ```
 
-### GKE Autopilot — Configuration Terraform
+### GKE Autopilot — Terraform configuration
 
 ```hcl
 # gke-autopilot.tf
 resource "google_container_cluster" "ai_platform" {
   name     = "ai-platform-prod"
-  location = "europe-west1"           # Région bas carbone
+  location = "europe-west1"           # Low-carbon region
 
-  enable_autopilot = true             # Autopilot — pas de gestion de noeuds
+  enable_autopilot = true             # Autopilot — no node management
 
   network    = google_compute_network.vpc.name
   subnetwork = google_compute_subnetwork.private.name
@@ -77,7 +77,7 @@ resource "google_container_cluster" "ai_platform" {
   }
 }
 
-# Workload Identity pour un ServiceAccount K8s
+# Workload Identity for a K8s ServiceAccount
 resource "google_service_account_iam_binding" "workload_identity" {
   service_account_id = google_service_account.app_sa.name
   role               = "roles/iam.workloadIdentityUser"
@@ -146,7 +146,7 @@ def train_model(
 
 @dsl.pipeline(
     name="ml-training-pipeline",
-    description="Pipeline d'entraînement avec BQ + Vertex AI",
+    description="Training pipeline with BQ + Vertex AI",
 )
 def training_pipeline(
     project_id: str = "my-project",
@@ -160,7 +160,7 @@ def training_pipeline(
     )
 
 
-# Compiler et soumettre
+# Compile and submit
 compiler.Compiler().compile(training_pipeline, "pipeline.json")
 
 vertex_ai.init(project="my-project", location="europe-west1")
@@ -173,10 +173,10 @@ job = vertex_ai.PipelineJob(
 job.submit(service_account="ml-pipeline-sa@my-project.iam.gserviceaccount.com")
 ```
 
-### BigQuery ML — Modèles directement en SQL
+### BigQuery ML — Models directly in SQL
 
 ```sql
--- Créer un modèle de propension à la conversion
+-- Create a conversion-propensity model
 CREATE OR REPLACE MODEL `my-project.ml_models.conversion_propensity`
 OPTIONS(
   model_type = 'BOOSTED_TREE_CLASSIFIER',
@@ -199,10 +199,10 @@ SELECT
 FROM `my-project.analytics.user_features`
 WHERE DATE(event_date) BETWEEN '2025-01-01' AND '2026-03-31';
 
--- Évaluer le modèle
+-- Evaluate the model
 SELECT * FROM ML.EVALUATE(MODEL `my-project.ml_models.conversion_propensity`);
 
--- Prédictions en batch
+-- Batch predictions
 SELECT
   user_id,
   predicted_converted,
@@ -239,7 +239,7 @@ default_args = {
 with DAG(
     dag_id="daily_ml_training",
     default_args=default_args,
-    schedule_interval="0 3 * * *",   # Chaque jour à 3h
+    schedule_interval="0 3 * * *",   # Every day at 3 a.m.
     start_date=days_ago(1),
     catchup=False,
     tags=["ml", "daily"],
@@ -269,13 +269,13 @@ with DAG(
     wait_for_data >> run_training
 ```
 
-## Livrables
-- Architecture diagram GCP (Whitepapers Google / diagrams.net)
-- Terraform modules GKE Autopilot + IAM + VPC
-- Vertex AI Pipeline compilé + DAG Cloud Composer
-- BigQuery ML modèle + monitoring avec Looker Studio
+## Deliverables
+- GCP architecture diagram (Google whitepapers / diagrams.net)
+- GKE Autopilot + IAM + VPC Terraform modules
+- Compiled Vertex AI Pipeline + Cloud Composer DAG
+- BigQuery ML model + monitoring with Looker Studio
 - IAM + Workload Identity configuration
-- Estimation coûts GCP (Google Cloud Pricing Calculator)
+- GCP cost estimate (Google Cloud Pricing Calculator)
 
-## Format de sortie
-Précise : cas d'usage IA/data (LLM Gemini, MLOps, analytics), région GCP (europe-west1/4 recommandée RGPD), volume de données (Go/To/Po), services existants GCP, contraintes de conformité, budget mensuel cible.
+## Output format
+Specify: AI/data use case (Gemini LLM, MLOps, analytics), GCP region (europe-west1/4 recommended for GDPR), data volume (GB/TB/PB), existing GCP services, compliance constraints, target monthly budget.

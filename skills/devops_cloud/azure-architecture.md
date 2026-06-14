@@ -1,12 +1,12 @@
-# Skill — Architecture Azure : IA, Data & MLOps
-> Certifications : Azure Solutions Architect Expert (AZ-305 2026), Azure AI Engineer Associate (AI-102), Azure DevOps Expert (AZ-400)
+# Skill — Azure Architecture: AI, Data & MLOps
+> Certifications: Azure Solutions Architect Expert (AZ-305 2026), Azure AI Engineer Associate (AI-102), Azure DevOps Expert (AZ-400)
 
-## Objectif
-Concevoir des architectures Azure pour les projets IA et data — AKS managé, Azure OpenAI Service, Azure ML avec MLflow, Synapse Analytics et Databricks pour les workloads data intensive.
+## Objective
+Design Azure architectures for AI and data projects — managed AKS, Azure OpenAI Service, Azure ML with MLflow, Synapse Analytics and Databricks for data-intensive workloads.
 
-## Services Clés & Patterns
+## Key services & patterns
 
-### Architecture IA/Data sur Azure
+### AI/Data architecture on Azure
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
@@ -27,11 +27,11 @@ Concevoir des architectures Azure pour les projets IA et data — AKS managé, A
 │              TRANSFORM (Databricks + Synapse)                │
 │  Databricks (Delta Lake) ──► Unity Catalog                   │
 │  Synapse Analytics ──► Dedicated SQL Pool (DWH)              │
-│  Synapse Spark ──► Transformations à grande échelle          │
+│  Synapse Spark ──► Large-scale transformations               │
 └────────────────────────────┬─────────────────────────────────┘
                              │
 ┌────────────────────────────▼─────────────────────────────────┐
-│              ML & IA (Azure ML + Azure OpenAI)               │
+│              ML & AI (Azure ML + Azure OpenAI)               │
 │  Azure ML Workspaces ──► MLflow tracking ──► Model Registry  │
 │  Azure OpenAI Service ──► GPT-4o, o3 ──► API Management     │
 │  AI Search (vector + hybrid) ──► RAG patterns               │
@@ -39,13 +39,13 @@ Concevoir des architectures Azure pour les projets IA et data — AKS managé, A
                              │
 ┌────────────────────────────▼─────────────────────────────────┐
 │              SERVING (AKS + App Service + APIM)              │
-│  AKS ──► services ML/API ──► Azure API Management (APIM)     │
-│  Azure Container Apps ──► microservices serverless           │
-│  Power BI ──► dashboards métier                              │
+│  AKS ──► ML/API services ──► Azure API Management (APIM)     │
+│  Azure Container Apps ──► serverless microservices           │
+│  Power BI ──► business dashboards                            │
 └──────────────────────────────────────────────────────────────┘
 ```
 
-### AKS — Configuration Terraform
+### AKS — Terraform configuration
 
 ```hcl
 # aks.tf
@@ -89,7 +89,7 @@ resource "azurerm_kubernetes_cluster" "ai_platform" {
     network_plugin    = "azure"
     network_policy    = "calico"
     load_balancer_sku = "standard"
-    outbound_type     = "userDefinedRouting"   # Sortie via Firewall
+    outbound_type     = "userDefinedRouting"   # Egress via Firewall
   }
 
   monitor_metrics {}
@@ -108,7 +108,7 @@ resource "azurerm_kubernetes_cluster" "ai_platform" {
   tags = var.common_tags
 }
 
-# Node pool GPU pour inférence ML
+# GPU node pool for ML inference
 resource "azurerm_kubernetes_cluster_node_pool" "gpu" {
   name                  = "gpupool"
   kubernetes_cluster_id = azurerm_kubernetes_cluster.ai_platform.id
@@ -121,7 +121,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "gpu" {
 }
 ```
 
-### Azure OpenAI Service — Client Python
+### Azure OpenAI Service — Python client
 
 ```python
 # azure_openai_client.py
@@ -129,7 +129,7 @@ from openai import AzureOpenAI
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider
 import os
 
-# Authentification via Managed Identity (pas de clé API)
+# Authentication via Managed Identity (no API key)
 credential = DefaultAzureCredential()
 token_provider = get_bearer_token_provider(
     credential, "https://cognitiveservices.azure.com/.default"
@@ -142,7 +142,7 @@ client = AzureOpenAI(
 )
 
 def chat_with_streaming(messages: list[dict], deployment: str = "gpt-4o") -> str:
-    """Appel Azure OpenAI avec streaming et gestion d'erreurs."""
+    """Azure OpenAI call with streaming and error handling."""
     full_response = ""
     with client.chat.completions.stream(
         model=deployment,
@@ -158,7 +158,7 @@ def chat_with_streaming(messages: list[dict], deployment: str = "gpt-4o") -> str
 
 
 def generate_embeddings(texts: list[str], deployment: str = "text-embedding-3-large") -> list[list[float]]:
-    """Génération d'embeddings pour RAG."""
+    """Embedding generation for RAG."""
     response = client.embeddings.create(
         model=deployment,
         input=texts,
@@ -167,7 +167,7 @@ def generate_embeddings(texts: list[str], deployment: str = "text-embedding-3-la
     return [item.embedding for item in response.data]
 ```
 
-### Azure ML avec MLflow
+### Azure ML with MLflow
 
 ```python
 # azure_ml_training.py
@@ -177,7 +177,7 @@ from azure.ai.ml import MLClient
 from azure.ai.ml.entities import Job, CommandComponent
 from azure.identity import DefaultAzureCredential
 
-# Connexion au workspace Azure ML
+# Connect to the Azure ML workspace
 ml_client = MLClient(
     credential=DefaultAzureCredential(),
     subscription_id=os.environ["AZURE_SUBSCRIPTION_ID"],
@@ -185,7 +185,7 @@ ml_client = MLClient(
     workspace_name="ml-workspace-prod",
 )
 
-# Tracking MLflow vers Azure ML
+# MLflow tracking to Azure ML
 mlflow.set_tracking_uri(ml_client.workspaces.get("ml-workspace-prod").mlflow_tracking_uri)
 mlflow.set_experiment("churn-prediction-v2")
 
@@ -193,7 +193,7 @@ def train_and_log():
     with mlflow.start_run(run_name="xgboost-baseline"):
         mlflow.log_params({"n_estimators": 200, "max_depth": 6, "learning_rate": 0.05})
 
-        # ... entraînement ...
+        # ... training ...
         mlflow.log_metric("auc", 0.892)
         mlflow.log_metric("f1_score", 0.784)
 
@@ -205,17 +205,17 @@ def train_and_log():
         )
 ```
 
-### Databricks Delta Lake — Pipeline Python
+### Databricks Delta Lake — Python pipeline
 
 ```python
-# databricks_pipeline.py (exécuté sur Databricks)
+# databricks_pipeline.py (run on Databricks)
 from pyspark.sql import SparkSession
 from delta.tables import DeltaTable
 from pyspark.sql.functions import col, current_timestamp, lit
 
 spark = SparkSession.builder.appName("DataPipeline").getOrCreate()
 
-# Lecture incrémentale depuis ADLS Gen2 (Auto Loader)
+# Incremental read from ADLS Gen2 (Auto Loader)
 raw_df = (
     spark.readStream
     .format("cloudFiles")
@@ -224,7 +224,7 @@ raw_df = (
     .load("abfss://raw@datalakeprod.dfs.core.windows.net/events/")
 )
 
-# Transformation + écriture en streaming sur Delta
+# Transformation + streaming write to Delta
 (
     raw_df
     .withColumn("ingested_at", current_timestamp())
@@ -237,7 +237,7 @@ raw_df = (
     .start("abfss://curated@datalakeprod.dfs.core.windows.net/events/")
 )
 
-# MERGE (upsert) pour les mises à jour
+# MERGE (upsert) for updates
 events_delta = DeltaTable.forPath(spark, "abfss://curated@datalakeprod/events/")
 events_delta.alias("target").merge(
     updates_df.alias("source"),
@@ -245,24 +245,24 @@ events_delta.alias("target").merge(
 ).whenMatchedUpdateAll().whenNotMatchedInsertAll().execute()
 ```
 
-## Bonnes Pratiques Azure
+## Azure best practices
 
-| Domaine | Recommandation |
+| Area | Recommendation |
 |---------|---------------|
-| Identité | Managed Identity partout, pas de clés dans le code |
-| Réseau | Private Endpoints pour tous les services PaaS |
-| Secrets | Azure Key Vault + Key Vault references dans App Service/AKS |
+| Identity | Managed Identity everywhere, no keys in the code |
+| Network | Private Endpoints for all PaaS services |
+| Secrets | Azure Key Vault + Key Vault references in App Service/AKS |
 | Monitoring | Azure Monitor + Log Analytics + Application Insights |
-| Coûts | Azure Reservations (1/3 ans), Spot pour Databricks/AKS training |
-| RGPD | Résidence des données West Europe, Customer-managed Keys (CMK) |
+| Cost | Azure Reservations (1/3 years), Spot for Databricks/AKS training |
+| GDPR | Data residency in West Europe, Customer-managed Keys (CMK) |
 
-## Livrables
-- Architecture diagram Azure (Azure Architecture Center patterns)
+## Deliverables
+- Azure architecture diagram (Azure Architecture Center patterns)
 - Terraform modules AKS + Azure OpenAI + Databricks + ADLS
-- Pipeline Databricks Delta Lake bout en bout
-- Azure ML experiment + model registry avec MLflow
-- APIM policies pour gouvernance des APIs OpenAI
-- Estimation de coûts Azure (Azure Pricing Calculator)
+- End-to-end Databricks Delta Lake pipeline
+- Azure ML experiment + model registry with MLflow
+- APIM policies for OpenAI API governance
+- Azure cost estimate (Azure Pricing Calculator)
 
-## Format de sortie
-Précise : cas d'usage IA (GPT-4o, fine-tuning, RAG), volume de données, région Azure (West Europe recommandée RGPD), services existants (AD, Azure DevOps), accord Microsoft Data Privacy, budget mensuel, conformité requise.
+## Output format
+Specify: AI use case (GPT-4o, fine-tuning, RAG), data volume, Azure region (West Europe recommended for GDPR), existing services (AD, Azure DevOps), Microsoft Data Privacy agreement, monthly budget, required compliance.

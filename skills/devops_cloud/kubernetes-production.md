@@ -1,12 +1,12 @@
-# Skill — Kubernetes en Production
-> Certifications : CKA (Certified Kubernetes Administrator 2026), CKAD, CKS, AWS EKS Specialty
+# Skill — Kubernetes in Production
+> Certifications: CKA (Certified Kubernetes Administrator 2026), CKAD, CKS, AWS EKS Specialty
 
-## Objectif
-Déployer et opérer des workloads Kubernetes en production avec haute disponibilité, sécurité renforcée, autoscaling et politiques réseau — en suivant les standards cloud-native 2026.
+## Objective
+Deploy and operate Kubernetes workloads in production with high availability, hardened security, autoscaling and network policies — following 2026 cloud-native standards.
 
-## Ressources Kubernetes Production
+## Production Kubernetes resources
 
-### Deployment avec best practices
+### Deployment with best practices
 
 ```yaml
 # deployment.yaml
@@ -29,7 +29,7 @@ spec:
     type: RollingUpdate
     rollingUpdate:
       maxSurge: 1
-      maxUnavailable: 0          # Zéro downtime
+      maxUnavailable: 0          # Zero downtime
   template:
     metadata:
       labels:
@@ -41,7 +41,7 @@ spec:
         prometheus.io/path: "/metrics"
     spec:
       serviceAccountName: api-service-sa
-      automountServiceAccountToken: false  # Sécurité
+      automountServiceAccountToken: false  # Security
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000
@@ -151,7 +151,7 @@ spec:
           averageValue: "100"
   behavior:
     scaleDown:
-      stabilizationWindowSeconds: 300  # 5 min avant scale-down
+      stabilizationWindowSeconds: 300  # 5 min before scale-down
       policies:
         - type: Percent
           value: 10
@@ -173,7 +173,7 @@ metadata:
   name: api-service-pdb
   namespace: production
 spec:
-  minAvailable: 2        # Toujours 2 pods disponibles pendant maintenance
+  minAvailable: 2        # Always 2 pods available during maintenance
   selector:
     matchLabels:
       app: api-service
@@ -219,7 +219,7 @@ spec:
           port: 53
 ```
 
-### RBAC — Moindre privilège
+### RBAC — Least privilege
 
 ```yaml
 # ServiceAccount + Role + RoleBinding
@@ -242,7 +242,7 @@ rules:
     verbs: [get, list, watch]
   - apiGroups: [""]
     resources: [secrets]
-    resourceNames: [api-secrets]     # Nom explicite — pas de wildcard
+    resourceNames: [api-secrets]     # Explicit name — no wildcard
     verbs: [get]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -260,52 +260,52 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-## Commandes opérationnelles clés
+## Key operational commands
 
 ```bash
-# Vérifier l'état d'un déploiement
+# Check a deployment's status
 kubectl rollout status deployment/api-service -n production
 
-# Rollback immédiat
+# Immediate rollback
 kubectl rollout undo deployment/api-service -n production
 
-# Debug pod en CrashLoopBackOff
+# Debug a pod in CrashLoopBackOff
 kubectl describe pod <pod-name> -n production
 kubectl logs <pod-name> -n production --previous
 
-# Vérifier les events du cluster
+# Check cluster events
 kubectl get events -n production --sort-by='.lastTimestamp' | tail -20
 
-# Top pods par consommation
+# Top pods by consumption
 kubectl top pods -n production --sort-by=memory
 
-# Forcer l'éviction d'un node pour maintenance
+# Force a node eviction for maintenance
 kubectl drain <node-name> --ignore-daemonsets --delete-emptydir-data
 
-# Vérifier les policies réseau actives
+# Check active network policies
 kubectl get networkpolicies -n production -o wide
 
-# Audit RBAC — qui peut faire quoi
+# RBAC audit — who can do what
 kubectl auth can-i --list --as=system:serviceaccount:production:api-service-sa
 ```
 
-## Bonnes Pratiques Production
+## Production best practices
 
-| Domaine | Recommandation |
+| Area | Recommendation |
 |---------|---------------|
-| Sécurité | Pod Security Standards (Restricted), NetworkPolicy deny-all par défaut |
-| Disponibilité | PDB + topologySpreadConstraints multi-AZ |
-| Ressources | Requests/limits sur tous les containers, LimitRange par namespace |
-| Observabilité | Annotations Prometheus, liveness + readiness probes |
-| RBAC | IRSA/Workload Identity, pas de SA avec cluster-admin |
-| Images | Digest pinning en prod, scan Trivy dans CI |
+| Security | Pod Security Standards (Restricted), deny-all NetworkPolicy by default |
+| Availability | PDB + multi-AZ topologySpreadConstraints |
+| Resources | Requests/limits on all containers, LimitRange per namespace |
+| Observability | Prometheus annotations, liveness + readiness probes |
+| RBAC | IRSA/Workload Identity, no SA with cluster-admin |
+| Images | Digest pinning in prod, Trivy scan in CI |
 
-## Livrables
-- Manifests Kubernetes prêts pour production (Deployment, HPA, PDB, NetworkPolicy, RBAC)
-- Kustomize overlays par environnement (base/staging/production)
-- Runbook opérationnel (rollback, debug, scaling manuel)
-- Rapport d'audit sécurité (kube-bench, Polaris, Checkov)
-- Dashboard Grafana workloads K8s
+## Deliverables
+- Production-ready Kubernetes manifests (Deployment, HPA, PDB, NetworkPolicy, RBAC)
+- Per-environment Kustomize overlays (base/staging/production)
+- Operational runbook (rollback, debug, manual scaling)
+- Security audit report (kube-bench, Polaris, Checkov)
+- Grafana dashboard for K8s workloads
 
-## Format de sortie
-Précise : provider K8s (EKS/GKE/AKS/on-prem), version Kubernetes cible, nombre de namespaces, ingress controller utilisé (nginx/traefik/ALB), service mesh (Istio/Linkerd/none), registry d'images, politique de secrets (Vault/ESO/native).
+## Output format
+Specify: K8s provider (EKS/GKE/AKS/on-prem), target Kubernetes version, number of namespaces, ingress controller used (nginx/traefik/ALB), service mesh (Istio/Linkerd/none), image registry, secrets policy (Vault/ESO/native).

@@ -1,40 +1,40 @@
-# Skill — FinOps & Optimisation des Coûts Cloud
-> Certifications : FinOps Certified Practitioner (FinOps Foundation 2026), AWS Cost Optimization, Google Cloud FinOps, Microsoft Azure Cost Management
+# Skill — FinOps & Cloud Cost Optimization
+> Certifications: FinOps Certified Practitioner (FinOps Foundation 2026), AWS Cost Optimization, Google Cloud FinOps, Microsoft Azure Cost Management
 
-## Objectif
-Réduire les coûts cloud de 20 à 40% sans impacter la performance — grâce au rightsizing, aux achats optimisés (Reserved/Spot/Savings Plans), à une tagging strategy rigoureuse et à des budgets/alertes proactifs.
+## Objective
+Cut cloud costs by 20-40% without impacting performance — through rightsizing, optimized purchasing (Reserved/Spot/Savings Plans), a rigorous tagging strategy and proactive budgets/alerts.
 
-## Frameworks FinOps & Outils
+## FinOps frameworks & tools
 
-### Cycle FinOps — FinOps Foundation
+### FinOps cycle — FinOps Foundation
 
 ```
 INFORM ──────────► OPTIMIZE ──────────► OPERATE
    │                   │                    │
    ▼                   ▼                    ▼
-Visibilité          Rightsizing          Automatisation
-Cost allocation     Reserved Instances   Budgets & alertes
-Tagging             Spot/Preemptible     Rapport hebdo
-Dashboards          Architecture review  Accountability teams
+Visibility          Rightsizing          Automation
+Cost allocation     Reserved Instances   Budgets & alerts
+Tagging             Spot/Preemptible     Weekly report
+Dashboards          Architecture review  Team accountability
 ```
 
-### Tagging Strategy — Obligatoire pour Cost Allocation
+### Tagging Strategy — Mandatory for Cost Allocation
 
 ```hcl
-# tags_policy.tf — tags obligatoires par convention
+# tags_policy.tf — mandatory tags by convention
 locals {
   mandatory_tags = {
     Environment   = var.environment          # prod / staging / dev
     Team          = var.team                 # platform / data / product
-    Project       = var.project_name         # nom du projet
-    CostCenter    = var.cost_center          # code comptable
-    Owner         = var.owner_email          # responsable
+    Project       = var.project_name         # project name
+    CostCenter    = var.cost_center          # accounting code
+    Owner         = var.owner_email          # owner
     ManagedBy     = "terraform"
     CreatedDate   = formatdate("YYYY-MM-DD", timestamp())
   }
 }
 
-# Vérification via AWS Config Rule ou GCP Organization Policy
+# Enforcement via AWS Config Rule or GCP Organization Policy
 resource "aws_config_rule" "required_tags" {
   name = "required-tags"
   source {
@@ -50,26 +50,26 @@ resource "aws_config_rule" "required_tags" {
 }
 ```
 
-### Infracost — Estimation des coûts IaC
+### Infracost — IaC cost estimation
 
 ```bash
-# Installer Infracost
+# Install Infracost
 brew install infracost
 infracost auth login
 
-# Estimation avant apply
+# Estimate before apply
 infracost breakdown --path ./infra/environments/prod \
   --terraform-var-file prod.tfvars \
   --format table
 
-# Diff entre deux branches (utilisé dans CI)
+# Diff between two branches (used in CI)
 infracost diff \
   --path ./infra \
   --compare-to main \
   --format json \
   --out-file infracost-diff.json
 
-# Rapport HTML
+# HTML report
 infracost output --path infracost-diff.json --format html > cost-report.html
 ```
 
@@ -94,7 +94,7 @@ infracost output --path infracost-diff.json --format html > cost-report.html
       --behavior update
 ```
 
-### Rightsizing — Scripts d'analyse AWS
+### Rightsizing — AWS analysis scripts
 
 ```python
 # rightsizing_analysis.py
@@ -103,9 +103,9 @@ import pandas as pd
 from datetime import datetime, timedelta
 
 def get_ec2_rightsizing_recommendations() -> pd.DataFrame:
-    """Récupère les recommandations AWS Cost Explorer."""
+    """Retrieve AWS Cost Explorer recommendations."""
     ce = boto3.client("ce", region_name="us-east-1")
-    
+
     response = ce.get_rightsizing_recommendation(
         Service="AmazonEC2",
         Configuration={
@@ -114,13 +114,13 @@ def get_ec2_rightsizing_recommendations() -> pd.DataFrame:
         },
         PageSize=100,
     )
-    
+
     recommendations = []
     for rec in response.get("RightsizingRecommendations", []):
         current = rec["CurrentInstance"]
         details = rec.get("ModifyRecommendationDetail", {})
         target = details.get("TargetInstances", [{}])[0]
-        
+
         recommendations.append({
             "instance_id": current["ResourceId"],
             "current_type": current["InstanceType"],
@@ -130,36 +130,36 @@ def get_ec2_rightsizing_recommendations() -> pd.DataFrame:
             "cpu_avg_14d": float(current.get("UtilizationMetrics", {}).get("Cpu", {}).get("Average", 0)),
             "mem_avg_14d": float(current.get("UtilizationMetrics", {}).get("Memory", {}).get("Average", 0)),
         })
-    
+
     df = pd.DataFrame(recommendations)
     total_savings = df["monthly_savings_usd"].sum()
-    print(f"Economie mensuelle potentielle : ${total_savings:,.0f}")
+    print(f"Potential monthly savings: ${total_savings:,.0f}")
     return df.sort_values("monthly_savings_usd", ascending=False)
 
 
 def get_underused_resources() -> dict:
-    """Identifie les ressources sous-utilisées."""
+    """Identify underused resources."""
     ec2 = boto3.client("ec2", region_name="eu-west-1")
-    
-    # EBS volumes non attachés
+
+    # Unattached EBS volumes
     unattached_volumes = ec2.describe_volumes(
         Filters=[{"Name": "status", "Values": ["available"]}]
     )["Volumes"]
-    
-    # Elastic IPs non utilisées
+
+    # Unused Elastic IPs
     unused_eips = [
         eip for eip in ec2.describe_addresses()["Addresses"]
         if "AssociationId" not in eip
     ]
-    
-    # Load balancers sans targets saines
+
+    # Load balancers with no healthy targets
     elb = boto3.client("elbv2", region_name="eu-west-1")
     empty_lbs = []
     for lb in elb.describe_load_balancers()["LoadBalancers"]:
         tgs = elb.describe_target_groups(LoadBalancerArn=lb["LoadBalancerArn"])["TargetGroups"]
         if not tgs:
             empty_lbs.append(lb["LoadBalancerName"])
-    
+
     return {
         "unattached_ebs": len(unattached_volumes),
         "unused_eips": len(unused_eips),
@@ -167,21 +167,21 @@ def get_underused_resources() -> dict:
     }
 ```
 
-### Stratégie d'achat — Reserved vs Spot vs On-Demand
+### Purchasing strategy — Reserved vs Spot vs On-Demand
 
 ```
 WORKLOAD TYPE          RECOMMENDATION                  SAVINGS
 ─────────────────────────────────────────────────────────────
-Production (stable)    Reserved 1 an (All Upfront)    ~40%
-Production (stable)    Savings Plans 1 an              ~35%
-Staging                On-Demand ou RI 1 an No-Upfront ~20%
-Dev/Test               Spot Instances + scheduler arrêt ~70%
-ML Training            Spot (avec checkpoints)         ~70%
-Batch/Analytics        Spot Fleet avec fallback         ~60%
+Production (stable)    Reserved 1 year (All Upfront)  ~40%
+Production (stable)    Savings Plans 1 year            ~35%
+Staging                On-Demand or RI 1 year No-Upfront ~20%
+Dev/Test               Spot Instances + shutdown scheduler ~70%
+ML Training            Spot (with checkpoints)         ~70%
+Batch/Analytics        Spot Fleet with fallback         ~60%
 ```
 
 ```bash
-# Activer l'arrêt automatique des instances dev/test (evenings + weekends)
+# Enable automatic shutdown of dev/test instances (evenings + weekends)
 # AWS Instance Scheduler
 aws cloudformation deploy \
   --template-file instance-scheduler.yaml \
@@ -192,13 +192,13 @@ aws cloudformation deploy \
     StartedTags="ScheduleAction=Started" \
     StoppedTags="ScheduleAction=Stopped"
 
-# Économie typique dev : 730h/mois ──► 128h/mois (18% du temps)
+# Typical dev savings: 730h/month ──► 128h/month (18% of the time)
 ```
 
-### Budgets & Alertes — AWS CLI
+### Budgets & Alerts — AWS CLI
 
 ```bash
-# Créer un budget mensuel avec alertes progressives
+# Create a monthly budget with progressive alerts
 aws budgets create-budget \
   --account-id 123456789 \
   --budget '{
@@ -235,24 +235,24 @@ aws budgets create-budget \
   ]'
 ```
 
-## Tableau de bord FinOps — KPIs clés
+## FinOps dashboard — Key KPIs
 
-| KPI | Calcul | Objectif |
+| KPI | Calculation | Target |
 |-----|--------|---------|
-| Cloud Unit Cost | Coût total / unité métier (MAU, requêtes, etc.) | Trend baisse |
-| RI Coverage | Coût RI / Coût total on-demand | > 70% |
-| Spot Coverage | Coût Spot / Coût total non-RI | > 40% dev/test |
-| Waste Rate | Ressources inutilisées / Coût total | < 5% |
-| Rightsizing Savings | Economie réalisée / Economie identifiée | > 80% |
-| Tagging Coverage | Ressources taguées / Total ressources | > 98% |
+| Cloud Unit Cost | Total cost / business unit (MAU, requests, etc.) | Downward trend |
+| RI Coverage | RI cost / total on-demand cost | > 70% |
+| Spot Coverage | Spot cost / total non-RI cost | > 40% dev/test |
+| Waste Rate | Unused resources / total cost | < 5% |
+| Rightsizing Savings | Savings achieved / savings identified | > 80% |
+| Tagging Coverage | Tagged resources / total resources | > 98% |
 
-## Livrables
-- Rapport de rightsizing mensuel (instance par instance, économies potentielles)
-- Tagging policy as code + audit de couverture actuelle
-- Pipeline Infracost dans CI (estimation automatique sur chaque PR)
-- Dashboards AWS Cost Explorer / Grafana avec coûts par équipe/projet
-- Recommandations Reserved Instances / Savings Plans
-- Automatisation arrêt dev/test hors horaires
+## Deliverables
+- Monthly rightsizing report (instance by instance, potential savings)
+- Tagging policy as code + current coverage audit
+- Infracost pipeline in CI (automatic estimate on every PR)
+- AWS Cost Explorer / Grafana dashboards with costs per team/project
+- Reserved Instances / Savings Plans recommendations
+- Off-hours dev/test shutdown automation
 
-## Format de sortie
-Précise : cloud provider(s), dépense mensuelle actuelle, décomposition par service/équipe, instances on-demand à analyser, contraintes d'engagement (Reserved 1 ou 3 ans), objectif de réduction (%), outils de visualisation utilisés.
+## Output format
+Specify: cloud provider(s), current monthly spend, breakdown by service/team, on-demand instances to analyze, commitment constraints (Reserved 1 or 3 years), reduction target (%), visualization tools used.

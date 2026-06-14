@@ -1,25 +1,25 @@
-# Skill — Pipelines CI/CD GitHub Actions
-> Certifications : GitHub Actions Certified (2026), CKA, AWS DevOps Professional, HashiCorp Terraform Associate
+# Skill — GitHub Actions CI/CD Pipelines
+> Certifications: GitHub Actions Certified (2026), CKA, AWS DevOps Professional, HashiCorp Terraform Associate
 
-## Objectif
-Concevoir et implémenter des pipelines CI/CD robustes avec GitHub Actions, couvrant tests automatisés, build multi-architecture, déploiement progressif et gestion sécurisée des secrets.
+## Objective
+Design and implement robust CI/CD pipelines with GitHub Actions, covering automated tests, multi-architecture builds, progressive deployment and secure secret management.
 
-## Frameworks & Patterns CI/CD
+## CI/CD frameworks & patterns
 
-### Structure de pipeline recommandée
+### Recommended pipeline structure
 
 ```
 .github/
   workflows/
-    ci.yml          # Tests + build (tous les PRs)
-    cd-staging.yml  # Déploiement staging (merge main)
-    cd-prod.yml     # Déploiement production (tag semver)
-    security.yml    # Scans sécurité (hebdo + PR)
+    ci.yml          # Tests + build (all PRs)
+    cd-staging.yml  # Staging deployment (merge to main)
+    cd-prod.yml     # Production deployment (semver tag)
+    security.yml    # Security scans (weekly + PR)
   actions/
-    setup-env/      # Composite action réutilisable
+    setup-env/      # Reusable composite action
 ```
 
-### Pipeline CI complet avec matrix strategy
+### Complete CI pipeline with matrix strategy
 
 ```yaml
 # .github/workflows/ci.yml
@@ -60,7 +60,7 @@ jobs:
           name: sast-report
           path: bandit-report.json
 
-  # ── Tests avec matrix ──────────────────────────────────────
+  # ── Tests with matrix ──────────────────────────────────────
   test:
     name: Tests (${{ matrix.python-version }}, ${{ matrix.os }})
     needs: lint
@@ -132,7 +132,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-  # ── Scan sécurité image ────────────────────────────────────
+  # ── Image security scan ────────────────────────────────────
   scan-image:
     name: Trivy Image Scan
     needs: build
@@ -151,7 +151,7 @@ jobs:
           sarif_file: trivy-results.sarif
 ```
 
-### Pipeline CD Production avec approbation
+### Production CD pipeline with approval
 
 ```yaml
 # .github/workflows/cd-prod.yml
@@ -184,7 +184,7 @@ jobs:
             --set image.tag=${{ github.ref_name }} \
             --set replicaCount=3 \
             --wait --timeout 5m
-      - name: Smoke tests post-deploy
+      - name: Post-deploy smoke tests
         run: |
           curl -f https://app.example.com/health || exit 1
       - name: Notify Slack on failure
@@ -197,17 +197,17 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 ```
 
-### Secrets Management — bonnes pratiques
+### Secrets Management — best practices
 
-| Niveau | Méthode | Usage |
+| Level | Method | Use |
 |--------|---------|-------|
-| Repo secrets | `secrets.*` | Tokens API, credentials basiques |
-| Env secrets | Environment protection rules | Credentials prod (require approval) |
+| Repo secrets | `secrets.*` | API tokens, basic credentials |
+| Env secrets | Environment protection rules | Prod credentials (require approval) |
 | OIDC federation | `role-to-assume` | AWS/GCP/Azure — zero long-lived keys |
-| Vault | `hashicorp/vault-action` | Secrets dynamiques, rotation auto |
+| Vault | `hashicorp/vault-action` | Dynamic secrets, auto rotation |
 
 ```yaml
-# Récupération depuis HashiCorp Vault
+# Retrieval from HashiCorp Vault
 - name: Import secrets from Vault
   uses: hashicorp/vault-action@v3
   with:
@@ -219,7 +219,7 @@ jobs:
       secret/data/prod/api key    | API_KEY
 ```
 
-## Bonnes Pratiques & Patterns Avancés
+## Best practices & advanced patterns
 
 ### Reusable Workflows
 
@@ -252,23 +252,23 @@ jobs:
           kubectl set image deployment/app app=${{ inputs.image-tag }}
 ```
 
-### Checklist pipeline production
+### Production pipeline checklist
 
-- [ ] OIDC auth (pas de secrets AWS/GCP long-lived)
-- [ ] Permissions minimales (`permissions: contents: read`)
-- [ ] `actions/checkout@v4` pinné sur SHA pour supply chain
-- [ ] Cache layers activé (GHA cache ou registry cache)
-- [ ] Matrix exclusions pour éviter les combinaisons inutiles
-- [ ] Environment `production` avec required reviewers
-- [ ] Notifications Slack/Teams en cas d'échec
-- [ ] Artifacts uploadés pour debug post-mortem
+- [ ] OIDC auth (no long-lived AWS/GCP secrets)
+- [ ] Minimal permissions (`permissions: contents: read`)
+- [ ] `actions/checkout@v4` pinned to a SHA for supply chain
+- [ ] Layer caching enabled (GHA cache or registry cache)
+- [ ] Matrix exclusions to avoid useless combinations
+- [ ] `production` environment with required reviewers
+- [ ] Slack/Teams notifications on failure
+- [ ] Artifacts uploaded for post-mortem debugging
 
-## Livrables
-- Pipeline CI complet (lint, test matrix, build multi-arch, scan image)
-- Pipeline CD par environnement (staging auto, prod gate d'approbation)
-- Reusable workflows mutualisés
-- Documentation des secrets et rotation
-- Badge de statut et rapport de couverture dans le README
+## Deliverables
+- Complete CI pipeline (lint, test matrix, multi-arch build, image scan)
+- Per-environment CD pipeline (auto staging, prod approval gate)
+- Shared reusable workflows
+- Secrets and rotation documentation
+- Status badge and coverage report in the README
 
-## Format de sortie
-Précise : langage/framework du projet, cloud provider cible (AWS/GCP/Azure), registry Docker (ECR/GCR/GHCR), environnements à gérer (dev/staging/prod), stratégie de branching (gitflow/trunk), seuil de coverage cible.
+## Output format
+Specify: project language/framework, target cloud provider (AWS/GCP/Azure), Docker registry (ECR/GCR/GHCR), environments to manage (dev/staging/prod), branching strategy (gitflow/trunk), target coverage threshold.

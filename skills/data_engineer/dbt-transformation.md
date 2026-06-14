@@ -1,31 +1,31 @@
-# Skill — dbt (data build tool) & Transformations SQL
-> Certifications : dbt Developer Certification · Databricks Data Engineer Associate
+# Skill — dbt (data build tool) & SQL Transformations
+> Certifications: dbt Developer Certification · Databricks Data Engineer Associate
 
-## Objectif
-Industrialiser les transformations SQL avec dbt pour garantir la qualité, la documentation et la reproductibilité des modèles analytiques.
+## Objective
+Industrialize SQL transformations with dbt to guarantee the quality, documentation and reproducibility of analytical models.
 
-## Structure d'un projet dbt
+## Structure of a dbt project
 ```
 my_dbt_project/
-├── dbt_project.yml      # Configuration globale
-├── profiles.yml         # Connexions aux DWH
+├── dbt_project.yml      # Global configuration
+├── profiles.yml         # DWH connections
 ├── models/
-│   ├── staging/         # Couche bronze → silver (sources)
-│   │   ├── stg_clients.sql
+│   ├── staging/         # Bronze → silver layer (sources)
+│   │   ├── stg_customers.sql
 │   │   └── schema.yml
-│   ├── intermediate/    # Transformations complexes
-│   └── marts/           # Couche gold (tables de rapport)
+│   ├── intermediate/    # Complex transformations
+│   └── marts/           # Gold layer (reporting tables)
 │       ├── finance/
 │       └── marketing/
-├── tests/               # Tests custom
-├── macros/              # Fonctions SQL réutilisables
-├── seeds/               # Fichiers CSV de référence
+├── tests/               # Custom tests
+├── macros/              # Reusable SQL functions
+├── seeds/               # Reference CSV files
 └── snapshots/           # SCD Type 2
 ```
 
-## Modèles dbt — exemples
+## dbt models — examples
 ```sql
--- models/staging/stg_clients.sql
+-- models/staging/stg_customers.sql
 {{ config(materialized='view', schema='staging') }}
 
 WITH source AS (
@@ -34,11 +34,11 @@ WITH source AS (
 
 renamed AS (
     SELECT
-        id                          AS client_id,
-        UPPER(TRIM(firstname))      AS prenom,
-        UPPER(TRIM(lastname))       AS nom,
+        id                          AS customer_id,
+        UPPER(TRIM(firstname))      AS first_name,
+        UPPER(TRIM(lastname))       AS last_name,
         LOWER(TRIM(email))          AS email,
-        created_date::DATE          AS date_creation,
+        created_date::DATE          AS created_date,
         _airbyte_extracted_at       AS ingested_at
     FROM source
     WHERE email IS NOT NULL
@@ -47,80 +47,80 @@ renamed AS (
 SELECT * FROM renamed
 
 
--- models/marts/marketing/mart_client_360.sql
+-- models/marts/marketing/mart_customer_360.sql
 {{ config(materialized='table', cluster_by=['segment']) }}
 
-WITH clients AS (
-    SELECT * FROM {{ ref('stg_clients') }}
+WITH customers AS (
+    SELECT * FROM {{ ref('stg_customers') }}
 ),
-ventes AS (
-    SELECT * FROM {{ ref('stg_ventes') }}
+sales AS (
+    SELECT * FROM {{ ref('stg_sales') }}
 ),
 aggregated AS (
     SELECT
-        c.client_id,
-        c.prenom,
-        c.nom,
+        c.customer_id,
+        c.first_name,
+        c.last_name,
         c.segment,
-        COUNT(v.vente_id)               AS nb_achats,
-        SUM(v.montant)                  AS ca_total,
-        AVG(v.montant)                  AS panier_moyen,
-        MAX(v.date_vente)               AS derniere_commande,
-        CURRENT_DATE - MAX(v.date_vente) AS jours_inactif
-    FROM clients c
-    LEFT JOIN ventes v USING (client_id)
+        COUNT(s.sale_id)               AS purchase_count,
+        SUM(s.amount)                  AS total_revenue,
+        AVG(s.amount)                  AS avg_basket,
+        MAX(s.sale_date)               AS last_order,
+        CURRENT_DATE - MAX(s.sale_date) AS inactive_days
+    FROM customers c
+    LEFT JOIN sales s USING (customer_id)
     GROUP BY 1, 2, 3, 4
 )
 
 SELECT * FROM aggregated
 ```
 
-## Macros dbt — réutilisation SQL
+## dbt macros — SQL reuse
 ```sql
 -- macros/cents_to_euros.sql
 {% macro cents_to_euros(column_name) %}
     ROUND({{ column_name }} / 100.0, 2)
 {% endmacro %}
 
--- Usage dans un modèle :
-{{ cents_to_euros('amount_cents') }} AS montant_euros
+-- Usage in a model:
+{{ cents_to_euros('amount_cents') }} AS amount_euros
 ```
 
-## Snapshots dbt — SCD Type 2 automatique
+## dbt snapshots — automatic SCD Type 2
 ```sql
--- snapshots/clients_snapshot.sql
-{% snapshot clients_snapshot %}
+-- snapshots/customers_snapshot.sql
+{% snapshot customers_snapshot %}
 
 {{
     config(
         target_schema='snapshots',
-        unique_key='client_id',
+        unique_key='customer_id',
         strategy='timestamp',
         updated_at='updated_at'
     )
 }}
 
-SELECT * FROM {{ source('crm', 'clients') }}
+SELECT * FROM {{ source('crm', 'customers') }}
 
 {% endsnapshot %}
 ```
 
-## Commandes dbt essentielles
+## Essential dbt commands
 ```bash
-dbt run                    # Exécuter tous les modèles
-dbt run --select marts.*   # Exécuter un sous-ensemble
-dbt test                   # Lancer les tests
-dbt docs generate          # Générer la documentation
-dbt docs serve             # Lancer le serveur de doc
-dbt source freshness       # Vérifier la fraîcheur des sources
-dbt build                  # run + test en une commande
+dbt run                    # Run all models
+dbt run --select marts.*   # Run a subset
+dbt test                   # Run the tests
+dbt docs generate          # Generate the documentation
+dbt docs serve             # Start the docs server
+dbt source freshness       # Check source freshness
+dbt build                  # run + test in a single command
 ```
 
-## Livrables
-- Projet dbt structuré (staging / marts)
-- Tests de données couvrant 100% des colonnes critiques
-- Documentation dbt (lineage graph, descriptions)
+## Deliverables
+- Structured dbt project (staging / marts)
+- Data tests covering 100% of critical columns
+- dbt documentation (lineage graph, descriptions)
 - CI/CD pipeline (GitHub Actions + dbt Cloud)
 
-## Format de sortie
-Précise : DWH cible (BigQuery, Snowflake, Databricks) · sources disponibles · couches à construire · métriques business clés · fréquence de refresh
+## Output format
+Specify: target DWH (BigQuery, Snowflake, Databricks) · available sources · layers to build · key business metrics · refresh frequency

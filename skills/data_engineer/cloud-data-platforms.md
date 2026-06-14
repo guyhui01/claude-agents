@@ -1,44 +1,44 @@
-# Skill — Plateformes Cloud Data (AWS, GCP, Azure)
-> Certifications : Google PDE · AWS DEA-C01 · Azure DP-203
+# Skill — Cloud Data Platforms (AWS, GCP, Azure)
+> Certifications: Google PDE · AWS DEA-C01 · Azure DP-203
 
-## Objectif
-Concevoir et exploiter les plateformes data cloud pour construire des architectures modernes, scalables et économiques.
+## Objective
+Design and operate cloud data platforms to build modern, scalable and cost-effective architectures.
 
-## Comparatif plateformes cloud data 2026
+## Cloud data platform comparison 2026
 
 ### Google Cloud Platform (GCP)
-| Service | Rôle | Avantage |
+| Service | Role | Advantage |
 |---|---|---|
-| **BigQuery** | DWH serverless | Requêtes pétabyte, ML intégré |
-| **Cloud Storage** | Data Lake (GCS) | Pas cher, durable |
-| **Dataflow** | Batch + Streaming (Apache Beam) | Serverless, managé |
-| **Dataproc** | Spark/Hadoop managé | Éphémère, économique |
-| **Pub/Sub** | Messaging streaming | Kafka managé |
-| **Vertex AI** | ML Platform | Bout en bout, AutoML |
-| **Looker** | BI & Dashboarding | SQL natif, gouvernance |
+| **BigQuery** | Serverless DWH | Petabyte queries, built-in ML |
+| **Cloud Storage** | Data Lake (GCS) | Cheap, durable |
+| **Dataflow** | Batch + Streaming (Apache Beam) | Serverless, managed |
+| **Dataproc** | Managed Spark/Hadoop | Ephemeral, cost-effective |
+| **Pub/Sub** | Streaming messaging | Managed Kafka |
+| **Vertex AI** | ML Platform | End-to-end, AutoML |
+| **Looker** | BI & Dashboarding | Native SQL, governance |
 
 ### Amazon Web Services (AWS)
-| Service | Rôle | Avantage |
+| Service | Role | Advantage |
 |---|---|---|
-| **S3** | Data Lake | Standard industrie |
-| **Redshift** | DWH | Intégration AWS |
-| **Glue** | ETL serverless | Catalogue + jobs Spark |
-| **EMR** | Spark managé | Flexible, économique |
+| **S3** | Data Lake | Industry standard |
+| **Redshift** | DWH | AWS integration |
+| **Glue** | Serverless ETL | Catalog + Spark jobs |
+| **EMR** | Managed Spark | Flexible, cost-effective |
 | **Kinesis** | Streaming | Low latency |
-| **Athena** | SQL sur S3 | Serverless, pay-per-query |
-| **SageMaker** | ML Platform | Formation + déploiement |
+| **Athena** | SQL on S3 | Serverless, pay-per-query |
+| **SageMaker** | ML Platform | Training + deployment |
 
 ### Microsoft Azure
-| Service | Rôle | Avantage |
+| Service | Role | Advantage |
 |---|---|---|
-| **ADLS Gen2** | Data Lake | Hiérarchique |
-| **Synapse Analytics** | DWH + Spark | Intégration M365 |
-| **Data Factory** | ETL/ELT | Low-code, 100+ connecteurs |
+| **ADLS Gen2** | Data Lake | Hierarchical |
+| **Synapse Analytics** | DWH + Spark | M365 integration |
+| **Data Factory** | ETL/ELT | Low-code, 100+ connectors |
 | **Event Hubs** | Streaming (Kafka-compatible) | Enterprise |
 | **Azure ML** | ML Platform | AutoML, MLOps |
 | **Power BI** | BI | Microsoft ecosystem |
 
-## Architecture de référence Lakehouse (multi-cloud)
+## Reference Lakehouse architecture (multi-cloud)
 ```
 Sources → Ingestion → Storage → Processing → Serving
   API      Airbyte    S3/GCS    Spark/dbt   DWH/API
@@ -46,15 +46,15 @@ Sources → Ingestion → Storage → Processing → Serving
   Files    ADF        Delta     Airflow     ML Model
 ```
 
-## Optimisation des coûts cloud
+## Cloud cost optimization
 ```python
-# BigQuery : partitionnement + clustering
+# BigQuery: partitioning + clustering
 CREATE TABLE dataset.events
 PARTITION BY DATE(created_at)
 CLUSTER BY user_id, event_type
 AS SELECT * FROM ...
 
-# Requêtes sur partitions seulement (10x moins cher)
+# Queries on partitions only (10x cheaper)
 SELECT * FROM dataset.events
 WHERE DATE(created_at) = '2026-05-01'
 AND user_id = 'usr_123'
@@ -62,24 +62,24 @@ AND user_id = 'usr_123'
 
 ## Infrastructure as Code (Terraform)
 ```hcl
-# Bucket GCS pour Data Lake
+# GCS bucket for the Data Lake
 resource "google_storage_bucket" "data_lake" {
   name          = "data-lake-prod"
   location      = "EU"
   storage_class = "STANDARD"
-  
+
   lifecycle_rule {
     condition { age = 90 }
     action { type = "SetStorageClass"; storage_class = "NEARLINE" }
   }
-  
+
   lifecycle_rule {
     condition { age = 365 }
     action { type = "SetStorageClass"; storage_class = "COLDLINE" }
   }
 }
 
-# Dataset BigQuery
+# BigQuery dataset
 resource "google_bigquery_dataset" "gold" {
   dataset_id  = "gold"
   location    = "EU"
@@ -87,11 +87,11 @@ resource "google_bigquery_dataset" "gold" {
 }
 ```
 
-## Livrables
-- Architecture data cloud documentée (diagramme)
-- Terraform / IaC pour l'infrastructure
-- Analyse des coûts (FinOps) avec recommandations
-- Runbook de déploiement et d'exploitation
+## Deliverables
+- Documented cloud data architecture (diagram)
+- Terraform / IaC for the infrastructure
+- Cost analysis (FinOps) with recommendations
+- Deployment and operations runbook
 
-## Format de sortie
-Précise : cloud provider · services existants · volume de données · budget cloud · SLA de disponibilité · conformité (RGPD, HDS...)
+## Output format
+Specify: cloud provider · existing services · data volume · cloud budget · availability SLA · compliance (GDPR, HDS...)

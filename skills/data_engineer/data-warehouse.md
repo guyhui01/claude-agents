@@ -1,105 +1,105 @@
-# Skill — Data Warehouse & Modélisation des Données
-> Certifications : Google PDE · Databricks Data Engineer Associate · AWS DEA-C01
+# Skill — Data Warehouse & Data Modeling
+> Certifications: Google PDE · Databricks Data Engineer Associate · AWS DEA-C01
 
-## Objectif
-Concevoir et implémenter des entrepôts de données performants avec une modélisation adaptée aux besoins analytiques.
+## Objective
+Design and implement performant data warehouses with modeling suited to analytical needs.
 
-## Architectures Data Warehouse 2026
+## Data Warehouse architectures 2026
 
-### Lakehouse (standard dominant)
+### Lakehouse (dominant standard)
 ```
-Bronze Layer (Raw)    → Données brutes, immuables
-Silver Layer (Clean)  → Données nettoyées, typées
-Gold Layer (Business) → Agrégats, KPIs, tables de rapport
+Bronze Layer (Raw)    → Raw, immutable data
+Silver Layer (Clean)  → Cleaned, typed data
+Gold Layer (Business) → Aggregates, KPIs, reporting tables
 ```
 
-### Plateformes cloud
-| Plateforme | Cloud | Avantages | Idéal pour |
+### Cloud platforms
+| Platform | Cloud | Advantages | Ideal for |
 |---|---|---|---|
-| **BigQuery** | Google | Serverless, SQL puissant | Analyses ad hoc, ML intégré |
-| **Snowflake** | Multi-cloud | Isolation compute/storage | Partage de données |
-| **Databricks** | Multi-cloud | Lakehouse, Spark + ML | Data + IA unifié |
-| **Redshift** | AWS | Intégration AWS | Ecosystème AWS |
-| **Synapse** | Azure | Intégration Microsoft | Ecosystème Azure |
+| **BigQuery** | Google | Serverless, powerful SQL | Ad hoc analysis, built-in ML |
+| **Snowflake** | Multi-cloud | Compute/storage isolation | Data sharing |
+| **Databricks** | Multi-cloud | Lakehouse, Spark + ML | Unified data + AI |
+| **Redshift** | AWS | AWS integration | AWS ecosystem |
+| **Synapse** | Azure | Microsoft integration | Azure ecosystem |
 
-## Modélisation dimensionnelle (Ralph Kimball)
+## Dimensional modeling (Ralph Kimball)
 
-### Schéma en étoile
+### Star schema
 ```sql
--- Table de faits (mesures)
-CREATE TABLE fact_ventes (
-    vente_id        BIGINT PRIMARY KEY,
+-- Fact table (measures)
+CREATE TABLE fact_sales (
+    sale_id         BIGINT PRIMARY KEY,
     date_id         INT REFERENCES dim_date(date_id),
-    client_id       INT REFERENCES dim_client(client_id),
-    produit_id      INT REFERENCES dim_produit(produit_id),
-    montant         DECIMAL(10,2),
-    quantite        INT,
+    customer_id     INT REFERENCES dim_customer(customer_id),
+    product_id      INT REFERENCES dim_product(product_id),
+    amount          DECIMAL(10,2),
+    quantity        INT,
     created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Table de dimension (contexte)
-CREATE TABLE dim_client (
-    client_id       INT PRIMARY KEY,
-    nom             VARCHAR(100),
+-- Dimension table (context)
+CREATE TABLE dim_customer (
+    customer_id     INT PRIMARY KEY,
+    name            VARCHAR(100),
     segment         VARCHAR(50),
-    ville           VARCHAR(100),
-    date_creation   DATE,
+    city            VARCHAR(100),
+    created_date    DATE,
     is_active       BOOLEAN
 );
 ```
 
 ### Slowly Changing Dimensions (SCD)
 ```sql
--- SCD Type 2 : historiser les changements
-CREATE TABLE dim_client_scd2 (
-    client_sk       BIGINT PRIMARY KEY,  -- Surrogate key
-    client_id       INT,                 -- Natural key
-    nom             VARCHAR(100),
+-- SCD Type 2: historize the changes
+CREATE TABLE dim_customer_scd2 (
+    customer_sk     BIGINT PRIMARY KEY,  -- Surrogate key
+    customer_id     INT,                 -- Natural key
+    name            VARCHAR(100),
     segment         VARCHAR(50),
     valid_from      DATE,
     valid_to        DATE,
     is_current      BOOLEAN
 );
--- Quand un client change de segment : fermer l'ancienne ligne,
--- créer une nouvelle avec les nouvelles valeurs
+-- When a customer changes segment: close the old row,
+-- create a new one with the new values
 ```
 
-## dbt — transformation SQL moderne
+## dbt — modern SQL transformation
 ```sql
--- models/silver/stg_clients.sql
+-- models/silver/stg_customers.sql
 {{ config(materialized='view') }}
 
 SELECT
-    client_id,
-    UPPER(TRIM(nom))              AS nom,
+    customer_id,
+    UPPER(TRIM(name))             AS name,
     LOWER(TRIM(email))            AS email,
     COALESCE(segment, 'Unknown')  AS segment,
-    created_at::DATE              AS date_creation
-FROM {{ source('raw', 'clients') }}
+    created_at::DATE              AS created_date
+FROM {{ source('raw', 'customers') }}
 WHERE email IS NOT NULL
 
 -- models/gold/mart_churn.sql
 {{ config(materialized='table', cluster_by=['segment']) }}
 
 SELECT
-    c.client_id,
+    c.customer_id,
     c.segment,
-    COUNT(v.vente_id)          AS nb_achats,
-    SUM(v.montant)             AS ca_total,
-    MAX(v.created_at)          AS dernier_achat,
-    CURRENT_DATE - MAX(v.created_at)::DATE AS jours_inactif
-FROM {{ ref('stg_clients') }} c
-LEFT JOIN {{ ref('stg_ventes') }} v USING (client_id)
+    COUNT(s.sale_id)          AS purchase_count,
+    SUM(s.amount)             AS total_revenue,
+    MAX(s.created_at)         AS last_purchase,
+    CURRENT_DATE - MAX(s.created_at)::DATE AS inactive_days
+FROM {{ ref('stg_customers') }} c
+LEFT JOIN {{ ref('stg_sales') }} s USING (customer_id)
 GROUP BY 1, 2
 ```
 
-## Tests dbt
+## dbt tests
 ```yaml
 # schema.yml
 models:
   - name: mart_churn
     columns:
-      - name: client_id
+      - name: customer_id
         tests:
           - not_null
           - unique
@@ -109,11 +109,11 @@ models:
               values: ['Gold', 'Silver', 'Bronze', 'Unknown']
 ```
 
-## Livrables
-- Schéma de données documenté (ERD)
-- Modèles dbt avec tests et documentation
-- Data dictionary (glossaire des métriques)
-- Rapport de performance des requêtes
+## Deliverables
+- Documented data schema (ERD)
+- dbt models with tests and documentation
+- Data dictionary (metrics glossary)
+- Query performance report
 
-## Format de sortie
-Précise : plateforme cloud · sources de données · granularité (fait élémentaire) · historique requis · SLA de fraîcheur · équipe cible (analytics, ML, BI)
+## Output format
+Specify: cloud platform · data sources · granularity (atomic fact) · required history · freshness SLA · target team (analytics, ML, BI)

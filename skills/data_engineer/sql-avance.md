@@ -1,17 +1,17 @@
-# Skill — SQL Avancé pour la Data Engineering
-> Certifications : Google PDE · AWS DEA-C01 · Databricks Data Engineer Associate
+# Skill — Advanced SQL for Data Engineering
+> Certifications: Google PDE · AWS DEA-C01 · Databricks Data Engineer Associate
 
-## Objectif
-Maîtriser les fonctionnalités SQL avancées pour construire des requêtes performantes sur les entrepôts de données cloud (BigQuery, Snowflake, Redshift, Databricks).
+## Objective
+Master advanced SQL features to build performant queries on cloud data warehouses (BigQuery, Snowflake, Redshift, Databricks).
 
-## Window Functions (fonctions de fenêtrage)
+## Window Functions
 ```sql
--- ROW_NUMBER : numérotation par groupe
+-- ROW_NUMBER: numbering per group
 SELECT
-    client_id,
+    customer_id,
     order_date,
     amount,
-    ROW_NUMBER() OVER (PARTITION BY client_id ORDER BY order_date DESC) AS rn
+    ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY order_date DESC) AS rn
 FROM orders;
 
 -- RANK vs DENSE_RANK
@@ -20,7 +20,7 @@ SELECT product_id, sales,
     DENSE_RANK() OVER (ORDER BY sales DESC) AS rank_no_gaps
 FROM product_sales;
 
--- LAG / LEAD : comparer avec la ligne précédente/suivante
+-- LAG / LEAD: compare with the previous/next row
 SELECT
     date,
     revenue,
@@ -29,14 +29,14 @@ SELECT
     revenue - LAG(revenue, 1) OVER (ORDER BY date) AS delta
 FROM daily_revenue;
 
--- SUM cumulatif (running total)
+-- Cumulative SUM (running total)
 SELECT
     date,
     daily_sales,
     SUM(daily_sales) OVER (ORDER BY date ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS cumulative_sales
 FROM sales;
 
--- Moyenne mobile (7 jours)
+-- Moving average (7 days)
 SELECT
     date,
     sales,
@@ -46,7 +46,7 @@ FROM daily_sales;
 
 ## CTEs (Common Table Expressions)
 ```sql
--- CTE simple
+-- Simple CTE
 WITH monthly_revenue AS (
     SELECT
         DATE_TRUNC('month', order_date) AS month,
@@ -64,16 +64,16 @@ growth AS (
 )
 SELECT * FROM growth ORDER BY month;
 
--- CTE récursive (hiérarchies, arborescences)
+-- Recursive CTE (hierarchies, trees)
 WITH RECURSIVE org_hierarchy AS (
-    -- Cas de base : racine
+    -- Base case: root
     SELECT employee_id, manager_id, name, 0 AS level
     FROM employees
     WHERE manager_id IS NULL
 
     UNION ALL
 
-    -- Cas récursif : enfants
+    -- Recursive case: children
     SELECT e.employee_id, e.manager_id, e.name, h.level + 1
     FROM employees e
     INNER JOIN org_hierarchy h ON e.manager_id = h.employee_id
@@ -81,9 +81,9 @@ WITH RECURSIVE org_hierarchy AS (
 SELECT * FROM org_hierarchy ORDER BY level, employee_id;
 ```
 
-## Optimisation des requêtes
+## Query optimization
 
-### Plan d'exécution
+### Execution plan
 ```sql
 -- BigQuery
 EXPLAIN SELECT * FROM dataset.large_table WHERE date = '2026-01-01';
@@ -95,26 +95,26 @@ EXPLAIN ANALYZE SELECT ...;
 EXPLAIN EXTENDED SELECT ...;
 ```
 
-### Bonnes pratiques d'optimisation
+### Optimization best practices
 | Technique | Description | Impact |
 |---|---|---|
-| **Partitionnement** | Filtrer sur la colonne de partition | Réduction scan × 100 |
-| **Clustering / Z-ORDER** | Organiser les données physiquement | Réduction I/O |
-| **Projection** | SELECT colonnes précises, pas `*` | Réduction bande passante |
-| **Predicate pushdown** | Filtres le plus tôt possible | Réduction lignes traitées |
-| **Broadcast join** | Petite table → mémoire des workers | Évite shuffle costly |
-| **Éviter les DISTINCT inutiles** | GROUP BY souvent plus rapide | Performance |
-| **Matérialiser les CTE coûteux** | `CREATE TABLE AS` si réutilisé | Évite recalcul |
+| **Partitioning** | Filter on the partition column | Scan reduction × 100 |
+| **Clustering / Z-ORDER** | Organize data physically | I/O reduction |
+| **Projection** | SELECT specific columns, not `*` | Bandwidth reduction |
+| **Predicate pushdown** | Filters as early as possible | Fewer rows processed |
+| **Broadcast join** | Small table → worker memory | Avoids costly shuffle |
+| **Avoid useless DISTINCT** | GROUP BY is often faster | Performance |
+| **Materialize costly CTEs** | `CREATE TABLE AS` if reused | Avoids recomputation |
 
-## Patterns SQL avancés
+## Advanced SQL patterns
 
 ### Pivot / Unpivot
 ```sql
--- Pivot (lignes → colonnes) — BigQuery / Snowflake
+-- Pivot (rows → columns) — BigQuery / Snowflake
 SELECT * FROM sales
 PIVOT (SUM(amount) FOR quarter IN ('Q1', 'Q2', 'Q3', 'Q4'));
 
--- Conditional aggregation (équivalent universel)
+-- Conditional aggregation (universal equivalent)
 SELECT
     product_id,
     SUM(CASE WHEN quarter = 'Q1' THEN amount END) AS q1,
@@ -123,9 +123,9 @@ FROM sales
 GROUP BY product_id;
 ```
 
-### Déduplication avancée
+### Advanced deduplication
 ```sql
--- Garder la dernière version de chaque entité (SCD)
+-- Keep the latest version of each entity (SCD)
 WITH ranked AS (
     SELECT *, ROW_NUMBER() OVER (PARTITION BY entity_id ORDER BY updated_at DESC) AS rn
     FROM raw_entities
@@ -133,9 +133,9 @@ WITH ranked AS (
 SELECT * EXCEPT(rn) FROM ranked WHERE rn = 1;
 ```
 
-### Gap and Islands (séquences consécutives)
+### Gap and Islands (consecutive sequences)
 ```sql
--- Identifier les périodes continues d'activité
+-- Identify continuous activity periods
 WITH islands AS (
     SELECT
         user_id,
@@ -149,11 +149,11 @@ GROUP BY user_id, island_key
 ORDER BY user_id, start_date;
 ```
 
-## Livrables
-- Bibliothèque de requêtes SQL réutilisables (par pattern)
-- Rapport d'optimisation des requêtes critiques
-- Guide de bonnes pratiques SQL par plateforme
-- Review de code SQL avec recommandations
+## Deliverables
+- Library of reusable SQL queries (per pattern)
+- Critical-query optimization report
+- SQL best-practices guide per platform
+- SQL code review with recommendations
 
-## Format de sortie
-Précise : plateforme SQL (BigQuery, Snowflake, Redshift, Databricks) · taille des tables · problème à résoudre · niveau de performance requis (latence, coût)
+## Output format
+Specify: SQL platform (BigQuery, Snowflake, Redshift, Databricks) · table sizes · problem to solve · required performance level (latency, cost)

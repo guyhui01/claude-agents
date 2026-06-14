@@ -1,89 +1,89 @@
-# Skill — Gouvernance des Données & Data Catalog
-> Certifications : Google PDE · Databricks Data Engineer Associate · AWS DEA-C01
+# Skill — Data Governance & Data Catalog
+> Certifications: Google PDE · Databricks Data Engineer Associate · AWS DEA-C01
 
-## Objectif
-Mettre en place une gouvernance des données qui garantit la qualité, la sécurité, la traçabilité et la conformité réglementaire (RGPD, AI Act).
+## Objective
+Set up data governance that guarantees quality, security, traceability and regulatory compliance (GDPR, AI Act).
 
-## Piliers de la gouvernance des données
+## Pillars of data governance
 ```
-1. Organisation    → Rôles, responsabilités, comité data
-2. Qualité         → Standards, mesure, amélioration continue
-3. Sécurité        → Accès, classification, chiffrement
-4. Catalogue       → Découverte, documentation, lineage
-5. Conformité      → RGPD, AI Act, rétention, anonymisation
-6. Maîtrise        → Master Data Management (MDM)
+1. Organization    → Roles, responsibilities, data council
+2. Quality         → Standards, measurement, continuous improvement
+3. Security        → Access, classification, encryption
+4. Catalog         → Discovery, documentation, lineage
+5. Compliance      → GDPR, AI Act, retention, anonymization
+6. Mastery         → Master Data Management (MDM)
 ```
 
-## Rôles de gouvernance
-| Rôle | Responsabilités |
+## Governance roles
+| Role | Responsibilities |
 |---|---|
-| **Chief Data Officer (CDO)** | Stratégie data, sponsor exécutif |
-| **Data Owner** | Responsable métier d'un domaine de données |
-| **Data Steward** | Qualité opérationnelle, définitions, règles |
-| **Data Engineer** | Pipelines, qualité technique, infrastructure |
-| **Data Analyst / Scientist** | Consommateurs, remontée de problèmes |
+| **Chief Data Officer (CDO)** | Data strategy, executive sponsor |
+| **Data Owner** | Business owner of a data domain |
+| **Data Steward** | Operational quality, definitions, rules |
+| **Data Engineer** | Pipelines, technical quality, infrastructure |
+| **Data Analyst / Scientist** | Consumers, issue reporting |
 
-## Data Catalog — outils 2026
-| Outil | Type | Force |
+## Data Catalog — 2026 tools
+| Tool | Type | Strength |
 |---|---|---|
-| **DataHub (LinkedIn)** | Open source | Lineage auto, API |
+| **DataHub (LinkedIn)** | Open source | Auto lineage, API |
 | **Apache Atlas** | Open source | Hadoop ecosystem |
 | **Alation** | Commercial | UX, collaboration |
-| **Collibra** | Commercial | Gouvernance enterprise |
-| **dbt Docs** | Intégré dbt | SQL lineage automatique |
+| **Collibra** | Commercial | Enterprise governance |
+| **dbt Docs** | dbt-integrated | Automatic SQL lineage |
 | **Unity Catalog** | Databricks | Lakehouse governance |
 
-## Classification des données (RGPD)
+## Data classification (GDPR)
 ```python
-# Tags de classification dans Unity Catalog (Databricks)
+# Classification tags in Unity Catalog (Databricks)
 spark.sql("""
-    ALTER TABLE clients
+    ALTER TABLE customers
     ALTER COLUMN email
     SET TAGS ('sensitivity' = 'PII', 'gdpr_category' = 'personal_data')
 """)
 
-# Anonymisation des données sensibles
+# Anonymization of sensitive data
 from pyspark.sql import functions as F
 
 df_anonymized = df \
     .withColumn("email_hash", F.sha2(F.col("email"), 256)) \
-    .withColumn("email", F.lit("***@anonymized.fr")) \
-    .withColumn("nom", F.lit("ANONYMIZED")) \
+    .withColumn("email", F.lit("***@anonymized.com")) \
+    .withColumn("name", F.lit("ANONYMIZED")) \
     .withColumn("age_bucket",
                 F.when(F.col("age") < 25, "18-24")
                  .when(F.col("age") < 35, "25-34")
                  .otherwise("35+"))
 ```
 
-## Row-Level Security (contrôle d'accès granulaire)
+## Row-Level Security (granular access control)
 ```sql
--- BigQuery : Row Access Policies
+-- BigQuery: Row Access Policies
 CREATE ROW ACCESS POLICY team_france
-ON dataset.clients
+ON dataset.customers
 GRANT TO ('user:analyst-fr@company.com', 'group:team-france@company.com')
-FILTER USING (pays = 'FR');
+FILTER USING (country = 'FR');
 
--- Databricks : Row Filters
-CREATE FUNCTION row_filter(client_country STRING)
-RETURN client_country = current_user_country();
+-- Databricks: Row Filters
+CREATE FUNCTION row_filter(customer_country STRING)
+RETURN customer_country = current_user_country();
 
-ALTER TABLE clients SET ROW FILTER row_filter ON (pays);
+ALTER TABLE customers SET ROW FILTER row_filter ON (country);
 ```
 
-## Plan de réponse RGPD
-| Droit | Délai | Action technique |
+## GDPR response plan
+| Right | Deadline | Technical action |
 |---|---|---|
-| **Droit d'accès** | 1 mois | Requête sur toutes les tables par user_id |
-| **Droit à l'oubli** | 1 mois | DELETE + anonymisation des backups |
-| **Portabilité** | 1 mois | Export JSON/CSV de toutes les données |
-| **Rectification** | 1 mois | UPDATE + propagation dans le DWH |
+| **Right of access** | 1 month | Query all tables by user_id |
+| **Right to erasure** | 1 month | DELETE + anonymization of backups |
+| **Portability** | 1 month | JSON/CSV export of all data |
+| **Rectification** | 1 month | UPDATE + propagation into the DWH |
 
-## Livrables
-- Politique de gouvernance des données (document)
-- Data catalog avec lineage documenté
-- Matrice de classification des données (PII, confidentielles, publiques)
-- Procédures RGPD (accès, oubli, portabilité)
-- Rapport d'audit de gouvernance
+## Deliverables
+- Data governance policy (document)
+- Data catalog with documented lineage
+- Data classification matrix (PII, confidential, public)
+- GDPR procedures (access, erasure, portability)
+- Governance audit report
 
-## Format de sortie
-Précise : maturité actuelle de la gouvernance · données les plus sensibles · réglementations applicables · outil de catalog ciblé · équipe impliquée
+## Output format
+Specify: current governance maturity · most sensitive data · applicable regulations · target catalog tool · team involved

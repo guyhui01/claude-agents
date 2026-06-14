@@ -76,4 +76,3 @@ You want to ...
 - **Core Web Vitals**: https://web.dev/vitals/
 - **schema.org**: https://schema.org/
 - **TOGAF 10**: for the architecture layer
-```

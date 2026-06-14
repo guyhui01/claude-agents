@@ -141,4 +141,3 @@ Specify: **CMS and version**, **URLs to audit** (homepage, product page, article
 - [`seo-technique-cms.md`](seo-technique-cms.md) — Core Web Vitals as a ranking factor
 - [`architecture-cms.md`](architecture-cms.md) — architecture choices impacting performance
 - [`drupal-developpement.md`](drupal-developpement.md) — Drupal cache (tags, contexts, BigPipe)
-```

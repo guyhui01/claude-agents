@@ -137,4 +137,3 @@ Specify: **CMS and personalization tool** (Adobe Target, Optimizely, Sitecore XM
 - [`gouvernance-editoriale.md`](gouvernance-editoriale.md) — managing content variants
 - [`../juridique_ia/rgpd-ia.md`](../juridique_ia/rgpd-ia.md) — GDPR/consent compliance
 - [`../scrum/product-vision.md`](../scrum/product-vision.md) — engagement metrics (AARRR/HEART)
-```

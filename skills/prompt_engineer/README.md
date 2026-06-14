@@ -1,67 +1,67 @@
 # Skills — Prompt Engineer
 
-> Dossier rattaché à `AGENT-PROMPT-ENGINEER.md`
-> Référentiels : Anthropic Claude Code in Action (2026) · Claude 101 / Code 101 (2026) · DeepLearning.AI · AWS AI Practitioner · Google ML Engineer
+> Folder attached to `AGENT-PROMPT-ENGINEER.md`
+> Frameworks: Anthropic Claude Code in Action (2026) · Claude 101 / Code 101 (2026) · DeepLearning.AI · AWS AI Practitioner · Google ML Engineer
 
 ---
 
-## Index des skills (8)
+## Skill index (8)
 
-| # | Skill | Quand l'invoquer | Certification |
+| # | Skill | When to invoke it | Certification |
 |---|---|---|---|
-| 1 | [`system-prompt-design.md`](system-prompt-design.md) | Concevoir un system prompt structuré (rôle, contraintes, format) | Anthropic Claude Code in Action · Claude 101 |
-| 2 | [`few-shot-learning.md`](few-shot-learning.md) | Appliquer few-shot et in-context learning | DeepLearning.AI · Anthropic |
-| 3 | [`chain-of-thought.md`](chain-of-thought.md) | Implémenter Chain-of-Thought (CoT) et ReAct | Anthropic · Google ML Engineer |
-| 4 | [`rag-prompt-design.md`](rag-prompt-design.md) | Concevoir des prompts pour RAG (citation, faithfulness) | Anthropic · AWS AI Practitioner |
-| 5 | [`multimodal-prompting.md`](multimodal-prompting.md) | Concevoir des prompts multimodaux (image, audio, vidéo) | Anthropic · Google ML Engineer |
-| 6 | [`prompt-evaluation.md`](prompt-evaluation.md) | Évaluer et tester des prompts (evals) | Anthropic · DeepLearning.AI |
-| 7 | [`prompt-optimization.md`](prompt-optimization.md) | Optimiser coûts et performance des prompts (caching, tokens) | Anthropic · Claude Code 101 · AWS AI Practitioner |
-| 8 | [`evals-llm-observability.md`](evals-llm-observability.md) | Mesurer l'observabilité et les evals LLM en production | Anthropic · Google ML Engineer |
+| 1 | [`system-prompt-design.md`](system-prompt-design.md) | Design a structured system prompt (role, constraints, format) | Anthropic Claude Code in Action · Claude 101 |
+| 2 | [`few-shot-learning.md`](few-shot-learning.md) | Apply few-shot and in-context learning | DeepLearning.AI · Anthropic |
+| 3 | [`chain-of-thought.md`](chain-of-thought.md) | Implement Chain-of-Thought (CoT) and ReAct | Anthropic · Google ML Engineer |
+| 4 | [`rag-prompt-design.md`](rag-prompt-design.md) | Design prompts for RAG (citation, faithfulness) | Anthropic · AWS AI Practitioner |
+| 5 | [`multimodal-prompting.md`](multimodal-prompting.md) | Design multimodal prompts (image, audio, video) | Anthropic · Google ML Engineer |
+| 6 | [`prompt-evaluation.md`](prompt-evaluation.md) | Evaluate and test prompts (evals) | Anthropic · DeepLearning.AI |
+| 7 | [`prompt-optimization.md`](prompt-optimization.md) | Optimize prompt cost and performance (caching, tokens) | Anthropic · Claude Code 101 · AWS AI Practitioner |
+| 8 | [`evals-llm-observability.md`](evals-llm-observability.md) | Measure LLM observability and evals in production | Anthropic · Google ML Engineer |
 
 ---
 
-## Choisir le bon skill — Arbre de décision
+## Choosing the right skill — Decision tree
 
 ```
-Tu veux ...
+You want to ...
 
-  ... CONCEVOIR UN PROMPT DEPUIS ZÉRO ?
-    → system-prompt-design.md (structure, rôle, contraintes, format)
-    → few-shot-learning.md (si exemples nécessaires)
-    → chain-of-thought.md (si raisonnement complexe)
+  ... DESIGN A PROMPT FROM SCRATCH?
+    → system-prompt-design.md (structure, role, constraints, format)
+    → few-shot-learning.md (if examples are needed)
+    → chain-of-thought.md (if complex reasoning)
 
-  ... PROMPT POUR UN RAG ?
-    → rag-prompt-design.md (faithfulness, citations, garde-fous)
+  ... A PROMPT FOR A RAG?
+    → rag-prompt-design.md (faithfulness, citations, guardrails)
 
-  ... PROMPT MULTIMODAL ?
-    → multimodal-prompting.md (vision, audio, vidéo)
+  ... A MULTIMODAL PROMPT?
+    → multimodal-prompting.md (vision, audio, video)
 
-  ... ÉVALUER LA QUALITÉ ?
+  ... EVALUATE QUALITY?
     → prompt-evaluation.md (offline evals + golden dataset)
-    → evals-llm-observability.md (en production, monitoring)
+    → evals-llm-observability.md (in production, monitoring)
 
-  ... OPTIMISER COÛTS / LATENCE ?
+  ... OPTIMIZE COST / LATENCY?
     → prompt-optimization.md (prompt caching, token reduction, model selection)
 ```
 
 ---
 
-## Frontières avec les autres agents
+## Boundaries with other agents
 
-| Sujet voisin | Agent concerné | Frontière |
+| Adjacent topic | Agent concerned | Boundary |
 |---|---|---|
-| Implémentation Python / SDK Anthropic | `AGENT-DEV-PYTHON-IA.md` | PROMPT-ENG = design ; DEV-PYTHON = code |
-| Architecture RAG / multi-agents | `AGENT-AI-ARCHITECT.md` | PROMPT-ENG = prompts ; AI-ARCHITECT = stack |
-| Évaluation LLM amont (architecture) | `AGENT-AI-ARCHITECT.md` skill `evaluation-llm.md` | PROMPT-ENG = evals prompt-level ; AI-ARCHITECT = evals system-level |
-| Sécurité prompt injection | `AGENT-SECURITE-IA.md` skill `owasp-llm-top10.md` | PROMPT-ENG = guardrails dans le prompt ; SECURITE-IA = audit |
+| Python / Anthropic SDK implementation | `AGENT-DEV-PYTHON-IA.md` | PROMPT-ENG = design; DEV-PYTHON = code |
+| RAG / multi-agent architecture | `AGENT-AI-ARCHITECT.md` | PROMPT-ENG = prompts; AI-ARCHITECT = stack |
+| Upstream LLM evaluation (architecture) | `AGENT-AI-ARCHITECT.md` skill `evaluation-llm.md` | PROMPT-ENG = prompt-level evals; AI-ARCHITECT = system-level evals |
+| Prompt injection security | `AGENT-SECURITE-IA.md` skill `owasp-llm-top10.md` | PROMPT-ENG = guardrails in the prompt; SECURITE-IA = audit |
 
 ---
 
-## Référentiels et standards utilisés
+## Frameworks and standards used
 
-- **Anthropic Prompt Engineering Guide** : https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview
+- **Anthropic Prompt Engineering Guide**: https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview
 - **Chain-of-Thought** (Wei et al., 2022)
 - **ReAct** (Yao et al., 2022)
-- **RAGAs** : pour faithfulness et answer relevancy
-- **Promptfoo / Braintrust / Inspect AI** : pour evals
-- **OWASP LLM Top 10 (2025)** : pour guardrails anti-injection
+- **RAGAs**: for faithfulness and answer relevancy
+- **Promptfoo / Braintrust / Inspect AI**: for evals
+- **OWASP LLM Top 10 (2025)**: for anti-injection guardrails

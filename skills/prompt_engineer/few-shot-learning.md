@@ -1,109 +1,109 @@
-# Skill — Few-Shot et In-Context Learning
-> Certifications : DeepLearning.AI Prompt Engineering for Developers (Andrew Ng), Anthropic Claude Code in Action (2026)
+# Skill — Few-Shot and In-Context Learning
+> Certifications: DeepLearning.AI Prompt Engineering for Developers (Andrew Ng), Anthropic Claude Code in Action (2026)
 
-## Objectif
-Concevoir des exemples few-shot efficaces pour guider le LLM vers le format et la qualité d'output exact attendus — sélection des exemples, diversité, ordre, et dosage optimal.
+## Objective
+Design effective few-shot examples to guide the LLM toward the exact output format and quality expected — example selection, diversity, ordering, and optimal dosage.
 
-## Principes du few-shot learning
+## Few-shot learning principles
 
 ```
-RÈGLES D'OR
+GOLDEN RULES
 ────────────────────────────────────────────────────────────
-1. Les exemples doivent COUVRIR la diversité des cas attendus
-2. L'ordre des exemples influence la réponse (mettre les plus proches en dernier)
-3. 2-5 exemples suffisent généralement (au-delà → rendements décroissants)
-4. Format des exemples IDENTIQUE au format de sortie attendu
-5. Les exemples négatifs (ce qu'il ne faut PAS faire) sont aussi utiles
+1. The examples must COVER the diversity of the expected cases
+2. Example order influences the answer (put the closest ones last)
+3. 2-5 examples are usually enough (beyond that → diminishing returns)
+4. Example format IDENTICAL to the expected output format
+5. Negative examples (what NOT to do) are useful too
 ```
 
-## Template few-shot standard
+## Standard few-shot template
 
 ```
-Voici des exemples du format de sortie attendu.
+Here are examples of the expected output format.
 
----EXEMPLE 1---
-Input  : [Exemple d'entrée 1 — cas simple]
-Output : [Sortie attendue exacte — cas simple]
+---EXAMPLE 1---
+Input  : [Input example 1 — simple case]
+Output : [Exact expected output — simple case]
 
----EXEMPLE 2---
-Input  : [Exemple d'entrée 2 — cas modéré]
-Output : [Sortie attendue exacte — cas modéré]
+---EXAMPLE 2---
+Input  : [Input example 2 — moderate case]
+Output : [Exact expected output — moderate case]
 
----EXEMPLE 3---
-Input  : [Exemple d'entrée 3 — cas proche du cas réel]
-Output : [Sortie attendue exacte — cas proche]
+---EXAMPLE 3---
+Input  : [Input example 3 — close to the real case]
+Output : [Exact expected output — close case]
 
----À TON TOUR---
-Input  : [CAS RÉEL À TRAITER]
+---YOUR TURN---
+Input  : [REAL CASE TO HANDLE]
 Output : 
 ```
 
-## Exemples appliqués au catalogue d'agents
+## Examples applied to the agent catalog
 
-### Few-shot pour User Stories (PO-SCRUM)
+### Few-shot for User Stories (PO-SCRUM)
 ```
----EXEMPLE 1---
-Besoin : "Filtrer les produits d'un catalogue e-commerce"
-US     : En tant que client, je veux filtrer les produits par catégorie et prix afin de trouver rapidement ce qui correspond à mon budget. | AC: Given catalogue affiché, When je sélectionne filtre, Then liste mise à jour < 1s | 3pts | Must Have
+---EXAMPLE 1---
+Need : "Filter the products of an e-commerce catalog"
+US   : As a customer, I want to filter products by category and price so that I can quickly find what fits my budget. | AC: Given the catalog is displayed, When I select a filter, Then the list updates < 1s | 3pts | Must Have
 
----EXEMPLE 2---
-Besoin : "Exporter les données de vente"
-US     : En tant qu'admin commercial, je veux exporter le rapport des ventes en CSV afin d'analyser les performances dans Excel. | AC: Given rapport affiché, When je clique "Exporter CSV", Then téléchargement démarre < 3s | 2pts | Should Have
+---EXAMPLE 2---
+Need : "Export the sales data"
+US   : As a sales admin, I want to export the sales report as CSV so that I can analyze performance in Excel. | AC: Given the report is displayed, When I click "Export CSV", Then the download starts < 3s | 2pts | Should Have
 
----À TON TOUR---
-Besoin : "[BESOIN CLIENT]"
-US     :
+---YOUR TURN---
+Need : "[CLIENT NEED]"
+US   :
 ```
 
-### Few-shot pour WSJF (PO-SAFE)
+### Few-shot for WSJF (PO-SAFE)
 ```
----EXEMPLE 1---
-Feature : "Module scoring prospects"
-BV=8, TC=5, RR=3, Job Size=5 → CoD=16, WSJF=3.2 → Priorité MOYENNE
+---EXAMPLE 1---
+Feature : "Prospect scoring module"
+BV=8, TC=5, RR=3, Job Size=5 → CoD=16, WSJF=3.2 → MEDIUM priority
 
----EXEMPLE 2---
-Feature : "Export CSV reporting"
-BV=3, TC=2, RR=1, Job Size=1 → CoD=6, WSJF=6.0 → Priorité HAUTE (petite taille)
+---EXAMPLE 2---
+Feature : "CSV reporting export"
+BV=3, TC=2, RR=1, Job Size=1 → CoD=6, WSJF=6.0 → HIGH priority (small size)
 
----À TON TOUR---
+---YOUR TURN---
 Feature : "[FEATURE]"
 BV=[?], TC=[?], RR=[?], Job Size=[?] → CoD=[?], WSJF=[?] →
-(cotation relative, plus petit = 1 par colonne, Fibonacci — cf. skills/safe/wsjf.md)
+(relative estimation, smallest = 1 per column, Fibonacci — see skills/safe/wsjf.md)
 ```
 
-## Sélection des exemples — Stratégie
+## Example selection — Strategy
 
 ```
-CRITÈRES DE SÉLECTION
+SELECTION CRITERIA
 ────────────────────────────────────────────────────────────
-✓ Représentatifs : couvrent les cas limites et les cas standards
-✓ Corrects : exemples validés par des experts métier
-✓ Diversifiés : pas tous du même type
-✓ Calibrés en difficulté : du plus simple au plus complexe
-✓ Récents : si le domaine évolue vite (IA Act, SAFe versions)
+✓ Representative: cover edge cases and standard cases
+✓ Correct: examples validated by domain experts
+✓ Diverse: not all of the same type
+✓ Calibrated in difficulty: from simplest to most complex
+✓ Recent: if the domain evolves quickly (AI Act, SAFe versions)
 
-PIÈGES À ÉVITER
+PITFALLS TO AVOID
 ────────────────────────────────────────────────────────────
-❌ Exemples contradictoires entre eux
-❌ Format d'exemple ≠ format de sortie attendu
-❌ Trop d'exemples (> 5 en général)
-❌ Tous les exemples du même secteur (biais)
+❌ Examples contradicting each other
+❌ Example format ≠ expected output format
+❌ Too many examples (> 5 in general)
+❌ All examples from the same sector (bias)
 ```
 
-## Livrables
-- Bibliothèque d'exemples few-shot par domaine (US, WSJF, analyses, rapports)
-- Template few-shot adapté au cas d'usage
-- Guide de sélection des exemples
+## Deliverables
+- Few-shot example library per domain (US, WSJF, analyses, reports)
+- Few-shot template tailored to the use case
+- Example selection guide
 
-## Format de sortie
-Précise : type de tâche, format de sortie attendu, 2-3 exemples représentatifs du domaine.
+## Output format
+Specify: task type, expected output format, 2-3 examples representative of the domain.
 
 ## Sources
-- **Few-shot / In-context learning** — Brown et al., *Language Models are Few-Shot Learners*, *NeurIPS 2020* (arXiv 2005.14165, papier GPT-3)
-- **Anthropic — Prompt Engineering Guide** (docs.anthropic.com) — multishot prompting, sélection des exemples
+- **Few-shot / In-context learning** — Brown et al., *Language Models are Few-Shot Learners*, *NeurIPS 2020* (arXiv 2005.14165, GPT-3 paper)
+- **Anthropic — Prompt Engineering Guide** (docs.anthropic.com) — multishot prompting, example selection
 
-## Voir aussi
-- [`chain-of-thought.md`](chain-of-thought.md) — CoT few-shot (exemples de raisonnement)
-- [`system-prompt-design.md`](system-prompt-design.md) — exemples intégrés au system prompt
-- [`prompt-evaluation.md`](prompt-evaluation.md) — évaluer l'effet des exemples
-- [`../safe/wsjf.md`](../safe/wsjf.md) — exemple métier WSJF utilisé en few-shot
+## See also
+- [`chain-of-thought.md`](chain-of-thought.md) — CoT few-shot (reasoning examples)
+- [`system-prompt-design.md`](system-prompt-design.md) — examples embedded in the system prompt
+- [`prompt-evaluation.md`](prompt-evaluation.md) — evaluate the effect of examples
+- [`../safe/wsjf.md`](../safe/wsjf.md) — WSJF business example used in few-shot

@@ -1,120 +1,120 @@
-# Skill — Conception de Prompts pour Systèmes RAG
-> Certifications : Anthropic Claude Code in Action (2026), AWS Certified AI Practitioner (Amazon)
+# Skill — Prompt Design for RAG Systems
+> Certifications: Anthropic Claude Code in Action (2026), AWS Certified AI Practitioner (Amazon)
 
-## Objectif
-Concevoir des prompts efficaces pour les architectures RAG (Retrieval-Augmented Generation) — injection du contexte récupéré, instructions de sourçage, gestion des cas sans réponse — pour maximiser la pertinence et la fiabilité des réponses.
+## Objective
+Design effective prompts for RAG architectures (Retrieval-Augmented Generation) — injection of retrieved context, sourcing instructions, handling of no-answer cases — to maximize the relevance and reliability of responses.
 
-## Architecture RAG — Rappel
-
-```
-QUERY UTILISATEUR
-      │
-      ▼
-[RETRIEVAL] → Documents pertinents récupérés (top-K)
-      │
-      ▼
-[AUGMENTATION] → Documents injectés dans le prompt
-      │
-      ▼
-[GENERATION] → LLM répond en s'appuyant sur les documents
-```
-
-## Template prompt RAG — Standard
+## RAG architecture — Recap
 
 ```
-Tu es [RÔLE]. Tu réponds aux questions en te basant UNIQUEMENT
-sur les documents fournis ci-dessous.
+USER QUERY
+      │
+      ▼
+[RETRIEVAL] → Relevant documents retrieved (top-K)
+      │
+      ▼
+[AUGMENTATION] → Documents injected into the prompt
+      │
+      ▼
+[GENERATION] → The LLM answers based on the documents
+```
 
-RÈGLES STRICTES :
-- Réponds uniquement à partir des documents fournis
-- Si la réponse n'est pas dans les documents, dis-le clairement
-- Cite le document source pour chaque information clé
-- Ne jamais inventer ou extrapoler au-delà des documents
+## RAG prompt template — Standard
 
-DOCUMENTS DE RÉFÉRENCE :
+```
+You are [ROLE]. You answer questions based ONLY
+on the documents provided below.
+
+STRICT RULES:
+- Answer only from the provided documents
+- If the answer is not in the documents, say so clearly
+- Cite the source document for each key piece of information
+- Never invent or extrapolate beyond the documents
+
+REFERENCE DOCUMENTS:
 ──────────────────────────────────────────────────────────────
-[DOC 1 — Source : {nom_fichier} — Date : {date}]
-{contenu_document_1}
+[DOC 1 — Source: {file_name} — Date: {date}]
+{document_content_1}
 
-[DOC 2 — Source : {nom_fichier} — Date : {date}]
-{contenu_document_2}
+[DOC 2 — Source: {file_name} — Date: {date}]
+{document_content_2}
 ──────────────────────────────────────────────────────────────
 
-QUESTION : {question_utilisateur}
+QUESTION: {user_question}
 
-RÉPONSE (avec sources) :
+ANSWER (with sources):
 ```
 
-## Gestion des cas limites RAG
+## Handling RAG edge cases
 
-### Cas 1 — Aucune réponse dans les documents
+### Case 1 — No answer in the documents
 ```
-Si les documents ne contiennent pas d'information suffisante :
-1. Indique clairement : "Je n'ai pas trouvé d'information sur ce sujet
-   dans les documents fournis."
-2. Propose ce qui est disponible : "Voici ce que je sais sur un sujet proche..."
-3. Suggère : "Pour une réponse complète, consultez [source suggérée]"
+If the documents do not contain enough information:
+1. State clearly: "I did not find any information on this topic
+   in the provided documents."
+2. Offer what is available: "Here is what I know about a related topic..."
+3. Suggest: "For a complete answer, see [suggested source]"
 
-NE JAMAIS inventer une réponse plausible sans base documentaire.
-```
-
-### Cas 2 — Informations contradictoires entre documents
-```
-Si les documents présentent des informations contradictoires :
-1. Signale la contradiction : "Attention, les sources diffèrent sur ce point :"
-2. Présente chaque version avec sa source
-3. Ne tranche pas arbitrairement
+NEVER invent a plausible answer without a documentary basis.
 ```
 
-## Optimisation RAG — Prompts de chunking
+### Case 2 — Contradictory information across documents
+```
+If the documents present contradictory information:
+1. Flag the contradiction: "Note that the sources differ on this point:"
+2. Present each version with its source
+3. Do not arbitrarily pick a side
+```
+
+## RAG optimization — Chunking prompts
 
 ```python
-# Prompt pour améliorer la qualité des chunks au moment de l'indexation
+# Prompt to improve chunk quality at indexing time
 CHUNKING_PROMPT = """
-Tu vas découper ce document en passages autonomes pour une base RAG.
-Chaque passage doit :
-- Être auto-suffisant (compréhensible sans contexte externe)
-- Contenir 150-300 tokens
-- Commencer par une phrase-contexte si le sujet change
-- Préserver les tableaux et listes intacts
+You will split this document into standalone passages for a RAG store.
+Each passage must:
+- Be self-sufficient (understandable without external context)
+- Contain 150-300 tokens
+- Start with a context sentence if the topic changes
+- Keep tables and lists intact
 
-Document à découper :
+Document to split:
 {document}
 """
 ```
 
-## Métriques de qualité RAG
+## RAG quality metrics
 
-| Métrique | Description | Outil |
+| Metric | Description | Tool |
 |---|---|---|
-| Faithfulness | Réponse fidèle aux documents | RAGAs |
-| Answer Relevancy | Réponse pertinente par rapport à la question | RAGAs |
-| Context Precision | Documents récupérés réellement utiles | RAGAs |
-| Context Recall | Documents pertinents non manqués | RAGAs |
+| Faithfulness | Answer faithful to the documents | RAGAs |
+| Answer Relevancy | Answer relevant to the question | RAGAs |
+| Context Precision | Retrieved documents actually useful | RAGAs |
+| Context Recall | Relevant documents not missed | RAGAs |
 
-## Livrables
-- Template prompt RAG standard
-- Variantes pour cas limites (no answer, contradictions)
-- Prompt de chunking optimisé
-- Plan d'évaluation RAG (métriques)
+## Deliverables
+- Standard RAG prompt template
+- Variants for edge cases (no answer, contradictions)
+- Optimized chunking prompt
+- RAG evaluation plan (metrics)
 
-## Format de sortie
-Précise : domaine de la base RAG, type de documents, longueur des chunks, cas limites fréquents.
+## Output format
+Specify: RAG store domain, document type, chunk length, frequent edge cases.
 
 ## Anti-patterns
-- ❌ **Pas de garde « aucune réponse »** : le modèle hallucine quand le contexte ne contient pas l'info → instruire « réponds uniquement à partir du contexte »
-- ❌ **Pas de citation des sources** : réponse non vérifiable → exiger les références/chunks utilisés
-- ❌ **Chunks trop gros/petits** : bruit ou perte de contexte → calibrer (≈ 150-300 tokens) + overlap
-- ❌ **Pas d'évaluation de faithfulness** : dérive silencieuse → métriques RAGAS (faithfulness, context precision/recall)
-- ❌ **Ignorer les contradictions** entre chunks : réponse incohérente → instruction de gestion des conflits
+- ❌ **No "no answer" guard**: the model hallucinates when the context lacks the info → instruct "answer only from the context"
+- ❌ **No source citation**: unverifiable answer → require the references/chunks used
+- ❌ **Chunks too large/small**: noise or loss of context → calibrate (≈ 150-300 tokens) + overlap
+- ❌ **No faithfulness evaluation**: silent drift → RAGAS metrics (faithfulness, context precision/recall)
+- ❌ **Ignoring contradictions** between chunks: inconsistent answer → conflict-handling instruction
 
 ## Sources
-- **RAG** — Lewis et al., *NeurIPS 2020* (arXiv 2005.11401) — papier fondateur
-- **RAGAS** — Es et al., *EACL 2024* (arXiv 2309.15217) — métriques d'évaluation RAG (faithfulness, answer/context relevance)
-- **Anthropic — Prompt Engineering Guide** (docs.anthropic.com) — prompts ancrés sur le contexte
+- **RAG** — Lewis et al., *NeurIPS 2020* (arXiv 2005.11401) — founding paper
+- **RAGAS** — Es et al., *EACL 2024* (arXiv 2309.15217) — RAG evaluation metrics (faithfulness, answer/context relevance)
+- **Anthropic — Prompt Engineering Guide** (docs.anthropic.com) — context-grounded prompts
 
-## Voir aussi
-- [`chain-of-thought.md`](chain-of-thought.md) — raisonnement sur le contexte récupéré
-- [`prompt-evaluation.md`](prompt-evaluation.md) — évaluation des réponses RAG
-- [`evals-llm-observability.md`](evals-llm-observability.md) — métriques RAGAS en production
-- [`../orchestrateur_workflow/mcp-orchestration.md`](../orchestrateur_workflow/mcp-orchestration.md) — accès aux sources via MCP
+## See also
+- [`chain-of-thought.md`](chain-of-thought.md) — reasoning over the retrieved context
+- [`prompt-evaluation.md`](prompt-evaluation.md) — evaluation of RAG answers
+- [`evals-llm-observability.md`](evals-llm-observability.md) — RAGAS metrics in production
+- [`../orchestrateur_workflow/mcp-orchestration.md`](../orchestrateur_workflow/mcp-orchestration.md) — access to sources via MCP

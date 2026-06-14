@@ -4,7 +4,7 @@
     "name": "claude-agents",
     "version": "v3.26.2"
   },
-  "generatedAt": "2026-06-14T20:47:25.428Z",
+  "generatedAt": "2026-06-14T20:53:55.585Z",
   "assets": [
     {
       "id": "AGENT-AI-ARCHITECT",
@@ -128,7 +128,7 @@
       "type": "agent",
       "path": "AGENT-PROMPT-ENGINEER.md",
       "title": "Prompt Engineer Expert",
-      "description": "Prompt Engineering — conception, optimisation et évaluation de prompts pour LLM (Claude, GPT, Gemini)",
+      "description": "Prompt Engineering — design, optimization and evaluation of prompts for LLMs (Claude, GPT, Gemini)",
       "catalogVersion": "v3.26.2",
       "source": {
         "file": "AGENT-PROMPT-ENGINEER.md",

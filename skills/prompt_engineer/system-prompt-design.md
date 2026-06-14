@@ -1,119 +1,119 @@
-# Skill — Conception de System Prompts Structurés
-> Certifications : Anthropic Claude Code in Action (2026), Claude 101 (2026)
+# Skill — Structured System Prompt Design
+> Certifications: Anthropic Claude Code in Action (2026), Claude 101 (2026)
 
-## Objectif
-Concevoir des system prompts optimaux pour les LLM — structure, ordre des éléments, précision des instructions, gestion du comportement — pour maximiser la qualité, la cohérence et la prévisibilité des réponses.
+## Objective
+Design optimal system prompts for LLMs — structure, element ordering, instruction precision, behavior control — to maximize the quality, consistency and predictability of responses.
 
-## Structure optimale d'un system prompt
+## Optimal structure of a system prompt
 
 ```
-ORDRE RECOMMANDÉ PAR ANTHROPIC
+ORDER RECOMMENDED BY ANTHROPIC
 ────────────────────────────────────────────────────────
-1. IDENTITÉ      → Qui est l'assistant, son rôle précis
-2. CONTEXTE      → Environnement, utilisateur cible, projet
-3. PÉRIMÈTRE     → Ce qu'il fait / ne fait pas
-4. RÈGLES        → Comportements obligatoires
-5. FORMAT        → Structure des réponses
-6. EXEMPLES      → Few-shot si nécessaire (optionnel)
+1. IDENTITY     → Who the assistant is, its precise role
+2. CONTEXT      → Environment, target user, project
+3. SCOPE        → What it does / does not do
+4. RULES        → Mandatory behaviors
+5. FORMAT       → Response structure
+6. EXAMPLES     → Few-shot if needed (optional)
 ────────────────────────────────────────────────────────
-Longueur cible : 300-800 tokens
-Cache control  : Activer si > 1024 tokens (économie 90%)
+Target length : 300-800 tokens
+Cache control : Enable if > 1024 tokens (90% savings)
 ```
 
-## Template — System Prompt complet
+## Template — Complete System Prompt
 
 ```
-Tu es [RÔLE PRÉCIS ET EXPERTISE].
-[Phrase sur les certifications / expérience si pertinent]
+You are [PRECISE ROLE AND EXPERTISE].
+[Sentence on certifications / experience if relevant]
 
-Tu assistes [UTILISATEUR / CONTEXTE] dans [DOMAINE PRÉCIS].
+You support [USER / CONTEXT] with [PRECISE DOMAIN].
 
-## Ce que tu fais
-- [CAPACITÉ 1 — précise et actionnable]
-- [CAPACITÉ 2]
-- [CAPACITÉ 3]
+## What you do
+- [CAPABILITY 1 — precise and actionable]
+- [CAPABILITY 2]
+- [CAPABILITY 3]
 
-## Ce que tu ne fais pas
-- [LIMITE 1] → [Rediriger vers quoi / qui]
-- [LIMITE 2]
+## What you do not do
+- [LIMIT 1] → [Redirect to what / whom]
+- [LIMIT 2]
 
-## Règles de comportement
-- Toujours répondre en [LANGUE]
-- [RÈGLE SPÉCIFIQUE AU DOMAINE]
-- Utiliser le vocabulaire exact de [FRAMEWORK/MÉTHODE]
-- Proposer des livrables prêts à [OUTIL CIBLE]
-- En cas d'ambiguïté, poser UNE SEULE question avant d'agir
+## Behavior rules
+- Always respond in [LANGUAGE]
+- [DOMAIN-SPECIFIC RULE]
+- Use the exact vocabulary of [FRAMEWORK/METHOD]
+- Provide deliverables ready for [TARGET TOOL]
+- When ambiguous, ask A SINGLE question before acting
 
-## Format de sortie
-[DÉCRIRE PRÉCISÉMENT : longueur, structure, niveau de détail]
-[Exemple de structure si pertinent]
+## Output format
+[DESCRIBE PRECISELY: length, structure, level of detail]
+[Example structure if relevant]
 ```
 
-## Techniques d'écriture avancées
+## Advanced writing techniques
 
-### Contraintes négatives explicites
+### Explicit negative constraints
 ```
 # ❌ Vague
-Produis une bonne analyse.
+Produce a good analysis.
 
-# ✅ Contraint
-Produis une analyse de 300-500 mots.
-NE PAS inclure : introduction générique, répétitions du brief.
-TOUJOURS inclure : 3 recommandations actionnables numérotées.
+# ✅ Constrained
+Produce a 300-500 word analysis.
+DO NOT include: generic introduction, repetitions of the brief.
+ALWAYS include: 3 numbered actionable recommendations.
 ```
 
-### Instructions conditionnelles
+### Conditional instructions
 ```
-Si la demande concerne X → appliquer le format A
-Si la demande concerne Y → appliquer le format B
-Si l'information manque → poser une question avant d'agir
-```
-
-### Ancrage sur un référentiel
-```
-Utilise EXCLUSIVEMENT le vocabulaire SAFe 6 :
-- "Feature" (pas "fonctionnalité")
-- "PI Planning" (pas "planification trimestrielle")
-- "ART" (pas "équipe programme")
+If the request concerns X → apply format A
+If the request concerns Y → apply format B
+If information is missing → ask a question before acting
 ```
 
-## Anti-patterns à éviter
+### Anchoring on a framework
+```
+Use EXCLUSIVELY the SAFe 6 vocabulary:
+- "Feature" (not "functionality")
+- "PI Planning" (not "quarterly planning")
+- "ART" (not "program team")
+```
 
-| Anti-pattern | Problème | Correction |
+## Anti-patterns to avoid
+
+| Anti-pattern | Problem | Fix |
 |---|---|---|
-| "Tu es un expert IA" | Trop vague | "Tu es un Data Scientist spécialisé en NLP" |
-| "Réponds bien" | Non mesurable | "Réponds en < 200 mots, format bullet points" |
-| Contexte en fin de prompt | Dilué | Mettre le contexte AVANT les instructions |
-| Instructions contradictoires | Comportement imprévisible | Choisir et prioriser |
-| Tout dans le user message | Pas de cache possible | Contexte stable → system prompt |
+| "You are an AI expert" | Too vague | "You are a Data Scientist specialized in NLP" |
+| "Answer well" | Not measurable | "Answer in < 200 words, bullet-point format" |
+| Context at the end of the prompt | Diluted | Put the context BEFORE the instructions |
+| Contradictory instructions | Unpredictable behavior | Choose and prioritize |
+| Everything in the user message | No caching possible | Stable context → system prompt |
 
-## Checklist de validation
+## Validation checklist
 
 ```
-☐ L'identité est précise (rôle + expertise)
-☐ Le périmètre est délimité (in / out of scope)
-☐ Les règles sont mesurables (pas "sois clair")
-☐ Le format de sortie est défini (longueur, structure)
-☐ Les exemples (si présents) sont représentatifs
-☐ Longueur < 800 tokens (ou cache activé si > 1024)
-☐ Testé sur 5 cas représentatifs
+☐ The identity is precise (role + expertise)
+☐ The scope is delimited (in / out of scope)
+☐ The rules are measurable (not "be clear")
+☐ The output format is defined (length, structure)
+☐ The examples (if present) are representative
+☐ Length < 800 tokens (or caching enabled if > 1024)
+☐ Tested on 5 representative cases
 ```
 
-## Livrables
-- System prompt structuré et optimisé
-- Version annotée avec justifications
-- Checklist de validation complétée
+## Deliverables
+- Structured and optimized system prompt
+- Annotated version with justifications
+- Completed validation checklist
 
-## Format de sortie
-Précise : rôle de l'agent, domaine, utilisateur cible, outil de destination, contraintes de longueur.
+## Output format
+Specify: agent role, domain, target user, destination tool, length constraints.
 
 ## Sources
-- **Anthropic — Prompt Engineering Guide** (docs.anthropic.com/prompt-engineering) — structure system prompt, rôle, contraintes, prompt caching (> 1024 tokens)
-- **Anthropic — Building Effective Agents** (anthropic.com/engineering, déc. 2024) — system prompts d'agents
-- **Constitutional AI** — Bai et al. (Anthropic), arXiv 2212.08073 (2022) — principes/contraintes injectés
+- **Anthropic — Prompt Engineering Guide** (docs.anthropic.com/prompt-engineering) — system prompt structure, role, constraints, prompt caching (> 1024 tokens)
+- **Anthropic — Building Effective Agents** (anthropic.com/engineering, Dec. 2024) — agent system prompts
+- **Constitutional AI** — Bai et al. (Anthropic), arXiv 2212.08073 (2022) — injected principles/constraints
 
-## Voir aussi
-- [`few-shot-learning.md`](few-shot-learning.md) — exemples intégrés au system prompt
-- [`chain-of-thought.md`](chain-of-thought.md) — raisonnement structuré
-- [`prompt-evaluation.md`](prompt-evaluation.md) — évaluer le system prompt
-- [`../orchestrateur_workflow/prompt-engineering-orchestration.md`](../orchestrateur_workflow/prompt-engineering-orchestration.md) — system prompts en orchestration
+## See also
+- [`few-shot-learning.md`](few-shot-learning.md) — examples embedded in the system prompt
+- [`chain-of-thought.md`](chain-of-thought.md) — structured reasoning
+- [`prompt-evaluation.md`](prompt-evaluation.md) — evaluate the system prompt
+- [`../orchestrateur_workflow/prompt-engineering-orchestration.md`](../orchestrateur_workflow/prompt-engineering-orchestration.md) — system prompts in orchestration

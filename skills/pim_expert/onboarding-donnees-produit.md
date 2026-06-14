@@ -1,61 +1,61 @@
-# Skill — Onboarding & Import de Données Produit
-> Certifications : Akeneo Certified Developer · SAP MDG Associate · DAMA DMBOK2
+# Skill — Product Data Onboarding & Import
+> Certifications: Akeneo Certified Developer · SAP MDG Associate · DAMA DMBOK2
 
-## Objectif
-Industrialiser le processus d'onboarding de nouvelles données produit : collecte des données sources (ERP, fournisseurs, tableurs), normalisation, déduplication, contrôle qualité et chargement dans le PIM — pour réduire le délai d'intégration et garantir la qualité dès l'entrée.
+## Objective
+Industrialize the onboarding of new product data: source data collection (ERP, suppliers, spreadsheets), normalization, deduplication, quality control and loading into the PIM — to reduce integration lead time and guarantee quality from entry.
 
-## Sources d'onboarding typiques
+## Typical onboarding sources
 
 ```
-SOURCE              FORMAT             FRÉQUENCE     QUALITÉ ATTENDUE    TRAITEMENT
+SOURCE              FORMAT             FREQUENCY     EXPECTED QUALITY    PROCESSING
 ──────────────────  ─────────────────  ────────────  ──────────────────  ──────────────────────────
-ERP (SAP/Oracle)    API / IDoc / CSV   Quotidien     Élevée              Mapping direct + validation
-Fournisseur Excel   XLSX               À la demande  Variable            Normalisation + nettoyage
-Fournisseur XML     GS1 / ETIM         À la demande  Moyenne             Parsing + mapping schéma
-Import DSV          CSV / TSV          Hebdomadaire  Élevée              Contrôle format + chargement
-Rachat / Fusion     Dump BDD           Ponctuel      Basse               Audit + dédup + migration
-Scraping concurrent Web                Ponctuel      Basse               Enrichissement référence
-Agence contenu      JSON / CSV         Mensuel       Élevée              Validation + enrichissement
+ERP (SAP/Oracle)    API / IDoc / CSV   Daily         High                Direct mapping + validation
+Supplier Excel      XLSX               On demand     Variable            Normalization + cleaning
+Supplier XML        GS1 / ETIM         On demand     Medium              Parsing + schema mapping
+DSV import          CSV / TSV          Weekly        High                Format check + loading
+Acquisition / Merge DB dump            One-off       Low                 Audit + dedup + migration
+Competitor scraping Web                One-off       Low                 Reference enrichment
+Content agency      JSON / CSV         Monthly       High                Validation + enrichment
 ```
 
-## Processus d'onboarding en 5 étapes
+## 5-step onboarding process
 
 ```
-ÉTAPE 1 — COLLECTE & RÉCEPTION
-  □ Réception du fichier source (SFTP, portail, API)
-  □ Validation du format (encoding UTF-8, séparateur, en-têtes)
-  □ Quarantaine si format invalide → notification expéditeur
+STEP 1 — COLLECTION & RECEPTION
+  □ Receive the source file (SFTP, portal, API)
+  □ Format validation (UTF-8 encoding, separator, headers)
+  □ Quarantine if the format is invalid → notify sender
 
-ÉTAPE 2 — NORMALISATION
-  □ Nettoyage : suppression espaces, caractères spéciaux, BOM
-  □ Standardisation : unités (g→kg, in→cm), dates (ISO 8601), booléens
-  □ Mappage colonnes source → attributs PIM (dictionnaire de mapping)
-  □ Gestion valeurs manquantes (valeur par défaut ou rejet)
+STEP 2 — NORMALIZATION
+  □ Cleaning: remove whitespace, special characters, BOM
+  □ Standardization: units (g→kg, in→cm), dates (ISO 8601), booleans
+  □ Map source columns → PIM attributes (mapping dictionary)
+  □ Handle missing values (default value or rejection)
 
-ÉTAPE 3 — CONTRÔLE QUALITÉ
-  □ Validation EAN/GTIN (chiffre de contrôle GS1)
-  □ Vérification unicité SKU (pas de doublon avec l'existant)
-  □ Contrôle valeurs obligatoires (sku, famille, nom, ean)
-  □ Détection incohérences (poids = 0, prix négatif, description = titre)
-  □ Rapport d'anomalies (liste des lignes en erreur + motif)
+STEP 3 — QUALITY CONTROL
+  □ EAN/GTIN validation (GS1 check digit)
+  □ SKU uniqueness check (no duplicate with the existing catalog)
+  □ Required-value check (sku, family, name, ean)
+  □ Inconsistency detection (weight = 0, negative price, description = title)
+  □ Anomaly report (list of error rows + reason)
 
-ÉTAPE 4 — IMPORT PIM
-  □ Import en staging (environnement de pré-production)
-  □ Validation visuelle échantillon (10 fiches aléatoires)
-  □ Calcul completeness score post-import
-  □ Import en production si validation OK
+STEP 4 — PIM IMPORT
+  □ Import to staging (pre-production environment)
+  □ Visual sample validation (10 random records)
+  □ Post-import completeness score computation
+  □ Import to production if validation passes
 
-ÉTAPE 5 — NOTIFICATION & SUIVI
-  □ Rapport d'import (nb lignes traitées, créées, mises à jour, erreurs)
-  □ Notification équipe produit (import terminé, actions à mener)
-  □ Mise à jour tableau de bord onboarding (KPIs)
+STEP 5 — NOTIFICATION & TRACKING
+  □ Import report (# rows processed, created, updated, errors)
+  □ Notify the product team (import complete, actions to take)
+  □ Update the onboarding dashboard (KPIs)
 ```
 
-## Script de validation EAN-13 (Python)
+## EAN-13 validation script (Python)
 
 ```python
 def validate_ean13(ean: str) -> bool:
-    """Valide un code EAN-13 par vérification du chiffre de contrôle"""
+    """Validate an EAN-13 code by check-digit verification"""
     if not ean or len(ean) != 13 or not ean.isdigit():
         return False
     total = sum(
@@ -65,43 +65,43 @@ def validate_ean13(ean: str) -> bool:
     check_digit = (10 - (total % 10)) % 10
     return check_digit == int(ean[12])
 
-# Rapport d'anomalies (exemple)
+# Anomaly report (example)
 def check_row(row: dict) -> list[str]:
     errors = []
-    if not row.get('sku'):           errors.append("SKU manquant")
-    if not validate_ean13(row.get('ean', '')): errors.append("EAN invalide")
-    if not row.get('famille_pim'):   errors.append("Famille manquante")
-    if float(row.get('poids', 0)) <= 0: errors.append("Poids nul ou négatif")
+    if not row.get('sku'):           errors.append("Missing SKU")
+    if not validate_ean13(row.get('ean', '')): errors.append("Invalid EAN")
+    if not row.get('pim_family'):    errors.append("Missing family")
+    if float(row.get('weight', 0)) <= 0: errors.append("Weight zero or negative")
     return errors
 ```
 
-## Livrables
-- Dictionnaire de mapping source → PIM (par type de source)
-- Scripts de normalisation et de contrôle qualité
-- Modèle de rapport d'onboarding (erreurs, statistiques, actions)
-- Procédure d'onboarding documentée (SOP — Standard Operating Procedure)
-- Dashboard suivi onboarding (volumes, taux d'erreur, délais)
-- Guide contributeur (template Excel normalisé pour les fournisseurs)
+## Deliverables
+- Source → PIM mapping dictionary (per source type)
+- Normalization and quality-control scripts
+- Onboarding report template (errors, statistics, actions)
+- Documented onboarding procedure (SOP — Standard Operating Procedure)
+- Onboarding tracking dashboard (volumes, error rate, lead times)
+- Contributor guide (standardized Excel template for suppliers)
 
-## Format de sortie
-Précise : **sources d'onboarding** (ERP, fournisseurs, agences…), **formats reçus** (Excel, CSV, XML, API…), **volumétrie** (nb références/mois), **PIM cible** (Akeneo, Pimcore…), **délai de traitement acceptable** (temps réel, quotidien, hebdomadaire).
+## Output format
+Specify: **onboarding sources** (ERP, suppliers, agencies…), **formats received** (Excel, CSV, XML, API…), **volume** (# references/month), **target PIM** (Akeneo, Pimcore…), **acceptable processing time** (real-time, daily, weekly).
 
 ## Anti-patterns
-- ❌ **Pas de quarantaine sur format invalide** : données polluées chargées en masse → rejet + notification expéditeur dès l'étape 1
-- ❌ **EAN/GTIN non validé** (chiffre de contrôle GS1) : identifiants faux dans le catalogue → validation bloquante
-- ❌ **Import direct en production sans staging** : pollution irréversible → pré-prod + échantillon validé
-- ❌ **Valeurs manquantes remplacées silencieusement** par défaut : fausses données invisibles → rejet ou flag explicite
-- ❌ **Pas de rapport d'anomalies renvoyé à l'expéditeur** : les mêmes erreurs reviennent → boucle de feedback fournisseur
-- ❌ **Onboarding sans template fournisseur normalisé** : chaque source dans son format → gabarit imposé (cf. `portail-fournisseurs.md`)
+- ❌ **No quarantine on invalid format**: polluted data loaded en masse → reject + notify sender at step 1
+- ❌ **EAN/GTIN not validated** (GS1 check digit): false identifiers in the catalog → blocking validation
+- ❌ **Direct import to production without staging**: irreversible pollution → pre-prod + validated sample
+- ❌ **Missing values silently replaced** by defaults: invisible false data → reject or flag explicitly
+- ❌ **No anomaly report sent back to the sender**: the same errors recur → supplier feedback loop
+- ❌ **Onboarding without a standardized supplier template**: each source in its own format → enforced template (cf. `portail-fournisseurs.md`)
 
 ## Sources
-- **GS1 General Specifications v24.0** (2024) — EAN-13/GTIN, algorithme du chiffre de contrôle — gs1.org
-- **ETIM 10.0** (déc. 2024) — classification des fichiers fournisseurs techniques — etim-international.com
-- **ISO 8601** (dates) · **ISO 80000** (unités) — normalisation à l'étape 2 — iso.org
-- **DAMA-DMBOK 2** (2017) — data quality à l'ingestion — dama.org
+- **GS1 General Specifications v24.0** (2024) — EAN-13/GTIN, check-digit algorithm — gs1.org
+- **ETIM 10.0** (Dec. 2024) — classification of technical supplier files — etim-international.com
+- **ISO 8601** (dates) · **ISO 80000** (units) — normalization at step 2 — iso.org
+- **DAMA-DMBOK 2** (2017) — data quality at ingestion — dama.org
 
-## Voir aussi
-- [`integration-erp-pim.md`](integration-erp-pim.md) — flux ERP (source structurée)
-- [`portail-fournisseurs.md`](portail-fournisseurs.md) — collecte normalisée auprès des fournisseurs
-- [`gouvernance-donnees-produit.md`](gouvernance-donnees-produit.md) — règles de qualité et déduplication
-- [`modelisation-catalogue.md`](modelisation-catalogue.md) — modèle cible du mapping
+## See also
+- [`integration-erp-pim.md`](integration-erp-pim.md) — ERP flow (structured source)
+- [`portail-fournisseurs.md`](portail-fournisseurs.md) — normalized collection from suppliers
+- [`gouvernance-donnees-produit.md`](gouvernance-donnees-produit.md) — quality rules and deduplication
+- [`modelisation-catalogue.md`](modelisation-catalogue.md) — target model for the mapping

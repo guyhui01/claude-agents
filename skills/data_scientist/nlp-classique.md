@@ -1,52 +1,52 @@
 # Skill — NLP & Large Language Models
-> Certifications : DeepLearning.AI NLP Specialization · HuggingFace NLP Course · IBM Data Science
+> Certifications: DeepLearning.AI NLP Specialization · HuggingFace NLP Course · IBM Data Science
 
-## Objectif
-Construire des solutions NLP et LLM pour l'extraction d'information, la classification de texte, la génération et l'analyse sémantique.
+## Objective
+Build NLP and LLM solutions for information extraction, text classification, generation and semantic analysis.
 
-## Tâches NLP et approches 2026
+## NLP tasks and 2026 approaches
 
-### Traitement du texte (preprocessing)
+### Text preprocessing
 ```python
 import re
 from transformers import AutoTokenizer
 
-# Nettoyage basique
+# Basic cleaning
 def clean_text(text):
     text = text.lower()
     text = re.sub(r'[^\w\s]', '', text)
     text = re.sub(r'\s+', ' ', text).strip()
     return text
 
-# Tokenisation HuggingFace
+# HuggingFace tokenization
 tokenizer = AutoTokenizer.from_pretrained("camembert-base")
-tokens = tokenizer("Bonjour le monde", return_tensors="pt", padding=True)
+tokens = tokenizer("Hello world", return_tensors="pt", padding=True)
 ```
 
-### Classification de texte
+### Text classification
 ```python
 from transformers import pipeline
 
-# Zero-shot (sans entraînement)
+# Zero-shot (no training)
 classifier = pipeline("zero-shot-classification", model="facebook/bart-large-mnli")
 result = classifier(
-    "Ce produit est excellent !",
-    candidate_labels=["positif", "négatif", "neutre"]
+    "This product is excellent!",
+    candidate_labels=["positive", "negative", "neutral"]
 )
 
-# Fine-tuning sur données custom
-# → Voir skill deep-learning.md pour le code Trainer API
+# Fine-tuning on custom data
+# → See skill deep-learning.md for the Trainer API code
 ```
 
-### Extraction d'information (NER)
+### Information extraction (NER)
 ```python
 ner = pipeline("ner", model="Jean-Baptiste/roberta-large-ner-french",
                aggregation_strategy="simple")
-entities = ner("Claude Monet a peint à Giverny en Seine-Maritime.")
+entities = ner("Claude Monet painted in Giverny.")
 # → [{'entity_group': 'PER', 'word': 'Claude Monet'}, {'entity_group': 'LOC', 'word': 'Giverny'}]
 ```
 
-### Embeddings et recherche sémantique
+### Embeddings and semantic search
 ```python
 from sentence_transformers import SentenceTransformer
 import faiss
@@ -54,20 +54,20 @@ import numpy as np
 
 model = SentenceTransformer('paraphrase-multilingual-mpnet-base-v2')
 
-# Encoder des documents
+# Encode documents
 docs = ["Document 1...", "Document 2..."]
 embeddings = model.encode(docs, normalize_embeddings=True)
 
-# Index FAISS pour recherche rapide
+# FAISS index for fast search
 index = faiss.IndexFlatIP(embeddings.shape[1])
 index.add(embeddings)
 
-# Recherche similarité
-query = model.encode(["Ma requête"], normalize_embeddings=True)
+# Similarity search
+query = model.encode(["My query"], normalize_embeddings=True)
 scores, indices = index.search(query, k=5)
 ```
 
-## Pipeline RAG (Retrieval-Augmented Generation)
+## RAG pipeline (Retrieval-Augmented Generation)
 ```python
 from langchain.vectorstores import FAISS
 from langchain.embeddings import HuggingFaceEmbeddings
@@ -85,25 +85,25 @@ retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
 # 4. LLM
 llm = ChatAnthropic(model="claude-sonnet-4-6")
 
-# 5. Chain RAG
+# 5. RAG chain
 qa_chain = RetrievalQA.from_chain_type(llm=llm, retriever=retriever)
-answer = qa_chain.run("Quelle est la politique de remboursement ?")
+answer = qa_chain.run("What is the refund policy?")
 ```
 
-## Évaluation NLP
-| Métrique | Tâche | Description |
+## NLP evaluation
+| Metric | Task | Description |
 |---|---|---|
 | Accuracy / F1 | Classification | Standard |
-| BLEU | Traduction, génération | N-gram overlap |
-| ROUGE | Résumé | Recall n-gram |
-| BERTScore | Génération | Similarité sémantique |
+| BLEU | Translation, generation | N-gram overlap |
+| ROUGE | Summarization | N-gram recall |
+| BERTScore | Generation | Semantic similarity |
 | RAGAS | RAG | Faithfulness, relevance |
 
-## Livrables
-- Pipeline NLP complet (preprocessing → inférence)
-- Modèle fine-tuné + évaluation
-- API d'inférence (FastAPI)
-- Rapport d'évaluation avec métriques
+## Deliverables
+- Complete NLP pipeline (preprocessing → inference)
+- Fine-tuned model + evaluation
+- Inference API (FastAPI)
+- Evaluation report with metrics
 
-## Format de sortie
-Précise : tâche NLP (classification, NER, génération, RAG) · langue · volume de données · contraintes latence · modèle de base préféré
+## Output format
+Specify: NLP task (classification, NER, generation, RAG) · language · data volume · latency constraints · preferred base model

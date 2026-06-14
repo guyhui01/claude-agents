@@ -1,10 +1,10 @@
 # Skill — PyTorch & Deep Learning
-> Certifications : DeepLearning.AI Deep Learning Specialization · Fast.ai
+> Certifications: DeepLearning.AI Deep Learning Specialization · Fast.ai
 
-## Objectif
-Implémenter, entraîner et évaluer des modèles de deep learning avec PyTorch.
+## Objective
+Implement, train, and evaluate deep learning models with PyTorch.
 
-## Tensors & opérations de base
+## Tensors & basic operations
 ```python
 import torch
 
@@ -12,12 +12,12 @@ x = torch.tensor([[1.0, 2.0], [3.0, 4.0]], dtype=torch.float32)
 x = x.to("cuda")  # GPU
 x.shape, x.dtype, x.device
 
-# Opérations
+# Operations
 y = torch.matmul(x, x.T)
 z = torch.nn.functional.softmax(x, dim=-1)
 ```
 
-## Boucle d'entraînement standard
+## Standard training loop
 ```python
 model = MyModel().to("cuda")
 optimizer = torch.optim.AdamW(model.parameters(), lr=1e-4, weight_decay=0.01)
@@ -35,13 +35,13 @@ for epoch in range(num_epochs):
         scheduler.step()
 ```
 
-## Architectures clés
-- **Transformer** : attention heads, positional encoding, encoder/decoder
-- **MLP** : couches linéaires + activation (GELU, SiLU)
-- **CNN** : convolutions pour vision
-- **RNN / LSTM** : séquences (remplacé par transformers en NLP)
+## Key architectures
+- **Transformer**: attention heads, positional encoding, encoder/decoder
+- **MLP**: linear layers + activation (GELU, SiLU)
+- **CNN**: convolutions for vision
+- **RNN / LSTM**: sequences (superseded by transformers in NLP)
 
-## Mini-Transformer complet (classification de séquences)
+## Full mini-Transformer (sequence classification)
 
 ```python
 import math
@@ -50,7 +50,7 @@ import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 
 class PositionalEncoding(nn.Module):
-    """Encodage positionnel sinusoïdal (Vaswani et al. 2017)."""
+    """Sinusoidal positional encoding (Vaswani et al. 2017)."""
     def __init__(self, d_model: int, max_len: int = 512):
         super().__init__()
         pe = torch.zeros(max_len, d_model)
@@ -64,7 +64,7 @@ class PositionalEncoding(nn.Module):
         return x + self.pe[:, : x.size(1)]
 
 class MiniTransformer(nn.Module):
-    """Encoder Transformer + classification head."""
+    """Transformer encoder + classification head."""
     def __init__(self, vocab_size: int, d_model: int = 128, nhead: int = 4,
                  num_layers: int = 2, num_classes: int = 2, max_len: int = 256):
         super().__init__()
@@ -85,7 +85,7 @@ class MiniTransformer(nn.Module):
         cls = x.mean(dim=1)                       # mean pooling
         return self.classifier(cls)               # (B, num_classes)
 
-# DataLoader minimal pour démontrer le flux complet
+# Minimal DataLoader to demonstrate the full flow
 class ToyTextDataset(Dataset):
     def __init__(self, n: int = 256, vocab_size: int = 1000, max_len: int = 32):
         self.input_ids = torch.randint(0, vocab_size, (n, max_len))
@@ -94,7 +94,7 @@ class ToyTextDataset(Dataset):
     def __getitem__(self, idx):
         return {"input_ids": self.input_ids[idx], "labels": self.labels[idx]}
 
-# Boucle d'entraînement complète avec validation
+# Full training loop with validation
 device = "cuda" if torch.cuda.is_available() else "cpu"
 train_ds, val_ds = ToyTextDataset(2048), ToyTextDataset(256)
 train_loader = DataLoader(train_ds, batch_size=32, shuffle=True)
@@ -128,15 +128,15 @@ for epoch in range(5):
     print(f"Epoch {epoch}: train_loss={train_loss/len(train_loader):.4f}  val_acc={correct/total:.3f}")
 ```
 
-## Techniques d'optimisation mémoire
-- **Mixed Precision** : `torch.autocast("cuda", dtype=torch.bfloat16)`
-- **Gradient Checkpointing** : réduire la VRAM au coût de calcul
-- **Batch Accumulation** : simuler de grands batches sur petite GPU
+## Memory optimization techniques
+- **Mixed Precision**: `torch.autocast("cuda", dtype=torch.bfloat16)`
+- **Gradient Checkpointing**: reduce VRAM at the cost of compute
+- **Batch Accumulation**: simulate large batches on a small GPU
 
-## Livrables
-- Modèle PyTorch fonctionnel (forward pass + training loop)
-- Courbes de loss (train / validation)
-- Rapport d'évaluation sur test set
+## Deliverables
+- Working PyTorch model (forward pass + training loop)
+- Loss curves (train / validation)
+- Evaluation report on the test set
 
-## Format de sortie
-Précise : tâche (classification, génération, régression) · architecture souhaitée · GPU disponible · dataset
+## Output format
+Specify: task (classification, generation, regression) · desired architecture · available GPU · dataset

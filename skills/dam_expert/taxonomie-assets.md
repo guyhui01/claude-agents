@@ -1,100 +1,100 @@
-# Skill — Taxonomie & Modèle de Métadonnées Assets
-> Certifications : Henry Stewart DAM Practitioner · IPTC Photo Metadata Standard · Bynder Certified Partner
+# Skill — Asset Taxonomy & Metadata Model
+> Certifications: Henry Stewart DAM Practitioner · IPTC Photo Metadata Standard · Bynder Certified Partner
 
-## Objectif
-Concevoir la structure de classification et le modèle de métadonnées du DAM : arborescence des dossiers, schémas de métadonnées (IPTC/XMP/EXIF), vocabulaires contrôlés et règles de tagging — pour rendre les assets retrouvables, réutilisables et gouvernés à grande échelle.
+## Objective
+Design the DAM's classification structure and metadata model: folder taxonomy, metadata schemas (IPTC/XMP/EXIF), controlled vocabularies and tagging rules — to make assets findable, reusable and governed at scale.
 
-## Structure taxonomique recommandée
+## Recommended taxonomy structure
 
 ```
 DAM /
-├── Marques /
-│   ├── [Marque A] /
-│   │   ├── Identité visuelle /     # Logos, charte, palettes, typographies
-│   │   ├── Produits /
-│   │   │   ├── [Gamme] /
-│   │   │   │   ├── Packshots /     # Vues produit fond blanc
-│   │   │   │   ├── Ambiances /     # Photos lifestyle, contextualisation
-│   │   │   │   └── Vidéos /        # Films produit, tutoriels
+├── Brands /
+│   ├── [Brand A] /
+│   │   ├── Visual identity /        # Logos, brand guidelines, palettes, typefaces
+│   │   ├── Products /
+│   │   │   ├── [Range] /
+│   │   │   │   ├── Packshots /      # White-background product shots
+│   │   │   │   ├── Lifestyle /      # Lifestyle photos, contextualization
+│   │   │   │   └── Videos /         # Product films, tutorials
 │   │   │   └── ...
-│   │   ├── Campagnes /             # Assets organisés par campagne / saison
-│   │   └── Presse /                # Kit presse, communiqués, biographies
-│   └── [Marque B] /
+│   │   ├── Campaigns /              # Assets organized by campaign / season
+│   │   └── Press /                  # Press kit, releases, bios
+│   └── [Brand B] /
 ├── Corporate /
-│   ├── Direction /                 # Photos dirigeants, organigrammes
-│   ├── Événements /                # Conférences, salons, roadshows
-│   └── RSE /                       # Rapports, infographies ESG
-├── Agences & Partenaires /         # Assets reçus des agences (accès limité)
-└── Archives /                      # Assets expirés (consultation uniquement)
+│   ├── Leadership /                 # Executive photos, org charts
+│   ├── Events /                     # Conferences, trade shows, roadshows
+│   └── CSR /                        # Reports, ESG infographics
+├── Agencies & Partners /            # Assets received from agencies (limited access)
+└── Archives /                       # Expired assets (read-only)
 ```
 
-## Schéma de métadonnées — Standards IPTC/XMP
+## Metadata schema — IPTC/XMP standards
 
 ```
-CATÉGORIE           CHAMP IPTC / XMP                  USAGE                       OBLIGATOIRE
+CATEGORY            IPTC / XMP FIELD                  USE                         REQUIRED
 ──────────────────  ────────────────────────────────  ──────────────────────────  ─────────────
-Identification      dc:title                          Titre asset                 Oui
-                    dc:description                    Description contextuelle    Recommandé
-                    Iptc4xmpCore:SubjectCode          Codes sujet IPTC            Optionnel
-Droits              xmpRights:UsageTerms              Conditions d'utilisation    Oui
-                    xmpRights:WebStatement            URL politique droits        Recommandé
-                    photoshop:Credit                  Crédit photographe          Oui (photos)
-                    Iptc4xmpCore:CopyrightNotice      Mention copyright           Oui
-Contenu             dc:subject                        Mots-clés / tags            Oui (≥ 5)
-                    Iptc4xmpExt:PersonInImage         Personnes identifiées       Obligatoire (RGPD)
-                    Iptc4xmpExt:LocationCreated       Lieu de prise de vue        Recommandé
-Technique           exif:ImageWidth / ImageLength     Dimensions pixel            Automatique
-                    exif:ColorSpace                   sRGB / AdobeRGB / CMJN      Automatique
-                    photoshop:DateCreated             Date de création            Oui
-Interne             dam:brand                         Marque associée             Oui
-                    dam:product_sku                   SKU produit lié (si appli.) Conditionnel
-                    dam:channel                       Canal(ux) autorisé(s)       Oui
-                    dam:expiry_date                   Date d'expiration droits    Oui
+Identification      dc:title                          Asset title                 Yes
+                    dc:description                    Contextual description      Recommended
+                    Iptc4xmpCore:SubjectCode          IPTC subject codes          Optional
+Rights              xmpRights:UsageTerms              Usage conditions            Yes
+                    xmpRights:WebStatement            Rights policy URL           Recommended
+                    photoshop:Credit                  Photographer credit         Yes (photos)
+                    Iptc4xmpCore:CopyrightNotice      Copyright notice            Yes
+Content             dc:subject                        Keywords / tags             Yes (≥ 5)
+                    Iptc4xmpExt:PersonInImage         Identified people           Required (GDPR)
+                    Iptc4xmpExt:LocationCreated       Shooting location           Recommended
+Technical           exif:ImageWidth / ImageLength     Pixel dimensions            Automatic
+                    exif:ColorSpace                   sRGB / AdobeRGB / CMYK      Automatic
+                    photoshop:DateCreated             Creation date               Yes
+Internal            dam:brand                         Associated brand            Yes
+                    dam:product_sku                   Linked product SKU (if any) Conditional
+                    dam:channel                       Authorized channel(s)       Yes
+                    dam:expiry_date                   Rights expiry date          Yes
 ```
 
-## Vocabulaires contrôlés — Exemples
+## Controlled vocabularies — Examples
 
 ```
-CHAMP               VALEURS AUTORISÉES (exemples)
+FIELD               ALLOWED VALUES (examples)
 ──────────────────  ──────────────────────────────────────────────────────────────────
-dam:asset_type      packshot · ambiance · lifestyle · icon · logo · video · document
-dam:color_mode      RVB · CMJN · Niveaux de gris · LAB
+dam:asset_type      packshot · lifestyle · mood · icon · logo · video · document
+dam:color_mode      RGB · CMYK · Grayscale · LAB
 dam:channel         web · print · social · email · marketplace · outdoor
 dam:status          draft · awaiting_review · approved · published · expired · archived
 dam:territory       FR · EU · WORLD · EXCL_US · EXCL_CHINA
 dam:license_type    royalty_free · rights_managed · creative_commons · owned
 ```
 
-## Livrables
-- Arborescence taxonomique complète (structure dossiers DAM)
-- Dictionnaire de métadonnées (champs, types, obligatoire/optionnel, standards)
-- Vocabulaires contrôlés (listes de valeurs autorisées par champ)
-- Guide de tagging (comment tagger les assets, exemples par type)
-- Configuration du schéma dans le DAM cible (Bynder, AEM Assets, Cloudinary)
-- Procédure de migration des métadonnées legacy
+## Deliverables
+- Complete taxonomy structure (DAM folder structure)
+- Metadata dictionary (fields, types, required/optional, standards)
+- Controlled vocabularies (allowed-value lists per field)
+- Tagging guide (how to tag assets, examples per type)
+- Schema configuration in the target DAM (Bynder, AEM Assets, Cloudinary)
+- Legacy metadata migration procedure
 
-## Format de sortie
-Précise : **DAM cible** (Bynder, AEM Assets, Cloudinary, Canto…), **marques concernées**, **types d'assets** principaux (photos, vidéos, documents, icons…), **contraintes RGPD** (personnes identifiables), **intégrations** (PIM, CMS), **volumétrie** estimée (nb assets).
+## Output format
+Specify: **target DAM** (Bynder, AEM Assets, Cloudinary, Canto…), **brands involved**, main **asset types** (photos, videos, documents, icons…), **GDPR constraints** (identifiable people), **integrations** (PIM, CMS), estimated **volume** (# assets).
 
 ## Anti-patterns
-- ❌ **Taxonomie trop profonde** (> 3-4 niveaux) : assets enfouis, introuvables → privilégier une arborescence plate + métadonnées riches
-- ❌ **Champs libres sans vocabulaire contrôlé** : `dam:channel` saisi en texte libre → valeurs incohérentes (« web » / « Web » / « site ») → imposer des listes fermées
-- ❌ **`Iptc4xmpExt:PersonInImage` non renseigné** sur des photos de personnes identifiables → non-conformité RGPD (art. 9 si données sensibles)
-- ❌ **Absence de `dam:expiry_date`** : assets réutilisés après expiration des droits → risque juridique (cf. `gestion-droits-licences.md`)
-- ❌ **Tagging a posteriori** (pas à l'upload) : le backlog de re-tagging devient ingérable → métadonnées obligatoires bloquantes à l'ingestion
-- ❌ **Métadonnées propriétaires uniquement** (champs `dam:*` internes sans mapping IPTC/XMP) : perte à l'export inter-systèmes → toujours mapper sur un standard
+- ❌ **Taxonomy too deep** (> 3-4 levels): buried, unfindable assets → favor a flat structure + rich metadata
+- ❌ **Free-text fields without a controlled vocabulary**: `dam:channel` entered as free text → inconsistent values ("web" / "Web" / "site") → enforce closed lists
+- ❌ **`Iptc4xmpExt:PersonInImage` left blank** on photos of identifiable people → GDPR non-compliance (art. 9 if sensitive data)
+- ❌ **No `dam:expiry_date`**: assets reused after rights expire → legal risk (cf. `gestion-droits-licences.md`)
+- ❌ **Tagging after the fact** (not at upload): the re-tagging backlog becomes unmanageable → blocking required metadata at ingestion
+- ❌ **Proprietary metadata only** (internal `dam:*` fields with no IPTC/XMP mapping): loss on cross-system export → always map to a standard
 
 ## Sources
-- **IPTC Photo Metadata Standard 2025.1** (oct. 2025 — IPTC Core 1.5 / Extension 1.9, ajout des propriétés de contenu généré par IA) — iptc.org/standards/photo-metadata
+- **IPTC Photo Metadata Standard 2025.1** (Oct. 2025 — IPTC Core 1.5 / Extension 1.9, adds AI-generated-content properties) — iptc.org/standards/photo-metadata
 - **XMP** — *Extensible Metadata Platform*, ISO 16684-1:2019 (Adobe) — adobe.com/products/xmp
-- **Exif 3.0** — CIPA DC-008-2023 (support UTF-8) — cipa.jp
+- **Exif 3.0** — CIPA DC-008-2023 (UTF-8 support) — cipa.jp
 - **Dublin Core** — DCMI Metadata Terms / ISO 15836-1:2017 — dublincore.org
-- **RGPD** — Règlement (UE) 2016/679, art. 9 (données biométriques/identification) — eur-lex.europa.eu
+- **GDPR** — Regulation (EU) 2016/679, art. 9 (biometric/identification data) — eur-lex.europa.eu
 
-## Voir aussi
-- [`naming-convention.md`](naming-convention.md) — convention de nommage cohérente avec la taxonomie
-- [`gestion-droits-licences.md`](gestion-droits-licences.md) — droits, expiration, RGPD sur les assets
-- [`gouvernance-dam.md`](gouvernance-dam.md) — politique de gouvernance et archivage
-- [`migration-dam.md`](migration-dam.md) — migration des métadonnées legacy vers ce schéma
-- [`dam-augmente-ia.md`](dam-augmente-ia.md) — auto-tagging IA alimentant les vocabulaires contrôlés
-- [`../cms_digital/integration-pim-dam.md`](../cms_digital/integration-pim-dam.md) — exposition des assets et métadonnées au CMS
+## See also
+- [`naming-convention.md`](naming-convention.md) — naming convention consistent with the taxonomy
+- [`gestion-droits-licences.md`](gestion-droits-licences.md) — rights, expiration, GDPR on assets
+- [`gouvernance-dam.md`](gouvernance-dam.md) — governance and archiving policy
+- [`migration-dam.md`](migration-dam.md) — migrating legacy metadata to this schema
+- [`dam-augmente-ia.md`](dam-augmente-ia.md) — AI auto-tagging feeding the controlled vocabularies
+- [`../cms_digital/integration-pim-dam.md`](../cms_digital/integration-pim-dam.md) — exposing assets and metadata to the CMS

@@ -1,75 +1,75 @@
-# Skill — Éthique IA, Biais & Fairness
-> Certifications : CAP IABAC · DeepLearning.AI AI For Everyone · IBM Data Science
+# Skill — AI Ethics, Bias & Fairness
+> Certifications: CAP IABAC · DeepLearning.AI AI For Everyone · IBM Data Science
 
-## Objectif
-Détecter, mesurer et atténuer les biais dans les systèmes IA pour garantir l'équité, la transparence et la conformité réglementaire (AI Act, RGPD).
+## Objective
+Detect, measure and mitigate bias in AI systems to guarantee fairness, transparency and regulatory compliance (AI Act, GDPR).
 
-## Types de biais en ML
-| Type de biais | Description | Exemple |
+## Types of ML bias
+| Bias type | Description | Example |
 |---|---|---|
-| **Biais de données** | Sur/sous-représentation dans le dataset | Modèle de crédit entraîné sur population homogène |
-| **Biais de mesure** | Indicateurs inadéquats comme proxy | Utiliser le code postal comme proxy du revenu |
-| **Biais d'algorithme** | Amplification de biais par l'optimisation | Minimiser l'erreur globale pénalise les minorités |
-| **Biais de confirmation** | Choix des features guidé par les croyances | Exclure des variables qui contredisent l'hypothèse |
-| **Biais de déploiement** | Distribution drift en production | Modèle entraîné en 2020, déployé en 2026 |
+| **Data bias** | Over/under-representation in the dataset | Credit model trained on a homogeneous population |
+| **Measurement bias** | Inadequate indicators as a proxy | Using postal code as a proxy for income |
+| **Algorithm bias** | Bias amplification through optimization | Minimizing global error penalizes minorities |
+| **Confirmation bias** | Feature choice driven by beliefs | Excluding variables that contradict the hypothesis |
+| **Deployment bias** | Distribution drift in production | Model trained in 2020, deployed in 2026 |
 
-## Détection des biais (Fairlearn)
+## Bias detection (Fairlearn)
 ```python
 from fairlearn.metrics import MetricFrame, demographic_parity_difference
 from sklearn.metrics import accuracy_score
 
-# Créer un MetricFrame par groupe sensible
+# Create a MetricFrame per sensitive group
 mf = MetricFrame(
     metrics=accuracy_score,
     y_true=y_test,
     y_pred=y_pred,
-    sensitive_features=X_test['genre']
+    sensitive_features=X_test['gender']
 )
 
-print(mf.by_group)          # Accuracy par groupe
-print(mf.difference())       # Écart max entre groupes
-print(mf.ratio())            # Ratio min/max entre groupes
+print(mf.by_group)          # Accuracy per group
+print(mf.difference())       # Max gap between groups
+print(mf.ratio())            # Min/max ratio between groups
 
-# Parité démographique
+# Demographic parity
 dpd = demographic_parity_difference(y_test, y_pred,
-                                     sensitive_features=X_test['genre'])
-print(f"Parité démographique : {dpd:.3f}")  # Idéal : 0
+                                     sensitive_features=X_test['gender'])
+print(f"Demographic parity: {dpd:.3f}")  # Ideal: 0
 ```
 
-## Métriques de fairness
-| Métrique | Définition | Seuil acceptable |
+## Fairness metrics
+| Metric | Definition | Acceptable threshold |
 |---|---|---|
-| **Demographic Parity** | Égalité des taux de prédiction positive | Diff < 0.10 |
-| **Equalized Odds** | Égalité TPR et FPR entre groupes | Diff < 0.10 |
-| **Individual Fairness** | Individus similaires → prédictions similaires | Qualitative |
-| **Calibration** | Probabilités alignées avec la réalité | Par groupe |
+| **Demographic Parity** | Equal positive-prediction rates | Diff < 0.10 |
+| **Equalized Odds** | Equal TPR and FPR between groups | Diff < 0.10 |
+| **Individual Fairness** | Similar individuals → similar predictions | Qualitative |
+| **Calibration** | Probabilities aligned with reality | Per group |
 
-## Atténuation des biais
+## Bias mitigation
 ```python
 from fairlearn.reductions import ExponentiatedGradient, DemographicParity
 
-# Contrainte de fairness pendant l'entraînement
+# Fairness constraint during training
 constraint = DemographicParity()
 mitigator = ExponentiatedGradient(
     estimator=LogisticRegression(),
     constraints=constraint
 )
-mitigator.fit(X_train, y_train, sensitive_features=X_train['genre'])
+mitigator.fit(X_train, y_train, sensitive_features=X_train['gender'])
 ```
 
-## AI Act — obligations de conformité (2026)
-| Catégorie de risque | Exemples | Obligations |
+## AI Act — compliance obligations (2026)
+| Risk category | Examples | Obligations |
 |---|---|---|
-| **Risque inacceptable** | Score social, manipulation subliminale | Interdit |
-| **Risque élevé** | Recrutement, crédit, justice | Audit, traçabilité, supervision humaine |
-| **Risque limité** | Chatbots, deepfakes | Transparence (déclaration IA) |
-| **Risque minimal** | Filtres spam, recommandations | Bonnes pratiques volontaires |
+| **Unacceptable risk** | Social scoring, subliminal manipulation | Banned |
+| **High risk** | Recruitment, credit, justice | Audit, traceability, human oversight |
+| **Limited risk** | Chatbots, deepfakes | Transparency (AI disclosure) |
+| **Minimal risk** | Spam filters, recommendations | Voluntary best practices |
 
-## Livrables
-- Audit de biais (rapport MetricFrame)
-- Plan de mitigation documenté
-- Rapport de conformité AI Act
-- Politique de gouvernance IA du modèle (Model Card)
+## Deliverables
+- Bias audit (MetricFrame report)
+- Documented mitigation plan
+- AI Act compliance report
+- Model AI governance policy (Model Card)
 
-## Format de sortie
-Précise : type de modèle · variables sensibles (genre, âge, origine) · réglementation applicable (AI Act niveau) · métriques de fairness prioritaires · audience du rapport
+## Output format
+Specify: model type · sensitive variables (gender, age, origin) · applicable regulation (AI Act level) · priority fairness metrics · report audience

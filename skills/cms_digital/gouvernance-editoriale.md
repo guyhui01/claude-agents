@@ -1,117 +1,117 @@
-# Skill — Gouvernance éditoriale et workflows de publication
-> Certifications : Adobe AEM Sites Business Practitioner · Acquia Certified Site Builder — Drupal 10
+# Skill — Editorial governance and publishing workflows
+> Certifications: Adobe AEM Sites Business Practitioner · Acquia Certified Site Builder — Drupal 10
 
-## Objectif
-Définir et mettre en place la gouvernance éditoriale d'une plateforme CMS : rôles et droits contributeurs, workflows de publication, taxonomies et conventions de nommage, formation et documentation.
+## Objective
+Define and set up the editorial governance of a CMS platform: contributor roles and rights, publishing workflows, taxonomies and naming conventions, training and documentation.
 
-## Modèle RACI éditorial
+## Editorial RACI model
 
 ```
-RÔLE                  DESCRIPTION                          DROITS CMS TYPES
+ROLE                  DESCRIPTION                          TYPICAL CMS RIGHTS
 ────────────────────  ───────────────────────────────────  ──────────────────────────────
-Contributeur          Crée et édite les contenus brouillon  Create, Edit own content
-Éditeur               Valide et publie les contenus         + Publish, Edit any content
-Chef de rubrique      Gère la taxonomie de sa section       + Create taxonomy terms, Manage menus
-Administrateur CMS    Configure le CMS, gère les utilisateurs All permissions except superadmin
-Superadmin            Accès total (infra + CMS)             All
-Lecteur preview       Accès aux contenus non publiés        View unpublished content only
+Contributor           Creates and edits draft content      Create, Edit own content
+Editor                Validates and publishes content      + Publish, Edit any content
+Section lead          Manages their section's taxonomy     + Create taxonomy terms, Manage menus
+CMS administrator     Configures the CMS, manages users    All permissions except superadmin
+Superadmin            Full access (infra + CMS)            All
+Preview reader        Access to unpublished content        View unpublished content only
 ```
 
-## Workflow de publication — 4 étapes types
+## Publishing workflow — 4 typical steps
 
 ```
 ┌──────────────┐    ┌─────────────┐    ┌──────────────┐    ┌────────────┐
-│  BROUILLON   │───▶│  EN RELECTURE│───▶│  APPROUVÉ   │───▶│  PUBLIÉ   │
-│  (Contribut.)│    │  (Éditeur)  │    │  (Chef rub.) │    │  (Live)   │
+│   DRAFT      │───▶│  IN REVIEW  │───▶│  APPROVED   │───▶│ PUBLISHED  │
+│ (Contributor)│    │  (Editor)   │    │(Section lead)│    │   (Live)   │
 └──────────────┘    └─────────────┘    └──────────────┘    └────────────┘
        │                   │                  │
        ▼                   ▼                  ▼
-  [Notification]    [Demande correc.]    [Planif. date]
+  [Notification]    [Change request]    [Schedule date]
 ```
 
-## Configuration workflow Drupal 10 (Content Moderation)
+## Drupal 10 workflow configuration (Content Moderation)
 
 ```yaml
 # config/install/workflows.workflow.editorial.yml
 id: editorial
 type: content_moderation
-label: 'Workflow éditorial'
+label: 'Editorial workflow'
 type_settings:
   states:
-    draft:      { label: 'Brouillon',    published: false, default_revision: false }
-    review:     { label: 'En relecture', published: false, default_revision: true  }
-    approved:   { label: 'Approuvé',    published: false, default_revision: true  }
-    published:  { label: 'Publié',       published: true,  default_revision: true  }
-    archived:   { label: 'Archivé',      published: false, default_revision: false }
+    draft:      { label: 'Draft',      published: false, default_revision: false }
+    review:     { label: 'In review',  published: false, default_revision: true  }
+    approved:   { label: 'Approved',   published: false, default_revision: true  }
+    published:  { label: 'Published',  published: true,  default_revision: true  }
+    archived:   { label: 'Archived',   published: false, default_revision: false }
   transitions:
-    submit_for_review: { from: [draft],    to: review,    label: 'Soumettre'  }
-    request_changes:   { from: [review],   to: draft,     label: 'Retourner'  }
-    approve:           { from: [review],   to: approved,  label: 'Approuver'  }
-    publish:           { from: [approved], to: published, label: 'Publier'    }
-    archive:           { from: [published],to: archived,  label: 'Archiver'   }
+    submit_for_review: { from: [draft],    to: review,    label: 'Submit'          }
+    request_changes:   { from: [review],   to: draft,     label: 'Send back'       }
+    approve:           { from: [review],   to: approved,  label: 'Approve'         }
+    publish:           { from: [approved], to: published, label: 'Publish'         }
+    archive:           { from: [published],to: archived,  label: 'Archive'         }
   entity_types:
-    node: [article, page, actualite]
+    node: [article, page, news]
 ```
 
-## Taxonomie — Bonnes pratiques
+## Taxonomy — Best practices
 
 ```
-PRINCIPE                    EXEMPLE D'APPLICATION
+PRINCIPLE                   EXAMPLE APPLICATION
 ──────────────────────────  ─────────────────────────────────────────────
-Hiérarchie limitée à 2-3    Thématiques > Sous-thématiques (pas plus)
-  niveaux max
+Hierarchy limited to 2-3    Topics > Subtopics (no more)
+  levels max
 
-Termes en minuscules,       "intelligence-artificielle" (pas "IA", "A.I.", "Intelligence Artificielle")
-  normalisés
+Lowercase, normalized       "artificial-intelligence" (not "AI", "A.I.", "Artificial Intelligence")
+  terms
 
-Contrôlés par des éditeurs  Contributeurs ne peuvent pas créer de nouveaux termes
-  référents
+Controlled by reference     Contributors cannot create new terms
+  editors
 
-Multilingues synchronisés   FR/EN/DE créés simultanément, pas en rattrapage
+Synchronized multilingual   FR/EN/DE created simultaneously, not as catch-up
 
-Audit trimestriel           Supprimer les termes orphelins (0 contenu associé)
+Quarterly audit             Remove orphan terms (0 associated content)
 ```
 
-## Guide de nommage et conventions éditoriales
+## Naming guide and editorial conventions
 
 ```
-FICHIERS ASSETS
-  Images web    : [section]-[sujet]-[format]-[date].jpg  → hero-ia-generative-16x9-2026.jpg
-  Documents     : [type]-[titre-kebab]-[version].pdf     → guide-migration-cms-v2.pdf
-  Vidéos        : [marque]-[sujet]-[langue]-[durée].mp4  → brand-ai-tutorial-fr-3min.mp4
+ASSET FILES
+  Web images   : [section]-[topic]-[format]-[date].jpg  → hero-genai-16x9-2026.jpg
+  Documents    : [type]-[title-kebab]-[version].pdf     → guide-migration-cms-v2.pdf
+  Videos       : [brand]-[topic]-[lang]-[duration].mp4  → brand-ai-tutorial-en-3min.mp4
 
 PAGES / SLUGS
-  Blog          : /blog/[année]/[slug-titre]             → /blog/2026/migration-drupal-contentful
-  Produits      : /produits/[categorie]/[nom-produit]    → /produits/logiciels/mon-produit
-  Événements    : /evenements/[année]-[mois]-[slug]      → /evenements/2026-06-paris-ia-summit
+  Blog         : /blog/[year]/[title-slug]              → /blog/2026/migration-drupal-contentful
+  Products     : /products/[category]/[product-name]    → /products/software/my-product
+  Events       : /events/[year]-[month]-[slug]          → /events/2026-06-paris-ai-summit
 ```
 
-## Livrables
-- Matrice RACI éditorial (rôles × droits)
-- Configuration workflows de publication (YAML ou specs)
-- Taxonomie structurée (arbres de termes)
-- Guide de nommage et conventions éditoriales
-- Formation contributeurs (slides ou vidéo tutoriel)
-- Documentation administrateur CMS
+## Deliverables
+- Editorial RACI matrix (roles × rights)
+- Publishing workflow configuration (YAML or specs)
+- Structured taxonomy (term trees)
+- Naming guide and editorial conventions
+- Contributor training (slides or video tutorial)
+- CMS administrator documentation
 
-## Format de sortie
-Précise : **CMS utilisé** (AEM, Drupal, Contentful…), **nombre de contributeurs** et **profils**, **langues** du site, **fréquence de publication**, **contraintes réglementaires** (validation légale, RGPD, droits images).
+## Output format
+Specify: **CMS used** (AEM, Drupal, Contentful…), **number of contributors** and **profiles**, site **languages**, **publishing frequency**, **regulatory constraints** (legal sign-off, GDPR, image rights).
 
 ## Anti-patterns
-- ❌ **Workflow sans rôles clairs** (R/A non distincts) : blocages et contenus publiés sans validation → RACI explicite
-- ❌ **Contributeurs créant des termes de taxonomie libres** : taxonomie anarchique → termes contrôlés par des référents
-- ❌ **Taxonomie trop profonde** (> 2-3 niveaux) : navigation et maintenance illisibles
-- ❌ **Multilingue en rattrapage** (pas synchronisé) : versions linguistiques désalignées → création simultanée
-- ❌ **Pas de formation des contributeurs** : contournements et erreurs → guide + formation
-- ❌ **Pas d'archivage des contenus obsolètes** : le site accumule du contenu mort → état « archivé » + revue
+- ❌ **Workflow without clear roles** (R/A not distinct): blockers and content published without validation → explicit RACI
+- ❌ **Contributors creating free taxonomy terms**: anarchic taxonomy → terms controlled by reference editors
+- ❌ **Taxonomy too deep** (> 2-3 levels): unreadable navigation and maintenance
+- ❌ **Multilingual as catch-up** (not synchronized): misaligned language versions → simultaneous creation
+- ❌ **No contributor training**: workarounds and errors → guide + training
+- ❌ **No archiving of obsolete content**: the site accumulates dead content → "archived" state + review
 
 ## Sources
-- **Drupal Content Moderation / Workflows** — drupal.org (Workspaces pour staging)
-- **BPMN 2.0.2** — OMG (2013) — modélisation des workflows éditoriaux — omg.org/spec/BPMN
-- **Modèle RACI** — matrice de responsabilités · **AEM Workflows** — experienceleague.adobe.com
+- **Drupal Content Moderation / Workflows** — drupal.org (Workspaces for staging)
+- **BPMN 2.0.2** — OMG (2013) — editorial workflow modeling — omg.org/spec/BPMN
+- **RACI model** — responsibility matrix · **AEM Workflows** — experienceleague.adobe.com
 
-## Voir aussi
-- [`drupal-developpement.md`](drupal-developpement.md) — configuration des workflows (Content Moderation)
-- [`accessibilite-numerique.md`](accessibilite-numerique.md) — contribution accessible des éditeurs
-- [`seo-technique-cms.md`](seo-technique-cms.md) — conventions de nommage/slugs SEO
-- [`../dam_expert/workflow-validation-assets.md`](../dam_expert/workflow-validation-assets.md) — validation des assets associés
+## See also
+- [`drupal-developpement.md`](drupal-developpement.md) — workflow configuration (Content Moderation)
+- [`accessibilite-numerique.md`](accessibilite-numerique.md) — accessible editor contribution
+- [`seo-technique-cms.md`](seo-technique-cms.md) — SEO naming/slug conventions
+- [`../dam_expert/workflow-validation-assets.md`](../dam_expert/workflow-validation-assets.md) — validation of associated assets

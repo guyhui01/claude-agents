@@ -1,54 +1,54 @@
-# Skill — Évaluation LLM & Observabilité (Evals + LLM Ops)
+# Skill — LLM Evaluation & Observability (Evals + LLM Ops)
 
-> Certifications : Anthropic Claude Code in Action (2026), DeepLearning.AI Evaluating and Debugging Generative AI, AWS Certified AI Practitioner (AIF-C01)
+> Certifications: Anthropic Claude Code in Action (2026), DeepLearning.AI Evaluating and Debugging Generative AI, AWS Certified AI Practitioner (AIF-C01)
 
-## Objectif
+## Objective
 
-Concevoir et mettre en œuvre un framework d'évaluation (evals) et d'observabilité pour des systèmes LLM en production : définition des métriques, pipeline d'evals automatisé, monitoring des dérives et tableaux de bord LLM Ops.
+Design and implement an evaluation (evals) and observability framework for production LLM systems: metric definition, automated evals pipeline, drift monitoring and LLM Ops dashboards.
 
-## Framework d'évaluation LLM (Evals)
+## LLM evaluation framework (Evals)
 
-### Les 4 niveaux d'évaluation
+### The 4 evaluation levels
 
 ```
-NIVEAU    TYPE                      MÉTHODE                    OUTIL
+LEVEL     TYPE                      METHOD                     TOOL
 ───────   ──────────────────────   ────────────────────────   ───────────────────────
-L1        Fonctionnelle             Test unitaire prompt        Pytest, unittest
-L2        Qualité output            LLM-as-judge               Claude, GPT-4o judge
-L3        Sécurité / robustesse     Red teaming automatisé     Garak, PyRIT
-L4        Business / ROI            A/B test production        Feature flags + metrics
+L1        Functional                Prompt unit test            Pytest, unittest
+L2        Output quality            LLM-as-judge               Claude, GPT-4o judge
+L3        Security / robustness     Automated red teaming      Garak, PyRIT
+L4        Business / ROI            Production A/B test        Feature flags + metrics
 ```
 
-### Métriques clés à instrumenter
+### Key metrics to instrument
 
 ```yaml
-metriques_qualite:
-  groundedness: "Réponse fondée sur le contexte fourni (RAG)"
-  faithfulness: "Fidélité au corpus de référence"
-  answer_relevance: "Pertinence par rapport à la question"
-  context_precision: "Signal/bruit du contexte récupéré"
-  hallucination_rate: "Taux d'affirmations invérifiables"
+quality_metrics:
+  groundedness: "Answer grounded in the provided context (RAG)"
+  faithfulness: "Faithfulness to the reference corpus"
+  answer_relevance: "Relevance to the question"
+  context_precision: "Signal/noise of the retrieved context"
+  hallucination_rate: "Rate of unverifiable claims"
 
-metriques_performance:
-  latency_p50_p95_p99: "Temps de réponse (ms)"
-  tokens_per_second: "Débit de génération"
-  cost_per_query: "Coût USD par appel"
-  cache_hit_rate: "Taux de cache Anthropic (objectif > 80%)"
+performance_metrics:
+  latency_p50_p95_p99: "Response time (ms)"
+  tokens_per_second: "Generation throughput"
+  cost_per_query: "USD cost per call"
+  cache_hit_rate: "Anthropic cache rate (target > 80%)"
 
-metriques_business:
-  task_completion_rate: "Taux de réussite tâche utilisateur"
-  human_intervention_rate: "Fréquence d'escalade vers humain"
+business_metrics:
+  task_completion_rate: "User task success rate"
+  human_intervention_rate: "Frequency of escalation to a human"
   user_satisfaction_score: "NPS / thumbs up/down"
-  fallback_rate: "Taux de réponses génériques / refus"
+  fallback_rate: "Rate of generic answers / refusals"
 ```
 
-### Pipeline d'evals automatisé
+### Automated evals pipeline
 
 ```python
-# Structure type d'un pipeline d'evals Claude
+# Typical structure of a Claude evals pipeline
 eval_pipeline = {
-    "dataset": "eval_set.jsonl",          # questions + réponses de référence
-    "judge_model": "claude-opus-4-8",     # juge LLM
+    "dataset": "eval_set.jsonl",          # questions + reference answers
+    "judge_model": "claude-opus-4-8",     # LLM judge
     "metrics": [
         "groundedness",
         "answer_relevance",
@@ -62,87 +62,87 @@ eval_pipeline = {
     "trigger": "pre-deploy + daily-cron"
 }
 
-# Prompt LLM-as-judge type
+# Typical LLM-as-judge prompt
 judge_prompt = """
-Évalue cette réponse de l'assistant sur une échelle 1-5 :
-- Groundedness (fondé sur le contexte) : {score}/5
-- Pertinence (répond à la question) : {score}/5
-- Hallucination détectée : oui / non
+Evaluate this assistant response on a 1-5 scale:
+- Groundedness (grounded in the context): {score}/5
+- Relevance (answers the question): {score}/5
+- Hallucination detected: yes / no
 
-Question : {question}
-Contexte fourni : {context}
-Réponse à évaluer : {response}
+Question: {question}
+Provided context: {context}
+Response to evaluate: {response}
 """
 ```
 
-## Stack d'observabilité LLM en production
+## Production LLM observability stack
 
 ```
-COUCHE                OUTIL RECOMMANDÉ           RÔLE
+LAYER                 RECOMMENDED TOOL           ROLE
 ──────────────────   ────────────────────────   ──────────────────────────────────
-Tracing              LangSmith / Helicone       Trace complète prompt → response
-Métriques            Prometheus + Grafana       Latence, coûts, tokens, erreurs
-Logs                 OpenTelemetry → ELK        Logs structurés par appel LLM
-Evals continues      Ragas / DeepEval           Scoring automatisé groundedness
-Alerting             PagerDuty / Opsgenie       Alerte si drift détecté
-Dashboard            Grafana (board LLM Ops)    Vue opérationnelle temps réel
+Tracing              LangSmith / Helicone       Full prompt → response trace
+Metrics              Prometheus + Grafana       Latency, cost, tokens, errors
+Logs                 OpenTelemetry → ELK        Structured logs per LLM call
+Continuous evals     Ragas / DeepEval           Automated groundedness scoring
+Alerting             PagerDuty / Opsgenie       Alert if drift detected
+Dashboard            Grafana (LLM Ops board)    Real-time operational view
 ```
 
-### Dashboard LLM Ops — KPIs à afficher
+### LLM Ops dashboard — KPIs to display
 
 ```
 ┌────────────────────────────────────────────────────────┐
 │  LLM OPS DASHBOARD                                     │
 ├──────────────┬──────────────┬──────────────────────────┤
-│ Latence P95  │ Coût/jour    │ Hallucination rate        │
-│ 1 240 ms    │ $12.40      │ 2.3%  ✅ (< 5%)           │
+│ Latency P95  │ Cost/day     │ Hallucination rate        │
+│ 1,240 ms    │ $12.40      │ 2.3%  ✅ (< 5%)           │
 ├──────────────┼──────────────┼──────────────────────────┤
 │ Cache hits   │ Task compl.  │ Groundedness score        │
 │ 78% ⚠       │ 91%  ✅     │ 0.87  ✅ (> 0.85)        │
 ├──────────────┴──────────────┴──────────────────────────┤
 │  DRIFT ALERT : answer_relevance ↘ 0.73 (< 0.80)       │
-│  → Recheck dataset RAG + re-run evals                  │
+│  → Recheck RAG dataset + re-run evals                  │
 └────────────────────────────────────────────────────────┘
 ```
 
-## Gestion des dérives (Drift)
+## Drift management
 
 ```
-TYPE DE DRIFT      SYMPTÔME                        ACTION
+DRIFT TYPE         SYMPTOM                         ACTION
 ─────────────────  ──────────────────────────────  ──────────────────────────────
-Data drift         Nouvelles requêtes hors corpus   Enrichir base RAG / fine-tune
-Concept drift      Sens des termes a changé         Mettre à jour system prompt
-Model drift        MAJ LLM change les outputs       Rejouer eval set complet
-Prompt drift       Régression après modif prompt    Git blame prompt + rollback
-Distribution shift Volume ou type d'usagers change  Ré-évaluer par segment
+Data drift         New queries outside the corpus   Enrich RAG store / fine-tune
+Concept drift      Meaning of terms has changed     Update the system prompt
+Model drift        LLM update changes the outputs   Replay the full eval set
+Prompt drift       Regression after a prompt change Git blame prompt + rollback
+Distribution shift Volume or user type changes      Re-evaluate per segment
 ```
 
-## Livrables
+## Deliverables
 
-- Framework d'evals complet (dataset, métriques, seuils, cadence)
-- Pipeline d'evals automatisé (CI/CD gate pré-déploiement)
-- Dashboard Grafana LLM Ops (template importable)
-- Runbook de gestion des alertes et dérives
-- Rapport mensuel qualité LLM (évolution métriques clés)
+- Complete evals framework (dataset, metrics, thresholds, cadence)
+- Automated evals pipeline (pre-deployment CI/CD gate)
+- Grafana LLM Ops dashboard (importable template)
+- Alert and drift management runbook
+- Monthly LLM quality report (evolution of key metrics)
 
-## Format de sortie
+## Output format
 
-Précise : **type de système LLM** (RAG / agent / chatbot / génération), **LLM utilisé** (Claude / GPT / Gemini), **volume d'appels/jour**, **stack observabilité existante**, **objectifs business** (conformité / qualité / coût / SLA).
+Specify: **LLM system type** (RAG / agent / chatbot / generation), **LLM used** (Claude / GPT / Gemini), **calls/day volume**, **existing observability stack**, **business goals** (compliance / quality / cost / SLA).
 
 ## Anti-patterns
-- ❌ **Métriques sans jeu de référence (golden set)** : scores non reproductibles → dataset versionné
-- ❌ **Juge LLM non calibré** : biais de complaisance → critères précis + cas notés de référence
-- ❌ **Observabilité sans alerting** : dérives invisibles → seuils + alertes (hallucination rate, latence, coût)
-- ❌ **Pas de suivi de coût / cache hit rate** : dérive budgétaire → métriques de coût par appel
-- ❌ **Evals one-shot** (pas en continu) : régressions silencieuses → pipeline d'evals en CI/CD
+- ❌ **Metrics without a reference set (golden set)**: non-reproducible scores → versioned dataset
+- ❌ **Uncalibrated LLM judge**: leniency bias → precise criteria + scored reference cases
+- ❌ **Observability without alerting**: invisible drift → thresholds + alerts (hallucination rate, latency, cost)
+- ❌ **No cost / cache hit rate tracking**: budget drift → cost-per-call metrics
+- ❌ **One-shot evals** (not continuous): silent regressions → evals pipeline in CI/CD
 
 ## Sources
 - **RAGAS** — Es et al., *EACL 2024* (arXiv 2309.15217) — faithfulness, answer/context relevance · **DeepEval**
-- Benchmarks **MMLU / TruthfulQA / HumanEval** · **LLM-as-a-Judge** · red teaming **Garak / PyRIT** (NIST AI RMF)
-- **Observabilité LLM** : Langfuse · LangSmith · Helicone · OpenTelemetry — langfuse.com / smith.langchain.com
+- **MMLU / TruthfulQA / HumanEval** benchmarks · **LLM-as-a-Judge** · red teaming **Garak / PyRIT** (NIST AI RMF)
+- **LLM observability**: Langfuse · LangSmith · Helicone · OpenTelemetry — langfuse.com / smith.langchain.com
 
-## Voir aussi
-- [`prompt-evaluation.md`](prompt-evaluation.md) — évaluation unitaire d'un prompt
-- [`rag-prompt-design.md`](rag-prompt-design.md) — métriques RAGAS pour le RAG
-- [`../orchestrateur_workflow/workflow-monitoring.md`](../orchestrateur_workflow/workflow-monitoring.md) — monitoring des workflows
-- [`../ai_architect/evaluation-llm.md`](../ai_architect/evaluation-llm.md) — évaluation côté architecture IA
+## See also
+- [`prompt-evaluation.md`](prompt-evaluation.md) — unit evaluation of a prompt
+- [`rag-prompt-design.md`](rag-prompt-design.md) — RAGAS metrics for RAG
+- [`../orchestrateur_workflow/workflow-monitoring.md`](../orchestrateur_workflow/workflow-monitoring.md) — workflow monitoring
+- [`../ai_architect/evaluation-llm.md`](../ai_architect/evaluation-llm.md) — evaluation on the AI architecture side

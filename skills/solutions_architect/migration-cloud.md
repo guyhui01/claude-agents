@@ -1,114 +1,114 @@
-# Skill — Stratégie de Migration Cloud
+# Skill — Cloud Migration Strategy
 
-> Certifications : AWS Solutions Architect Professional (SAP-C02), Google Professional Cloud Architect, AZ-305, TOGAF 10
+> Certifications: AWS Solutions Architect Professional (SAP-C02), Google Professional Cloud Architect, AZ-305, TOGAF 10
 
-## Objectif
+## Objective
 
-Définir et piloter la stratégie de migration d'un SI vers le cloud : évaluation des workloads, choix de la stratégie (6R), planning par vagues, gestion des risques et pilotage financier FinOps.
+Define and drive an IS's cloud migration strategy: workload assessment, strategy selection (6R), wave planning, risk management and FinOps financial steering.
 
-## Les 6R de la migration cloud (framework AWS)
+## The 6Rs of cloud migration (AWS framework)
 
 ```
-STRATÉGIE     NOM              DESCRIPTION                            EFFORT   ROI
+STRATEGY      NAME             DESCRIPTION                            EFFORT   ROI
 ────────────  ───────────────  ─────────────────────────────────────  ───────  ─────
-Retire        Abandon          Décommissionner les apps non utilisées  Faible   Élevé
-Retain        Garder           Maintenir on-prem (legacy, régul.)      Nul      Nul
-Rehost        Lift & Shift     Migrer sans modification (VM → VM)      Faible   Moyen
-Replatform    Lift & Tinker    Optimisations mineures (DB → RDS)       Moyen    Bon
-Repurchase    SaaS             Remplacer par un SaaS (CRM → Salesforce) Moyen   Bon
-Refactor      Re-architect     Réécrire pour cloud-native (microsvcs)  Élevé    Très élevé
+Retire        Decommission     Decommission unused apps                Low      High
+Retain        Keep             Keep on-prem (legacy, regulatory)       None     None
+Rehost        Lift & Shift     Migrate unchanged (VM → VM)             Low      Medium
+Replatform    Lift & Tinker    Minor optimizations (DB → RDS)          Medium   Good
+Repurchase    SaaS             Replace with a SaaS (CRM → Salesforce)  Medium   Good
+Refactor      Re-architect     Rewrite for cloud-native (microsvcs)    High     Very high
 ```
 
-## Processus de migration en 4 phases
+## 4-phase migration process
 
-### Phase 1 — Discovery & Assessment (4-8 semaines)
+### Phase 1 — Discovery & Assessment (4-8 weeks)
 
 ```yaml
-activites:
-  - Inventaire complet du SI (applications, serveurs, BDD, dépendances)
-  - Analyse de dépendances inter-applicatives (dependency mapping)
-  - Qualification workload par workload (criticité, complexité, data sensible)
-  - Scoring migration readiness (Migration Readiness Assessment — MRA)
-  - Estimation TCO on-prem vs cloud (3-5 ans)
+activities:
+  - Full IS inventory (applications, servers, DBs, dependencies)
+  - Inter-application dependency mapping
+  - Workload-by-workload qualification (criticality, complexity, sensitive data)
+  - Migration readiness scoring (Migration Readiness Assessment — MRA)
+  - On-prem vs cloud TCO estimate (3-5 years)
 
-livrables:
-  - Portfolio applicatif avec scoring 6R
-  - Cartographie des dépendances
-  - Business case migration
+deliverables:
+  - Application portfolio with 6R scoring
+  - Dependency map
+  - Migration business case
 ```
 
-### Phase 2 — Design & Pilot (4-6 semaines)
+### Phase 2 — Design & Pilot (4-6 weeks)
 
 ```yaml
-activites:
-  - Choix du modèle cloud (public / privé / hybride / multi-cloud)
-  - Landing Zone design (réseau, sécurité, gouvernance, IAM)
-  - POC sur 1-2 workloads représentatifs
-  - Plan de migration par vagues (Wave Planning)
-  - Définition du modèle opérationnel cible (Cloud Operating Model)
+activities:
+  - Cloud model choice (public / private / hybrid / multi-cloud)
+  - Landing Zone design (network, security, governance, IAM)
+  - POC on 1-2 representative workloads
+  - Wave Planning
+  - Definition of the target operating model (Cloud Operating Model)
 
-livrables:
-  - Architecture Landing Zone (IaC Terraform)
-  - Plan de migration vague 1 validé
-  - Résultats POC
+deliverables:
+  - Landing Zone architecture (Terraform IaC)
+  - Validated wave 1 migration plan
+  - POC results
 ```
 
-### Phase 3 — Migration par vagues
+### Phase 3 — Migration by waves
 
 ```
-VAGUE 1 — QUICK WINS (Mois 1-3)
-  → Applications non critiques, faible complexité
-  → Stratégie : Rehost (Lift & Shift)
-  → Objectif : 20-30% des workloads, montée en compétences équipe
+WAVE 1 — QUICK WINS (Months 1-3)
+  → Non-critical, low-complexity applications
+  → Strategy: Rehost (Lift & Shift)
+  → Goal: 20-30% of workloads, team skill ramp-up
 
-VAGUE 2 — CORE BUSINESS (Mois 4-8)
-  → Applications métier importantes, connectivité validée
-  → Stratégie : Rehost + Replatform (DB managées, containers)
-  → Objectif : 50% supplémentaires, optimisations FinOps
+WAVE 2 — CORE BUSINESS (Months 4-8)
+  → Important business applications, validated connectivity
+  → Strategy: Rehost + Replatform (managed DBs, containers)
+  → Goal: 50% more, FinOps optimizations
 
-VAGUE 3 — TRANSFORMATION (Mois 9-18)
-  → Applications critiques, modernisation progressive
-  → Stratégie : Refactor / Re-architect (cloud-native)
-  → Objectif : Derniers 30%, performance maximale
+WAVE 3 — TRANSFORMATION (Months 9-18)
+  → Critical applications, gradual modernization
+  → Strategy: Refactor / Re-architect (cloud-native)
+  → Goal: Last 30%, maximum performance
 ```
 
-### Phase 4 — Optimisation & Run
+### Phase 4 — Optimization & Run
 
 ```yaml
-activites:
-  - Décommissionnement data center on-prem
-  - Optimisation FinOps (Reserved Instances, Spot, rightsizing)
-  - Mise en place observabilité cloud-native
-  - Formation équipes opérations cloud
-  - Revue architecture continue (Well-Architected Review)
+activities:
+  - On-prem data center decommissioning
+  - FinOps optimization (Reserved Instances, Spot, rightsizing)
+  - Cloud-native observability setup
+  - Cloud operations team training
+  - Continuous architecture review (Well-Architected Review)
 
-livrables:
-  - Rapport FinOps mensuel
-  - Architecture Well-Architected validée
-  - Runbook opérations cloud
+deliverables:
+  - Monthly FinOps report
+  - Validated Well-Architected architecture
+  - Cloud operations runbook
 ```
 
-## Grille TCO cloud vs on-prem
+## Cloud vs on-prem TCO grid
 
 ```
-COÛT              ON-PREM          CLOUD
+COST              ON-PREM          CLOUD
 ──────────────    ─────────────    ────────────────────
-Infrastructure    Capex élevé      Opex (pay-as-you-go)
-Maintenance       Élevé (équipe)   Inclus dans le service
-Scalabilité       Limitée, lente   Instantanée, élastique
-Résilience        Coûteuse         Native (multi-AZ)
-Sécurité physique À votre charge   Provider (certifié)
-Obsolescence      Cycle 3-5 ans    Continue, invisible
+Infrastructure    High capex       Opex (pay-as-you-go)
+Maintenance       High (team)      Included in the service
+Scalability       Limited, slow    Instant, elastic
+Resilience        Costly           Native (multi-AZ)
+Physical security On you           Provider (certified)
+Obsolescence      3-5 year cycle   Continuous, invisible
 ```
 
-## Livrables
+## Deliverables
 
-- Business case migration (TCO 3-5 ans : on-prem vs cloud)
-- Portfolio applicatif avec stratégie 6R par workload
-- Architecture Landing Zone (Terraform IaC)
-- Plan de migration par vagues (Wave Plan)
-- Tableau de bord FinOps (coûts par service / équipe / projet)
+- Migration business case (3-5 year TCO: on-prem vs cloud)
+- Application portfolio with a 6R strategy per workload
+- Landing Zone architecture (Terraform IaC)
+- Wave migration plan (Wave Plan)
+- FinOps dashboard (costs per service / team / project)
 
-## Format de sortie
+## Output format
 
-Précise : **taille du SI** (nb d'applications, serveurs), **cloud provider cible** (AWS / GCP / Azure / multi-cloud), **contraintes** (souveraineté, HDS, SecNumCloud, RGPD), **délai et budget migration**, **niveau de maturité cloud** de l'équipe (1-5).
+Specify: **IS size** (# applications, servers), **target cloud provider** (AWS / GCP / Azure / multi-cloud), **constraints** (sovereignty, HDS, SecNumCloud, GDPR), **migration timeline and budget**, **team cloud maturity level** (1-5).

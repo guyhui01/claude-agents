@@ -1,32 +1,32 @@
-# Skill — Pipelines d'Ingestion de Données
-> Certifications : Google PDE · AWS DEA-C01 · Azure DP-203 · Databricks Data Engineer Associate
+# Skill — Data Ingestion Pipelines
+> Certifications: Google PDE · AWS DEA-C01 · Azure DP-203 · Databricks Data Engineer Associate
 
-## Objectif
-Concevoir et implémenter des pipelines d'ingestion robustes pour collecter, transformer et charger des données depuis diverses sources.
+## Objective
+Design and implement robust ingestion pipelines to collect, transform and load data from various sources.
 
-## Patterns d'ingestion
+## Ingestion patterns
 
 ### Batch vs. Streaming
 | Aspect | Batch | Streaming |
 |---|---|---|
-| Latence | Minutes à heures | Millisecondes à secondes |
-| Volume | Gros volumes | Événements continus |
-| Complexité | Faible | Élevée |
-| Coût | Faible | Élevé |
-| Use cases | ETL nuit, rapports J+1 | Fraude, alertes, IoT |
+| Latency | Minutes to hours | Milliseconds to seconds |
+| Volume | Large volumes | Continuous events |
+| Complexity | Low | High |
+| Cost | Low | High |
+| Use cases | Nightly ETL, D+1 reports | Fraud, alerts, IoT |
 
 ### ELT vs. ETL (2026)
 ```
 ETL (Extract → Transform → Load)
-  → Transformation avant chargement
-  → Adapté aux data warehouses traditionnels
+  → Transformation before loading
+  → Suited to traditional data warehouses
 
 ELT (Extract → Load → Transform)
-  → Chargement brut, transformation dans le DWH/Lake
-  → Standard moderne (dbt + Snowflake/BigQuery/Databricks)
+  → Raw load, transformation in the DWH/Lake
+  → Modern standard (dbt + Snowflake/BigQuery/Databricks)
 ```
 
-## Apache Airflow — orchestration de pipelines
+## Apache Airflow — pipeline orchestration
 ```python
 from airflow import DAG
 from airflow.operators.python import PythonOperator
@@ -41,41 +41,41 @@ default_args = {
 }
 
 with DAG(
-    'ingestion_clients',
+    'ingestion_customers',
     default_args=default_args,
-    schedule_interval='0 2 * * *',  # Chaque nuit à 2h
+    schedule_interval='0 2 * * *',  # Every night at 2 a.m.
     start_date=datetime(2026, 1, 1),
     catchup=False
 ) as dag:
-    
+
     extract = PythonOperator(
         task_id='extract_from_api',
         python_callable=extract_data
     )
-    
+
     transform = PythonOperator(
         task_id='transform_data',
         python_callable=transform_data
     )
-    
+
     load = PythonOperator(
         task_id='load_to_warehouse',
         python_callable=load_data
     )
-    
+
     extract >> transform >> load
 ```
 
-## Kafka — ingestion streaming
+## Kafka — streaming ingestion
 ```python
 from confluent_kafka import Producer, Consumer
 
-# Producteur
+# Producer
 producer = Producer({'bootstrap.servers': 'localhost:9092'})
 producer.produce('events', key='user_123', value='{"action": "purchase"}')
 producer.flush()
 
-# Consommateur
+# Consumer
 consumer = Consumer({
     'bootstrap.servers': 'localhost:9092',
     'group.id': 'data-pipeline',
@@ -89,10 +89,10 @@ while True:
         process_event(msg.value())
 ```
 
-## Qualité des données en ingestion
+## Data quality at ingestion
 ```python
 import great_expectations as gx
-# Great Expectations >= 0.18 (Fluent Datasource API — `ge.dataset.PandasDataset` est obsolète)
+# Great Expectations >= 0.18 (Fluent Datasource API — `ge.dataset.PandasDataset` is deprecated)
 
 context = gx.get_context()
 
@@ -104,7 +104,7 @@ batch_def = (
 )
 batch = batch_def.get_batch(batch_parameters={"dataframe": df})
 
-# Attentes à valider sur le batch
+# Expectations to validate on the batch
 expectations = [
     gx.expectations.ExpectColumnValuesToNotBeNull(column="user_id"),
     gx.expectations.ExpectColumnValuesToBeBetween(column="age", min_value=0, max_value=150),
@@ -115,11 +115,11 @@ if not results.success:
     raise ValueError(f"Data quality check failed: {results}")
 ```
 
-## Livrables
-- DAG Airflow documenté (batch)
-- Pipeline Kafka/Flink (streaming)
-- Tests de qualité données (Great Expectations)
-- Monitoring et alertes d'ingestion
+## Deliverables
+- Documented Airflow DAG (batch)
+- Kafka/Flink pipeline (streaming)
+- Data quality tests (Great Expectations)
+- Ingestion monitoring and alerts
 
-## Format de sortie
-Précise : sources de données (API, DB, fichiers, streaming) · volume (lignes/jour) · fréquence · destination · contraintes de latence · outils préférés (cloud provider)
+## Output format
+Specify: data sources (API, DB, files, streaming) · volume (rows/day) · frequency · destination · latency constraints · preferred tools (cloud provider)

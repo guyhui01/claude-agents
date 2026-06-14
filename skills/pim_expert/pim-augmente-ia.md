@@ -1,27 +1,27 @@
-# Skill — PIM Augmenté par l'IA (Enrichissement & Classification Automatiques)
-> Certifications : Anthropic Claude Code in Action · Akeneo Certified Developer · ISO/IEC 42001:2023
+# Skill — AI-Augmented PIM (Automatic Enrichment & Classification)
+> Certifications: Anthropic Claude Code in Action · Akeneo Certified Developer · ISO/IEC 42001:2023
 
-## Objectif
-Enrichir automatiquement le catalogue produit par l'IA générative : génération de descriptions marketing, classification automatique dans la taxonomie, traduction assistée, auto-tagging et détection d'anomalies — pour accélérer le time-to-market et réduire les coûts d'enrichissement manuel.
+## Objective
+Automatically enrich the product catalog with generative AI: marketing description generation, automatic taxonomy classification, assisted translation, auto-tagging and anomaly detection — to speed up time-to-market and cut manual enrichment costs.
 
-## Cas d'usage IA dans le PIM
+## AI use cases in the PIM
 
 ```
-CAS D'USAGE                         TECHNIQUE IA                 EFFET ATTENDU (à mesurer par POC)
+USE CASE                            AI TECHNIQUE                 EXPECTED EFFECT (to measure via POC)
 ──────────────────────────────────  ───────────────────────────  ────────────────────────────────
-Génération descriptions produit     LLM (Claude, GPT-4o)         Réduit le temps de 1ʳᵉ rédaction
-Traduction assistée (post-édition)  MT (DeepL) + LLM correction  Réduit le coût vs traduction humaine
-Classification automatique          ML classifieur (BERT, Claude) Pré-classement soumis à seuil
-Auto-tagging attributs              Vision AI + LLM              Extraction d'attributs depuis l'image
-Détection doublons                  Similarité embeddings         Pré-détection des doublons à valider
-Génération bullet points            LLM structuré                Format Amazon/marketplace auto
-Rédaction alt-text images           Vision LLM (Claude Sonnet)   Accessibilité + SEO automatisés
-Vérification cohérence données      LLM as judge                 Détection incohérences ERP/PIM
+Product description generation      LLM (Claude, GPT-4o)         Cuts first-draft writing time
+Assisted translation (post-editing) MT (DeepL) + LLM correction  Cuts cost vs human translation
+Automatic classification            ML classifier (BERT, Claude) Pre-classification gated by threshold
+Attribute auto-tagging              Vision AI + LLM              Extract attributes from the image
+Duplicate detection                 Embedding similarity          Pre-detect duplicates to validate
+Bullet-point generation             Structured LLM               Auto Amazon/marketplace format
+Image alt-text writing              Vision LLM (Claude Sonnet)   Automated accessibility + SEO
+Data consistency checking           LLM as judge                 Detect ERP/PIM inconsistencies
 ```
 
-> ⚠️ **Pas de % de gain fabriqué.** McKinsey (*The economic potential of generative AI*, 2023) situe le marketing/contenu **parmi les 4 fonctions à plus fort potentiel GenAI**, mais les gains réels (temps, précision, recall) **dépendent du catalogue, de la langue et de la qualité des données source** : les mesurer sur un **POC** avant tout engagement chiffré devant un client (cf. règle : aucun chiffre non sourcé).
+> ⚠️ **No fabricated % gains.** McKinsey (*The economic potential of generative AI*, 2023) places marketing/content **among the 4 functions with the highest GenAI potential**, but real gains (time, precision, recall) **depend on the catalog, language and source data quality**: measure them on a **POC** before any quantified commitment to a client (cf. rule: no unsourced figures).
 
-## Prompt de génération de description produit (Claude)
+## Product description generation prompt (Claude)
 
 ```python
 import anthropic
@@ -30,26 +30,26 @@ client = anthropic.Anthropic()
 
 def generate_product_description(product: dict, channel: str = "ecommerce") -> dict:
     """
-    Génère une description marketing complète à partir des données techniques produit
+    Generate a complete marketing description from the product's technical data
     """
-    prompt = f"""Tu es un expert en rédaction produit pour le canal {channel}.
+    prompt = f"""You are a product copywriting expert for the {channel} channel.
 
-Génère une description produit professionnelle en français à partir de ces données techniques :
-- Nom : {product['nom']}
-- Famille : {product['famille']}
-- Caractéristiques : {product['specs']}
-- Marque : {product['marque']}
-- Canal cible : {channel}
+Generate a professional product description in English from this technical data:
+- Name: {product['name']}
+- Family: {product['family']}
+- Specs: {product['specs']}
+- Brand: {product['brand']}
+- Target channel: {channel}
 
-Format de sortie JSON :
+JSON output format:
 {{
-  "description_courte": "1 phrase percutante, max 160 caractères, bénéfice en premier",
-  "description_longue": "3-4 phrases, storytelling produit, bénéfices + caractéristiques clés",
-  "bullet_points": ["5 bullet points au format avantage — caractéristique"]
+  "short_description": "1 punchy sentence, max 160 characters, benefit first",
+  "long_description": "3-4 sentences, product storytelling, benefits + key features",
+  "bullet_points": ["5 bullet points in the advantage — feature format"]
 }}
 
-Règles : pas de superlatifs non vérifiables (meilleur, révolutionnaire), pas de majuscules inutiles,
-ton professionnel et factuel, inclure les certifications si présentes."""
+Rules: no unverifiable superlatives (best, revolutionary), no needless capitals,
+professional factual tone, include certifications if present."""
 
     message = client.messages.create(
         model="claude-sonnet-4-6",
@@ -59,71 +59,71 @@ ton professionnel et factuel, inclure les certifications si présentes."""
     return json.loads(message.content[0].text)
 ```
 
-## Pipeline de classification automatique
+## Automatic classification pipeline
 
 ```
-DONNÉES ENTRANTES (attributs techniques ERP)
+INBOUND DATA (ERP technical attributes)
           │
           ▼
-  Embeddings texte (Claude / text-embedding)
+  Text embeddings (Claude / text-embedding)
           │
           ▼
-  Classifieur (similarity search sur catalogue familles)
+  Classifier (similarity search over the families catalog)
           │
-          ├──── Score ≥ 0.90 → Attribution automatique ✅
+          ├──── Score ≥ 0.90 → Automatic assignment ✅
           │
-          ├──── Score 0.70-0.89 → Suggestion soumise à validation ⚠️
+          ├──── Score 0.70-0.89 → Suggestion submitted for validation ⚠️
           │
-          └──── Score < 0.70 → Routage vers Data Steward ❌
+          └──── Score < 0.70 → Routed to a Data Steward ❌
 ```
 
-## Gouvernance IA dans le PIM (ISO/IEC 42001 + NIST AI RMF + AI Act)
+## AI governance in the PIM (ISO/IEC 42001 + NIST AI RMF + AI Act)
 
 ```
-RISQUE                         CONTRÔLE RECOMMANDÉ
+RISK                           RECOMMENDED CONTROL
 ─────────────────────────────  ────────────────────────────────────────────────
-Hallucination (specs fausses)  Vérification LLM as judge + relecture humaine avant publication
-Biais de classification        Audit régulier précision/recall par famille (NIST AI RMF : Measure)
-RGPD (données personnelles)    Audit des données transmises au LLM (pas de PII) + base légale
-Transparence (AI Act art. 50)  Contenu produit généré par IA → marquage/traçabilité (applicable 2 août 2026)
-Traçabilité                    Flag "généré par IA" sur chaque attribut enrichi (provenance)
-Refus publication si IA seul   Validation humaine obligatoire (human-in-the-loop) avant publication
+Hallucination (false specs)    LLM-as-judge check + human review before publishing
+Classification bias            Regular precision/recall audit per family (NIST AI RMF: Measure)
+GDPR (personal data)           Audit data sent to the LLM (no PII) + legal basis
+Transparency (AI Act art. 50)  AI-generated product content → marking/traceability (applicable Aug 2, 2026)
+Traceability                   "AI-generated" flag on each enriched attribute (provenance)
+No AI-only publishing          Mandatory human validation (human-in-the-loop) before publishing
 ```
 
-- **ISO/IEC 42001:2023** (AIMS) : système de management de l'IA — politique, rôles, cycle de vie des modèles d'enrichissement.
-- **NIST AI RMF 1.0** : fonctions *Govern / Map / Measure / Manage* appliquées à la qualité d'enrichissement (mesure continue précision/recall).
-- **AI Act UE (art. 50)** : à partir du **2 août 2026**, obligation de transparence sur les contenus générés par IA — pertinent pour les descriptions/visuels produit publiés. La validation humaine reste le garde-fou principal (l'IA **propose**, l'humain **dispose**).
+- **ISO/IEC 42001:2023** (AIMS): AI management system — policy, roles, lifecycle of the enrichment models.
+- **NIST AI RMF 1.0**: *Govern / Map / Measure / Manage* functions applied to enrichment quality (continuous precision/recall measurement).
+- **EU AI Act (art. 50)**: from **August 2, 2026**, a transparency obligation on AI-generated content — relevant for published product descriptions/visuals. Human validation remains the main safeguard (AI **proposes**, the human **decides**).
 
-## Livrables
-- Architecture du pipeline d'enrichissement IA (schéma flux)
-- Prompts optimisés par famille produit et canal cible
-- Script d'enrichissement automatique (Python + SDK Anthropic)
-- Règles de gouvernance IA (seuils de confiance, validation humaine)
-- Rapport de performance IA (précision classification, BLEU score traductions)
-- Guide opérateur (comment superviser et corriger les enrichissements IA)
+## Deliverables
+- AI enrichment pipeline architecture (flow diagram)
+- Optimized prompts per product family and target channel
+- Automatic enrichment script (Python + Anthropic SDK)
+- AI governance rules (confidence thresholds, human validation)
+- AI performance report (classification precision, translation BLEU score)
+- Operator guide (how to supervise and correct AI enrichments)
 
-## Format de sortie
-Précise : **PIM cible** (Akeneo, Pimcore…), **volume de fiches** à enrichir, **cas d'usage prioritaire** (descriptions, classification, traduction…), **langues cibles**, **niveau de validation humaine** souhaité (full auto vs validation obligatoire), **contraintes RGPD** sur les données produit.
+## Output format
+Specify: **target PIM** (Akeneo, Pimcore…), **volume of records** to enrich, **priority use case** (descriptions, classification, translation…), **target languages**, **desired human-validation level** (full auto vs mandatory validation), **GDPR constraints** on the product data.
 
 ## Anti-patterns
-- ❌ **Promettre un % de gain non mesuré** (« 80 % du temps ») devant un client : non vérifiable → fourchette issue d'un POC sur le catalogue réel
-- ❌ **Publication full-auto sans validation humaine** : hallucinations de specs en ligne → human-in-the-loop, surtout sous le seuil de confiance
-- ❌ **Seuil d'auto-attribution unique** pour toutes les familles : précision variable → seuils calibrés par famille
-- ❌ **Transmettre des données personnelles au LLM** (avis, contacts) sans contrôle : risque RGPD → filtrage PII en amont
-- ❌ **Pas de marquage des contenus générés par IA** : non-conformité AI Act art. 50 (2 août 2026) → flag de provenance
-- ❌ **Mesurer la traduction au seul BLEU** : métrique partielle → compléter par chrF/COMET + relecture native
-- ❌ **Descriptions IA dupliquées** entre produits proches : pénalité SEO → variation contrôlée par prompt
+- ❌ **Promising an unmeasured % gain** ("80% of the time") to a client: unverifiable → a range from a POC on the real catalog
+- ❌ **Full-auto publishing without human validation**: spec hallucinations go live → human-in-the-loop, especially below the confidence threshold
+- ❌ **A single auto-assignment threshold** for all families: variable precision → thresholds calibrated per family
+- ❌ **Sending personal data to the LLM** (reviews, contacts) without control: GDPR risk → upstream PII filtering
+- ❌ **No marking of AI-generated content**: AI Act art. 50 non-compliance (Aug 2, 2026) → provenance flag
+- ❌ **Measuring translation by BLEU alone**: a partial metric → complement with chrF/COMET + native review
+- ❌ **Duplicated AI descriptions** across similar products: SEO penalty → controlled variation via the prompt
 
 ## Sources
-- **McKinsey** — *The Economic Potential of Generative AI* (juin 2023) : marketing/contenu parmi les 4 fonctions à plus fort potentiel — mckinsey.com
-- **ISO/IEC 42001:2023** (AIMS) · **NIST AI RMF 1.0** (jan. 2023) — gouvernance et mesure des systèmes IA — iso.org / nist.gov
-- **AI Act UE** — Règlement (UE) 2024/1689, **art. 50** transparence des contenus générés par IA (applicable 2 août 2026) — artificialintelligenceact.eu
-- **Anthropic Claude** (modèle `claude-sonnet-4-6`, vision + texte) — docs.anthropic.com · **BLEU** (Papineni 2002) / chrF / COMET — évaluation MT
+- **McKinsey** — *The Economic Potential of Generative AI* (June 2023): marketing/content among the 4 highest-potential functions — mckinsey.com
+- **ISO/IEC 42001:2023** (AIMS) · **NIST AI RMF 1.0** (Jan. 2023) — governance and measurement of AI systems — iso.org / nist.gov
+- **EU AI Act** — Regulation (EU) 2024/1689, **art. 50** transparency for AI-generated content (applicable Aug 2, 2026) — artificialintelligenceact.eu
+- **Anthropic Claude** (model `claude-sonnet-4-6`, vision + text) — docs.anthropic.com · **BLEU** (Papineni 2002) / chrF / COMET — MT evaluation
 
-## Voir aussi
-- [`enrichissement-produit.md`](enrichissement-produit.md) — workflow d'enrichissement accéléré par l'IA
-- [`localisation-i18n.md`](localisation-i18n.md) — traduction assistée (post-édition)
-- [`scoring-qualite-produit.md`](scoring-qualite-produit.md) — mesure de la qualité des contenus générés
-- [`gouvernance-donnees-produit.md`](gouvernance-donnees-produit.md) — gouvernance data + IA
-- [`../dam_expert/dam-augmente-ia.md`](../dam_expert/dam-augmente-ia.md) — pendant DAM (auto-tagging, vision)
-- [`../juridique_ia/gouvernance-ethique-ia.md`](../juridique_ia/gouvernance-ethique-ia.md) — cadre éthique et AI Act
+## See also
+- [`enrichissement-produit.md`](enrichissement-produit.md) — enrichment workflow accelerated by AI
+- [`localisation-i18n.md`](localisation-i18n.md) — assisted translation (post-editing)
+- [`scoring-qualite-produit.md`](scoring-qualite-produit.md) — measuring generated-content quality
+- [`gouvernance-donnees-produit.md`](gouvernance-donnees-produit.md) — data + AI governance
+- [`../dam_expert/dam-augmente-ia.md`](../dam_expert/dam-augmente-ia.md) — DAM counterpart (auto-tagging, vision)
+- [`../juridique_ia/gouvernance-ethique-ia.md`](../juridique_ia/gouvernance-ethique-ia.md) — ethical framework and AI Act

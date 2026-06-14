@@ -1,127 +1,127 @@
-# Skill — Catalogue de KPIs et Métriques
-> Certifications : PL-300 Microsoft · Tableau Certified Data Analyst (Salesforce) · Google Data Analytics
+# Skill — KPI and Metrics Catalog
+> Certifications: PL-300 Microsoft · Tableau Certified Data Analyst (Salesforce) · Google Data Analytics
 
-## Objectif
-Construire et maintenir un catalogue de KPIs : définir les métriques, leurs règles de gestion, leurs propriétaires et leurs cibles — pour garantir un langage commun dans l'entreprise et éliminer les chiffres contradictoires entre équipes.
+## Objective
+Build and maintain a KPI catalog: define the metrics, their business rules, owners and targets — to guarantee a common language across the company and eliminate contradictory numbers between teams.
 
-## Problème des métriques non gouvernées
+## The problem with ungoverned metrics
 
 ```
-SYMPTÔME                        CAUSE                         IMPACT
+SYMPTOM                         CAUSE                         IMPACT
 ──────────────────────────────  ────────────────────────────  ─────────────────────────────────
-"Le chiffre du CODIR ≠          Définitions différentes       Perte de confiance dans la donnée
-le chiffre de la DSI"           (avec ou sans retours ?)
+"The leadership figure ≠        Different definitions         Loss of trust in the data
+the IT figure"                  (with or without returns?)
 
-"Revenue" a 4 définitions       Pas de règle de gestion       Décisions contradictoires
-différentes selon les équipes   officielle documentée
+"Revenue" has 4 different       No official documented        Contradictory decisions
+definitions across teams        business rule
 
-Le KPI a changé sans prévenir   Pas de propriétaire désigné   Comparaisons historiques faussées
+The KPI changed with no notice  No designated owner           Skewed historical comparisons
 ```
 
-## Structure d'une fiche KPI
+## Structure of a KPI sheet
 
 ```markdown
-## KPI — Chiffre d'Affaires Net
+## KPI — Net Revenue
 
-### Identité
-- **Nom officiel** : Chiffre d'Affaires Net (CA Net)
-- **Nom technique** : net_revenue
-- **Domaine** : Finance / Commercial
-- **Propriétaire** : Directeur Financier
-- **Steward data** : Équipe BI / Data
+### Identity
+- **Official name**: Net Revenue
+- **Technical name**: net_revenue
+- **Domain**: Finance / Sales
+- **Owner**: Chief Financial Officer
+- **Data steward**: BI / Data team
 
-### Définition
-Montant total des ventes après déduction des remises, retours et avoirs,
-hors taxes, sur la période sélectionnée.
+### Definition
+Total sales amount after deducting discounts, returns and credit notes,
+excluding tax, over the selected period.
 
-### Règle de gestion
+### Business rule
 ```
-CA Net = SUM(gross_revenue) - SUM(discounts) - SUM(returns) - SUM(credit_notes)
-Filtre  : status IN ('confirmed', 'shipped', 'delivered') [exclure 'cancelled', 'pending']
-Taxe    : hors TVA (montant HT uniquement)
-Devise  : EUR par défaut (avec conversion au taux du jour de la commande)
-```
-
-### Source de données
-- Table : `fact_orders`
-- Champs : `gross_revenue`, `discount_amount`, `return_amount`
-- Fraîcheur : J-1 (refresh nocturne à 2h00)
-
-### Périmètre
-- ✅ Inclus : toutes les commandes confirmées + livrées
-- ❌ Exclus : commandes annulées, commandes en attente de confirmation
-
-### Cibles et seuils
-| Période | Cible | Alerte rouge |
-|---------|-------|-------------|
-| Mensuel | +8% vs N-1 | < -5% vs N-1 |
-| Annuel  | 12M€ | < 10M€ |
-
-### Disponible dans
-- Power BI : rapport Finance → page "Revenus"
-- Measure DAX : `[Net Revenue]`
-- dbt model : `marts.finance.fct_revenue` colonne `net_revenue`
+Net Revenue = SUM(gross_revenue) - SUM(discounts) - SUM(returns) - SUM(credit_notes)
+Filter   : status IN ('confirmed', 'shipped', 'delivered') [exclude 'cancelled', 'pending']
+Tax      : excluding VAT (net amount only)
+Currency : EUR by default (converted at the order-date rate)
 ```
 
-## Taxonomie de KPIs par domaine
+### Data source
+- Table: `fact_orders`
+- Fields: `gross_revenue`, `discount_amount`, `return_amount`
+- Freshness: D-1 (nightly refresh at 2:00 a.m.)
+
+### Scope
+- ✅ Included: all confirmed + delivered orders
+- ❌ Excluded: cancelled orders, orders awaiting confirmation
+
+### Targets and thresholds
+| Period  | Target | Red alert |
+|---------|--------|-----------|
+| Monthly | +8% vs PY | < -5% vs PY |
+| Yearly  | €12M | < €10M |
+
+### Available in
+- Power BI: Finance report → "Revenue" page
+- DAX measure: `[Net Revenue]`
+- dbt model: `marts.finance.fct_revenue` column `net_revenue`
+```
+
+## KPI taxonomy by domain
 
 ```
-DOMAINE COMMERCIAL
-  • CA Net / CA Brut / CA récurrent (MRR/ARR)
-  • Taux de conversion (Leads → Clients)
-  • Panier moyen (Average Order Value)
+SALES DOMAIN
+  • Net revenue / Gross revenue / Recurring revenue (MRR/ARR)
+  • Conversion rate (Leads → Customers)
+  • Average Order Value
   • Customer Acquisition Cost (CAC)
-  • Lifetime Value (LTV) — ratio LTV/CAC
-  • Taux de churn client
+  • Lifetime Value (LTV) — LTV/CAC ratio
+  • Customer churn rate
 
-DOMAINE OPÉRATIONNEL
+OPERATIONS DOMAIN
   • OTD (On Time Delivery)
-  • Taux de rupture de stock
-  • Délai moyen de traitement
+  • Stockout rate
+  • Average processing time
   • NPS (Net Promoter Score)
-  • Taux de résolution premier contact (FCR)
+  • First Contact Resolution rate (FCR)
 
-DOMAINE FINANCIER
-  • EBITDA / Marge brute / Marge nette
+FINANCE DOMAIN
+  • EBITDA / Gross margin / Net margin
   • DSO (Days Sales Outstanding)
   • Cash burn rate
-  • Budget vs Réalisé (Variance)
+  • Budget vs Actual (Variance)
   • ROI / ROE / ROCE
 
-DOMAINE RH
-  • Taux de turnover
+HR DOMAIN
+  • Turnover rate
   • eNPS (Employee NPS)
-  • Temps moyen de recrutement (TTFH)
-  • Taux d'absentéisme
-  • Formation : heures / coût par ETP
+  • Average time to hire (TTFH)
+  • Absenteeism rate
+  • Training: hours / cost per FTE
 
-DOMAINE PRODUIT / DIGITAL
-  • MAU / DAU (utilisateurs actifs)
-  • Taux de rétention (Retention Rate)
+PRODUCT / DIGITAL DOMAIN
+  • MAU / DAU (active users)
+  • Retention Rate
   • Time to Value (TTV)
   • Feature adoption rate
   • DORA metrics (DevOps)
 ```
 
-## Matrice de priorisation des KPIs
+## KPI prioritization matrix
 
 ```
-CRITÈRE           PONDÉRATION   DESCRIPTION
+CRITERION         WEIGHT        DESCRIPTION
 ────────────────  ───────────   ─────────────────────────────────────
-Impact décision   40%           Ce KPI change-t-il un comportement ?
-Fiabilité donnée  30%           La source est-elle fiable et fraîche ?
-Fréquence usage   20%           Combien de personnes le consultent ?
-Facilité calcul   10%           Coût de production du KPI
+Decision impact   40%           Does this KPI change a behavior?
+Data reliability  30%           Is the source reliable and fresh?
+Usage frequency   20%           How many people consult it?
+Calculation ease  10%           Cost to produce the KPI
 
-Score total → Prioriser les KPIs > 70/100 pour la V1
+Total score → Prioritize KPIs > 70/100 for V1
 ```
 
-## Livrables
-- Catalogue de KPIs (fiches complètes par métrique)
-- Dictionnaire de données (règles de gestion officielles)
-- Cartographie propriétaires (RACI par domaine)
-- Tableau de bord de gouvernance (KPIs sans propriétaire, sans définition)
-- Processus de création de nouveaux KPIs (formulaire + validation)
+## Deliverables
+- KPI catalog (complete sheet per metric)
+- Data dictionary (official business rules)
+- Ownership map (RACI per domain)
+- Governance dashboard (KPIs with no owner, no definition)
+- New-KPI creation process (form + validation)
 
-## Format de sortie
-Précise : **domaine** (commercial, finance, RH, produit…), **audience** (CODIR, managers, opérationnels), **nombre de KPIs** à définir, **outils BI utilisés**, **problème à résoudre** (chiffres contradictoires ? gouvernance inexistante ? nouveau rapport CODIR ?).
+## Output format
+Specify: **domain** (sales, finance, HR, product…), **audience** (leadership, managers, operations), **number of KPIs** to define, **BI tools used**, **problem to solve** (contradictory numbers? no governance? new leadership report?).

@@ -1,12 +1,12 @@
-# Skill — APIs & Intégration de Données
-> Certifications : AWS DEA-C01 · Azure DP-203 · Confluent CCDAK
+# Skill — APIs & Data Integration
+> Certifications: AWS DEA-C01 · Azure DP-203 · Confluent CCDAK
 
-## Objectif
-Concevoir et implémenter des intégrations robustes entre systèmes via des APIs REST, GraphQL et des connecteurs de données.
+## Objective
+Design and implement robust integrations between systems via REST and GraphQL APIs and data connectors.
 
-## Patterns d'intégration API
+## API integration patterns
 
-### REST API — bonnes pratiques consommation
+### REST API — consumption best practices
 ```python
 import requests
 import time
@@ -20,7 +20,7 @@ class APIClient:
             'Authorization': f'Bearer {api_key}',
             'Content-Type': 'application/json'
         })
-    
+
     def get(self, endpoint: str, params: dict = None,
             max_retries: int = 3) -> dict:
         url = f"{self.base_url}/{endpoint}"
@@ -31,16 +31,16 @@ class APIClient:
                 return response.json()
             except requests.exceptions.HTTPError as e:
                 if e.response is not None and e.response.status_code == 429:
-                    # Rate limit (HTTP 429) — respect Retry-After ou exponential backoff
+                    # Rate limit (HTTP 429) — respect Retry-After or exponential backoff
                     wait = int(e.response.headers.get('Retry-After', 2 ** attempt))
                     time.sleep(wait)
                 else:
                     raise
             except (requests.exceptions.Timeout, requests.exceptions.ConnectionError):
-                # Erreurs transitoires — exponential backoff
+                # Transient errors — exponential backoff
                 time.sleep(2 ** attempt)
         raise Exception(f"Max retries reached for {url}")
-    
+
     def paginate(self, endpoint: str, page_size: int = 100):
         page = 1
         while True:
@@ -51,15 +51,15 @@ class APIClient:
             page += 1
 ```
 
-### Airbyte — connecteurs low-code
+### Airbyte — low-code connectors
 ```yaml
-# Connexion source → destination sans code
+# Source → destination connection with no code
 Source:
   - Salesforce CRM
   - HubSpot
   - Google Analytics 4
   - PostgreSQL / MySQL
-  - REST APIs custom
+  - Custom REST APIs
 
 Destination:
   - BigQuery
@@ -68,12 +68,12 @@ Destination:
   - PostgreSQL (DWH)
 
 Sync modes:
-  - Full Refresh (remplacement complet)
-  - Incremental Append (ajout des nouvelles lignes)
-  - Incremental Dedup (upsert, dédoublonnage)
+  - Full Refresh (complete replacement)
+  - Incremental Append (add new rows)
+  - Incremental Dedup (upsert, deduplication)
 ```
 
-### Webhook — ingestion temps réel
+### Webhook — real-time ingestion
 ```python
 from fastapi import FastAPI, Request, BackgroundTasks
 import hmac, hashlib, json
@@ -81,39 +81,39 @@ import hmac, hashlib, json
 app = FastAPI()
 
 async def process_event(event: dict):
-    # Traitement asynchrone de l'événement
+    # Asynchronous event processing
     await insert_to_warehouse(event)
     await trigger_downstream_pipeline(event)
 
 @app.post("/webhook/events")
 async def receive_webhook(request: Request, background_tasks: BackgroundTasks):
-    # Vérification signature HMAC
+    # HMAC signature verification
     signature = request.headers.get('X-Signature-256')
     body = await request.body()
     expected = hmac.new(SECRET_KEY, body, hashlib.sha256).hexdigest()
     if not hmac.compare_digest(f"sha256={expected}", signature):
         raise HTTPException(status_code=401, detail="Invalid signature")
-    
+
     event = json.loads(body)
     background_tasks.add_task(process_event, event)
     return {"status": "accepted"}
 ```
 
-## Formats de données courants
-| Format | Usage | Avantages |
+## Common data formats
+| Format | Use | Advantages |
 |---|---|---|
-| **JSON** | APIs, events | Flexible, lisible |
-| **Parquet** | Stockage analytique | Colonnaire, compressé, rapide |
-| **Avro** | Kafka / streaming | Schéma embarqué, évolution |
+| **JSON** | APIs, events | Flexible, readable |
+| **Parquet** | Analytical storage | Columnar, compressed, fast |
+| **Avro** | Kafka / streaming | Embedded schema, evolution |
 | **Delta** | Lakehouse | ACID, time travel, upsert |
-| **CSV** | Échanges legacy | Universel, simple |
+| **CSV** | Legacy exchange | Universal, simple |
 
-## Livrables
-- Client API réutilisable avec retry/pagination
-- Pipeline Airbyte configuré (connecteurs)
-- Endpoint webhook sécurisé
-- Tests d'intégration (pytest + responses mock)
-- Documentation API (OpenAPI Spec)
+## Deliverables
+- Reusable API client with retry/pagination
+- Configured Airbyte pipeline (connectors)
+- Secure webhook endpoint
+- Integration tests (pytest + responses mock)
+- API documentation (OpenAPI Spec)
 
-## Format de sortie
-Précise : API source (nom, auth method, pagination) · volume d'événements/appels · fréquence · destination · format de données attendu
+## Output format
+Specify: source API (name, auth method, pagination) · events/calls volume · frequency · destination · expected data format

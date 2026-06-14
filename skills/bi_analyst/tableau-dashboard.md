@@ -1,25 +1,25 @@
 # Skill — Tableau Desktop & Cloud (Dashboards, Prep, Server)
-> Certifications : Tableau Certified Data Analyst (Salesforce 2024)
+> Certifications: Tableau Certified Data Analyst (Salesforce 2024)
 
-## Objectif
-Concevoir et développer des visualisations et dashboards Tableau : connexions aux données, calculs, LOD expressions, actions interactives — pour des analyses exploratoires et des reportings opérationnels.
+## Objective
+Design and build Tableau visualizations and dashboards: data connections, calculations, LOD expressions, interactive actions — for exploratory analysis and operational reporting.
 
-## Connexions Tableau — Types principaux
+## Tableau connections — Main types
 
 ```
-TYPE              DESCRIPTION                       QUAND L'UTILISER
+TYPE              DESCRIPTION                       WHEN TO USE
 ────────────────  ────────────────────────────────  ──────────────────────────────────
-Live Connection   Requêtes en temps réel            Données très fraîches, entrepôt rapide
-                  Aucune copie locale               (Snowflake, Databricks, BigQuery)
+Live Connection   Real-time queries                 Very fresh data, fast warehouse
+                  No local copy                     (Snowflake, Databricks, BigQuery)
 
-Extract (.hyper)  Copie locale compressée           Source lente, analyse déconnectée
-                  Très rapide en requête            Scheduled refresh possible
+Extract (.hyper)  Compressed local copy             Slow source, offline analysis
+                  Very fast to query                Scheduled refresh possible
 
-Published DS      Dataset partagé sur Tableau Server Gouvernance, réutilisation par équipe
-                  Source de vérité centralisée      1 changement = tout le monde à jour
+Published DS      Dataset shared on Tableau Server  Governance, team reuse
+                  Centralized source of truth       1 change = everyone up to date
 ```
 
-## Calculated Fields — Expressions types
+## Calculated Fields — Common expressions
 
 ```
 // Basic calculation
@@ -32,98 +32,98 @@ ELSE "Active"
 END
 
 // Date
-DATEDIFF('month', [Order Date], TODAY())   → Ancienneté en mois
-DATETRUNC('month', [Order Date])           → Tronquer à la mois
+DATEDIFF('month', [Order Date], TODAY())   → Age in months
+DATETRUNC('month', [Order Date])           → Truncate to the month
 
 // String
-LEFT([Email], FIND([Email], '@') - 1)      → Extraire avant @
-CONTAINS(UPPER([Product Name]), 'IA')       → Filtre insensible à la casse
+LEFT([Email], FIND([Email], '@') - 1)      → Extract before @
+CONTAINS(UPPER([Product Name]), 'AI')       → Case-insensitive filter
 
 // NULL handling
 IFNULL([Revenue], 0)
-ZN([Revenue])   // ZN = Zero if Null (raccourci)
+ZN([Revenue])   // ZN = Zero if Null (shortcut)
 ```
 
 ## LOD Expressions (Level of Detail)
 
 ```
-FIXED   — Calcul à un niveau de granularité fixe (ignore les filtres contexte)
-          { FIXED [Customer ID] : MAX([Order Date]) }  → Dernier achat par client
+FIXED   — Compute at a fixed granularity level (ignores context filters)
+          { FIXED [Customer ID] : MAX([Order Date]) }  → Last purchase per customer
 
-INCLUDE — Calcul à un niveau plus fin que la vue
-          { INCLUDE [Product ID] : AVG([Revenue]) }  → Moyenne par produit dans une vue client
+INCLUDE — Compute at a level finer than the view
+          { INCLUDE [Product ID] : AVG([Revenue]) }  → Average per product within a customer view
 
-EXCLUDE — Calcul à un niveau plus agrégé que la vue
-          { EXCLUDE [Month] : SUM([Revenue]) }  → Total annuel dans une vue mensuelle
+EXCLUDE — Compute at a level more aggregated than the view
+          { EXCLUDE [Month] : SUM([Revenue]) }  → Annual total within a monthly view
 
-// Cas d'usage classique : % du total
-SUM([Revenue]) / { FIXED : SUM([Revenue]) }  → Part de chaque produit dans le total global
+// Classic use case: % of total
+SUM([Revenue]) / { FIXED : SUM([Revenue]) }  → Each product's share of the global total
 
-// Clients avec > 1 commande (segment)
-{ FIXED [Customer ID] : COUNT([Order ID]) } > 1  → True/False filtrable
+// Customers with > 1 order (segment)
+{ FIXED [Customer ID] : COUNT([Order ID]) } > 1  → Filterable True/False
 ```
 
-## Structure de dashboard efficace
+## Effective dashboard structure
 
 ```
-TABLEAU DE BORD OPÉRATIONNEL (1920×1080)
+OPERATIONAL DASHBOARD (1920×1080)
 ┌───────────────────────────────────────────────────────────────────────┐
-│  TITRE + Filtres globaux (Période, Région, Segment)        [Logo]     │
+│  TITLE + Global filters (Period, Region, Segment)          [Logo]     │
 ├────────────────────┬──────────────────────────────────────────────────┤
-│  KPI CARDS (haut)  │  CA Net   │  # Commandes │  Panier Moyen │  NPS  │
+│  KPI CARDS (top)   │  Net Rev. │  # Orders   │  Avg Basket   │  NPS  │
 ├────────────────────┴──────────────────────────────────────────────────┤
 │                                                                         │
-│  GRAPHIQUE PRINCIPAL (60% largeur)    │  GRAPHIQUE SECONDAIRE (40%)   │
-│  Évolution CA sur 12 mois             │  Top 10 produits (barres H)   │
-│  (line chart avec objectif)           │                                │
+│  MAIN CHART (60% width)               │  SECONDARY CHART (40%)        │
+│  Revenue trend over 12 months         │  Top 10 products (H bars)     │
+│  (line chart with target)             │                                │
 │                                                                         │
 ├───────────────────────────────────────┴───────────────────────────────┤
-│  TABLEAU DÉTAIL (drill-through disponible)                             │
-│  Commandes récentes avec statut + filtre par pays                      │
+│  DETAIL TABLE (drill-through available)                                │
+│  Recent orders with status + filter by country                         │
 └───────────────────────────────────────────────────────────────────────┘
 ```
 
-## Actions Tableau — Interactivité
+## Tableau actions — Interactivity
 
 ```
-TYPE D'ACTION        CONFIGURATION                      EFFET
+ACTION TYPE          CONFIGURATION                      EFFECT
 ───────────────────  ─────────────────────────────────  ──────────────────────────────────
-Filter Action        Cliquer sur une région              Filtre tous les autres graphiques
-                     Source: Carte → Target: Tous         de la page sur cette région
+Filter Action        Click on a region                   Filters all the other charts
+                     Source: Map → Target: All           on the page to that region
 
-Highlight Action     Survol d'une ligne du tableau       Met en évidence la même valeur
-                     Source: Table → Target: Graphique    dans le graphique adjacent
+Highlight Action     Hover over a table row              Highlights the same value
+                     Source: Table → Target: Chart       in the adjacent chart
 
-URL Action           Cliquer sur un ID commande          Ouvre le CRM sur la fiche client
+URL Action           Click on an order ID                Opens the CRM on the customer record
                      Source: Table → URL: CRM/$[ID]
 
-Set Action           Sélectionner des points             Compare sélection vs reste
-                     Source: Scatter → Target: Set        (IN/OUT analysis)
+Set Action           Select some points                  Compares selection vs the rest
+                     Source: Scatter → Target: Set       (IN/OUT analysis)
 
-Parameter Action     Cliquer pour changer le paramètre   Basculer entre "Revenu" et "Quantité"
+Parameter Action     Click to change the parameter       Toggle between "Revenue" and "Quantity"
 ```
 
-## Tableau Prep — Pipeline de données
+## Tableau Prep — Data pipeline
 
 ```
-FLUX TYPE :
-Source CSV/DB → Nettoyage → Jointures → Agrégations → Sortie .hyper / Tableau Server
+TYPICAL FLOW:
+Source CSV/DB → Cleaning → Joins → Aggregations → Output .hyper / Tableau Server
 
-ÉTAPES COURANTES :
-  □ Filter : supprimer les lignes nulles sur la clé primaire
-  □ Clean : standardiser les casing (Title Case, UPPER, lower)
-  □ Pivot : transformer colonnes de dates en lignes (format long)
-  □ Join : enrichir avec une table de dimension
-  □ Aggregate : pré-agréger si la source est trop volumineuse
-  □ Union : consolider plusieurs fichiers CSV mensuels
+COMMON STEPS:
+  □ Filter: remove rows with a null primary key
+  □ Clean: standardize casing (Title Case, UPPER, lower)
+  □ Pivot: turn date columns into rows (long format)
+  □ Join: enrich with a dimension table
+  □ Aggregate: pre-aggregate if the source is too large
+  □ Union: consolidate several monthly CSV files
 ```
 
-## Livrables
-- Fichier .twbx (workbook packagé avec extrait)
-- Dashboards publiés sur Tableau Server / Cloud
-- Tableau Prep Flow (.tfl) documenté
-- Guide d'utilisation (filtres, drill-through, exports)
-- Tests de validation (comparaison source vs dashboard)
+## Deliverables
+- .twbx file (workbook packaged with extract)
+- Dashboards published on Tableau Server / Cloud
+- Documented Tableau Prep Flow (.tfl)
+- Usage guide (filters, drill-through, exports)
+- Validation tests (source vs dashboard comparison)
 
-## Format de sortie
-Précise : **source de données** (SQL, Snowflake, Google Sheets, CSV…), **type de viz** (dashboard opérationnel, analyse exploratoire, embedded analytics), **audience** (analyste vs manager vs client final), **contraintes** (temps réel vs extract, export PDF, mobile, embedding).
+## Output format
+Specify: **data source** (SQL, Snowflake, Google Sheets, CSV…), **viz type** (operational dashboard, exploratory analysis, embedded analytics), **audience** (analyst vs manager vs end client), **constraints** (real-time vs extract, PDF export, mobile, embedding).

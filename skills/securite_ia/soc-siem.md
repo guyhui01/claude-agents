@@ -1,35 +1,35 @@
-# Skill — SOC, SIEM & Détection des Incidents IA
-> Certifications : CISSP · CISM · CompTIA Security+
+# Skill — SOC, SIEM & AI Incident Detection
+> Certifications: CISSP · CISM · CompTIA Security+
 
-## Objectif
-Monitorer en continu les systèmes IA pour détecter les comportements anormaux, les attaques et les incidents de sécurité.
+## Objective
+Continuously monitor AI systems to detect abnormal behavior, attacks and security incidents.
 
-## Architecture SOC pour les systèmes IA
+## SOC architecture for AI systems
 
-### Sources de logs à collecter
+### Log sources to collect
 ```
-Application Layer :
-  → Logs d'inférence LLM (user_id, model, tokens, latency)
-  → Logs d'accès API (method, endpoint, status, IP)
-  → Logs d'authentification (succès, échecs, MFA)
-  → Logs des agents IA (actions, tools utilisés)
+Application Layer:
+  → LLM inference logs (user_id, model, tokens, latency)
+  → API access logs (method, endpoint, status, IP)
+  → Authentication logs (success, failures, MFA)
+  → AI agent logs (actions, tools used)
 
-Infrastructure Layer :
-  → Logs Kubernetes (pod events, resource usage)
-  → Logs réseau (VPC flow logs, WAF)
-  → Logs cloud (AWS CloudTrail, Azure Activity Log)
+Infrastructure Layer:
+  → Kubernetes logs (pod events, resource usage)
+  → Network logs (VPC flow logs, WAF)
+  → Cloud logs (AWS CloudTrail, Azure Activity Log)
 
-Data Layer :
-  → Accès aux données sensibles (S3, vector DB)
-  → Requêtes SQL sur le data warehouse
-  → Modifications de schéma
+Data Layer:
+  → Access to sensitive data (S3, vector DB)
+  → SQL queries on the data warehouse
+  → Schema changes
 ```
 
-### Règles de détection (SIEM)
+### Detection rules (SIEM)
 ```python
-# Règles Sigma (YAML) pour les incidents LLM
+# Sigma rules (YAML) for LLM incidents
 title: Possible Prompt Injection via High Token Count
-description: Détection d'injection de prompt via des requêtes anormalement longues
+description: Detection of prompt injection via abnormally long requests
 logsource:
     product: llm-service
     service: inference
@@ -58,51 +58,51 @@ tags:
     - owasp.llm04
 ```
 
-### Alertes et playbooks de réponse
+### Alerts and response playbooks
 ```python
 class SecurityAlert:
     CRITICAL = {
         "prompt_injection_success": {
-            "description": "Injection confirmée — réponse anormale détectée",
+            "description": "Confirmed injection — abnormal response detected",
             "response": [
-                "1. Bloquer immédiatement l'utilisateur/IP",
-                "2. Invalider la session",
-                "3. Capturer les logs de la conversation",
-                "4. Notifier RSSI + équipe sécurité",
-                "5. Analyser le vecteur d'attaque",
-                "6. Patch si 0-day"
+                "1. Immediately block the user/IP",
+                "2. Invalidate the session",
+                "3. Capture the conversation logs",
+                "4. Notify CISO + security team",
+                "5. Analyze the attack vector",
+                "6. Patch if 0-day"
             ],
             "sla_response": "15 minutes"
         },
         "data_exfiltration_suspected": {
-            "description": "Volume anormal de données dans les réponses LLM",
+            "description": "Abnormal data volume in LLM responses",
             "response": [
-                "1. Throttler les requêtes de l'utilisateur",
-                "2. Analyser les 50 dernières conversations",
-                "3. Vérifier les logs d'accès aux données",
-                "4. Déclencher DPIA si données personnelles exposées"
+                "1. Throttle the user's requests",
+                "2. Analyze the last 50 conversations",
+                "3. Check the data access logs",
+                "4. Trigger a DPIA if personal data is exposed"
             ],
             "sla_response": "30 minutes"
         }
     }
 ```
 
-## Dashboard SOC IA (métriques)
-| Métrique | Normal | Alerte |
+## AI SOC dashboard (metrics)
+| Metric | Normal | Alert |
 |---|---|---|
-| Taux d'erreur API | < 1% | > 5% |
-| Latence P99 | < 5s | > 30s |
-| Tokens input moyen | < 500 | > 3000 |
-| Échecs auth / heure | < 10 | > 50 |
-| Conversations bloquées | < 0,1% | > 1% |
-| Coût tokens / heure | Baseline ± 20% | > 2x baseline |
+| API error rate | < 1% | > 5% |
+| P99 latency | < 5s | > 30s |
+| Average input tokens | < 500 | > 3000 |
+| Auth failures / hour | < 10 | > 50 |
+| Blocked conversations | < 0.1% | > 1% |
+| Token cost / hour | Baseline ± 20% | > 2x baseline |
 
-## Livrables
-- Architecture de collecte des logs IA
-- Règles Sigma de détection
-- Playbooks de réponse aux incidents
-- Dashboard SOC temps réel (Grafana / Kibana)
-- Rapport mensuel de sécurité
+## Deliverables
+- AI log collection architecture
+- Sigma detection rules
+- Incident response playbooks
+- Real-time SOC dashboard (Grafana / Kibana)
+- Monthly security report
 
-## Format de sortie
-Précise : stack de logs (ELK, Splunk, Datadog, Azure Sentinel) · volume de logs/jour · types d'incidents prioritaires · équipe SOC (interne, externalisé) · SLA de réponse
+## Output format
+Specify: log stack (ELK, Splunk, Datadog, Azure Sentinel) · log volume/day · priority incident types · SOC team (in-house, outsourced) · response SLA

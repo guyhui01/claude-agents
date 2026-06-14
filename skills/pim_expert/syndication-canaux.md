@@ -1,121 +1,121 @@
-# Skill — Syndication Multicanal du Catalogue Produit
-> Certifications : Akeneo Certified Developer · Salsify Certified · inriver Certified Professional
+# Skill — Multichannel Product Catalog Syndication
+> Certifications: Akeneo Certified Developer · Salsify Certified · inriver Certified Professional
 
-## Objectif
-Syndiquer le catalogue produit sur l'ensemble des canaux de distribution : e-commerce, marketplaces, print, B2B portals et partenaires — en adaptant les données et formats aux exigences spécifiques de chaque canal.
+## Objective
+Syndicate the product catalog across all distribution channels: e-commerce, marketplaces, print, B2B portals and partners — adapting data and formats to each channel's specific requirements.
 
-## Cartographie des canaux et leurs exigences
+## Channel map and their requirements
 
 ```
-CANAL               FORMAT         CONTRAINTES SPÉCIFIQUES              FRÉQUENCE SYNC
+CHANNEL             FORMAT         SPECIFIC CONSTRAINTS                 SYNC FREQUENCY
 ──────────────────  ─────────────  ───────────────────────────────────  ──────────────
-Site e-com propre   API REST/JSON  Stock temps réel · Prix promotions   Temps réel / Push
-Amazon Vendor       SPAPI + ASIN   Contraintes titres 80 car. · GTIN   Quotidien
-Amazon Seller       SP-API         Catégories Amazon · Bullet points    Quotidien
-FNAC Marketplace    API FNAC       EAN obligatoire · Catégories FNAC    Quotidien
-Cdiscount           API Cdiscount  EAN + GTIN · Fiches techniques       Quotidien
-Google Shopping     Google Feed    ID unique · GTIN · Prix TTC          Quotidien / Flux
-Catalogue print     InDesign XML   Résolution images 300 DPI · CMJN     À la demande
-B2B Portal          API custom     Prix négociés · Ref client           Temps réel
-EDI Retailers       EANCOM/EDIFACT GS1 standard · GTIN14               Hebdomadaire
+Own e-com site      REST/JSON API  Real-time stock · Promo prices       Real-time / Push
+Amazon Vendor       SP-API + ASIN  80-char title limit · GTIN           Daily
+Amazon Seller       SP-API         Amazon categories · Bullet points    Daily
+FNAC Marketplace    FNAC API       EAN required · FNAC categories       Daily
+Cdiscount           Cdiscount API  EAN + GTIN · Technical sheets         Daily
+Google Shopping     Google Feed    Unique ID · GTIN · Tax-incl. price   Daily / Feed
+Print catalog       InDesign XML   300 DPI image resolution · CMYK      On demand
+B2B Portal          Custom API     Negotiated prices · Customer ref      Real-time
+EDI Retailers       EANCOM/EDIFACT GS1 standard · GTIN14                Weekly
 ```
 
-## Architecture de syndication (Akeneo Channel)
+## Syndication architecture (Akeneo Channel)
 
 ```yaml
-# Configuration channel Akeneo — exemple e-commerce
+# Akeneo channel configuration — e-commerce example
 channels:
   ecommerce_fr:
     locales: [fr_FR]
     currencies: [EUR]
     completeness: 100%
     attribute_filters:
-      - nom_produit
-      - description_courte
-      - description_longue
-      - prix_public
-      - image_principale
-      - images_secondaires
+      - product_name
+      - short_description
+      - long_description
+      - public_price
+      - main_image
+      - secondary_images
       - ean
-      - poids
-      - dimensions_l
+      - weight
+      - dimension_l
 
   amazon_fr:
     locales: [fr_FR]
     currencies: [EUR]
     completeness: 100%
     attribute_filters:
-      - nom_produit          # max 80 caractères
-      - bullet_points        # 5 bullets Amazon
-      - description_longue   # max 2000 caractères
-      - prix_public
+      - product_name        # max 80 characters
+      - bullet_points       # 5 Amazon bullets
+      - long_description    # max 2000 characters
+      - public_price
       - ean
-      - asin                 # Identifiant Amazon
+      - asin                # Amazon identifier
       - brand
-      - categorie_amazon
+      - amazon_category
 ```
 
-## Flux de syndication — Séquence
+## Syndication flow — Sequence
 
 ```
 PIM
  │
- ├─→ Transformation (règles canal)
- │     ├── Filtrage attributs (whitelist par canal)
- │     ├── Formatage valeurs (troncature, encodage)
- │     ├── Enrichissement canal (bullet points Amazon…)
- │     └── Association assets DAM (URL renditions)
+ ├─→ Transformation (channel rules)
+ │     ├── Attribute filtering (per-channel whitelist)
+ │     ├── Value formatting (truncation, encoding)
+ │     ├── Channel enrichment (Amazon bullet points…)
+ │     └── DAM asset association (rendition URLs)
  │
- ├─→ Validation pre-push
- │     ├── Vérification complétude 100%
- │     ├── Contrôle format EAN/GTIN
- │     └── Validation longueurs champs
+ ├─→ Pre-push validation
+ │     ├── 100% completeness check
+ │     ├── EAN/GTIN format check
+ │     └── Field length validation
  │
- └─→ Publication
+ └─→ Publishing
        ├── API push (e-com, marketplaces)
-       ├── Export fichier (print, EDI)
-       └── Webhook (notification systèmes tiers)
+       ├── File export (print, EDI)
+       └── Webhook (third-party system notification)
 ```
 
-## Mapping Amazon Bullet Points — Template
+## Amazon Bullet Points mapping — Template
 
 ```
-FORMAT AMAZON BULLET POINTS (5 × max 255 char.)
+AMAZON BULLET POINTS FORMAT (5 × max 255 chars)
 ────────────────────────────────────────────────
-• [Bénéfice principal] — [Caractéristique clé] (ex. Performance maximale — Processeur 5nm dernière génération)
-• [Avantage] — [Preuve] (ex. Autonomie 48h — Certifié par laboratoire indépendant)
-• [Compatibilité] (ex. Compatible iOS 16+, Android 13+, Windows 11)
-• [Certification / Label] (ex. Certifié CE, RoHS conforme, garantie 2 ans EU)
-• [Contenu boîte] (ex. Inclus : câble USB-C, chargeur 65W, housse de protection)
+• [Main benefit] — [Key feature] (e.g. Maximum performance — Latest-gen 5nm processor)
+• [Advantage] — [Proof] (e.g. 48h battery — Certified by an independent lab)
+• [Compatibility] (e.g. Compatible with iOS 16+, Android 13+, Windows 11)
+• [Certification / Label] (e.g. CE certified, RoHS compliant, 2-year EU warranty)
+• [In the box] (e.g. Included: USB-C cable, 65W charger, protective case)
 ```
 
-## Livrables
-- Cartographie des canaux (matrice canal × attributs × formats × fréquence)
-- Configuration des channels PIM (locales, devises, filtres attributs)
-- Règles de transformation par canal (troncature, formatage, enrichissement)
-- Scripts de connecteurs (API REST, EDI, Google Feed)
-- Plan de mise en production (ordre de déploiement des canaux)
-- Dashboard de monitoring des synchronisations (erreurs, volumes, latence)
+## Deliverables
+- Channel map (channel × attributes × formats × frequency matrix)
+- PIM channel configuration (locales, currencies, attribute filters)
+- Per-channel transformation rules (truncation, formatting, enrichment)
+- Connector scripts (REST API, EDI, Google Feed)
+- Go-live plan (channel rollout order)
+- Sync monitoring dashboard (errors, volumes, latency)
 
-## Format de sortie
-Précise : **canaux cibles** (liste prioritaire), **PIM utilisé**, **nombre de références** à syndiquer, **fréquences attendues**, **systèmes tiers** à connecter (e-com, ERP, DAM), **contraintes légales** (prix TTC obligatoire, étiquetage réglementaire...).
+## Output format
+Specify: **target channels** (prioritized list), **PIM used**, **number of references** to syndicate, **expected frequencies**, **third-party systems** to connect (e-com, ERP, DAM), **legal constraints** (tax-included price required, regulatory labeling...).
 
 ## Anti-patterns
-- ❌ **Pousser sans valider les contraintes du canal** (titre Amazon > 80 car., bullets > 255 car.) : rejet en masse → validation pre-push par canal
-- ❌ **GTIN absent** sur marketplace : produit non listable (Amazon/Google l'exigent) → GTIN obligatoire au filtre canal
-- ❌ **Syndiquer sous le seuil de complétude 100 %** du canal : fiches partielles publiées → blocage completeness
-- ❌ **Push sans gestion d'erreur / retry** : désynchronisation silencieuse → file de retry + monitoring
-- ❌ **Mêmes données pour tous les canaux** (pas d'adaptation) : non-conformité marketplace → règles de transformation par canal
-- ❌ **Prix HT diffusé là où le TTC est obligatoire** (B2C UE) : non-conformité → contrôle légal par canal
+- ❌ **Pushing without validating channel constraints** (Amazon title > 80 chars, bullets > 255 chars): mass rejection → per-channel pre-push validation
+- ❌ **Missing GTIN** on a marketplace: product not listable (Amazon/Google require it) → GTIN mandatory in the channel filter
+- ❌ **Syndicating below the channel's 100% completeness threshold**: partial records published → completeness block
+- ❌ **Push with no error handling / retry**: silent desync → retry queue + monitoring
+- ❌ **Same data for all channels** (no adaptation): marketplace non-compliance → per-channel transformation rules
+- ❌ **Tax-excluded price published where tax-included is required** (EU B2C): non-compliance → per-channel legal check
 
 ## Sources
-- **GS1 General Specifications v24.0** (2024) — GTIN, **GTIN-14** (carton/EDI), GLN — gs1.org
-- **Amazon SP-API** (Selling Partner API) — developer-docs.amazon.com · **Google Merchant Center** (flux Shopping, Google Product Category) — support.google.com/merchants
-- **EANCOM / UN/EDIFACT** — messages EDI standardisés (UN/CEFACT) — unece.org/cefact
-- **Schema.org Product** — balisage produit web/SEO — schema.org/Product
+- **GS1 General Specifications v24.0** (2024) — GTIN, **GTIN-14** (case/EDI), GLN — gs1.org
+- **Amazon SP-API** (Selling Partner API) — developer-docs.amazon.com · **Google Merchant Center** (Shopping feed, Google Product Category) — support.google.com/merchants
+- **EANCOM / UN/EDIFACT** — standardized EDI messages (UN/CEFACT) — unece.org/cefact
+- **Schema.org Product** — web/SEO product markup — schema.org/Product
 
-## Voir aussi
-- [`modelisation-catalogue.md`](modelisation-catalogue.md) — attributs et classification (GS1/ETIM) syndiqués
-- [`enrichissement-produit.md`](enrichissement-produit.md) — complétude par canal préalable à la syndication
-- [`kpis-catalogue.md`](kpis-catalogue.md) — suivi des synchronisations et de la couverture canal
-- [`../dam_expert/distribution-multicanal.md`](../dam_expert/distribution-multicanal.md) — distribution des assets associés aux fiches
+## See also
+- [`modelisation-catalogue.md`](modelisation-catalogue.md) — syndicated attributes and classification (GS1/ETIM)
+- [`enrichissement-produit.md`](enrichissement-produit.md) — per-channel completeness prior to syndication
+- [`kpis-catalogue.md`](kpis-catalogue.md) — sync tracking and channel coverage
+- [`../dam_expert/distribution-multicanal.md`](../dam_expert/distribution-multicanal.md) — distribution of assets linked to records

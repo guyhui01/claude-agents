@@ -1,134 +1,134 @@
-# Skill — Convention de Nommage & Charte Filenaming Assets
-> Certifications : Henry Stewart DAM Practitioner · IPTC Photo Metadata Standard Practitioner · Bynder Certified Partner
+# Skill — Naming Convention & Asset Filenaming Charter
+> Certifications: Henry Stewart DAM Practitioner · IPTC Photo Metadata Standard Practitioner · Bynder Certified Partner
 
-## Objectif
-Définir et appliquer une convention de nommage des assets digitaux : charte de nommage des fichiers, règles de formatage, encodage des métadonnées dans le nom de fichier et gouvernance — pour garantir la retrouvabilité, l'interopérabilité entre systèmes et l'absence d'ambiguïté dans les échanges avec les agences et partenaires.
+## Objective
+Define and apply a digital asset naming convention: file naming charter, formatting rules, metadata encoding in the filename and governance — to guarantee findability, cross-system interoperability and unambiguous exchanges with agencies and partners.
 
-## Principes fondamentaux du filenaming
+## Filenaming fundamentals
 
 ```
-RÈGLE                             RATIONALE                          IMPLÉMENTATION
+RULE                              RATIONALE                          IMPLEMENTATION
 ────────────────────────────────  ────────────────────────────────   ─────────────────────────────────
-Pas d'espaces dans le nom         Compatibilité universelle URLs/CLI  Utiliser "_" ou "-" comme séparateur
-Pas de caractères spéciaux        Compatibilité OS et CDN             [A-Za-z0-9_-] uniquement
-Minuscules uniquement             Éviter les doubles (img.jpg ≠ IMG)  Convention lowercase stricte
-Extension en minuscules           Cohérence                           .jpg pas .JPG
-Pas d'accents / diacritiques      ASCII pur pour interopérabilité     é→e, ü→u, ñ→n
-Nom auto-descriptif               Retrouvable sans ouvrir le fichier  Structure structurée (voir ci-dessous)
-Version dans le nom               Traçabilité sans DAM               _v1, _v2, _final, _approved
-Date en ISO 8601 si besoin        Tri chronologique correct           YYYYMMDD (pas DD-MM-YYYY)
+No spaces in the name             Universal URL/CLI compatibility     Use "_" or "-" as separator
+No special characters             OS and CDN compatibility            [A-Za-z0-9_-] only
+Lowercase only                    Avoid dupes (img.jpg ≠ IMG)         Strict lowercase convention
+Lowercase extension               Consistency                         .jpg not .JPG
+No accents / diacritics           Pure ASCII for interoperability     é→e, ü→u, ñ→n
+Self-descriptive name             Findable without opening the file   Structured (see below)
+Version in the name               Traceability without the DAM        _v1, _v2, _final, _approved
+ISO 8601 date if needed           Correct chronological sorting       YYYYMMDD (not DD-MM-YYYY)
 ```
 
-## Structure de nommage recommandée
+## Recommended naming structure
 
 ```
-FORMAT : [marque]_[categorie]_[sujet]_[canal]_[langue]_[version].[ext]
+FORMAT: [brand]_[category]_[subject]_[channel]_[language]_[version].[ext]
 
-EXEMPLES :
-  acme_packshot_produit-x100_web_fr_v2.jpg
-  acme_ambiance_lifestyle-cuisine_social_en_v1.webp
-  acme_logo_principal_all_rvb_approved.svg
-  acme_video_tuto-installation_web_fr_v3.mp4
-  acme_template_presentation-codir_print_fr_2026Q2.pptx
-  acme_document_charte-graphique_all_all_v5.pdf
+EXAMPLES:
+  acme_packshot_product-x100_web_fr_v2.jpg
+  acme_mood_lifestyle-kitchen_social_en_v1.webp
+  acme_logo_primary_all_rgb_approved.svg
+  acme_video_install-tutorial_web_fr_v3.mp4
+  acme_template_leadership-deck_print_fr_2026q2.pptx
+  acme_document_brand-guidelines_all_all_v5.pdf
 
-RÈGLES PAR CHAMP :
-  [marque]    : code marque court (3-6 char.) — ex: acme, brnd, sg
-  [categorie] : packshot · ambiance · lifestyle · logo · icon · video · document · template
-  [sujet]     : descriptif en kebab-case (mots-clés du contenu)
-  [canal]     : web · print · social · email · all (si multi-canal)
-  [langue]    : fr · en · de · es · all (si langue-neutre)
-  [version]   : v1 · v2 · draft · approved · final (jamais "final_FINAL")
-  [ext]       : jpg · webp · png · svg · tiff · pdf · mp4 · pptx
+RULES PER FIELD:
+  [brand]    : short brand code (3-6 chars) — e.g. acme, brnd, sg
+  [category] : packshot · mood · lifestyle · logo · icon · video · document · template
+  [subject]  : descriptive in kebab-case (content keywords)
+  [channel]  : web · print · social · email · all (if multichannel)
+  [language] : fr · en · de · es · all (if language-neutral)
+  [version]  : v1 · v2 · draft · approved · final (never "final_FINAL")
+  [ext]      : jpg · webp · png · svg · tiff · pdf · mp4 · pptx
 ```
 
-## Exemples par type d'asset
+## Examples per asset type
 
 ```
-TYPE              MAUVAIS NOM                 BON NOM
+TYPE              BAD NAME                    GOOD NAME
 ────────────────  ──────────────────────────  ───────────────────────────────────────────────
-Packshot produit  IMG_20260315_152340.jpg     acme_packshot_casque-bth500_web_fr_v2.jpg
-Logo couleur      Logo ACME RVB FINAL.png     acme_logo_principal_all_rvb_approved.png
-Vidéo campagne    Spot TV printemps FINAL.mp4 acme_video_spot-tv-printemps_tv_fr_v1.mp4
-Template PPT      Présentation nouvelle.pptx  acme_template_pitch-client_print_fr_2026q2.pptx
-Photo équipe      Photo equipe marketing.jpg  corp_portrait_equipe-marketing_web_fr_20260501.jpg
-Infographie       Infog chiffres 2026 v3.pdf  acme_document_infog-kpis-2026_print_fr_v3.pdf
-Icon UI           icon_panier.svg             acme_icon_panier-ui_web_all_v1.svg
+Product packshot  IMG_20260315_152340.jpg     acme_packshot_headset-bth500_web_fr_v2.jpg
+Color logo        Logo ACME RGB FINAL.png     acme_logo_primary_all_rgb_approved.png
+Campaign video    Spring TV spot FINAL.mp4    acme_video_tv-spot-spring_tv_fr_v1.mp4
+PPT template      New presentation.pptx       acme_template_client-pitch_print_fr_2026q2.pptx
+Team photo        Marketing team photo.jpg    corp_portrait_marketing-team_web_fr_20260501.jpg
+Infographic       Figures 2026 infog v3.pdf   acme_document_infog-kpis-2026_print_fr_v3.pdf
+UI icon           cart_icon.svg               acme_icon_cart-ui_web_all_v1.svg
 ```
 
-## Règles pour les assets IA générés
+## Rules for AI-generated assets
 
 ```
-ASSETS GÉNÉRÉS PAR IA — Convention spéciale
-  Préfixe obligatoire : aigen_ (pour identification et traçabilité)
-  Format : aigen_[marque]_[categorie]_[sujet]_[canal]_[langue]_[date].ext
-  Exemple : aigen_acme_ambiance_jardin-ete_web_fr_20260526.jpg
+AI-GENERATED ASSETS — Special convention
+  Mandatory prefix: aigen_ (for identification and traceability)
+  Format: aigen_[brand]_[category]_[subject]_[channel]_[language]_[date].ext
+  Example: aigen_acme_mood_summer-garden_web_fr_20260526.jpg
 
-Raison : distinction claire des assets IA vs photos/vidéos "réelles" (conformité, droits, RGPD)
+Reason: clear distinction of AI assets vs "real" photos/videos (compliance, rights, GDPR)
 ```
 
-## Script de validation et renommage automatique
+## Validation and auto-renaming script
 
 ```python
 import re, os
 from pathlib import Path
 
-ALLOWED_CATEGORIES = {"packshot","ambiance","lifestyle","logo","icon","video","document","template"}
+ALLOWED_CATEGORIES = {"packshot","mood","lifestyle","logo","icon","video","document","template"}
 ALLOWED_CHANNELS   = {"web","print","social","email","tv","all"}
 ALLOWED_LANGS      = {"fr","en","de","es","it","all"}
 
 def validate_filename(filename: str) -> tuple[bool, list[str]]:
-    """Valide un nom de fichier selon la convention de nommage"""
+    """Validate a filename against the naming convention"""
     errors = []
     stem = Path(filename).stem
     parts = stem.split("_")
 
     if len(parts) < 5:
-        errors.append(f"Format invalide : {len(parts)} segments (min 5 requis)")
+        errors.append(f"Invalid format: {len(parts)} segments (min 5 required)")
         return False, errors
 
     brand, category, subject, channel, lang = parts[0], parts[1], parts[2], parts[3], parts[4]
 
     if not re.match(r'^[a-z0-9]{2,6}$', brand):
-        errors.append(f"Marque invalide : '{brand}' (2-6 chars alphanumériques)")
+        errors.append(f"Invalid brand: '{brand}' (2-6 alphanumeric chars)")
     if category not in ALLOWED_CATEGORIES:
-        errors.append(f"Catégorie inconnue : '{category}'")
+        errors.append(f"Unknown category: '{category}'")
     if channel not in ALLOWED_CHANNELS:
-        errors.append(f"Canal inconnu : '{channel}'")
+        errors.append(f"Unknown channel: '{channel}'")
     if lang not in ALLOWED_LANGS:
-        errors.append(f"Langue inconnue : '{lang}'")
+        errors.append(f"Unknown language: '{lang}'")
     if re.search(r'[A-ZÀ-Ü\s@#$%&éèàüñ]', stem):
-        errors.append("Nom contient des majuscules, espaces ou caractères spéciaux")
+        errors.append("Name contains uppercase, spaces or special characters")
 
     return len(errors) == 0, errors
 ```
 
-## Livrables
-- Charte de nommage des fichiers (convention complète, règles, exemples)
-- Glossaire des valeurs autorisées (catégories, canaux, langues, marques)
-- Script de validation et de renommage automatique (Python)
-- Guide d'intégration dans le DAM (règle de validation à l'upload)
-- Formation agences (comment livrer les assets avec la bonne convention)
-- Rapport d'audit du stock existant (% assets conformes à la convention)
+## Deliverables
+- File naming charter (full convention, rules, examples)
+- Glossary of allowed values (categories, channels, languages, brands)
+- Validation and auto-renaming script (Python)
+- DAM integration guide (validation rule at upload)
+- Agency training (how to deliver assets with the right convention)
+- Existing-stock audit report (% of assets compliant with the convention)
 
-## Format de sortie
-Précise : **marques** concernées, **types d'assets** (photos, vidéos, documents, templates…), **canaux de distribution** (pour liste des valeurs autorisées), **langues** actives, **agences / partenaires** qui livrent des assets (besoin de formation ?), **DAM cible** (règles de validation à l'upload).
+## Output format
+Specify: **brands** involved, **asset types** (photos, videos, documents, templates…), **distribution channels** (for the allowed-value list), active **languages**, **agencies / partners** that deliver assets (training needed?), **target DAM** (validation rules at upload).
 
 ## Anti-patterns
-- ❌ **Espaces, accents ou majuscules** dans le nom (`Logo ACME FINAL.png`) : casse les URLs/CDN et crée des doublons (`img.jpg` ≠ `IMG.jpg`) → `[a-z0-9_-]` strict
-- ❌ **Date en `DD-MM-YYYY`** au lieu d'ISO 8601 `YYYYMMDD` : tri chronologique faux → toujours ISO 8601
-- ❌ **Versioning anarchique** (`final_FINAL_v2_def`) : ambiguïté sur la version de référence → suffixe normalisé `v1/v2/approved`
-- ❌ **Pas de préfixe `aigen_`** sur les assets générés par IA : traçabilité et conformité (droits, transparence AI Act) perdues
-- ❌ **Tout encoder dans le nom** sans renseigner les métadonnées IPTC/XMP : l'information disparaît à la conversion/export → le nom complète, ne remplace pas la métadonnée
-- ❌ **Convention non contrôlée à l'upload** : règle théorique sans validation automatique → dérive immédiate (cf. script de validation)
+- ❌ **Spaces, accents or uppercase** in the name (`Logo ACME FINAL.png`): breaks URLs/CDN and creates duplicates (`img.jpg` ≠ `IMG.jpg`) → strict `[a-z0-9_-]`
+- ❌ **Date in `DD-MM-YYYY`** instead of ISO 8601 `YYYYMMDD`: wrong chronological sort → always ISO 8601
+- ❌ **Chaotic versioning** (`final_FINAL_v2_def`): ambiguity over the reference version → standardized suffix `v1/v2/approved`
+- ❌ **No `aigen_` prefix** on AI-generated assets: traceability and compliance (rights, AI Act transparency) lost
+- ❌ **Encoding everything in the name** without filling in the IPTC/XMP metadata: the info disappears on conversion/export → the name complements, doesn't replace, the metadata
+- ❌ **Convention not enforced at upload**: a theoretical rule with no automatic validation → immediate drift (cf. validation script)
 
 ## Sources
-- **IPTC Photo Metadata Standard 2025.1** (oct. 2025) — encodage des métadonnées descriptives/droits — iptc.org/standards/photo-metadata
+- **IPTC Photo Metadata Standard 2025.1** (Oct. 2025) — encoding descriptive/rights metadata — iptc.org/standards/photo-metadata
 - **ISO 8601:2019** — *Date and time format* (YYYYMMDD) — iso.org
-- **AI Act UE** — Règlement (UE) 2024/1689, art. 50 (transparence des contenus générés par IA → justifie le préfixe `aigen_`) — eur-lex.europa.eu
+- **EU AI Act** — Regulation (EU) 2024/1689, art. 50 (transparency for AI-generated content → justifies the `aigen_` prefix) — eur-lex.europa.eu
 
-## Voir aussi
-- [`taxonomie-assets.md`](taxonomie-assets.md) — métadonnées IPTC/XMP complémentaires du nommage
-- [`gouvernance-dam.md`](gouvernance-dam.md) — gouvernance et contrôle qualité du nommage
-- [`workflow-validation-assets.md`](workflow-validation-assets.md) — validation du nommage à l'ingestion
-- [`migration-dam.md`](migration-dam.md) — renommage de masse du stock legacy
+## See also
+- [`taxonomie-assets.md`](taxonomie-assets.md) — IPTC/XMP metadata complementing the naming
+- [`gouvernance-dam.md`](gouvernance-dam.md) — naming governance and quality control
+- [`workflow-validation-assets.md`](workflow-validation-assets.md) — naming validation at ingestion
+- [`migration-dam.md`](migration-dam.md) — bulk renaming of the legacy stock

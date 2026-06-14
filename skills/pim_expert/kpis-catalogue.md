@@ -1,97 +1,97 @@
-# Skill — KPIs & Pilotage du Catalogue Produit
-> Certifications : Akeneo Certified Product Manager · CDMP · inriver Certified Professional
+# Skill — Product Catalog KPIs & Steering
+> Certifications: Akeneo Certified Product Manager · CDMP · inriver Certified Professional
 
-## Objectif
-Définir et piloter les indicateurs clés de performance du catalogue produit : qualité, time-to-market, syndication, SLA qualité — pour rendre le catalogue actionnable, prioriser les enrichissements et justifier les investissements PIM devant le CODIR.
+## Objective
+Define and steer the product catalog's key performance indicators: quality, time-to-market, syndication, quality SLAs — to make the catalog actionable, prioritize enrichment and justify PIM investment to leadership.
 
-## Framework de KPIs catalogue (4 axes)
+## Catalog KPI framework (4 axes)
 
 ```
-AXE 1 — QUALITÉ DES DONNÉES
-  □ Taux de complétude global         % attributs requis remplis / total attendu
-  □ Taux de complétude par canal      Complétude spécifique e-com / print / marketplace
-  □ Taux d'exactitude                 % données cohérentes avec source ERP
-  □ Taux de doublons                  % SKUs dupliqués détectés / total catalogue
-  □ Score qualité moyen               Moyenne pondérée des 5 dimensions (cf. scoring-qualite)
+AXIS 1 — DATA QUALITY
+  □ Overall completeness rate         % of required attributes filled / total expected
+  □ Completeness rate per channel     Channel-specific completeness e-com / print / marketplace
+  □ Accuracy rate                     % of data consistent with the ERP source
+  □ Duplicate rate                    % of duplicated SKUs detected / total catalog
+  □ Average quality score             Weighted average of the 5 dimensions (cf. scoring-qualite)
 
-AXE 2 — PERFORMANCE OPÉRATIONNELLE
-  □ Time-to-market (TTM)              Délai création ERP → publication canal (en jours)
-  □ Taux de rejet validation          % fiches rejetées en validation / soumises
-  □ Backlog enrichissement            Nb fiches bloquées > 7 jours en enrichissement
-  □ Délai moyen de traduction         Délai extraction → import locale complète
+AXIS 2 — OPERATIONAL PERFORMANCE
+  □ Time-to-market (TTM)              Lead time ERP creation → channel publishing (in days)
+  □ Validation rejection rate         % of records rejected in validation / submitted
+  □ Enrichment backlog                # of records blocked > 7 days in enrichment
+  □ Average translation lead time     Lead time extraction → complete locale import
 
-AXE 3 — SYNDICATION & DISTRIBUTION
-  □ Taux de couverture canal          % SKUs actifs syndiqués sur chaque canal / total actifs
-  □ Taux d'erreurs de sync            % erreurs API / push / export par canal
-  □ Délai de synchronisation          Temps entre modification PIM et mise à jour canal
-  □ Taux de rejet marketplace         % fiches rejetées par Amazon/FNAC / soumises
+AXIS 3 — SYNDICATION & DISTRIBUTION
+  □ Channel coverage rate             % of active SKUs syndicated per channel / total active
+  □ Sync error rate                   % of API / push / export errors per channel
+  □ Sync lead time                    Time between PIM change and channel update
+  □ Marketplace rejection rate        % of records rejected by Amazon/FNAC / submitted
 
-AXE 4 — IMPACT BUSINESS
-  □ Taux de conversion (e-com)        Évolution post-amélioration qualité fiches
-  □ Taux de retour produit            Corrélation avec qualité description produit
-  □ Productivité enrichissement       Nb fiches enrichies / jour / ETP
-  □ Coût d'onboarding                 Coût moyen € pour intégrer 1 nouveau fournisseur
+AXIS 4 — BUSINESS IMPACT
+  □ Conversion rate (e-com)           Change after record-quality improvement
+  □ Product return rate               Correlation with product-description quality
+  □ Enrichment productivity           # of records enriched / day / FTE
+  □ Onboarding cost                   Average € cost to integrate 1 new supplier
 ```
 
-## Tableau de bord CODIR — Template
+## Leadership dashboard — Template
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────┐
-│  CATALOGUE PRODUIT — Reporting Q2 2026                                         │
+│  PRODUCT CATALOG — Q2 2026 Reporting                                           │
 ├─────────────────────────────┬──────────────┬────────────┬──────────────────────┤
-│  INDICATEUR                 │  VALEUR      │  CIBLE     │  TENDANCE            │
+│  INDICATOR                  │  VALUE       │  TARGET    │  TREND               │
 ├─────────────────────────────┼──────────────┼────────────┼──────────────────────┤
-│  Complétude globale         │  91.3%       │  ≥ 95%     │  ▲ +2.1% vs Q1       │
-│  Time-to-market moyen       │  4.2 jours   │  ≤ 3 jours │  ▼ -0.8j vs Q1      │
-│  Couverture e-commerce      │  98.7%       │  100%      │  → stable            │
-│  Erreurs sync marketplace   │  1.2%        │  ≤ 0.5%    │  ▲ amélioration req. │
-│  Score qualité moyen        │  87/100      │  ≥ 90      │  ▲ +3 pts vs Q1      │
-│  Backlog critique           │  23 fiches   │  ≤ 10      │  ▼ alerte            │
-│  Taux retour lié desc.      │  2.1%        │  ≤ 1.5%    │  ▼ à surveiller     │
+│  Overall completeness       │  91.3%       │  ≥ 95%     │  ▲ +2.1% vs Q1       │
+│  Average time-to-market     │  4.2 days    │  ≤ 3 days  │  ▼ -0.8d vs Q1      │
+│  E-commerce coverage        │  98.7%       │  100%      │  → stable            │
+│  Marketplace sync errors    │  1.2%        │  ≤ 0.5%    │  ▲ improvement req.  │
+│  Average quality score      │  87/100      │  ≥ 90      │  ▲ +3 pts vs Q1      │
+│  Critical backlog           │  23 records  │  ≤ 10      │  ▼ alert             │
+│  Return rate tied to desc.  │  2.1%        │  ≤ 1.5%    │  ▼ to watch         │
 ├─────────────────────────────┴──────────────┴────────────┴──────────────────────┤
-│  🎯 ACTIONS Q3 : Enrichissement DE manquant (450 SKUs) · Correction sync FNAC  │
+│  🎯 Q3 ACTIONS: Enrich missing DE (450 SKUs) · Fix FNAC sync                   │
 └────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-## SLA qualité par type de produit
+## Quality SLA per product type
 
 ```
-TYPE PRODUIT            TTM CIBLE     COMPLÉTUDE PUB.  RÉVISION ANNUELLE
+PRODUCT TYPE            TTM TARGET    PUB. COMPLETENESS  ANNUAL REVIEW
 ──────────────────────  ────────────  ───────────────  ─────────────────
-Produit phare (A)       ≤ 2 jours     100%             Semestrielle
-Produit courant (B)     ≤ 5 jours     100%             Annuelle
-Produit longue traîne   ≤ 10 jours    ≥ 80%            À la demande
-Produit saisonnier      ≤ 3 jours     100%             Chaque saison
-Nouveau fournisseur     ≤ 15 jours    ≥ 70% (phase 1)  Trimestrielle
+Flagship product (A)    ≤ 2 days      100%             Half-yearly
+Standard product (B)    ≤ 5 days      100%             Yearly
+Long-tail product       ≤ 10 days     ≥ 80%            On demand
+Seasonal product        ≤ 3 days      100%             Each season
+New supplier            ≤ 15 days     ≥ 70% (phase 1)  Quarterly
 ```
 
-## Livrables
-- Framework KPIs catalogue (dictionnaire indicateurs, formules, sources)
-- Dashboard catalogue (Power BI / natif PIM / Metabase)
-- Reporting CODIR mensuel (1 page, 4 axes, tendances + actions)
-- SLA qualité par type de produit et canal
-- Alertes automatiques (seuils, destinataires, fréquence)
-- Plan d'amélioration trimestriel (OKRs catalogue)
+## Deliverables
+- Catalog KPI framework (indicator dictionary, formulas, sources)
+- Catalog dashboard (Power BI / native PIM / Metabase)
+- Monthly leadership reporting (1 page, 4 axes, trends + actions)
+- Quality SLA per product type and channel
+- Automatic alerts (thresholds, recipients, frequency)
+- Quarterly improvement plan (catalog OKRs)
 
-## Format de sortie
-Précise : **PIM utilisé**, **canaux à couvrir** dans les KPIs, **outil BI disponible** (Power BI, Tableau, natif PIM…), **fréquence de reporting** (hebdo / mensuel / CODIR trimestriel), **profil des destinataires** (Data Stewards, direction, marketing).
+## Output format
+Specify: **PIM used**, **channels to cover** in the KPIs, **available BI tool** (Power BI, Tableau, native PIM…), **reporting frequency** (weekly / monthly / quarterly leadership), **recipient profiles** (Data Stewards, leadership, marketing).
 
 ## Anti-patterns
-- ❌ **KPIs sans cible ni seuil d'alerte** : reporting contemplatif → chaque indicateur assorti d'une cible + action
-- ❌ **Complétude globale sans déclinaison par canal** : masque les écarts (e-com 96 % / print 85 %) → toujours décliner
-- ❌ **Aucun KPI d'impact business** (conversion, retours) : vanity metrics déconnectées de la valeur → relier qualité ↔ business
-- ❌ **Reporting CODIR > 1 page** : le décideur est noyé → synthèse Minto 1 page (cf. règle reporting)
-- ❌ **SLA uniformes pour tous les produits** : sur-investit la longue traîne, sous-investit les produits phares → SLA différenciés A/B/C
-- ❌ **KPIs figés sans revue** : indicateurs obsolètes → plan d'amélioration trimestriel (OKR)
+- ❌ **KPIs with no target or alert threshold**: contemplative reporting → every indicator with a target + action
+- ❌ **Overall completeness without per-channel breakdown**: hides the gaps (e-com 96% / print 85%) → always break down
+- ❌ **No business-impact KPI** (conversion, returns): vanity metrics disconnected from value → link quality ↔ business
+- ❌ **Leadership reporting > 1 page**: the decision-maker is overwhelmed → 1-page Minto synthesis (cf. reporting rule)
+- ❌ **Uniform SLAs for all products**: over-invests the long tail, under-invests flagship products → differentiated A/B/C SLAs
+- ❌ **Frozen KPIs with no review**: stale indicators → quarterly improvement plan (OKR)
 
 ## Sources
-- **Akeneo PIM** (Serenity) — completeness/KPIs natifs — help.akeneo.com
-- **DAMA-DMBOK 2** (2017) · **ISO 8000** — dimensions de qualité de données (complétude, exactitude, cohérence, unicité, actualité) — dama.org / iso.org
-- **OKR** — Doerr J., *Measure What Matters* (2018) — plan d'amélioration trimestriel
-- **Pyramide de Minto** (1987) — structure du reporting CODIR 1 page
+- **Akeneo PIM** (Serenity) — native completeness/KPIs — help.akeneo.com
+- **DAMA-DMBOK 2** (2017) · **ISO 8000** — data quality dimensions (completeness, accuracy, consistency, uniqueness, timeliness) — dama.org / iso.org
+- **OKR** — Doerr J., *Measure What Matters* (2018) — quarterly improvement plan
+- **Minto Pyramid** (1987) — structure of the 1-page leadership report
 
-## Voir aussi
-- [`scoring-qualite-produit.md`](scoring-qualite-produit.md) — score qualité alimentant l'axe 1
-- [`enrichissement-produit.md`](enrichissement-produit.md) — KPIs opérationnels (TTM, backlog)
-- [`syndication-canaux.md`](syndication-canaux.md) — couverture et erreurs de synchronisation
-- [`gouvernance-donnees-produit.md`](gouvernance-donnees-produit.md) — scorecard de gouvernance
+## See also
+- [`scoring-qualite-produit.md`](scoring-qualite-produit.md) — quality score feeding axis 1
+- [`enrichissement-produit.md`](enrichissement-produit.md) — operational KPIs (TTM, backlog)
+- [`syndication-canaux.md`](syndication-canaux.md) — coverage and sync errors
+- [`gouvernance-donnees-produit.md`](gouvernance-donnees-produit.md) — governance scorecard

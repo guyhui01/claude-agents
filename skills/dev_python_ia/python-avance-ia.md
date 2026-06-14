@@ -1,10 +1,10 @@
-# Skill — Python Avancé pour l'IA
-> Certifications : PCAP · PCPP1 · PCPP2
+# Skill — Advanced Python for AI
+> Certifications: PCAP · PCPP1 · PCPP2
 
-## Objectif
-Écrire du Python robuste, typé et performant pour les applications IA.
+## Objective
+Write robust, typed, performant Python for AI applications.
 
-## Typage statique (indispensable en IA)
+## Static typing (essential in AI)
 ```python
 from typing import Optional, Union, Literal
 from pydantic import BaseModel, Field
@@ -15,7 +15,7 @@ class RAGQuery(BaseModel):
     filters: Optional[dict[str, str]] = None
 ```
 
-## Async/Await (critique pour les appels LLM)
+## Async/Await (critical for LLM calls)
 ```python
 import asyncio
 import httpx
@@ -25,40 +25,40 @@ async def call_llm(prompt: str) -> str:
         response = await client.post(url, json={"prompt": prompt})
         return response.json()["content"]
 
-# Appels parallèles
+# Parallel calls
 results = await asyncio.gather(*[call_llm(p) for p in prompts])
 ```
 
 ## Dataclasses & Pydantic
-- `@dataclass` : structures légères sans validation
-- `BaseModel` Pydantic : validation + sérialisation JSON automatique
-- `@validator` / `@field_validator` : validation custom des champs
+- `@dataclass`: lightweight structures without validation
+- `BaseModel` (Pydantic): validation + automatic JSON serialization
+- `@validator` / `@field_validator`: custom field validation
 
-## Gestion des erreurs en contexte LLM
+## Error handling in an LLM context
 ```python
 from tenacity import retry, stop_after_attempt, wait_exponential
 
 @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=4, max=10))
 async def call_with_retry(prompt: str) -> str:
-    ...  # Retry automatique sur RateLimitError
+    ...  # Automatic retry on RateLimitError
 ```
 
-## Patterns utiles IA
-- **Streaming** : `async for chunk in stream:` pour les réponses token par token
-- **Context managers** : `async with` pour les clients HTTP
-- **Generators** : production lazy de données pour les pipelines
-- **Decorators** : logging, retry, cache des appels LLM
+## Useful AI patterns
+- **Streaming**: `async for chunk in stream:` for token-by-token responses
+- **Context managers**: `async with` for HTTP clients
+- **Generators**: lazy data production for pipelines
+- **Decorators**: logging, retry, caching of LLM calls
 
 ---
 
-## Exemples testables (fichiers prêts à copier)
+## Testable examples (ready-to-copy files)
 
-### `examples/async_llm_retry.py` — Appel LLM async avec retry exponentiel
+### `examples/async_llm_retry.py` — Async LLM call with exponential retry
 
 ```python
 """
-Module : appel LLM Anthropic avec retry exponentiel et timeout.
-Couvre les patterns : async, tenacity, structured logging, type hints stricts.
+Module: Anthropic LLM call with exponential retry and timeout.
+Covers patterns: async, tenacity, structured logging, strict type hints.
 """
 from __future__ import annotations
 import asyncio
@@ -79,7 +79,7 @@ MAX_ATTEMPTS: Final = 3
 MAX_TOKENS: Final = 1024
 DEFAULT_MODEL: Final = "claude-sonnet-4-6"
 
-# Erreurs Anthropic transitoires : rate limit, surcharge serveur, timeout
+# Transient Anthropic errors: rate limit, server overload, timeout
 TRANSIENT_ERRORS = (
     anthropic.RateLimitError,
     anthropic.APITimeoutError,
@@ -99,7 +99,7 @@ async def call_claude(
     max_tokens: int = MAX_TOKENS,
     timeout_s: float = 30.0,
 ) -> str:
-    """Appelle Claude et retourne la réponse texte. Retry exponentiel sur 5xx/429."""
+    """Call Claude and return the text response. Exponential retry on 5xx/429."""
     client = anthropic.AsyncAnthropic(timeout=timeout_s)
     logger.info("llm.call.start", extra={"model": model, "prompt_len": len(prompt)})
     response = await client.messages.create(
@@ -119,14 +119,14 @@ async def call_claude(
 
 
 async def fanout(prompts: list[str]) -> list[str]:
-    """Exécute N appels en parallèle, retourne dans l'ordre des prompts."""
+    """Run N calls in parallel; return in prompt order."""
     return await asyncio.gather(*(call_claude(p) for p in prompts))
 ```
 
-### `examples/test_async_llm_retry.py` — Tests pytest (sans appel réel à l'API)
+### `examples/test_async_llm_retry.py` — pytest tests (no real API call)
 
 ```python
-"""Tests unitaires pour async_llm_retry — mocks de l'API Anthropic."""
+"""Unit tests for async_llm_retry — mocks of the Anthropic API."""
 import asyncio
 from unittest.mock import AsyncMock, MagicMock, patch
 
@@ -138,7 +138,7 @@ from examples.async_llm_retry import call_claude, fanout
 
 @pytest.fixture
 def mock_response():
-    """Réponse Anthropic mockée."""
+    """Mocked Anthropic response."""
     resp = MagicMock()
     resp.content = [MagicMock(text="42")]
     resp.usage.input_tokens = 10
@@ -150,13 +150,13 @@ def mock_response():
 async def test_call_claude_returns_text(mock_response):
     with patch("anthropic.AsyncAnthropic") as MockClient:
         MockClient.return_value.messages.create = AsyncMock(return_value=mock_response)
-        result = await call_claude("Quelle est la réponse ?")
+        result = await call_claude("What is the answer?")
         assert result == "42"
 
 
 @pytest.mark.asyncio
 async def test_call_claude_retries_on_rate_limit(mock_response):
-    """Vérifie le retry exponentiel : 2 échecs puis succès."""
+    """Check exponential retry: 2 failures then success."""
     rate_limit = anthropic.RateLimitError(
         message="rate limit", response=MagicMock(status_code=429), body=None
     )
@@ -170,7 +170,7 @@ async def test_call_claude_retries_on_rate_limit(mock_response):
 
 @pytest.mark.asyncio
 async def test_fanout_preserves_order(mock_response):
-    """Les résultats doivent être dans l'ordre des prompts d'entrée."""
+    """Results must be in input-prompt order."""
     responses = []
     for i in range(3):
         r = MagicMock()
@@ -184,17 +184,17 @@ async def test_fanout_preserves_order(mock_response):
         assert results == ["answer-0", "answer-1", "answer-2"]
 ```
 
-### `examples/rag_query_validation.py` — Validation d'entrée stricte avec Pydantic
+### `examples/rag_query_validation.py` — Strict input validation with Pydantic
 
 ```python
-"""Validation stricte d'une requête RAG côté API : prévient injection + DoS."""
+"""Strict server-side validation of a RAG query: prevents injection + DoS."""
 from __future__ import annotations
 from typing import Literal
 from pydantic import BaseModel, Field, field_validator
 
 
 class RAGQuery(BaseModel):
-    """Requête RAG validée avant exécution du pipeline."""
+    """RAG query validated before running the pipeline."""
     query: str = Field(..., min_length=3, max_length=1000)
     top_k: int = Field(default=5, ge=1, le=20)
     filters: dict[str, str] | None = None
@@ -203,28 +203,28 @@ class RAGQuery(BaseModel):
     @field_validator("query")
     @classmethod
     def reject_obvious_injection(cls, v: str) -> str:
-        """Bloque les patterns d'injection les plus grossiers."""
+        """Block the most blatant injection patterns."""
         forbidden = ["ignore previous", "system:", "[INST]", "<|im_start|>"]
         lowered = v.lower()
         for pattern in forbidden:
             if pattern in lowered:
-                raise ValueError(f"Requête refusée : pattern interdit '{pattern}'")
+                raise ValueError(f"Query rejected: forbidden pattern '{pattern}'")
         return v
 
     @field_validator("filters")
     @classmethod
     def reject_dangerous_filter_keys(cls, v: dict[str, str] | None) -> dict[str, str] | None:
-        """Empêche d'injecter des clés de filtre arbitraires (ex: tenant_id)."""
+        """Prevent injecting arbitrary filter keys (e.g., tenant_id)."""
         if v is None:
             return v
         allowed_keys = {"category", "date_from", "date_to", "source"}
         for key in v:
             if key not in allowed_keys:
-                raise ValueError(f"Clé de filtre non autorisée : '{key}'")
+                raise ValueError(f"Filter key not allowed: '{key}'")
         return v
 ```
 
-### Lancer les tests
+### Run the tests
 
 ```bash
 pip install pytest pytest-asyncio anthropic tenacity pydantic
@@ -236,11 +236,11 @@ pytest examples/ -v
 
 ---
 
-## Livrables
-- Code Python typé, async, avec gestion d'erreurs
-- Tests unitaires (pytest + pytest-asyncio) — couverture ≥ 80% sur le code métier
-- Documentation minimaliste (docstrings fonctions publiques)
-- Exemples testables `examples/*.py` + `examples/test_*.py`
+## Deliverables
+- Typed, async Python code with error handling
+- Unit tests (pytest + pytest-asyncio) — ≥ 80% coverage on business code
+- Minimal documentation (docstrings on public functions)
+- Testable examples `examples/*.py` + `examples/test_*.py`
 
-## Format de sortie
-Précise : cas d'usage · version Python (3.11+) · librairies déjà utilisées · niveau de typage souhaité
+## Output format
+Specify: use case · Python version (3.11+) · libraries already in use · desired typing level

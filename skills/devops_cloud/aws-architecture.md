@@ -1,17 +1,17 @@
-# Skill — Architecture AWS pour Projets IA/Data
-> Certifications : AWS Solutions Architect Professional (SAP-C02 2026), AWS ML Specialty, AWS DevOps Professional, Well-Architected Framework
+# Skill — AWS Architecture for AI/Data Projects
+> Certifications: AWS Solutions Architect Professional (SAP-C02 2026), AWS ML Specialty, AWS DevOps Professional, Well-Architected Framework
 
-## Objectif
-Concevoir des architectures AWS robustes et économiques pour les workloads IA/Data, en appliquant le Well-Architected Framework sur les 6 pilliers — avec focus sur EKS, Bedrock, SageMaker et les patterns data lakehouse.
+## Objective
+Design robust, cost-effective AWS architectures for AI/Data workloads, applying the Well-Architected Framework across its 6 pillars — with a focus on EKS, Bedrock, SageMaker and data lakehouse patterns.
 
-## Services Clés & Patterns
+## Key services & patterns
 
-### Architecture Data Lakehouse sur AWS
+### Data Lakehouse architecture on AWS
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                      DATA SOURCES                           │
-│  RDS/Aurora ──► DMS   Kafka/MSK   S3 (raw)   APIs externes │
+│  RDS/Aurora ──► DMS   Kafka/MSK   S3 (raw)   External APIs │
 └──────────────────────────┬──────────────────────────────────┘
                            │
 ┌──────────────────────────▼──────────────────────────────────┐
@@ -23,9 +23,9 @@ Concevoir des architectures AWS robustes et économiques pour les workloads IA/D
 ┌──────────────────────────▼──────────────────────────────────┐
 │                   DATA LAKE (S3 + Lake Formation)            │
 │   s3://datalake-prod/                                        │
-│   ├── raw/          (données brutes, partitionnées par date) │
-│   ├── curated/      (transformées, format Parquet/Iceberg)   │
-│   └── aggregated/   (prêtes à la consommation analytique)   │
+│   ├── raw/          (raw data, partitioned by date)          │
+│   ├── curated/      (transformed, Parquet/Iceberg format)    │
+│   └── aggregated/   (ready for analytical consumption)       │
 └──────────────────────────┬──────────────────────────────────┘
                            │
 ┌──────────────────────────▼──────────────────────────────────┐
@@ -36,7 +36,7 @@ Concevoir des architectures AWS robustes et économiques pour les workloads IA/D
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### Infrastructure EKS avec Terraform
+### EKS infrastructure with Terraform
 
 ```hcl
 # eks-cluster.tf
@@ -51,15 +51,15 @@ module "eks" {
   subnet_ids = module.vpc.private_subnets
 
   cluster_endpoint_private_access = true
-  cluster_endpoint_public_access  = false  # VPN uniquement
+  cluster_endpoint_public_access  = false  # VPN only
 
-  # Encryption du cluster avec KMS
+  # Cluster encryption with KMS
   cluster_encryption_config = {
     resources        = ["secrets"]
     provider_key_arn = aws_kms_key.eks.arn
   }
 
-  # Add-ons managés par AWS
+  # AWS-managed add-ons
   cluster_addons = {
     coredns                = { most_recent = true }
     kube-proxy             = { most_recent = true }
@@ -69,7 +69,7 @@ module "eks" {
   }
 
   eks_managed_node_groups = {
-    # Noeud général
+    # General node
     general = {
       instance_types = ["m6i.2xlarge", "m6a.2xlarge"]
       capacity_type  = "ON_DEMAND"
@@ -78,7 +78,7 @@ module "eks" {
       desired_size   = 3
       disk_size      = 100
     }
-    # Noeud GPU pour inférence ML
+    # GPU node for ML inference
     inference_gpu = {
       instance_types = ["g5.2xlarge"]
       capacity_type  = "SPOT"
@@ -92,7 +92,7 @@ module "eks" {
       }]
       labels = { workload = "ml-inference" }
     }
-    # Karpenter fallback sur Graviton (économique)
+    # Karpenter fallback on Graviton (cost-effective)
     graviton = {
       instance_types = ["m7g.xlarge", "m7g.2xlarge"]
       capacity_type  = "SPOT"
@@ -105,7 +105,7 @@ module "eks" {
 }
 ```
 
-### Amazon Bedrock — Intégration IA
+### Amazon Bedrock — AI integration
 
 ```python
 # bedrock_client.py
@@ -124,7 +124,7 @@ class BedrockClient:
         model_id: str = "anthropic.claude-sonnet-4-6",
         max_tokens: int = 4096,
     ) -> Iterator[str]:
-        """Invocation Bedrock avec streaming."""
+        """Bedrock invocation with streaming."""
         body = json.dumps({
             "anthropic_version": "bedrock-2023-05-31",
             "max_tokens": max_tokens,
@@ -147,7 +147,7 @@ class BedrockClient:
         session_id: str,
         input_text: str,
     ) -> str:
-        """Invoquer un Bedrock Agent (RAG + tools)."""
+        """Invoke a Bedrock Agent (RAG + tools)."""
         response = self.agent_client.invoke_agent(
             agentId=agent_id,
             agentAliasId=agent_alias_id,
@@ -173,7 +173,7 @@ from sagemaker.experiments import Run
 session = sagemaker.Session()
 role = "arn:aws:iam::123456789:role/SageMakerExecutionRole"
 
-# Lancer un training job avec tracking MLflow
+# Launch a training job with MLflow tracking
 with Run(experiment_name="fine-tuning-llm", sagemaker_session=session) as run:
     estimator = PyTorch(
         entry_point="train.py",
@@ -200,18 +200,18 @@ with Run(experiment_name="fine-tuning-llm", sagemaker_session=session) as run:
     })
 ```
 
-## Well-Architected Framework — Checklist IA/Data
+## Well-Architected Framework — AI/Data checklist
 
-| Pilier | Points clés |
+| Pillar | Key points |
 |--------|------------|
-| Operational Excellence | IaC Terraform, CI/CD pipelines, runbooks, chaos engineering |
+| Operational Excellence | Terraform IaC, CI/CD pipelines, runbooks, chaos engineering |
 | Security | IAM least privilege, KMS encryption at rest/transit, VPC endpoints, GuardDuty |
-| Reliability | Multi-AZ, Auto Scaling, backup S3 versioning, RDS Multi-AZ |
-| Performance | Graviton3 pour CPU, GPU instances pour ML, ElastiCache, Spot pour training |
+| Reliability | Multi-AZ, Auto Scaling, S3 versioning backup, RDS Multi-AZ |
+| Performance | Graviton3 for CPU, GPU instances for ML, ElastiCache, Spot for training |
 | Cost Optimization | Reserved Instances (prod), Spot (ML training), S3 Intelligent-Tiering, rightsizing |
-| Sustainability | Graviton (40% moins énergie), régions bas carbone, S3 Glacier pour cold data |
+| Sustainability | Graviton (40% less energy), low-carbon regions, S3 Glacier for cold data |
 
-### Pattern IAM — Moindre privilège pour SageMaker
+### IAM pattern — Least privilege for SageMaker
 
 ```json
 {
@@ -247,13 +247,13 @@ with Run(experiment_name="fine-tuning-llm", sagemaker_session=session) as run:
 }
 ```
 
-## Livrables
-- Architecture diagram AWS (Draw.io / Lucidchart)
-- Modules Terraform pour EKS + RDS + S3 + IAM
-- Pipeline SageMaker MLOps de bout en bout
-- Intégration Bedrock avec streaming et agents
-- Rapport Well-Architected Review
-- Estimation de coûts (AWS Pricing Calculator + Infracost)
+## Deliverables
+- AWS architecture diagram (Draw.io / Lucidchart)
+- Terraform modules for EKS + RDS + S3 + IAM
+- End-to-end SageMaker MLOps pipeline
+- Bedrock integration with streaming and agents
+- Well-Architected Review report
+- Cost estimate (AWS Pricing Calculator + Infracost)
 
-## Format de sortie
-Précise : cas d'usage IA/data (LLM, MLOps, data platform), régions AWS cibles, contraintes de conformité (RGPD, SOC2, HIPAA), budget mensuel estimé, équipe (taille, expertise), services déjà en place.
+## Output format
+Specify: AI/data use case (LLM, MLOps, data platform), target AWS regions, compliance constraints (GDPR, SOC2, HIPAA), estimated monthly budget, team (size, expertise), services already in place.

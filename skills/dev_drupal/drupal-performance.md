@@ -1,26 +1,26 @@
-# Skill — Performance & Cache Drupal 10
-> Certifications : Acquia Certified Drupal Developer
+# Skill — Drupal 10 Performance & Cache
+> Certifications: Acquia Certified Drupal Developer
 
-## Objectif
-Optimiser les performances d'un site Drupal 10 : couches de cache, BigPipe, Redis, CDN et profiling.
+## Objective
+Optimize a Drupal 10 site's performance: cache layers, BigPipe, Redis, CDN, and profiling.
 
-## Couches de cache Drupal
+## Drupal cache layers
 
 ```
-Navigateur → CDN/Varnish → Nginx → Drupal Page Cache → Dynamic Page Cache → PHP → BDD
+Browser → CDN/Varnish → Nginx → Drupal Page Cache → Dynamic Page Cache → PHP → DB
 ```
 
 | Cache | Scope | Config |
 |-------|-------|--------|
-| Page Cache | Pages anonymes complètes | `page_cache` module (core) |
-| Dynamic Page Cache | Pages authentifiées (fragments) | `dynamic_page_cache` module (core) |
-| Render Cache | Fragments HTML (blocs, views) | Automatique (tags + contexts) |
-| Redis | Cache bins PHP (config, menu, etc.) | `drupal/redis` module |
-| Varnish | Reverse proxy HTTP | Config Nginx/Varnish externe |
+| Page Cache | Full anonymous pages | `page_cache` module (core) |
+| Dynamic Page Cache | Authenticated pages (fragments) | `dynamic_page_cache` module (core) |
+| Render Cache | HTML fragments (blocks, views) | Automatic (tags + contexts) |
+| Redis | PHP cache bins (config, menu, etc.) | `drupal/redis` module |
+| Varnish | HTTP reverse proxy | External Nginx/Varnish config |
 
-## Cache tags — invalider sélectivement
+## Cache tags — invalidate selectively
 ```php
-// Ajouter des cache tags à un render array
+// Add cache tags to a render array
 $build['product_list'] = [
   '#theme' => 'product_list',
   '#cache' => [
@@ -30,17 +30,17 @@ $build['product_list'] = [
   ],
 ];
 
-// Invalider lors d'une mise à jour produit
+// Invalidate on a product update
 Cache::invalidateTags(['commerce_product_list']);
-// → Drupal invalide automatiquement tous les fragments avec ce tag
+// → Drupal automatically invalidates all fragments with this tag
 ```
 
-## BigPipe — pages authentifiées sans attendre
+## BigPipe — authenticated pages without waiting
 ```php
-// Composant qui charge lentement (ex: commandes récentes)
+// Slow-loading component (e.g., recent orders)
 $build['recent_orders'] = [
   '#lazy_builder' => ['client_b2b.lazy_builder:renderRecentOrders', [$uid]],
-  '#create_placeholder' => TRUE, // BigPipe envoie le placeholder immédiatement
+  '#create_placeholder' => TRUE, // BigPipe sends the placeholder immediately
 ];
 ```
 
@@ -50,50 +50,50 @@ $build['recent_orders'] = [
 $settings['redis.connection']['interface'] = 'PhpRedis';
 $settings['redis.connection']['host'] = 'redis';
 $settings['cache']['default'] = 'cache.backend.redis';
-$settings['cache']['bins']['form'] = 'cache.backend.database'; // forms = BDD
+$settings['cache']['bins']['form'] = 'cache.backend.database'; // forms = DB
 ```
 
-## Profiling avec Xdebug / Blackfire
+## Profiling with Xdebug / Blackfire
 ```bash
-# Identifier les requêtes lentes
+# Identify slow queries
 drush core:status
 drush sql:query "EXPLAIN SELECT * FROM cache_render WHERE ..."
 
-# Blackfire (recommandé)
+# Blackfire (recommended)
 blackfire run drush cr
-blackfire curl http://client-b2b.local/catalogue
+blackfire curl http://client-b2b.local/catalog
 ```
 
-## Bonnes pratiques
-- Toujours définir `#cache` sur les render arrays custom
-- `cache_contexts` = varier le cache selon le rôle utilisateur (ex: prix B2B)
-- Ne jamais désactiver le cache en prod — utiliser `drush cr` ciblé
-- Views : activer le cache "Résultat de la requête" sur toutes les vues catalogue
+## Best practices
+- Always set `#cache` on custom render arrays
+- `cache_contexts` = vary the cache by user role (e.g., B2B price)
+- Never disable the cache in prod — use a targeted `drush cr`
+- Views: enable the "Query results" cache on all catalog views
 
-## Livrables
-- Config Redis + Dynamic Page Cache activés
-- Cache tags sur les entités custom
-- BigPipe sur les blocs lents
-- Rapport Blackfire sur le parcours critique (catalogue → fiche → panier)
+## Deliverables
+- Redis + Dynamic Page Cache enabled config
+- Cache tags on custom entities
+- BigPipe on slow blocks
+- Blackfire report on the critical path (catalog → product page → cart)
 
-## Format de sortie
-Précise : page / composant à optimiser · rôle utilisateur concerné · volume de charge estimé · budget temps de réponse cible
+## Output format
+Specify: page / component to optimize · user role involved · estimated load volume · target response-time budget
 
 ## Anti-patterns
-- ❌ **Désactiver le cache en prod** : performance détruite → `drush cr` ciblé, jamais cache off
-- ❌ **Render array custom sans `#cache`** : fragments non mis en cache → tags + contexts systématiques
-- ❌ **`max-age = 0`** par facilité : recalcul permanent → cache tags pour l'invalidation
-- ❌ **Pas de `cache_contexts` par rôle** (ex. prix B2B) : fuite ou incohérence de cache → `user.roles`
-- ❌ **Redis pour le cache `form`** : doit rester en BDD → bin `form` sur database (fait ici ✓)
-- ❌ **Views catalogue sans cache de résultat** : requêtes lourdes répétées → activer le cache de requête
+- ❌ **Disabling the cache in prod**: performance destroyed → targeted `drush cr`, never cache off
+- ❌ **Custom render array without `#cache`**: fragments not cached → tags + contexts systematically
+- ❌ **`max-age = 0`** for convenience: permanent recomputation → cache tags for invalidation
+- ❌ **No per-role `cache_contexts`** (e.g., B2B price): cache leak or inconsistency → `user.roles`
+- ❌ **Redis for the `form` cache**: must stay in DB → `form` bin on database (done here ✓)
+- ❌ **Catalog views without a results cache**: heavy queries repeated → enable the query cache
 
 ## Sources
 - **Drupal Cache API** (cache tags, contexts, max-age) — drupal.org/docs/drupal-apis/cache-api · **BigPipe** (core)
 - **Redis** — drupal.org/project/redis (PhpRedis) · **Varnish** — varnish-cache.org
 - **Blackfire** — blackfire.io · **Xdebug** — profiling · **Drupal 10/11**
 
-## Voir aussi
-- [`drupal-commerce-catalog.md`](drupal-commerce-catalog.md) — cache par rôle (prix B2B)
-- [`drupal-api-rest.md`](drupal-api-rest.md) — cache JSON:API par rôle
-- [`drupal-config-yaml.md`](drupal-config-yaml.md) — config Redis/cache versionnée
-- [`../cms_digital/performance-web.md`](../cms_digital/performance-web.md) — Core Web Vitals côté front
+## See also
+- [`drupal-commerce-catalog.md`](drupal-commerce-catalog.md) — per-role cache (B2B price)
+- [`drupal-api-rest.md`](drupal-api-rest.md) — per-role JSON:API cache
+- [`drupal-config-yaml.md`](drupal-config-yaml.md) — versioned Redis/cache config
+- [`../cms_digital/performance-web.md`](../cms_digital/performance-web.md) — Core Web Vitals on the front end

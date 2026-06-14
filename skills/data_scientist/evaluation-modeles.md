@@ -1,12 +1,12 @@
-# Skill — Évaluation et Sélection des Modèles ML
-> Certifications : DeepLearning.AI ML Specialization · IBM Data Science · Azure DP-100
+# Skill — ML Model Evaluation and Selection
+> Certifications: DeepLearning.AI ML Specialization · IBM Data Science · Azure DP-100
 
-## Objectif
-Évaluer rigoureusement les modèles ML, choisir les bonnes métriques et sélectionner le meilleur modèle pour le déploiement.
+## Objective
+Rigorously evaluate ML models, choose the right metrics and select the best model for deployment.
 
-## Métriques par type de problème
+## Metrics by problem type
 
-### Classification binaire
+### Binary classification
 ```python
 from sklearn.metrics import (
     accuracy_score, precision_score, recall_score,
@@ -27,15 +27,15 @@ def evaluate_classifier(y_true, y_pred, y_proba, model_name="Model"):
     print("\nClassification Report:")
     print(classification_report(y_true, y_pred))
 
-# Courbes ROC et Précision-Rappel
+# ROC and Precision-Recall curves
 fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 RocCurveDisplay.from_predictions(y_true, y_proba, ax=axes[0])
 PrecisionRecallDisplay.from_predictions(y_true, y_proba, ax=axes[1])
-axes[0].set_title("Courbe ROC")
-axes[1].set_title("Courbe Précision-Rappel")
+axes[0].set_title("ROC Curve")
+axes[1].set_title("Precision-Recall Curve")
 ```
 
-### Régression
+### Regression
 ```python
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import numpy as np
@@ -53,7 +53,7 @@ def evaluate_regressor(y_true, y_pred, model_name="Model"):
     print(f"MAPE : {mape:.2f}%")
 ```
 
-## Cross-Validation rigoureuse
+## Rigorous Cross-Validation
 ```python
 from sklearn.model_selection import (
     StratifiedKFold, cross_validate, learning_curve
@@ -77,15 +77,15 @@ def cross_val_full_report(model, X, y, cv=5):
         val = results[f'test_{metric}']
         print(f"{metric:12}: {val.mean():.4f} ± {val.std():.4f}")
 
-    # Détecter l'overfitting
+    # Detect overfitting
     train_auc = results['train_roc_auc'].mean()
     test_auc  = results['test_roc_auc'].mean()
     gap = train_auc - test_auc
     if gap > 0.05:
-        print(f"⚠️  Overfitting détecté : gap train/val = {gap:.4f}")
+        print(f"⚠️  Overfitting detected: train/val gap = {gap:.4f}")
 ```
 
-## Courbes d'apprentissage (Learning Curves)
+## Learning Curves
 ```python
 from sklearn.model_selection import learning_curve
 
@@ -105,14 +105,14 @@ def plot_learning_curve(model, X, y):
     plt.fill_between(train_sizes,
                      val_scores.mean(1) - val_scores.std(1),
                      val_scores.mean(1) + val_scores.std(1), alpha=0.1)
-    plt.xlabel("Taille d'entraînement")
+    plt.xlabel("Training size")
     plt.ylabel("AUC-ROC")
     plt.title("Learning Curve")
     plt.legend()
-    # Interpréter : gap élevé = overfitting, val basse = underfitting
+    # Interpret: large gap = overfitting, low val = underfitting
 ```
 
-## Comparaison de modèles (tableau de bord)
+## Model comparison (dashboard)
 ```python
 import pandas as pd
 
@@ -135,21 +135,21 @@ def compare_models(models_dict: dict, X_train, X_test, y_train, y_test):
     return df
 ```
 
-## Critères de sélection du modèle final
-| Critère | Description |
+## Final model selection criteria
+| Criterion | Description |
 |---|---|
-| **Performance** | Meilleure métrique sur le test set (AUC, F1...) |
-| **Stabilité** | Faible variance cross-val (std < 0.02) |
-| **Interprétabilité** | Requis ? (réglementation, confiance métier) |
-| **Latence** | Temps d'inférence acceptable pour le cas d'usage |
-| **Complexité** | Facilité de maintenance et mise à jour |
-| **Fairness** | Équité entre groupes (voir skill éthique-ia-biais.md) |
+| **Performance** | Best metric on the test set (AUC, F1...) |
+| **Stability** | Low cross-val variance (std < 0.02) |
+| **Interpretability** | Required? (regulation, business trust) |
+| **Latency** | Acceptable inference time for the use case |
+| **Complexity** | Ease of maintenance and updates |
+| **Fairness** | Equity between groups (see skill ethique-ia-biais.md) |
 
-## Livrables
-- Tableau comparatif des modèles (métriques + temps + taille)
-- Courbes ROC, PR et Learning Curve
-- Rapport de sélection documenté (choix + justification)
-- Modèle sélectionné sérialisé (joblib / MLflow)
+## Deliverables
+- Model comparison table (metrics + time + size)
+- ROC, PR and Learning Curve plots
+- Documented selection report (choice + rationale)
+- Selected model serialized (joblib / MLflow)
 
-## Format de sortie
-Précise : type de problème · métrique prioritaire · contrainte d'interprétabilité · seuil de performance requis · modèles candidats à comparer
+## Output format
+Specify: problem type · priority metric · interpretability constraint · required performance threshold · candidate models to compare

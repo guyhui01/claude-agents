@@ -1,107 +1,107 @@
-# Skill — Reporting CODIR / Exécutif
-> Certifications : PL-300 Microsoft · Tableau Certified Data Analyst · Google Data Analytics Professional
+# Skill — Leadership / Executive Reporting
+> Certifications: PL-300 Microsoft · Tableau Certified Data Analyst · Google Data Analytics Professional
 
-## Objectif
-Produire des reportings exécutifs percutants pour le CODIR : synthèse visuelle des KPIs stratégiques, storytelling data, commentaires d'analyse — en transformant la donnée brute en insights décisionnels.
+## Objective
+Produce impactful executive reports for leadership: visual summary of strategic KPIs, data storytelling, analytical commentary — turning raw data into decision-grade insights.
 
-## Principes du reporting exécutif
+## Principles of executive reporting
 
 ```
-RÈGLE                           APPLICATION CONCRÈTE
+RULE                            CONCRETE APPLICATION
 ──────────────────────────────  ────────────────────────────────────────────────────────
-1 message = 1 diapo / page      Le titre affirme la conclusion ("CA en hausse de 8% vs N-1")
-                                Non : "Évolution du CA" (neutre, ne dit rien)
+1 message = 1 slide / page      The title states the conclusion ("Revenue up 8% vs PY")
+                                Not: "Revenue trend" (neutral, says nothing)
 
-Contexte avant détail           Commencer par le résumé (Executive Summary 1 page)
-                                Détail disponible en annexe / drill-down
+Context before detail           Start with the summary (1-page Executive Summary)
+                                Detail available in appendix / drill-down
 
-Comparaison obligatoire         Jamais un chiffre seul → vs objectif / vs N-1 / vs budget
-                                "3,2M€" n'a pas de sens sans référence
+Comparison mandatory            Never a figure alone → vs target / vs PY / vs budget
+                                "€3.2M" is meaningless without a reference
 
-Signaux visuels clairs          ▲ vert = en avance   ▼ rouge = en retard   → gris = stable
-                                Feux tricolores pour les KPIs (RAG status)
+Clear visual signals            ▲ green = ahead   ▼ red = behind   → gray = stable
+                                Traffic lights for KPIs (RAG status)
 
-Commentaire analytique          "Pourquoi ?" avant "Quoi ?"
-(pas descriptif)                ❌ "Le CA a baissé de 5%"
-                                ✅ "La baisse de 5% du CA est liée à l'arrêt de la promo Black Friday
-                                    (-3pts) et à la fermeture du marché DE (-2pts)"
+Analytical commentary           "Why?" before "What?"
+(not descriptive)               ❌ "Revenue dropped 5%"
+                                ✅ "The 5% revenue drop is driven by ending the Black Friday promo
+                                    (-3pts) and the closure of the DE market (-2pts)"
 ```
 
-## Structure type d'un reporting mensuel CODIR
+## Typical structure of a monthly leadership report
 
 ```
-PAGE 1 — EXECUTIVE SUMMARY (5 min de lecture max)
+PAGE 1 — EXECUTIVE SUMMARY (5 min read max)
   ┌─────────────────────────────────────────────────────────────────┐
-  │  TITRE : Performance mai 2026 — synthèse stratégique            │
+  │  TITLE: May 2026 performance — strategic summary               │
   │                                                                   │
-  │  ▲ CA Net : 3,8M€ (+12% vs N-1) ✅ Objectif atteint             │
-  │  ▼ Marge brute : 42% (-2pts vs N-1) ⚠️ Sous l'objectif (44%)   │
-  │  ▲ NPS Client : 67 (+5pts vs mars) ✅                            │
-  │  → Taux de churn : 2,1% (stable)                                │
+  │  ▲ Net Revenue: €3.8M (+12% vs PY) ✅ Target met                │
+  │  ▼ Gross margin: 42% (-2pts vs PY) ⚠️ Below target (44%)       │
+  │  ▲ Customer NPS: 67 (+5pts vs March) ✅                          │
+  │  → Churn rate: 2.1% (stable)                                    │
   │                                                                   │
-  │  FAITS SAILLANTS :                                               │
-  │  • Forte croissance segment Enterprise (+28%) portée par 3 deals│
-  │  • Pression sur la marge liée aux coûts logistiques (+15%)      │
-  │  • Lancement feature X — adoption à 34% en 4 semaines           │
+  │  HIGHLIGHTS:                                                     │
+  │  • Strong Enterprise-segment growth (+28%) driven by 3 deals    │
+  │  • Margin pressure from logistics costs (+15%)                  │
+  │  • Feature X launch — 34% adoption in 4 weeks                   │
   └─────────────────────────────────────────────────────────────────┘
 
-PAGE 2 — CA & REVENUS
-  • Courbe évolution CA mensuel (12 mois glissants + objectif)
-  • Répartition CA par segment (Enterprise / Mid-market / SMB)
-  • Top 10 clients (nouveaux + extensions)
+PAGE 2 — REVENUE
+  • Monthly revenue trend line (12-month rolling + target)
+  • Revenue split by segment (Enterprise / Mid-market / SMB)
+  • Top 10 customers (new + expansions)
 
-PAGE 3 — MARGE & RENTABILITÉ
-  • Évolution marge brute (bridge waterfall : prix, mix, coûts)
-  • P&L simplifié (CA → EBITDA)
-  • Budget vs Réalisé (variance + explication)
+PAGE 3 — MARGIN & PROFITABILITY
+  • Gross margin evolution (waterfall bridge: price, mix, costs)
+  • Simplified P&L (Revenue → EBITDA)
+  • Budget vs Actual (variance + explanation)
 
-PAGE 4 — CLIENTS & NPS
-  • Évolution NPS (verbatim top positif / négatif)
-  • Funnel acquisition (Leads → Qualified → Won)
-  • Churn et rétention
+PAGE 4 — CUSTOMERS & NPS
+  • NPS evolution (top positive / negative verbatims)
+  • Acquisition funnel (Leads → Qualified → Won)
+  • Churn and retention
 
-PAGE 5 — PLAN D'ACTIONS
-  • Décisions à prendre (1 ligne = 1 décision)
-  • Actions en cours (responsable + deadline)
-  • Points d'attention pour le prochain mois
+PAGE 5 — ACTION PLAN
+  • Decisions to make (1 line = 1 decision)
+  • Actions in progress (owner + deadline)
+  • Watch items for the coming month
 ```
 
-## Graphiques recommandés par cas
+## Recommended charts by case
 
 ```
-BESOIN                          GRAPHIQUE RECOMMANDÉ         À ÉVITER
+NEED                            RECOMMENDED CHART            AVOID
 ──────────────────────────────  ─────────────────────────    ─────────────────────────
-Évolution dans le temps         Courbe (line chart)          Barres groupées si > 3 séries
-Comparaison entre catégories    Barres horizontales          Camembert si > 5 catégories
-Part de marché / composition    Barre empilée 100%           Camembert 3D (toujours)
-Contribution à la variation     Waterfall / Bridge           Tableau seul
-Distribution                    Histogramme / Box plot       Barres si nombreuses catégories
-Corrélation                     Scatter plot                 Barres
-Géographique                    Carte choroplèthe            Tableau seul si < 5 régions
-KPI vs objectif                 Gauge / Bullet chart         Jauge ronde (peu précise)
+Evolution over time             Line chart                   Grouped bars if > 3 series
+Comparison across categories    Horizontal bars              Pie if > 5 categories
+Market share / composition      100% stacked bar             3D pie (always)
+Contribution to a change        Waterfall / Bridge           Table alone
+Distribution                    Histogram / Box plot         Bars if many categories
+Correlation                     Scatter plot                 Bars
+Geographic                      Choropleth map               Table alone if < 5 regions
+KPI vs target                   Gauge / Bullet chart         Round gauge (imprecise)
 ```
 
-## Waterfall Chart — Analyse bridge
+## Waterfall Chart — Bridge analysis
 
 ```
-RECETTE POUR UN BRIDGE CA :
+RECIPE FOR A REVENUE BRIDGE:
 
-CA N-1      3 500 K€    (base de départ)
-+ Volume    + 450 K€    (+12,9% unités vendues)
-+ Mix       + 120 K€    (montée en gamme)
-- Prix      - 80 K€     (pression tarifaire SMB)
-+ Nouveaux  + 210 K€    (3 nouveaux comptes Enterprise)
-- Churns    - 400 K€    (perte Mega Corp en mars)
+Revenue PY  €3,500K    (starting base)
++ Volume    + €450K    (+12.9% units sold)
++ Mix       + €120K    (premiumization)
+- Price     - €80K     (SMB pricing pressure)
++ New       + €210K    (3 new Enterprise accounts)
+- Churn     - €400K    (loss of Mega Corp in March)
             ─────────
-CA N        3 800 K€    (+8,6% vs N-1)
+Revenue CY  €3,800K    (+8.6% vs PY)
 ```
 
-## Livrables
-- Rapport CODIR mensuel (format PDF + Power BI live)
-- Template réutilisable (structure + charte graphique)
-- Commentaires analytiques rédigés (pas descriptifs)
-- Version mobile (Power BI mobile layout)
-- Archive mensuelle (historique sur SharePoint / OneLake)
+## Deliverables
+- Monthly leadership report (PDF format + live Power BI)
+- Reusable template (structure + visual identity)
+- Written analytical commentary (not descriptive)
+- Mobile version (Power BI mobile layout)
+- Monthly archive (history on SharePoint / OneLake)
 
-## Format de sortie
-Précise : **fréquence** (mensuel, hebdo, trimestriel), **audience** (CODIR, DG, investisseurs…), **KPIs prioritaires**, **format de rendu** (Power BI live, PDF exporté, PowerPoint, email), **données disponibles** (sources, fraîcheur), **contraintes** (confidentialité, RLS).
+## Output format
+Specify: **frequency** (monthly, weekly, quarterly), **audience** (leadership, CEO, investors…), **priority KPIs**, **delivery format** (live Power BI, exported PDF, PowerPoint, email), **available data** (sources, freshness), **constraints** (confidentiality, RLS).

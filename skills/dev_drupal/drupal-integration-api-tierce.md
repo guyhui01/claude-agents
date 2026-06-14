@@ -1,18 +1,18 @@
-# Skill — Intégration APIs tierces Drupal (Stripe, SendGrid, Chronopost)
-> Certifications : Acquia Certified Developer · Zend PHP Engineer 8.x
+# Skill — Drupal Third-Party API Integration (Stripe, SendGrid, Chronopost)
+> Certifications: Acquia Certified Developer · Zend PHP Engineer 8.x
 
-## Objectif
-Intégrer des APIs tierces dans Drupal 10 via des services injectés, avec gestion des erreurs, logging et secrets externalisés.
+## Objective
+Integrate third-party APIs into Drupal 10 via injected services, with error handling, logging, and externalized secrets.
 
-## Stripe — Paiement CB 3D Secure
+## Stripe — 3D Secure card payment
 
 ```bash
 composer require drupal/commerce_stripe stripe/stripe-php
 ```
 
 ```php
-// Géré par drupal/commerce_stripe — pas de code custom requis
-// Configuration via UI + config YAML :
+// Handled by drupal/commerce_stripe — no custom code required
+// Configuration via UI + YAML config:
 ```
 ```yaml
 # config/sync/commerce_payment_gateway.stripe_b2b.yml
@@ -20,43 +20,43 @@ id: stripe_b2b
 label: 'Stripe B2B'
 plugin: stripe
 configuration:
-  mode: live          # 'test' en staging
+  mode: live          # 'test' on staging
   publishable_key: '' # override via settings.php
   secret_key: ''      # override via settings.php
   webhook_secret: ''  # override via settings.php
 ```
 
 ```php
-// web/sites/default/settings.prod.php (non versionné)
+// web/sites/default/settings.prod.php (not versioned)
 $config['commerce_payment_gateway.stripe_b2b']['configuration']['secret_key']
   = getenv('STRIPE_SECRET_KEY');
 ```
 
-## SendGrid — Emails transactionnels
+## SendGrid — Transactional emails
 
 ```bash
 composer require drupal/sendgrid_integration
 ```
 
 ```php
-// client_b2b.module — hook_mail() implémentation (hook procédural)
+// client_b2b.module — hook_mail() implementation (procedural hook)
 function client_b2b_mail(string $key, array &$message, array $params): void {
   match($key) {
-    'account_activated' => $message['subject'] = 'Votre compte Client télécom est activé',
-    'account_refused'   => $message['subject'] = 'Votre demande de compte a été refusée',
-    'order_confirmation'=> $message['subject'] = 'Confirmation de commande #' . $params['order']->getOrderNumber(),
-    'order_shipped'     => $message['subject'] = 'Votre commande a été expédiée',
+    'account_activated' => $message['subject'] = 'Your telecom client account is activated',
+    'account_refused'   => $message['subject'] = 'Your account request was rejected',
+    'order_confirmation'=> $message['subject'] = 'Order confirmation #' . $params['order']->getOrderNumber(),
+    'order_shipped'     => $message['subject'] = 'Your order has been shipped',
   };
   $message['body'][] = $params['body'] ?? '';
 }
 
-// Envoi depuis un service
+// Sending from a service
 $this->mailManager->mail(
   'client_b2b',          // module
-  'account_activated',    // clé mail
-  $account->getEmail(),   // destinataire
-  'fr',                   // langue
-  ['account' => $account] // paramètres template
+  'account_activated',    // mail key
+  $account->getEmail(),   // recipient
+  'en',                   // language
+  ['account' => $account] // template parameters
 );
 ```
 
@@ -65,7 +65,7 @@ $this->mailManager->mail(
 apikey: ''   # override settings.php → getenv('SENDGRID_API_KEY')
 ```
 
-## Chronopost / Colissimo — Calcul frais de port
+## Chronopost / Colissimo — Shipping cost calculation
 
 ```php
 // src/Service/ShippingRateService.php
@@ -86,57 +86,57 @@ final class ShippingRateService {
       return new Price($data['amount'], 'EUR');
     } catch (\Exception $e) {
       $this->logger->error('Chronopost API error: @msg', ['@msg' => $e->getMessage()]);
-      return null; // fallback = tarif forfaitaire
+      return null; // fallback = flat rate
     }
   }
 }
 ```
 
-## Gestion des secrets
+## Secret management
 
 ```php
-// settings.php (prod) — jamais de clé API en YAML versionné
+// settings.php (prod) — never an API key in versioned YAML
 $config['sendgrid_integration.settings']['apikey'] = getenv('SENDGRID_API_KEY');
-// OU via Drupal Key module (recommandé)
+// OR via the Drupal Key module (recommended)
 ```
 
 ```bash
-# .env (local — non versionné, dans .gitignore)
+# .env (local — not versioned, in .gitignore)
 SENDGRID_API_KEY=SG.xxxxxxxxxxxx
 STRIPE_SECRET_KEY=sk_live_xxxxxxxxxxxx
 CHRONOPOST_API_KEY=xxxxxxxxxxxx
 ```
 
-## Bonnes pratiques
-- Toujours wrapper les appels API dans un `try/catch` avec logging
-- Timeout HTTP explicite (5s max) — jamais de blocage indéfini
-- Fallback prévu si API tierce indisponible (frais forfaitaires, email en queue)
-- Clés API dans variables d'environnement — jamais en dur dans le code ou YAML
+## Best practices
+- Always wrap API calls in a `try/catch` with logging
+- Explicit HTTP timeout (5s max) — never an indefinite block
+- Plan a fallback if the third-party API is unavailable (flat rate, queued email)
+- API keys in environment variables — never hardcoded in code or YAML
 
-## Livrables
-- Services PHP avec injection Guzzle HTTP client
-- Gestion d'erreurs + logging sur chaque appel API
-- Secrets externalisés (settings.php + env vars)
-- Tests PHPUnit avec mock HttpClient
+## Deliverables
+- PHP services with injected Guzzle HTTP client
+- Error handling + logging on every API call
+- Externalized secrets (settings.php + env vars)
+- PHPUnit tests with a mocked HttpClient
 
-## Format de sortie
-Précise : API tierce à intégrer · endpoint(s) concerné(s) · données échangées · comportement en cas d'erreur API · environnement (test/prod)
+## Output format
+Specify: third-party API to integrate · endpoint(s) involved · data exchanged · behavior on API error · environment (test/prod)
 
 ## Anti-patterns
-- ❌ **Clé API en dur ou en YAML versionné** : fuite de secret → variables d'environnement / module Key
-- ❌ **Appel API sans `try/catch` ni timeout** : blocage indéfini → timeout explicite (5 s) + gestion d'erreur
-- ❌ **Pas de fallback si l'API tierce est indisponible** : checkout/email cassé → tarif forfaitaire / file d'attente
-- ❌ **Webhook Stripe non vérifié** (signature) : risque de fraude → valider la signature du webhook
-- ❌ **Pas de mock HTTP dans les tests** : tests fragiles et lents → mock `ClientInterface`
-- ❌ **Logging absent sur les appels API** : incidents invisibles → logger chaque échec (PSR-3)
+- ❌ **API key hardcoded or in versioned YAML**: secret leak → environment variables / Key module
+- ❌ **API call without `try/catch` or timeout**: indefinite block → explicit timeout (5s) + error handling
+- ❌ **No fallback when the third-party API is down**: broken checkout/email → flat rate / queue
+- ❌ **Unverified Stripe webhook** (signature): fraud risk → validate the webhook signature
+- ❌ **No HTTP mock in tests**: fragile and slow tests → mock `ClientInterface`
+- ❌ **No logging on API calls**: invisible incidents → log every failure (PSR-3)
 
 ## Sources
 - **Stripe** — `drupal/commerce_stripe` + `stripe/stripe-php` — stripe.com/docs · **SendGrid** — `drupal/sendgrid_integration`
 - **Guzzle** (PSR-18 HTTP client) — docs.guzzlephp.org · **PSR-3** (logging) — php-fig.org
-- **Drupal Key** (gestion des secrets) — drupal.org/project/key · **Drupal 10/11**
+- **Drupal Key** (secret management) — drupal.org/project/key · **Drupal 10/11**
 
-## Voir aussi
-- [`drupal-commerce-checkout.md`](drupal-commerce-checkout.md) — paiement et emails par transition
-- [`drupal-module-custom.md`](drupal-module-custom.md) — services injectés (Guzzle, mailer)
-- [`drupal-tests-phpunit-behat.md`](drupal-tests-phpunit-behat.md) — tests avec mock HttpClient
-- [`drupal-config-yaml.md`](drupal-config-yaml.md) — externalisation des secrets
+## See also
+- [`drupal-commerce-checkout.md`](drupal-commerce-checkout.md) — payment and per-transition emails
+- [`drupal-module-custom.md`](drupal-module-custom.md) — injected services (Guzzle, mailer)
+- [`drupal-tests-phpunit-behat.md`](drupal-tests-phpunit-behat.md) — tests with a mocked HttpClient
+- [`drupal-config-yaml.md`](drupal-config-yaml.md) — secret externalization

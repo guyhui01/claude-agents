@@ -1,69 +1,69 @@
-# Skill — IA dans les Workflows de Développement
-> Certifications : Claude Code 101 (Anthropic 2026) · Claude Code in Action — Certified AI Workflow Engineer (Anthropic 2026) · GitHub Actions
+# Skill — AI in Development Workflows
+> Certifications: Claude Code 101 (Anthropic 2026) · Claude Code in Action — Certified AI Workflow Engineer (Anthropic 2026) · GitHub Actions
 
-## Objectif
-Intégrer l'IA générative dans les workflows de développement : Claude Code, GitHub Copilot, revue de code IA, génération de tests, documentation assistée — pour multiplier la productivité sans dégrader la qualité.
+## Objective
+Integrate generative AI into development workflows: Claude Code, GitHub Copilot, AI code review, test generation, assisted documentation — to multiply productivity without degrading quality.
 
-## Outils IA par phase du cycle de développement
+## AI tools by development-cycle phase
 
 ```
-PHASE               OUTIL IA                    USAGE CONCRET
+PHASE               AI TOOL                     CONCRETE USE
 ──────────────────  ──────────────────────────  ────────────────────────────────────────
-Analyse & Design    Claude (claude.ai/code)     Concevoir l'architecture, rédiger ADR
-                    ChatGPT / Gemini            Benchmarker des approches
+Analysis & Design   Claude (claude.ai/code)     Design the architecture, write ADRs
+                    ChatGPT / Gemini            Benchmark approaches
 
-Coding              Claude Code (CLI)           Implémenter features, refactoring, debug
-                    GitHub Copilot              Autocomplétion inline dans l'IDE
-                    Cursor                      IA dans l'éditeur (chat + inline)
+Coding              Claude Code (CLI)           Implement features, refactoring, debug
+                    GitHub Copilot              Inline autocomplete in the IDE
+                    Cursor                      AI in the editor (chat + inline)
 
-Tests               Claude Code                 Générer les tests unitaires depuis le code
-                    CodiumAI                    Tests automatiques basés sur le code
+Tests               Claude Code                 Generate unit tests from the code
+                    CodiumAI                    Automatic tests based on the code
 
-Code Review         Claude Code /review         Revue automatique des PRs
-                    GitHub Copilot PR Review    Suggestions inline sur les PRs
+Code Review         Claude Code /review         Automatic PR review
+                    GitHub Copilot PR Review    Inline suggestions on PRs
 
-Documentation       Claude Code                 Générer ADR, README, runbooks depuis le code
-                    Mintlify Doc Writer         Docstrings depuis les signatures
+Documentation       Claude Code                 Generate ADRs, READMEs, runbooks from the code
+                    Mintlify Doc Writer         Docstrings from signatures
 
-CI/CD               GitHub Actions + Claude     Analyse automatique des rapports de tests
-                    Sentry AI                   Résolution suggérée pour les erreurs
+CI/CD               GitHub Actions + Claude     Automatic analysis of test reports
+                    Sentry AI                   Suggested fix for errors
 ```
 
-## Claude Code — Skills essentiels Tech Lead
+## Claude Code — Essential Tech Lead skills
 
-Claude Code expose des **skills** (slash commands) invocables dans la session interactive :
+Claude Code exposes **skills** (slash commands) you can invoke in the interactive session:
 
 ```bash
-# Lancer Claude Code dans le repo
+# Launch Claude Code in the repo
 claude
 
-# Une fois dans la session, invoquer les skills built-in :
-/code-review                    # Revue du diff courant (correctness + simplifications)
-/code-review --fix              # Revue + applique les corrections au working tree
-/code-review --comment          # Poste les findings en commentaires PR
-/code-review ultra <PR#>        # Revue multi-agents cloud (Opus 4.8)
+# Once in the session, invoke the built-in skills:
+/code-review                    # Review the current diff (correctness + simplifications)
+/code-review --fix              # Review + apply fixes to the working tree
+/code-review --comment          # Post findings as PR comments
+/code-review ultra <PR#>        # Multi-agent cloud review (Opus 4.8)
 
-/simplify                       # Équivalent à /code-review --fix (refactor uniquement)
-/verify                         # Lance l'app, teste le comportement réel
-/security-review                # Audit sécurité du diff (OWASP, secrets, injections)
-/init                           # Crée le CLAUDE.md du projet
+/simplify                       # Equivalent to /code-review --fix (refactor only)
+/verify                         # Launch the app, test real behavior
+/security-review                # Security audit of the diff (OWASP, secrets, injections)
+/init                           # Create the project's CLAUDE.md
 ```
 
-Et en prompt libre, demander à Claude :
+And with a free-form prompt, ask Claude:
 
 ```
-Génère des tests Jest pour src/services/order.service.ts, couvre tous les cas d'erreur
-Refactore cette méthode pour réduire sa complexité cyclomatique à < 10
-Rédige un ADR pour la décision d'utiliser BullMQ comme queue de jobs
-Analyse la PR #142 (sécurité, perf, correctness) et liste les blockers
+Generate Jest tests for src/services/order.service.ts, cover all error cases
+Refactor this method to bring its cyclomatic complexity below 10
+Write an ADR for the decision to use BullMQ as the job queue
+Analyze PR #142 (security, perf, correctness) and list the blockers
 ```
 
-> ℹ️ Voir `claude --help` ou la liste des skills affichée en session (system reminders). Les skills sont définis dans `~/.claude/skills/*.md`.
+> ℹ️ See `claude --help` or the skills list shown in-session (system reminders). Skills are defined in `~/.claude/skills/*.md`.
 
-## Hooks Claude Code — Pre-commit automatisé
+## Claude Code hooks — Automated pre-commit
 
 ```json
-// .claude/settings.json — Hooks de vérification automatique
+// .claude/settings.json — Automatic verification hooks
 {
   "hooks": {
     "PreToolUse": [
@@ -71,7 +71,7 @@ Analyse la PR #142 (sécurité, perf, correctness) et liste les blockers
         "matcher": "Bash",
         "hooks": [{
           "type": "command",
-          "command": "echo 'Commande Bash détectée : vérification sécurité'",
+          "command": "echo 'Bash command detected: running security check'",
           "timeout": 5000
         }]
       }
@@ -90,7 +90,7 @@ Analyse la PR #142 (sécurité, perf, correctness) et liste les blockers
 }
 ```
 
-## GitHub Actions — Revue IA automatique sur PR
+## GitHub Actions — Automatic AI review on PR
 
 ```yaml
 # .github/workflows/ai-review.yml
@@ -127,24 +127,24 @@ jobs:
             --repo ${{ github.repository }}
 ```
 
-## Prompt Engineering pour la revue de code
+## Prompt engineering for code review
 
 ```python
 # scripts/ai_review.py
 import anthropic
 
-REVIEW_PROMPT = """Tu es un Tech Lead expert. Revois ce diff de code Pull Request.
+REVIEW_PROMPT = """You are an expert Tech Lead. Review this Pull Request code diff.
 
-Ton analyse doit couvrir :
-1. [MUST] Bugs potentiels et erreurs logiques
-2. [MUST] Problèmes de sécurité (OWASP Top 10)
-3. [SUGGEST] Améliorations de lisibilité et maintenabilité
-4. [NIT] Style et conventions (si pertinent)
+Your analysis must cover:
+1. [MUST] Potential bugs and logic errors
+2. [MUST] Security issues (OWASP Top 10)
+3. [SUGGEST] Readability and maintainability improvements
+4. [NIT] Style and conventions (when relevant)
 
-Sois concis. Si le code est bon, dis-le clairement.
-Maximum 10 commentaires. Chaque commentaire inclut le fichier et la ligne.
+Be concise. If the code is good, say so clearly.
+Maximum 10 comments. Each comment includes the file and the line.
 
-DIFF :
+DIFF:
 {diff}
 """
 
@@ -159,24 +159,24 @@ def review_pr(diff: str) -> str:
     return message.content[0].text
 ```
 
-## Bonnes pratiques IA en équipe dev
+## AI best practices in a dev team
 
 ```
-FAIRE ✅                                    NE PAS FAIRE ❌
+DO ✅                                       DON'T ❌
 ───────────────────────────────────────    ──────────────────────────────────────────────
-Revoir TOUT le code généré par IA          Copier-coller sans lire (ownership du dev)
-Utiliser l'IA pour les tests first         Laisser l'IA gérer les secrets ou credentials
-Documenter les prompts réutilisables       Pousser du code IA sans tests
-Former l'équipe aux bonnes pratiques       Utiliser l'IA sur des données client réelles
-Mesurer l'impact (vélocité, qualité)       Considérer l'IA comme infaillible
+Review ALL AI-generated code               Copy-paste without reading (dev keeps ownership)
+Use AI for tests first                      Let AI handle secrets or credentials
+Document reusable prompts                   Push AI code without tests
+Train the team on best practices            Run AI on real client data
+Measure the impact (velocity, quality)      Treat AI as infallible
 ```
 
-## Livrables
-- Guide d'intégration IA dans le workflow (équipe)
-- Prompts réutilisables pour revue, tests, docs (library)
-- Configuration hooks Claude Code (.claude/settings.json)
-- GitHub Action de revue IA automatique
-- Métriques d'adoption et d'impact (vélocité avant/après)
+## Deliverables
+- AI integration guide for the workflow (team)
+- Reusable prompts for review, tests, docs (library)
+- Claude Code hooks configuration (.claude/settings.json)
+- Automatic AI review GitHub Action
+- Adoption and impact metrics (velocity before/after)
 
-## Format de sortie
-Précise : **stack et IDE** (VS Code, JetBrains, terminal…), **phase prioritaire** (coding, tests, revue, docs), **taille équipe**, **contraintes** (données sensibles, conformité, budget API), **objectif** (gain productivité, qualité, onboarding).
+## Output format
+Specify: **stack and IDE** (VS Code, JetBrains, terminal…), **priority phase** (coding, tests, review, docs), **team size**, **constraints** (sensitive data, compliance, API budget), **goal** (productivity, quality, onboarding).

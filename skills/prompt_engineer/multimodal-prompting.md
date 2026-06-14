@@ -1,92 +1,92 @@
-# Skill — Prompts Multimodaux (Vision, Image, Audio)
-> Certifications : Anthropic Claude Code in Action (2026), Google Cloud Professional ML Engineer (Google)
+# Skill — Multimodal Prompts (Vision, Image, Audio)
+> Certifications: Anthropic Claude Code in Action (2026), Google Cloud Professional ML Engineer (Google)
 
-## Objectif
-Concevoir des prompts efficaces pour les capacités multimodales des LLM — analyse d'images, vision documents, interprétation de captures d'écran — pour exploiter les entrées non-textuelles dans les workflows agentiques.
+## Objective
+Design effective prompts for the multimodal capabilities of LLMs — image analysis, document vision, screenshot interpretation — to leverage non-textual inputs in agentic workflows.
 
-## Prompt Vision — Analyse d'image standard
+## Vision prompt — Standard image analysis
 
 ```
-Analyse l'image fournie et produis :
-1. [CE QU'ON VEUT EXTRAIRE — ex. liste des éléments UI]
-2. [SECOND ÉLÉMENT — ex. problèmes d'accessibilité]
-3. [TROISIÈME — ex. recommandations d'amélioration]
+Analyze the provided image and produce:
+1. [WHAT WE WANT TO EXTRACT — e.g. list of UI elements]
+2. [SECOND ELEMENT — e.g. accessibility issues]
+3. [THIRD — e.g. improvement recommendations]
 
-Format de sortie : [YAML / Tableau Markdown / Bullet points]
+Output format: [YAML / Markdown table / Bullet points]
 ```
 
-## Cas d'usage par domaine
+## Use cases by domain
 
-### UX / Maquettes
+### UX / Mockups
 ```
-Tu es un expert UX. Analyse cette maquette / wireframe et produis :
-1. Inventaire des composants UI (liste)
-2. Problèmes d'accessibilité WCAG identifiés
-3. Suggestions d'amélioration UX (max 3, actionnables)
+You are a UX expert. Analyze this mockup / wireframe and produce:
+1. Inventory of UI components (list)
+2. Identified WCAG accessibility issues
+3. UX improvement suggestions (max 3, actionable)
 
-Format : Tableau Markdown avec colonnes [Élément | Observation | Priorité]
+Format: Markdown table with columns [Element | Observation | Priority]
 ```
 
-### Documents / Tableaux
+### Documents / Tables
 ```
-Tu es un expert en extraction de données.
-Extrait toutes les informations de ce document / tableau au format JSON.
-Structure exacte attendue :
+You are a data extraction expert.
+Extract all the information from this document / table in JSON format.
+Exact expected structure:
 {
-  "titre": "...",
-  "colonnes": ["col1", "col2"],
-  "lignes": [{"col1": "...", "col2": "..."}],
-  "totaux": {}
+  "title": "...",
+  "columns": ["col1", "col2"],
+  "rows": [{"col1": "...", "col2": "..."}],
+  "totals": {}
 }
-Ne pas interpréter — extraire exactement ce qui est visible.
+Do not interpret — extract exactly what is visible.
 ```
 
-### Captures d'écran (debugging / code review)
+### Screenshots (debugging / code review)
 ```
-Analyse cette capture d'écran d'erreur / interface et :
-1. Identifie le problème visible
-2. Propose la cause probable
-3. Suggère 2 solutions concrètes
+Analyze this error / interface screenshot and:
+1. Identify the visible problem
+2. Suggest the probable cause
+3. Suggest 2 concrete solutions
 
-Contexte : [STACK TECH / CONTEXTE PROJET]
-```
-
-### Diagrammes d'architecture
-```
-Analyse ce diagramme d'architecture et décris :
-1. Les composants principaux et leurs rôles
-2. Les flux de données (entrants / sortants)
-3. Les points de défaillance potentiels (SPOF)
-4. Les améliorations recommandées
-
-Format : Section par section, vocabulaire technique précis.
+Context: [TECH STACK / PROJECT CONTEXT]
 ```
 
-## Bonnes pratiques
+### Architecture diagrams
+```
+Analyze this architecture diagram and describe:
+1. The main components and their roles
+2. The data flows (inbound / outbound)
+3. The potential points of failure (SPOF)
+4. The recommended improvements
+
+Format: Section by section, precise technical vocabulary.
+```
+
+## Best practices
 
 ```
-QUALITÉ IMAGE
+IMAGE QUALITY
 ────────────────────────────────────────────────────────────
-✓ Résolution suffisante (lisible)
-✓ Format : JPEG, PNG, WebP, GIF
-✓ Taille max : 5 MB par image (Claude)
-✓ Multiple images : jusqu'à 20 par message
+✓ Sufficient resolution (legible)
+✓ Format: JPEG, PNG, WebP, GIF
+✓ Max size: 5 MB per image (Claude)
+✓ Multiple images: up to 20 per message
 
 INSTRUCTIONS
 ────────────────────────────────────────────────────────────
-✓ Préciser ce qu'on cherche AVANT de fournir l'image
-✓ Indiquer le contexte (type de document, secteur)
-✓ Demander un format de sortie structuré
-✓ Si texte dans l'image : préciser la langue
+✓ Specify what you are looking for BEFORE providing the image
+✓ Indicate the context (document type, sector)
+✓ Request a structured output format
+✓ If there is text in the image: specify the language
 
-LIMITES À CONNAÎTRE
+LIMITS TO KNOW
 ────────────────────────────────────────────────────────────
-⚠ Texte manuscrit difficile à lire
-⚠ Résolution très faible → erreurs d'interprétation
-⚠ Données confidentielles (RH, financier) → anonymiser
+⚠ Handwritten text hard to read
+⚠ Very low resolution → interpretation errors
+⚠ Confidential data (HR, financial) → anonymize
 ```
 
-## Template API — Image en base64
+## API template — Image in base64
 
 ```typescript
 import fs from "fs";
@@ -111,7 +111,7 @@ const response = await client.messages.create({
         },
         {
           type: "text",
-          text: "Analyse ce wireframe et liste les composants UI présents.",
+          text: "Analyze this wireframe and list the UI components present.",
         },
       ],
     },
@@ -119,27 +119,27 @@ const response = await client.messages.create({
 });
 ```
 
-## Livrables
-- Templates prompts vision par cas d'usage (UX, documents, code, architecture)
-- Guide des limites et bonnes pratiques
-- Implémentation API base64 TypeScript
+## Deliverables
+- Vision prompt templates by use case (UX, documents, code, architecture)
+- Guide to limits and best practices
+- TypeScript base64 API implementation
 
-## Format de sortie
-Précise : type d'image (maquette / document / capture / diagramme), objectif de l'analyse, format de sortie attendu.
+## Output format
+Specify: image type (mockup / document / screenshot / diagram), analysis goal, expected output format.
 
 ## Anti-patterns
-- ❌ **Image basse résolution / texte manuscrit** : lecture peu fiable → résolution suffisante, OCR si besoin
-- ❌ **Données confidentielles** envoyées en image sans contrôle : risque RGPD → masquer/anonymiser
-- ❌ **Dépasser les limites** (> 5 Mo/image, > 20 images/message) : erreurs API → respecter les limites
-- ❌ **Demander d'inventer ce qui n'est pas visible** : hallucination → instruire « ne décris que le visible »
-- ❌ **Alt-text IA non revu** sur contenus critiques : accessibilité dégradée → revue humaine (WCAG 2.2)
+- ❌ **Low-resolution image / handwritten text**: unreliable reading → sufficient resolution, OCR if needed
+- ❌ **Confidential data** sent as an image without control: GDPR risk → mask/anonymize
+- ❌ **Exceeding the limits** (> 5 MB/image, > 20 images/message): API errors → respect the limits
+- ❌ **Asking to invent what is not visible**: hallucination → instruct "describe only what is visible"
+- ❌ **Unreviewed AI alt-text** on critical content: degraded accessibility → human review (WCAG 2.2)
 
 ## Sources
-- **Anthropic — Vision** (docs.anthropic.com/vision) : formats (JPEG/PNG/WebP/GIF), limites (≤ 5 Mo, ≤ 20 images), bonnes pratiques
-- **WCAG 2.2** — W3C (2023) — alternatives textuelles (alt-text généré)
+- **Anthropic — Vision** (docs.anthropic.com/vision): formats (JPEG/PNG/WebP/GIF), limits (≤ 5 MB, ≤ 20 images), best practices
+- **WCAG 2.2** — W3C (2023) — text alternatives (generated alt-text)
 
-## Voir aussi
-- [`system-prompt-design.md`](system-prompt-design.md) — cadrage du prompt vision
-- [`chain-of-thought.md`](chain-of-thought.md) — raisonnement sur une image complexe (diagramme)
-- [`../cms_digital/accessibilite-numerique.md`](../cms_digital/accessibilite-numerique.md) — alt-text et WCAG
-- [`../dam_expert/dam-augmente-ia.md`](../dam_expert/dam-augmente-ia.md) — auto-tagging/alt-text vision en DAM
+## See also
+- [`system-prompt-design.md`](system-prompt-design.md) — framing the vision prompt
+- [`chain-of-thought.md`](chain-of-thought.md) — reasoning over a complex image (diagram)
+- [`../cms_digital/accessibilite-numerique.md`](../cms_digital/accessibilite-numerique.md) — alt-text and WCAG
+- [`../dam_expert/dam-augmente-ia.md`](../dam_expert/dam-augmente-ia.md) — vision auto-tagging/alt-text in DAM

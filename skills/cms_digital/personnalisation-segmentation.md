@@ -1,50 +1,50 @@
-# Skill — Personnalisation et Segmentation CMS
-> Certifications : Adobe AEM Sites Developer · Sitecore XM Cloud Developer (Sitecore 2024)
+# Skill — CMS Personalization and Segmentation
+> Certifications: Adobe AEM Sites Developer · Sitecore XM Cloud Developer (Sitecore 2024)
 
-## Objectif
-Concevoir et implémenter des stratégies de personnalisation sur une plateforme CMS : segmentation des audiences, tests A/B, contenu dynamique, CDP — pour améliorer l'engagement et les taux de conversion.
+## Objective
+Design and implement personalization strategies on a CMS platform: audience segmentation, A/B testing, dynamic content, CDP — to improve engagement and conversion rates.
 
-## Niveaux de personnalisation
+## Personalization levels
 
 ```
-NIVEAU       DESCRIPTION                          EXEMPLES
+LEVEL        DESCRIPTION                          EXAMPLES
 ───────────  ───────────────────────────────────  ─────────────────────────────────
-Règles       Conditions statiques                 Pays, langue, device, heure
-manuelles    définies par les éditeurs            → Afficher promo FR uniquement
+Manual       Static conditions                    Country, language, device, time
+rules        defined by editors                   → Show FR promo only
 
-Segmentation Segments prédéfinis basés           Segment "Visiteur fidèle" = 3+ visites
-             sur comportement historique          → Afficher offre premium
+Segmentation Predefined segments based            "Loyal visitor" segment = 3+ visits
+             on historical behavior               → Show premium offer
 
-Tests A/B    Variante aléatoire mesurée          Titre A vs Titre B, CTA rouge vs vert
-             (optimisation basée sur données)    → Mesure taux de conversion
+A/B testing  Randomized variant, measured        Title A vs Title B, red vs green CTA
+             (data-driven optimization)          → Measure conversion rate
 
-IA / ML      Personnalisation 1:1 temps réel     Adobe Target, Optimizely IA
-             basée sur profil + contexte         → Reco produits individualisées
+AI / ML      Real-time 1:1 personalization       Adobe Target, Optimizely AI
+             based on profile + context          → Individualized product recs
 
-CDP-driven   Profil client unifié (CDP)          Salesforce CDP, Adobe RTCDP
-             synchronisé avec le CMS             → Email + Web + Mobile cohérents
+CDP-driven   Unified customer profile (CDP)      Salesforce CDP, Adobe RTCDP
+             synced with the CMS                 → Consistent Email + Web + Mobile
 ```
 
 ## AEM Targeting — Configuration
 
 ```xml
-<!-- Composant AEM ciblé (HTL) -->
+<!-- Targeted AEM component (HTL) -->
 <sly data-sly-use.target="com.day.cq.personalization.api.TargetComponent">
   <div data-sly-test="${target.enabled}">
-    <!-- Version personnalisée (Adobe Target) -->
+    <!-- Personalized version (Adobe Target) -->
     <sly data-sly-resource="${'target' @ resourceType='cq/personalization/components/target'}" />
   </div>
   <div data-sly-test="${!target.enabled}">
-    <!-- Version par défaut -->
+    <!-- Default version -->
     <h2>${properties.defaultTitle}</h2>
   </div>
 </sly>
 ```
 
-## Test A/B — Implémentation avec Optimizely
+## A/B test — Implementation with Optimizely
 
 ```typescript
-// Initialisation SDK Optimizely
+// Optimizely SDK initialization
 import { createInstance } from '@optimizely/optimizely-sdk'
 
 const optimizely = createInstance({
@@ -52,7 +52,7 @@ const optimizely = createInstance({
   datafileOptions: { autoUpdate: true, updateInterval: 30000 }
 })
 
-// Déterminer la variante pour un utilisateur
+// Determine the variant for a user
 export function getVariant(userId: string, experimentKey: string): string {
   const userContext = optimizely.createUserContext(userId, {
     device: 'mobile',
@@ -64,76 +64,76 @@ export function getVariant(userId: string, experimentKey: string): string {
   return decision.variationKey ?? 'control'
 }
 
-// Enregistrer une conversion
+// Track a conversion
 export function trackConversion(userId: string, eventKey: string): void {
   const userContext = optimizely.createUserContext(userId)
   userContext.trackEvent(eventKey)
 }
 ```
 
-## Segmentation — Modèle de données
+## Segmentation — Data model
 
 ```
-SEGMENT              CRITÈRES DE DÉFINITION           CONTENU PERSONNALISÉ
+SEGMENT              DEFINITION CRITERIA              PERSONALIZED CONTENT
 ───────────────────  ──────────────────────────────── ────────────────────────────────
-Nouveau visiteur     0 visite précédente              Bannière accueil + guide démarrage
-Visiteur récurrent   ≥ 3 visites, < 30j inactif       "Bienvenue à nouveau" + contenu chaud
-Client actif         Identifié + achat < 90j           Reco cross-sell basée historique
-Client dormant       Identifié + pas d'achat > 90j     Offre réactivation
-Lead qualifié        Score lead ≥ 70 (scoring CRM)     Contenu produit approfondi + démo
-Professionnel        Champ "Type = B2B" en session      Tarification pro + cas clients secteur
+New visitor          0 previous visits                Welcome banner + getting-started guide
+Returning visitor    ≥ 3 visits, < 30d inactive       "Welcome back" + hot content
+Active customer      Identified + purchase < 90d       History-based cross-sell recs
+Dormant customer     Identified + no purchase > 90d    Reactivation offer
+Qualified lead       Lead score ≥ 70 (CRM scoring)     In-depth product content + demo
+Professional         Field "Type = B2B" in session     Pro pricing + sector case studies
 ```
 
-## CDP → CMS — Flux de personnalisation temps réel
+## CDP → CMS — Real-time personalization flow
 
 ```
 CDP (Adobe RTCDP)          CMS (AEM / Headless)          Frontend
 ──────────────────         ──────────────────────        ───────────────────
-Profil unifié utilisateur ─▶ Segment API call            ─▶ Contenu personnalisé
-(web + email + app)          GET /api/personalization        affiché
+Unified user profile      ─▶ Segment API call            ─▶ Personalized content
+(web + email + app)          GET /api/personalization        displayed
                              ?userId=abc123
-                          ◀─ Retour segments actifs      ◀─ Mesure interaction
-                             ["vip", "churning",             → feedback CDP
+                          ◀─ Active segments returned    ◀─ Interaction measurement
+                             ["vip", "churning",             → CDP feedback
                               "interested_in_ai"]
 ```
 
-## Métriques de personnalisation
+## Personalization metrics
 
 ```
-KPI                     FORMULE                             CIBLE
+KPI                     FORMULA                             TARGET
 ──────────────────────  ──────────────────────────────────  ────────
-Taux de lift            (Conv. segment - Conv. base) / base  > +15%
-CTR personnalisé        Clics contenu perso / Impressions    > 3x base
-Revenue per visitor     CA / Visiteurs uniques (segment)     + 20% vs défaut
-Engagement score        Pages vues × Durée × Actions         Trending up
+Lift rate               (Segment conv. - Base conv.) / base  > +15%
+Personalized CTR        Personalized content clicks / Impr.  > 3x base
+Revenue per visitor     Revenue / Unique visitors (segment)  +20% vs default
+Engagement score        Page views × Duration × Actions      Trending up
 ```
 
-## Livrables
-- Stratégie de personnalisation (niveaux, segments, contenu)
-- Configuration de l'outil de personnalisation (Adobe Target, Optimizely)
-- Plan de tests A/B (hypothèses, KPIs, durée, taille échantillon)
-- Documentation des segments (critères + contenu associé)
-- Dashboard de suivi (taux de lift, conversions par segment)
-- Guide éditeur (créer et publier des variantes de contenu)
+## Deliverables
+- Personalization strategy (levels, segments, content)
+- Personalization tool configuration (Adobe Target, Optimizely)
+- A/B test plan (hypotheses, KPIs, duration, sample size)
+- Segment documentation (criteria + associated content)
+- Tracking dashboard (lift rate, conversions per segment)
+- Editor guide (create and publish content variants)
 
-## Format de sortie
-Précise : **CMS et outil de perso** (Adobe Target, Optimizely, Sitecore XM…), **maturité** (tests A/B simples vs ML 1:1), **données disponibles** (cookie only, CDP, CRM…), **contraintes RGPD** (consentement, durée rétention), **KPI prioritaire** (conversion, engagement, rétention).
+## Output format
+Specify: **CMS and personalization tool** (Adobe Target, Optimizely, Sitecore XM…), **maturity** (simple A/B tests vs ML 1:1), **available data** (cookie only, CDP, CRM…), **GDPR constraints** (consent, retention period), **priority KPI** (conversion, engagement, retention).
 
 ## Anti-patterns
-- ❌ **Personnaliser sans consentement** (RGPD / ePrivacy) : traceurs déposés sans base légale → CMP + consentement préalable
-- ❌ **A/B test arrêté avant significativité statistique** : faux gagnants → taille d'échantillon + durée calculées
-- ❌ **Sur-segmentation** (segments trop petits) : aucun signal exploitable → segments suffisamment volumineux
-- ❌ **Personnalisation sans mesure de lift** vs groupe de contrôle : impossible de prouver la valeur → toujours un contrôle
-- ❌ **Cookie-only sans CDP** : profils fragmentés entre canaux → identité unifiée (CDP)
-- ❌ **Pas de fallback** pour les segments non couverts : contenu vide → version par défaut systématique
+- ❌ **Personalizing without consent** (GDPR / ePrivacy): trackers dropped with no legal basis → CMP + prior consent
+- ❌ **A/B test stopped before statistical significance**: false winners → calculated sample size + duration
+- ❌ **Over-segmentation** (segments too small): no usable signal → sufficiently large segments
+- ❌ **Personalization without lift measurement** vs a control group: impossible to prove value → always a control
+- ❌ **Cookie-only without a CDP**: profiles fragmented across channels → unified identity (CDP)
+- ❌ **No fallback** for uncovered segments: empty content → systematic default version
 
 ## Sources
 - **Adobe Target / Real-Time CDP** — experienceleague.adobe.com · **Optimizely** — docs.developers.optimizely.com · **Sitecore XM Cloud** — sitecore.com
-- **RGPD** (UE 2016/679) + **directive ePrivacy** (consentement traceurs) — eur-lex.europa.eu · **CNIL** (lignes directrices cookies) — cnil.fr
-- **A/B testing** — significativité statistique (p-value, puissance, taille d'échantillon) — Kohavi et al., *Trustworthy Online Controlled Experiments* (2020)
+- **GDPR** (EU 2016/679) + **ePrivacy directive** (tracker consent) — eur-lex.europa.eu · **CNIL** (cookie guidelines) — cnil.fr
+- **A/B testing** — statistical significance (p-value, power, sample size) — Kohavi et al., *Trustworthy Online Controlled Experiments* (2020)
 
-## Voir aussi
-- [`architecture-cms.md`](architecture-cms.md) — intégration CDP dans l'architecture
-- [`gouvernance-editoriale.md`](gouvernance-editoriale.md) — gestion des variantes de contenu
-- [`../juridique_ia/rgpd-ia.md`](../juridique_ia/rgpd-ia.md) — conformité RGPD/consentement
-- [`../scrum/product-vision.md`](../scrum/product-vision.md) — métriques d'engagement (AARRR/HEART)
+## See also
+- [`architecture-cms.md`](architecture-cms.md) — CDP integration in the architecture
+- [`gouvernance-editoriale.md`](gouvernance-editoriale.md) — managing content variants
+- [`../juridique_ia/rgpd-ia.md`](../juridique_ia/rgpd-ia.md) — GDPR/consent compliance
+- [`../scrum/product-vision.md`](../scrum/product-vision.md) — engagement metrics (AARRR/HEART)

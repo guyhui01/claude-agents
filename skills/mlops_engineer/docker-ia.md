@@ -1,12 +1,12 @@
-# Skill — Docker pour l'IA
-> Certifications : Docker Certified Associate (DCA)
+# Skill — Docker for AI
+> Certifications: Docker Certified Associate (DCA)
 
-## Objectif
-Containeriser des services IA avec support GPU, images optimisées et builds reproductibles.
+## Objective
+Containerize AI services with GPU support, optimized images and reproducible builds.
 
-## Dockerfile optimisé pour Python IA
+## Optimized Dockerfile for Python AI
 ```dockerfile
-# Multi-stage build pour réduire la taille finale
+# Multi-stage build to reduce the final size
 FROM python:3.11-slim AS builder
 WORKDIR /app
 COPY requirements.txt .
@@ -14,7 +14,7 @@ RUN pip install --no-cache-dir --user -r requirements.txt
 
 FROM python:3.11-slim AS runtime
 WORKDIR /app
-# Copier seulement les dépendances installées
+# Copy only the installed dependencies
 COPY --from=builder /root/.local /root/.local
 COPY . .
 ENV PATH=/root/.local/bin:$PATH
@@ -23,7 +23,7 @@ EXPOSE 8000
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
 
-## Dockerfile avec support GPU (CUDA)
+## Dockerfile with GPU support (CUDA)
 ```dockerfile
 FROM nvidia/cuda:12.3-cudnn8-runtime-ubuntu22.04
 RUN apt-get update && apt-get install -y python3.11 python3-pip && rm -rf /var/lib/apt/lists/*
@@ -35,7 +35,7 @@ COPY . .
 CMD ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0"]
 ```
 
-## docker-compose pour stack IA locale
+## docker-compose for a local AI stack
 ```yaml
 services:
   api:
@@ -69,17 +69,17 @@ volumes:
   qdrant_data:
 ```
 
-## Optimisations taille d'image
-- Base `slim` ou `alpine` plutôt que `full`
+## Image-size optimizations
+- `slim` or `alpine` base rather than `full`
 - Multi-stage builds
-- `.dockerignore` : exclure `.git`, `__pycache__`, `*.pyc`, `tests/`, `docs/`
-- Éviter `pip install` en root (utiliser `--user`)
+- `.dockerignore`: exclude `.git`, `__pycache__`, `*.pyc`, `tests/`, `docs/`
+- Avoid `pip install` as root (use `--user`)
 
-## Livrables
-- Dockerfile multi-stage optimisé
-- docker-compose.yml pour la stack locale
-- .dockerignore configuré
-- Documentation des variables d'environnement
+## Deliverables
+- Optimized multi-stage Dockerfile
+- docker-compose.yml for the local stack
+- Configured .dockerignore
+- Environment variables documentation
 
-## Format de sortie
-Précise : type de service (API, worker, notebook) · GPU requis · services dépendants · taille cible de l'image
+## Output format
+Specify: service type (API, worker, notebook) · GPU required · dependent services · target image size

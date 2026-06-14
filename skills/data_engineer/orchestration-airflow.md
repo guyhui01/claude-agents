@@ -1,21 +1,21 @@
-# Skill — Orchestration de Pipelines & Apache Airflow
-> Certifications : Google PDE · Databricks Data Engineer Associate · AWS DEA-C01
+# Skill — Pipeline Orchestration & Apache Airflow
+> Certifications: Google PDE · Databricks Data Engineer Associate · AWS DEA-C01
 
-## Objectif
-Orchestrer, monitorer et maintenir des pipelines de données complexes avec Apache Airflow ou les équivalents cloud (Cloud Composer, MWAA, Astronomer).
+## Objective
+Orchestrate, monitor and maintain complex data pipelines with Apache Airflow or the cloud equivalents (Cloud Composer, MWAA, Astronomer).
 
-## Concepts Airflow
+## Airflow concepts
 ```
-DAG (Directed Acyclic Graph) → Pipeline de tâches ordonnées
-Task / Operator              → Unité de travail
-Scheduler                    → Planificateur (cron-like)
-Executor                     → Moteur d'exécution (Local, Celery, K8s)
-XCom                         → Communication entre tâches
-Connection                   → Credentials vers services externes
-Variable                     → Paramètres globaux du DAG
+DAG (Directed Acyclic Graph) → Pipeline of ordered tasks
+Task / Operator              → Unit of work
+Scheduler                    → Scheduler (cron-like)
+Executor                     → Execution engine (Local, Celery, K8s)
+XCom                         → Communication between tasks
+Connection                   → Credentials to external services
+Variable                     → Global DAG parameters
 ```
 
-## DAG professionnel — bonnes pratiques
+## Professional DAG — best practices
 ```python
 from airflow import DAG
 from airflow.operators.python import PythonOperator, BranchPythonOperator
@@ -32,21 +32,21 @@ default_args = {
     'retry_exponential_backoff': True,
     'email_on_failure': True,
     'email': ['data-alerts@company.com'],
-    'sla': timedelta(hours=2)  # Alerte si dépasse 2h
+    'sla': timedelta(hours=2)  # Alert if it exceeds 2h
 }
 
 with DAG(
-    dag_id='pipeline_clients_daily',
+    dag_id='pipeline_customers_daily',
     default_args=default_args,
-    description='Pipeline ingestion clients quotidien',
+    description='Daily customer ingestion pipeline',
     schedule_interval='0 3 * * *',
     start_date=datetime(2026, 1, 1),
     catchup=False,
-    tags=['production', 'clients', 'daily'],
+    tags=['production', 'customers', 'daily'],
     doc_md="""
-    ## Pipeline Clients Quotidien
-    Ingère et transforme les données clients depuis Salesforce.
-    SLA: 5h00 chaque matin.
+    ## Daily Customer Pipeline
+    Ingests and transforms customer data from Salesforce.
+    SLA: 5:00 a.m. each morning.
     """
 ) as dag:
 
@@ -66,11 +66,11 @@ with DAG(
     with TaskGroup("transformation") as tg_transform:
         run_dbt = BashOperator(
             task_id='dbt_run',
-            bash_command='dbt run --select marts.clients --profiles-dir /app/dbt'
+            bash_command='dbt run --select marts.customers --profiles-dir /app/dbt'
         )
         test_dbt = BashOperator(
             task_id='dbt_test',
-            bash_command='dbt test --select marts.clients --profiles-dir /app/dbt'
+            bash_command='dbt test --select marts.customers --profiles-dir /app/dbt'
         )
         run_dbt >> test_dbt
 
@@ -82,25 +82,25 @@ with DAG(
     start >> tg_extract >> tg_transform >> notify_success >> end
 ```
 
-## Sensors — attendre une condition
+## Sensors — wait for a condition
 ```python
 from airflow.sensors.filesystem import FileSensor
 from airflow.providers.google.cloud.sensors.gcs import GCSObjectExistenceSensor
 
-# Attendre un fichier sur GCS
+# Wait for a file on GCS
 wait_for_file = GCSObjectExistenceSensor(
     task_id='wait_for_export',
     bucket='data-landing',
-    object='exports/clients_{{ ds }}.parquet',
-    poke_interval=300,   # Vérifier toutes les 5 min
-    timeout=3600,        # Timeout après 1h
-    mode='reschedule'    # Libérer le worker entre les vérifications
+    object='exports/customers_{{ ds }}.parquet',
+    poke_interval=300,   # Check every 5 min
+    timeout=3600,        # Timeout after 1h
+    mode='reschedule'    # Release the worker between checks
 )
 ```
 
-## Monitoring et alertes
+## Monitoring and alerts
 ```python
-# Callback sur failure
+# Failure callback
 def on_failure_callback(context):
     task_instance = context['task_instance']
     send_slack_message(
@@ -113,11 +113,11 @@ def on_failure_callback(context):
 default_args['on_failure_callback'] = on_failure_callback
 ```
 
-## Livrables
-- DAG documenté avec TaskGroups et SLA
-- Tests de DAG (pytest + pytest-airflow)
-- Runbook opérationnel (incidents, re-run, debug)
-- Dashboard de monitoring (succès/échecs, durée)
+## Deliverables
+- Documented DAG with TaskGroups and SLA
+- DAG tests (pytest + pytest-airflow)
+- Operational runbook (incidents, re-run, debug)
+- Monitoring dashboard (successes/failures, duration)
 
-## Format de sortie
-Précise : nombre de pipelines · fréquence · sources/destinations · dépendances entre DAGs · environnement Airflow (self-hosted, Cloud Composer, Astronomer)
+## Output format
+Specify: number of pipelines · frequency · sources/destinations · dependencies between DAGs · Airflow environment (self-hosted, Cloud Composer, Astronomer)

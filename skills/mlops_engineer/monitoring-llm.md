@@ -1,36 +1,36 @@
-# Skill — Monitoring LLM en Production
-> Certifications : Databricks Certified ML Professional · AWS DevOps Engineer
-> Référentiels : OWASP Top 10 for LLM Applications v2 (2024) · NIST AI RMF 1.0 (Govern/Map/Measure/Manage, 2023) · Google SRE Book (SLI/SLO/SLA, Beyer et al. O'Reilly 2016)
+# Skill — LLM Monitoring in Production
+> Certifications: Databricks Certified ML Professional · AWS DevOps Engineer
+> Frameworks: OWASP Top 10 for LLM Applications v2 (2024) · NIST AI RMF 1.0 (Govern/Map/Measure/Manage, 2023) · Google SRE Book (SLI/SLO/SLA, Beyer et al. O'Reilly 2016)
 
-## Objectif
-Observer, alerter et améliorer en continu la **performance, qualité et sécurité** d'un LLM en production — incluant la détection des vulnérabilités OWASP LLM Top 10 et le pilotage SLI/SLO conformément aux pratiques SRE.
+## Objective
+Continuously observe, alert on and improve the **performance, quality and security** of an LLM in production — including detection of OWASP LLM Top 10 vulnerabilities and SLI/SLO steering in line with SRE practices.
 
-## Dimensions du monitoring LLM
+## LLM monitoring dimensions
 
-### 1. Performance technique
-- **Latence** : p50, p95, p99 (objectif : p95 < 3s pour les requêtes courtes)
-- **Throughput** : requêtes/minute, tokens/seconde
-- **Disponibilité** : uptime, taux d'erreur API (RateLimitError, TimeoutError)
-- **Coût** : tokens consommés × prix, coût par conversation
+### 1. Technical performance
+- **Latency**: p50, p95, p99 (target: p95 < 3s for short requests)
+- **Throughput**: requests/minute, tokens/second
+- **Availability**: uptime, API error rate (RateLimitError, TimeoutError)
+- **Cost**: tokens consumed × price, cost per conversation
 
-### 2. Qualité des réponses
-- **Hallucination rate** : % de réponses non ancrées dans les sources
-- **Toxicity** : détection de contenu nuisible
-- **Relevance** : pertinence de la réponse par rapport à la requête
-- **User feedback** : thumbs up/down, corrections explicites
+### 2. Response quality
+- **Hallucination rate**: % of answers not grounded in the sources
+- **Toxicity**: harmful-content detection
+- **Relevance**: relevance of the answer to the request
+- **User feedback**: thumbs up/down, explicit corrections
 
-### 3. Drift de distribution
-- **Topic drift** : les sujets des requêtes changent-ils ?
-- **Embedding drift** : les requêtes s'éloignent-elles du domaine d'entraînement ?
+### 3. Distribution drift
+- **Topic drift**: are the request topics changing?
+- **Embedding drift**: are requests moving away from the training domain?
 
-## Langfuse — Setup et instrumentation
+## Langfuse — Setup and instrumentation
 ```python
 from langfuse import Langfuse
 from langfuse.decorators import observe, langfuse_context
 
 langfuse = Langfuse(public_key="...", secret_key="...", host="https://cloud.langfuse.com")
 
-@observe()  # Trace automatique de la fonction
+@observe()  # Automatic tracing of the function
 async def rag_pipeline(query: str) -> str:
     langfuse_context.update_current_observation(
         input=query,
@@ -44,53 +44,53 @@ async def rag_pipeline(query: str) -> str:
     return result["answer"]
 ```
 
-## Alertes (exemple avec Grafana)
+## Alerts (example with Grafana)
 ```yaml
-# Alerte si latence p95 > 5s sur 5 minutes
+# Alert if p95 latency > 5s over 5 minutes
 - alert: LLMHighLatency
   expr: histogram_quantile(0.95, llm_request_duration_seconds_bucket) > 5
   for: 5m
   annotations:
-    summary: "LLM latence élevée détectée"
+    summary: "High LLM latency detected"
 
-# Alerte si taux d'erreur > 5%
+# Alert if error rate > 5%
 - alert: LLMHighErrorRate
   expr: rate(llm_requests_total{status="error"}[5m]) / rate(llm_requests_total[5m]) > 0.05
 ```
 
 ## Feedback loop
 ```python
-# Collecter le feedback utilisateur et l'envoyer à Langfuse
+# Collect user feedback and send it to Langfuse
 async def submit_feedback(trace_id: str, score: Literal[0, 1], comment: str = ""):
     langfuse.score(trace_id=trace_id, name="user_feedback",
                    value=score, comment=comment)
-    # Stocker dans une DB pour fine-tuning futur
+    # Store in a DB for future fine-tuning
     await db.feedback.insert({"trace_id": trace_id, "score": score, "comment": comment})
 ```
 
-## Sécurité LLM — OWASP Top 10 for LLM Applications v2 (2024)
+## LLM security — OWASP Top 10 for LLM Applications v2 (2024)
 
-Référentiel sécurité critique pour applications LLM en production. Chaque catégorie doit être instrumentée et alertée dans le monitoring.
+Critical security framework for production LLM applications. Each category must be instrumented and alerted in the monitoring.
 
-| ID | Vulnérabilité | Détection / monitoring | Mitigation |
+| ID | Vulnerability | Detection / monitoring | Mitigation |
 |---|---|---|---|
-| **LLM01** | Prompt Injection (direct/indirect) | Patterns suspects dans prompts user (commandes d'override, instructions inverses), drift sémantique input vs domaine attendu | Filtrage input + system prompt verrouillé + Constitutional AI |
-| **LLM02** | Sensitive Information Disclosure | Détection PII en outputs (regex emails/numéros + classifier PII), tokens "system prompt" leaké | Output filtering + tokenization secrets + DLP rules |
-| **LLM03** | Supply Chain | Vérification provenance modèles (HuggingFace model card, hash SHA256), version pinning SDK Anthropic/OpenAI | SBOM ML + dependency scanning + model registry signé |
-| **LLM04** | Data and Model Poisoning | Drift d'embeddings, anomalies dans distribution training data, performance dégradée sur évals | Validation pipeline RAG, datasheet for datasets (Gebru 2021) |
-| **LLM05** | Improper Output Handling | XSS / SQL injection via outputs LLM (markdown rendu, code exécuté), commandes shell générées | Escaping output + sandboxing tool use + content security policy |
-| **LLM06** | Excessive Agency | Tool use sans validation humaine sur actions sensibles (suppression, transactions), agents en boucle | Human-in-the-loop (HITL) + permission scoping + maxSteps limites |
-| **LLM07** | System Prompt Leakage | Détection si system prompt apparaît en output (regex sur fragments connus) | Prompt obfuscation + alertes leak |
-| **LLM08** | Vector and Embedding Weaknesses | Cross-tenant data leak via embeddings partagés, jailbreak via embeddings adversariaux | Isolation RAG par tenant + audit access patterns |
-| **LLM09** | Misinformation | Hallucination rate (factuality score FActScore Min et al. 2023, TruthfulQA Lin et al. 2022) | RAG avec citations sources + confidence scoring + warning UI |
-| **LLM10** | Unbounded Consumption | Coût/requête anormal, attaques DoS via prompts massifs, infinite loops d'agents | Rate limiting per user + token budget + circuit breaker |
+| **LLM01** | Prompt Injection (direct/indirect) | Suspicious patterns in user prompts (override commands, reversed instructions), semantic input drift vs expected domain | Input filtering + locked system prompt + Constitutional AI |
+| **LLM02** | Sensitive Information Disclosure | PII detection in outputs (email/number regex + PII classifier), leaked "system prompt" tokens | Output filtering + secret tokenization + DLP rules |
+| **LLM03** | Supply Chain | Model provenance verification (HuggingFace model card, SHA256 hash), Anthropic/OpenAI SDK version pinning | ML SBOM + dependency scanning + signed model registry |
+| **LLM04** | Data and Model Poisoning | Embedding drift, anomalies in training-data distribution, degraded eval performance | RAG validation pipeline, datasheet for datasets (Gebru 2021) |
+| **LLM05** | Improper Output Handling | XSS / SQL injection via LLM outputs (rendered markdown, executed code), generated shell commands | Output escaping + tool-use sandboxing + content security policy |
+| **LLM06** | Excessive Agency | Tool use without human validation on sensitive actions (deletion, transactions), looping agents | Human-in-the-loop (HITL) + permission scoping + maxSteps limits |
+| **LLM07** | System Prompt Leakage | Detection if the system prompt appears in output (regex on known fragments) | Prompt obfuscation + leak alerts |
+| **LLM08** | Vector and Embedding Weaknesses | Cross-tenant data leak via shared embeddings, jailbreak via adversarial embeddings | Per-tenant RAG isolation + access-pattern audit |
+| **LLM09** | Misinformation | Hallucination rate (FActScore factuality score, Min et al. 2023, TruthfulQA Lin et al. 2022) | RAG with source citations + confidence scoring + warning UI |
+| **LLM10** | Unbounded Consumption | Abnormal cost/request, DoS attacks via massive prompts, infinite agent loops | Per-user rate limiting + token budget + circuit breaker |
 
-**Instrumentation Langfuse pour OWASP LLM Top 10** :
+**Langfuse instrumentation for the OWASP LLM Top 10**:
 ```python
-# Exemple : détection prompt injection (LLM01) + monitoring sécurité
+# Example: prompt-injection detection (LLM01) + security monitoring
 @observe()
 async def secured_llm_pipeline(query: str, user_id: str) -> str:
-    # 1. Detection prompt injection patterns (LLM01)
+    # 1. Detect prompt-injection patterns (LLM01)
     injection_score = await detect_injection_patterns(query)
     langfuse_context.update_current_observation(
         metadata={"security": {"injection_score": injection_score, "user_id": user_id}}
@@ -98,9 +98,9 @@ async def secured_llm_pipeline(query: str, user_id: str) -> str:
     if injection_score > 0.8:
         langfuse.score(trace_id=..., name="security_alert", value=1,
                        comment="LLM01 prompt injection detected")
-        return "Requête non traitée — patterns suspects détectés"
+        return "Request not processed — suspicious patterns detected"
 
-    # 2. PII detection en output (LLM02)
+    # 2. PII detection in output (LLM02)
     result = await chain.ainvoke({"query": query})
     pii_detected = await scan_output_pii(result["answer"])
     if pii_detected:
@@ -110,46 +110,46 @@ async def secured_llm_pipeline(query: str, user_id: str) -> str:
     return result["answer"]
 ```
 
-## SLI / SLO formalisés (Google SRE)
+## Formalized SLI / SLO (Google SRE)
 
-Chaque dimension monitoring doit avoir un **SLI mesuré** et un **SLO cible** documenté :
+Each monitoring dimension must have a **measured SLI** and a documented **target SLO**:
 
-| SLI (indicateur) | SLO (objectif) | Conséquence si dépassé |
+| SLI (indicator) | SLO (target) | Consequence if exceeded |
 |---|---|---|
-| `availability_5xx_rate` | < 0.1% / 30 jours (99.9% uptime) | Page oncall, postmortem |
-| `latency_p95` requêtes courtes | < 3000 ms | Alerte WARNING |
-| `latency_p99` requêtes longues | < 10000 ms | Alerte WARNING |
-| `hallucination_rate` | < 2% / semaine glissante (FActScore) | Review modèle + RAG |
-| `injection_detection_rate` (LLM01) | > 95% true positive | Mise à jour patterns |
-| `pii_leak_rate` (LLM02) | < 0.01% des réponses | Investigation urgente |
-| `cost_per_conversation` | < cible budgétaire produit | Alerte FinOps |
-| `user_feedback_thumbsup_rate` | > 80% | Itération prompts/RAG |
+| `availability_5xx_rate` | < 0.1% / 30 days (99.9% uptime) | Page oncall, postmortem |
+| `latency_p95` short requests | < 3000 ms | WARNING alert |
+| `latency_p99` long requests | < 10000 ms | WARNING alert |
+| `hallucination_rate` | < 2% / rolling week (FActScore) | Model + RAG review |
+| `injection_detection_rate` (LLM01) | > 95% true positive | Pattern update |
+| `pii_leak_rate` (LLM02) | < 0.01% of responses | Urgent investigation |
+| `cost_per_conversation` | < product budget target | FinOps alert |
+| `user_feedback_thumbsup_rate` | > 80% | Prompt/RAG iteration |
 
-**Error budget** : 30 jours × (1 - SLO availability) = budget downtime acceptable. Au-delà → freeze releases + remédiation.
+**Error budget**: 30 days × (1 - availability SLO) = acceptable downtime budget. Beyond that → freeze releases + remediation.
 
-## Anti-patterns monitoring LLM
+## LLM monitoring anti-patterns
 
-- ❌ **Pas d'instrumentation OWASP LLM Top 10** = exposition régulatoire (AI Act art. 9 risk management) et risque sécurité majeur
-- ❌ **Monitoring qualité sans benchmark** (no FActScore, TruthfulQA, RAGAS) = détection hallucination au feeling
-- ❌ **SLOs implicites** ("p95 doit être bas") = pas de chiffre cible, pas d'error budget
-- ❌ **Pas de circuit breaker coût** (LLM10) = facture Anthropic surprise en cas de DoS ou boucle agent
-- ❌ **Logs sans correlation_id** = impossible de tracer une requête utilisateur à travers RAG/tools/LLM
+- ❌ **No OWASP LLM Top 10 instrumentation** = regulatory exposure (AI Act art. 9 risk management) and major security risk
+- ❌ **Quality monitoring without a benchmark** (no FActScore, TruthfulQA, RAGAS) = hallucination detection by gut feeling
+- ❌ **Implicit SLOs** ("p95 should be low") = no target figure, no error budget
+- ❌ **No cost circuit breaker** (LLM10) = a surprise Anthropic bill on a DoS or agent loop
+- ❌ **Logs without a correlation_id** = impossible to trace a user request across RAG/tools/LLM
 
-## Livrables
-- Dashboard monitoring (latence, coût, qualité, **sécurité OWASP LLM Top 10**)
-- Alertes configurées (latence, erreurs, coût, **prompt injection, PII leak, hallucination**)
-- Pipeline de feedback utilisateur
-- Rapport hebdomadaire qualité LLM
-- **SLI/SLO documentés** avec error budget mensuel
-- **Runbook incidents sécurité LLM** (OWASP LLM01-10)
+## Deliverables
+- Monitoring dashboard (latency, cost, quality, **OWASP LLM Top 10 security**)
+- Configured alerts (latency, errors, cost, **prompt injection, PII leak, hallucination**)
+- User feedback pipeline
+- Weekly LLM quality report
+- **Documented SLI/SLO** with a monthly error budget
+- **LLM security incident runbook** (OWASP LLM01-10)
 
 ## Sources
 
 - OWASP Top 10 for LLM Applications v2 (2024) — genai.owasp.org
-- NIST AI Risk Management Framework 1.0 (jan. 2023) — nist.gov/itl/ai-risk-management-framework
+- NIST AI Risk Management Framework 1.0 (Jan. 2023) — nist.gov/itl/ai-risk-management-framework
 - Beyer et al. *Site Reliability Engineering* (Google / O'Reilly 2016) — sre.google
 - Min et al. *FActScore* (EMNLP 2023) — arxiv 2305.14251
 - Lin, Hilton, Evans *TruthfulQA* (ACL 2022) — arxiv 2109.07958
 
-## Format de sortie
-Précise : stack monitoring (Langfuse, LangSmith, Grafana) · volume de requêtes · SLOs définis · budget alerting · **couverture OWASP LLM Top 10 obligatoire**
+## Output format
+Specify: monitoring stack (Langfuse, LangSmith, Grafana) · request volume · defined SLOs · alerting budget · **OWASP LLM Top 10 coverage mandatory**

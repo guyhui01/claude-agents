@@ -1,198 +1,198 @@
-# Skill — Incident Response pour Systèmes LLM en Production
+# Skill — Incident Response for Production LLM Systems
 
-> Certifications : CKA · AWS DevOps Engineer Professional (DOP-C02) · ITIL 4 Foundation · Google Professional DevOps Engineer · Anthropic Claude Code in Action (2026)
+> Certifications: CKA · AWS DevOps Engineer Professional (DOP-C02) · ITIL 4 Foundation · Google Professional DevOps Engineer · Anthropic Claude Code in Action (2026)
 
-## Objectif
+## Objective
 
-Gérer les incidents spécifiques aux systèmes LLM en production : détecter, qualifier, contenir, résoudre et documenter les incidents (dégradation qualité, surcoûts, indisponibilité, comportements inattendus, failles de sécurité prompt).
+Handle incidents specific to production LLM systems: detect, qualify, contain, resolve and document incidents (quality degradation, cost overruns, unavailability, unexpected behavior, prompt security flaws).
 
-## Taxonomie des incidents LLM
+## LLM incident taxonomy
 
 ```
-SÉVÉRITÉ   TYPE                           EXEMPLES
+SEVERITY   TYPE                           EXAMPLES
 ─────────  ─────────────────────────────  ──────────────────────────────────────────
-P0 - Crit  Sécurité / Data leakage        Prompt injection → fuite données client
-P0 - Crit  Indisponibilité totale         API LLM down, fallback absent
-P1 - Haut  Dégradation qualité sévère     Hallucinations > 20%, outputs toxiques
-P1 - Haut  Surcoût majeur (> 5×budget)    Token runaway, boucle infinie agent
-P2 - Moyen Dégradation latence            P95 > 10s, timeouts en cascade
-P2 - Moyen Drift comportemental           Ton ou style hors charte sans update
-P3 - Bas   Anomalie monitoring            Métriques absentes, dashboard cassé
+P0 - Crit  Security / Data leakage        Prompt injection → customer data leak
+P0 - Crit  Total unavailability           LLM API down, no fallback
+P1 - High  Severe quality degradation     Hallucinations > 20%, toxic outputs
+P1 - High  Major cost overrun (> 5×budget) Token runaway, infinite agent loop
+P2 - Med   Latency degradation            P95 > 10s, cascading timeouts
+P2 - Med   Behavioral drift               Tone or style off-guidelines without update
+P3 - Low   Monitoring anomaly             Missing metrics, broken dashboard
 ```
 
-## Runbook d'incident LLM — Procédure standard
+## LLM incident runbook — Standard procedure
 
-### PHASE 1 — DÉTECTION & QUALIFICATION (< 5 min)
+### PHASE 1 — DETECTION & QUALIFICATION (< 5 min)
 
 ```yaml
 detection:
   sources:
-    - Alerting Grafana / Prometheus (latence, erreurs, coûts)
-    - LLM-as-judge score < seuil (hallucination_rate, groundedness)
-    - Ticket utilisateur / signalement équipe
-    - Monitoring sécurité (prompt injection détectée)
+    - Grafana / Prometheus alerting (latency, errors, cost)
+    - LLM-as-judge score < threshold (hallucination_rate, groundedness)
+    - User ticket / team report
+    - Security monitoring (prompt injection detected)
 
   qualification:
     questions:
-      - "Quel système est impacté ? (RAG / agent / chatbot)"
-      - "Depuis quand ? Changement déployé récemment ?"
-      - "Quelle est la population impactée ? (tous / segment / 1 user)"
-      - "Y a-t-il un risque sécurité / data leakage ?"
-    
+      - "Which system is impacted? (RAG / agent / chatbot)"
+      - "Since when? Any recently deployed change?"
+      - "Which population is impacted? (all / segment / 1 user)"
+      - "Is there a security / data leakage risk?"
+
     decision_tree:
-      securite_ou_data_leakage: → "STOP : couper le système immédiatement, P0"
-      qualite_degradee_severerement: → "P1 : revert ou rollback prompt, escalader"
-      latence_elevee: → "P2 : vérifier quota API, activer rate limiting"
-      cout_anormal: → "P2 : couper le modèle cher, basculer sur modèle alternatif"
+      security_or_data_leakage: → "STOP: cut the system immediately, P0"
+      severely_degraded_quality: → "P1: revert or rollback prompt, escalate"
+      high_latency: → "P2: check API quota, enable rate limiting"
+      abnormal_cost: → "P2: cut the expensive model, switch to an alternative model"
 ```
 
 ### PHASE 2 — CONTAINMENT (< 15 min)
 
 ```bash
-# 1. Feature flag — désactiver le composant LLM défaillant
+# 1. Feature flag — disable the failing LLM component
 curl -X PATCH /api/feature-flags/llm-agent -d '{"enabled": false}'
 
-# 2. Rollback prompt vers la dernière version stable (Git)
+# 2. Roll the prompt back to the last stable version (Git)
 git log --oneline prompts/ | head -5
-git checkout <commit-stable> -- prompts/system-prompt-agent.txt
+git checkout <stable-commit> -- prompts/system-prompt-agent.txt
 
-# 3. Basculer sur modèle de fallback (ex: Haiku si Opus défaillant)
-# Dans le code : MODEL = os.getenv("LLM_FALLBACK_MODEL", "claude-haiku-4-5")
+# 3. Switch to the fallback model (e.g. Haiku if Opus is failing)
+# In the code: MODEL = os.getenv("LLM_FALLBACK_MODEL", "claude-haiku-4-5")
 
-# 4. Rate limiting d'urgence (Nginx / API Gateway)
+# 4. Emergency rate limiting (Nginx / API Gateway)
 kubectl patch configmap api-gateway-config -p '{"data": {"rate_limit": "10/min"}}'
 
-# 5. Couper l'accès si P0 sécurité
+# 5. Cut access on a P0 security incident
 kubectl scale deployment llm-service --replicas=0
 ```
 
-### PHASE 3 — INVESTIGATION ROOT CAUSE (15-60 min)
+### PHASE 3 — ROOT CAUSE INVESTIGATION (15-60 min)
 
 ```
-CHECKLIST INVESTIGATION
+INVESTIGATION CHECKLIST
 ──────────────────────────────────────────────────────────────
-□ Retracer le dernier déploiement (git log, ArgoCD history)
-□ Comparer les métriques avant/après incident (Grafana diff)
-□ Rejouer les requêtes incriminées en isolation (sandbox)
-□ Vérifier les logs LangSmith / Helicone (traces complètes)
-□ Analyser le prompt en vigueur (injection ? drift ?)
-□ Vérifier quota API / rate limit provider (Anthropic Console)
-□ Vérifier le corpus RAG (données corrompues ou obsolètes ?)
-□ Analyser le coût par appel (token explosion ?)
-□ Rechercher les erreurs 429 / 503 dans les logs
-□ Vérifier les dépendances (vectorDB, embedding model, tools)
+□ Trace back the last deployment (git log, ArgoCD history)
+□ Compare metrics before/after the incident (Grafana diff)
+□ Replay the offending requests in isolation (sandbox)
+□ Check LangSmith / Helicone logs (full traces)
+□ Analyze the active prompt (injection? drift?)
+□ Check API quota / provider rate limit (Anthropic Console)
+□ Check the RAG corpus (corrupted or stale data?)
+□ Analyze the cost per call (token explosion?)
+□ Search for 429 / 503 errors in the logs
+□ Check the dependencies (vectorDB, embedding model, tools)
 ```
 
-### Outils d'investigation LLM (concrets)
+### LLM investigation tools (concrete)
 
 ```yaml
 investigation_toolbox:
-  evaluation_qualite:
+  quality_evaluation:
     - tool: RAGAs eval suite
-      usage: "rejouer le golden dataset, vérifier faithfulness/groundedness vs baseline"
+      usage: "replay the golden dataset, check faithfulness/groundedness vs baseline"
       cmd: "ragas evaluate --dataset golden.jsonl --baseline v2026-04"
     - tool: DeepEval
-      usage: "tests pytest-like sur sample représentatif de la prod"
+      usage: "pytest-like tests on a representative prod sample"
       cmd: "deepeval test run incident_replay.py"
 
-  tracing_et_replay:
+  tracing_and_replay:
     - tool: LangSmith
-      usage: "traces de requêtes problématiques avec inputs/outputs/tokens/coûts"
+      usage: "traces of problematic requests with inputs/outputs/tokens/cost"
       url_pattern: "https://smith.langchain.com/projects/{project}/traces?filter=error"
     - tool: Helicone
-      usage: "dashboard historique des coûts par endpoint, replay de requêtes"
+      usage: "historical cost dashboard per endpoint, request replay"
       url: "https://www.helicone.ai/dashboard"
     - tool: Langfuse (open source self-hosted)
-      usage: "tracing + eval + prompt management, alternative à LangSmith"
+      usage: "tracing + eval + prompt management, alternative to LangSmith"
 
   prompt_versioning:
-    - tool: Git history sur dossier prompts/
+    - tool: Git history on the prompts/ folder
       cmd: "git log --oneline -p prompts/system-prompt-agent.txt | head -50"
-    - tool: Diff entre version actuelle et version stable
+    - tool: Diff between current and stable version
       cmd: "git diff <last-stable-tag> HEAD -- prompts/"
 
-  analyse_token:
+  token_analysis:
     - tool: Anthropic Console — Usage tab
       url: "https://console.anthropic.com/settings/usage"
-      usage: "détail des appels par jour, identification des spikes"
-    - tool: Token burn analysis (script custom)
+      usage: "per-day call detail, spike identification"
+    - tool: Token burn analysis (custom script)
       cmd: "python scripts/analyze_token_spike.py --from '2h ago' --threshold 50000"
 
   rag_corpus:
     - tool: Qdrant snapshot diff
-      usage: "vérifier si le corpus vectoriel a changé (ingestion défaillante ?)"
-    - tool: Re-indexation sandbox
-      usage: "réindexer un échantillon sur un cluster de test pour comparaison"
+      usage: "check whether the vector corpus changed (failed ingestion?)"
+    - tool: Sandbox re-indexing
+      usage: "re-index a sample on a test cluster for comparison"
 ```
 
-### PHASE 4 — RÉSOLUTION & RESTAURATION
+### PHASE 4 — RESOLUTION & RESTORATION
 
 ```yaml
-actions_type:
+action_types:
   prompt_regression:
-    - Corriger le system prompt incriminé
-    - Rejouer eval set complet (> seuil requis)
-    - Déployer via CI/CD avec gate d'evals
-  
-  surcoût_token:
-    - Identifier les requêtes longues (token > 10k)
-    - Ajouter max_tokens stricte dans les appels API
-    - Activer le prompt caching (cache_control: ephemeral)
-    - Implémenter circuit breaker si boucle agent
-  
+    - Fix the offending system prompt
+    - Replay the full eval set (> required threshold)
+    - Deploy via CI/CD with an evals gate
+
+  token_overrun:
+    - Identify long requests (token > 10k)
+    - Add a strict max_tokens in the API calls
+    - Enable prompt caching (cache_control: ephemeral)
+    - Implement a circuit breaker on agent loops
+
   data_leakage:
-    - Couper immédiatement le système
-    - Notifier DPO + RSSI (obligation RGPD 72h)
-    - Analyser traces pour quantifier l'exposition
-    - Corriger le system prompt (guardrails manquants)
-    - Red teaming avant remise en prod
-  
+    - Cut the system immediately
+    - Notify DPO + CISO (GDPR 72h obligation)
+    - Analyze traces to quantify the exposure
+    - Fix the system prompt (missing guardrails)
+    - Red teaming before going back to prod
+
   api_down:
-    - Activer le fallback model configuré
-    - Mettre en file d'attente les requêtes (Redis queue)
-    - Communiquer aux utilisateurs (status page)
-    - Contacter le support provider si SLA breach
+    - Activate the configured fallback model
+    - Queue the requests (Redis queue)
+    - Communicate to users (status page)
+    - Contact provider support on an SLA breach
 ```
 
-### PHASE 5 — POST-MORTEM (dans les 48h)
+### PHASE 5 — POST-MORTEM (within 48h)
 
 ```
-TEMPLATE POST-MORTEM LLM
+LLM POST-MORTEM TEMPLATE
 ──────────────────────────────────────────────────────────────
-Titre         : [P0/P1/P2] — Description courte — Date
-Durée impact  : [HH:MM] — [datetime début] → [datetime fin]
-Systèmes      : [Noms des composants impactés]
+Title         : [P0/P1/P2] — Short description — Date
+Impact duration : [HH:MM] — [start datetime] → [end datetime]
+Systems       : [Names of impacted components]
 
 TIMELINE
-  HH:MM — Détection : [comment l'incident a été détecté]
-  HH:MM — Qualification : [décision de sévérité]
-  HH:MM — Containment : [action de mitigation]
-  HH:MM — Root cause identifiée
-  HH:MM — Résolution déployée
-  HH:MM — Vérification restauration complète
+  HH:MM — Detection: [how the incident was detected]
+  HH:MM — Qualification: [severity decision]
+  HH:MM — Containment: [mitigation action]
+  HH:MM — Root cause identified
+  HH:MM — Resolution deployed
+  HH:MM — Full restoration verified
 
 ROOT CAUSE
-  [Description technique précise de la cause racine]
+  [Precise technical description of the root cause]
 
 CONTRIBUTING FACTORS
-  - [Facteur 1 : ex. absence de gate d'evals en CI]
-  - [Facteur 2 : ex. pas de circuit breaker sur l'agent]
+  - [Factor 1: e.g. no evals gate in CI]
+  - [Factor 2: e.g. no circuit breaker on the agent]
 
 ACTION ITEMS
   | Action                          | Owner  | Deadline |
-  | Ajouter eval gate en CI/CD      | DevOps | J+7      |
-  | Implémenter circuit breaker     | Dev    | J+14     |
-  | Documenter runbook dans wiki    | DevOps | J+3      |
+  | Add an eval gate to CI/CD       | DevOps | D+7      |
+  | Implement a circuit breaker     | Dev    | D+14     |
+  | Document the runbook in the wiki | DevOps | D+3      |
 ```
 
-## Livrables
+## Deliverables
 
-- Runbook d'incident LLM (format Confluence / wiki)
-- Matrice d'escalade (P0→P3 × responsables × délais)
-- Template post-mortem LLM (importable Confluence)
-- Checklist de remise en production post-incident
-- Dashboard monitoring incidents (Grafana + alertes)
+- LLM incident runbook (Confluence / wiki format)
+- Escalation matrix (P0→P3 × owners × deadlines)
+- LLM post-mortem template (Confluence-importable)
+- Post-incident production-readiness checklist
+- Incident monitoring dashboard (Grafana + alerts)
 
-## Format de sortie
+## Output format
 
-Précise : **type d'incident** (sécurité / qualité / coût / dispo), **système impacté** (RAG / agent / chatbot), **provider LLM** (Anthropic / OpenAI / autre), **stack monitoring actuelle**, **contraintes RGPD** (données sensibles concernées ?).
+Specify: **incident type** (security / quality / cost / availability), **impacted system** (RAG / agent / chatbot), **LLM provider** (Anthropic / OpenAI / other), **current monitoring stack**, **GDPR constraints** (sensitive data involved?).

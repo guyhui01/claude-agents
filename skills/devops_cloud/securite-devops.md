@@ -1,8 +1,8 @@
-# Skill — Sécurité DevOps (DevSecOps)
-> Certifications : CKS (Certified Kubernetes Security Specialist 2026), AWS Security Specialty, HashiCorp Vault Associate, CompTIA Security+
+# Skill — DevOps Security (DevSecOps)
+> Certifications: CKS (Certified Kubernetes Security Specialist 2026), AWS Security Specialty, HashiCorp Vault Associate, CompTIA Security+
 
-## Objectif
-Intégrer la sécurité à chaque étape du cycle DevOps — secrets management dynamique, scanning de vulnérabilités en CI/CD, SAST/DAST automatisé et durcissement des workloads Kubernetes avec Pod Security Standards.
+## Objective
+Integrate security at every stage of the DevOps cycle — dynamic secrets management, CI/CD vulnerability scanning, automated SAST/DAST and hardening of Kubernetes workloads with Pod Security Standards.
 
 ## Secrets Management
 
@@ -29,7 +29,7 @@ resource "vault_database_secret_backend_connection" "postgres" {
   }
 }
 
-# Rôle avec durée de vie limitée
+# Role with a limited lifetime
 resource "vault_database_secret_backend_role" "api_service" {
   backend               = vault_mount.database.path
   name                  = "api-service"
@@ -42,7 +42,7 @@ resource "vault_database_secret_backend_role" "api_service" {
 ```
 
 ```python
-# vault_client.py — récupération de secrets dynamiques
+# vault_client.py — retrieving dynamic secrets
 import hvac
 import os
 
@@ -50,7 +50,7 @@ class VaultSecretsManager:
     def __init__(self):
         self.client = hvac.Client(
             url=os.environ["VAULT_ADDR"],
-            token=None,  # Utilise Kubernetes auth
+            token=None,  # Uses Kubernetes auth
         )
         # Auth via Kubernetes Service Account
         self.client.auth.kubernetes.login(
@@ -59,7 +59,7 @@ class VaultSecretsManager:
         )
 
     def get_db_credentials(self) -> dict:
-        """Obtenir des credentials DB dynamiques avec TTL."""
+        """Get dynamic DB credentials with TTL."""
         creds = self.client.secrets.database.generate_credentials(name="api-service")
         return {
             "username": creds["data"]["username"],
@@ -69,7 +69,7 @@ class VaultSecretsManager:
         }
 
     def get_secret(self, path: str, key: str) -> str:
-        """Lire un secret KV v2."""
+        """Read a KV v2 secret."""
         response = self.client.secrets.kv.v2.read_secret_version(path=path)
         return response["data"]["data"][key]
 ```
@@ -77,7 +77,7 @@ class VaultSecretsManager:
 ### External Secrets Operator (K8s)
 
 ```yaml
-# external-secret.yaml — synchroniser les secrets Vault vers K8s
+# external-secret.yaml — sync Vault secrets to K8s
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
@@ -89,7 +89,7 @@ spec:
     name: vault-backend
     kind: ClusterSecretStore
   target:
-    name: api-secrets        # Nom du Secret K8s créé
+    name: api-secrets        # Name of the K8s Secret created
     creationPolicy: Owner
     deletionPolicy: Delete
   data:
@@ -120,7 +120,7 @@ spec:
 
 ## Scanning & SAST/DAST
 
-### Trivy — Scan complet dans CI
+### Trivy — Full scan in CI
 
 ```yaml
 # .github/workflows/security.yml
@@ -128,7 +128,7 @@ name: Security Scans
 
 on:
   schedule:
-    - cron: "0 6 * * 1"   # Lundi 6h
+    - cron: "0 6 * * 1"   # Monday 6 a.m.
   pull_request:
 
 jobs:
@@ -155,7 +155,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Build image
         run: docker build -t app:test .
-      - name: Scan avec Trivy
+      - name: Scan with Trivy
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: app:test
@@ -200,10 +200,10 @@ jobs:
           cmd_options: "-a"
 ```
 
-### Pod Security Standards K8s
+### K8s Pod Security Standards
 
 ```yaml
-# Appliquer Restricted à un namespace
+# Apply Restricted to a namespace
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -214,7 +214,7 @@ metadata:
     pod-security.kubernetes.io/warn: restricted
     pod-security.kubernetes.io/audit: restricted
 ---
-# LimitRange — éviter les pods sans limites
+# LimitRange — avoid pods with no limits
 apiVersion: v1
 kind: LimitRange
 metadata:
@@ -234,49 +234,49 @@ spec:
         memory: "8Gi"
 ```
 
-### Audit & Commandes de vérification
+### Audit & verification commands
 
 ```bash
-# Kube-bench — audit CIS Kubernetes Benchmark
+# Kube-bench — CIS Kubernetes Benchmark audit
 kubectl apply -f https://raw.githubusercontent.com/aquasecurity/kube-bench/main/job.yaml
 kubectl logs job/kube-bench | grep FAIL
 
-# Polaris — audit best practices K8s
+# Polaris — K8s best-practices audit
 polaris audit --format=pretty --namespace=production
 
-# Vérifier les containers qui tournent en root
+# Check containers running as root
 kubectl get pods -n production -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{range .spec.containers[*]}{.securityContext.runAsUser}{"\n"}{end}{end}'
 
-# Lister toutes les capabilities des pods
+# List all pod capabilities
 kubectl get pods -n production -o json | jq '.items[].spec.containers[].securityContext.capabilities'
 
-# Scan des secrets en clair dans les ConfigMaps
+# Scan for cleartext secrets in ConfigMaps
 kubectl get configmaps -A -o json | jq '.items[] | select(.data != null) | .data | to_entries[] | select(.value | test("password|secret|token|key"; "i"))'
 
-# Vérifier les NetworkPolicies manquantes
+# Check for missing NetworkPolicies
 kubectl get namespaces -o json | jq -r '.items[].metadata.name' | xargs -I{} kubectl get networkpolicies -n {} 2>/dev/null || echo "No policies in {}"
 ```
 
-## Matrice Sécurité DevSecOps
+## DevSecOps Security Matrix
 
-| Phase | Outil | Type | Criticité |
+| Phase | Tool | Type | Criticality |
 |-------|-------|------|-----------|
-| Code | Semgrep, Bandit | SAST | Bloquant en CI |
-| Dépendances | Dependabot, OWASP Dependency-Check | SCA | Warning |
-| Secrets dans le code | GitLeaks, TruffleHog | Secret scan | Bloquant |
-| Container image | Trivy, Docker Scout | CVE scan | Bloquant (CRITICAL) |
-| IaC | Checkov, tfsec | IaC scan | Bloquant |
-| Runtime K8s | Falco, Tetragon | Runtime security | Alerting |
+| Code | Semgrep, Bandit | SAST | Blocking in CI |
+| Dependencies | Dependabot, OWASP Dependency-Check | SCA | Warning |
+| Secrets in code | GitLeaks, TruffleHog | Secret scan | Blocking |
+| Container image | Trivy, Docker Scout | CVE scan | Blocking (CRITICAL) |
+| IaC | Checkov, tfsec | IaC scan | Blocking |
+| K8s runtime | Falco, Tetragon | Runtime security | Alerting |
 | DAST | OWASP ZAP, Burp Suite | DAST | Staging gate |
-| Compliance | Kube-bench, Polaris | Audit | Rapport mensuel |
+| Compliance | Kube-bench, Polaris | Audit | Monthly report |
 
-## Livrables
-- Pipeline CI/CD DevSecOps complet (SAST + SCA + image scan + IaC scan)
-- Configuration HashiCorp Vault avec rôles K8s et credentials dynamiques
-- External Secrets Operator déployé et configuré
-- Pod Security Standards + LimitRange pour tous les namespaces prod
-- Rapport d'audit sécurité (kube-bench, Trivy, Semgrep)
-- Runbook de réponse à incident sécurité
+## Deliverables
+- Complete DevSecOps CI/CD pipeline (SAST + SCA + image scan + IaC scan)
+- HashiCorp Vault configuration with K8s roles and dynamic credentials
+- External Secrets Operator deployed and configured
+- Pod Security Standards + LimitRange for all prod namespaces
+- Security audit report (kube-bench, Trivy, Semgrep)
+- Security incident response runbook
 
-## Format de sortie
-Précise : cloud provider, orchestrateur (K8s/ECS), langages du projet, environnements à sécuriser, outils de secrets existants, contraintes de conformité (SOC2/PCI/HIPAA/ISO27001), niveau de maturité sécurité actuel.
+## Output format
+Specify: cloud provider, orchestrator (K8s/ECS), project languages, environments to secure, existing secrets tools, compliance constraints (SOC2/PCI/HIPAA/ISO27001), current security maturity level.

@@ -1,27 +1,27 @@
-# Skill — Distribution Multicanal des Assets Digitaux
-> Certifications : Cloudinary Media Developer Expert · Bynder Certified Partner · Adobe AEM Assets Specialist
+# Skill — Multichannel Digital Asset Distribution
+> Certifications: Cloudinary Media Developer Expert · Bynder Certified Partner · Adobe AEM Assets Specialist
 
-## Objectif
-Distribuer les assets digitaux sur l'ensemble des canaux de diffusion (web, social, print, e-mail, e-commerce, outdoor) en adaptant automatiquement les formats, résolutions et profils colorimétriques aux exigences de chaque canal — tout en maintenant la traçabilité des droits d'usage.
+## Objective
+Distribute digital assets across all distribution channels (web, social, print, email, e-commerce, outdoor) by automatically adapting formats, resolutions and color profiles to each channel's requirements — while maintaining usage-rights traceability.
 
-## Matrice de distribution par canal
+## Distribution matrix per channel
 
 ```
-CANAL               FORMAT CIBLE    RÉSOLUTION    PROFIL COULEUR   POIDS MAX    NOTES
+CHANNEL             TARGET FORMAT   RESOLUTION    COLOR PROFILE    MAX WEIGHT   NOTES
 ──────────────────  ─────────────   ──────────    ──────────────   ─────────    ─────────────────────────
-Site web (desktop)  WebP / JPEG     72-96 dpi     sRGB             < 200 KB     Lazy loading · srcset
-Site web (mobile)   WebP            72 dpi        sRGB             < 100 KB     Format portrait privilégié
-E-commerce          JPEG / PNG      96 dpi        sRGB             < 500 KB     Fond blanc 2000×2000 min
-Social Instagram    JPEG            72 dpi        sRGB             < 8 MB       1:1 / 4:5 / 16:9 selon post
-Social LinkedIn     JPEG / PNG      72 dpi        sRGB             < 5 MB       1200×627 recommandé
-E-mail              JPEG / GIF      72 dpi        sRGB             < 100 KB     ALT text obligatoire
-Print magazine      TIFF / PDF/X-4  300 dpi       CMJN (ISO coated) Illimité    Profil CMJN validé offset
-PLV / Affichage     TIFF / EPS      150-300 dpi   CMJN / Pantone   Illimité     Format spécifié par imprimeur
-Vidéo web           MP4 H.264       72 dpi        sRGB             < 50 MB      720p ou 1080p selon canal
-OOH / Outdoor       TIFF haute res  300+ dpi      CMJN Pantone     Illimité     Taille finale en cm × résolution
+Website (desktop)   WebP / JPEG     72-96 dpi     sRGB             < 200 KB     Lazy loading · srcset
+Website (mobile)    WebP            72 dpi        sRGB             < 100 KB     Portrait format preferred
+E-commerce          JPEG / PNG      96 dpi        sRGB             < 500 KB     White bg 2000×2000 min
+Social Instagram    JPEG            72 dpi        sRGB             < 8 MB       1:1 / 4:5 / 16:9 per post
+Social LinkedIn     JPEG / PNG      72 dpi        sRGB             < 5 MB       1200×627 recommended
+Email               JPEG / GIF      72 dpi        sRGB             < 100 KB     ALT text required
+Print magazine      TIFF / PDF/X-4  300 dpi       CMYK (ISO coated) Unlimited   Offset-validated CMYK profile
+POS / Display       TIFF / EPS      150-300 dpi   CMYK / Pantone   Unlimited    Format specified by printer
+Web video           MP4 H.264       72 dpi        sRGB             < 50 MB      720p or 1080p per channel
+OOH / Outdoor       High-res TIFF   300+ dpi      CMYK Pantone     Unlimited    Final size in cm × resolution
 ```
 
-## Architecture de distribution (Cloudinary CDN)
+## Distribution architecture (Cloudinary CDN)
 
 ```
 DAM (master asset — full resolution)
@@ -36,51 +36,51 @@ DAM (master asset — full resolution)
           ├─→ thumb           : c_fill,w_200,h_200
           └─→ print_hd        : f_tiff,dpr_3.0 (via download)
 
-# Exemple d'URL Cloudinary avec transformations dynamiques
+# Example Cloudinary URL with dynamic transformations
 https://res.cloudinary.com/[cloud]/image/upload/
   f_auto,q_auto,w_1200,dpr_auto/
   [public_id].webp
 ```
 
-## Workflow de distribution automatique (Bynder)
+## Automatic distribution workflow (Bynder)
 
 ```
-DÉCLENCHEUR              ACTION AUTOMATIQUE                         CANAL CIBLE
+TRIGGER                  AUTOMATIC ACTION                          TARGET CHANNEL
 ──────────────────────   ─────────────────────────────────────────  ──────────────────────────
-Asset statut → Approved  Génération des renditions par canal        Tous canaux configurés
-Rendition générée        Push CDN (Cloudinary / Akamai / AWS CF)    Web · Mobile · Email
-Asset lié au PIM         Notification PIM → association SKU         E-commerce (via PIM)
-Publication campagne      Envoi assets vers agence presse            Print · Outdoor
-Expiry date J-7          Dépublication planifiée sur tous canaux    Tous canaux
+Asset status → Approved  Generate per-channel renditions            All configured channels
+Rendition generated      CDN push (Cloudinary / Akamai / AWS CF)    Web · Mobile · Email
+Asset linked to the PIM  Notify PIM → SKU association               E-commerce (via PIM)
+Campaign publishing       Send assets to the press agency            Print · Outdoor
+Expiry date D-7          Scheduled unpublish across all channels    All channels
 ```
 
-## Livrables
-- Matrice de distribution (canal × format × résolution × droits)
-- Configuration des renditions automatiques dans le DAM
-- Intégration CDN (Cloudinary, Akamai, AWS CloudFront) — scripts et URLs
-- Workflow de distribution (déclencheurs, actions, canaux)
-- Guide de distribution par canal (spécifications techniques pour créatifs)
-- Dashboard distribution (assets distribués par canal, erreurs, couverture)
+## Deliverables
+- Distribution matrix (channel × format × resolution × rights)
+- Automatic rendition configuration in the DAM
+- CDN integration (Cloudinary, Akamai, AWS CloudFront) — scripts and URLs
+- Distribution workflow (triggers, actions, channels)
+- Per-channel distribution guide (technical specs for creatives)
+- Distribution dashboard (assets distributed per channel, errors, coverage)
 
-## Format de sortie
-Précise : **DAM utilisé**, **canaux de distribution** prioritaires, **CDN disponible** (Cloudinary, Akamai…), **CMS cibles** (AEM, Drupal, Contentful…), **contraintes print** (imprimeur, format, profil CMJN), **volumétrie** (nb assets distribués/semaine).
+## Output format
+Specify: **DAM used**, priority **distribution channels**, available **CDN** (Cloudinary, Akamai…), target **CMS** (AEM, Drupal, Contentful…), **print constraints** (printer, format, CMYK profile), **volume** (# assets distributed/week).
 
 ## Anti-patterns
-- ❌ **Servir le master full-résolution sur tous les canaux** : poids et performance catastrophiques → renditions adaptées par canal
-- ❌ **Profil CMJN diffusé au web** : couleurs fausses en navigateur → sRGB web, CMJN réservé au print
-- ❌ **Pas de dépublication à l'`expiry_date`** : diffusion illégale après expiration des droits → désactivation automatique multicanale
-- ❌ **Distribution sans cache CDN** : coût et latence sur chaque requête → CDN + renditions pré-générées
-- ❌ **Specs print non validées par l'imprimeur** (profil/format au hasard) : rejet façonnier → profil CMJN + dimensions validés en amont
-- ❌ **ALT text absent** (e-mail/web) : accessibilité et délivrabilité dégradées → ALT obligatoire
+- ❌ **Serving the full-resolution master on every channel**: catastrophic weight and performance → channel-adapted renditions
+- ❌ **CMYK profile served to the web**: wrong colors in the browser → sRGB for web, CMYK reserved for print
+- ❌ **No unpublishing at the `expiry_date`**: illegal distribution after rights expire → automatic multichannel deactivation
+- ❌ **Distribution without a CDN cache**: cost and latency on every request → CDN + pre-generated renditions
+- ❌ **Print specs not validated by the printer** (random profile/format): finisher rejection → CMYK profile + dimensions validated upfront
+- ❌ **Missing ALT text** (email/web): degraded accessibility and deliverability → ALT required
 
 ## Sources
-- **Core Web Vitals** — web.dev/vitals (Google) : budget poids/perf par canal
-- **Profils couleur** — sRGB IEC 61966-2-1 (web) · *ISO Coated v2 (ECI)* (print offset) — color.org / eci.org
+- **Core Web Vitals** — web.dev/vitals (Google): weight/perf budget per channel
+- **Color profiles** — sRGB IEC 61966-2-1 (web) · *ISO Coated v2 (ECI)* (offset print) — color.org / eci.org
 - **Cloudinary** — cloudinary.com/documentation · **Bynder** — developer.bynder.com · **Akamai / AWS CloudFront** — CDN
-- **Spécifications canaux sociaux** — recommandations officielles plateformes (Instagram, LinkedIn) — à revérifier (évolutives)
+- **Social channel specs** — official platform recommendations (Instagram, LinkedIn) — re-check (they evolve)
 
-## Voir aussi
-- [`transformation-formats.md`](transformation-formats.md) — génération des renditions par canal
-- [`gestion-droits-licences.md`](gestion-droits-licences.md) — droits par territoire/canal, dépublication
-- [`integration-dam-cms.md`](integration-dam-cms.md) — diffusion des assets vers le CMS
-- [`../cms_digital/performance-web.md`](../cms_digital/performance-web.md) — impact des assets sur la performance web
+## See also
+- [`transformation-formats.md`](transformation-formats.md) — generating per-channel renditions
+- [`gestion-droits-licences.md`](gestion-droits-licences.md) — rights per territory/channel, unpublishing
+- [`integration-dam-cms.md`](integration-dam-cms.md) — distributing assets to the CMS
+- [`../cms_digital/performance-web.md`](../cms_digital/performance-web.md) — impact of assets on web performance

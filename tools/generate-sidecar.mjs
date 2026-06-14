@@ -72,7 +72,8 @@ function catalogTag() {
 /**
  * Extrait titre + description d'une carte d'agent `AGENT-*.md`.
  *   - titre       : H1 « # AGENT — <titre> » → <titre> (préfixe « AGENT — » retiré)
- *   - description : 1re ligne blockquote « > **Domaine :** <desc> » → <desc>
+ *   - description : 1re ligne blockquote « > **Domain :** <desc> » → <desc>
+ *                   (libellé FR « Domaine » encore accepté pendant la migration i18n)
  */
 function parseAgentCard(absFile, id) {
   const lines = readFileSync(absFile, "utf-8").split(/\r?\n/);
@@ -88,7 +89,7 @@ function parseAgentCard(absFile, id) {
   if (!quote) throw new Error(`${id} : ligne « > **Domaine :** … » introuvable`);
   const description = quote
     .replace(/^>\s*/, "")
-    .replace(/\*\*Domaine\s*:?\*\*\s*:?\s*/u, "")
+    .replace(/\*\*(?:Domaine|Domain)\s*:?\*\*\s*:?\s*/u, "")
     .trim();
 
   if (!title) throw new Error(`${id} : titre vide après extraction`);

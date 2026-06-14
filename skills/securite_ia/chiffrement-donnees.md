@@ -1,12 +1,12 @@
-# Skill — Chiffrement des Données & Protection de la Confidentialité IA
-> Certifications : CISSP · AWS Security Specialty · AZ-500 · Google PCSE
+# Skill — Data Encryption & AI Privacy Protection
+> Certifications: CISSP · AWS Security Specialty · AZ-500 · Google PCSE
 
-## Objectif
-Protéger les données sensibles utilisées par les systèmes IA : données d'entraînement, prompts, réponses et modèles.
+## Objective
+Protect the sensitive data used by AI systems: training data, prompts, responses and models.
 
-## Chiffrement at Rest
+## Encryption at Rest
 ```python
-# AWS KMS — chiffrement transparent des données
+# AWS KMS — transparent data encryption
 import boto3
 from botocore.config import Config
 
@@ -26,60 +26,60 @@ def encrypt_sensitive_data(plaintext: str, key_alias: str) -> dict:
         'key_id': response['KeyId']
     }
 
-# Chiffrement côté application (AES-256-GCM)
+# Application-side encryption (AES-256-GCM)
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 import os
 
 def encrypt_field(data: str, key: bytes) -> tuple[bytes, bytes]:
     aesgcm = AESGCM(key)
-    nonce = os.urandom(12)  # 96-bit nonce unique par chiffrement
+    nonce = os.urandom(12)  # 96-bit nonce, unique per encryption
     ciphertext = aesgcm.encrypt(nonce, data.encode(), None)
     return nonce, ciphertext
 ```
 
-## Chiffrement in Transit
+## Encryption in Transit
 ```python
 # TLS 1.3 configuration (uvicorn / nginx)
-# uvicorn avec TLS
+# uvicorn with TLS
 import uvicorn
 uvicorn.run(
     app,
     ssl_keyfile="/etc/ssl/private/server.key",
     ssl_certfile="/etc/ssl/certs/server.crt",
     ssl_version=ssl.PROTOCOL_TLS_CLIENT,
-    # TLS 1.3 seulement
+    # TLS 1.3 only
     ssl_ciphers="TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256"
 )
 ```
 
-## Differential Privacy — protéger les données d'entraînement
+## Differential Privacy — protecting training data
 ```python
-# Entraînement avec DP-SGD (TensorFlow Privacy)
+# Training with DP-SGD (TensorFlow Privacy)
 import tensorflow_privacy as tf_privacy
 
 optimizer = tf_privacy.DPKerasSGDOptimizer(
-    l2_norm_clip=1.0,        # Clipping du gradient
-    noise_multiplier=1.1,    # Bruit ajouté
+    l2_norm_clip=1.0,        # Gradient clipping
+    noise_multiplier=1.1,    # Added noise
     num_microbatches=256,
     learning_rate=0.01
 )
 
-# Calcul du budget de confidentialité (epsilon)
+# Privacy budget computation (epsilon)
 from tensorflow_privacy.privacy.analysis import compute_dp_sgd_privacy
 
 epsilon, _ = compute_dp_sgd_privacy.compute_dp_sgd_privacy(
-    n=60000,               # Taille du dataset
+    n=60000,               # Dataset size
     batch_size=256,
     noise_multiplier=1.1,
     epochs=10,
     delta=1e-5
 )
 print(f"(ε, δ)-DP: ({epsilon:.2f}, 1e-5)")
-# Epsilon < 3 : très forte protection
-# Epsilon 3-10 : bonne protection
+# Epsilon < 3: very strong protection
+# Epsilon 3-10: good protection
 ```
 
-## Pseudonymisation et Anonymisation
+## Pseudonymization and Anonymization
 ```python
 import hashlib
 import re
@@ -88,10 +88,10 @@ from faker import Faker
 fake = Faker('fr_FR')
 
 def pseudonymize_conversation(text: str, user_id: str) -> str:
-    # Remplacer le user_id par un hash cohérent (même hash → même pseudonyme)
+    # Replace the user_id with a consistent hash (same hash → same pseudonym)
     pseudo_id = hashlib.sha256(f"{user_id}:salt".encode()).hexdigest()[:12]
     
-    # Détecter et remplacer les PII avec des expressions régulières
+    # Detect and replace PII with regular expressions
     text = re.sub(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b',
                   '[EMAIL]', text)
     text = re.sub(r'\b(\+33|0)[1-9](\d{2}){4}\b', '[PHONE]', text)
@@ -111,20 +111,20 @@ def anonymize_with_presidio(text: str, language: str = "fr") -> str:
     return anonymizer.anonymize(text=text, analyzer_results=results).text
 ```
 
-## Politique de rétention des données IA
-| Données | Rétention | Suppression |
+## AI data retention policy
+| Data | Retention | Deletion |
 |---|---|---|
-| Conversations utilisateurs | 90 jours | Automatique + droit à l'oubli |
-| Logs de sécurité | 12 mois | Archivage WORM |
-| Modèles en production | Durée de vie | Au décommissionnement |
-| Données d'entraînement | 5 ans | Avec audit trail |
-| API keys | Jusqu'à révocation | Sur demande |
+| User conversations | 90 days | Automatic + right to be forgotten |
+| Security logs | 12 months | WORM archiving |
+| Production models | Lifetime | At decommissioning |
+| Training data | 5 years | With audit trail |
+| API keys | Until revocation | On request |
 
-## Livrables
-- Architecture de chiffrement documentée
-- Politique de gestion des clés (KMS)
-- Rapport de conformité chiffrement
-- Procédure de pseudonymisation des datasets
+## Deliverables
+- Documented encryption architecture
+- Key management policy (KMS)
+- Encryption compliance report
+- Dataset pseudonymization procedure
 
-## Format de sortie
-Précise : type de données (PII, santé, financières) · cloud provider · réglementation (RGPD, HDS, PCI-DSS) · niveau de sensibilité · contraintes de performance
+## Output format
+Specify: data type (PII, health, financial) · cloud provider · regulation (GDPR, HDS, PCI-DSS) · sensitivity level · performance constraints

@@ -1,105 +1,105 @@
-# Skill — Workflows d'Enrichissement Produit
-> Certifications : Akeneo Certified Product Manager · inriver Certified Professional · Salsify Certified
+# Skill — Product Enrichment Workflows
+> Certifications: Akeneo Certified Product Manager · inriver Certified Professional · Salsify Certified
 
-## Objectif
-Concevoir et piloter les workflows d'enrichissement des fiches produit : définition des étapes, des rôles contributeurs, des règles de qualité et des critères de passage — pour atteindre un taux de complétude cible et réduire le time-to-market des références.
+## Objective
+Design and run product-record enrichment workflows: define the steps, contributor roles, quality rules and gate criteria — to reach a target completeness rate and reduce time-to-market for references.
 
-## Cycle de vie d'une fiche produit
+## Product record lifecycle
 
 ```
-STATUT              DESCRIPTION                           ACTEUR              CRITÈRE DE PASSAGE
+STATUS              DESCRIPTION                           ACTOR               GATE CRITERION
 ──────────────────  ────────────────────────────────────  ──────────────────  ─────────────────────────────
-Draft               Fiche créée (données techniques ERP)  Système / Import    SKU + famille assignés
-In Enrichment       Données marketing en cours de saisie  Équipe Contenu      Description courte ≥ 50 car.
-In Review           En attente de validation              Manager Produit     Completeness ≥ 80%
-Approved            Validée, prête pour publication       Chef de Produit     Completeness = 100% (canal cible)
-Published           Active sur les canaux                 Publication auto    Date de lancement atteinte
-Archived            Obsolète, retirée des ventes          Manager Produit     EOL confirmée
+Draft               Record created (ERP technical data)   System / Import     SKU + family assigned
+In Enrichment       Marketing data being entered          Content team        Short description ≥ 50 chars
+In Review           Awaiting validation                   Product Manager     Completeness ≥ 80%
+Approved            Validated, ready to publish            Product Lead        Completeness = 100% (target channel)
+Published           Live on the channels                  Auto-publishing     Launch date reached
+Archived            Obsolete, withdrawn from sale          Product Manager     EOL confirmed
 ```
 
-## Matrice des responsabilités (RACI)
+## Responsibility matrix (RACI)
 
 ```
-TÂCHE D'ENRICHISSEMENT           | Contenu | Product | DAM  | Qualité | Système
+ENRICHMENT TASK                  | Content | Product | DAM  | Quality | System
 ─────────────────────────────────┼─────────┼─────────┼──────┼─────────┼────────
-Création fiche (import ERP)      |    I    |    I    |  I   |    I    |   R
-Saisie données techniques        |    R    |    A    |  I   |    C    |   I
-Rédaction descriptions marketing |    R    |    C    |  I   |    I    |   I
-Association assets (DAM → PIM)   |    R    |    I    |  A   |    I    |   I
-Traduction (i18n)                |    R    |    I    |  I   |    C    |   I
-Validation qualité               |    I    |    A    |  I   |    R    |   I
-Publication canal e-commerce     |    I    |    A    |  I   |    I    |   R
-Archivage produit                |    I    |    R    |  I   |    I    |   A
+Record creation (ERP import)     |    I    |    I    |  I   |    I    |   R
+Technical data entry             |    R    |    A    |  I   |    C    |   I
+Marketing description writing    |    R    |    C    |  I   |    I    |   I
+Asset association (DAM → PIM)     |    R    |    I    |  A   |    I    |   I
+Translation (i18n)               |    R    |    I    |  I   |    C    |   I
+Quality validation               |    I    |    A    |  I   |    R    |   I
+E-commerce channel publishing    |    I    |    A    |  I   |    I    |   R
+Product archiving                |    I    |    R    |  I   |    I    |   A
 ```
 
-## Configuration des règles qualité (Akeneo)
+## Quality rule configuration (Akeneo)
 
 ```yaml
-# Exemple de règles de complétude par canal
+# Sample completeness rules per channel
 completeness_rules:
   channel: ecommerce
   locale: fr_FR
   required_attributes:
     - sku
-    - nom_produit
-    - description_courte
-    - description_longue
-    - image_principale
-    - prix_public
-    - poids
-    - dimensions_l
-  threshold_publication: 100%   # Bloque la publication si < 100%
-  threshold_alert: 80%          # Alerte équipe si < 80%
+    - product_name
+    - short_description
+    - long_description
+    - main_image
+    - public_price
+    - weight
+    - dimension_l
+  threshold_publication: 100%   # Blocks publishing if < 100%
+  threshold_alert: 80%          # Alerts the team if < 80%
 
   channel: print
   locale: fr_FR
   required_attributes:
     - sku
-    - nom_produit
-    - image_principale_hd
-    - caracteristiques_techniques
+    - product_name
+    - main_image_hd
+    - technical_specs
   threshold_publication: 100%
 ```
 
-## KPIs workflow d'enrichissement
+## Enrichment workflow KPIs
 
 ```
-INDICATEUR                     CIBLE         ALERTE         FORMULE
+INDICATOR                      TARGET        ALERT          FORMULA
 ─────────────────────────────  ────────────  ─────────────  ─────────────────────────────────
-Taux de complétude moyen       ≥ 90%         < 80%          Attributs remplis / Attributs requis
-Time-to-market (création→pub)  ≤ 5 jours     > 10 jours     Date publication - Date création fiche
-Taux de rejet validation       ≤ 5%          > 15%          Fiches rejetées / Fiches soumises
-Backlog enrichissement         ≤ 50 fiches   > 200 fiches   Fiches en statut "In Enrichment" > 7j
-Taux erreurs import            ≤ 1%          > 5%           Lignes en erreur / Lignes importées
+Average completeness rate      ≥ 90%         < 80%          Filled attributes / Required attributes
+Time-to-market (creation→pub)  ≤ 5 days      > 10 days      Publish date - Record creation date
+Validation rejection rate      ≤ 5%          > 15%          Rejected records / Submitted records
+Enrichment backlog             ≤ 50 records  > 200 records  Records in "In Enrichment" > 7d
+Import error rate              ≤ 1%          > 5%           Error rows / Imported rows
 ```
 
-## Livrables
-- Diagramme de workflow enrichissement (BPMN avec statuts, transitions, acteurs)
-- Matrice RACI des responsabilités d'enrichissement
-- Configuration des règles de complétude par canal et locale
-- SLA d'enrichissement (délais par type de produit)
-- Guide éditeur (comment remplir chaque attribut, exemples, bonnes pratiques)
-- Dashboard de suivi qualité (KPIs temps réel)
+## Deliverables
+- Enrichment workflow diagram (BPMN with statuses, transitions, actors)
+- RACI matrix of enrichment responsibilities
+- Completeness rule configuration per channel and locale
+- Enrichment SLA (lead times per product type)
+- Editor guide (how to fill each attribute, examples, best practices)
+- Quality tracking dashboard (real-time KPIs)
 
-## Format de sortie
-Précise : **PIM utilisé**, **nombre de références** à enrichir par semaine, **nombre de canaux** et **locales**, **équipe disponible** (nombre d'enrichisseurs, localisateurs), **contrainte de délai** (time-to-market cible).
+## Output format
+Specify: **PIM used**, **number of references** to enrich per week, **number of channels** and **locales**, **available team** (number of enrichers, localizers), **deadline constraint** (target time-to-market).
 
 ## Anti-patterns
-- ❌ **Publier sous le seuil de complétude** (< 100 % canal) : fiches incomplètes en ligne → blocage publication strict par canal
-- ❌ **RACI confondant R et A** : aucun responsable clair de la validation → un seul A par tâche
-- ❌ **Règles de complétude identiques pour tous les canaux** : le print et l'e-commerce n'ont pas les mêmes besoins → completeness scopée par canal/locale
-- ❌ **Enrichissement sans SLA** : backlog ingérable → délai cible par type de produit
-- ❌ **Descriptions dupliquées entre produits** : pénalité SEO et perception qualité → contenu unique (cf. `pim-augmente-ia.md`)
-- ❌ **Workflow sans critère de passage objectif** : transitions au jugé → seuils mesurables (ex. completeness ≥ 80 % pour « In Review »)
+- ❌ **Publishing below the completeness threshold** (< 100% channel): incomplete records go live → strict per-channel publishing block
+- ❌ **RACI conflating R and A**: no clear validation owner → a single A per task
+- ❌ **Identical completeness rules for all channels**: print and e-commerce don't have the same needs → completeness scoped per channel/locale
+- ❌ **Enrichment without an SLA**: unmanageable backlog → target lead time per product type
+- ❌ **Duplicated descriptions across products**: SEO penalty and quality perception → unique content (cf. `pim-augmente-ia.md`)
+- ❌ **Workflow without an objective gate criterion**: transitions by gut feeling → measurable thresholds (e.g. completeness ≥ 80% for "In Review")
 
 ## Sources
-- **Akeneo PIM** (Serenity SaaS — Enterprise/Growth, releases mensuelles 2025) — concept de *completeness* par canal/locale — help.akeneo.com
-- **BPMN 2.0.2** — OMG (2013) — modélisation des workflows d'enrichissement — omg.org/spec/BPMN
-- **DAMA-DMBOK 2** (2017) — qualité et cycle de vie de la donnée produit — dama.org
+- **Akeneo PIM** (Serenity SaaS — Enterprise/Growth, monthly releases 2025) — per channel/locale *completeness* concept — help.akeneo.com
+- **BPMN 2.0.2** — OMG (2013) — enrichment workflow modeling — omg.org/spec/BPMN
+- **DAMA-DMBOK 2** (2017) — product data quality and lifecycle — dama.org
 
-## Voir aussi
-- [`modelisation-catalogue.md`](modelisation-catalogue.md) — structure d'attributs conditionnant la complétude
-- [`scoring-qualite-produit.md`](scoring-qualite-produit.md) — mesure de la qualité des fiches enrichies
-- [`kpis-catalogue.md`](kpis-catalogue.md) — pilotage du time-to-market et de la complétude
-- [`localisation-i18n.md`](localisation-i18n.md) — enrichissement multilingue
-- [`pim-augmente-ia.md`](pim-augmente-ia.md) — accélération de l'enrichissement par IA
+## See also
+- [`modelisation-catalogue.md`](modelisation-catalogue.md) — attribute structure driving completeness
+- [`scoring-qualite-produit.md`](scoring-qualite-produit.md) — measuring enriched-record quality
+- [`kpis-catalogue.md`](kpis-catalogue.md) — driving time-to-market and completeness
+- [`localisation-i18n.md`](localisation-i18n.md) — multilingual enrichment
+- [`pim-augmente-ia.md`](pim-augmente-ia.md) — accelerating enrichment with AI

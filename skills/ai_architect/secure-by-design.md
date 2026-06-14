@@ -1,51 +1,51 @@
-# Skill — Sécurité IA (AI Security)
-> Certifications : AWS AIF-C01 · Azure AI-102 · AI Act EU
+# Skill — AI Security
+> Certifications: AWS AIF-C01 · Azure AI-102 · EU AI Act
 
-## Objectif
-Identifier et mitiger les risques de sécurité spécifiques aux systèmes IA et LLM.
+## Objective
+Identify and mitigate the security risks specific to AI and LLM systems.
 
-## Top 10 risques LLM (OWASP LLM Top 10 — 2025)
-1. **Prompt Injection** : instructions malveillantes dans les inputs utilisateurs
-2. **Insecure Output Handling** : exécution non validée des outputs LLM
-3. **Training Data Poisoning** : corruption des données d'entraînement
-4. **Model Denial of Service** : surcharge de tokens pour épuiser les ressources
-5. **Supply Chain Vulnerabilities** : dépendances compromises (modèles, plugins)
-6. **Sensitive Information Disclosure** : fuite de données via le LLM
-7. **Insecure Plugin Design** : tools LLM avec accès trop larges
-8. **Excessive Agency** : agent avec trop de permissions
-9. **Overreliance** : confiance excessive dans les outputs LLM
-10. **Model Theft** : extraction du modèle via requêtes ciblées
+## Top 10 LLM risks (OWASP LLM Top 10 — 2025)
+1. **Prompt Injection**: malicious instructions in user inputs
+2. **Insecure Output Handling**: unvalidated execution of LLM outputs
+3. **Training Data Poisoning**: corruption of training data
+4. **Model Denial of Service**: token overload to exhaust resources
+5. **Supply Chain Vulnerabilities**: compromised dependencies (models, plugins)
+6. **Sensitive Information Disclosure**: data leakage via the LLM
+7. **Insecure Plugin Design**: LLM tools with overly broad access
+8. **Excessive Agency**: agent with too many permissions
+9. **Overreliance**: excessive trust in LLM outputs
+10. **Model Theft**: model extraction via targeted queries
 
-## Mesures de protection
+## Protection measures
 
 ### Prompt Injection
-- Séparer clairement instructions système et input utilisateur
-- Valider et sanitizer les inputs (ne pas passer directement au LLM)
-- Utiliser des guillemets XML pour délimiter le contenu utilisateur
+- Clearly separate system instructions and user input
+- Validate and sanitize inputs (don't pass them straight to the LLM)
+- Use XML tags to delimit user content
 
-### Gestion des permissions agents
-- Principe du moindre privilège : un agent n'a accès qu'à ce dont il a besoin
-- Audit log de toutes les actions des agents
-- Human-in-the-loop avant actions sensibles
+### Agent permission management
+- Principle of least privilege: an agent only accesses what it needs
+- Audit log of all agent actions
+- Human-in-the-loop before sensitive actions
 
-### Data Privacy (RGPD + AI Act EU)
-- Ne pas envoyer de PII aux APIs LLM cloud sans consentement
-- Anonymiser les données avant traitement
-- Audit trail des données traitées par l'IA
+### Data Privacy (GDPR + EU AI Act)
+- Don't send PII to cloud LLM APIs without consent
+- Anonymize data before processing
+- Audit trail of data processed by the AI
 
-### AI Act EU (2024-2026)
-| Risque | Catégorie | Obligation |
+### EU AI Act (2024-2026)
+| Risk | Category | Obligation |
 |---|---|---|
-| Inacceptable | Interdit | — |
-| Élevé | Haute réglementation | Audit, transparence, supervision humaine |
-| Limité | Obligation transparence | Indiquer que c'est de l'IA |
-| Minimal | Libre | — |
+| Unacceptable | Banned | — |
+| High | Heavy regulation | Audit, transparency, human oversight |
+| Limited | Transparency obligation | Disclose that it is AI |
+| Minimal | Unrestricted | — |
 
-## Livrables
-- Rapport d'audit sécurité IA (OWASP LLM Top 10)
-- Matrice risques × mesures de mitigation
-- Checklist conformité AI Act
-- Recommandations de hardening
+## Deliverables
+- AI security audit report (OWASP LLM Top 10)
+- Risks × mitigation measures matrix
+- AI Act compliance checklist
+- Hardening recommendations
 
-## Format de sortie
-Précise : type de système IA · données traitées · exposition (interne/public) · pays de déploiement
+## Output format
+Specify: AI system type · data processed · exposure (internal/public) · deployment country

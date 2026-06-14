@@ -1,21 +1,21 @@
-# Skill — Streaming de Données & Apache Kafka
-> Certifications : Confluent CCDAK · Google PDE · AWS DEA-C01
+# Skill — Data Streaming & Apache Kafka
+> Certifications: Confluent CCDAK · Google PDE · AWS DEA-C01
 
-## Objectif
-Concevoir et exploiter des pipelines de données en temps réel avec Apache Kafka et les frameworks de stream processing.
+## Objective
+Design and operate real-time data pipelines with Apache Kafka and stream processing frameworks.
 
-## Architecture Kafka
+## Kafka architecture
 ```
 Producers → Topics (partitions) → Consumers
 
-Topic = log immuable partitionné
-Partition = unité de parallélisme (1 consommateur par partition)
-Consumer Group = lecture parallèle d'un topic
-Offset = position du consommateur dans la partition
-Retention = durée de rétention des messages (défaut 7 jours)
+Topic = immutable partitioned log
+Partition = unit of parallelism (1 consumer per partition)
+Consumer Group = parallel reading of a topic
+Offset = consumer position in the partition
+Retention = message retention duration (default 7 days)
 ```
 
-## Kafka Producers — envoi d'événements
+## Kafka Producers — sending events
 ```python
 from confluent_kafka import Producer
 import json
@@ -23,7 +23,7 @@ from datetime import datetime
 
 conf = {
     'bootstrap.servers': 'broker1:9092,broker2:9092',
-    'acks': 'all',              # Durabilité max
+    'acks': 'all',              # Max durability
     'retries': 3,
     'compression.type': 'snappy'
 }
@@ -34,7 +34,7 @@ def delivery_callback(err, msg):
     if err:
         print(f"Message failed: {err}")
 
-# Envoi d'un événement
+# Send an event
 event = {
     'user_id': 'usr_123',
     'action': 'purchase',
@@ -51,7 +51,7 @@ producer.produce(
 producer.flush()
 ```
 
-## Kafka Consumers — consommation fiable
+## Kafka Consumers — reliable consumption
 ```python
 from confluent_kafka import Consumer
 import json
@@ -60,7 +60,7 @@ consumer = Consumer({
     'bootstrap.servers': 'broker1:9092',
     'group.id': 'analytics-pipeline',
     'auto.offset.reset': 'earliest',
-    'enable.auto.commit': False  # Commit manuel pour garantir le traitement
+    'enable.auto.commit': False  # Manual commit to guarantee processing
 })
 
 consumer.subscribe(['user-events'])
@@ -73,18 +73,18 @@ try:
         if msg.error():
             print(f"Error: {msg.error()}")
             continue
-        
+
         event = json.loads(msg.value())
         process_event(event)
-        consumer.commit(asynchronous=False)  # Commit après traitement
+        consumer.commit(asynchronous=False)  # Commit after processing
 
 finally:
     consumer.close()
 ```
 
-## Kafka Streams / ksqlDB — transformations SQL
+## Kafka Streams / ksqlDB — SQL transformations
 ```sql
--- ksqlDB : agrégations en temps réel
+-- ksqlDB: real-time aggregations
 CREATE STREAM user_events (
     user_id VARCHAR,
     action VARCHAR,
@@ -92,7 +92,7 @@ CREATE STREAM user_events (
     timestamp VARCHAR
 ) WITH (KAFKA_TOPIC='user-events', VALUE_FORMAT='JSON');
 
--- Agrégation glissante (tumbling window 5 min)
+-- Windowed aggregation (5-min tumbling window)
 CREATE TABLE purchase_stats AS
 SELECT
     user_id,
@@ -106,7 +106,7 @@ GROUP BY user_id
 EMIT CHANGES;
 ```
 
-## Apache Flink — stream processing avancé
+## Apache Flink — advanced stream processing
 ```python
 from pyflink.datastream import StreamExecutionEnvironment
 from pyflink.table import StreamTableEnvironment
@@ -115,7 +115,7 @@ env = StreamExecutionEnvironment.get_execution_environment()
 env.set_parallelism(4)
 t_env = StreamTableEnvironment.create(env)
 
-# Source Kafka
+# Kafka source
 t_env.execute_sql("""
     CREATE TABLE events (
         user_id STRING,
@@ -141,17 +141,17 @@ t_env.execute_sql("""
 """)
 ```
 
-## Métriques de monitoring Kafka
-- **Consumer Lag** : retard de consommation (alerter si > seuil)
-- **Throughput** : messages/seconde par topic
-- **Partition skew** : déséquilibre entre partitions
-- **Replication lag** : retard de réplication des replicas
+## Kafka monitoring metrics
+- **Consumer Lag**: consumption delay (alert if > threshold)
+- **Throughput**: messages/second per topic
+- **Partition skew**: imbalance across partitions
+- **Replication lag**: replica replication delay
 
-## Livrables
-- Producer/Consumer Python robuste (retry, DLQ)
-- Topologie Kafka Streams / Flink documentée
-- Configuration du cluster (replication, retention, partitions)
-- Dashboard de monitoring (Confluent Control Center / Grafana)
+## Deliverables
+- Robust Python Producer/Consumer (retry, DLQ)
+- Documented Kafka Streams / Flink topology
+- Cluster configuration (replication, retention, partitions)
+- Monitoring dashboard (Confluent Control Center / Grafana)
 
-## Format de sortie
-Précise : volume d'événements/seconde · latence maximale tolérée · durée de rétention · transformations nécessaires · destination (DB, DWH, S3)
+## Output format
+Specify: events/second volume · max tolerated latency · retention duration · required transformations · destination (DB, DWH, S3)

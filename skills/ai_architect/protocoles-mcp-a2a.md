@@ -1,28 +1,28 @@
-# Skill — Protocoles MCP & A2A
-> Certifications : Anthropic Claude Code in Action
+# Skill — MCP & A2A Protocols
+> Certifications: Anthropic Claude Code in Action
 
-## Objectif
-Implémenter les protocoles standards de communication entre agents et outils.
+## Objective
+Implement the standard protocols for communication between agents and tools.
 
 ## MCP — Model Context Protocol (Anthropic, 2024)
-Standard ouvert pour connecter les LLM aux outils, données et services externes.
+Open standard for connecting LLMs to external tools, data and services.
 
-### Architecture MCP
+### MCP architecture
 ```
-Host (Claude / app)  ←→  MCP Client  ←→  MCP Server  ←→  Ressource externe
+Host (Claude / app)  ←→  MCP Client  ←→  MCP Server  ←→  External resource
 ```
 
-### 3 primitives MCP
-| Primitive | Description | Exemple |
+### The 3 MCP primitives
+| Primitive | Description | Example |
 |---|---|---|
-| **Tools** | Fonctions que le LLM peut appeler | search_web(), run_query() |
-| **Resources** | Données exposées au LLM (read-only) | fichiers, DB, APIs |
-| **Prompts** | Templates de prompts réutilisables | prompt_analyse_code() |
+| **Tools** | Functions the LLM can call | search_web(), run_query() |
+| **Resources** | Data exposed to the LLM (read-only) | files, DB, APIs |
+| **Prompts** | Reusable prompt templates | prompt_analyze_code() |
 
-### Créer un MCP Server complet (TypeScript)
+### Build a complete MCP Server (TypeScript)
 
 ```typescript
-// server.ts — MCP server minimal avec 1 tool et 1 resource
+// server.ts — minimal MCP server with 1 tool and 1 resource
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import {
@@ -37,11 +37,11 @@ const server = new Server(
   { capabilities: { tools: {}, resources: {} } }
 );
 
-// 1. Déclarer les tools
+// 1. Declare the tools
 server.setRequestHandler(ListToolsRequestSchema, async () => ({
   tools: [{
     name: "create_jira_issue",
-    description: "Crée un ticket Jira dans le projet courant",
+    description: "Create a Jira issue in the current project",
     inputSchema: {
       type: "object",
       properties: {
@@ -53,19 +53,19 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
   }],
 }));
 
-// 2. Exécuter un tool
+// 2. Execute a tool
 server.setRequestHandler(CallToolRequestSchema, async (req) => {
   if (req.params.name === "create_jira_issue") {
     const { summary, type } = req.params.arguments as any;
     const ticket = await jiraApi.createIssue({ summary, type });
-    return { content: [{ type: "text", text: `Créé : ${ticket.key}` }] };
+    return { content: [{ type: "text", text: `Created: ${ticket.key}` }] };
   }
   throw new Error(`Unknown tool: ${req.params.name}`);
 });
 
-// 3. Exposer des resources (read-only)
+// 3. Expose resources (read-only)
 server.setRequestHandler(ListResourcesRequestSchema, async () => ({
-  resources: [{ uri: "jira://current-sprint", name: "Sprint en cours", mimeType: "application/json" }],
+  resources: [{ uri: "jira://current-sprint", name: "Current sprint", mimeType: "application/json" }],
 }));
 
 server.setRequestHandler(ReadResourceRequestSchema, async (req) => {
@@ -76,43 +76,43 @@ server.setRequestHandler(ReadResourceRequestSchema, async (req) => {
   throw new Error(`Unknown resource: ${req.params.uri}`);
 });
 
-// 4. Démarrer via stdio (mode Claude Desktop / Claude Code)
+// 4. Start over stdio (Claude Desktop / Claude Code mode)
 const transport = new StdioServerTransport();
 await server.connect(transport);
 ```
 
-**Démarrage rapide** :
+**Quick start**:
 ```bash
 npx @modelcontextprotocol/create-server jira-mcp
 cd jira-mcp && npm install && npm run build
-# Enregistrer dans ~/.claude/claude_desktop_config.json :
+# Register in ~/.claude/claude_desktop_config.json:
 # { "mcpServers": { "jira": { "command": "node", "args": ["./dist/server.js"] } } }
 ```
 
-### MCP Servers de référence (2026)
+### Reference MCP Servers (2026)
 filesystem · git · github · slack · postgres · sqlite · puppeteer · brave-search · memory · fetch · sequential-thinking · time
 
 ## A2A — Agent-to-Agent Protocol (Google, 2025)
-Standard pour la communication entre agents hétérogènes (multi-éditeurs).
+Standard for communication between heterogeneous agents (multi-vendor).
 
-### Concepts clés A2A
-- **Agent Card** : carte d'identité JSON de l'agent (capacités, endpoint)
-- **Task** : unité de travail échangée entre agents
-- **Artifact** : résultat produit par un agent
-- **Push / Pull** : modes de communication asynchrone
+### Key A2A concepts
+- **Agent Card**: the agent's JSON identity card (capabilities, endpoint)
+- **Task**: unit of work exchanged between agents
+- **Artifact**: result produced by an agent
+- **Push / Pull**: asynchronous communication modes
 
-### Quand utiliser MCP vs A2A
-| Critère | MCP | A2A |
+### When to use MCP vs A2A
+| Criterion | MCP | A2A |
 |---|---|---|
-| Connexion LLM ↔ outil | ✓ | — |
-| Communication agent ↔ agent | — | ✓ |
-| Standard | Anthropic (dominant) | Google (émergent) |
-| Maturité | Production | Beta 2025 |
+| LLM ↔ tool connection | ✓ | — |
+| Agent ↔ agent communication | — | ✓ |
+| Standard | Anthropic (dominant) | Google (emerging) |
+| Maturity | Production | Beta 2025 |
 
-## Livrables
-- Schéma d'intégration MCP ou A2A
-- MCP Server configuré et testé
-- Agent Card JSON (si A2A)
+## Deliverables
+- MCP or A2A integration diagram
+- MCP Server configured and tested
+- Agent Card JSON (if A2A)
 
-## Format de sortie
-Précise : protocole ciblé · outil à connecter · langage (TypeScript/Python) · contexte d'usage
+## Output format
+Specify: target protocol · tool to connect · language (TypeScript/Python) · usage context

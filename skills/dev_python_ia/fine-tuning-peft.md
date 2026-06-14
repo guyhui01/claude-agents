@@ -1,30 +1,30 @@
 # Skill — Fine-tuning & PEFT (LoRA, QLoRA)
-> Certifications : Hugging Face NLP Course · DeepLearning.AI · Azure DP-100
+> Certifications: Hugging Face NLP Course · DeepLearning.AI · Azure DP-100
 
-## Objectif
-Spécialiser un LLM sur un domaine ou une tâche précise avec un minimum de ressources.
+## Objective
+Specialize an LLM for a domain or a precise task with minimal resources.
 
-## Quand fine-tuner vs. prompting ?
-| Approche | Quand l'utiliser |
+## When to fine-tune vs. prompt?
+| Approach | When to use it |
 |---|---|
-| Prompt Engineering | Tâche générique, résultats acceptables |
-| RAG | Connaissance récente ou volumineuse |
-| Fine-tuning | Style très spécifique, format strict, domaine technique pointu |
-| Fine-tuning + RAG | Combo optimal pour expert sectoriel |
+| Prompt Engineering | Generic task, acceptable results |
+| RAG | Recent or large knowledge |
+| Fine-tuning | Very specific style, strict format, highly technical domain |
+| Fine-tuning + RAG | Optimal combo for a domain expert |
 
 ## PEFT — Parameter Efficient Fine-Tuning
 
 ### LoRA (Low-Rank Adaptation)
-- Entraîne seulement des matrices de rang réduit (r=8 à 64)
-- Réduit les paramètres entraînables de 99%
-- Résultat = adaptateur léger (quelques Mo) appliqué au modèle de base
+- Trains only low-rank matrices (r=8 to 64)
+- Cuts trainable parameters by 99%
+- Result = lightweight adapter (a few MB) applied to the base model
 
 ### QLoRA (Quantized LoRA)
-- LoRA + quantification du modèle de base en 4-bit (NF4)
-- Fine-tune un modèle 70B sur une seule GPU 48GB
-- Légèrement moins performant que LoRA full-precision
+- LoRA + 4-bit quantization of the base model (NF4)
+- Fine-tunes a 70B model on a single 48GB GPU
+- Slightly less performant than full-precision LoRA
 
-## Implémentation avec TRL + PEFT
+## Implementation with TRL + PEFT
 ```python
 from transformers import AutoModelForCausalLM, BitsAndBytesConfig
 from peft import LoraConfig, get_peft_model
@@ -46,20 +46,20 @@ trainer = SFTTrainer(model=model, train_dataset=dataset,
 trainer.train()
 ```
 
-## Format de dataset pour instruction tuning
+## Dataset format for instruction tuning
 ```json
 {"messages": [
-    {"role": "system", "content": "Tu es un expert PO Agile."},
-    {"role": "user", "content": "Rédige une User Story pour..."},
-    {"role": "assistant", "content": "En tant que..."}
+    {"role": "system", "content": "You are an expert Agile PO."},
+    {"role": "user", "content": "Write a User Story for..."},
+    {"role": "assistant", "content": "As a..."}
 ]}
 ```
 
-## Livrables
-- Adaptateur LoRA/QLoRA entraîné
-- Rapport d'évaluation (loss curves, métriques tâche)
-- Script d'inférence avec adaptateur chargé
-- Recommandation : fine-tuning utile ou prompting suffisant ?
+## Deliverables
+- Trained LoRA/QLoRA adapter
+- Evaluation report (loss curves, task metrics)
+- Inference script with the adapter loaded
+- Recommendation: is fine-tuning worth it, or is prompting enough?
 
-## Format de sortie
-Précise : modèle de base · tâche · taille dataset · GPU disponible · budget compute
+## Output format
+Specify: base model · task · dataset size · available GPU · compute budget

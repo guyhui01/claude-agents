@@ -1,38 +1,38 @@
-# Skill — Intégration DAM ↔ CMS (AEM, Drupal, Contentful, Headless)
-> Certifications : Adobe AEM Assets Specialist · Cloudinary Media Developer Expert · Widen Certified / Acquia
+# Skill — DAM ↔ CMS Integration (AEM, Drupal, Contentful, Headless)
+> Certifications: Adobe AEM Assets Specialist · Cloudinary Media Developer Expert · Widen Certified / Acquia
 
-## Objectif
-Connecter le DAM au CMS pour permettre aux éditeurs d'insérer des assets approuvés directement depuis le DAM dans les pages web, sans contournement (upload direct sur le CMS) — garantissant ainsi que seuls les assets gouvernés sont publiés.
+## Objective
+Connect the DAM to the CMS so editors can insert approved assets straight from the DAM into web pages, with no workaround (direct upload to the CMS) — ensuring only governed assets get published.
 
-## Patterns d'intégration DAM → CMS
+## DAM → CMS integration patterns
 
 ```
-PATTERN                  DESCRIPTION                              AVANTAGES               LIMITATIONS
+PATTERN                  DESCRIPTION                              PROS                    LIMITATIONS
 ──────────────────────   ──────────────────────────────────────   ─────────────────────   ──────────────────────
-Asset Picker natif       Plugin DAM dans l'éditeur CMS            UX fluide éditeur        Dépendance plugin
-Asset reference (URL)    Le CMS stocke l'URL DAM, pas le fichier  Pas de doublon           CDN DAM requis
-Webhook push             DAM notifie le CMS à chaque publication  Temps réel               Complexité setup
-API pull                 CMS interroge le DAM à la demande        Flexibilité              Latence si non caché
-Sync CDN (Cloudinary)    Assets servis depuis CDN commun          Performance maximale     Coût CDN
+Native Asset Picker      DAM plugin in the CMS editor            Smooth editor UX         Plugin dependency
+Asset reference (URL)    CMS stores the DAM URL, not the file     No duplicate             DAM CDN required
+Webhook push             DAM notifies the CMS on each publish     Real-time                Setup complexity
+API pull                 CMS queries the DAM on demand            Flexibility              Latency if uncached
+CDN sync (Cloudinary)    Assets served from a shared CDN          Maximum performance      CDN cost
 ```
 
-## Intégration AEM Sites ↔ AEM Assets
+## AEM Sites ↔ AEM Assets integration
 
 ```
-COMPOSANT               DESCRIPTION                          CONFIGURATION
+COMPONENT               DESCRIPTION                          CONFIGURATION
 ──────────────────────  ───────────────────────────────────  ─────────────────────────────────────────
-Asset Picker (OOB)      Sélecteur d'assets intégré AEM       Natif — configure les filtres de recherche
-Scene7 / DMS7           DAM + CDN + renditions dans AEM      Activer via Cloud Config → Scene7
-Content Fragment        Assets référencés dans des CF        Propriété image dans CF model = asset ref.
-GraphQL API             Exposer assets depuis AEM Headless   Persisted queries sur AssetModel
-Dynamic Media           URLs dynamiques avec transformations  dm:{imagePreset}:{asset_path}
+Asset Picker (OOB)      Built-in AEM asset selector          Native — configure the search filters
+Scene7 / DMS7           DAM + CDN + renditions in AEM        Enable via Cloud Config → Scene7
+Content Fragment        Assets referenced in CFs             Image property in a CF model = asset ref.
+GraphQL API             Expose assets from AEM Headless      Persisted queries on AssetModel
+Dynamic Media           Dynamic URLs with transformations    dm:{imagePreset}:{asset_path}
 ```
 
-## Intégration Bynder ↔ Drupal 10
+## Bynder ↔ Drupal 10 integration
 
 ```php
-// Module Drupal personnalisé : Bynder Media Source
-// Installation : composer require bynder/bynder-php-sdk
+// Custom Drupal module: Bynder Media Source
+// Installation: composer require bynder/bynder-php-sdk
 
 use Bynder\Api\BynderClient;
 
@@ -52,7 +52,7 @@ class BynderMediaSource extends MediaSourceBase {
 }
 ```
 
-## Intégration Cloudinary ↔ Contentful (Headless CMS)
+## Cloudinary ↔ Contentful integration (Headless CMS)
 
 ```javascript
 // Contentful App SDK + Cloudinary Media Library Widget
@@ -60,14 +60,14 @@ import { CloudinaryMediaLibraryWidget } from '@cloudinary/url-gen';
 
 const openCloudinaryPicker = (sdk) => {
   window.cloudinary.openMediaLibrary({
-    cloud_name: 'mon-cloud',
+    cloud_name: 'my-cloud',
     api_key: 'KEY',
     multiple: false,
     max_files: 1,
   }, {
     insertHandler: (data) => {
       data.assets.forEach((asset) => {
-        // Mise à jour du champ Contentful avec l'URL Cloudinary
+        // Update the Contentful field with the Cloudinary URL
         sdk.field.setValue({
           url:    asset.secure_url,
           width:  asset.width,
@@ -80,33 +80,33 @@ const openCloudinaryPicker = (sdk) => {
 };
 ```
 
-## Livrables
-- Schéma d'architecture d'intégration DAM → CMS (flux, composants, API)
-- Configuration du connecteur DAM natif ou développement du plugin
-- Documentation d'intégration (endpoints, authentification, webhooks)
-- Guide éditeur (comment insérer un asset DAM depuis le CMS)
-- Tests d'intégration (performance, disponibilité, fallback)
-- Monitoring de la connexion DAM-CMS (alertes si disruption)
+## Deliverables
+- DAM → CMS integration architecture diagram (flows, components, API)
+- Native DAM connector configuration or plugin development
+- Integration documentation (endpoints, authentication, webhooks)
+- Editor guide (how to insert a DAM asset from the CMS)
+- Integration tests (performance, availability, fallback)
+- DAM-CMS connection monitoring (alerts on disruption)
 
-## Format de sortie
-Précise : **DAM source** (Bynder, AEM Assets, Cloudinary, Widen…), **CMS cible** (AEM Sites, Drupal 10, Contentful, WordPress…), **type d'intégration** souhaité (asset picker / API / sync CDN), **contraintes de performance** (SLA temps de réponse picker), **environnements** (dev, staging, prod).
+## Output format
+Specify: **source DAM** (Bynder, AEM Assets, Cloudinary, Widen…), **target CMS** (AEM Sites, Drupal 10, Contentful, WordPress…), desired **integration type** (asset picker / API / CDN sync), **performance constraints** (picker response-time SLA), **environments** (dev, staging, prod).
 
 ## Anti-patterns
-- ❌ **Upload direct sur le CMS** (contournement du DAM) : des assets non gouvernés, sans droits validés, sont publiés → asset picker imposé, upload CMS désactivé
-- ❌ **Stocker le fichier dans le CMS** au lieu de référencer l'URL DAM : doublons et désynchronisation → privilégier l'asset reference (URL/CDN)
-- ❌ **Pas de fallback si le DAM est indisponible** : pages cassées → image de repli + cache CDN
-- ❌ **API pull sans cache** : latence à chaque rendu éditeur → mise en cache des réponses DAM
-- ❌ **Pas de monitoring de la connexion** DAM↔CMS : disruptions silencieuses → alertes + tests de disponibilité
-- ❌ **Métadonnées (ALT, droits) non propagées** du DAM vers le CMS : accessibilité et conformité perdues → mapper ALT/droits à l'insertion
+- ❌ **Direct upload to the CMS** (bypassing the DAM): ungoverned, rights-unvalidated assets get published → enforce the asset picker, disable CMS upload
+- ❌ **Storing the file in the CMS** instead of referencing the DAM URL: duplicates and desync → prefer the asset reference (URL/CDN)
+- ❌ **No fallback if the DAM is unavailable**: broken pages → fallback image + CDN cache
+- ❌ **API pull with no cache**: latency on every editor render → cache the DAM responses
+- ❌ **No connection monitoring** DAM↔CMS: silent disruptions → alerts + availability tests
+- ❌ **Metadata (ALT, rights) not propagated** from the DAM to the CMS: accessibility and compliance lost → map ALT/rights on insertion
 
 ## Sources
 - **Adobe AEM Assets** (Asset Picker, Dynamic Media/Scene7, Content Fragments, GraphQL) — experienceleague.adobe.com
 - **Bynder PHP SDK** (`bynder/bynder-php-sdk`) — developer.bynder.com · **Cloudinary** (`@cloudinary/url-gen`, Media Library Widget) — cloudinary.com/documentation
 - **Drupal 10/11** Media Source API — drupal.org · **Contentful App SDK** — contentful.com/developers
-- **OAuth 2.1** (RFC 9700) — authentification des connecteurs API
+- **OAuth 2.1** (RFC 9700) — API connector authentication
 
-## Voir aussi
-- [`distribution-multicanal.md`](distribution-multicanal.md) — diffusion CDN des assets référencés
-- [`taxonomie-assets.md`](taxonomie-assets.md) — métadonnées (ALT, droits) à propager au CMS
-- [`../cms_digital/integration-pim-dam.md`](../cms_digital/integration-pim-dam.md) — vue CMS de l'intégration PIM/DAM
-- [`../cms_digital/cms-headless.md`](../cms_digital/cms-headless.md) — consommation headless des assets
+## See also
+- [`distribution-multicanal.md`](distribution-multicanal.md) — CDN distribution of referenced assets
+- [`taxonomie-assets.md`](taxonomie-assets.md) — metadata (ALT, rights) to propagate to the CMS
+- [`../cms_digital/integration-pim-dam.md`](../cms_digital/integration-pim-dam.md) — CMS view of the PIM/DAM integration
+- [`../cms_digital/cms-headless.md`](../cms_digital/cms-headless.md) — headless asset consumption

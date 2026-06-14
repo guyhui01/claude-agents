@@ -1,49 +1,49 @@
-# Skill — Docker & Conteneurisation
-> Certifications : Docker Certified Associate (DCA 2026), CKA, AWS ECS/EKS Specialty
+# Skill — Docker & Containerization
+> Certifications: Docker Certified Associate (DCA 2026), CKA, AWS ECS/EKS Specialty
 
-## Objectif
-Construire des images Docker optimisées, sécurisées et reproductibles, avec des patterns multi-stage, des compositions de services et les meilleures pratiques pour les environnements de production.
+## Objective
+Build optimized, secure and reproducible Docker images, with multi-stage patterns, service compositions and best practices for production environments.
 
-## Multi-Stage Builds & Optimisation
+## Multi-Stage Builds & Optimization
 
-### Image Python production (multi-stage)
+### Production Python image (multi-stage)
 
 ```dockerfile
 # Dockerfile — Python API production
-# Stage 1 : builder — installe les dépendances
+# Stage 1: builder — install dependencies
 FROM python:3.12-slim AS builder
 
 WORKDIR /build
 
-# Installer uv (remplace pip, 10-100x plus rapide)
+# Install uv (replaces pip, 10-100x faster)
 RUN pip install uv==0.4.0
 
-# Copier uniquement les fichiers de dépendances d'abord (cache layer)
+# Copy only the dependency files first (cache layer)
 COPY pyproject.toml uv.lock ./
 
-# Installer dans un venv isolé
+# Install in an isolated venv
 RUN uv venv /opt/venv && \
     uv pip install --no-cache -r pyproject.toml
 
-# Stage 2 : production — image minimale
+# Stage 2: production — minimal image
 FROM python:3.12-slim AS production
 
-# Sécurité : pas de root
+# Security: no root
 RUN groupadd -r appuser && useradd -r -g appuser appuser
 
 WORKDIR /app
 
-# Copier uniquement le venv du builder
+# Copy only the venv from the builder
 COPY --from=builder /opt/venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
-# Copier le code applicatif
+# Copy the application code
 COPY --chown=appuser:appuser src/ ./src/
 
-# Filesystem en lecture seule + utilisateur non-root
+# Read-only filesystem + non-root user
 USER appuser
 
-# Healthcheck intégré
+# Built-in healthcheck
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
     CMD python -c "import httpx; httpx.get('http://localhost:8080/health').raise_for_status()"
 
@@ -51,7 +51,7 @@ EXPOSE 8080
 CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8080", "--workers", "4"]
 ```
 
-### Image Node.js production
+### Production Node.js image
 
 ```dockerfile
 # Dockerfile — Next.js production
@@ -85,7 +85,7 @@ ENV PORT=3000
 CMD ["node", "server.js"]
 ```
 
-### .dockerignore — indispensable
+### .dockerignore — essential
 
 ```
 # .dockerignore
@@ -112,7 +112,7 @@ docs/
 tests/
 ```
 
-## Docker Compose — Environnements locaux & staging
+## Docker Compose — Local & staging environments
 
 ```yaml
 # docker-compose.yml
@@ -142,7 +142,7 @@ services:
       timeout: 5s
       retries: 5
     volumes:
-      - ./src:/app/src:ro    # Hot reload en dev uniquement
+      - ./src:/app/src:ro    # Hot reload in dev only
     networks:
       - backend
     restart: unless-stopped
@@ -177,7 +177,7 @@ services:
     networks:
       - backend
 
-  # Outils de dev uniquement
+  # Dev-only tools
   adminer:
     image: adminer:4
     ports:
@@ -196,10 +196,10 @@ networks:
     driver: bridge
 ```
 
-### Docker Build Avancé — commandes clés
+### Advanced Docker Build — key commands
 
 ```bash
-# Build multi-arch (AMD64 + ARM64) avec BuildKit
+# Multi-arch build (AMD64 + ARM64) with BuildKit
 docker buildx create --use --name multiarch-builder
 docker buildx build \
   --platform linux/amd64,linux/arm64 \
@@ -208,54 +208,54 @@ docker buildx build \
   --tag ghcr.io/company/api:latest \
   --push .
 
-# Analyser la taille et les layers
+# Analyze size and layers
 docker history ghcr.io/company/api:latest
-dive ghcr.io/company/api:latest   # outil dive
+dive ghcr.io/company/api:latest   # dive tool
 
-# Scan de sécurité avec Trivy
+# Security scan with Trivy
 trivy image --severity HIGH,CRITICAL ghcr.io/company/api:latest
 
-# Scan avec Docker Scout
+# Scan with Docker Scout
 docker scout cves ghcr.io/company/api:latest
 
-# Inspecter les layers pour optimisation
+# Inspect layers for optimization
 docker image inspect ghcr.io/company/api:latest | jq '.[0].RootFS.Layers | length'
 
-# Build avec secrets (ne pas les laisser dans les layers)
+# Build with secrets (keep them out of the layers)
 docker buildx build \
   --secret id=npmrc,src=$HOME/.npmrc \
   --secret id=pip,src=$HOME/.pip/pip.conf \
   -t company/api:latest .
 ```
 
-## Bonnes Pratiques Sécurité
+## Security best practices
 
-| Règle | Pourquoi |
+| Rule | Why |
 |-------|----------|
-| Image base minimale (slim/alpine/distroless) | Réduction de la surface d'attaque |
-| Utilisateur non-root (`USER appuser`) | Évite l'escalade de privilèges |
-| `--no-cache` lors du `apt install` | Pas de cache APT dans les layers |
-| `readOnlyRootFilesystem` | Empêche les modifications à l'exécution |
-| Pas de secrets dans les ARG/ENV | Visibles dans `docker history` |
-| `--secret` pour les credentials de build | Secrets montés en mémoire, non committs |
-| Pinning des versions d'images base | Reproductibilité + pas de régression |
-| Scan systématique (Trivy/Scout) | Détection CVE avant déploiement |
+| Minimal base image (slim/alpine/distroless) | Reduced attack surface |
+| Non-root user (`USER appuser`) | Avoids privilege escalation |
+| `--no-cache` on `apt install` | No APT cache in the layers |
+| `readOnlyRootFilesystem` | Prevents runtime modifications |
+| No secrets in ARG/ENV | Visible in `docker history` |
+| `--secret` for build credentials | Secrets mounted in memory, not committed |
+| Pin base image versions | Reproducibility + no regression |
+| Systematic scan (Trivy/Scout) | CVE detection before deployment |
 
-### Utilisation des secrets dans le Dockerfile (BuildKit)
+### Using secrets in the Dockerfile (BuildKit)
 
 ```dockerfile
-# Installer depuis un repo privé sans exposer le token
+# Install from a private repo without exposing the token
 RUN --mount=type=secret,id=pip,target=/root/.pip/pip.conf \
     pip install --no-cache-dir private-package==1.2.3
 ```
 
-## Livrables
-- Dockerfiles multi-stage optimisés (Python, Node, Go, Java)
-- docker-compose.yml par environnement (dev, test, staging)
-- Rapport d'analyse des images (taille, layers, CVEs)
-- Pipeline de build multi-arch avec cache registry
-- Guide de sécurité Docker (Pod Security, rootless mode)
-- .dockerignore et bonnes pratiques de layering
+## Deliverables
+- Optimized multi-stage Dockerfiles (Python, Node, Go, Java)
+- Per-environment docker-compose.yml (dev, test, staging)
+- Image analysis report (size, layers, CVEs)
+- Multi-arch build pipeline with registry cache
+- Docker security guide (Pod Security, rootless mode)
+- .dockerignore and layering best practices
 
-## Format de sortie
-Précise : langage/runtime (Python/Node/Go/Java), version, registry cible (ECR/GCR/GHCR), architectures requises (amd64/arm64), contraintes de taille d'image, environnements à supporter (dev/staging/prod), service mesh ou sidecar patterns.
+## Output format
+Specify: language/runtime (Python/Node/Go/Java), version, target registry (ECR/GCR/GHCR), required architectures (amd64/arm64), image size constraints, environments to support (dev/staging/prod), service mesh or sidecar patterns.

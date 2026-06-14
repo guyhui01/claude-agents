@@ -1,14 +1,14 @@
-# Skill — DevSecOps & Sécurité dans le CI/CD
-> Certifications : CISSP · CompTIA Security+ · AWS Security Specialty · AZ-500
+# Skill — DevSecOps & Security in CI/CD
+> Certifications: CISSP · CompTIA Security+ · AWS Security Specialty · AZ-500
 
-## Objectif
-Intégrer la sécurité à chaque étape du pipeline CI/CD pour détecter et corriger les vulnérabilités le plus tôt possible (Shift Left Security).
+## Objective
+Integrate security into every stage of the CI/CD pipeline to detect and fix vulnerabilities as early as possible (Shift Left Security).
 
-## Le pipeline DevSecOps
+## The DevSecOps pipeline
 
 ### SAST — Static Application Security Testing
 ```yaml
-# GitHub Actions — SAST avec Semgrep
+# GitHub Actions — SAST with Semgrep
 - name: Run SAST (Semgrep)
   uses: returntocorp/semgrep-action@v1
   with:
@@ -23,7 +23,7 @@ Intégrer la sécurité à chaque étape du pipeline CI/CD pour détecter et cor
 
 ### DAST — Dynamic Application Security Testing
 ```yaml
-# OWASP ZAP dans le pipeline
+# OWASP ZAP in the pipeline
 - name: OWASP ZAP Scan
   uses: zaproxy/action-full-scan@v0.8.0
   with:
@@ -34,7 +34,7 @@ Intégrer la sécurité à chaque étape du pipeline CI/CD pour détecter et cor
 
 ### SCA — Software Composition Analysis
 ```yaml
-# Détection de dépendances vulnérables (Snyk)
+# Vulnerable dependency detection (Snyk)
 - name: Snyk Security Scan
   uses: snyk/actions/python@master
   env:
@@ -42,14 +42,14 @@ Intégrer la sécurité à chaque étape du pipeline CI/CD pour détecter et cor
   with:
     args: --severity-threshold=high
 
-# Alternative : pip-audit (open source)
+# Alternative: pip-audit (open source)
 - name: pip-audit
   run: pip-audit --requirement requirements.txt
 ```
 
 ### Secrets Detection
 ```yaml
-# Détection de secrets dans le code (GitGuardian / truffleHog)
+# Secrets detection in code (GitGuardian / truffleHog)
 - name: TruffleHog Secrets Scan
   uses: trufflesecurity/trufflehog@main
   with:
@@ -73,18 +73,18 @@ Intégrer la sécurité à chaque étape du pipeline CI/CD pour détecter et cor
     exit-code: '1'
 ```
 
-## Security Gates (quality gates sécurité)
+## Security Gates (security quality gates)
 ```
-Gate 1 (Commit)    : Secrets detection → block si secret trouvé
-Gate 2 (PR)        : SAST + SCA → block si CRITICAL/HIGH
-Gate 3 (Build)     : Container scan → block si CRITICAL
-Gate 4 (Pre-prod)  : DAST → rapport, block si OWASP Critical
-Gate 5 (Prod)      : CSPM continu (AWS Security Hub / Defender)
+Gate 1 (Commit)    : Secrets detection → block if a secret is found
+Gate 2 (PR)        : SAST + SCA → block if CRITICAL/HIGH
+Gate 3 (Build)     : Container scan → block if CRITICAL
+Gate 4 (Pre-prod)  : DAST → report, block if OWASP Critical
+Gate 5 (Prod)      : Continuous CSPM (AWS Security Hub / Defender)
 ```
 
-## ML/AI Specific Security dans CI/CD
+## ML/AI Specific Security in CI/CD
 ```python
-# Vérification de l'intégrité des modèles
+# Model integrity verification
 import hashlib
 
 def verify_model_checksum(model_path: str, expected_sha256: str) -> bool:
@@ -94,7 +94,7 @@ def verify_model_checksum(model_path: str, expected_sha256: str) -> bool:
             sha256_hash.update(byte_block)
     return sha256_hash.hexdigest() == expected_sha256
 
-# Scan des datasets avant entraînement
+# Scan datasets before training
 def scan_dataset_for_pii(df):
     import re
     pii_patterns = {
@@ -111,11 +111,11 @@ def scan_dataset_for_pii(df):
     return findings
 ```
 
-## Livrables
-- Pipeline DevSecOps complet (.github/workflows/)
-- Rapport de vulnérabilités par niveau
-- Security gates documentés
-- Runbook de remédiation par type de vulnérabilité
+## Deliverables
+- Complete DevSecOps pipeline (.github/workflows/)
+- Vulnerability report by severity level
+- Documented security gates
+- Remediation runbook per vulnerability type
 
-## Format de sortie
-Précise : stack technique · cloud provider · criticité de l'application · seuil de tolérance (CVSS score) · outils déjà en place
+## Output format
+Specify: tech stack · cloud provider · application criticality · tolerance threshold (CVSS score) · tools already in place

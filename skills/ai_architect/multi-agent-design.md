@@ -1,66 +1,66 @@
-# Skill — Architecture Multi-Agents
-> Certifications : Anthropic Claude Code · AWS MLS-C01
+# Skill — Multi-Agent Architecture
+> Certifications: Anthropic Claude Code · AWS MLS-C01
 
-## Objectif
-Concevoir un système multi-agents cohérent, maintenable et scalable.
+## Objective
+Design a coherent, maintainable and scalable multi-agent system.
 
-## Topologies multi-agents
+## Multi-agent topologies
 
-### Hiérarchique (Supervisor)
+### Hierarchical (Supervisor)
 ```
-         Orchestrateur
+         Orchestrator
         /       |       \
    Agent A   Agent B   Agent C
-  (search)  (analyse)  (rédige)
+  (search)  (analyze)  (write)
 ```
-- Un agent maître décompose et délègue
-- Collecte et synthétise les résultats
-- Idéal : workflows séquentiels complexes
+- A master agent decomposes and delegates
+- Collects and synthesizes the results
+- Ideal: complex sequential workflows
 
-### Collaboratif (Peer-to-Peer)
+### Collaborative (Peer-to-Peer)
 ```
 Agent A  ←→  Agent B  ←→  Agent C
 ```
-- Les agents communiquent directement
-- Pas de hiérarchie fixe
-- Idéal : brainstorming, revue de code multi-perspectives
+- Agents communicate directly
+- No fixed hierarchy
+- Ideal: brainstorming, multi-perspective code review
 
-### Spécialisé (Expert Routing)
+### Specialized (Expert Routing)
 ```
-Router → [Agent Expert 1 | Agent Expert 2 | Agent Expert 3]
+Router → [Expert Agent 1 | Expert Agent 2 | Expert Agent 3]
 ```
-- Chaque agent est expert d'un domaine
-- Le router dirige selon la nature de la requête
-- Idéal : support client multi-domaines
+- Each agent is a domain expert
+- The router dispatches based on the request's nature
+- Ideal: multi-domain customer support
 
-## Principes de design
+## Design principles
 
 ### Single Responsibility
-- Un agent = une responsabilité claire
-- Trop de tools = confusion du LLM
+- One agent = one clear responsibility
+- Too many tools = LLM confusion
 
-### Interfaces contractuelles
-- Inputs/outputs typés entre agents (Pydantic)
-- Format de message standardisé
+### Contractual interfaces
+- Typed inputs/outputs between agents (Pydantic)
+- Standardized message format
 
 ### Human-in-the-loop
-- Identifier les points de validation humaine
-- Interruptions avant actions irréversibles (envoi email, modification DB)
+- Identify the human validation points
+- Interrupts before irreversible actions (sending email, modifying DB)
 
 ### State Management
-- Shared state (mémoire commune) vs. message passing
-- LangGraph : StateGraph pour état partagé typé
+- Shared state (common memory) vs. message passing
+- LangGraph: StateGraph for typed shared state
 
-## Checklist architecture multi-agents
-- [ ] Responsabilité de chaque agent définie
-- [ ] Interfaces input/output typées
-- [ ] Points human-in-the-loop identifiés
-- [ ] Gestion des erreurs et fallbacks prévus
-- [ ] Coût estimé (tokens × agents × appels)
-- [ ] Latence estimée (appels séquentiels vs. parallèles)
-- [ ] Checkpointing pour reprise après erreur (LangGraph SqliteSaver / PostgresSaver)
+## Multi-agent architecture checklist
+- [ ] Each agent's responsibility defined
+- [ ] Typed input/output interfaces
+- [ ] Human-in-the-loop points identified
+- [ ] Error handling and fallbacks planned
+- [ ] Estimated cost (tokens × agents × calls)
+- [ ] Estimated latency (sequential vs. parallel calls)
+- [ ] Checkpointing for recovery after an error (LangGraph SqliteSaver / PostgresSaver)
 
-## Exemple : StateGraph LangGraph avec interruption human-in-the-loop
+## Example: LangGraph StateGraph with a human-in-the-loop interrupt
 
 ```python
 from typing_extensions import TypedDict
@@ -69,42 +69,42 @@ from langgraph.checkpoint.sqlite import SqliteSaver
 from langchain_anthropic import ChatAnthropic
 from pydantic import BaseModel, Field
 
-# 1. État partagé typé entre agents
+# 1. Typed shared state between agents
 class TripState(TypedDict):
     request: str
     search_results: list
     draft_plan: str
     user_approved: bool
 
-# 2. Contrats input/output (Pydantic)
+# 2. Input/output contracts (Pydantic)
 class SearchOutput(BaseModel):
     destinations: list[str] = Field(min_length=1, max_length=5)
     estimated_budget_eur: int
 
 llm = ChatAnthropic(model="claude-opus-4-8")
 
-# 3. Nœuds agents
+# 3. Agent nodes
 def search_agent(state: TripState) -> dict:
     structured = llm.with_structured_output(SearchOutput)
-    result = structured.invoke(f"Propose 3 destinations pour : {state['request']}")
+    result = structured.invoke(f"Propose 3 destinations for: {state['request']}")
     return {"search_results": result.destinations}
 
 def planner_agent(state: TripState) -> dict:
-    plan = llm.invoke(f"Crée un plan détaillé pour : {state['search_results']}")
+    plan = llm.invoke(f"Create a detailed plan for: {state['search_results']}")
     return {"draft_plan": plan.content}
 
 def human_review(state: TripState) -> dict:
-    # Interruption avant action irréversible (réservation)
-    # LangGraph interrupt l'exécution ici, attend l'input humain
+    # Interrupt before an irreversible action (booking)
+    # LangGraph interrupts execution here, waits for human input
     return {}
 
 def booker_agent(state: TripState) -> dict:
     if not state["user_approved"]:
-        return {"draft_plan": "Annulé par l'utilisateur"}
-    # ... appel API réservation
+        return {"draft_plan": "Cancelled by the user"}
+    # ... booking API call
     return {}
 
-# 4. Graphe avec checkpointing
+# 4. Graph with checkpointing
 checkpointer = SqliteSaver.from_conn_string("checkpoints.db")
 graph = StateGraph(TripState)
 graph.add_node("search", search_agent)
@@ -114,26 +114,26 @@ graph.add_node("book", booker_agent)
 graph.add_edge(START, "search")
 graph.add_edge("search", "plan")
 graph.add_edge("plan", "review")
-graph.add_edge("review", "book")  # interrompu avant cette transition
+graph.add_edge("review", "book")  # interrupted before this transition
 graph.add_edge("book", END)
 
 app = graph.compile(checkpointer=checkpointer, interrupt_before=["book"])
 
-# 5. Exécution avec reprise possible
+# 5. Execution with possible resume
 config = {"configurable": {"thread_id": "trip-42"}}
-app.invoke({"request": "Weekend Lisbonne, 800€"}, config)
-# → s'arrête à 'review', état persisté en SQLite
+app.invoke({"request": "Weekend in Lisbon, €800"}, config)
+# → stops at 'review', state persisted in SQLite
 
-# Reprise avec validation utilisateur
+# Resume with user validation
 app.update_state(config, {"user_approved": True})
 app.invoke(None, config)
 ```
 
-## Livrables
-- Diagramme d'architecture (Mermaid)
-- Définition de chaque agent (rôle, tools, LLM)
-- Schéma de communication inter-agents
-- Estimation coût et latence
+## Deliverables
+- Architecture diagram (Mermaid)
+- Definition of each agent (role, tools, LLM)
+- Inter-agent communication schema
+- Cost and latency estimate
 
-## Format de sortie
-Précise : cas d'usage · nombre d'agents envisagé · framework (LangGraph, CrewAI, SDK) · contraintes
+## Output format
+Specify: use case · expected number of agents · framework (LangGraph, CrewAI, SDK) · constraints

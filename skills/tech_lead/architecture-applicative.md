@@ -1,54 +1,54 @@
-# Skill — Architecture Applicative
-> Certifications : AWS Certified Developer Associate (DVA-C02) · Google Professional Cloud Developer · Azure Developer Associate (AZ-204)
+# Skill — Application Architecture
+> Certifications: AWS Certified Developer Associate (DVA-C02) · Google Professional Cloud Developer · Azure Developer Associate (AZ-204)
 
-## Objectif
-Concevoir ou auditer l'architecture d'une application : choisir les patterns adaptés, définir les frontières de composants, documenter avec le modèle C4 — pour garantir scalabilité, maintenabilité et évolutivité.
+## Objective
+Design or audit an application's architecture: pick the right patterns, define component boundaries, document with the C4 model — to guarantee scalability, maintainability and evolvability.
 
-## Styles architecturaux — Comparatif
+## Architectural styles — Comparison
 
 ```
-STYLE                AVANTAGES                        INCONVÉNIENTS             IDÉAL POUR
+STYLE                PROS                             CONS                      BEST FOR
 ───────────────────  ───────────────────────────────  ────────────────────────  ───────────────────────
-Monolithique         Simple à déployer, debugger       Mise à l'échelle globale  MVP, petite équipe
-modulaire            Testing aisé, une seule base      Couplage technologique    Startup < 10 devs
+Modular              Simple to deploy, debug           Global scaling            MVP, small team
+monolith             Easy testing, single codebase     Technology coupling       Startup < 10 devs
 
-Microservices        Scalabilité indépendante          Complexité opérationnelle Équipes multiples
-                     Technologies hétérogènes          Latence réseau, sagaing   > 50 devs, CAC40
+Microservices        Independent scalability           Operational complexity    Multiple teams
+                     Heterogeneous technologies        Network latency, sagas    > 50 devs, CAC40
 
-Modular Monolith     Déploiement simple                Pas de scaling fin        Croissance maîtrisée
-(Majestic Monolith)  Découplage logique interne        Partage de base de données 10-50 devs
+Modular Monolith     Simple deployment                 No fine-grained scaling   Controlled growth
+(Majestic Monolith)  Internal logical decoupling       Shared database           10-50 devs
 
-Event-Driven         Découplage fort, async            Complexité observabilité  Haute volumétrie
-                     Résilience, audit log naturel     Debug difficile           IoT, finance, CMS
+Event-Driven         Strong decoupling, async          Observability complexity  High volume
+                     Resilience, natural audit log     Hard to debug             IoT, finance, CMS
 
-Hexagonale           Testabilité maximale              Plus verbeux à coder      Domaine métier riche
-(Ports & Adapters)   Indépendance des frameworks       Courbe d'apprentissage    DDD, legacy refacto
+Hexagonal            Maximum testability               More verbose to code      Rich business domain
+(Ports & Adapters)   Framework independence            Learning curve            DDD, legacy refactoring
 ```
 
-## Modèle C4 — 4 niveaux de documentation
+## C4 model — 4 documentation levels
 
 ```
-NIVEAU 1 — Contexte (pour tout le monde)
-  Box = Système + Personnes externes + Systèmes tiers
-  Question : "Qui utilise quoi ?"
+LEVEL 1 — Context (for everyone)
+  Box = System + External people + Third-party systems
+  Question: "Who uses what?"
 
-NIVEAU 2 — Container (pour les décideurs tech)
-  Box = Applications, BDD, APIs, queues, storage
-  Question : "Qu'est-ce qui tourne et comment ça communique ?"
+LEVEL 2 — Container (for technical decision-makers)
+  Box = Applications, DBs, APIs, queues, storage
+  Question: "What is running and how does it communicate?"
 
-NIVEAU 3 — Component (pour les développeurs)
-  Box = Modules / packages / namespaces dans un container
-  Question : "Comment le code est-il structuré ?"
+LEVEL 3 — Component (for developers)
+  Box = Modules / packages / namespaces within a container
+  Question: "How is the code structured?"
 
-NIVEAU 4 — Code (auto-générée si besoin)
-  Box = Classes, interfaces, fonctions
-  Question : "Comment ça marche en détail ?"
+LEVEL 4 — Code (auto-generated if needed)
+  Box = Classes, interfaces, functions
+  Question: "How does it work in detail?"
 ```
 
-## Patterns essentiels
+## Essential patterns
 
 ```typescript
-// CQRS — Séparation lecture / écriture
+// CQRS — Read / write separation
 interface CreateOrderCommand { userId: string; items: Item[] }
 interface GetOrderQuery      { orderId: string }
 
@@ -63,7 +63,7 @@ class OrderCommandHandler {
 
 class OrderQueryHandler {
   async handle(query: GetOrderQuery): Promise<OrderView> {
-    return this.orderReadModel.findById(query.orderId)  // Vue dénormalisée optimisée lecture
+    return this.orderReadModel.findById(query.orderId)  // Denormalized, read-optimized view
   }
 }
 
@@ -78,30 +78,30 @@ interface OrderRepository {
 ## ADR — Architecture Decision Record
 
 ```markdown
-# ADR-042 — Adopter CQRS pour le module Commandes
+# ADR-042 — Adopt CQRS for the Orders module
 
-## Statut
-Accepté — 2026-05-26
+## Status
+Accepted — 2026-05-26
 
-## Contexte
-Le module Commandes subit une charge de lecture 10× supérieure à l'écriture.
-Les requêtes de lecture complexes impactent les performances d'écriture.
+## Context
+The Orders module takes a read load 10× higher than its write load.
+Complex read queries degrade write performance.
 
-## Décision
-Implémenter CQRS : modèle d'écriture normalisé (PostgreSQL) + modèle de lecture
-dénormalisé (Redis + Elasticsearch).
+## Decision
+Implement CQRS: normalized write model (PostgreSQL) + denormalized read
+model (Redis + Elasticsearch).
 
-## Conséquences
-✅ Lectures < 10ms (Redis cache), scalabilité indépendante
-⚠️ Eventual consistency (délai de propagation ~100ms)
-❌ Complexité accrue : 2 modèles à maintenir, synchronisation événementielle
+## Consequences
+✅ Reads < 10ms (Redis cache), independent scalability
+⚠️ Eventual consistency (propagation lag ~100ms)
+❌ Increased complexity: 2 models to maintain, event-based synchronization
 ```
 
-## Livrables
-- Diagramme C4 (niveaux 1 et 2 minimum)
-- ADR pour chaque décision structurante
-- Matrice des patterns applicables (avec justification)
-- Plan de migration si refactoring d'une archi existante
+## Deliverables
+- C4 diagram (levels 1 and 2 minimum)
+- ADR for each structuring decision
+- Matrix of applicable patterns (with rationale)
+- Migration plan when refactoring an existing architecture
 
-## Format de sortie
-Précise : **type d'application** (API, web app, temps réel, batch), **contraintes** (charge attendue, équipe, stack existante), **problème spécifique** (scalabilité, maintenabilité, découplage), **horizon** (court terme MVP ou long terme entreprise).
+## Output format
+Specify: **application type** (API, web app, real-time, batch), **constraints** (expected load, team, existing stack), **specific problem** (scalability, maintainability, decoupling), **horizon** (short-term MVP or long-term enterprise).

@@ -1,143 +1,143 @@
-# Skill — Accessibilité Numérique (RGAA 4.1 / WCAG 2.2)
-> Certifications : WCAG 2.2 / RGAA 4.1 — Accessibilité numérique (W3C / DINUM 2024)
+# Skill — Digital Accessibility (RGAA 4.1 / WCAG 2.2)
+> Certifications: WCAG 2.2 / RGAA 4.1 — Digital accessibility (W3C / DINUM 2024)
 
-## Objectif
-Auditer et mettre en conformité une plateforme CMS avec le RGAA 4.1 (obligation légale France) et les WCAG 2.2 : identifier les non-conformités, prioriser les corrections et produire la Déclaration d'Accessibilité.
+## Objective
+Audit and bring a CMS platform into compliance with RGAA 4.1 (legal requirement in France) and WCAG 2.2: identify non-conformities, prioritize fixes, and produce the Accessibility Statement.
 
-## Niveaux WCAG / RGAA
+## WCAG / RGAA levels
 
 ```
-NIVEAU  DESCRIPTION                         OBLIGATION
+LEVEL   DESCRIPTION                         OBLIGATION
 ──────  ──────────────────────────────────  ─────────────────────────────────
-A       Minimum absolu (25 critères RGAA)   Obligatoire (services publics FR)
-AA      Niveau recommandé (50 critères)     Obligatoire (RGAA 4.1 complet)
-AAA     Niveau optimal (13 critères supp.)  Recommandé, non obligatoire
+A       Absolute minimum (25 RGAA criteria) Mandatory (FR public services)
+AA      Recommended level (50 criteria)     Mandatory (full RGAA 4.1)
+AAA     Optimal level (13 extra criteria)   Recommended, not mandatory
 ```
 
-## Les 4 principes POUR (WCAG 2.2)
+## The 4 POUR principles (WCAG 2.2)
 
 ```
-PERCEPTIBLE    Le contenu est accessible à tous les sens
-  • Alternatives textuelles pour images (alt)
-  • Sous-titres et transcriptions pour médias
-  • Adaptabilité : contenu lisible sans mise en page
-  • Distinguable : contraste suffisant, pas de texte en image
+PERCEIVABLE    Content is accessible to all senses
+  • Text alternatives for images (alt)
+  • Captions and transcripts for media
+  • Adaptability: content readable without layout
+  • Distinguishable: sufficient contrast, no text-in-image
 
-UTILISABLE     L'interface est fonctionnelle au clavier et sans délai
-  • Clavier : toutes les fonctionnalités accessibles au clavier
-  • Temps suffisant : pas de délai bloquant
-  • Crises : pas de contenu clignotant > 3 fois/seconde
-  • Navigation : repères et titres cohérents
+OPERABLE       The interface is keyboard-operable and without time limits
+  • Keyboard: all features keyboard-accessible
+  • Enough time: no blocking time limit
+  • Seizures: no content flashing > 3 times/second
+  • Navigation: consistent landmarks and titles
 
-COMPRÉHENSIBLE Le contenu et l'interface sont intelligibles
-  • Lisible : langue déclarée, définitions des termes rares
-  • Prévisible : navigation cohérente, pas de changement au focus
-  • Aide à la saisie : étiquettes, messages d'erreur clairs
+UNDERSTANDABLE Content and interface are intelligible
+  • Readable: declared language, definitions of rare terms
+  • Predictable: consistent navigation, no change on focus
+  • Input assistance: labels, clear error messages
 
-ROBUSTE        Compatible avec les technologies d'assistance
-  • Analyse : HTML valide, ARIA correct
-  • Compatibilité : lecteurs d'écran (NVDA, VoiceOver, JAWS)
+ROBUST         Compatible with assistive technologies
+  • Parsing: valid HTML, correct ARIA
+  • Compatibility: screen readers (NVDA, VoiceOver, JAWS)
 ```
 
-## Critères RGAA prioritaires (P1 — Impact fort)
+## Priority RGAA criteria (P1 — High impact)
 
 ```
-CRITÈRE  INTITULÉ                                       TEST RAPIDE
-───────  ─────────────────────────────────────────────  ─────────────────────────────
-1.1      Alternative textuelle image informative         Inspecter attribut alt
-3.3      Contraste texte normal ≥ 4,5:1                  Contraste Analyser outil
-4.1      Transcription / sous-titres vidéo               Vérifier présence sous-titres
-6.1      Intitulés liens explicites hors contexte        Lister tous les "cliquez ici"
-7.1      Scripts accessibles au clavier                  Tab + Enter sur tous les CTA
-8.2      Code HTML valide (W3C validator)                Passer le validateur W3C
-9.1      Hiérarchie des titres cohérente (H1 unique)     Inspecter structure Hn
-10.4     Zoom texte 200% sans perte info                 Zoom navigateur à 200%
-11.1     Étiquettes associées aux champs de formulaire   Inspecter label/for ou aria-label
-12.8     Ordre de tabulation logique                     Parcours clavier Tab
+CRITERION  TITLE                                          QUICK TEST
+─────────  ─────────────────────────────────────────────  ─────────────────────────────
+1.1        Text alternative for informative image          Inspect the alt attribute
+3.3        Normal-text contrast ≥ 4.5:1                    Contrast Analyser tool
+4.1        Video transcript / captions                     Check captions are present
+6.1        Explicit link labels out of context             List all the "click here"
+7.1        Keyboard-accessible scripts                      Tab + Enter on every CTA
+8.2        Valid HTML code (W3C validator)                  Run the W3C validator
+9.1        Consistent heading hierarchy (single H1)         Inspect the Hn structure
+10.4       Text zoom 200% without info loss                Browser zoom to 200%
+11.1       Labels associated with form fields               Inspect label/for or aria-label
+12.8       Logical tab order                                Tab keyboard pass-through
 ```
 
-## Patterns ARIA essentiels
+## Essential ARIA patterns
 
 ```html
-<!-- Navigation principale -->
-<nav aria-label="Navigation principale">
+<!-- Main navigation -->
+<nav aria-label="Main navigation">
   <ul role="list">
-    <li><a href="/" aria-current="page">Accueil</a></li>
+    <li><a href="/" aria-current="page">Home</a></li>
   </ul>
 </nav>
 
 <!-- Modal / Dialog -->
 <div role="dialog" aria-modal="true" aria-labelledby="dialog-title" aria-describedby="dialog-desc">
-  <h2 id="dialog-title">Titre de la modale</h2>
-  <p id="dialog-desc">Description du contenu</p>
-  <button aria-label="Fermer la modale">×</button>
+  <h2 id="dialog-title">Modal title</h2>
+  <p id="dialog-desc">Content description</p>
+  <button aria-label="Close the modal">×</button>
 </div>
 
-<!-- Bouton chargement -->
-<button aria-busy="true" aria-label="Chargement en cours">
-  <span aria-hidden="true">⏳</span> Envoyer
+<!-- Loading button -->
+<button aria-busy="true" aria-label="Loading">
+  <span aria-hidden="true">⏳</span> Send
 </button>
 
-<!-- Skip link (obligatoire RGAA) -->
-<a href="#main-content" class="skip-link">Aller au contenu principal</a>
+<!-- Skip link (RGAA mandatory) -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
 ```
 
-## Outils d'audit
+## Audit tools
 
 ```
-OUTIL               TYPE          USAGE
+TOOL                TYPE          USE
 ──────────────────  ────────────  ─────────────────────────────────────────
-axe DevTools        Extension     Audit automatique dans Chrome DevTools
-WAVE               Extension     Visualisation des erreurs in-page
-Colour Contrast     En ligne      Vérification des ratios de contraste
-NVDA + Firefox      Lecteur écran Audit manuel (Windows)
-VoiceOver + Safari  Lecteur écran Audit manuel (macOS / iOS)
-Accessibility Tree  DevTools      Vérification de l'arbre d'accessibilité
-Pa11y               CLI / CI      Automatisation en pipeline CI/CD
+axe DevTools        Extension     Automatic audit in Chrome DevTools
+WAVE               Extension     In-page error visualization
+Colour Contrast     Online        Contrast ratio checks
+NVDA + Firefox      Screen reader Manual audit (Windows)
+VoiceOver + Safari  Screen reader Manual audit (macOS / iOS)
+Accessibility Tree  DevTools      Accessibility tree inspection
+Pa11y               CLI / CI      Automation in the CI/CD pipeline
 ```
 
-## Déclaration d'Accessibilité — Structure
+## Accessibility Statement — Structure
 
 ```
-DÉCLARATION D'ACCESSIBILITÉ
+ACCESSIBILITY STATEMENT
 ────────────────────────────────────────────
-Établissement        : [Nom de l'organisme]
-URL du site          : [https://...]
-État de conformité   : [Totalement / Partiellement / Non conforme]
-Résultats de l'audit : [Taux de conformité : X%]
-Non-conformités      : [Liste des critères non atteints]
-Dérogations          : [Contenus exemptés avec justification]
-Alternatives         : [Numéro téléphone / email accessibilité]
-Date de mise à jour  : [AAAA-MM-JJ]
+Organization         : [Organization name]
+Site URL             : [https://...]
+Conformance status   : [Fully / Partially / Non-conformant]
+Audit results        : [Conformance rate: X%]
+Non-conformities     : [List of criteria not met]
+Exemptions           : [Exempt content with justification]
+Alternatives         : [Accessibility phone number / email]
+Last updated         : [YYYY-MM-DD]
 ```
 
-## Livrables
-- Rapport d'audit RGAA 4.1 (grille critères, taux de conformité)
-- Rapport axe DevTools + WAVE (exports)
-- Plan de corrections priorisé (P1 → P3 selon impact/effort)
-- Déclaration d'Accessibilité (conforme DINUM)
-- Guide de contribution accessible (pour les éditeurs CMS)
-- Tests automatisés Pa11y intégrés en CI/CD
+## Deliverables
+- RGAA 4.1 audit report (criteria grid, conformance rate)
+- axe DevTools + WAVE report (exports)
+- Prioritized fix plan (P1 → P3 by impact/effort)
+- Accessibility Statement (DINUM-compliant)
+- Accessible contribution guide (for CMS editors)
+- Automated Pa11y tests integrated into CI/CD
 
-## Format de sortie
-Précise : **URL ou composant à auditer**, **CMS** (AEM, Drupal, WordPress…), **niveau cible** (A, AA, AAA), **contraintes** (service public → obligation légale RGAA, délai de mise en conformité), **technologies d'assistance** à prendre en compte.
+## Output format
+Specify: **URL or component to audit**, **CMS** (AEM, Drupal, WordPress…), **target level** (A, AA, AAA), **constraints** (public service → RGAA legal requirement, compliance deadline), **assistive technologies** to account for.
 
 ## Anti-patterns
-- ❌ **Audit automatique seul** (axe/WAVE) sans test manuel lecteur d'écran : ~30 % des critères ne sont pas détectables automatiquement → audit manuel NVDA/VoiceOver obligatoire
-- ❌ **`alt` redondant ou sur les images décoratives** : bruit pour le lecteur d'écran → `alt=""` pour le décoratif
-- ❌ **Contraste < 4,5:1** (texte normal) : illisible → vérifier au design, pas après
-- ❌ **ARIA sur-utilisé** (rôles redondants avec le HTML natif) : « No ARIA is better than bad ARIA » → privilégier le HTML sémantique
-- ❌ **Pas de Déclaration d'Accessibilité** : non-conformité légale (services publics FR) → publier la déclaration DINUM
-- ❌ **Accessibilité traitée en fin de projet** : coût de reprise élevé → intégrer dès la conception (a11y by design)
+- ❌ **Automated audit alone** (axe/WAVE) without manual screen-reader testing: ~30% of criteria aren't automatically detectable → manual NVDA/VoiceOver audit is mandatory
+- ❌ **Redundant `alt` or alt on decorative images**: noise for the screen reader → `alt=""` for decorative
+- ❌ **Contrast < 4.5:1** (normal text): unreadable → check at design time, not after
+- ❌ **Overused ARIA** (roles redundant with native HTML): "No ARIA is better than bad ARIA" → prefer semantic HTML
+- ❌ **No Accessibility Statement**: legal non-compliance (FR public services) → publish the DINUM statement
+- ❌ **Accessibility handled at the end of the project**: high rework cost → build it in from the design stage (a11y by design)
 
 ## Sources
-- **WCAG 2.2** — W3C Recommendation (oct. 2023) — w3.org/TR/WCAG22
-- **RGAA 4.1** — DINUM (référentiel français, aligné WCAG, obligation loi n° 2005-102 / décret 2019) — accessibilite.numerique.gouv.fr
+- **WCAG 2.2** — W3C Recommendation (Oct. 2023) — w3.org/TR/WCAG22
+- **RGAA 4.1** — DINUM (French standard, aligned with WCAG, law n° 2005-102 / 2019 decree obligation) — accessibilite.numerique.gouv.fr
 - **WAI-ARIA 1.2** — W3C — w3.org/TR/wai-aria
-- **EN 301 549** — norme européenne d'accessibilité (secteur public UE) — etsi.org
+- **EN 301 549** — European accessibility standard (EU public sector) — etsi.org
 
-## Voir aussi
-- [`performance-web.md`](performance-web.md) — performance et accessibilité (audit Lighthouse commun)
-- [`seo-technique-cms.md`](seo-technique-cms.md) — recouvrement a11y/SEO (structure Hn, alt, langue)
-- [`gouvernance-editoriale.md`](gouvernance-editoriale.md) — contribution accessible côté éditeurs
-- [`architecture-cms.md`](architecture-cms.md) — accessibilité dès la conception des composants
+## See also
+- [`performance-web.md`](performance-web.md) — performance and accessibility (shared Lighthouse audit)
+- [`seo-technique-cms.md`](seo-technique-cms.md) — a11y/SEO overlap (Hn structure, alt, language)
+- [`gouvernance-editoriale.md`](gouvernance-editoriale.md) — accessible contribution on the editor side
+- [`architecture-cms.md`](architecture-cms.md) — accessibility from the component design stage

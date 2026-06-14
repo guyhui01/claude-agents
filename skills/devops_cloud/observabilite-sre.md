@@ -1,28 +1,28 @@
-# Skill — SRE & Observabilité
-> Certifications : Google SRE Foundation (2026), Prometheus Certified Associate, OpenTelemetry Certified Practitioner, Grafana Certified Professional
+# Skill — SRE & Observability
+> Certifications: Google SRE Foundation (2026), Prometheus Certified Associate, OpenTelemetry Certified Practitioner, Grafana Certified Professional
 
-## Objectif
-Implémenter une stratégie d'observabilité complète (métriques, logs, traces) alignée sur les pratiques SRE — SLO/SLI mesurables, alerting actionnable et Error Budgets pour piloter la fiabilité.
+## Objective
+Implement a complete observability strategy (metrics, logs, traces) aligned with SRE practices — measurable SLO/SLI, actionable alerting and Error Budgets to steer reliability.
 
 ## SLO / SLI / Error Budgets
 
-### Définition des SLIs et SLOs
+### Defining SLIs and SLOs
 
 ```yaml
-# slo-definitions.yaml — à versionner avec le code
+# slo-definitions.yaml — to version with the code
 service: api-service
 slos:
   - name: availability
-    description: "Proportion de requêtes réussies (HTTP 2xx/3xx)"
+    description: "Proportion of successful requests (HTTP 2xx/3xx)"
     sli:
       type: request_based
       good_events: "http_requests_total{status=~'2..|3..'}"
       total_events: "http_requests_total"
-    target: 99.9          # 99.9% = 43.8 min downtime/mois
+    target: 99.9          # 99.9% = 43.8 min downtime/month
     window: 30d
 
   - name: latency_p99
-    description: "99% des requêtes sous 500ms"
+    description: "99% of requests under 500ms"
     sli:
       type: request_based
       good_events: "http_request_duration_seconds_bucket{le='0.5'}"
@@ -31,7 +31,7 @@ slos:
     window: 30d
 
   - name: freshness
-    description: "Données rafraîchies dans les 5 minutes"
+    description: "Data refreshed within 5 minutes"
     sli:
       type: windows_based
       good_windows: "time() - data_last_updated_timestamp < 300"
@@ -39,7 +39,7 @@ slos:
     window: 7d
 ```
 
-### Calcul Error Budget
+### Error Budget calculation
 
 ```python
 # error_budget.py
@@ -47,9 +47,9 @@ from datetime import timedelta
 
 def calculate_error_budget(slo_target: float, window_days: int = 30) -> dict:
     """
-    Calcule l'Error Budget pour un SLO donné.
-    
-    slo_target: 0.999 pour 99.9%
+    Compute the Error Budget for a given SLO.
+
+    slo_target: 0.999 for 99.9%
     """
     total_minutes = window_days * 24 * 60
     allowed_downtime_minutes = total_minutes * (1 - slo_target)
@@ -64,7 +64,7 @@ def calculate_error_budget(slo_target: float, window_days: int = 30) -> dict:
         "error_budget_td": timedelta(minutes=allowed_downtime_minutes),
     }
 
-# Exemples
+# Examples
 print(calculate_error_budget(0.999, 30))
 # {'slo_target_pct': 99.9, 'window_days': 30, 'error_budget_minutes': 43.2, ...}
 
@@ -72,16 +72,16 @@ print(calculate_error_budget(0.9999, 30))
 # error_budget_minutes: 4.32
 ```
 
-## Stack Prometheus / Grafana / Loki / Tempo
+## Prometheus / Grafana / Loki / Tempo stack
 
-### Prometheus — règles d'alerting
+### Prometheus — alerting rules
 
 ```yaml
 # prometheus/rules/api-slo.yml
 groups:
   - name: slo-api-service
     rules:
-      # Taux d'erreur sur 5 minutes (fast burn)
+      # Error rate over 5 minutes (fast burn)
       - alert: HighErrorRateFastBurn
         expr: |
           (
@@ -94,11 +94,11 @@ groups:
           severity: critical
           slo: availability
         annotations:
-          summary: "Burn rate élevé — Error Budget épuisé en <1h"
-          description: "Service {{ $labels.job }} : taux erreur {{ $value | humanizePercentage }}"
+          summary: "High burn rate — Error Budget exhausted in <1h"
+          description: "Service {{ $labels.job }}: error rate {{ $value | humanizePercentage }}"
           runbook_url: "https://wiki.company.com/runbooks/api-high-error-rate"
 
-      # Burn rate modéré sur 1 heure
+      # Moderate burn rate over 1 hour
       - alert: HighErrorRateSlowBurn
         expr: |
           (
@@ -111,9 +111,9 @@ groups:
           severity: warning
           slo: availability
         annotations:
-          summary: "Burn rate modéré — Error Budget à risque"
+          summary: "Moderate burn rate — Error Budget at risk"
 
-      # Latence P99
+      # P99 latency
       - alert: LatencyP99High
         expr: |
           histogram_quantile(0.99,
@@ -124,16 +124,16 @@ groups:
           severity: warning
 ```
 
-### Métriques spécifiques LLM (à ajouter pour les services agentiques)
+### LLM-specific metrics (to add for agentic services)
 
-Les SLOs classiques (availability, latency) ne suffisent pas pour un service LLM. Instrumenter en plus :
+Classic SLOs (availability, latency) are not enough for an LLM service. Also instrument:
 
 ```yaml
 # prometheus/rules/llm-slo.yml
 groups:
   - name: slo-llm-service
     rules:
-      # Coût LLM : alerte si la dépense quotidienne dépasse le budget
+      # LLM cost: alert if daily spend exceeds the budget
       - alert: LLMCostBudgetBurn
         expr: |
           sum(increase(llm_token_cost_usd_total[24h])) > 500
@@ -142,9 +142,9 @@ groups:
           severity: warning
           slo: cost
         annotations:
-          summary: "Budget LLM 24h dépassé : ${{ $value | humanize }}"
+          summary: "24h LLM budget exceeded: ${{ $value | humanize }}"
 
-      # Boucle agent infinie : trop d'itérations sur un seul thread
+      # Infinite agent loop: too many iterations on a single thread
       - alert: AgentLoopRunaway
         expr: |
           max_over_time(agent_iterations_per_thread[5m]) > 20
@@ -153,9 +153,9 @@ groups:
           severity: critical
           slo: cost
         annotations:
-          summary: "Agent en boucle (>20 itérations) sur thread {{ $labels.thread_id }}"
+          summary: "Agent looping (>20 iterations) on thread {{ $labels.thread_id }}"
 
-      # Taux d'hallucination (via LLM-as-judge async)
+      # Hallucination rate (via async LLM-as-judge)
       - alert: HallucinationRateHigh
         expr: |
           (
@@ -168,7 +168,7 @@ groups:
           severity: warning
           slo: quality
         annotations:
-          summary: "Taux d'hallucination > 10% sur 1h"
+          summary: "Hallucination rate > 10% over 1h"
 
       # Context window saturation
       - alert: ContextWindowSaturation
@@ -178,33 +178,33 @@ groups:
         labels:
           severity: warning
         annotations:
-          summary: "P95 des inputs LLM > 150k tokens — risque de troncature / coût"
+          summary: "P95 of LLM inputs > 150k tokens — truncation / cost risk"
 ```
 
-**Instrumentation Python (extension OpenTelemetry)** :
+**Python instrumentation (OpenTelemetry extension)**:
 
 ```python
 token_cost_counter = meter.create_counter(
     "llm_token_cost_usd",
-    description="Coût cumulé en USD par modèle et par endpoint",
+    description="Cumulative cost in USD per model and per endpoint",
 )
 agent_iter_gauge = meter.create_gauge(
     "agent_iterations_per_thread",
-    description="Nombre d'itérations actuelles par thread agentique",
+    description="Current number of iterations per agentic thread",
 )
 
 @tracer.start_as_current_span("llm.call")
 def call_llm(prompt: str, model: str = "claude-sonnet-4-6") -> str:
     response = client.messages.create(model=model, max_tokens=1024,
         messages=[{"role": "user", "content": prompt}])
-    # Coût = input × prix_input + output × prix_output (Anthropic pricing)
+    # Cost = input × input_price + output × output_price (Anthropic pricing)
     cost = (response.usage.input_tokens * INPUT_PRICE[model]
             + response.usage.output_tokens * OUTPUT_PRICE[model]) / 1_000_000
     token_cost_counter.add(cost, {"model": model, "endpoint": "agent"})
     return response.content[0].text
 ```
 
-### OpenTelemetry — instrumentation Python
+### OpenTelemetry — Python instrumentation
 
 ```python
 # otel_setup.py
@@ -232,7 +232,7 @@ def setup_telemetry(service_name: str, otlp_endpoint: str = "http://otel-collect
     tracer_provider.add_span_processor(BatchSpanProcessor(trace_exporter))
     trace.set_tracer_provider(tracer_provider)
 
-    # ── Métriques ─────────────────────────────────────────────
+    # ── Metrics ───────────────────────────────────────────────
     metric_exporter = OTLPMetricExporter(endpoint=otlp_endpoint, insecure=True)
     metric_reader = PeriodicExportingMetricReader(metric_exporter, export_interval_millis=30000)
     metrics.set_meter_provider(MeterProvider(metric_readers=[metric_reader]))
@@ -243,7 +243,7 @@ def setup_telemetry(service_name: str, otlp_endpoint: str = "http://otel-collect
 
     logging.info(f"OpenTelemetry initialized for {service_name}")
 
-# Dans main.py
+# In main.py
 from otel_setup import setup_telemetry
 setup_telemetry("api-service")
 
@@ -265,7 +265,7 @@ async def process_item(item: Item):
 ### Loki — Structured Logging
 
 ```python
-# logging_config.py — JSON structuré pour Loki
+# logging_config.py — structured JSON for Loki
 import structlog
 import logging
 
@@ -276,7 +276,7 @@ def configure_logging():
             structlog.processors.add_log_level,
             structlog.processors.TimeStamper(fmt="iso"),
             structlog.processors.StackInfoRenderer(),
-            structlog.processors.JSONRenderer(),  # JSON pour Loki
+            structlog.processors.JSONRenderer(),  # JSON for Loki
         ],
         context_class=dict,
         logger_factory=structlog.PrintLoggerFactory(),
@@ -288,16 +288,16 @@ log.info("request_processed",
     endpoint="/api/process",
     duration_ms=145,
     status=200,
-    trace_id=span_context.trace_id  # Corrélation avec Tempo
+    trace_id=span_context.trace_id  # Correlation with Tempo
 )
 ```
 
 ## Dashboards & Runbooks
 
-### Dashboard Grafana as Code (Grafonnet)
+### Grafana Dashboard as Code (Grafonnet)
 
 ```bash
-# Générer un dashboard JSON depuis du code
+# Generate a JSON dashboard from code
 cat > dashboard.jsonnet << 'EOF'
 local grafana = import 'grafonnet/grafana.libsonnet';
 local dashboard = grafana.dashboard;
@@ -321,26 +321,26 @@ EOF
 jsonnet -J vendor dashboard.jsonnet > dashboard.json
 ```
 
-### Checklist SRE Production
+### Production SRE checklist
 
-| Pratique | Statut |
+| Practice | Status |
 |----------|--------|
-| SLOs définis et documentés | Obligatoire |
-| Error Budget policy (gel des releases) | Obligatoire |
-| Alertes multi-window (fast+slow burn) | Obligatoire |
-| Runbook pour chaque alerte | Obligatoire |
-| Tracing distribué activé | Recommandé |
-| Logs structurés JSON + corrélation trace_id | Recommandé |
-| On-call rotation documentée | Obligatoire |
-| Blameless post-mortem après chaque incident | Recommandé |
+| SLOs defined and documented | Mandatory |
+| Error Budget policy (release freeze) | Mandatory |
+| Multi-window alerts (fast+slow burn) | Mandatory |
+| Runbook for each alert | Mandatory |
+| Distributed tracing enabled | Recommended |
+| Structured JSON logs + trace_id correlation | Recommended |
+| Documented on-call rotation | Mandatory |
+| Blameless post-mortem after each incident | Recommended |
 
-## Livrables
-- SLO definitions fichier YAML versionné
-- Règles Prometheus multi-window (fast + slow burn)
-- Dashboard Grafana SLO + RED metrics (Rate, Errors, Duration)
-- Configuration OpenTelemetry collector (métriques + traces + logs)
-- Stack docker-compose Prometheus/Grafana/Loki/Tempo pour le dev local
-- Runbooks pour les alertes critiques
+## Deliverables
+- Versioned SLO definitions YAML file
+- Multi-window Prometheus rules (fast + slow burn)
+- Grafana SLO + RED metrics dashboard (Rate, Errors, Duration)
+- OpenTelemetry collector configuration (metrics + traces + logs)
+- Prometheus/Grafana/Loki/Tempo docker-compose stack for local dev
+- Runbooks for critical alerts
 
-## Format de sortie
-Précise : stack technique (Prometheus/Datadog/CloudWatch/etc.), SLO cibles (disponibilité, latence, fraîcheur), environnement (K8s/ECS/Lambda), langages à instrumenter, volume de logs/traces estimé, budget infrastructure monitoring.
+## Output format
+Specify: technical stack (Prometheus/Datadog/CloudWatch/etc.), target SLOs (availability, latency, freshness), environment (K8s/ECS/Lambda), languages to instrument, estimated log/trace volume, monitoring infrastructure budget.

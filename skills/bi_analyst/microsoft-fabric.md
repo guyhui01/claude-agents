@@ -1,10 +1,10 @@
 # Skill — Microsoft Fabric (OneLake, Lakehouse, Semantic Models)
-> Certifications : Microsoft Fabric Analytics Engineer Associate (DP-600) · PL-300 Power BI
+> Certifications: Microsoft Fabric Analytics Engineer Associate (DP-600) · PL-300 Power BI
 
-## Objectif
-Concevoir et implémenter une plateforme analytique sur Microsoft Fabric : OneLake, Lakehouse, Dataflow Gen2, Semantic Model, Notebooks — pour unifier la donnée et le reporting dans un seul environnement cloud.
+## Objective
+Design and implement an analytics platform on Microsoft Fabric: OneLake, Lakehouse, Dataflow Gen2, Semantic Model, Notebooks — to unify data and reporting in a single cloud environment.
 
-## Architecture Microsoft Fabric
+## Microsoft Fabric architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -12,15 +12,15 @@ Concevoir et implémenter une plateforme analytique sur Microsoft Fabric : OneLa
 │                                                                       │
 │  ┌─────────────┐  ┌────────────────┐  ┌──────────────────────────┐ │
 │  │   OneLake   │  │  Data Factory  │  │    Power BI Service      │ │
-│  │ (stockage   │  │ (Pipelines +   │  │  (Rapports + Dashboards) │ │
-│  │  unifié)    │  │ Dataflow Gen2) │  │                           │ │
+│  │ (unified    │  │ (Pipelines +   │  │  (Reports + Dashboards)  │ │
+│  │  storage)   │  │ Dataflow Gen2) │  │                           │ │
 │  └──────┬──────┘  └───────┬────────┘  └──────────────────────────┘ │
 │         │                  │                         ▲               │
 │         ▼                  ▼                         │               │
 │  ┌─────────────┐  ┌────────────────┐  ┌────────────────────────┐   │
 │  │  Lakehouse  │  │   Warehouse    │  │    Semantic Model      │   │
-│  │ (Delta Lake │  │  (SQL T-SQL    │  │  (DAX, mesures,        │   │
-│  │  Parquet)   │  │   endpoint)    │  │   relations, RLS)      │   │
+│  │ (Delta Lake │  │  (SQL T-SQL    │  │  (DAX, measures,       │   │
+│  │  Parquet)   │  │   endpoint)    │  │   relationships, RLS)  │   │
 │  └─────────────┘  └────────────────┘  └────────────────────────┘   │
 │                                                                       │
 │  ┌─────────────────────────────────────────────────────────────────┐ │
@@ -29,95 +29,95 @@ Concevoir et implémenter une plateforme analytique sur Microsoft Fabric : OneLa
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
-## Lakehouse — Couches Medallion
+## Lakehouse — Medallion layers
 
 ```
-BRONZE (Raw)    → Données brutes telles qu'elles arrivent
-                  Jamais modifiées, audit trail complet
-                  Format : JSON, CSV, Parquet brut
+BRONZE (Raw)    → Raw data as it arrives
+                  Never modified, full audit trail
+                  Format: JSON, CSV, raw Parquet
 
-SILVER (Cleaned) → Données nettoyées, typées, dédupliquées
-                  Jointures de référence basiques
-                  Format : Delta Lake (Parquet + transaction log)
+SILVER (Cleaned) → Cleaned, typed, deduplicated data
+                  Basic reference joins
+                  Format: Delta Lake (Parquet + transaction log)
 
-GOLD (Business)  → Modèles dimensionnels, agrégations métier
-                  Prêts pour la consommation BI
-                  Format : Delta Lake optimisé (OPTIMIZE + ZORDER)
+GOLD (Business)  → Dimensional models, business aggregations
+                  Ready for BI consumption
+                  Format: optimized Delta Lake (OPTIMIZE + ZORDER)
 ```
 
-## Dataflow Gen2 — Transformations Power Query
+## Dataflow Gen2 — Power Query transformations
 
 ```m
-// Exemple de transformation Dataflow Gen2 (Power Query M)
+// Sample Dataflow Gen2 transformation (Power Query M)
 let
     // Source
     Source = Lakehouse.Tables("bronze_lakehouse", "raw_orders"),
 
-    // Filtrer les lignes nulles
+    // Filter out null rows
     FilteredRows = Table.SelectRows(Source, each [order_id] <> null),
 
-    // Cast des types
+    // Cast types
     ChangedTypes = Table.TransformColumnTypes(FilteredRows, {
         {"order_id",    type text},
         {"amount",      type number},
         {"created_at",  type datetimezone}
     }),
 
-    // Nettoyage du statut
+    // Clean the status
     CleanedStatus = Table.TransformColumns(ChangedTypes, {
         {"status", Text.Lower, type text}
     }),
 
-    // Ajout colonne calculée
+    // Add a calculated column
     AddedNetRevenue = Table.AddColumn(CleanedStatus, "net_revenue",
         each [gross_amount] - [discount_amount], type number)
 in
     AddedNetRevenue
 ```
 
-## Semantic Model Fabric — Configuration
+## Fabric Semantic Model — Configuration
 
 ```dax
-// Mesure avec format et description
+// Measure with format and description
 Net Revenue =
 VAR _revenue = SUMX(fact_orders, fact_orders[gross_amount] - fact_orders[discount_amount])
 RETURN _revenue
-// Description : CA après déduction remises et avoirs, hors TVA
+// Description: revenue after deducting discounts and credit notes, excl. VAT
 
-// Mesure dynamique Time Intelligence
+// Dynamic Time Intelligence measure
 Revenue Selected Period =
 CALCULATE(
     [Net Revenue],
     DATESINPERIOD(dim_date[date], LASTDATE(dim_date[date]), -[Selected Months], MONTH)
 )
 
-// Paramètre numérique (Field Parameter)
+// Numeric parameter (Field Parameter)
 Selected Months = GENERATESERIES(1, 12, 1)
 ```
 
-## Shortcut — Accès aux données externes sans copie
+## Shortcut — Access external data without copying
 
 ```
-OneLake Shortcut → pointe vers :
+OneLake Shortcut → points to:
   • Azure Data Lake Storage Gen2 (ADLS)
   • Amazon S3
   • Google Cloud Storage
   • Dataverse
-  → Les données restent à la source, Fabric y accède via metadata
-  → Évite la duplication et les coûts de stockage
+  → The data stays at the source, Fabric accesses it via metadata
+  → Avoids duplication and storage costs
 ```
 
-## Notebook Spark — Transformation Silver vers Gold
+## Spark Notebook — Silver to Gold transformation
 
 ```python
-# Notebook Fabric (PySpark)
+# Fabric Notebook (PySpark)
 from pyspark.sql import functions as F
 from delta.tables import DeltaTable
 
-# Lecture Silver
+# Read Silver
 orders_silver = spark.read.format("delta").load("abfss://silver@onelake.dfs.fabric.microsoft.com/orders/")
 
-# Transformation Gold : agrégation mensuelle par région
+# Gold transformation: monthly aggregation by region
 orders_gold = (
     orders_silver
     .filter(F.col("status").isin(["confirmed", "shipped", "delivered"]))
@@ -130,7 +130,7 @@ orders_gold = (
     )
 )
 
-# Écriture Gold avec MERGE (upsert)
+# Write Gold with MERGE (upsert)
 gold_table_path = "abfss://gold@onelake.dfs.fabric.microsoft.com/fct_monthly_revenue/"
 
 if DeltaTable.isDeltaTable(spark, gold_table_path):
@@ -143,13 +143,13 @@ else:
     orders_gold.write.format("delta").mode("overwrite").save(gold_table_path)
 ```
 
-## Livrables
-- Architecture Fabric (schéma avec tous les composants)
-- Lakehouse configuré (Bronze/Silver/Gold)
-- Dataflows Gen2 (transformations documentées)
-- Semantic Model Fabric (mesures DAX + RLS)
-- Notebooks Spark (pipeline Bronze → Gold)
-- Dashboard Power BI connecté au Semantic Model Fabric
+## Deliverables
+- Fabric architecture (diagram with all components)
+- Configured Lakehouse (Bronze/Silver/Gold)
+- Dataflows Gen2 (documented transformations)
+- Fabric Semantic Model (DAX measures + RLS)
+- Spark Notebooks (Bronze → Gold pipeline)
+- Power BI dashboard connected to the Fabric Semantic Model
 
-## Format de sortie
-Précise : **sources de données** (ADLS, S3, base SQL, API…), **volume** (Go/To de données), **fréquence de refresh** (temps réel, horaire, nocturne), **cas d'usage BI final** (dashboards, ML features, exports…), **contraintes** (budget Fabric SKU, RGPD, compliance).
+## Output format
+Specify: **data sources** (ADLS, S3, SQL database, API…), **volume** (GB/TB of data), **refresh frequency** (real-time, hourly, nightly), **final BI use case** (dashboards, ML features, exports…), **constraints** (Fabric SKU budget, GDPR, compliance).

@@ -1,8 +1,8 @@
-# Skill — Déploiement Cloud IA (SageMaker · Vertex · Azure ML)
-> Certifications : AWS DevOps Engineer Professional · Google Professional DevOps Engineer
+# Skill — AI Cloud Deployment (SageMaker · Vertex · Azure ML)
+> Certifications: AWS DevOps Engineer Professional · Google Professional DevOps Engineer
 
-## Objectif
-Déployer des modèles IA sur les plateformes cloud managées pour la production.
+## Objective
+Deploy AI models on managed cloud platforms for production.
 
 ## AWS SageMaker
 ```python
@@ -10,7 +10,7 @@ import boto3
 import sagemaker
 from sagemaker.huggingface import HuggingFaceModel
 
-# Déployer un modèle HuggingFace sur SageMaker
+# Deploy a HuggingFace model on SageMaker
 hub = {
     "HF_MODEL_ID": "meta-llama/Llama-3.1-8B-Instruct",
     "HF_TASK": "text-generation",
@@ -31,17 +31,17 @@ predictor = huggingface_model.deploy(
     endpoint_name="llama-3-production"
 )
 
-# Inférence
-response = predictor.predict({"inputs": "Bonjour, je suis...", "parameters": {"max_new_tokens": 200}})
+# Inference
+response = predictor.predict({"inputs": "Hello, I am...", "parameters": {"max_new_tokens": 200}})
 ```
 
 ## GCP Vertex AI
 ```python
 from google.cloud import aiplatform
 
-aiplatform.init(project="mon-projet", location="europe-west1")
+aiplatform.init(project="my-project", location="europe-west1")
 
-# Déployer depuis Model Garden
+# Deploy from Model Garden
 model = aiplatform.Model(model_name="publishers/meta/models/llama-3-1-8b-instruct-maas")
 endpoint = model.deploy(
     machine_type="g2-standard-4",
@@ -51,7 +51,7 @@ endpoint = model.deploy(
     max_replica_count=4  # Autoscaling
 )
 
-response = endpoint.predict(instances=[{"prompt": "Explique le RAG"}])
+response = endpoint.predict(instances=[{"prompt": "Explain RAG"}])
 ```
 
 ## Azure ML
@@ -61,11 +61,11 @@ from azure.ai.ml.entities import ManagedOnlineEndpoint, ManagedOnlineDeployment
 
 ml_client = MLClient(credential, subscription_id, resource_group, workspace_name)
 
-# Créer l'endpoint
+# Create the endpoint
 endpoint = ManagedOnlineEndpoint(name="llm-endpoint", auth_mode="key")
 ml_client.online_endpoints.begin_create_or_update(endpoint).result()
 
-# Déploiement
+# Deployment
 deployment = ManagedOnlineDeployment(
     name="production",
     endpoint_name="llm-endpoint",
@@ -76,20 +76,20 @@ deployment = ManagedOnlineDeployment(
 ml_client.online_deployments.begin_create_or_update(deployment).result()
 ```
 
-## Comparatif MLOps cloud
-| Critère | SageMaker | Vertex AI | Azure ML |
+## Cloud MLOps comparison
+| Criterion | SageMaker | Vertex AI | Azure ML |
 |---|---|---|---|
-| MLflow natif | ✓ (via MLflow) | ✓ | ✓✓ |
+| Native MLflow | ✓ (via MLflow) | ✓ | ✓✓ |
 | Model Registry | ✓✓ | ✓✓ | ✓✓ |
-| Autoscaling GPU | ✓✓ | ✓✓✓ | ✓✓ |
-| Prix | Élevé | Moyen | Moyen |
-| EU RGPD | ✓ | ✓ | ✓✓✓ |
+| GPU autoscaling | ✓✓ | ✓✓✓ | ✓✓ |
+| Price | High | Medium | Medium |
+| EU GDPR | ✓ | ✓ | ✓✓✓ |
 
-## Livrables
-- Endpoint de serving déployé et testé
-- Autoscaling configuré
-- Monitoring intégré (CloudWatch/Cloud Monitoring/Azure Monitor)
-- Estimation du coût mensuel
+## Deliverables
+- Serving endpoint deployed and tested
+- Autoscaling configured
+- Integrated monitoring (CloudWatch/Cloud Monitoring/Azure Monitor)
+- Monthly cost estimate
 
-## Format de sortie
-Précise : cloud provider · modèle à déployer · GPU requis · volume de requêtes · région EU requise
+## Output format
+Specify: cloud provider · model to deploy · GPU required · request volume · EU region required

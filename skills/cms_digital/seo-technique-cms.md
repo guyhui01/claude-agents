@@ -1,149 +1,149 @@
-# Skill — SEO Technique d'une Plateforme CMS
-> Certifications : Adobe AEM Sites Business Practitioner · Acquia Certified Site Builder — Drupal 10 · Yoast SEO for WordPress Certified
+# Skill — Technical SEO for a CMS Platform
+> Certifications: Adobe AEM Sites Business Practitioner · Acquia Certified Site Builder — Drupal 10 · Yoast SEO for WordPress Certified
 
-## Objectif
-Optimiser le SEO technique d'une plateforme CMS : structure des URLs, métadonnées, données structurées, sitemaps, redirections, internationalisation hreflang et Core Web Vitals pour les moteurs de recherche.
+## Objective
+Optimize the technical SEO of a CMS platform: URL structure, metadata, structured data, sitemaps, redirects, hreflang internationalization, and Core Web Vitals for search engines.
 
-## Audit SEO technique — Checklist CMS
+## Technical SEO audit — CMS checklist
 
 ```
-CATÉGORIE         POINT DE CONTRÔLE                          OUTIL
+CATEGORY          CHECKPOINT                                 TOOL
 ────────────────  ─────────────────────────────────────────  ────────────────────
-Indexation        robots.txt correctement configuré           Fetch robots.txt
-                  Sitemap XML soumis à Search Console         GSC → Sitemaps
-                  Pages noindex identifiées et justifiées     Screaming Frog
-                  Pas de canonical loops ou doubles           Screaming Frog
+Indexing          robots.txt correctly configured             Fetch robots.txt
+                  XML sitemap submitted to Search Console     GSC → Sitemaps
+                  noindex pages identified and justified      Screaming Frog
+                  No canonical loops or duplicates            Screaming Frog
 
-Structure URLs    URLs lisibles, en minuscules, avec tirets   Screaming Frog
-                  Pas de paramètres dynamiques en prod        Screaming Frog
-                  Redirections 301 (pas de chaînes)           Redirect Checker
+URL structure     URLs readable, lowercase, with hyphens      Screaming Frog
+                  No dynamic parameters in prod               Screaming Frog
+                  301 redirects (no chains)                   Redirect Checker
 
-Métadonnées       Title unique < 60 caractères par page       Screaming Frog
-                  Meta description 120-160 caractères         Screaming Frog
-                  Balises H1 uniques par page                 axe / Screaming Frog
-                  Alt text sur images indexées                Screaming Frog
+Metadata          Unique title < 60 characters per page       Screaming Frog
+                  Meta description 120-160 characters         Screaming Frog
+                  Unique H1 tags per page                     axe / Screaming Frog
+                  Alt text on indexed images                  Screaming Frog
 
-Données struct.   Schema.org Article / Product / BreadcrumbList  Rich Results Test
+Structured data   Schema.org Article / Product / BreadcrumbList  Rich Results Test
                   Open Graph (og:title, og:image, og:url)     Facebook Debugger
 
-Performance       LCP < 2,5s (impact ranking)                 PageSpeed Insights
+Performance       LCP < 2.5s (ranking impact)                 PageSpeed Insights
                   TTFB < 800ms                                WebPageTest
-                  Pas de ressources bloquantes                Lighthouse
+                  No render-blocking resources                Lighthouse
 
-Internationalisation  hreflang correct (autoréférentiel)      hreflang.org Validator
-                  Alternate canonicals cohérents              Screaming Frog
+Internationalization  Correct hreflang (self-referential)     hreflang.org Validator
+                  Consistent alternate canonicals             Screaming Frog
 ```
 
-## Métadonnées — Template CMS
+## Metadata — CMS template
 
 ```html
-<!-- Balises essentielles -->
-<title>Titre principal — Nom du site | 50-60 caractères max</title>
-<meta name="description" content="Description persuasive 120-160 car. avec mot-clé principal en début.">
-<link rel="canonical" href="https://www.mon-site.com/page-canonique/">
+<!-- Essential tags -->
+<title>Main title — Site name | 50-60 characters max</title>
+<meta name="description" content="Persuasive description, 120-160 chars, with the main keyword up front.">
+<link rel="canonical" href="https://www.my-site.com/canonical-page/">
 
-<!-- Open Graph (réseaux sociaux) -->
-<meta property="og:title" content="Titre partage social">
-<meta property="og:description" content="Description pour partage social">
-<meta property="og:image" content="https://cdn.mon-site.com/og-image-1200x630.jpg">
-<meta property="og:url" content="https://www.mon-site.com/page/">
+<!-- Open Graph (social networks) -->
+<meta property="og:title" content="Social share title">
+<meta property="og:description" content="Description for social sharing">
+<meta property="og:image" content="https://cdn.my-site.com/og-image-1200x630.jpg">
+<meta property="og:url" content="https://www.my-site.com/page/">
 <meta property="og:type" content="article">
 
-<!-- hreflang multilingue -->
-<link rel="alternate" hreflang="fr" href="https://www.mon-site.com/fr/page/">
-<link rel="alternate" hreflang="en" href="https://www.mon-site.com/en/page/">
-<link rel="alternate" hreflang="x-default" href="https://www.mon-site.com/page/">
+<!-- multilingual hreflang -->
+<link rel="alternate" hreflang="fr" href="https://www.my-site.com/fr/page/">
+<link rel="alternate" hreflang="en" href="https://www.my-site.com/en/page/">
+<link rel="alternate" hreflang="x-default" href="https://www.my-site.com/page/">
 ```
 
-## Données structurées Schema.org
+## Schema.org structured data
 
 ```json
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Titre de l'article",
-  "description": "Description de l'article",
-  "image": "https://cdn.mon-site.com/image.webp",
+  "headline": "Article title",
+  "description": "Article description",
+  "image": "https://cdn.my-site.com/image.webp",
   "author": {
     "@type": "Person",
-    "name": "Nom de l'auteur",
-    "url": "https://www.mon-site.com/auteur/nom"
+    "name": "Author name",
+    "url": "https://www.my-site.com/author/name"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Nom du site",
-    "logo": { "@type": "ImageObject", "url": "https://www.mon-site.com/logo.png" }
+    "name": "Site name",
+    "logo": { "@type": "ImageObject", "url": "https://www.my-site.com/logo.png" }
   },
   "datePublished": "2026-05-26T09:00:00+02:00",
   "dateModified": "2026-05-26T14:30:00+02:00",
-  "mainEntityOfPage": "https://www.mon-site.com/article/titre"
+  "mainEntityOfPage": "https://www.my-site.com/article/title"
 }
 ```
 
-## Sitemap XML — Configuration CMS
+## XML sitemap — CMS configuration
 
 ```xml
-<!-- Sitemap index (site multilingue) -->
+<!-- Sitemap index (multilingual site) -->
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>https://www.mon-site.com/sitemap-pages-fr.xml</loc>
+    <loc>https://www.my-site.com/sitemap-pages-fr.xml</loc>
     <lastmod>2026-05-26</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://www.mon-site.com/sitemap-blog-fr.xml</loc>
+    <loc>https://www.my-site.com/sitemap-blog-fr.xml</loc>
     <lastmod>2026-05-26</lastmod>
   </sitemap>
 </sitemapindex>
 
-<!-- Sitemap URL avec priorité -->
+<!-- Sitemap URL with priority -->
 <url>
-  <loc>https://www.mon-site.com/fr/page-importante/</loc>
+  <loc>https://www.my-site.com/fr/important-page/</loc>
   <lastmod>2026-05-26</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.9</priority>
 </url>
 ```
 
-## Plan de redirections 301 — Migration CMS
+## 301 redirect plan — CMS migration
 
 ```
-ANCIENNE URL                          NOUVELLE URL                          TYPE
+OLD URL                               NEW URL                               TYPE
 ────────────────────────────────────  ────────────────────────────────────  ─────
-/fr/actualites/2024/titre-article     /blog/2024/titre-article              301
+/fr/news/2024/article-title           /blog/2024/article-title              301
 /content/dam/images/photo.jpg         /media/images/photo.webp              301
-/fr/produits/categorie/               /produits/categorie/                  301
+/fr/products/category/                /products/category/                   301
 /index.html                           /                                     301
 ```
 
-## Livrables
-- Rapport d'audit SEO technique (Screaming Frog export + analyse)
-- Plan de corrections priorisé (Quick wins vs Long terme)
-- Configuration métadonnées CMS (templates par content type)
-- Fichier de redirections 301 (CSV ou .htaccess)
-- Sitemap XML configuré et soumis à GSC
-- Données structurées Schema.org implémentées et validées
-- Tableau de bord SEO (GSC + Search Analytics)
+## Deliverables
+- Technical SEO audit report (Screaming Frog export + analysis)
+- Prioritized fix plan (quick wins vs long term)
+- CMS metadata configuration (templates per content type)
+- 301 redirect file (CSV or .htaccess)
+- XML sitemap configured and submitted to GSC
+- Schema.org structured data implemented and validated
+- SEO dashboard (GSC + Search Analytics)
 
-## Format de sortie
-Précise : **CMS** (AEM, Drupal, WordPress…), **périmètre** (site complet ou section), **contexte** (audit initial, migration, refonte), **contraintes** (multilingue, multidomaine, e-commerce), **objectifs** (trafic organique, featured snippets, indexation prioritaire).
+## Output format
+Specify: **CMS** (AEM, Drupal, WordPress…), **scope** (full site or section), **context** (initial audit, migration, redesign), **constraints** (multilingual, multi-domain, e-commerce), **goals** (organic traffic, featured snippets, priority indexing).
 
 ## Anti-patterns
-- ❌ **Canonical loops ou canonicals multiples** : signaux contradictoires pour Google → 1 canonical autoréférentiel par page
-- ❌ **hreflang non autoréférentiel** ou incomplet : mauvais ciblage géo → chaque page se référence + x-default
-- ❌ **Title / meta description dupliqués** sur les content types : cannibalisation → templates uniques par type
-- ❌ **Rendu dépendant du JS sans SSR/prerendering** : contenu non indexé → SSR/ISR (cf. headless)
-- ❌ **Redirections en chaîne** (301 → 301 → 301) : perte de PageRank et de crawl budget → redirection directe
-- ❌ **Schema.org non validé** (Rich Results Test) : pas de rich snippets → valider chaque type
+- ❌ **Canonical loops or multiple canonicals**: contradictory signals to Google → 1 self-referential canonical per page
+- ❌ **Non-self-referential or incomplete hreflang**: poor geo targeting → each page references itself + x-default
+- ❌ **Duplicate title / meta description** across content types: cannibalization → unique templates per type
+- ❌ **JS-dependent rendering without SSR/prerendering**: unindexed content → SSR/ISR (see headless)
+- ❌ **Redirect chains** (301 → 301 → 301): PageRank and crawl-budget loss → direct redirect
+- ❌ **Unvalidated Schema.org** (Rich Results Test): no rich snippets → validate each type
 
 ## Sources
-- **Schema.org** (vocabulaire structuré) — schema.org · **Rich Results Test** — search.google.com/test/rich-results
+- **Schema.org** (structured vocabulary) — schema.org · **Rich Results Test** — search.google.com/test/rich-results
 - **Open Graph protocol** — ogp.me · **hreflang** — Google Search Central / sitemaps.org
-- **robots.txt** — RFC 9309 (2022) · **Sitemaps XML** — sitemaps.org/protocol
-- **Core Web Vitals** — web.dev/vitals (facteur de ranking, Page Experience) · **Google Search Central** — developers.google.com/search
+- **robots.txt** — RFC 9309 (2022) · **XML Sitemaps** — sitemaps.org/protocol
+- **Core Web Vitals** — web.dev/vitals (ranking factor, Page Experience) · **Google Search Central** — developers.google.com/search
 
-## Voir aussi
-- [`performance-web.md`](performance-web.md) — Core Web Vitals (facteur de ranking)
-- [`accessibilite-numerique.md`](accessibilite-numerique.md) — structure Hn, alt, langue (recouvrement SEO)
-- [`migration-cms.md`](migration-cms.md) — plan de redirections 301 lors d'une migration
-- [`architecture-cms.md`](architecture-cms.md) — SSR/ISR pour l'indexabilité du headless
+## See also
+- [`performance-web.md`](performance-web.md) — Core Web Vitals (ranking factor)
+- [`accessibilite-numerique.md`](accessibilite-numerique.md) — Hn structure, alt, language (SEO overlap)
+- [`migration-cms.md`](migration-cms.md) — 301 redirect plan during a migration
+- [`architecture-cms.md`](architecture-cms.md) — SSR/ISR for headless indexability

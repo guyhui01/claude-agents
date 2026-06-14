@@ -1,18 +1,18 @@
-# Skill — Next.js + IA (App Router)
-> Certifications : Vercel Next.js Certification 2025
+# Skill — Next.js + AI (App Router)
+> Certifications: Vercel Next.js Certification 2025
 
-## Objectif
-Construire des applications IA full-stack avec Next.js 15 App Router.
+## Objective
+Build full-stack AI applications with Next.js 15 App Router.
 
-## Structure de projet recommandée
+## Recommended project structure
 ```
 app/
 ├── api/
-│   ├── chat/route.ts          ← API streaming LLM
-│   ├── generate/route.ts      ← Génération one-shot
-│   └── tools/[name]/route.ts  ← Endpoints tools
+│   ├── chat/route.ts          ← LLM streaming API
+│   ├── generate/route.ts      ← One-shot generation
+│   └── tools/[name]/route.ts  ← Tool endpoints
 ├── (chat)/
-│   ├── page.tsx               ← Interface chat
+│   ├── page.tsx               ← Chat interface
 │   └── components/
 │       ├── chat-messages.tsx
 │       ├── chat-input.tsx
@@ -20,29 +20,29 @@ app/
 └── layout.tsx
 ```
 
-## API Route — Streaming LLM
+## API Route — LLM streaming
 ```typescript
 // app/api/chat/route.ts
 import { streamText } from "ai"
 import { anthropic } from "@ai-sdk/anthropic"
 
-export const runtime = "edge"  // Edge runtime pour la latence minimale
+export const runtime = "edge"  // Edge runtime for minimal latency
 
 export async function POST(req: Request) {
   const { messages } = await req.json()
   const result = streamText({
     model: anthropic("claude-opus-4-8"),
-    system: "Tu es un assistant PO Agile expert.",
+    system: "You are an expert Agile PO assistant.",
     messages,
     maxTokens: 2048
   })
   return result.toDataStreamResponse({
-    headers: { "X-Accel-Buffering": "no" }  // Désactiver le buffering nginx
+    headers: { "X-Accel-Buffering": "no" }  // Disable nginx buffering
   })
 }
 ```
 
-## Server Actions avec IA
+## Server Actions with AI
 ```typescript
 // app/actions.ts
 "use server"
@@ -53,50 +53,50 @@ export async function generateUserStory(feature: string) {
   const { object } = await generateObject({
     model: anthropic("claude-opus-4-8"),
     schema: UserStorySchema,
-    prompt: `Génère une User Story pour : ${feature}`
+    prompt: `Generate a User Story for: ${feature}`
   })
   return object
 }
 ```
 
-## Patterns de performance
-- **Suspense + Streaming** : afficher le contenu au fur et à mesure
-- **Edge Runtime** : déploiement global, latence minimale pour les API LLM
-- **Route Handlers** : préférer aux Server Actions pour les streams
-- **Cache** : `unstable_cache` pour les réponses LLM répétitives
+## Performance patterns
+- **Suspense + Streaming**: render content as it arrives
+- **Edge Runtime**: global deployment, minimal latency for LLM APIs
+- **Route Handlers**: prefer over Server Actions for streams
+- **Cache**: `unstable_cache` for repetitive LLM responses
 
-## Gestion de l'état côté client
+## Client-side state management
 ```typescript
 "use client"
-// Pour les conversations : useChat (Vercel AI SDK)
-// Pour les générations ponctuelles : useCompletion
-// Pour l'état global : Zustand ou Context
+// For conversations: useChat (Vercel AI SDK)
+// For one-off generations: useCompletion
+// For global state: Zustand or Context
 ```
 
-## Livrables
-- API route streaming fonctionnelle
-- Page Next.js avec composants chat
-- Server Actions pour les opérations ponctuelles
-- Configuration Edge Runtime
+## Deliverables
+- Working streaming API route
+- Next.js page with chat components
+- Server Actions for one-off operations
+- Edge Runtime configuration
 
-## Format de sortie
-Précise : Next.js version · provider LLM · fonctionnalités (chat, génération, tools) · déploiement cible (Vercel, autre)
+## Output format
+Specify: Next.js version · LLM provider · features (chat, generation, tools) · target deployment (Vercel, other)
 
 ## Anti-patterns
-- ❌ **Server Actions pour le streaming** : préférer les Route Handlers (déjà noté) → stream via `app/api/.../route.ts`
-- ❌ **Edge Runtime avec dépendances Node** : incompatibilité → choisir le runtime selon les libs
-- ❌ **Clé API LLM côté client** : fuite → server-side (route/action)
-- ❌ **Pas de cache sur générations répétitives** : coût inutile → `unstable_cache` / revalidation
-- ❌ **Version Next.js non épinglée** : ruptures App Router entre majeures → fixer la version (Next.js 15/16)
-- ❌ **`maxTokens` (AI SDK v4)** : sur AI SDK 5 c'est `maxOutputTokens` → vérifier la version
+- ❌ **Server Actions for streaming**: prefer Route Handlers (already noted) → stream via `app/api/.../route.ts`
+- ❌ **Edge Runtime with Node dependencies**: incompatibility → pick the runtime based on the libs
+- ❌ **LLM API key on the client**: leak → server-side (route/action)
+- ❌ **No cache on repetitive generations**: needless cost → `unstable_cache` / revalidation
+- ❌ **Unpinned Next.js version**: App Router breaking changes between majors → pin the version (Next.js 15/16)
+- ❌ **`maxTokens` (AI SDK v4)**: on AI SDK 5 it's `maxOutputTokens` → check the version
 
 ## Sources
-- **Next.js** — nextjs.org (Vercel) : App Router, Server Actions, Route Handlers (Next.js **15/16**, + React 19)
+- **Next.js** — nextjs.org (Vercel): App Router, Server Actions, Route Handlers (Next.js **15/16**, + React 19)
 - **Vercel AI SDK** — ai-sdk.dev (`streamText`, `generateObject`) · **Zod** — zod.dev
-- **Anthropic** `@ai-sdk/anthropic` — modèle courant **`claude-opus-4-8`**
+- **Anthropic** `@ai-sdk/anthropic` — current model **`claude-opus-4-8`**
 
-## Voir aussi
-- [`vercel-ai-sdk.md`](vercel-ai-sdk.md) — API du SDK utilisées dans les routes
-- [`edge-functions-ia.md`](edge-functions-ia.md) — Edge Runtime et middleware
-- [`chat-ui-streaming.md`](chat-ui-streaming.md) — UI cliente du chat
-- [`integration-apis-llm-ts.md`](integration-apis-llm-ts.md) — couche d'intégration LLM
+## See also
+- [`vercel-ai-sdk.md`](vercel-ai-sdk.md) — SDK APIs used in the routes
+- [`edge-functions-ia.md`](edge-functions-ia.md) — Edge Runtime and middleware
+- [`chat-ui-streaming.md`](chat-ui-streaming.md) — chat client UI
+- [`integration-apis-llm-ts.md`](integration-apis-llm-ts.md) — LLM integration layer

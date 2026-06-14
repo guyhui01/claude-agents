@@ -1,10 +1,10 @@
-# Skill — Apache Spark & Traitement Big Data
-> Certifications : Databricks Data Engineer Associate · Google PDE · AWS DEA-C01
+# Skill — Apache Spark & Big Data Processing
+> Certifications: Databricks Data Engineer Associate · Google PDE · AWS DEA-C01
 
-## Objectif
-Traiter des volumes massifs de données avec Apache Spark (PySpark) pour les transformations, agrégations et préparation de données ML.
+## Objective
+Process massive data volumes with Apache Spark (PySpark) for transformations, aggregations and ML data preparation.
 
-## Architecture Spark
+## Spark architecture
 ```
 Driver Program
   └── SparkContext
@@ -12,12 +12,12 @@ Driver Program
         ├── Executor (Worker 2) → Tasks
         └── Executor (Worker 3) → Tasks
 
-RDD → DataFrame → Dataset (API évoluée)
-Transformation (lazy) : filter, map, join, groupBy
-Action (trigger) : show, count, collect, write
+RDD → DataFrame → Dataset (higher-level API)
+Transformation (lazy): filter, map, join, groupBy
+Action (trigger): show, count, collect, write
 ```
 
-## PySpark — opérations fondamentales
+## PySpark — fundamental operations
 ```python
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
@@ -28,87 +28,87 @@ spark = SparkSession.builder \
     .config("spark.sql.adaptive.enabled", "true") \
     .getOrCreate()
 
-# Lecture multi-format
+# Multi-format read
 df = spark.read.parquet("s3://bucket/data/")
 df = spark.read.json("s3://bucket/events/")
 df = spark.read.format("delta").load("/data/table")
 
 # Transformations
 df_clean = df \
-    .filter(F.col("montant") > 0) \
-    .withColumn("mois", F.date_trunc("month", F.col("date"))) \
-    .withColumn("montant_eur", F.col("montant") / 100) \
+    .filter(F.col("amount") > 0) \
+    .withColumn("month", F.date_trunc("month", F.col("date"))) \
+    .withColumn("amount_eur", F.col("amount") / 100) \
     .dropDuplicates(["transaction_id"])
 
-# Agrégations
+# Aggregations
 df_agg = df_clean \
-    .groupBy("client_id", "mois") \
+    .groupBy("customer_id", "month") \
     .agg(
-        F.sum("montant_eur").alias("ca_mensuel"),
-        F.count("*").alias("nb_transactions"),
-        F.avg("montant_eur").alias("panier_moyen")
+        F.sum("amount_eur").alias("monthly_revenue"),
+        F.count("*").alias("transaction_count"),
+        F.avg("amount_eur").alias("avg_basket")
     )
 
-# Jointures
+# Joins
 df_enriched = df_agg \
-    .join(df_clients, on="client_id", how="left") \
+    .join(df_customers, on="customer_id", how="left") \
     .join(df_segments, on="segment_id", how="inner")
 ```
 
-## Delta Lake — ACID sur le Data Lake
+## Delta Lake — ACID on the Data Lake
 ```python
 from delta.tables import DeltaTable
 
-# Écriture avec partitionnement
+# Write with partitioning
 df.write \
   .format("delta") \
   .mode("overwrite") \
-  .partitionBy("annee", "mois") \
-  .save("/data/delta/ventes")
+  .partitionBy("year", "month") \
+  .save("/data/delta/sales")
 
 # Merge (upsert)
-deltaTable = DeltaTable.forPath(spark, "/data/delta/clients")
+deltaTable = DeltaTable.forPath(spark, "/data/delta/customers")
 deltaTable.alias("target").merge(
     df_updates.alias("source"),
-    "target.client_id = source.client_id"
+    "target.customer_id = source.customer_id"
 ).whenMatchedUpdateAll() \
  .whenNotMatchedInsertAll() \
  .execute()
 
 # Time travel
-df_historique = spark.read \
+df_history = spark.read \
     .format("delta") \
     .option("timestampAsOf", "2026-01-01") \
-    .load("/data/delta/ventes")
+    .load("/data/delta/sales")
 
-# Compaction et nettoyage
+# Compaction and cleanup
 deltaTable.optimize().executeCompaction()
 deltaTable.vacuum(retentionHours=168)
 ```
 
-## Optimisations Spark
+## Spark optimizations
 ```python
-# Broadcast join (petite table < 10MB)
+# Broadcast join (small table < 10MB)
 from pyspark.sql.functions import broadcast
 df_result = df_large.join(broadcast(df_small), "key")
 
-# Repartitionner avant les joins / agrégations
-df = df.repartition(200, "client_id")
+# Repartition before joins / aggregations
+df = df.repartition(200, "customer_id")
 
-# Cache les DataFrames réutilisés
+# Cache reused DataFrames
 df_base.cache()
-df_base.count()  # Trigger le cache
+df_base.count()  # Trigger the cache
 
-# Configuration Spark
+# Spark configuration
 spark.conf.set("spark.sql.shuffle.partitions", "200")
 spark.conf.set("spark.sql.adaptive.coalescePartitions.enabled", "true")
 ```
 
-## Livrables
-- Pipeline PySpark production-ready
-- Script d'optimisation (partitionnement, cache, broadcast)
-- Tests unitaires (pytest + pyspark)
-- Documentation technique du job
+## Deliverables
+- Production-ready PySpark pipeline
+- Optimization script (partitioning, cache, broadcast)
+- Unit tests (pytest + pyspark)
+- Technical job documentation
 
-## Format de sortie
-Précise : volume de données (Go/To) · fréquence (batch/streaming) · cluster Spark (local, Databricks, EMR, Dataproc) · format source/destination · SLA de performance
+## Output format
+Specify: data volume (GB/TB) · frequency (batch/streaming) · Spark cluster (local, Databricks, EMR, Dataproc) · source/destination format · performance SLA

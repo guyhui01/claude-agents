@@ -1,42 +1,42 @@
-# Skill — SQL Analytique Avancé (Window Functions, CTEs, dbt)
-> Certifications : dbt Certified Analytics Engineer (dbt Labs 2024) · Databricks Certified Data Analyst Associate · Google Data Analytics
+# Skill — Advanced Analytical SQL (Window Functions, CTEs, dbt)
+> Certifications: dbt Certified Analytics Engineer (dbt Labs 2024) · Databricks Certified Data Analyst Associate · Google Data Analytics
 
-## Objectif
-Écrire du SQL analytique performant et maintenable : window functions, CTEs, subqueries, optimisation — et modéliser les transformations avec dbt (Data Build Tool) selon les bonnes pratiques.
+## Objective
+Write performant, maintainable analytical SQL: window functions, CTEs, subqueries, optimization — and model transformations with dbt (Data Build Tool) following best practices.
 
-## Window Functions — Référence
+## Window Functions — Reference
 
 ```sql
--- Syntaxe générale
-fonction() OVER (
-    [PARTITION BY colonnes]  -- Groupe de calcul
-    [ORDER BY colonnes]       -- Ordre dans la fenêtre
-    [ROWS/RANGE frame]        -- Étendue de la fenêtre
+-- General syntax
+function() OVER (
+    [PARTITION BY columns]   -- Calculation group
+    [ORDER BY columns]        -- Order within the window
+    [ROWS/RANGE frame]        -- Window extent
 )
 
 -- RANKING
-ROW_NUMBER()   OVER (PARTITION BY customer_id ORDER BY order_date DESC)  -- 1,2,3 sans égalité
-RANK()         OVER (PARTITION BY region ORDER BY revenue DESC)          -- 1,1,3 avec saut
-DENSE_RANK()   OVER (PARTITION BY region ORDER BY revenue DESC)          -- 1,1,2 sans saut
+ROW_NUMBER()   OVER (PARTITION BY customer_id ORDER BY order_date DESC)  -- 1,2,3 no ties
+RANK()         OVER (PARTITION BY region ORDER BY revenue DESC)          -- 1,1,3 with skip
+DENSE_RANK()   OVER (PARTITION BY region ORDER BY revenue DESC)          -- 1,1,2 no skip
 NTILE(4)       OVER (ORDER BY revenue DESC)                              -- Quartiles 1-4
 PERCENT_RANK() OVER (ORDER BY score)                                     -- Percentile 0.0-1.0
 
--- AGRÉGATS
-SUM(revenue)    OVER (PARTITION BY year ORDER BY month ROWS UNBOUNDED PRECEDING)  -- Cumulatif
+-- AGGREGATES
+SUM(revenue)    OVER (PARTITION BY year ORDER BY month ROWS UNBOUNDED PRECEDING)  -- Cumulative
 AVG(revenue)    OVER (PARTITION BY customer_id ORDER BY order_date ROWS 2 PRECEDING)  -- MA3
-COUNT(*)        OVER (PARTITION BY segment)                               -- Taille du groupe
+COUNT(*)        OVER (PARTITION BY segment)                               -- Group size
 
 -- NAVIGATION
-LAG(revenue, 1, 0)  OVER (PARTITION BY product ORDER BY date)  -- Valeur N-1
-LEAD(revenue, 1, 0) OVER (PARTITION BY product ORDER BY date)  -- Valeur N+1
-FIRST_VALUE(revenue) OVER (PARTITION BY customer ORDER BY date)  -- 1ère valeur du groupe
+LAG(revenue, 1, 0)  OVER (PARTITION BY product ORDER BY date)  -- Previous value (N-1)
+LEAD(revenue, 1, 0) OVER (PARTITION BY product ORDER BY date)  -- Next value (N+1)
+FIRST_VALUE(revenue) OVER (PARTITION BY customer ORDER BY date)  -- First value of the group
 LAST_VALUE(revenue)  OVER (PARTITION BY customer ORDER BY date ROWS UNBOUNDED FOLLOWING)
 ```
 
-## Cas d'usage analytiques
+## Analytical use cases
 
 ```sql
--- 1. Top N produits par catégorie
+-- 1. Top N products per category
 WITH ranked_products AS (
     SELECT
         category,
@@ -49,7 +49,7 @@ WITH ranked_products AS (
 )
 SELECT * FROM ranked_products WHERE rnk <= 3;
 
--- 2. Churn : clients sans achat depuis 90 jours
+-- 2. Churn: customers with no purchase in 90 days
 WITH last_purchase AS (
     SELECT
         customer_id,
@@ -62,7 +62,7 @@ WITH last_purchase AS (
 SELECT *, CASE WHEN days_since_last_order > 90 THEN 'Churned' ELSE 'Active' END AS status
 FROM last_purchase;
 
--- 3. Croissance MoM
+-- 3. MoM growth
 SELECT
     DATE_TRUNC('month', order_date)                  AS month,
     SUM(net_revenue)                                  AS revenue,
@@ -73,24 +73,24 @@ FROM fact_orders
 GROUP BY 1 ORDER BY 1;
 ```
 
-## dbt — Structure de projet
+## dbt — Project structure
 
 ```
 models/
-├── staging/              # Nettoyage et typage des sources (1:1 avec tables sources)
-│   ├── stg_orders.sql    → Renommage colonnes, cast types, filtres de base
+├── staging/              # Source cleaning and typing (1:1 with source tables)
+│   ├── stg_orders.sql    → Column renaming, type casts, basic filters
 │   └── stg_customers.sql
-├── intermediate/         # Logique métier, joins, calculs intermédiaires
+├── intermediate/         # Business logic, joins, intermediate calculations
 │   └── int_order_items.sql
-├── marts/                # Modèles finaux exposés aux outils BI
+├── marts/                # Final models exposed to BI tools
 │   ├── finance/
 │   │   └── fct_revenue.sql
 │   └── product/
 │       └── dim_products.sql
-└── sources.yml           # Déclaration des sources + tests de fraîcheur
+└── sources.yml           # Source declaration + freshness tests
 ```
 
-## dbt — Modèle et tests
+## dbt — Model and tests
 
 ```sql
 -- models/marts/finance/fct_revenue.sql
@@ -128,7 +128,7 @@ SELECT * FROM final
 # models/marts/finance/schema.yml
 models:
   - name: fct_revenue
-    description: "Table de faits des revenus — grain : 1 ligne par commande"
+    description: "Revenue fact table — grain: 1 row per order"
     columns:
       - name: order_id
         tests: [unique, not_null]
@@ -141,12 +141,12 @@ models:
               expression: ">= 0"
 ```
 
-## Livrables
-- Modèles dbt organisés (staging / intermediate / marts)
-- Tests de qualité (unique, not_null, accepted_values, relationships)
-- Documentation dbt (descriptions colonnes + lineage)
-- Requêtes SQL analytiques optimisées (EXPLAIN analysé)
-- Guide de conventions SQL (style, nommage, formatage)
+## Deliverables
+- Organized dbt models (staging / intermediate / marts)
+- Quality tests (unique, not_null, accepted_values, relationships)
+- dbt documentation (column descriptions + lineage)
+- Optimized analytical SQL queries (EXPLAIN analyzed)
+- SQL conventions guide (style, naming, formatting)
 
-## Format de sortie
-Précise : **entrepôt de données** (Snowflake, BigQuery, Redshift, Databricks, Fabric…), **type d'analyse** (ranking, cohort, funnel, tendances, churn…), **volume** (lignes, partitionnement), **outil BI final** (Power BI, Tableau, Looker), **contraintes** (performance, dbt ou SQL pur).
+## Output format
+Specify: **data warehouse** (Snowflake, BigQuery, Redshift, Databricks, Fabric…), **analysis type** (ranking, cohort, funnel, trends, churn…), **volume** (rows, partitioning), **final BI tool** (Power BI, Tableau, Looker), **constraints** (performance, dbt or pure SQL).

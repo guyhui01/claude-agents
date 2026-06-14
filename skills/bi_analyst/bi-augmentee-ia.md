@@ -1,87 +1,87 @@
-# Skill — BI Augmentée par l'IA (Copilot, Q&A, Smart Narratives)
-> Certifications : PL-300 Microsoft · DP-600 Microsoft Fabric · Claude Code 101 (Anthropic 2026) · Claude Code in Action (Anthropic 2026)
+# Skill — AI-Augmented BI (Copilot, Q&A, Smart Narratives)
+> Certifications: PL-300 Microsoft · DP-600 Microsoft Fabric · Claude Code 101 (Anthropic 2026) · Claude Code in Action (Anthropic 2026)
 
-## Objectif
-Intégrer l'IA générative dans les workflows BI : Copilot Power BI, Q&A en langage naturel, génération automatique de narratives, analyse assistée par Claude — pour accélérer la production d'insights et démocratiser l'accès à la donnée.
+## Objective
+Integrate generative AI into BI workflows: Power BI Copilot, natural-language Q&A, automatic narrative generation, Claude-assisted analysis — to speed up insight production and democratize data access.
 
-## Panorama des capacités IA dans la BI
+## Overview of AI capabilities in BI
 
 ```
-OUTIL                     CAPACITÉ                              MATURITÉ (2026)
+TOOL                      CAPABILITY                            MATURITY (2026)
 ──────────────────────── ─────────────────────────────────────  ─────────────────────────
-Power BI Copilot          Génère des rapports depuis description  GA (Premium P1+ / Fabric)
-(Microsoft Fabric)        Résume les données en langage naturel   Très utile pour prototypage
-                          Crée des mesures DAX depuis prompts
+Power BI Copilot          Generates reports from a description    GA (Premium P1+ / Fabric)
+(Microsoft Fabric)        Summarizes data in natural language     Very useful for prototyping
+                          Creates DAX measures from prompts
 
-Power BI Q&A              Questions en langage naturel           GA depuis 2019
-                          "Quelle région a le plus de CA ?"      Limité aux datasets configurés
+Power BI Q&A              Natural-language questions             GA since 2019
+                          "Which region has the most revenue?"   Limited to configured datasets
 
-Smart Narratives          Génère du texte décrivant les données  GA — limité, peu contextuel
-(Power BI)                automatiquement sur les visuels
+Smart Narratives          Generates text describing the data     GA — limited, low context
+(Power BI)                automatically on visuals
 
-Tableau Pulse             IA qui explique les tendances           GA (Tableau Cloud 2024)
-                          et envoie des digests personnalisés
+Tableau Pulse             AI that explains trends                 GA (Tableau Cloud 2024)
+                          and sends personalized digests
 
-Looker Conversational     Questions en langage naturel           Beta (2026)
-Analytics                 dans l'interface Looker
+Looker Conversational     Natural-language questions             Beta (2026)
+Analytics                 in the Looker interface
 
-Claude + BI               Analyse des données exportées          Très flexible, illimité
-(custom)                  Génération de DAX, LookML, SQL
-                          Interprétation des résultats
+Claude + BI               Analysis of exported data              Very flexible, unlimited
+(custom)                  Generation of DAX, LookML, SQL
+                          Interpretation of results
 ```
 
-## Power BI Copilot — Commandes efficaces
+## Power BI Copilot — Effective commands
 
 ```
-DANS POWER BI DESKTOP / SERVICE (bouton Copilot) :
+IN POWER BI DESKTOP / SERVICE (Copilot button):
 
-"Crée une page de rapport avec l'évolution mensuelle du CA net
- et une comparaison par région pour les 12 derniers mois"
+"Create a report page with the monthly net revenue trend
+ and a comparison by region for the last 12 months"
 
-"Génère une mesure DAX pour le CA Year-to-Date avec comparaison N-1"
+"Generate a DAX measure for Year-to-Date revenue with a PY comparison"
 
-"Résume en 3 phrases les principales tendances de ce rapport"
+"Summarize the main trends in this report in 3 sentences"
 
-"Quels sont les 5 clients qui ont le plus augmenté leur CA vs l'année dernière ?"
+"Which 5 customers grew their revenue the most vs last year?"
 
-"Crée un visuel montrant la corrélation entre le délai de livraison et le NPS"
+"Create a visual showing the correlation between delivery time and NPS"
 ```
 
-## Q&A Power BI — Configuration optimale
+## Power BI Q&A — Optimal configuration
 
 ```
-SYNONYMES À CONFIGURER DANS LE DATASET :
-  "CA", "chiffre d'affaires", "revenus", "ventes" → [Net Revenue]
-  "clients", "acheteurs", "customers"              → dim_customer
-  "mois dernier", "M-1", "mois précédent"          → période relative
+SYNONYMS TO CONFIGURE IN THE DATASET:
+  "revenue", "sales", "turnover", "income"      → [Net Revenue]
+  "customers", "buyers", "clients"              → dim_customer
+  "last month", "M-1", "previous month"         → relative period
 
-QUESTIONS TYPES QUE CELA DÉBLOQUE :
-  "Quel est le CA du mois dernier par région ?"
-  "Top 10 produits par ventes cette année"
-  "Combien de nouveaux clients en juin 2026 ?"
-  "Évolution du panier moyen par trimestre"
+TYPICAL QUESTIONS THIS UNLOCKS:
+  "What was last month's revenue by region?"
+  "Top 10 products by sales this year"
+  "How many new customers in June 2026?"
+  "Average order value trend by quarter"
 
-CONFIGURATION :
-  Dataset → Schéma → Synonymes → Ajouter par colonne et par table
-  Dataset → Questions proposées → Ajouter les questions fréquentes
+CONFIGURATION:
+  Dataset → Schema → Synonyms → Add per column and per table
+  Dataset → Suggested questions → Add the frequent questions
 ```
 
-## Claude + BI — Prompts pour analyste
+## Claude + BI — Prompts for analysts
 
 ```python
-# Utilisation de Claude pour analyser un export Power BI / CSV
+# Using Claude to analyze a Power BI / CSV export
 import anthropic
 
-ANALYSIS_PROMPT = """Tu es un Business Intelligence Analyst expert.
-Analyse le rapport de données suivant et fournis :
-1. Les 3 insights les plus importants
-2. Les anomalies ou points d'attention
-3. 2 recommandations actionnables pour la direction
-4. Un titre percutant pour le CODIR (affirmation, pas description)
+ANALYSIS_PROMPT = """You are an expert Business Intelligence Analyst.
+Analyze the following data report and provide:
+1. The 3 most important insights
+2. Anomalies or watch items
+3. 2 actionable recommendations for leadership
+4. A punchy title for the leadership meeting (an assertion, not a description)
 
-Contexte : {context}
+Context: {context}
 
-Données (CSV) :
+Data (CSV):
 {data}
 """
 
@@ -91,7 +91,7 @@ def analyze_bi_data(csv_data: str, context: str) -> str:
     message = client.messages.create(
         model="claude-opus-4-8",
         max_tokens=2048,
-        system="Tu réponds toujours en français, de façon concise et orientée décision.",
+        system="You always respond in English, concisely and decision-oriented.",
         messages=[{
             "role": "user",
             "content": ANALYSIS_PROMPT.format(context=context, data=csv_data)
@@ -99,63 +99,63 @@ def analyze_bi_data(csv_data: str, context: str) -> str:
     )
     return message.content[0].text
 
-# Générer du DAX depuis une description métier
+# Generate DAX from a business description
 def generate_dax(metric_description: str, model_context: str) -> str:
     message = client.messages.create(
         model="claude-sonnet-4-6",
         max_tokens=1024,
         messages=[{
             "role": "user",
-            "content": f"""Génère une mesure DAX Power BI pour :
+            "content": f"""Generate a Power BI DAX measure for:
 {metric_description}
 
-Contexte du modèle de données :
+Data model context:
 {model_context}
 
-Fournis uniquement le code DAX avec commentaires."""
+Provide only the DAX code with comments."""
         }]
     )
     return message.content[0].text
 ```
 
-## Tableau Pulse — Configuration des insights
+## Tableau Pulse — Insight configuration
 
 ```
-DANS TABLEAU CLOUD / SERVER :
-  1. Créer une métrique Pulse depuis un classeur existant
-  2. Définir :
-     □ Métrique principale : [Net Revenue]
-     □ Dimension de comparaison : [Region]
-     □ Période : Hebdomadaire
-     □ Comparaison : vs semaine précédente + vs N-1
+IN TABLEAU CLOUD / SERVER:
+  1. Create a Pulse metric from an existing workbook
+  2. Define:
+     □ Main metric: [Net Revenue]
+     □ Comparison dimension: [Region]
+     □ Period: Weekly
+     □ Comparison: vs previous week + vs PY
 
-RÉSULTAT :
-  Tableau Pulse génère automatiquement :
-  → "Le CA a augmenté de 12% cette semaine. La région EMEA
-     a enregistré la plus forte croissance (+18%), portée par
-     3 nouveaux clients en Allemagne."
-  → Digest email quotidien/hebdomadaire personnalisé par utilisateur
+RESULT:
+  Tableau Pulse automatically generates:
+  → "Revenue grew 12% this week. The EMEA region
+     posted the strongest growth (+18%), driven by
+     3 new customers in Germany."
+  → Daily/weekly digest email personalized per user
 ```
 
-## Bonnes pratiques IA en BI
+## AI best practices in BI
 
 ```
-FAIRE ✅                                     NE PAS FAIRE ❌
+DO ✅                                        DON'T ❌
 ────────────────────────────────────────    ─────────────────────────────────────────────
-Valider chaque chiffre généré par IA        Publier un rapport IA sans validation humaine
-Documenter les prompts efficaces            Utiliser l'IA sur des données personnelles (RGPD)
-Former les utilisateurs à lire les IA       Remplacer l'analyse critique par l'IA seule
-Utiliser l'IA pour le draft, humain pour    Croire qu'un narratif IA = insight validé
-  la validation finale
-Citer la source dans les narratives IA
+Validate every AI-generated figure          Publish an AI report without human validation
+Document effective prompts                   Use AI on personal data (GDPR)
+Train users to read AI output                Replace critical analysis with AI alone
+Use AI for the draft, humans for             Believe an AI narrative = a validated insight
+  the final validation
+Cite the source in AI narratives
 ```
 
-## Livrables
-- Configuration Power BI Copilot + Q&A (synonymes, questions)
-- Scripts Python d'analyse BI assistée par Claude
-- Guide utilisateurs BI IA (prompts efficaces, bonnes pratiques)
-- Tableau de bord usage Copilot (adoption, questions fréquentes)
-- Charte d'usage IA dans la BI (RGPD, validation, citation)
+## Deliverables
+- Power BI Copilot + Q&A configuration (synonyms, questions)
+- Python scripts for Claude-assisted BI analysis
+- BI AI user guide (effective prompts, best practices)
+- Copilot usage dashboard (adoption, frequent questions)
+- AI usage charter for BI (GDPR, validation, citation)
 
-## Format de sortie
-Précise : **outil BI** (Power BI Fabric, Tableau Cloud, Looker…), **capacité IA cible** (Copilot, Q&A, Pulse, Claude custom…), **cas d'usage** (prototypage, self-service utilisateurs, CODIR automatisé), **contraintes** (RGPD, données sensibles, budget API), **niveau de maturité BI** de l'organisation.
+## Output format
+Specify: **BI tool** (Power BI Fabric, Tableau Cloud, Looker…), **target AI capability** (Copilot, Q&A, Pulse, custom Claude…), **use case** (prototyping, user self-service, automated leadership reporting), **constraints** (GDPR, sensitive data, API budget), **the organization's BI maturity level**.

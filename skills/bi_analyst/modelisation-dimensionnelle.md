@@ -1,32 +1,32 @@
-# Skill — Modélisation Dimensionnelle (Étoile, Flocon, Data Vault)
-> Certifications : PL-300 Microsoft · DP-600 Microsoft Fabric · Databricks Certified Data Analyst Associate
+# Skill — Dimensional Modeling (Star, Snowflake, Data Vault)
+> Certifications: PL-300 Microsoft · DP-600 Microsoft Fabric · Databricks Certified Data Analyst Associate
 
-## Objectif
-Concevoir le modèle de données d'un datawarehouse ou lakehouse : schéma en étoile, flocon de neige ou Data Vault 2.0 — pour optimiser les performances analytiques et la maintenabilité.
+## Objective
+Design the data model of a data warehouse or lakehouse: star schema, snowflake or Data Vault 2.0 — to optimize analytical performance and maintainability.
 
-## Comparatif des modèles
+## Model comparison
 
 ```
-MODÈLE          STRUCTURE                      AVANTAGES                   INCONVÉNIENTS        IDÉAL POUR
+MODEL           STRUCTURE                      PROS                        CONS                 BEST FOR
 ──────────────  ─────────────────────────────  ──────────────────────────  ───────────────────  ────────────────────────
-Étoile          1 table de faits               Requêtes rapides, simple    Redondance données   Reporting opérationnel
-(Star Schema)   N tables de dimensions         Facile à comprendre         Stockage supérieur   Power BI, Tableau
-                Relations directes             Optimisé BI tools
+Star Schema     1 fact table                   Fast queries, simple        Data redundancy      Operational reporting
+                N dimension tables             Easy to understand          Higher storage       Power BI, Tableau
+                Direct relationships           Optimized for BI tools
 
-Flocon          Dimensions normalisées         Moins de redondance         Requêtes + complexes Data Warehouse classique
-(Snowflake)     Hiérarchies décomposées        Intégrité données           Joins nombreux       Contraintes stockage
+Snowflake       Normalized dimensions          Less redundancy             More complex queries Classic data warehouse
+                Decomposed hierarchies         Data integrity              Many joins           Storage constraints
 
-Data Vault 2.0  Hub + Link + Satellite         Historisation complète      Complexe à requêter  Auditabilité, compliance
-                Flexibilité maximale           Evolutivité                 Couche reporting req.  Finance, banque, santé
+Data Vault 2.0  Hub + Link + Satellite         Full historization          Complex to query     Auditability, compliance
+                Maximum flexibility            Extensibility               Reporting layer req. Finance, banking, health
 
-One Big Table   Dénormalisation totale         Requêtes ultra-rapides      Maintenance difficile  ML features, analyses
-(OBT)           1 seule table large            Pas de joins                Taille colossale     ad hoc en lakehouse
+One Big Table   Total denormalization          Ultra-fast queries          Hard to maintain     ML features, ad hoc
+(OBT)           1 single wide table            No joins                    Colossal size        analysis in lakehouse
 ```
 
-## Schéma en étoile — Exemple E-Commerce
+## Star schema — E-Commerce example
 
 ```sql
--- TABLE DE FAITS : Commandes
+-- FACT TABLE: Orders
 CREATE TABLE fact_orders (
     order_key           BIGINT        PRIMARY KEY,  -- Surrogate key
     order_date_key      INT           NOT NULL,     -- FK → dim_date
@@ -35,7 +35,7 @@ CREATE TABLE fact_orders (
     geography_key       INT           NOT NULL,     -- FK → dim_geography
     channel_key         INT           NOT NULL,     -- FK → dim_channel
 
-    -- Mesures
+    -- Measures
     quantity            INT           NOT NULL,
     unit_price          DECIMAL(10,2) NOT NULL,
     discount_amount     DECIMAL(10,2) DEFAULT 0,
@@ -44,12 +44,12 @@ CREATE TABLE fact_orders (
     cost_of_goods       DECIMAL(12,2),
     gross_margin        DECIMAL(12,2),
 
-    -- Métadonnées ETL
+    -- ETL metadata
     etl_created_at      TIMESTAMP     DEFAULT CURRENT_TIMESTAMP,
     source_system       VARCHAR(50)
 );
 
--- DIMENSION : Date (dimension la plus utilisée)
+-- DIMENSION: Date (most-used dimension)
 CREATE TABLE dim_date (
     date_key            INT           PRIMARY KEY,  -- YYYYMMDD
     full_date           DATE          NOT NULL,
@@ -66,7 +66,7 @@ CREATE TABLE dim_date (
     fiscal_quarter      SMALLINT
 );
 
--- DIMENSION : Client (SCD Type 2)
+-- DIMENSION: Customer (SCD Type 2)
 CREATE TABLE dim_customer (
     customer_key        INT           PRIMARY KEY,  -- Surrogate key
     customer_id         VARCHAR(50)   NOT NULL,     -- Business key
@@ -76,7 +76,7 @@ CREATE TABLE dim_customer (
     country             VARCHAR(50),
     city                VARCHAR(100),
 
-    -- SCD Type 2 : historisation des changements
+    -- SCD Type 2: change historization
     effective_date      DATE          NOT NULL,
     expiry_date         DATE,
     is_current          BOOLEAN       DEFAULT TRUE
@@ -86,49 +86,49 @@ CREATE TABLE dim_customer (
 ## Slowly Changing Dimensions (SCD)
 
 ```
-TYPE    COMPORTEMENT              EXEMPLE              QUAND L'UTILISER
+TYPE    BEHAVIOR                  EXAMPLE              WHEN TO USE
 ──────  ────────────────────────  ───────────────────  ─────────────────────────────────
-SCD 0   Pas de changement        Code produit          Attributs jamais modifiés
+SCD 0   No change                Product code          Attributes never modified
 
-SCD 1   Écrasement (overwrite)   Correction adresse   Pas besoin d'historique
-                                 email                 Correction d'erreur
+SCD 1   Overwrite                Email address         No history needed
+                                 correction            Error correction
 
-SCD 2   Nouvelle ligne           Changement de         Historique requis (ex: client
-        (est_courant + dates)    segment client        qui monte en VIP)
+SCD 2   New row                  Customer segment      History required (e.g. customer
+        (is_current + dates)     change                upgrading to VIP)
 
-SCD 3   Colonne "précédente"     Region ancienne /     Changement simple, 1 version
-                                 Region actuelle       historique max
+SCD 3   "Previous" column        Former region /       Simple change, 1 version of
+                                 current region        history max
 
-SCD 4   Table historique         Table produit +       Gros volume, SCD2 trop lourd
-        séparée                  table_produit_hist
+SCD 4   Separate history         product table +       Large volume, SCD2 too heavy
+        table                    product_hist table
 
-SCD 6   Combo 1+2+3              Complet               Besoin de tout
+SCD 6   Combo 1+2+3              Complete              When you need everything
 ```
 
-## Grain de la table de faits
+## Fact table grain
 
 ```
-PRINCIPE : Définir le grain AVANT de créer la table
-Le grain = 1 ligne = 1 [quoi] par [qui] par [quand]
+PRINCIPLE: Define the grain BEFORE creating the table
+The grain = 1 row = 1 [what] per [who] per [when]
 
-EXEMPLES DE GRAINS :
-  "1 ligne = 1 article commandé"           → fact_order_lines
-  "1 ligne = 1 session web"               → fact_web_sessions
-  "1 ligne = 1 transaction bancaire"      → fact_transactions
-  "1 ligne = 1 appel téléphonique"        → fact_calls
-  "1 ligne = 1 vente par magasin par jour" → fact_daily_store_sales
+GRAIN EXAMPLES:
+  "1 row = 1 ordered item"               → fact_order_lines
+  "1 row = 1 web session"                → fact_web_sessions
+  "1 row = 1 bank transaction"           → fact_transactions
+  "1 row = 1 phone call"                 → fact_calls
+  "1 row = 1 sale per store per day"     → fact_daily_store_sales
 
-⚠️ Grain trop agrégé → perd de la flexibilité analytique
-⚠️ Grain trop fin → performances dégradées, stockage excessif
+⚠️ Grain too aggregated → loses analytical flexibility
+⚠️ Grain too fine → degraded performance, excessive storage
 ```
 
-## Livrables
-- Modèle dimensionnel (schéma ERD annoté)
-- DDL SQL (tables de faits + dimensions)
-- Dictionnaire de données (définitions, types, règles)
-- Documentation du grain (par table de faits)
-- Stratégie SCD par dimension
-- Plan de chargement (ordre, fréquence, delta/full)
+## Deliverables
+- Dimensional model (annotated ERD)
+- SQL DDL (fact + dimension tables)
+- Data dictionary (definitions, types, rules)
+- Grain documentation (per fact table)
+- SCD strategy per dimension
+- Load plan (order, frequency, delta/full)
 
-## Format de sortie
-Précise : **domaine métier** (e-commerce, finance, RH, marketing…), **système source** (ERP, CRM, app web…), **outil BI cible** (Power BI, Tableau, Looker…), **volume estimé** (lignes/jour), **contraintes** (historisation, compliance, temps réel ou batch).
+## Output format
+Specify: **business domain** (e-commerce, finance, HR, marketing…), **source system** (ERP, CRM, web app…), **target BI tool** (Power BI, Tableau, Looker…), **estimated volume** (rows/day), **constraints** (historization, compliance, real-time or batch).

@@ -1,139 +1,139 @@
-# Skill — Monitoring et Alertes BI
-> Certifications : PL-300 Microsoft · DP-600 Fabric · Tableau Certified Data Analyst
+# Skill — BI Monitoring and Alerting
+> Certifications: PL-300 Microsoft · DP-600 Fabric · Tableau Certified Data Analyst
 
-## Objectif
-Mettre en place un monitoring proactif des KPIs et des alertes BI : seuils d'alerte, abonnements automatiques, anomaly detection — pour que les décideurs soient notifiés en temps réel des dérives importantes.
+## Objective
+Set up proactive KPI monitoring and BI alerting: alert thresholds, automatic subscriptions, anomaly detection — so decision-makers are notified in real time of significant deviations.
 
-## Types d'alertes BI
+## BI alert types
 
 ```
-TYPE                    DÉCLENCHEUR                    CANAL           LATENCE
+TYPE                    TRIGGER                        CHANNEL         LATENCY
 ──────────────────────  ─────────────────────────────  ──────────────  ─────────────
-Seuil fixe             KPI > ou < valeur seuil         Email, Teams    Selon refresh
-                       Ex : Taux d'erreur > 2%
+Fixed threshold        KPI > or < threshold value      Email, Teams    Per refresh
+                       e.g. error rate > 2%
 
-Anomalie statistique   Déviation > N écarts-types      Email, Webhook  Selon refresh
-                       vs tendance historique
+Statistical anomaly    Deviation > N standard devs     Email, Webhook  Per refresh
+                       vs historical trend
 
-Fraîcheur données      Dataset pas refreshé depuis     Email, Teams    Temps réel
-                       X heures (SLA violation)
+Data freshness         Dataset not refreshed for       Email, Teams    Real-time
+                       X hours (SLA violation)
 
-Budget/Objectif        Budget consommé à > 80%         Email, Slack    Refresh nocturne
-                       Objectif à < 70% en mi-période
+Budget/Target          Budget consumed > 80%           Email, Slack    Nightly refresh
+                       Target < 70% mid-period
 
-Drift KPI             Variation > X% vs semaine précéd. Email, Teams   Refresh hebdo
+KPI drift              Change > X% vs previous week     Email, Teams    Weekly refresh
 ```
 
-## Power BI — Alertes sur tableaux de bord
+## Power BI — Dashboard alerts
 
 ```
-CONFIGURATION DANS POWER BI SERVICE :
-  1. Ouvrir un dashboard (pas un rapport)
-  2. Cliquer sur une KPI card ou jauge
-  3. Gérer les alertes → + Ajouter une règle d'alerte
-  4. Configurer :
-     □ Condition : Au-dessus de / En dessous de
-     □ Seuil : valeur numérique
-     □ Fréquence de vérification : 24h / 1h
-     □ Email de notification : utilisateur Power BI
+CONFIGURATION IN POWER BI SERVICE:
+  1. Open a dashboard (not a report)
+  2. Click a KPI card or gauge
+  3. Manage alerts → + Add an alert rule
+  4. Configure:
+     □ Condition: Above / Below
+     □ Threshold: numeric value
+     □ Check frequency: 24h / 1h
+     □ Notification email: Power BI user
 
-LIMITATIONS :
-  - Uniquement sur les visuels de type KPI, Gauge, Card
-  - Uniquement sur les datasets en mode Import (pas DirectQuery)
-  - 1 notification max par heure (évite le spam)
+LIMITATIONS:
+  - Only on KPI, Gauge, Card visuals
+  - Only on Import-mode datasets (not DirectQuery)
+  - 1 notification max per hour (avoids spam)
 ```
 
-## Data Activator (Fabric) — Alertes temps réel
+## Data Activator (Fabric) — Real-time alerts
 
 ```
-# Data Activator permet des alertes sur données en streaming
-# ou sur des datasets Fabric sans limite de type de visuel
+# Data Activator enables alerts on streaming data
+# or on Fabric datasets without a visual-type restriction
 
-CONFIGURATION :
-  1. Power BI → Right-click sur un visuel → Set alert
-  2. Ou via Data Activator directement (Fabric)
-  3. Définir la condition (seuil, anomalie, changement d'état)
-  4. Définir l'action : Email, Teams, Power Automate flow
+CONFIGURATION:
+  1. Power BI → Right-click a visual → Set alert
+  2. Or via Data Activator directly (Fabric)
+  3. Define the condition (threshold, anomaly, state change)
+  4. Define the action: Email, Teams, Power Automate flow
 
-# Exemple : Alerte quand le taux de churn hebdomadaire dépasse 3%
+# Example: Alert when the weekly churn rate exceeds 3%
 Trigger: weekly_churn_rate > 0.03
 Action: Send Teams message to #bi-alerts channel
-        "⚠️ Alerte Churn : {weekly_churn_rate:P} cette semaine
-         vs cible 3% — Voir dashboard Rétention Clients"
+        "⚠️ Churn alert: {weekly_churn_rate:P} this week
+         vs 3% target — See the Customer Retention dashboard"
 ```
 
-## Dashboard de monitoring BI — Structure
+## BI monitoring dashboard — Structure
 
 ```
-PAGE 1 — SANTÉ DES DONNÉES
-  □ Statut de refresh par dataset (✅ OK / ⚠️ En retard / ❌ Échec)
-  □ Heure du dernier refresh par dataset
-  □ Taux de succès des refreshs sur 30 jours
-  □ Volume de données (lignes chargées vs attendues)
+PAGE 1 — DATA HEALTH
+  □ Refresh status per dataset (✅ OK / ⚠️ Late / ❌ Failed)
+  □ Last refresh time per dataset
+  □ Refresh success rate over 30 days
+  □ Data volume (rows loaded vs expected)
 
-PAGE 2 — QUALITÉ DES DONNÉES
-  □ Taux de null par colonne clé
-  □ Valeurs aberrantes détectées (> 3σ)
-  □ Doublons sur les clés primaires
-  □ Données en retard (lag vs source)
+PAGE 2 — DATA QUALITY
+  □ Null rate per key column
+  □ Detected outliers (> 3σ)
+  □ Duplicates on primary keys
+  □ Late data (lag vs source)
 
-PAGE 3 — USAGE PLATEFORME BI
-  □ Utilisateurs actifs par semaine
-  □ Rapports les plus consultés (Top 10)
-  □ Datasets les plus utilisés
-  □ Temps de chargement moyen par rapport
+PAGE 3 — BI PLATFORM USAGE
+  □ Weekly active users
+  □ Most-viewed reports (Top 10)
+  □ Most-used datasets
+  □ Average load time per report
 ```
 
 ## Anomaly Detection — Power BI
 
 ```
-VISUEL : Smart Narrative + Anomaly Detection (ligne temporelle)
-ACTIVATION : Ajouter le graphique en courbe → Analytics → Détection des anomalies
+VISUAL: Smart Narrative + Anomaly Detection (time line)
+ACTIVATION: Add the line chart → Analytics → Anomaly detection
 
-PARAMÈTRES :
-  Sensibilité : 1 (peu sensible) à 100 (très sensible) — recommandé : 85
-  Forme : Remplit la zone d'anomalie
+PARAMETERS:
+  Sensitivity: 1 (low) to 100 (very high) — recommended: 85
+  Shape: Fills the anomaly band
 
-DAX pour anomaly detection manuelle :
+DAX for manual anomaly detection:
 Z-Score Revenue =
 DIVIDE(
     [Net Revenue] - [Revenue Average 90d],
     [Revenue StdDev 90d],
     BLANK()
 )
-// Z-Score > 2 ou < -2 = anomalie statistique (95% CI)
+// Z-Score > 2 or < -2 = statistical anomaly (95% CI)
 ```
 
-## Power Automate — Alerte personnalisée
+## Power Automate — Custom alert
 
 ```
-FLOW : "Alerte BI — Churn Hebdomadaire"
+FLOW: "BI Alert — Weekly Churn"
 
-Déclencheur : Recurrence (chaque lundi 9h00)
+Trigger: Recurrence (every Monday 9:00 a.m.)
 
-Action 1 : Power BI — Exécuter requête DAX
-  Dataset : "Finance Certifié"
-  Requête : EVALUATE { [Weekly Churn Rate] }
+Action 1: Power BI — Run a DAX query
+  Dataset: "Certified Finance"
+  Query: EVALUATE { [Weekly Churn Rate] }
 
-Action 2 : Condition
-  Si [Weekly Churn Rate] > 0.03
+Action 2: Condition
+  If [Weekly Churn Rate] > 0.03
 
-  Branche OUI :
-    Envoyer email à bi-alerts@entreprise.fr
-    Sujet : "⚠️ Alerte Churn : {WeeklyChurnRate}% cette semaine"
-    Corps  : "Le taux de churn de {WeeklyChurnRate}% dépasse le seuil de 3%.
-              Dashboard : [lien Power BI]"
+  YES branch:
+    Send email to bi-alerts@company.com
+    Subject: "⚠️ Churn alert: {WeeklyChurnRate}% this week"
+    Body:    "The churn rate of {WeeklyChurnRate}% exceeds the 3% threshold.
+              Dashboard: [Power BI link]"
 
-  Branche NON : (ne rien faire)
+  NO branch: (do nothing)
 ```
 
-## Livrables
-- Configuration des alertes sur les KPIs critiques
-- Dashboard de monitoring BI (santé données + usage)
-- Flows Power Automate (alertes métier personnalisées)
-- Matrice des alertes (KPI × seuil × responsable × canal)
-- Runbook incidents données (procédure si refresh échoue)
-- SLA de fraîcheur documenté par dataset
+## Deliverables
+- Alert configuration on critical KPIs
+- BI monitoring dashboard (data health + usage)
+- Power Automate flows (custom business alerts)
+- Alert matrix (KPI × threshold × owner × channel)
+- Data incident runbook (procedure when a refresh fails)
+- Documented freshness SLA per dataset
 
-## Format de sortie
-Précise : **outil BI** (Power BI, Tableau, Fabric…), **KPIs à surveiller** et leurs seuils d'alerte, **canaux de notification** (email, Teams, Slack, webhook), **fréquence** (temps réel, horaire, quotidien), **responsables des alertes** (qui reçoit quoi).
+## Output format
+Specify: **BI tool** (Power BI, Tableau, Fabric…), **KPIs to monitor** and their alert thresholds, **notification channels** (email, Teams, Slack, webhook), **frequency** (real-time, hourly, daily), **alert owners** (who receives what).

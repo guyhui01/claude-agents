@@ -1,10 +1,10 @@
 # Skill — Looker & LookML (Dashboards, Explores, Data Models)
-> Certifications : Looker Business Intelligence & Data Analytics (Google 2024)
+> Certifications: Looker Business Intelligence & Data Analytics (Google 2024)
 
-## Objectif
-Modéliser des données avec LookML et construire des explorations Looker : dimensions, mesures, explores, vues — pour un self-service BI gouverné et des dashboards analytiques.
+## Objective
+Model data with LookML and build Looker explores: dimensions, measures, explores, views — for governed self-service BI and analytical dashboards.
 
-## Architecture Looker
+## Looker architecture
 
 ```
 ┌────────────────────────────────────────────────────────────────┐
@@ -12,46 +12,46 @@ Modéliser des données avec LookML et construire des explorations Looker : dime
 │                                                                 │
 │  ┌─────────────────┐    ┌──────────────┐    ┌───────────────┐ │
 │  │   LookML Models │    │   Explores   │    │  Dashboards   │ │
-│  │  (Semantic layer│    │  (interface  │    │  (visuels     │ │
-│  │   gouvernée)    │    │   self-serv.)│    │   partagés)   │ │
+│  │  (governed      │    │  (self-serv. │    │  (shared      │ │
+│  │   semantic layer│    │   interface) │    │   visuals)    │ │
 │  └────────┬────────┘    └──────┬───────┘    └───────┬───────┘ │
 │           │                    │                    │          │
 │           └────────────────────┴────────────────────┘          │
 │                                 │                               │
-│                          SQL généré                             │
+│                          Generated SQL                          │
 └─────────────────────────────────┼───────────────────────────────┘
                                   ↓
                     Data Warehouse (BigQuery, Snowflake,
                     Redshift, Databricks…)
 ```
 
-## LookML — Structure de projet
+## LookML — Project structure
 
 ```
 models/
-├── ecommerce.model.lkml         # Définit les Explores et leurs joins
+├── ecommerce.model.lkml         # Defines the Explores and their joins
 views/
-├── orders.view.lkml             # Dimensions et mesures de la table orders
-├── customers.view.lkml          # Vue clients
-├── products.view.lkml           # Vue produits
-└── order_items.view.lkml        # Table de faits items
+├── orders.view.lkml             # Dimensions and measures of the orders table
+├── customers.view.lkml          # Customers view
+├── products.view.lkml           # Products view
+└── order_items.view.lkml        # Items fact table
 ```
 
-## Vue LookML — Exemple complet
+## LookML view — Full example
 
 ```lookml
 # views/orders.view.lkml
 view: orders {
   sql_table_name: `analytics.fact_orders` ;;
 
-  # Clé primaire (obligatoire)
+  # Primary key (required)
   dimension: order_id {
     primary_key: yes
     type: string
     sql: ${TABLE}.order_id ;;
   }
 
-  # Dimension date (avec timeframes)
+  # Date dimension (with timeframes)
   dimension_group: created {
     type: time
     timeframes: [raw, date, week, month, quarter, year]
@@ -59,36 +59,36 @@ view: orders {
     datatype: timestamp
   }
 
-  # Dimension calculée
+  # Calculated dimension
   dimension: order_status_label {
     type: string
     sql: CASE ${TABLE}.status
-      WHEN 'pending'   THEN '⏳ En attente'
-      WHEN 'confirmed' THEN '✅ Confirmée'
-      WHEN 'shipped'   THEN '🚚 Expédiée'
-      WHEN 'cancelled' THEN '❌ Annulée'
+      WHEN 'pending'   THEN '⏳ Pending'
+      WHEN 'confirmed' THEN '✅ Confirmed'
+      WHEN 'shipped'   THEN '🚚 Shipped'
+      WHEN 'cancelled' THEN '❌ Cancelled'
       ELSE ${TABLE}.status
     END ;;
   }
 
-  # Mesures
+  # Measures
   measure: count {
     type: count
-    label: "Nombre de commandes"
+    label: "Order count"
     drill_fields: [order_id, created_date, order_status_label]
   }
 
   measure: total_revenue {
     type: sum
     sql: ${TABLE}.net_revenue ;;
-    label: "CA Net (€)"
+    label: "Net revenue (€)"
     value_format_name: eur
   }
 
   measure: average_order_value {
     type: average
     sql: ${TABLE}.net_revenue ;;
-    label: "Panier moyen (€)"
+    label: "Average order value (€)"
     value_format_name: eur
   }
 
@@ -96,12 +96,12 @@ view: orders {
     type: sum
     sql: ${TABLE}.net_revenue ;;
     filters: [created_date: "this year"]
-    label: "CA YTD (€)"
+    label: "Revenue YTD (€)"
   }
 }
 ```
 
-## Model LookML — Explores et Joins
+## LookML model — Explores and Joins
 
 ```lookml
 # models/ecommerce.model.lkml
@@ -110,8 +110,8 @@ connection: "bigquery_prod"
 include: "/views/*.view.lkml"
 
 explore: orders {
-  label: "Commandes & Revenus"
-  description: "Analyse des commandes, revenus, clients et produits"
+  label: "Orders & Revenue"
+  description: "Analysis of orders, revenue, customers and products"
 
   join: customers {
     type: left_outer
@@ -133,31 +133,31 @@ explore: orders {
 }
 ```
 
-## Access Control Looker
+## Looker access control
 
 ```lookml
 # Row-level filtering via access_filter
 explore: orders {
   access_filter: {
     field: customers.region
-    user_attribute: region   # Attribut utilisateur Looker
+    user_attribute: region   # Looker user attribute
   }
 }
 
-# Column-level avec required_access_grants
+# Column-level with required_access_grants
 dimension: salary {
   type: number
   sql: ${TABLE}.salary ;;
-  required_access_grants: [can_view_salaries]  # Masqué si pas ce grant
+  required_access_grants: [can_view_salaries]  # Hidden without this grant
 }
 ```
 
-## Livrables
-- Modèle LookML complet (views + model + explores)
-- Dashboards Looker publiés
-- Documentation LookML (descriptions dans le code)
-- Tests LookML (lookml_test pour les assertions de données)
-- Guide self-service utilisateurs (comment créer un Look)
+## Deliverables
+- Complete LookML model (views + model + explores)
+- Published Looker dashboards
+- LookML documentation (descriptions in the code)
+- LookML tests (lookml_test for data assertions)
+- User self-service guide (how to create a Look)
 
-## Format de sortie
-Précise : **data warehouse** (BigQuery, Snowflake, Redshift…), **domaine métier** (e-commerce, finance, SaaS…), **tables sources**, **audience** (analyste technique vs business user), **contraintes** (row-level security, multi-tenant, embedding API).
+## Output format
+Specify: **data warehouse** (BigQuery, Snowflake, Redshift…), **business domain** (e-commerce, finance, SaaS…), **source tables**, **audience** (technical analyst vs business user), **constraints** (row-level security, multi-tenant, embedding API).

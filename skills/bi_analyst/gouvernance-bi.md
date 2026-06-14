@@ -1,59 +1,59 @@
-# Skill — Gouvernance BI (Semantic Layer, RLS, Certification, Lineage)
-> Certifications : PL-300 Microsoft · DP-600 Microsoft Fabric · Databricks Certified Data Analyst Associate
+# Skill — BI Governance (Semantic Layer, RLS, Certification, Lineage)
+> Certifications: PL-300 Microsoft · DP-600 Microsoft Fabric · Databricks Certified Data Analyst Associate
 
-## Objectif
-Mettre en place la gouvernance d'une plateforme BI : semantic layer partagé, row-level security, certification des datasets, lineage des données — pour garantir la confiance, la sécurité et la cohérence des analyses.
+## Objective
+Set up the governance of a BI platform: shared semantic layer, row-level security, dataset certification, data lineage — to guarantee trust, security and consistency of analyses.
 
-## Piliers de la gouvernance BI
+## Pillars of BI governance
 
 ```
-PILIER                  OBJECTIF                            OUTILS
+PILLAR                  OBJECTIVE                           TOOLS
 ──────────────────────  ──────────────────────────────────  ────────────────────────────
-Semantic Layer          1 définition partagée par métrique  Power BI Datasets certifiés
-                        Élimine les divergences de chiffres  Looker (LookML), dbt metrics
+Semantic Layer          1 shared definition per metric      Certified Power BI Datasets
+                        Eliminates figure discrepancies      Looker (LookML), dbt metrics
 
-Row Level Security      Chaque utilisateur voit ses données Power BI RLS / OLS
-(RLS)                   sans rapport dédié par personne     Fabric row filter policies
+Row Level Security      Each user sees their own data       Power BI RLS / OLS
+(RLS)                   without a per-person report         Fabric row filter policies
 
-Certification           Distinguer les données fiables      Power BI Endorsed datasets
-                        des explorations non validées       (Promoted / Certified)
+Certification           Distinguish trusted data            Power BI Endorsed datasets
+                        from unvalidated explorations       (Promoted / Certified)
 
-Lineage                 Tracer l'origine de chaque donnée  Power BI Impact Analysis
-                        et l'impact des changements         dbt lineage, Fabric lineage
+Lineage                 Trace each data point's origin      Power BI Impact Analysis
+                        and the impact of changes           dbt lineage, Fabric lineage
 
-Glossaire / Catalogue   Définitions officielles             Microsoft Purview
-                        des termes métier                   dbt docs, Power BI descriptions
+Glossary / Catalog      Official definitions                Microsoft Purview
+                        of business terms                   dbt docs, Power BI descriptions
 ```
 
-## Semantic Layer — Stratégie Power BI
+## Semantic Layer — Power BI strategy
 
 ```
-SANS SEMANTIC LAYER :
-  Rapport A ── [mesure Revenue définie localement]
-  Rapport B ── [mesure Revenue définie différemment]
-  → 2 chiffres différents au CODIR 🔴
+WITHOUT A SEMANTIC LAYER:
+  Report A ── [Revenue measure defined locally]
+  Report B ── [Revenue measure defined differently]
+  → 2 different figures at the leadership meeting 🔴
 
-AVEC SEMANTIC LAYER (Dataset partagé certifié) :
-  Dataset "Finance Officiel" (certifié ✅)
+WITH A SEMANTIC LAYER (shared certified Dataset):
+  Dataset "Official Finance" (certified ✅)
      ↓              ↓              ↓
-  Rapport A      Rapport B      Rapport C
-  (tous utilisent la même mesure Revenue)
-  → 1 seul chiffre partout 🟢
+  Report A       Report B       Report C
+  (all use the same Revenue measure)
+  → a single figure everywhere 🟢
 ```
 
-## Row Level Security — Implémentation Power BI
+## Row Level Security — Power BI implementation
 
 ```dax
-// Modèle de sécurité hiérarchique
-// Table : security_mapping (manager_email, subordinate_email)
+// Hierarchical security model
+// Table: security_mapping (manager_email, subordinate_email)
 
-// Rôle "Manager" — voit son équipe + ses propres données
+// "Manager" role — sees their team + their own data
 [employee_email] IN
 CALCULATETABLE(
     UNION(
-        -- Ses propres données
+        -- Their own data
         ROW("email", USERPRINCIPALNAME()),
-        -- Les données de ses subordonnés directs et indirects
+        -- Their direct and indirect subordinates' data
         SELECTCOLUMNS(
             FILTER(security_mapping, security_mapping[manager_email] = USERPRINCIPALNAME()),
             "email", security_mapping[subordinate_email]
@@ -61,70 +61,70 @@ CALCULATETABLE(
     )
 )
 
-// Rôle "Région" — simplifié
+// "Region" role — simplified
 dim_geography[region_manager] = USERPRINCIPALNAME()
 ```
 
 ## Object Level Security (OLS) — Fabric / Power BI Premium
 
 ```json
-// Masquer une colonne selon le rôle (ex: salaires visibles que par RH)
+// Hide a column based on role (e.g. salaries visible only to HR)
 {
-  "name": "Salaire",
+  "name": "Salary",
   "objectLevelSecurity": {
     "table": "dim_employee",
     "column": "salary",
-    "permission": "none"  // hidden pour tout le monde sauf rôle "RH"
+    "permission": "none"  // hidden for everyone except the "HR" role
   }
 }
 ```
 
-## Processus de certification des datasets
+## Dataset certification process
 
 ```
-ÉTAPE 1 — PROMOTION (auto-service validé)
-  • Dataset utilisé par > 10 personnes
-  • Owner identifié et actif
-  • Refresh planifié et opérationnel
-  → Statut : "Promoted" ⭐
+STEP 1 — PROMOTION (validated self-service)
+  • Dataset used by > 10 people
+  • Owner identified and active
+  • Refresh scheduled and operational
+  → Status: "Promoted" ⭐
 
-ÉTAPE 2 — CERTIFICATION (données officielles)
-  Critères à valider :
-  □ Définitions métriques documentées (catalogue)
-  □ Tests de qualité passants (dbt tests ou validation manuelle)
-  □ Validé par le Business Owner (DG, DAF, DRH…)
-  □ SLA de refresh défini et respecté
-  □ RLS configuré et testé
-  □ Impact analysis effectuée (nb de rapports dépendants)
-  → Statut : "Certified" ✅
-  → Signalé aux utilisateurs comme source de vérité
+STEP 2 — CERTIFICATION (official data)
+  Criteria to validate:
+  □ Metric definitions documented (catalog)
+  □ Quality tests passing (dbt tests or manual validation)
+  □ Validated by the Business Owner (CEO, CFO, CHRO…)
+  □ Refresh SLA defined and met
+  □ RLS configured and tested
+  □ Impact analysis performed (number of dependent reports)
+  → Status: "Certified" ✅
+  → Flagged to users as the source of truth
 ```
 
-## Data Lineage — Analyse d'impact
+## Data Lineage — Impact analysis
 
 ```
-UTILISATION TYPIQUE :
-"Je vais modifier la table `stg_orders` dans dbt — quels rapports seront impactés ?"
+TYPICAL USE:
+"I'm going to change the `stg_orders` table in dbt — which reports will be impacted?"
 
-POWER BI SERVICE :
+POWER BI SERVICE:
   Workspace → Dataset → Lineage view
-  → Affiche visuellement : Source → Dataset → Rapports → Tableaux de bord
+  → Visually shows: Source → Dataset → Reports → Dashboards
 
-DBT :
+DBT:
   $ dbt docs generate && dbt docs serve
-  → DAG interactif : sources → modèles → exposures (rapports BI)
+  → Interactive DAG: sources → models → exposures (BI reports)
 
-MICROSOFT PURVIEW :
-  → Lineage end-to-end : Azure Data Factory → Synapse → Power BI
+MICROSOFT PURVIEW:
+  → End-to-end lineage: Azure Data Factory → Synapse → Power BI
 ```
 
-## Livrables
-- Architecture semantic layer (schéma datasets partagés)
-- Configuration RLS + OLS (scripts + documentation)
-- Processus de certification (critères + workflow d'approbation)
-- Cartographie lineage (de la source au rapport final)
-- Politique de gouvernance BI (document de référence)
-- Formation administrateurs Power BI / Fabric (guide)
+## Deliverables
+- Semantic layer architecture (shared datasets diagram)
+- RLS + OLS configuration (scripts + documentation)
+- Certification process (criteria + approval workflow)
+- Lineage map (from source to final report)
+- BI governance policy (reference document)
+- Power BI / Fabric administrator training (guide)
 
-## Format de sortie
-Précise : **plateforme** (Power BI Pro / Premium / Fabric, Tableau, Looker…), **taille** (nb utilisateurs, nb datasets, nb rapports), **problème principal** (chiffres contradictoires ? accès non maîtrisés ? pas de traçabilité ?), **contraintes** (compliance SOX, ISO 27001, RGPD…).
+## Output format
+Specify: **platform** (Power BI Pro / Premium / Fabric, Tableau, Looker…), **size** (number of users, datasets, reports), **main problem** (contradictory figures? uncontrolled access? no traceability?), **constraints** (SOX, ISO 27001, GDPR compliance…).

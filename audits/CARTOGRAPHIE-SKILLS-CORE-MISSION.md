@@ -327,7 +327,7 @@ Application sélective sur **130 skills N1+N2** (vs 303 audités) — économie 
 
 | Critère | v1 Guy-spécifique | v2 PO/MOA général (cette refonte) |
 |---|---|---|
-| Profil cible | Guy seul (PO IA Adservio) | PO + Chef Projet MOA générique |
+| Profil cible | Guy seul (PO IA freelance) | PO + Chef Projet MOA générique |
 | Segments organisations | CAC40 (trop restrictif) | Grands comptes, ETI, scale-ups, PME, secteur public |
 | Catégories | CORE-HIGH / CORE-EXPANSION (binaire) | N1 / N2 / N3 / N4 (4 niveaux gradués) |
 | Skills CORE | ~86 | ~130 |

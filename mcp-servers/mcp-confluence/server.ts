@@ -173,7 +173,7 @@ const TOOLS = [
         space_key: { type: "string", description: "Espace de destination" },
         author: {
           type: "string",
-          description: "Auteur du rapport (défaut: Guy HUI-BON-HOA — Adservio)",
+          description: "Auteur du rapport (défaut: Guy HUI-BON-HOA)",
         },
         client: { type: "string", description: "Nom du client (pour l'en-tête)" },
         parent_title: {
@@ -313,7 +313,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       // ── Publier un rapport de mission ─────────────────────────────────────
       case "confluence_publish_report": {
         const spaceKey = args.space_key as string;
-        const author = (args.author as string) || "Guy HUI-BON-HOA — Adservio";
+        const author = (args.author as string) || "Guy HUI-BON-HOA";
         const status = (args.status as string) || "Brouillon";
         const date = new Date().toLocaleDateString("fr-FR", {
           year: "numeric",

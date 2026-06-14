@@ -1,180 +1,181 @@
-# MCP Servers — Intégrations Claude Code CLI
+# MCP Servers — Claude Code CLI integrations
 
-> 3 serveurs MCP qui connectent Claude Code CLI à Jira, Confluence et un journal de missions  
-> Prérequis : Node.js 18+ · npm · Claude Code CLI
+> 3 MCP servers connecting Claude Code CLI to Jira, Confluence, and a mission log  
+> Requirements: Node.js 18+ · npm · Claude Code CLI
 
 ---
 
-## Serveurs disponibles
+## Available servers
 
-| Serveur | Outils | Usage principal |
+| Server | Tools | Main use |
 |---|---|---|
-| [mcp-jira](mcp-jira/) | 5 outils | Créer US, backlog, epics depuis WF-001 et WF-002 |
-| [mcp-confluence](mcp-confluence/) | 4 outils | Publier rapports et livrables depuis WF-004 |
-| [mcp-workflow-log](mcp-workflow-log/) | 4 outils | Journal de bord missions, résumé mensuel |
+| [mcp-jira](mcp-jira/) | 5 tools | Create user stories, backlog, epics from WF-001 and WF-002 |
+| [mcp-confluence](mcp-confluence/) | 4 tools | Publish reports and deliverables from WF-004 |
+| [mcp-workflow-log](mcp-workflow-log/) | 4 tools | Mission logbook, monthly summary |
 
 ---
 
 ## Installation
 
-### Étape 1 — Installer les dépendances (une fois par serveur)
+### Step 1 — Install dependencies (once per server)
 
 ```bash
 # Jira
-cd /Users/guyhui/CLAUDE/claude-catalogue/mcp-servers/mcp-jira
+cd /Users/guyhui/CLAUDE/claude-agents/mcp-servers/mcp-jira
 npm install
 
 # Confluence
-cd /Users/guyhui/CLAUDE/claude-catalogue/mcp-servers/mcp-confluence
+cd /Users/guyhui/CLAUDE/claude-agents/mcp-servers/mcp-confluence
 npm install
 
-# Workflow Log (pas de dépendances externes)
-cd /Users/guyhui/CLAUDE/claude-catalogue/mcp-servers/mcp-workflow-log
+# Workflow Log (no external dependencies)
+cd /Users/guyhui/CLAUDE/claude-agents/mcp-servers/mcp-workflow-log
 npm install
 ```
 
-### Étape 2 — Obtenir un API token Atlassian
+### Step 2 — Get an Atlassian API token
 
-Si tu utilises **Jira Cloud / Confluence Cloud** (domaine `.atlassian.net`) :
-1. Va sur : https://id.atlassian.com/manage-profile/security/api-tokens
-2. Crée un nouveau token → copie-le
-3. Le même token fonctionne pour Jira ET Confluence Cloud
+If you use **Jira Cloud / Confluence Cloud** (`.atlassian.net` domain):
+1. Go to: https://id.atlassian.com/manage-profile/security/api-tokens
+2. Create a new token → copy it
+3. The same token works for both Jira AND Confluence Cloud
 
-### Étape 3 — Configurer Claude Code CLI
+### Step 3 — Configure Claude Code CLI
 
-Copie le fichier `claude_code_settings.json` dans le dossier global Claude :
+Copy the `claude_code_settings.json` file into the global Claude folder:
 
 ```bash
-# Créer le dossier si inexistant
+# Create the folder if it doesn't exist
 mkdir -p ~/.claude
 
-# Copier la config (ATTENTION : écrase settings.json existant — sauvegarder d'abord)
-cp "/Users/guyhui/CLAUDE/claude-catalogue/mcp-servers/claude_code_settings.json" ~/.claude/settings.json
+# Copy the config (WARNING: overwrites any existing settings.json — back it up first)
+cp "/Users/guyhui/CLAUDE/claude-agents/mcp-servers/claude_code_settings.json" ~/.claude/settings.json
 ```
 
-Puis éditer `~/.claude/settings.json` et remplacer :
-- `<ton-domaine>` par ton domaine Atlassian (ex: `monentreprise`)
-- `<ton-api-token-jira>` et `<ton-api-token-confluence>` par ton API token
-- `<CLE-PROJET>` par la clé du projet Jira (ex: `PROJ`)
-- `<CLE-ESPACE>` par la clé de l'espace Confluence (ex: `CONSULT`)
+Then edit `~/.claude/settings.json` and replace:
+- `<your-domain>` with your Atlassian domain (e.g. `mycompany`)
+- `<your-email>` with your Atlassian account email
+- `<your-jira-api-token>` and `<your-confluence-api-token>` with your API token
+- `<PROJECT-KEY>` with your Jira project key (e.g. `PROJ`)
+- `<SPACE-KEY>` with your Confluence space key (e.g. `CONSULT`)
 
-> **Si tu as déjà un settings.json**, ajoute uniquement la clé `"mcpServers"` dans le JSON existant plutôt que de l'écraser.
+> **If you already have a settings.json**, add only the `"mcpServers"` key to the existing JSON rather than overwriting it.
 
-### Étape 4 — Vérifier l'installation
+### Step 4 — Verify the installation
 
 ```bash
-# Lister les serveurs MCP configurés
+# List configured MCP servers
 claude mcp list
 
-# Tester le serveur Jira (doit répondre en quelques secondes)
+# Test the Jira server (should respond within a few seconds)
 claude mcp test jira
 ```
 
 ---
 
-## Utilisation dans Claude Code CLI
+## Usage in Claude Code CLI
 
-Une fois configurés, les outils sont disponibles directement dans tes sessions Claude Code :
+Once configured, the tools are available directly in your Claude Code sessions:
 
-### Exemple — WF-001 → Jira en 1 commande
+### Example — WF-001 → Jira in one command
 
-Après avoir exécuté le workflow WF-001 et obtenu le backlog :
-
-```
-Crée ces 10 User Stories dans Jira avec jira_bulk_create_backlog :
-[coller ici le backlog produit par WF-001]
-```
-
-### Exemple — WF-004 → Confluence en 1 commande
-
-Après avoir exécuté le workflow WF-004 :
+After running the WF-001 workflow and obtaining the backlog:
 
 ```
-Publie ce rapport de mission dans Confluence avec confluence_publish_report,
-espace: CONSULT, client: ClientA, statut: Brouillon :
-[coller ici le rapport produit par WF-004]
+Create these 10 user stories in Jira with jira_bulk_create_backlog:
+[paste the backlog produced by WF-001 here]
 ```
 
-### Exemple — Logger une mission
+### Example — WF-004 → Confluence in one command
+
+After running the WF-004 workflow:
 
 ```
-Enregistre cette mission dans le journal avec log_workflow_run :
-- Workflow : WF-004
-- Client : Grand Groupe CAC40
-- Livrables : Audit maturité IA, Roadmap 12 mois, Plan formation
-- Durée : 75 min
-- Jira : CA-142, CA-143
+Publish this mission report to Confluence with confluence_publish_report,
+space: CONSULT, client: ClientA, status: Draft:
+[paste the report produced by WF-004 here]
+```
+
+### Example — Log a mission
+
+```
+Log this mission with log_workflow_run:
+- Workflow: WF-004
+- Client: Large CAC40 group
+- Deliverables: AI maturity audit, 12-month roadmap, training plan
+- Duration: 75 min
+- Jira: CA-142, CA-143
 ```
 
 ---
 
-## Outils disponibles par serveur
+## Available tools per server
 
 ### mcp-jira
 
-| Outil | Description |
+| Tool | Description |
 |---|---|
-| `jira_create_story` | Crée une User Story (titre, description, critères d'acceptation, points) |
-| `jira_bulk_create_backlog` | Crée plusieurs stories en une opération depuis le backlog WF-001 |
-| `jira_create_epic` | Crée un Epic pour regrouper des stories |
-| `jira_get_project_info` | Retourne les boards et métadonnées du projet |
-| `jira_search_issues` | Recherche en JQL (sprint actif, epics, filtres) |
+| `jira_create_story` | Creates a user story (title, description, acceptance criteria, points) |
+| `jira_bulk_create_backlog` | Creates multiple stories in one operation from the WF-001 backlog |
+| `jira_create_epic` | Creates an epic to group stories |
+| `jira_get_project_info` | Returns the project's boards and metadata |
+| `jira_search_issues` | JQL search (active sprint, epics, filters) |
 
 ### mcp-confluence
 
-| Outil | Description |
+| Tool | Description |
 |---|---|
-| `confluence_create_page` | Crée une page depuis Markdown (conversion automatique) |
-| `confluence_update_page` | Met à jour une page existante (par ID) |
-| `confluence_search_page` | Recherche des pages par titre — retourne les IDs |
-| `confluence_publish_report` | Publie un rapport de mission avec en-tête auteur/date/statut |
+| `confluence_create_page` | Creates a page from Markdown (automatic conversion) |
+| `confluence_update_page` | Updates an existing page (by ID) |
+| `confluence_search_page` | Searches pages by title — returns IDs |
+| `confluence_publish_report` | Publishes a mission report with an author/date/status header |
 
 ### mcp-workflow-log
 
-| Outil | Description |
+| Tool | Description |
 |---|---|
-| `log_workflow_run` | Enregistre une exécution (workflow, client, livrables, durée) |
-| `get_workflow_history` | Historique filtrable (workflow, client, mois) |
-| `get_client_history` | Tous les workflows pour un client donné |
-| `get_monthly_summary` | Résumé d'activité mensuel (missions, clients, livrables) |
+| `log_workflow_run` | Logs a run (workflow, client, deliverables, duration) |
+| `get_workflow_history` | Filterable history (workflow, client, month) |
+| `get_client_history` | All workflows for a given client |
+| `get_monthly_summary` | Monthly activity summary (missions, clients, deliverables) |
 
 ---
 
-## Dépannage
+## Troubleshooting
 
-**Erreur `npx tsx not found`**  
+**`npx tsx not found` error**  
 ```bash
 npm install -g tsx
 ```
 
-**Erreur Jira 401 Unauthorized**  
-- Vérifier que l'API token est bien celui de https://id.atlassian.com (pas le mot de passe)
-- Sur Jira Server, utiliser mot de passe ou Personal Access Token
+**Jira 401 Unauthorized error**  
+- Make sure the API token is the one from https://id.atlassian.com (not the password)
+- On Jira Server, use a password or Personal Access Token
 
-**Erreur Jira 400 sur création issue**  
-- Vérifier que `JIRA_PROJECT_KEY` est correct (sensible à la casse)
-- Vérifier que le type d'issue "Story" ou "Epic" existe dans ton projet
-- Pour les projets Next-gen, `customfield_10014` (Epic Link) peut ne pas exister — retirer epic_key
+**Jira 400 error on issue creation**  
+- Make sure `JIRA_PROJECT_KEY` is correct (case-sensitive)
+- Make sure the "Story" or "Epic" issue type exists in your project
+- For Next-gen projects, `customfield_10014` (Epic Link) may not exist — remove epic_key
 
-**Erreur Confluence 404**  
-- Vérifier que l'espace Confluence existe et que le compte a les droits d'écriture
-- Sur Confluence Cloud, l'URL doit être `https://domaine.atlassian.net` (sans `/wiki`)
+**Confluence 404 error**  
+- Make sure the Confluence space exists and the account has write access
+- On Confluence Cloud, the URL must be `https://domain.atlassian.net` (without `/wiki`)
 
-**Les serveurs ne démarrent pas**  
+**Servers won't start**  
 ```bash
-# Tester manuellement depuis le dossier du serveur
-cd /Users/guyhui/CLAUDE/claude-catalogue/mcp-servers/mcp-jira
+# Test manually from the server folder
+cd /Users/guyhui/CLAUDE/claude-agents/mcp-servers/mcp-jira
 npx tsx server.ts
-# Doit rester en attente sans erreur (stdio transport)
+# Should stay waiting with no error (stdio transport)
 ```
 
 ---
 
-## Fichier log des missions
+## Mission log file
 
-Le journal est stocké dans :
+The journal is stored in:
 ```
 mcp-servers/mcp-workflow-log/workflow_log.json
 ```
 
-Format JSON — consultable directement ou via les outils MCP. À exclure du `.gitignore` si les données sont sensibles.
+JSON format — viewable directly or via the MCP tools. Add it to `.gitignore` if the data is sensitive.

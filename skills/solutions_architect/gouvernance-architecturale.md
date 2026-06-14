@@ -1,96 +1,96 @@
-# Skill — Gouvernance Architecturale (ARB)
+# Skill — Architecture Governance (ARB)
 
-> Certifications : TOGAF 10 Foundation & Practitioner, CITA-A (IASA), PMP
+> Certifications: TOGAF 10 Foundation & Practitioner, CITA-A (IASA), PMP
 
-## Objectif
+## Objective
 
-Mettre en place et animer la gouvernance architecturale : Architecture Review Board (ARB), principes d'architecture, processus de conformité, gestion du portefeuille architectural et évolution des standards.
+Set up and run architecture governance: Architecture Review Board (ARB), architecture principles, compliance process, architecture portfolio management and standards evolution.
 
-## Dispositif de gouvernance architecturale
+## Architecture governance setup
 
 ```
-INSTANCE         FRÉQUENCE    PARTICIPANTS                    DÉCISIONS
+BODY             FREQUENCY    PARTICIPANTS                    DECISIONS
 ───────────────  ───────────  ──────────────────────────────  ──────────────────────────
-ARB              Mensuel      Chief Architect, DSI, Métier    Validation architectures
-Architecture     Hebdomadaire Architectes solutions           Revue en cours d'études
+ARB              Monthly      Chief Architect, CIO, Business  Architecture validation
+Architecture     Weekly       Solution architects            Review of work in progress
 Working Group
-Tech Radar       Trimestriel  Architectes + CTOs              Adopter / Évaluer / Hold
-Exception Board  Ad hoc       ARB + Sponsor                   Dérogations aux standards
+Tech Radar       Quarterly    Architects + CTOs              Adopt / Assess / Hold
+Exception Board  Ad hoc       ARB + Sponsor                   Deviations from standards
 ```
 
-## Architecture Review Board (ARB) — Template de revue
+## Architecture Review Board (ARB) — Review template
 
 ```
-DOSSIER DE REVUE ARB
+ARB REVIEW DOSSIER
 ──────────────────────────────────────────────────────────────
-Projet soumis     : [Nom + code projet]
-Porteur           : [Architect responsable + sponsor business]
-Date de revue     : [ISO 8601]
-Phase projet      : [Étude / PoC / Build / Migration]
+Submitted project : [Name + project code]
+Owner             : [Responsible architect + business sponsor]
+Review date       : [ISO 8601]
+Project phase     : [Study / PoC / Build / Migration]
 
-RÉSUMÉ (5 lignes max)
-  [Description de l'architecture proposée et de sa valeur métier]
+SUMMARY (5 lines max)
+  [Description of the proposed architecture and its business value]
 
-CONFORMITÉ AUX PRINCIPES D'ARCHITECTURE
-  | Principe           | Conforme ? | Commentaire / Dérogation demandée |
+COMPLIANCE WITH ARCHITECTURE PRINCIPLES
+  | Principle          | Compliant? | Comment / Deviation requested     |
   |--------------------|------------|-----------------------------------|
-  | API-first          | ✅ Oui     |                                   |
-  | Cloud-first        | ⚠ Partiel  | On-prem maintenu pour la BDD      |
-  | Security by design | ✅ Oui     |                                   |
-  | Réutilisation      | ❌ Non     | Dérogation demandée : voir §3     |
+  | API-first          | ✅ Yes     |                                   |
+  | Cloud-first        | ⚠ Partial  | On-prem kept for the DB           |
+  | Security by design | ✅ Yes     |                                   |
+  | Reuse              | ❌ No      | Deviation requested: see §3       |
 
-RISQUES ET MITIGATIONS
-  - Risque 1 : [Description] → Mitigation : [Action]
-  - Risque 2 : [Description] → Mitigation : [Action]
+RISKS AND MITIGATIONS
+  - Risk 1: [Description] → Mitigation: [Action]
+  - Risk 2: [Description] → Mitigation: [Action]
 
-DÉCISION ARB
-  ☐ Approuvé sans conditions
-  ☐ Approuvé avec conditions : [conditions]
-  ☐ Refusé : [motif]
-  ☐ Renvoyé en complément d'information
+ARB DECISION
+  ☐ Approved without conditions
+  ☐ Approved with conditions: [conditions]
+  ☐ Rejected: [reason]
+  ☐ Returned for additional information
 ```
 
 ## Tech Radar — Quadrants
 
 ```
-ADOPTER ✅       ÉVALUER 🔍        HOLD ⚠          ÉVITER ❌
+ADOPT ✅         ASSESS 🔍         HOLD ⚠          AVOID ❌
 ────────────     ──────────────    ─────────────   ─────────────────
-Kubernetes       LangGraph         Spring Boot 2   ESB monolithiques
+Kubernetes       LangGraph         Spring Boot 2   Monolithic ESBs
 Terraform        AI Act compliance Java 8          jQuery (front)
 Kafka            Wasm              Redis 6         XML SOAP (new proj)
 Claude SDK       HTMX              Angular 14      FTP/SFTP (API first)
 OpenTelemetry    Deno              Vue 2           Oracle Forms
 ```
 
-## Métriques de gouvernance
+## Governance metrics
 
 ```yaml
-metriques_gouvernance:
-  conformite_architecturale:
-    formule: "(projets conformes / total projets) × 100"
-    objectif: "> 85%"
-  
-  dette_technique:
-    formule: "Score SonarQube moyen du portfolio"
-    objectif: "< 5% technical debt ratio"
-  
-  couverture_arb:
-    formule: "(projets passés en ARB / projets significatifs) × 100"
-    objectif: "> 90%"
-  
-  age_moyen_applications:
-    formule: "Âge moyen du portfolio applicatif en années"
-    objectif: "< 7 ans"
+governance_metrics:
+  architecture_compliance:
+    formula: "(compliant projects / total projects) × 100"
+    target: "> 85%"
+
+  technical_debt:
+    formula: "Average SonarQube score of the portfolio"
+    target: "< 5% technical debt ratio"
+
+  arb_coverage:
+    formula: "(projects reviewed in ARB / significant projects) × 100"
+    target: "> 90%"
+
+  average_application_age:
+    formula: "Average age of the application portfolio in years"
+    target: "< 7 years"
 ```
 
-## Livrables
+## Deliverables
 
-- Charte de gouvernance architecturale (rôles, processus, instances)
-- Référentiel des principes d'architecture (15-20 principes)
-- Template de dossier ARB (importable Confluence)
-- Tech Radar adapté au contexte client
-- Tableau de bord gouvernance (conformité, dette, couverture ARB)
+- Architecture governance charter (roles, processes, bodies)
+- Architecture principles repository (15-20 principles)
+- ARB dossier template (Confluence-importable)
+- Tech Radar tailored to the client context
+- Governance dashboard (compliance, debt, ARB coverage)
 
-## Format de sortie
+## Output format
 
-Précise : **maturité actuelle de la gouvernance** (1-5), **taille de l'organisation IT** (nb d'équipes, budget), **secteur** (réglementation spécifique), **outils de documentation** utilisés (Confluence, SharePoint, EA tools).
+Specify: **current governance maturity** (1-5), **IT organization size** (# teams, budget), **sector** (specific regulation), **documentation tools** used (Confluence, SharePoint, EA tools).

@@ -1,27 +1,27 @@
-# Skill — Architecture d'Entreprise TOGAF ADM
+# Skill — TOGAF ADM Enterprise Architecture
 
-> Certifications : TOGAF 10 Foundation & Practitioner (The Open Group), CITA-A (IASA)
+> Certifications: TOGAF 10 Foundation & Practitioner (The Open Group), CITA-A (IASA)
 
-## Objectif
+## Objective
 
-Conduire un cycle TOGAF Architecture Development Method (ADM) complet ou partiel : de la vision architecturale jusqu'à la gouvernance de l'implémentation — pour définir l'architecture cible d'un SI ou d'un domaine métier.
+Run a full or partial TOGAF Architecture Development Method (ADM) cycle: from the architecture vision through implementation governance — to define the target architecture of an IS or a business domain.
 
-## Les 9 phases du cycle ADM
+## The 9 phases of the ADM cycle
 
 ```
-PHASE          NOM                              LIVRABLE CLÉ
+PHASE          NAME                             KEY DELIVERABLE
 ─────────────  ──────────────────────────────   ──────────────────────────────────
-Préliminaire   Cadre et principes               Principes d'architecture, cadre de gouvernance
-A              Vision de l'architecture          Statement of Architecture Work, Architecture Vision
-B              Architecture métier               Architecture Business (actuelle + cible)
-C              Architecture SI (Apps + Data)     Architecture des systèmes d'information
-D              Architecture technique            Architecture technologique
-E              Opportunités et solutions         Plan de migration, liste des travaux
-F              Planification de la migration     Roadmap d'architecture, plan de mise en œuvre
-G              Gouvernance de l'implémentation   Conformité et reporting d'avancement
-H              Gestion des changements           Mise à jour de l'architecture
-Gestion des    Requirements Management          Traceabilité des exigences (transversale)
-exigences
+Preliminary    Framework and principles         Architecture principles, governance framework
+A              Architecture Vision               Statement of Architecture Work, Architecture Vision
+B              Business Architecture             Business Architecture (current + target)
+C              Information Systems (Apps + Data)  Information systems architecture
+D              Technology Architecture           Technology architecture
+E              Opportunities and solutions       Migration plan, work package list
+F              Migration Planning                Architecture roadmap, implementation plan
+G              Implementation Governance         Compliance and progress reporting
+H              Change Management                 Architecture update
+Requirements   Requirements Management          Requirements traceability (cross-cutting)
+Management
 ```
 
 ## Architecture Vision (Phase A) — Template
@@ -29,55 +29,55 @@ exigences
 ```
 STATEMENT OF ARCHITECTURE WORK
 ──────────────────────────────────────────────────────────────
-Titre du projet d'architecture : [Nom]
-Périmètre                       : [Domaines couverts]
-Sponsors                        : [Noms et rôles]
-Horizon temporel                : [Court / Moyen / Long terme]
+Architecture project title : [Name]
+Scope                       : [Covered domains]
+Sponsors                    : [Names and roles]
+Time horizon                : [Short / Medium / Long term]
 
-Problème métier à résoudre :
-  [Description en 3-5 phrases du problème ou de l'opportunité]
+Business problem to solve:
+  [3-5 sentence description of the problem or opportunity]
 
-Vision architecturale cible :
-  [Description de l'état souhaité en termes métier]
+Target architecture vision:
+  [Description of the desired state in business terms]
 
-Contraintes majeures :
-  - Budget : [montant / budget non défini]
-  - Délai : [date cible]
-  - Réglementation : [RGPD, AI Act, NIS2, sectoriel]
-  - Existant à préserver : [systèmes legacy, contrats, compétences]
+Major constraints:
+  - Budget: [amount / budget not defined]
+  - Deadline: [target date]
+  - Regulation: [GDPR, AI Act, NIS2, sector-specific]
+  - Existing to preserve: [legacy systems, contracts, skills]
 
-Parties prenantes et préoccupations :
-  | Stakeholder   | Rôle   | Préoccupation principale      | Viewpoint           |
-  |---------------|--------|-------------------------------|---------------------|
-  | DSI           | Sponsor | Coût total et délai           | Executive           |
-  | Architectes   | Décideur| Cohérence technique           | Architecture        |
-  | Métier        | Utilisateur| Continuité de service      | Business            |
-  | RSSI          | Partie prenante | Sécurité et conformité | Security          |
+Stakeholders and concerns:
+  | Stakeholder   | Role    | Main concern                  | Viewpoint           |
+  |---------------|---------|-------------------------------|---------------------|
+  | CIO           | Sponsor | Total cost and timeline       | Executive           |
+  | Architects    | Decider | Technical consistency         | Architecture        |
+  | Business      | User    | Service continuity            | Business            |
+  | CISO          | Stakeholder | Security and compliance   | Security            |
 ```
 
-## Principes d'architecture — Exemples
+## Architecture principles — Examples
 
 ```
-PRINCIPE                          FORMULATION TYPE
+PRINCIPLE                         TYPICAL STATEMENT
 ────────────────────────────────  ──────────────────────────────────────────────
-Réutilisation avant construction  "Préférer les composants existants aux développements spécifiques"
-API-first                         "Toute capacité applicative est exposée via API documentée"
-Data as a product                 "La donnée est traitée comme un produit avec un owner"
-Security by design                "La sécurité est intégrée dès la conception, non ajoutée"
-Cloud-first                       "Le cloud public est l'option par défaut sauf contrainte spécifique"
-Évolutivité                       "L'architecture doit pouvoir évoluer sans refonte majeure"
-Interopérabilité                  "Les composants communiquent via standards ouverts"
+Reuse before building             "Prefer existing components over custom development"
+API-first                         "Every application capability is exposed via a documented API"
+Data as a product                 "Data is treated as a product with an owner"
+Security by design                "Security is built in from design, not bolted on"
+Cloud-first                       "Public cloud is the default option unless a specific constraint applies"
+Evolvability                      "The architecture must evolve without a major rebuild"
+Interoperability                  "Components communicate via open standards"
 ```
 
-## Livrables TOGAF par phase
+## TOGAF deliverables by phase
 
-- Architecture Vision (Phase A) : document de vision + principes
-- Architecture Métier (Phase B) : diagramme processus As-Is / To-Be
-- Architecture SI (Phase C) : cartographie applicative + flux données
-- Architecture Technique (Phase D) : stack technologique + infrastructure
-- Roadmap d'architecture (Phase F) : plan de migration priorisé
-- Architecture Definition Document (ADD) : livrable de synthèse consolidé
+- Architecture Vision (Phase A): vision document + principles
+- Business Architecture (Phase B): As-Is / To-Be process diagram
+- IS Architecture (Phase C): application mapping + data flows
+- Technology Architecture (Phase D): technology stack + infrastructure
+- Architecture roadmap (Phase F): prioritized migration plan
+- Architecture Definition Document (ADD): consolidated summary deliverable
 
-## Format de sortie
+## Output format
 
-Précise : **phase ADM ciblée** (A à H), **périmètre** (domaine métier, SI complet, projet), **horizon temporel**, **contraintes spécifiques** (budget, réglementation, legacy), **audience** (CODIR / Architectes / Équipes IT).
+Specify: **target ADM phase** (A to H), **scope** (business domain, full IS, project), **time horizon**, **specific constraints** (budget, regulation, legacy), **audience** (leadership / Architects / IT teams).

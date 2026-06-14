@@ -1,108 +1,108 @@
-# Skill — Architecture BDAT (Business / Data / Application / Technology)
+# Skill — BDAT Architecture (Business / Data / Application / Technology)
 
-> Certifications : TOGAF 10 Foundation & Practitioner, ArchiMate 3 Practitioner, CITA-A (IASA)
+> Certifications: TOGAF 10 Foundation & Practitioner, ArchiMate 3 Practitioner, CITA-A (IASA)
 
-## Objectif
+## Objective
 
-Concevoir les 4 couches de l'architecture d'entreprise selon le framework TOGAF : Business, Data, Application et Technology — en assurant la cohérence verticale entre les besoins métier et les choix technologiques.
+Design the 4 layers of enterprise architecture per the TOGAF framework: Business, Data, Application and Technology — ensuring vertical consistency between business needs and technology choices.
 
-## Vue d'ensemble BDAT
+## BDAT overview
 
 ```
-COUCHE        QUESTIONS CLÉ                          LIVRABLES
+LAYER         KEY QUESTIONS                          DELIVERABLES
 ────────────  ─────────────────────────────────────  ──────────────────────────────────
-Business (B)  Quels processus ? Quels acteurs ?       Carte processus, organigramme métier
-Data (D)      Quelles données ? Qui les possède ?     Modèle conceptuel, catalogue data
-Application   Quels systèmes ? Quelles fonctions ?    Cartographie applicative, flux
+Business (B)  Which processes? Which actors?         Process map, business org chart
+Data (D)      Which data? Who owns it?               Conceptual model, data catalog
+Application   Which systems? Which functions?        Application mapping, flows
 (A)
-Technology    Quelle infra ? Quelles plateformes ?    Architecture technique, stack
+Technology    Which infra? Which platforms?          Technology architecture, stack
 (T)
 ```
 
-## Couche B — Architecture Métier
+## B layer — Business Architecture
 
 ```
-COMPOSANTS
-  Processus métier (BPMN : As-Is → To-Be)
-  Domaines fonctionnels (Finance, RH, Ventes, Ops...)
-  Acteurs et rôles (humains et systèmes)
-  Capacités métier (Business Capability Map)
-  Événements déclencheurs (triggers)
+COMPONENTS
+  Business processes (BPMN: As-Is → To-Be)
+  Functional domains (Finance, HR, Sales, Ops...)
+  Actors and roles (humans and systems)
+  Business capabilities (Business Capability Map)
+  Trigger events
 
-LIVRABLES
-  → Carte des capacités métier (Business Capability Map)
-  → Diagramme de processus BPMN cible
-  → Matrice RACI par capacité
+DELIVERABLES
+  → Business Capability Map
+  → Target BPMN process diagram
+  → RACI matrix per capability
 ```
 
-## Couche D — Architecture Data
+## D layer — Data Architecture
 
 ```
-COMPOSANTS
-  Entités de données (clients, produits, contrats...)
-  Data ownership (owner par domaine)
-  Flux de données (lineage)
-  Qualité et gouvernance des données
-  Classification (sensibilité : public, interne, confidentiel, secret)
+COMPONENTS
+  Data entities (customers, products, contracts...)
+  Data ownership (owner per domain)
+  Data flows (lineage)
+  Data quality and governance
+  Classification (sensitivity: public, internal, confidential, secret)
 
-LIVRABLES
-  → Modèle conceptuel de données (entités + relations)
-  → Catalogue de données (nom, description, owner, qualité)
-  → Data flow diagram (DFD) inter-systèmes
-  → Politique de rétention et archivage
+DELIVERABLES
+  → Conceptual data model (entities + relationships)
+  → Data catalog (name, description, owner, quality)
+  → Inter-system data flow diagram (DFD)
+  → Retention and archiving policy
 ```
 
-## Couche A — Architecture Applicative
+## A layer — Application Architecture
 
 ```
-COMPOSANTS
-  Applications et modules
-  Interfaces et APIs
-  Flux d'intégration
-  Règles de gestion implémentées
+COMPONENTS
+  Applications and modules
+  Interfaces and APIs
+  Integration flows
+  Implemented business rules
 
-LIVRABLES
-  → Cartographie applicative (por domaine fonctionnel)
-  → Diagramme de contexte (C4 Level 1)
-  → Matrice d'intégration (quelle app parle à quelle app)
-  → Inventaire APIs exposées / consommées
+DELIVERABLES
+  → Application mapping (per functional domain)
+  → Context diagram (C4 Level 1)
+  → Integration matrix (which app talks to which app)
+  → Inventory of exposed / consumed APIs
 ```
 
-## Couche T — Architecture Technique
+## T layer — Technology Architecture
 
 ```
-COMPOSANTS
+COMPONENTS
   Infrastructure (compute, storage, network)
-  Plateformes (cloud, on-prem, hybride)
+  Platforms (cloud, on-prem, hybrid)
   Middleware (ESB, API GW, message broker)
-  Sécurité (IAM, firewalls, chiffrement)
-  Observabilité (logs, métriques, traces)
+  Security (IAM, firewalls, encryption)
+  Observability (logs, metrics, traces)
 
-LIVRABLES
-  → Schéma d'architecture technique (réseau + composants)
+DELIVERABLES
+  → Technical architecture diagram (network + components)
   → Infrastructure as Code (Terraform / Bicep)
-  → Matrice flux réseau (ports, protocoles, sens)
-  → Architecture de sécurité (zones, DMZ, Zero Trust)
+  → Network flow matrix (ports, protocols, direction)
+  → Security architecture (zones, DMZ, Zero Trust)
 ```
 
-## Cohérence BDAT — Check de traçabilité
+## BDAT consistency — Traceability check
 
 ```
-VÉRIFICATION                        QUESTION DE CONFORMITÉ
+CHECK                               COMPLIANCE QUESTION
 ──────────────────────────────────  ──────────────────────────────────────────────────
-B → A : chaque capacité est couverte "Chaque capacité métier est-elle supportée par ≥ 1 app ?"
-D → A : chaque donnée a un owner    "Chaque entité de données a-t-elle une application maître ?"
-A → T : chaque app a une infra      "Chaque application est-elle hébergée quelque part ?"
-T → A : pas d'infra orpheline       "Toute l'infra est-elle rattachée à une application ?"
+B → A: each capability is covered   "Is each business capability supported by ≥ 1 app?"
+D → A: each data has an owner        "Does each data entity have a master application?"
+A → T: each app has infra            "Is each application hosted somewhere?"
+T → A: no orphan infra               "Is all infra attached to an application?"
 ```
 
-## Livrables
+## Deliverables
 
-- Architecture BDAT complète (1 diagramme par couche)
-- Architecture Definition Document (ADD) consolidé
-- Matrice de traçabilité BDAT (conformité croisée)
-- Gap analysis As-Is vs To-Be par couche
+- Complete BDAT architecture (1 diagram per layer)
+- Consolidated Architecture Definition Document (ADD)
+- BDAT traceability matrix (cross-layer compliance)
+- As-Is vs To-Be gap analysis per layer
 
-## Format de sortie
+## Output format
 
-Précise : **couche(s) à couvrir** (B / D / A / T ou toutes), **périmètre** (domaine ou SI complet), **outil de modélisation** disponible (Archimate / PowerPoint / draw.io), **niveau de détail** (vue stratégique / détaillée / opérationnelle).
+Specify: **layer(s) to cover** (B / D / A / T or all), **scope** (domain or full IS), available **modeling tool** (ArchiMate / PowerPoint / draw.io), **level of detail** (strategic / detailed / operational view).

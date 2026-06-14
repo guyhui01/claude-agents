@@ -1,85 +1,85 @@
-# Skill — Patterns d'Intégration SI
+# Skill — IS Integration Patterns
 
-> Certifications : AWS Solutions Architect Professional (SAP-C02), Google Professional Cloud Architect, AZ-305, TOGAF 10
+> Certifications: AWS Solutions Architect Professional (SAP-C02), Google Professional Cloud Architect, AZ-305, TOGAF 10
 
-## Objectif
+## Objective
 
-Sélectionner, concevoir et documenter les patterns d'intégration adaptés à un SI : API Management, Event-Driven Architecture, ESB, microservices, webhooks, ETL/ELT — en évaluant les trade-offs de chaque approche.
+Select, design and document the integration patterns suited to an IS: API Management, Event-Driven Architecture, ESB, microservices, webhooks, ETL/ELT — by weighing the trade-offs of each approach.
 
-## Catalogue des patterns d'intégration
+## Integration pattern catalog
 
 ### API Management
 
 ```
-PATTERN        QUAND L'UTILISER                      OUTILS
+PATTERN        WHEN TO USE                           TOOLS
 ─────────────  ────────────────────────────────────  ────────────────────────
-REST / OpenAPI Exposer des capacités métier           Apigee, AWS API GW, Azure APIM
-GraphQL        Agréger plusieurs sources en 1 appel  Apollo, Hasura
-gRPC           Communication inter-services < 10ms   Protobuf, Envoy
-WebSocket      Temps réel bidirectionnel             Socket.io, AWS API GW WS
-API Gateway    Point d'entrée unique (sécurité, rate) Kong, AWS API GW, Azure APIM
+REST / OpenAPI Expose business capabilities           Apigee, AWS API GW, Azure APIM
+GraphQL        Aggregate several sources in 1 call    Apollo, Hasura
+gRPC           Inter-service communication < 10ms     Protobuf, Envoy
+WebSocket      Bidirectional real-time                Socket.io, AWS API GW WS
+API Gateway    Single entry point (security, rate)    Kong, AWS API GW, Azure APIM
 ```
 
 ### Event-Driven Architecture (EDA)
 
 ```
-PATTERN             QUAND L'UTILISER                   OUTILS
+PATTERN             WHEN TO USE                        TOOLS
 ──────────────────  ────────────────────────────────   ────────────────────────
-Message Queue       Découplage asynchrone simple       RabbitMQ, SQS, Azure SB
-Event Streaming     Historique événements, replay      Kafka, Kinesis, Event Hub
-Pub/Sub             Fan-out vers N consommateurs        GCP Pub/Sub, SNS, EventGrid
+Message Queue       Simple async decoupling            RabbitMQ, SQS, Azure SB
+Event Streaming     Event history, replay              Kafka, Kinesis, Event Hub
+Pub/Sub             Fan-out to N consumers             GCP Pub/Sub, SNS, EventGrid
 Event Sourcing      Audit trail, CQRS                  Kafka + EventStore
-SAGA Pattern        Transaction distribuée (microsvcs) Orchestration ou chorégraphie
+SAGA Pattern        Distributed transaction (microsvcs) Orchestration or choreography
 ```
 
-### Intégration applicative (EAI/ESB)
+### Application integration (EAI/ESB)
 
 ```
-PATTERN             QUAND L'UTILISER                   OUTILS
+PATTERN             WHEN TO USE                        TOOLS
 ──────────────────  ────────────────────────────────   ────────────────────────
-ETL/ELT             Migration et chargement data        dbt, Fivetran, Airbyte
-File-based          Échange avec legacy (SFTP, batch)   MFT, WinSCP + scheduler
-ESB                 Orchestration complexe legacy       MuleSoft, IBM App Connect
-iPaaS               Intégrations SaaS low-code          n8n, Make, Zapier, Boomi
-Strangler Fig       Migration progressive d'un monolithe → microservices graduel
-Anti-corruption Layer  Isolation d'un système legacy    Façade + traducteur
+ETL/ELT             Data migration and loading          dbt, Fivetran, Airbyte
+File-based          Legacy exchange (SFTP, batch)       MFT, WinSCP + scheduler
+ESB                 Complex legacy orchestration        MuleSoft, IBM App Connect
+iPaaS               Low-code SaaS integrations          n8n, Make, Zapier, Boomi
+Strangler Fig       Gradual monolith → microservices migration
+Anti-corruption Layer  Isolation of a legacy system     Façade + translator
 ```
 
-## Grille de choix d'un pattern d'intégration
+## Integration pattern selection grid
 
 ```
-CRITÈRE           SYNCHRONE (API)   ASYNCHRONE (EDA)   BATCH (ETL)
+CRITERION         SYNCHRONOUS (API)  ASYNCHRONOUS (EDA)  BATCH (ETL)
 ────────────────  ───────────────   ────────────────   ──────────────
-Latence requise   < 500ms           Non critique       Tolérant (heures)
-Volume            Faible-moyen      Élevé (millions)   Très élevé
-Couplage          Fort acceptable   Faible désiré      Indépendant
-Ordre garanti     Oui               Configurable       Séquentiel
-Complexité        Faible            Moyenne-élevée     Moyenne
-Use case type     CRUD, recherche   Notifications, IoT Reporting, migration
+Required latency  < 500ms           Not critical       Tolerant (hours)
+Volume            Low-medium        High (millions)    Very high
+Coupling          Tight acceptable  Loose desired      Independent
+Guaranteed order  Yes               Configurable       Sequential
+Complexity        Low               Medium-high        Medium
+Typical use case  CRUD, search      Notifications, IoT Reporting, migration
 ```
 
-## Architecture micro-services — Patterns clés
+## Microservices architecture — Key patterns
 
 ```
-PATTERN              PROBLÈME RÉSOLU                    IMPLÉMENTATION
+PATTERN              PROBLEM SOLVED                     IMPLEMENTATION
 ───────────────────  ────────────────────────────────   ──────────────────────
-API Gateway          Point d'entrée unique              Kong, AWS API GW
-Service Mesh         Observabilité inter-services       Istio, Linkerd
-Circuit Breaker      Résilience aux pannes              Resilience4J, Polly
-Bulkhead             Isolation des ressources           Pool de threads séparés
-Sidecar              Injection fonctionnalités transv.  Envoy, Dapr
-Config Server        Centralisation de la config        Spring Cloud Config, Vault
-Service Registry     Découverte dynamique des services  Consul, Eureka, K8s DNS
+API Gateway          Single entry point                 Kong, AWS API GW
+Service Mesh         Inter-service observability        Istio, Linkerd
+Circuit Breaker      Resilience to failures             Resilience4J, Polly
+Bulkhead             Resource isolation                 Separate thread pools
+Sidecar              Injection of cross-cutting features Envoy, Dapr
+Config Server        Configuration centralization       Spring Cloud Config, Vault
+Service Registry     Dynamic service discovery          Consul, Eureka, K8s DNS
 ```
 
-## Livrables
+## Deliverables
 
-- Diagramme d'architecture d'intégration (C4 model ou Archimate)
-- Comparatif patterns avec recommendation argumentée
-- Spécification technique des interfaces (OpenAPI 3.x, AsyncAPI)
-- Plan de migration depuis l'existant (si applicable)
-- Guide d'implémentation et de test des intégrations
+- Integration architecture diagram (C4 model or ArchiMate)
+- Pattern comparison with a reasoned recommendation
+- Interface technical specification (OpenAPI 3.x, AsyncAPI)
+- Migration plan from the existing setup (if applicable)
+- Integration implementation and test guide
 
-## Format de sortie
+## Output format
 
-Précise : **systèmes à intégrer** (noms, technologies, volumes), **contraintes** (latence, throughput, legacy), **cloud provider** (AWS / GCP / Azure / on-prem), **budget** (solution open-source vs enterprise).
+Specify: **systems to integrate** (names, technologies, volumes), **constraints** (latency, throughput, legacy), **cloud provider** (AWS / GCP / Azure / on-prem), **budget** (open-source vs enterprise solution).

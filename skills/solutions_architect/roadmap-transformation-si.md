@@ -1,111 +1,111 @@
-# Skill — Roadmap de Transformation SI
+# Skill — IS Transformation Roadmap
 
-> Certifications : TOGAF 10 Foundation & Practitioner, PMP, CITA-A (IASA), SAFe LPM
+> Certifications: TOGAF 10 Foundation & Practitioner, PMP, CITA-A (IASA), SAFe LPM
 
-## Objectif
+## Objective
 
-Construire une roadmap de transformation SI réaliste et priorisée : traduire la vision architecturale en plan d'action séquencé, avec jalons, dépendances, ressources et indicateurs de suivi.
+Build a realistic, prioritized IS transformation roadmap: turn the architecture vision into a sequenced action plan, with milestones, dependencies, resources and tracking indicators.
 
-## Structure de la roadmap SI
+## IS roadmap structure
 
-### Horizon Now / Next / Later (Lean Portfolio)
+### Now / Next / Later horizon (Lean Portfolio)
 
 ```
-NOW (0-6 mois)          NEXT (6-18 mois)          LATER (18-36 mois)
+NOW (0-6 months)        NEXT (6-18 months)        LATER (18-36 months)
 ──────────────────────  ──────────────────────    ──────────────────────────────
-Quick wins techniques   Transformations majeures  Vision à long terme
-Réduction dette urgente Nouveaux services         Architecture cible finale
-Sécurité critique       Migrations cloud          Innovations (IA, IoT, etc.)
-Stabilisation prod       Intégrations stratégiques Refonte complète legacy
+Technical quick wins    Major transformations     Long-term vision
+Urgent debt reduction   New services              Final target architecture
+Critical security       Cloud migrations          Innovations (AI, IoT, etc.)
+Prod stabilization      Strategic integrations    Full legacy rebuild
 ```
 
-### Axes de transformation
+### Transformation axes
 
 ```
-AXE                    OBJECTIF                           EXEMPLES DE CHANTIERS
+AXIS                   OBJECTIVE                          EXAMPLE INITIATIVES
 ─────────────────────  ────────────────────────────────   ──────────────────────────────────
-Modernisation          Réduire la dette technique          Migration Java → cloud-native
-Data & IA              Valoriser les actifs data           Lakehouse, LLM, analytics
-Sécurité               Zéro-trust, conformité IA Act      IAM, SASE, audit LLM
-Intégration            API-first, événementiel             API Gateway, Kafka, ESB → iPaaS
-Cloud                  CapEx → OpEx, élasticité            Lift & Shift, puis Re-architect
-Expérience             UX / Developer Experience           Portail API, self-service
+Modernization          Reduce technical debt               Java → cloud-native migration
+Data & AI              Monetize data assets                Lakehouse, LLM, analytics
+Security               Zero-trust, AI Act compliance      IAM, SASE, LLM audit
+Integration            API-first, event-driven             API Gateway, Kafka, ESB → iPaaS
+Cloud                  CapEx → OpEx, elasticity            Lift & Shift, then Re-architect
+Experience             UX / Developer Experience           API portal, self-service
 ```
 
-## Template roadmap SI (tableau)
+## IS roadmap template (table)
 
 ```
-CHANTIER               AXE          NOW  NEXT  LATER  PRIORITÉ  OWNER
+INITIATIVE              AXIS         NOW  NEXT  LATER  PRIORITY  OWNER
 ─────────────────────  ───────────  ───  ────  ─────  ────────  ─────────────
-Migration BDD Oracle   Cloud        ■    ■■■                Haute    DBA + Archi
-API Gateway déploiement Intégration ■■■                     Haute    DevOps
-LLM RAG interne        IA           ■    ■■■   ■■■         Moyenne  AI Arch
-Décomm. app legacy RH  Modern.           ■■■   ■■■         Moyenne  Chef Projet
-Zero Trust IAM         Sécurité     ■■■  ■■■              Haute    RSSI + Archi
-Lakehouse data         Data              ■■■   ■■          Haute    CDO + Data Eng
+Oracle DB migration    Cloud        ■    ■■■                High     DBA + Arch
+API Gateway rollout    Integration  ■■■                     High     DevOps
+Internal RAG LLM       AI           ■    ■■■   ■■■         Medium   AI Arch
+Decom. legacy HR app   Modern.           ■■■   ■■■         Medium   Project Mgr
+Zero Trust IAM         Security     ■■■  ■■■              High     CISO + Arch
+Data lakehouse         Data              ■■■   ■■          High     CDO + Data Eng
 ```
 
-## Priorisation des chantiers
+## Initiative prioritization
 
 ```yaml
-grille_priorisation:
-  criteres:
-    valeur_business:
-      poids: 30%
-      description: "Impact direct sur le chiffre d'affaires ou les coûts"
-    risque_reduit:
-      poids: 25%
-      description: "Réduction d'un risque opérationnel, sécurité ou réglementaire"
-    faisabilite:
-      poids: 25%
-      description: "Disponibilité des ressources, complexité technique, dépendances"
+prioritization_grid:
+  criteria:
+    business_value:
+      weight: 30%
+      description: "Direct impact on revenue or costs"
+    risk_reduced:
+      weight: 25%
+      description: "Reduction of an operational, security or regulatory risk"
+    feasibility:
+      weight: 25%
+      description: "Resource availability, technical complexity, dependencies"
     quick_win:
-      poids: 20%
-      description: "Résultat visible en < 6 mois, valeur de démonstration"
-  
+      weight: 20%
+      description: "Visible result in < 6 months, demonstration value"
+
   scoring:
-    échelle: "1 (faible) à 5 (fort)"
-    formule: "score = (VB × 0.3) + (RR × 0.25) + (F × 0.25) + (QW × 0.2)"
-    seuil_priorite_haute: "> 3.5"
+    scale: "1 (low) to 5 (high)"
+    formula: "score = (BV × 0.3) + (RR × 0.25) + (F × 0.25) + (QW × 0.2)"
+    high_priority_threshold: "> 3.5"
 ```
 
-## Gouvernance de la roadmap
+## Roadmap governance
 
 ```
-RITUEL                FRÉQUENCE    PARTICIPANTS          OUTPUTS
+RITUAL                FREQUENCY    PARTICIPANTS          OUTPUTS
 ─────────────────────  ──────────  ──────────────────   ──────────────────────────────
-Revue roadmap          Trimestrielle DSI, CDO, RSSI      Roadmap mise à jour, re-priorisation
-Architecture Review    Mensuelle   ARB                   Validation architectures entrants
-Sprint architecte      Bi-mensuelle Architectes          Conception des chantiers next
-Reporting CODIR        Mensuelle   DSI → CODIR           Dashboard avancement + KPIs
+Roadmap review         Quarterly    CIO, CDO, CISO       Updated roadmap, re-prioritization
+Architecture Review    Monthly     ARB                   Validation of incoming architectures
+Architect sprint       Bi-weekly   Architects           Design of the next initiatives
+Leadership reporting   Monthly     CIO → leadership      Progress dashboard + KPIs
 ```
 
-## Indicateurs de suivi (KPIs)
+## Tracking indicators (KPIs)
 
 ```yaml
-kpis_transformation:
-  avancement:
-    - "% chantiers NOW livrés (objectif > 80% à 6 mois)"
-    - "% jalons respectés (objectif > 85%)"
-  
-  qualite_architecture:
-    - "Conformité architecturale ARB (objectif > 85%)"
-    - "Score dette technique (objectif < 5%)"
-  
-  impact_business:
-    - "Réduction coût infra (objectif : économies Cloud FinOps)"
-    - "Incidents de prod liés à la dette technique (objectif : -50%)"
-    - "Time-to-market nouvelles fonctionnalités (objectif : -30%)"
+transformation_kpis:
+  progress:
+    - "% of NOW initiatives delivered (target > 80% at 6 months)"
+    - "% of milestones met (target > 85%)"
+
+  architecture_quality:
+    - "ARB architecture compliance (target > 85%)"
+    - "Technical debt score (target < 5%)"
+
+  business_impact:
+    - "Infra cost reduction (target: Cloud FinOps savings)"
+    - "Prod incidents tied to technical debt (target: -50%)"
+    - "Time-to-market for new features (target: -30%)"
 ```
 
-## Livrables
+## Deliverables
 
-- Roadmap SI visuelle Now/Next/Later (format Miro, PowerPoint ou Confluence)
-- Tableau de priorisation des chantiers (critères × scoring)
-- Fiches chantiers (1 page par projet majeur : objectifs, livrables, ressources, risques)
-- Dashboard de suivi trimestriel
-- Présentation CODIR (10 slides)
+- Visual Now/Next/Later IS roadmap (Miro, PowerPoint or Confluence format)
+- Initiative prioritization table (criteria × scoring)
+- Initiative sheets (1 page per major project: objectives, deliverables, resources, risks)
+- Quarterly tracking dashboard
+- Leadership presentation (10 slides)
 
-## Format de sortie
+## Output format
 
-Précise : **horizon temporel** (1 an / 3 ans / 5 ans), **axes prioritaires** (Cloud / Sécurité / Data / Modernisation / IA), **contexte** (budget contraint, transformation urgente, post-fusion), **format de restitution** (CODIR / architectes / équipes IT).
+Specify: **time horizon** (1 year / 3 years / 5 years), **priority axes** (Cloud / Security / Data / Modernization / AI), **context** (constrained budget, urgent transformation, post-merger), **delivery format** (leadership / architects / IT teams).

@@ -1,78 +1,78 @@
-# Skill — Urbanisme du SI et Cartographie Applicative
+# Skill — IS Urbanization and Application Mapping
 
-> Certifications : TOGAF 10 Foundation & Practitioner, CITA-A (IASA), ArchiMate 3 Practitioner
+> Certifications: TOGAF 10 Foundation & Practitioner, CITA-A (IASA), ArchiMate 3 Practitioner
 
-## Objectif
+## Objective
 
-Cartographier le SI existant, identifier les redondances et les gaps, définir le plan d'urbanisme cible et produire les vues architecturales nécessaires aux décisions d'investissement.
+Map the existing IS, identify redundancies and gaps, define the target urbanization plan and produce the architecture views needed for investment decisions.
 
-## Modèle d'urbanisme — Les 3 vues
+## Urbanization model — The 3 views
 
 ```
-VUE MÉTIER (Quoi ?)          VUE FONCTIONNELLE (Comment ?)     VUE TECHNIQUE (Avec quoi ?)
+BUSINESS VIEW (What?)        FUNCTIONAL VIEW (How?)            TECHNICAL VIEW (With what?)
 ────────────────────         ──────────────────────────────    ──────────────────────────────
-Processus métier             Applications et modules           Infrastructure et plateformes
-Domaines fonctionnels        Flux et échanges de données       Réseaux et sécurité
-Acteurs et rôles             Interfaces et APIs                Cloud et data centers
-Événements métier            Règles de gestion                 Outils DevOps et monitoring
+Business processes           Applications and modules          Infrastructure and platforms
+Functional domains           Data flows and exchanges          Networks and security
+Actors and roles             Interfaces and APIs               Cloud and data centers
+Business events              Business rules                    DevOps and monitoring tools
 ```
 
-## Cartographie applicative — Template
+## Application mapping — Template
 
 ```
-RÉFÉRENTIEL APPLICATIF
+APPLICATION REPOSITORY
 ──────────────────────────────────────────────────────────────────────
-| Application | Domaine  | Criticité | Techno    | Obsolescence | Strat. |
-|-------------|----------|-----------|-----------|--------------|--------|
-| SAP ERP     | Finance  | Critique  | ABAP/Java | 2028         | Retain |
-| CRM Salesf. | Vente    | Majeur    | SaaS      | N/A          | Retain |
-| App legacy  | RH       | Secondaire| .NET 4.0  | Immédiate    | Retire |
-| API Gateway | Transv.  | Critique  | Kong      | 2027         | Retain |
-| DWH         | Data     | Majeur    | Oracle    | 2026         | Refactor|
+| Application | Domain   | Criticality | Tech      | Obsolescence | Strat.  |
+|-------------|----------|-------------|-----------|--------------|---------|
+| SAP ERP     | Finance  | Critical    | ABAP/Java | 2028         | Retain  |
+| Salesf. CRM | Sales    | Major       | SaaS      | N/A          | Retain  |
+| Legacy app  | HR       | Secondary   | .NET 4.0  | Immediate    | Retire  |
+| API Gateway | Cross    | Critical    | Kong      | 2027         | Retain  |
+| DWH         | Data     | Major       | Oracle    | 2026         | Refactor|
 ```
 
-## Niveaux de maturité urbanisme (scoring 1-5)
+## Urbanization maturity levels (scoring 1-5)
 
 ```
-NIVEAU   DESCRIPTION
+LEVEL    DESCRIPTION
 ───────  ───────────────────────────────────────────────────────────────────
-1        Pas de cartographie formelle — SI opaque, décisions empiriques
-2        Inventaire applicatif basique (Excel) — pas de vues architecturales
-3        Cartographie formalisée (Archimate/BPMN) — vues disponibles mais non maintenues
-4        Urbanisme géré activement — revue annuelle, principes respectés
-5        Urbanisme intégré aux décisions IT — ARB actif, conformité mesurée
+1        No formal mapping — opaque IS, empirical decisions
+2        Basic application inventory (Excel) — no architecture views
+3        Formalized mapping (ArchiMate/BPMN) — views available but not maintained
+4        Actively managed urbanization — annual review, principles respected
+5        Urbanization integrated into IT decisions — active ARB, measured compliance
 ```
 
-## Plan d'urbanisme SI — Structure
+## IS urbanization plan — Structure
 
 ```
-1. DIAGNOSTIC AS-IS
-   → Inventaire des applications (nom, domaine, techno, âge, coût)
-   → Cartographie des flux et intégrations
-   → Identification des redondances fonctionnelles
-   → Zones de fragilité et dette technique estimée
+1. AS-IS DIAGNOSTIC
+   → Application inventory (name, domain, tech, age, cost)
+   → Mapping of flows and integrations
+   → Identification of functional redundancies
+   → Fragility zones and estimated technical debt
 
-2. VISION TO-BE
-   → Domaines fonctionnels cibles (alignement sur le business model)
-   → Applications cibles et plates-formes
-   → Intégrations cibles (API-first, EDA)
-   → Schéma directeur SI (horizon 3-5 ans)
+2. TO-BE VISION
+   → Target functional domains (aligned with the business model)
+   → Target applications and platforms
+   → Target integrations (API-first, EDA)
+   → IS master plan (3-5 year horizon)
 
-3. ROADMAP DE TRANSFORMATION
-   → Rationalisation (applications à décommissionner)
-   → Modernisation (applications à refactoriser)
-   → Innovation (nouvelles capacités à construire)
-   → Priorisation ROI × risque × valeur métier
+3. TRANSFORMATION ROADMAP
+   → Rationalization (applications to decommission)
+   → Modernization (applications to refactor)
+   → Innovation (new capabilities to build)
+   → Prioritization by ROI × risk × business value
 ```
 
-## Livrables
+## Deliverables
 
-- Référentiel applicatif (cartographie complète avec scoring)
-- Vue As-Is du SI (Archimate ou schéma structuré)
-- Vue To-Be du SI cible
-- Schéma directeur SI (roadmap 3-5 ans)
-- Note de synthèse pour CODIR (1 page)
+- Application repository (full mapping with scoring)
+- As-Is view of the IS (ArchiMate or structured diagram)
+- To-Be view of the target IS
+- IS master plan (3-5 year roadmap)
+- Summary note for leadership (1 page)
 
-## Format de sortie
+## Output format
 
-Précise : **périmètre** (domaine métier ou SI complet), **nombre d'applications estimé**, **profondeur souhaitée** (inventaire / cartographie complète / schéma directeur), **audience** (DSI / CODIR / équipes IT).
+Specify: **scope** (business domain or full IS), **estimated number of applications**, **desired depth** (inventory / full mapping / master plan), **audience** (CIO / leadership / IT teams).

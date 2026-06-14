@@ -1,10 +1,10 @@
 # Skill — Chat UI & Streaming Responses
-> Certifications : DeepLearning.AI JS/TS · Meta Front-End Developer
+> Certifications: DeepLearning.AI JS/TS · Meta Front-End Developer
 
-## Objectif
-Implémenter une interface de chat avec streaming token par token, états de chargement et gestion des erreurs.
+## Objective
+Implement a chat interface with token-by-token streaming, loading states, and error handling.
 
-## Composant Chat complet
+## Full Chat component
 ```typescript
 "use client"
 import { useChat } from "ai/react"
@@ -17,7 +17,7 @@ export function ChatInterface() {
   })
   const bottomRef = useRef<HTMLDivElement>(null)
 
-  // Auto-scroll vers le bas
+  // Auto-scroll to the bottom
   useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: "smooth" }) }, [messages])
 
   return (
@@ -32,10 +32,10 @@ export function ChatInterface() {
       <form onSubmit={handleSubmit} className="p-4 border-t">
         <div className="flex gap-2">
           <input value={input} onChange={handleInputChange}
-            placeholder="Votre message..." disabled={isLoading} className="flex-1 input" />
+            placeholder="Your message..." disabled={isLoading} className="flex-1 input" />
           {isLoading
             ? <button type="button" onClick={stop}>Stop</button>
-            : <button type="submit" disabled={!input.trim()}>Envoyer</button>
+            : <button type="submit" disabled={!input.trim()}>Send</button>
           }
         </div>
       </form>
@@ -44,7 +44,7 @@ export function ChatInterface() {
 }
 ```
 
-## Affichage du streaming (Markdown)
+## Rendering the stream (Markdown)
 ```typescript
 import ReactMarkdown from "react-markdown"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
@@ -60,7 +60,7 @@ function MessageBubble({ role, content }: { role: string; content: string }) {
 }
 ```
 
-## Typing indicator animé
+## Animated typing indicator
 ```typescript
 function TypingIndicator() {
   return (
@@ -74,37 +74,37 @@ function TypingIndicator() {
 }
 ```
 
-## Fonctionnalités avancées
-- **Copy to clipboard** : bouton sur chaque message assistant
-- **Regenerate** : relancer la dernière réponse
-- **Message actions** : like / dislike pour le feedback
-- **File attachments** : drag & drop avec prévisualisation
-- **Voice input** : Web Speech API
+## Advanced features
+- **Copy to clipboard**: button on each assistant message
+- **Regenerate**: rerun the last response
+- **Message actions**: like / dislike for feedback
+- **File attachments**: drag & drop with preview
+- **Voice input**: Web Speech API
 
-## Livrables
-- Composant Chat complet avec streaming
-- Typing indicator et auto-scroll
-- Gestion des erreurs (toast notifications)
-- Bouton Stop pour interrompre la génération
+## Deliverables
+- Full Chat component with streaming
+- Typing indicator and auto-scroll
+- Error handling (toast notifications)
+- Stop button to interrupt generation
 
-## Format de sortie
-Précise : framework CSS (Tailwind, shadcn/ui) · fonctionnalités souhaitées · multi-modal (images) · historique persistant
+## Output format
+Specify: CSS framework (Tailwind, shadcn/ui) · desired features · multi-modal (images) · persistent history
 
 ## Anti-patterns
-- ❌ **Markdown LLM rendu sans sanitisation** : XSS via la réponse du modèle → sanitiser le HTML (rehype-sanitize)
-- ❌ **Pas de bouton Stop / d'abort** sur un stream long : l'utilisateur est bloqué → exposer `stop()`
-- ❌ **Pas d'`aria-live`** sur la zone de messages streamés : inaccessibilité lecteur d'écran → région live polie
-- ❌ **État d'erreur invisible** : échec silencieux → afficher l'erreur + retry (cf. `onError`)
-- ❌ **Auto-scroll forcé** quand l'utilisateur a remonté l'historique : frustrant → ne scroller que si déjà en bas
-- ❌ **`ai/react`** (AI SDK v4) : sur AI SDK 5, le hook vient de `@ai-sdk/react` → vérifier la version
+- ❌ **LLM Markdown rendered without sanitization**: XSS via the model's response → sanitize the HTML (rehype-sanitize)
+- ❌ **No Stop / abort button** on a long stream: the user is stuck → expose `stop()`
+- ❌ **No `aria-live`** on the streamed messages area: screen-reader inaccessibility → polite live region
+- ❌ **Invisible error state**: silent failure → show the error + retry (see `onError`)
+- ❌ **Forced auto-scroll** when the user has scrolled up the history: frustrating → only scroll if already at the bottom
+- ❌ **`ai/react`** (AI SDK v4): on AI SDK 5, the hook comes from `@ai-sdk/react` → check the version
 
 ## Sources
-- **Vercel AI SDK** — ai-sdk.dev (`useChat`, streaming SSE ; AI SDK 5 → `@ai-sdk/react`)
-- **React 19** — react.dev (Meta) · **react-markdown** + **rehype-sanitize** — sécurité du rendu
-- **WAI-ARIA 1.2** — `aria-live` pour les messages dynamiques — w3.org/TR/wai-aria
+- **Vercel AI SDK** — ai-sdk.dev (`useChat`, SSE streaming; AI SDK 5 → `@ai-sdk/react`)
+- **React 19** — react.dev (Meta) · **react-markdown** + **rehype-sanitize** — render security
+- **WAI-ARIA 1.2** — `aria-live` for dynamic messages — w3.org/TR/wai-aria
 
-## Voir aussi
-- [`vercel-ai-sdk.md`](vercel-ai-sdk.md) — backend streaming consommé par cette UI
-- [`react-patterns-ia.md`](react-patterns-ia.md) — patterns d'état (optimistic, streaming, error boundary)
-- [`nextjs-ia.md`](nextjs-ia.md) — route API streaming associée
-- [`../cms_digital/accessibilite-numerique.md`](../cms_digital/accessibilite-numerique.md) — accessibilité (aria-live, WCAG)
+## See also
+- [`vercel-ai-sdk.md`](vercel-ai-sdk.md) — streaming backend consumed by this UI
+- [`react-patterns-ia.md`](react-patterns-ia.md) — state patterns (optimistic, streaming, error boundary)
+- [`nextjs-ia.md`](nextjs-ia.md) — associated streaming API route
+- [`../cms_digital/accessibilite-numerique.md`](../cms_digital/accessibilite-numerique.md) — accessibility (aria-live, WCAG)

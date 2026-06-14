@@ -1,28 +1,28 @@
-# Skill — React Patterns IA
-> Certifications : Meta Front-End Developer Certificate · Vercel Next.js
+# Skill — React AI Patterns
+> Certifications: Meta Front-End Developer Certificate · Vercel Next.js
 
-## Objectif
-Appliquer les patterns React adaptés aux interfaces IA : état LLM, optimistic UI, streaming.
+## Objective
+Apply React patterns suited to AI interfaces: LLM state, optimistic UI, streaming.
 
-## Pattern — Optimistic UI pour la génération
+## Pattern — Optimistic UI for generation
 ```typescript
 function UserStoryGenerator() {
   const [stories, setStories] = useState<UserStory[]>([])
   const [generating, setGenerating] = useState(false)
 
   async function handleGenerate(feature: string) {
-    // Ajouter immédiatement un placeholder optimiste
+    // Immediately add an optimistic placeholder
     const tempId = crypto.randomUUID()
-    setStories(prev => [...prev, { id: tempId, title: "Génération en cours...", status: "generating" }])
+    setStories(prev => [...prev, { id: tempId, title: "Generating...", status: "generating" }])
     setGenerating(true)
 
     try {
       const story = await generateUserStory(feature)
-      // Remplacer le placeholder par le résultat réel
+      // Replace the placeholder with the real result
       setStories(prev => prev.map(s => s.id === tempId ? { ...story, status: "done" } : s))
     } catch {
       setStories(prev => prev.filter(s => s.id !== tempId))
-      toast.error("Erreur de génération")
+      toast.error("Generation error")
     } finally {
       setGenerating(false)
     }
@@ -56,7 +56,7 @@ function StreamingText({ prompt }: { prompt: string }) {
 }
 ```
 
-## Pattern — Skeleton loading pour le contenu IA
+## Pattern — Skeleton loading for AI content
 ```typescript
 function AIContent({ isLoading, content }: { isLoading: boolean; content: string }) {
   if (isLoading) return (
@@ -70,7 +70,7 @@ function AIContent({ isLoading, content }: { isLoading: boolean; content: string
 }
 ```
 
-## Pattern — Error Boundary pour les appels LLM
+## Pattern — Error Boundary for LLM calls
 ```typescript
 class LLMErrorBoundary extends React.Component {
   state = { hasError: false, error: null }
@@ -78,8 +78,8 @@ class LLMErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) return (
       <div className="text-red-500 p-4 border border-red-200 rounded">
-        <p>Erreur IA : {this.state.error?.message}</p>
-        <button onClick={() => this.setState({ hasError: false })}>Réessayer</button>
+        <p>AI error: {this.state.error?.message}</p>
+        <button onClick={() => this.setState({ hasError: false })}>Retry</button>
       </div>
     )
     return this.props.children
@@ -87,30 +87,30 @@ class LLMErrorBoundary extends React.Component {
 }
 ```
 
-## Livrables
-- Composants React avec états LLM (idle/loading/streaming/done/error)
-- Optimistic UI pour les actions de génération
-- Skeleton loaders adaptés au contenu IA
-- Error Boundary pour les erreurs LLM
+## Deliverables
+- React components with LLM states (idle/loading/streaming/done/error)
+- Optimistic UI for generation actions
+- Skeleton loaders suited to AI content
+- Error Boundary for LLM errors
 
-## Format de sortie
-Précise : type d'interface (chat, génération, copilot) · bibliothèque UI (shadcn, MUI, Tailwind) · cas d'usage précis
+## Output format
+Specify: interface type (chat, generation, copilot) · UI library (shadcn, MUI, Tailwind) · precise use case
 
 ## Anti-patterns
-- ❌ **Optimistic UI sans rollback** sur erreur : état incohérent → retirer/restaurer le placeholder en `catch` (fait ici ✓)
-- ❌ **Streaming sans annulation à l'unmount** : `setState` après démontage, fuite → flag `cancelled` + cleanup (fait ici ✓)
-- ❌ **Error Boundary sans reset** : l'utilisateur reste bloqué → bouton « Réessayer » qui réinitialise l'état
-- ❌ **Markdown LLM non sanitizé** : XSS → rehype-sanitize (cf. `chat-ui-streaming.md`)
-- ❌ **Dépendances implicites** (`streamText`, `toast`, `BlinkingCursor` non importés) : code non autonome → imports explicites
-- ❌ **Pas d'état de statut** (idle/streaming/done/error) : UX ambiguë → machine à états explicite
+- ❌ **Optimistic UI without rollback** on error: inconsistent state → remove/restore the placeholder in `catch` (done here ✓)
+- ❌ **Streaming without cancellation on unmount**: `setState` after unmount, leak → `cancelled` flag + cleanup (done here ✓)
+- ❌ **Error Boundary without reset**: the user stays stuck → "Retry" button that resets the state
+- ❌ **Unsanitized LLM Markdown**: XSS → rehype-sanitize (see `chat-ui-streaming.md`)
+- ❌ **Implicit dependencies** (`streamText`, `toast`, `BlinkingCursor` not imported): non-self-contained code → explicit imports
+- ❌ **No status state** (idle/streaming/done/error): ambiguous UX → explicit state machine
 
 ## Sources
-- **React 19** — react.dev (Meta) : Suspense, transitions, Error Boundary
-- **Vercel AI SDK** — ai-sdk.dev (`useChat`/`useCompletion` pour l'état LLM côté client)
-- **react-markdown** + **rehype-sanitize** — rendu Markdown sécurisé
+- **React 19** — react.dev (Meta): Suspense, transitions, Error Boundary
+- **Vercel AI SDK** — ai-sdk.dev (`useChat`/`useCompletion` for client-side LLM state)
+- **react-markdown** + **rehype-sanitize** — secure Markdown rendering
 
-## Voir aussi
-- [`chat-ui-streaming.md`](chat-ui-streaming.md) — composant chat complet (streaming, stop, scroll)
-- [`vercel-ai-sdk.md`](vercel-ai-sdk.md) — hooks et streaming du SDK
-- [`nextjs-ia.md`](nextjs-ia.md) — intégration App Router
-- [`tool-use-frontend.md`](tool-use-frontend.md) — affichage des tool calls
+## See also
+- [`chat-ui-streaming.md`](chat-ui-streaming.md) — full chat component (streaming, stop, scroll)
+- [`vercel-ai-sdk.md`](vercel-ai-sdk.md) — SDK hooks and streaming
+- [`nextjs-ia.md`](nextjs-ia.md) — App Router integration
+- [`tool-use-frontend.md`](tool-use-frontend.md) — displaying tool calls

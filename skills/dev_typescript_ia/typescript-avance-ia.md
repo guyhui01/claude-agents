@@ -1,25 +1,25 @@
-# Skill — TypeScript Avancé pour l'IA
-> Certifications : JSNAD · JSNSD · OpenJS Foundation
+# Skill — Advanced TypeScript for AI
+> Certifications: JSNAD · JSNSD · OpenJS Foundation
 
-## Objectif
-Écrire du TypeScript strict, typé et performant pour les applications IA.
+## Objective
+Write strict, typed, performant TypeScript for AI applications.
 
-## Types avancés pour l'IA
+## Advanced types for AI
 ```typescript
-// Types pour les messages LLM
+// Types for LLM messages
 type Role = "user" | "assistant" | "system"
 interface Message { role: Role; content: string }
 
-// Generic pour les réponses typées
+// Generic for typed responses
 type LLMResponse<T> = { data: T; usage: { inputTokens: number; outputTokens: number } }
 
-// Discriminated union pour les tool results
+// Discriminated union for tool results
 type ToolResult =
   | { type: "success"; content: string }
   | { type: "error"; error: string; code: number }
 ```
 
-## Zod — Validation des outputs LLM
+## Zod — Validating LLM outputs
 ```typescript
 import { z } from "zod"
 import { generateObject } from "ai"
@@ -35,14 +35,14 @@ const UserStorySchema = z.object({
 const { object } = await generateObject({
   model: anthropic("claude-opus-4-8"),
   schema: UserStorySchema,
-  prompt: "Génère une User Story pour..."
+  prompt: "Generate a User Story for..."
 })
-// object est typé UserStory automatiquement
+// object is automatically typed as UserStory
 ```
 
-## Async patterns pour les LLM
+## Async patterns for LLMs
 ```typescript
-// Streaming avec gestion d'erreurs
+// Streaming with error handling
 async function* streamLLM(prompt: string): AsyncGenerator<string> {
   try {
     const stream = await client.messages.stream({ ... })
@@ -58,13 +58,13 @@ async function* streamLLM(prompt: string): AsyncGenerator<string> {
   }
 }
 
-// Promise.all pour appels parallèles
+// Promise.all for parallel calls
 const [summary, keywords, sentiment] = await Promise.all([
   summarize(text), extractKeywords(text), analyzeSentiment(text)
 ])
 ```
 
-## Error handling typé
+## Typed error handling
 ```typescript
 class LLMError extends Error {
   constructor(public code: "RATE_LIMIT" | "CONTEXT_LENGTH" | "INVALID_API_KEY",
@@ -72,28 +72,28 @@ class LLMError extends Error {
 }
 ```
 
-## Livrables
-- Code TypeScript strict (tsconfig: strict: true)
-- Types Zod pour tous les schémas LLM
-- Gestion d'erreurs typée et retry logic
+## Deliverables
+- Strict TypeScript code (tsconfig: strict: true)
+- Zod types for every LLM schema
+- Typed error handling and retry logic
 
-## Format de sortie
-Précise : framework (Next.js, Node.js) · version TypeScript · librairies existantes · cas d'usage
+## Output format
+Specify: framework (Next.js, Node.js) · TypeScript version · existing libraries · use case
 
 ## Anti-patterns
-- ❌ **Retry récursif sans borne** (`yield* streamLLM(prompt)`) : risque de récursion infinie → compteur d'essais + plafond
-- ❌ **Imports implicites** (`RateLimitError`, `sleep`, `client`) : code non autonome → imports explicites
-- ❌ **`any` au lieu de discriminated unions** : perte des garanties de typage → unions discriminées (`ToolResult`)
-- ❌ **`generateObject` sans contraintes Zod** (`.min`, `.max`, `.enum`) : sorties non fiables → schéma strict
-- ❌ **`usage` (tokens) non typé/non suivi** : pas de maîtrise des coûts → typer `LLMResponse<T>` avec `usage`
-- ❌ **`strict: false`** dans tsconfig : bugs silencieux → `strict: true` (déjà recommandé ✓)
+- ❌ **Unbounded recursive retry** (`yield* streamLLM(prompt)`): risk of infinite recursion → attempt counter + cap
+- ❌ **Implicit imports** (`RateLimitError`, `sleep`, `client`): non-self-contained code → explicit imports
+- ❌ **`any` instead of discriminated unions**: loss of typing guarantees → discriminated unions (`ToolResult`)
+- ❌ **`generateObject` without Zod constraints** (`.min`, `.max`, `.enum`): unreliable outputs → strict schema
+- ❌ **`usage` (tokens) untyped/untracked**: no cost control → type `LLMResponse<T>` with `usage`
+- ❌ **`strict: false`** in tsconfig: silent bugs → `strict: true` (already recommended ✓)
 
 ## Sources
-- **TypeScript Handbook** — typescriptlang.org/docs (Microsoft ; strict mode, discriminated unions, generics)
-- **Zod** — zod.dev (validation runtime + inférence de types) · **Vercel AI SDK** `generateObject` — ai-sdk.dev
-- **Anthropic SDK** `@anthropic-ai/sdk` (streaming, `RateLimitError`) — modèle courant **`claude-opus-4-8`**
+- **TypeScript Handbook** — typescriptlang.org/docs (Microsoft; strict mode, discriminated unions, generics)
+- **Zod** — zod.dev (runtime validation + type inference) · **Vercel AI SDK** `generateObject` — ai-sdk.dev
+- **Anthropic SDK** `@anthropic-ai/sdk` (streaming, `RateLimitError`) — current model **`claude-opus-4-8`**
 
-## Voir aussi
-- [`integration-apis-llm-ts.md`](integration-apis-llm-ts.md) — retry/backoff et gestion d'erreurs LLM
-- [`vercel-ai-sdk.md`](vercel-ai-sdk.md) — structured outputs typés (Zod)
-- [`tool-use-frontend.md`](tool-use-frontend.md) — typage des tools et résultats
+## See also
+- [`integration-apis-llm-ts.md`](integration-apis-llm-ts.md) — retry/backoff and LLM error handling
+- [`vercel-ai-sdk.md`](vercel-ai-sdk.md) — typed structured outputs (Zod)
+- [`tool-use-frontend.md`](tool-use-frontend.md) — typing tools and results

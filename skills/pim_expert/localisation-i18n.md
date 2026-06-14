@@ -1,51 +1,51 @@
-# Skill — Localisation et Internationalisation Produit (i18n)
-> Certifications : Akeneo Certified Product Manager · Contentserv PIM Specialist · inriver Certified Professional
+# Skill — Product Localization and Internationalization (i18n)
+> Certifications: Akeneo Certified Product Manager · Contentserv PIM Specialist · inriver Certified Professional
 
-## Objectif
-Gérer la localisation des fiches produit : traduction des contenus, adaptation locale (réglementations, unités, devises, formatage), workflow de traduction et gouvernance multilingue — pour une diffusion internationale cohérente et conforme.
+## Objective
+Manage product-record localization: content translation, local adaptation (regulations, units, currencies, formatting), translation workflow and multilingual governance — for consistent, compliant international distribution.
 
-## Matrice localisation — Dimensions à gérer
+## Localization matrix — Dimensions to manage
 
 ```
-DIMENSION            EXEMPLE FR → DE                    AUTOMATISABLE    VALIDATION REQUISE
+DIMENSION            EXAMPLE FR → DE                    AUTOMATABLE      VALIDATION REQUIRED
 ───────────────────  ─────────────────────────────────  ───────────────  ────────────────────
-Textes marketing     Description produit, bullet points  Oui (LLM + TM)  Oui (relecture native)
-Données techniques   Poids, dimensions (unités SI)       Oui (conversion) Non (si SI standards)
-Prix                 EUR → EUR (même zone) / CHF / GBP   Oui (taux)       Oui (pricing local)
-Réglementation       ROHS, CE, FCC, CCC, PSE              Non             Oui (service juridique)
-Packaging textes     Mentions légales, allergènes         Non             Oui (service juridique)
-Médias               Photos packaging localisé            Non             Oui (validation brand)
-Unités de mesure     oz → g, inches → cm (US → EU)        Oui             Oui (arrondi à valider)
-Date de lancement    Calendrier promotions local          Non             Oui (marketing local)
+Marketing text       Product description, bullet points  Yes (LLM + TM)  Yes (native review)
+Technical data       Weight, dimensions (SI units)       Yes (conversion) No (if SI standard)
+Price                EUR → EUR (same zone) / CHF / GBP   Yes (rate)       Yes (local pricing)
+Regulation           RoHS, CE, FCC, CCC, PSE              No              Yes (legal team)
+Packaging text       Legal notices, allergens             No              Yes (legal team)
+Media                Localized packaging photos           No              Yes (brand validation)
+Units of measure     oz → g, inches → cm (US → EU)        Yes             Yes (rounding to validate)
+Launch date          Local promotions calendar            No              Yes (local marketing)
 ```
 
-## Workflow de traduction (intégration TMS)
+## Translation workflow (TMS integration)
 
 ```
-ÉTAPE               ACTEUR                    OUTIL              CRITÈRE DE PASSAGE
+STEP                ACTOR                     TOOL               GATE CRITERION
 ──────────────────  ────────────────────────  ─────────────────  ─────────────────────────────
-1. Extraction       Système PIM               PIM → TMS Export   Textes source validés (fr_FR)
-2. Pre-traduction   Machine Translation (MT)  DeepL / Systran    Tout le contenu pré-traduit
-3. Post-édition     Traducteur spécialisé     TMS (Phrase, memoQ) BLEU score ≥ 0.7
-4. Révision         Relecteur natif local     TMS                 0 erreur terminologie
-5. Validation brand Marketing local           Validation UI       Brand guidelines respectées
-6. Import PIM       Système PIM               TMS → PIM Import    Locale complète ≥ 100%
+1. Extraction       PIM system                PIM → TMS Export   Validated source text (fr_FR)
+2. Pre-translation  Machine Translation (MT)  DeepL / Systran    All content pre-translated
+3. Post-editing     Specialized translator    TMS (Phrase, memoQ) BLEU score ≥ 0.7
+4. Review           Local native reviewer     TMS                 0 terminology errors
+5. Brand validation Local marketing           Validation UI       Brand guidelines respected
+6. PIM import       PIM system                TMS → PIM Import    Complete locale ≥ 100%
 ```
 
-## Bonnes pratiques d'internationalisation
+## Internationalization best practices
 
 ```
-RÈGLE                           RATIONALE                          EXEMPLE
+RULE                            RATIONALE                          EXAMPLE
 ──────────────────────────────  ─────────────────────────────────  ────────────────────────────
-Séparer scopé et non scopé      Éviter la duplication inutile      Poids = non scopé, desc = scopé
-Source unique pour la traduction Pas de traduction circulaire       fr_FR → DE, EN, IT (jamais DE → EN)
-Mémoire de traduction (TM)      Cohérence et économies             Glossaire termes produit validés
-Gel des textes source           Éviter retours traducteurs          Statut "Translation Lock" avant export
-Localisation ≠ Traduction       Adapter le fond, pas seulement la forme "Slim Fit" → "Coupe ajustée" (FR)
-Formats locaux                  Éviter les erreurs d'affichage     1.234,56 € (FR) vs £1,234.56 (UK)
+Separate scoped and non-scoped  Avoid needless duplication         Weight = non-scoped, desc = scoped
+Single source for translation   No circular translation            fr_FR → DE, EN, IT (never DE → EN)
+Translation memory (TM)         Consistency and savings            Validated product-term glossary
+Freeze source text              Avoid translator round-trips        "Translation Lock" status before export
+Localization ≠ Translation      Adapt substance, not just form     "Slim Fit" → "Coupe ajustée" (FR)
+Local formats                   Avoid display errors               1.234,56 € (FR) vs £1,234.56 (UK)
 ```
 
-## Configuration locales Akeneo — Template
+## Akeneo locale configuration — Template
 
 ```yaml
 locales:
@@ -58,50 +58,50 @@ locales:
   - nl_NL:   label: "Nederlands"            enabled: true    fallback: null
   - pt_BR:   label: "Português (Brasil)"    enabled: false   fallback: null
 
-# Attributs scopés (à localiser)
+# Scoped attributes (to be localized)
 localized_attributes:
-  - nom_produit
-  - description_courte
-  - description_longue
+  - product_name
+  - short_description
+  - long_description
   - bullet_points
-  - mentions_legales
+  - legal_notices
 
-# Attributs non scopés (une seule valeur)
+# Non-scoped attributes (single value)
 non_localized_attributes:
   - sku
   - ean
-  - poids
-  - dimensions_l
-  - image_principale
+  - weight
+  - dimension_l
+  - main_image
 ```
 
-## Livrables
-- Matrice localisation (locales cibles × attributs × responsables)
-- Workflow de traduction (diagramme + intégration TMS)
-- Glossaire terminologique par marché (termes validés)
-- Configuration des locales PIM et règles de fallback
-- Guide des adaptations locales (réglementations, formats, unités)
-- Rapport de couverture de traduction par locale et canal
+## Deliverables
+- Localization matrix (target locales × attributes × owners)
+- Translation workflow (diagram + TMS integration)
+- Per-market terminology glossary (validated terms)
+- PIM locale configuration and fallback rules
+- Local adaptations guide (regulations, formats, units)
+- Translation coverage report per locale and channel
 
-## Format de sortie
-Précise : **marchés cibles** (pays, langues), **volume de fiches** à localiser, **TMS existant** (Phrase, memoQ, Crowdin…), **PIM cible**, **attributs à localiser** vs **non scopés**, **contraintes réglementaires** locales identifiées.
+## Output format
+Specify: **target markets** (countries, languages), **volume of records** to localize, **existing TMS** (Phrase, memoQ, Crowdin…), **target PIM**, **attributes to localize** vs **non-scoped**, **local regulatory constraints** identified.
 
 ## Anti-patterns
-- ❌ **Traduction circulaire** (DE → EN au lieu d'une source unique fr_FR) : dérive sémantique cumulative → toujours traduire depuis la source maître
-- ❌ **MT sans post-édition humaine** : erreurs terminologiques et réglementaires → post-édition + relecture native
-- ❌ **Localiser = traduire seulement** : ignorer unités, formats, devises, réglementations → adapter le fond (cf. matrice)
-- ❌ **Mentions légales / allergènes auto-traduits sans validation juridique** : risque de non-conformité → gate service juridique
-- ❌ **Pas de gel des textes source** avant export TMS : retours traducteurs en boucle → statut « Translation Lock »
-- ❌ **Pas de mémoire de traduction / glossaire** : incohérence et surcoût → TM + glossaire validés par marché
+- ❌ **Circular translation** (DE → EN instead of a single fr_FR source): cumulative semantic drift → always translate from the master source
+- ❌ **MT without human post-editing**: terminology and regulatory errors → post-editing + native review
+- ❌ **Localizing = translation only**: ignoring units, formats, currencies, regulations → adapt the substance (cf. matrix)
+- ❌ **Legal notices / allergens auto-translated without legal validation**: non-compliance risk → legal-team gate
+- ❌ **No source-text freeze** before TMS export: looping translator round-trips → "Translation Lock" status
+- ❌ **No translation memory / glossary**: inconsistency and extra cost → TM + glossary validated per market
 
 ## Sources
-- **Akeneo PIM** (Serenity) — locales scopées, fallback — help.akeneo.com
-- **BLEU** — Papineni et al., *BLEU: a Method for Automatic Evaluation of MT* (ACL, 2002) ; compléter par chrF/COMET pour la post-édition moderne
-- **ISO 80000** (unités) · **ISO 4217** (devises) · **ISO 639 / ISO 3166** (langues/pays) — normalisation locale — iso.org
-- **Marquages réglementaires** : CE (UE), RoHS, FCC (US), CCC (Chine), PSE (Japon) — validation par marché
+- **Akeneo PIM** (Serenity) — scoped locales, fallback — help.akeneo.com
+- **BLEU** — Papineni et al., *BLEU: a Method for Automatic Evaluation of MT* (ACL, 2002); complement with chrF/COMET for modern post-editing
+- **ISO 80000** (units) · **ISO 4217** (currencies) · **ISO 639 / ISO 3166** (languages/countries) — local normalization — iso.org
+- **Regulatory markings**: CE (EU), RoHS, FCC (US), CCC (China), PSE (Japan) — per-market validation
 
-## Voir aussi
-- [`enrichissement-produit.md`](enrichissement-produit.md) — étape de traduction dans l'enrichissement
-- [`modelisation-catalogue.md`](modelisation-catalogue.md) — attributs scopés vs non scopés
-- [`syndication-canaux.md`](syndication-canaux.md) — diffusion multilingue par marché
-- [`pim-augmente-ia.md`](pim-augmente-ia.md) — pré-traduction assistée par IA
+## See also
+- [`enrichissement-produit.md`](enrichissement-produit.md) — translation step in enrichment
+- [`modelisation-catalogue.md`](modelisation-catalogue.md) — scoped vs non-scoped attributes
+- [`syndication-canaux.md`](syndication-canaux.md) — multilingual distribution per market
+- [`pim-augmente-ia.md`](pim-augmente-ia.md) — AI-assisted pre-translation

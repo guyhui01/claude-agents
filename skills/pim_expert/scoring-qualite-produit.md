@@ -1,103 +1,103 @@
-# Skill — Scoring Qualité du Catalogue Produit
-> Certifications : Akeneo Certified Product Manager · CDMP · inriver Certified Professional
+# Skill — Product Catalog Quality Scoring
+> Certifications: Akeneo Certified Product Manager · CDMP · inriver Certified Professional
 
-## Objectif
-Concevoir et piloter un système de scoring qualité du catalogue : définition des règles métier, calcul du completeness score par canal, dashboards de suivi et mécanismes d'alerte — pour piloter l'enrichissement par la donnée et garantir la publication de fiches complètes et conformes.
+## Objective
+Design and run a catalog quality scoring system: define the business rules, compute the per-channel completeness score, tracking dashboards and alert mechanisms — to drive enrichment with data and guarantee the publishing of complete, compliant records.
 
-## Dimensions du score qualité produit
+## Product quality score dimensions
 
 ```
-DIMENSION          DESCRIPTION                               POIDS    INDICATEURS
+DIMENSION          DESCRIPTION                               WEIGHT   INDICATORS
 ─────────────────  ───────────────────────────────────────   ───────  ──────────────────────────────
-Complétude         Attributs obligatoires remplis            40%      % attributs requis / total
-Exactitude         Cohérence données vs source ERP           25%      % écarts détectés
-Richesse           Attributs optionnels enrichis             15%      % attributs optionnels / total
-Médias             Assets associés (images, vidéos)          10%      Nb médias / nb attendus
-Localisation       Traductions complètes par locale          10%      % locales complètes / locales cibles
+Completeness       Required attributes filled                40%      % of required attributes / total
+Accuracy           Data consistency vs ERP source            25%      % of detected discrepancies
+Richness           Optional attributes enriched              15%      % of optional attributes / total
+Media              Associated assets (images, videos)        10%      # of media / # expected
+Localization       Complete translations per locale          10%      % complete locales / target locales
 ─────────────────────────────────────────────────────────────────────────────────────────────────────
-SCORE GLOBAL       Somme pondérée                            100%     ≥ 90 = Excellent · 75-89 = Bon
+OVERALL SCORE      Weighted sum                              100%     ≥ 90 = Excellent · 75-89 = Good
 ```
 
-## Règles métier de scoring (exemples Akeneo)
+## Scoring business rules (Akeneo examples)
 
 ```yaml
 quality_rules:
-  # Règle 1 — Titre trop court
+  # Rule 1 — Title too short
   - rule: title_too_short
-    condition: length(nom_produit) < 20
+    condition: length(product_name) < 20
     penalty: -15
-    message: "Nom produit trop court (< 20 caractères)"
+    message: "Product name too short (< 20 characters)"
 
-  # Règle 2 — Description sans richesse
+  # Rule 2 — Description lacks richness
   - rule: description_not_rich
-    condition: length(description_longue) < 150
+    condition: length(long_description) < 150
     penalty: -10
-    message: "Description longue insuffisante (< 150 caractères)"
+    message: "Long description insufficient (< 150 characters)"
 
-  # Règle 3 — EAN invalide
+  # Rule 3 — Invalid EAN
   - rule: invalid_ean
     condition: not valid_ean13(ean)
     penalty: -20
-    message: "EAN invalide (chiffre de contrôle incorrect)"
+    message: "Invalid EAN (incorrect check digit)"
 
-  # Règle 4 — Pas d'image principale
+  # Rule 4 — No main image
   - rule: missing_main_image
-    condition: image_principale IS NULL
+    condition: main_image IS NULL
     penalty: -30
-    message: "Image principale manquante — publication bloquée"
+    message: "Main image missing — publishing blocked"
 
-  # Règle 5 — Prix incohérent
+  # Rule 5 — Inconsistent price
   - rule: negative_price
-    condition: prix_public <= 0
+    condition: public_price <= 0
     penalty: -25
-    message: "Prix public nul ou négatif"
+    message: "Public price zero or negative"
 ```
 
-## Dashboard qualité — Structure recommandée
+## Quality dashboard — Recommended structure
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  SCORECARD CATALOGUE PRODUIT — Semaine 21 / 2026                    │
+│  PRODUCT CATALOG SCORECARD — Week 21 / 2026                         │
 ├──────────────────┬──────────────────┬──────────────────────────────┤
-│ Score global     │ 87.3 / 100       │ ▲ +2.1 vs semaine précédente │
+│ Overall score    │ 87.3 / 100       │ ▲ +2.1 vs previous week       │
 ├──────────────────┼──────────────────┼──────────────────────────────┤
-│ Complétude       │ 91%              │ Canal e-com : 96% / print 85%│
-│ Exactitude       │ 98.5%            │ 12 écarts ERP détectés       │
-│ Richesse         │ 78%              │ 340 fiches sans desc. longue  │
-│ Médias           │ 82%              │ 210 fiches sans image secon.  │
-│ Localisation     │ 73%              │ DE manquant sur 450 fiches    │
+│ Completeness     │ 91%              │ E-com channel: 96% / print 85%│
+│ Accuracy         │ 98.5%            │ 12 ERP discrepancies detected │
+│ Richness         │ 78%              │ 340 records without long desc.│
+│ Media            │ 82%              │ 210 records without 2nd image │
+│ Localization     │ 73%              │ DE missing on 450 records     │
 ├──────────────────┼──────────────────┼──────────────────────────────┤
-│ Backlog critique │ 48 fiches < 60   │ ⚠️ À enrichir avant J+3      │
-│ Publication OK   │ 12 450 fiches    │ 95% du catalogue actif        │
+│ Critical backlog │ 48 records < 60  │ ⚠️ Enrich before D+3         │
+│ Published OK     │ 12,450 records   │ 95% of the active catalog     │
 └──────────────────┴──────────────────┴──────────────────────────────┘
 ```
 
-## Livrables
-- Grille de scoring qualité (dimensions, poids, formules de calcul)
-- Catalogue de règles métier (avec pénalités et messages d'alerte)
-- Configuration du completeness score dans le PIM par canal
-- Dashboard qualité (Power BI / Grafana / natif PIM)
-- Rapport hebdomadaire qualité (top anomalies, tendances, actions)
-- Plan d'amélioration qualité (roadmap enrichissement priorisée)
+## Deliverables
+- Quality scoring grid (dimensions, weights, calculation formulas)
+- Business rules catalog (with penalties and alert messages)
+- Per-channel completeness score configuration in the PIM
+- Quality dashboard (Power BI / Grafana / native PIM)
+- Weekly quality report (top anomalies, trends, actions)
+- Quality improvement plan (prioritized enrichment roadmap)
 
-## Format de sortie
-Précise : **PIM utilisé**, **canaux à scorer** (e-com, print, marketplace…), **locales cibles**, **seuil de publication** (100% requis ou tolérance ?), **outils BI disponibles** pour le dashboard.
+## Output format
+Specify: **PIM used**, **channels to score** (e-com, print, marketplace…), **target locales**, **publishing threshold** (100% required or some tolerance?), **available BI tools** for the dashboard.
 
 ## Anti-patterns
-- ❌ **Pondérations et pénalités arbitraires** non calibrées sur des cas réels (pourquoi -15 vs -20 ?) : score non représentatif → calibrer sur l'historique
-- ❌ **Score sans seuil bloquant de publication** : des fiches médiocres passent en ligne → gate completeness/score
-- ❌ **Mesurer la complétude sans l'exactitude** (cohérence vs ERP) : faux sentiment de qualité → inclure l'exactitude
-- ❌ **Dashboard sans backlog priorisé** : score contemplatif → relier chaque anomalie à une action d'enrichissement
-- ❌ **Dimensions/poids identiques pour tous les canaux** : non pertinent (print ≠ marketplace) → scoring scopé
-- ❌ **Scorer sans valider l'EAN** (chiffre de contrôle GS1) : identifiants faux non détectés → règle EAN bloquante
+- ❌ **Arbitrary weights and penalties** not calibrated on real cases (why -15 vs -20?): unrepresentative score → calibrate on history
+- ❌ **Score with no blocking publishing threshold**: mediocre records go live → completeness/score gate
+- ❌ **Measuring completeness without accuracy** (consistency vs ERP): false sense of quality → include accuracy
+- ❌ **Dashboard with no prioritized backlog**: a contemplative score → tie each anomaly to an enrichment action
+- ❌ **Identical dimensions/weights for all channels**: not relevant (print ≠ marketplace) → scoped scoring
+- ❌ **Scoring without validating the EAN** (GS1 check digit): false identifiers not detected → blocking EAN rule
 
 ## Sources
-- **Akeneo PIM** (Serenity) — completeness score natif par canal/locale — help.akeneo.com
-- **DAMA-DMBOK 2** (2017) · **ISO 8000** — 5 dimensions de qualité (complétude, exactitude, cohérence, unicité, actualité) — dama.org / iso.org
-- **GS1 General Specifications v24.0** (2024) — validation EAN-13/GTIN — gs1.org
+- **Akeneo PIM** (Serenity) — native per channel/locale completeness score — help.akeneo.com
+- **DAMA-DMBOK 2** (2017) · **ISO 8000** — 5 quality dimensions (completeness, accuracy, consistency, uniqueness, timeliness) — dama.org / iso.org
+- **GS1 General Specifications v24.0** (2024) — EAN-13/GTIN validation — gs1.org
 
-## Voir aussi
-- [`kpis-catalogue.md`](kpis-catalogue.md) — score qualité comme KPI de pilotage
-- [`enrichissement-produit.md`](enrichissement-produit.md) — actions d'enrichissement issues du score
-- [`gouvernance-donnees-produit.md`](gouvernance-donnees-produit.md) — règles métier et data quality
-- [`onboarding-donnees-produit.md`](onboarding-donnees-produit.md) — contrôle qualité dès l'entrée
+## See also
+- [`kpis-catalogue.md`](kpis-catalogue.md) — quality score as a steering KPI
+- [`enrichissement-produit.md`](enrichissement-produit.md) — enrichment actions driven by the score
+- [`gouvernance-donnees-produit.md`](gouvernance-donnees-produit.md) — business rules and data quality
+- [`onboarding-donnees-produit.md`](onboarding-donnees-produit.md) — quality control on entry

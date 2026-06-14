@@ -1,109 +1,109 @@
-# Skill — Modélisation du Catalogue Produit
-> Certifications : Akeneo Certified Product Manager · Pimcore Certified Developer · DAMA DMBOK2
+# Skill — Product Catalog Modeling
+> Certifications: Akeneo Certified Product Manager · Pimcore Certified Developer · DAMA DMBOK2
 
-## Objectif
-Concevoir le modèle de données du catalogue produit : arborescence des catégories, familles de produits, groupes d'attributs, gestion des variantes et des unités de mesure — en garantissant scalabilité, cohérence et maintenabilité à long terme.
+## Objective
+Design the product catalog's data model: category taxonomy, product families, attribute groups, variant and unit-of-measure management — guaranteeing scalability, consistency and long-term maintainability.
 
-## Structure du modèle de données PIM
-
-```
-CATALOGUE
-├── Catégories (arborescence hiérarchique)
-│   ├── Niveau 1 : Univers (ex. Électronique)
-│   ├── Niveau 2 : Famille (ex. Smartphones)
-│   └── Niveau 3 : Sous-famille (ex. Android 5G)
-│
-├── Familles de produits (structure d'attributs)
-│   ├── Attributs communs (tous produits)
-│   ├── Attributs spécifiques à la famille
-│   └── Groupes d'attributs (affichage éditeur)
-│
-├── Produits
-│   ├── Produit simple (1 SKU)
-│   ├── Produit configurable (avec variantes)
-│   └── Produit bundle (association de SKUs)
-│
-└── Variantes (axes de déclinaison)
-    ├── Axe 1 : Couleur
-    ├── Axe 2 : Taille
-    └── Axe 3 : Capacité
-```
-
-## Types d'attributs et bonnes pratiques
+## PIM data model structure
 
 ```
-TYPE             USAGE                          EXEMPLE                   PIÈGE À ÉVITER
+CATALOG
+├── Categories (hierarchical taxonomy)
+│   ├── Level 1: Universe (e.g. Electronics)
+│   ├── Level 2: Family (e.g. Smartphones)
+│   └── Level 3: Sub-family (e.g. Android 5G)
+│
+├── Product families (attribute structure)
+│   ├── Common attributes (all products)
+│   ├── Family-specific attributes
+│   └── Attribute groups (editor display)
+│
+├── Products
+│   ├── Simple product (1 SKU)
+│   ├── Configurable product (with variants)
+│   └── Bundle product (combination of SKUs)
+│
+└── Variants (variation axes)
+    ├── Axis 1: Color
+    ├── Axis 2: Size
+    └── Axis 3: Capacity
+```
+
+## Attribute types and best practices
+
+```
+TYPE             USE                            EXAMPLE                   PITFALL TO AVOID
 ───────────────  ─────────────────────────────  ────────────────────────  ───────────────────────────
-Text             Libellé court non traduit      Code EAN, référence SKU   Pas de traduction nécessaire
-TextArea         Description longue             Description marketing     Ne pas confondre avec RTE
-RichText         Contenu mis en forme           Caractéristiques tech.    Complexité import/export
-Number           Valeur numérique               Poids, prix, dimensions   Préciser les unités
-Boolean          Oui/Non                        Produit certifié Bio ?    Ne pas l'utiliser pour l'état
-Select           Liste fermée mono-valeur       Couleur principale        Ne pas dépasser 200 options
-MultiSelect      Liste fermée multi-valeurs     Certifications produit    Explosion combinatoire
-Date             Date ISO 8601                  Date de lancement         Timezone à normaliser
-Asset            Lien vers DAM                  Photo packshot, vidéo     Pas de binaire dans le PIM
-Metric           Valeur + unité                 500 ml, 2.5 kg            Toujours définir unité par défaut
+Text             Short untranslated label       EAN code, SKU reference   No translation needed
+TextArea         Long description               Marketing description     Don't confuse with RTE
+RichText         Formatted content             Technical specs           Import/export complexity
+Number           Numeric value                  Weight, price, dimensions Specify the units
+Boolean          Yes/No                         Organic-certified product? Don't use it for state
+Select           Closed single-value list       Main color                Don't exceed 200 options
+MultiSelect      Closed multi-value list        Product certifications    Combinatorial explosion
+Date             ISO 8601 date                  Launch date               Timezone to normalize
+Asset            Link to DAM                    Packshot photo, video     No binary in the PIM
+Metric           Value + unit                   500 ml, 2.5 kg            Always define a default unit
 ```
 
-## Template de modélisation — fiche famille
+## Modeling template — family sheet
 
 ```
-FAMILLE : [NOM]
+FAMILY: [NAME]
 ──────────────────────────────────────────────────────────────────────
-Axes de variantes : [Couleur] × [Taille]
-Canaux de publication : [E-commerce] [Print] [B2B Portal]
-Locales : [fr_FR] [en_GB] [de_DE]
+Variant axes: [Color] × [Size]
+Publishing channels: [E-commerce] [Print] [B2B Portal]
+Locales: [fr_FR] [en_GB] [de_DE]
 
-GROUPE D'ATTRIBUTS : Identification
-  □ sku                   Text        Obligatoire  Non scopé
-  □ ean                   Text        Obligatoire  Non scopé
-  □ nom_produit           Text        Obligatoire  Scopé (canal + locale)
-  □ marque                Select      Obligatoire  Non scopé
+ATTRIBUTE GROUP: Identification
+  □ sku                   Text        Required     Not scoped
+  □ ean                   Text        Required     Not scoped
+  □ product_name          Text        Required     Scoped (channel + locale)
+  □ brand                 Select      Required     Not scoped
 
-GROUPE D'ATTRIBUTS : Description
-  □ description_courte    TextArea    Optionnel    Scopé (locale)
-  □ description_longue    RichText    Optionnel    Scopé (locale)
-  □ points_cles           MultiSelect Optionnel    Scopé (locale)
+ATTRIBUTE GROUP: Description
+  □ short_description     TextArea    Optional     Scoped (locale)
+  □ long_description      RichText    Optional     Scoped (locale)
+  □ key_points            MultiSelect Optional     Scoped (locale)
 
-GROUPE D'ATTRIBUTS : Caractéristiques techniques
-  □ poids                 Metric      Obligatoire  Non scopé
-  □ dimensions_l          Metric      Obligatoire  Non scopé
-  □ materiau              MultiSelect Optionnel    Non scopé
-  □ certifications        MultiSelect Optionnel    Non scopé
+ATTRIBUTE GROUP: Technical specs
+  □ weight                Metric      Required     Not scoped
+  □ dimension_l           Metric      Required     Not scoped
+  □ material              MultiSelect Optional     Not scoped
+  □ certifications        MultiSelect Optional     Not scoped
 
-GROUPE D'ATTRIBUTS : Médias
-  □ image_principale      Asset       Obligatoire  Scopé (canal)
-  □ images_secondaires    Asset[]     Optionnel    Scopé (canal)
-  □ video_produit         Asset       Optionnel    Scopé (canal)
+ATTRIBUTE GROUP: Media
+  □ main_image            Asset       Required     Scoped (channel)
+  □ secondary_images      Asset[]     Optional     Scoped (channel)
+  □ product_video         Asset       Optional     Scoped (channel)
 ```
 
-## Livrables
-- Dictionnaire de données produit (tous attributs, types, contraintes, cardinalités)
-- Arborescence catégories validée (jusqu'à N+3 niveaux)
-- Matrice familles × attributs × canaux × locales
-- Règles de nommage et conventions (codes familles, groupes)
-- Documentation de la modélisation (pour équipes data et éditeurs)
+## Deliverables
+- Product data dictionary (all attributes, types, constraints, cardinalities)
+- Validated category taxonomy (up to L+3 levels)
+- Family × attribute × channel × locale matrix
+- Naming rules and conventions (family codes, groups)
+- Modeling documentation (for data teams and editors)
 
-## Format de sortie
-Précise : **secteur** (retail, industrie, B2B…), **nombre de références** estimé, **canaux de distribution** cibles, **locales** et **PIM cible** (Akeneo, Pimcore, Salsify, inriver…).
+## Output format
+Specify: **sector** (retail, industry, B2B…), estimated **number of references**, target **distribution channels**, **locales** and **target PIM** (Akeneo, Pimcore, Salsify, inriver…).
 
 ## Anti-patterns
-- ❌ **Arborescence trop profonde** (> N+3 niveaux) : maintenance lourde, navigation illisible → privilégier la largeur + attributs
-- ❌ **Catégories « maison » ignorant un standard** (GS1 GPC, ETIM) : pas d'interopérabilité pour la syndication marketplace → mapper sur GPC/ETIM
-- ❌ **`Number` sans unité** au lieu de `Metric` : ambiguïté (2,5 = kg ? L ?) → type `Metric` + unité par défaut
-- ❌ **`Select` > 200 options** ou MultiSelect non maîtrisé : explosion combinatoire → revoir le modèle
-- ❌ **Binaire stocké dans le PIM** (image en base) : performance et gouvernance dégradées → type `Asset` pointant vers le DAM
-- ❌ **Pas de gestion des variantes** (axes couleur/taille) : explosion de SKUs indépendants → produits configurables
+- ❌ **Taxonomy too deep** (> L+3 levels): heavy maintenance, unreadable navigation → favor breadth + attributes
+- ❌ **"Home-grown" categories ignoring a standard** (GS1 GPC, ETIM): no interoperability for marketplace syndication → map to GPC/ETIM
+- ❌ **`Number` without a unit** instead of `Metric`: ambiguity (2.5 = kg? L?) → `Metric` type + default unit
+- ❌ **`Select` > 200 options** or unmanaged MultiSelect: combinatorial explosion → revisit the model
+- ❌ **Binary stored in the PIM** (image in the database): degraded performance and governance → `Asset` type pointing to the DAM
+- ❌ **No variant management** (color/size axes): explosion of independent SKUs → configurable products
 
 ## Sources
-- **GS1 General Specifications v24.0** (2024) — GPC (Global Product Classification, 4 niveaux : Segment/Family/Class/Brick) · GTIN/GLN — gs1.org/standards/gpc
-- **ETIM 10.0** (ETIM International, déc. 2024 — 5 640 classes) — classification des produits techniques — etim-international.com
-- **Schema.org Product** — vocabulaire produit pour le web/SEO — schema.org/Product
-- **ISO 80000** — grandeurs et unités (attributs `Metric`) · **ISO 8601** — dates · **DAMA-DMBOK 2** (2017) — dama.org
+- **GS1 General Specifications v24.0** (2024) — GPC (Global Product Classification, 4 levels: Segment/Family/Class/Brick) · GTIN/GLN — gs1.org/standards/gpc
+- **ETIM 10.0** (ETIM International, Dec. 2024 — 5,640 classes) — classification of technical products — etim-international.com
+- **Schema.org Product** — product vocabulary for web/SEO — schema.org/Product
+- **ISO 80000** — quantities and units (`Metric` attributes) · **ISO 8601** — dates · **DAMA-DMBOK 2** (2017) — dama.org
 
-## Voir aussi
-- [`enrichissement-produit.md`](enrichissement-produit.md) — workflow d'enrichissement du modèle
-- [`gouvernance-donnees-produit.md`](gouvernance-donnees-produit.md) — golden record et sources de vérité
-- [`syndication-canaux.md`](syndication-canaux.md) — mapping GS1/Schema.org pour la diffusion
-- [`onboarding-donnees-produit.md`](onboarding-donnees-produit.md) — alimentation du modèle depuis les sources
+## See also
+- [`enrichissement-produit.md`](enrichissement-produit.md) — model enrichment workflow
+- [`gouvernance-donnees-produit.md`](gouvernance-donnees-produit.md) — golden record and sources of truth
+- [`syndication-canaux.md`](syndication-canaux.md) — GS1/Schema.org mapping for distribution
+- [`onboarding-donnees-produit.md`](onboarding-donnees-produit.md) — feeding the model from the sources

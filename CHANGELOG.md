@@ -1,7 +1,30 @@
 # Changelog — Claude Agents Library
 
-> Journal de suivi des modifications du catalogue.
-> Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) · Versionnement [SemVer](https://semver.org/lang/fr/).
+> Change log for the catalog.
+> Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) · Versioning [SemVer](https://semver.org/).
+> Note: entries are written in US English from this point onward; earlier entries are kept in French as a frozen historical record.
+
+---
+
+## [Unreleased] — Documentation internationalization (FR → US English) — Category A
+> Model: Claude Opus 4.8
+
+### 🎯 Context
+First batch (Category A) of the FR → US English internationalization for the public showcase: translate all human-facing documentation. Goal is display, so validation is **static only** (no live runs, no token cost). Category C is never touched (IDs, file names, paths, schema keys, MCP tool names, commands).
+
+### 📝 Changed
+- Translated to US English: `README.md`, `docs/i18n_glossary.md`, `START.md`, `workflows/README.md`, `mcp-servers/README.md`, and the human-readable values of `mcp-servers/claude_code_settings.json`.
+- **CHANGELOG language policy**: new entries are written in US English from this entry onward; earlier entries remain in French (frozen historical record).
+- Fixed stale install paths `claude-catalogue` → `claude-agents`; corrected agent count `32` → `38` in `workflows/README.md`; aligned WF-005 display name to "Strategic Watch & Growth" across files.
+- Fixed reversed `.gitignore` guidance for sensitive data (`mcp-servers/README.md`).
+
+### 🔒 Privacy / hygiene
+- Redacted PII: replaced the personal email in `mcp-servers/claude_code_settings.json` with `<your-email>`.
+- Removed all mentions of the former company (default report author in `mcp-servers/mcp-confluence/server.ts`; `audits/CARTOGRAPHIE-SKILLS-CORE-MISSION.md`).
+
+### Notes
+- Catalog counters unchanged (38 agents / 37 skills / 10 workflows / 3 MCP servers).
+- Out of scope (later lots): repo `CLAUDE.md` (Category A); Category B (agent prompts, workflow bodies). CHANGELOG history kept frozen.
 
 ---
 

@@ -1,23 +1,23 @@
-# Skill — Architecture Zero Trust
-> Certifications : CISSP · AWS Security Specialty · AZ-500 · Google PCSE
+# Skill — Zero Trust Architecture
+> Certifications: CISSP · AWS Security Specialty · AZ-500 · Google PCSE
 
-## Objectif
-Implémenter une architecture Zero Trust pour les systèmes IA : "Never Trust, Always Verify" appliqué aux LLMs, APIs et pipelines de données.
+## Objective
+Implement a Zero Trust architecture for AI systems: "Never Trust, Always Verify" applied to LLMs, APIs and data pipelines.
 
-## Principes Zero Trust (NIST SP 800-207)
+## Zero Trust principles (NIST SP 800-207)
 ```
-1. Toutes les ressources sont considérées comme hostiles
-2. L'accès est accordé sur le principe du moindre privilège
-3. Chaque demande d'accès est authentifiée, autorisée et chiffrée
-4. Les accès sont dynamiques et réévalués en continu
-5. Toutes les transactions sont loggées et auditées
+1. All resources are considered hostile
+2. Access is granted on the principle of least privilege
+3. Every access request is authenticated, authorized and encrypted
+4. Access is dynamic and continuously re-evaluated
+5. Every transaction is logged and audited
 ```
 
-## Architecture Zero Trust pour les systèmes IA
+## Zero Trust architecture for AI systems
 
 ### Identity & Access (IAM)
 ```python
-# Politique IAM pour un agent IA (AWS)
+# IAM policy for an AI agent (AWS)
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -25,8 +25,8 @@ Implémenter une architecture Zero Trust pour les systèmes IA : "Never Trust, A
             "Sid": "LLMAgentMinimalAccess",
             "Effect": "Allow",
             "Action": [
-                "s3:GetObject",      # Lecture seule sur bucket spécifique
-                "bedrock:InvokeModel" # LLM spécifique seulement
+                "s3:GetObject",      # Read-only on a specific bucket
+                "bedrock:InvokeModel" # Specific LLM only
             ],
             "Resource": [
                 "arn:aws:s3:::data-lake-prod/rag-knowledge-base/*",
@@ -43,21 +43,21 @@ Implémenter une architecture Zero Trust pour les systèmes IA : "Never Trust, A
 
 ### Network Segmentation
 ```
-Zones réseau pour un système IA :
+Network zones for an AI system:
   Zone 1 (DMZ)           : API Gateway, WAF, Load Balancer
   Zone 2 (Application)   : LLM Service, RAG Service, Agent Runtime
   Zone 3 (Data)          : Vector DB, Data Lake, Model Registry
   Zone 4 (Management)    : Logging, Monitoring, CI/CD
 
-Règles :
-  → Zone 1 → Zone 2 : HTTPS/443 seulement, JWT vérifié
-  → Zone 2 → Zone 3 : mTLS, allowlist d'IPs
-  → Zone 4 : accès management uniquement, MFA requis
+Rules:
+  → Zone 1 → Zone 2: HTTPS/443 only, JWT verified
+  → Zone 2 → Zone 3: mTLS, IP allowlist
+  → Zone 4: management access only, MFA required
 ```
 
-### Service Mesh (mTLS entre microservices)
+### Service Mesh (mTLS between microservices)
 ```yaml
-# Istio PeerAuthentication — mTLS strict
+# Istio PeerAuthentication — strict mTLS
 apiVersion: security.istio.io/v1beta1
 kind: PeerAuthentication
 metadata:
@@ -65,10 +65,10 @@ metadata:
   namespace: llm-services
 spec:
   mtls:
-    mode: STRICT  # Rejette tout trafic non-mTLS
+    mode: STRICT  # Rejects all non-mTLS traffic
 
 ---
-# AuthorizationPolicy — principe du moindre privilège
+# AuthorizationPolicy — principle of least privilege
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
 metadata:
@@ -88,7 +88,7 @@ spec:
         paths: ["/api/v1/inference"]
 ```
 
-### Audit & Monitoring continu
+### Continuous Audit & Monitoring
 ```python
 import logging
 from datetime import datetime
@@ -100,31 +100,31 @@ def audit_llm_request(user_id: str, model: str, prompt_hash: str,
         "user_id": user_id,
         "session_id": session.id,
         "model": model,
-        "prompt_hash": prompt_hash,  # Ne pas logger le prompt en clair (PII)
+        "prompt_hash": prompt_hash,  # Do not log the prompt in clear text (PII)
         "tokens_input": tokens_used,
         "action": action_taken,
         "source_ip": request.client.host,
         "user_agent": request.headers.get("user-agent")
     }
-    # Envoi immutable (WORM) vers SIEM
+    # Immutable (WORM) send to the SIEM
     siem_logger.info(audit_log)
 ```
 
-## Checklist Zero Trust pour les projets IA
-- [ ] MFA obligatoire pour tous les accès humains
-- [ ] Service accounts avec permissions minimales
-- [ ] mTLS entre tous les services
-- [ ] Chiffrement at rest (AES-256) + in transit (TLS 1.3)
-- [ ] Rotation automatique des secrets (< 90 jours)
-- [ ] Audit logs immuables (minimum 1 an)
-- [ ] Network policies Kubernetes restrictives
-- [ ] WAF devant toutes les APIs publiques
+## Zero Trust checklist for AI projects
+- [ ] Mandatory MFA for all human access
+- [ ] Service accounts with minimal permissions
+- [ ] mTLS between all services
+- [ ] Encryption at rest (AES-256) + in transit (TLS 1.3)
+- [ ] Automatic secret rotation (< 90 days)
+- [ ] Immutable audit logs (at least 1 year)
+- [ ] Restrictive Kubernetes network policies
+- [ ] WAF in front of all public APIs
 
-## Livrables
-- Architecture Zero Trust documentée (diagramme)
-- Politiques IAM par composant
-- Configuration Service Mesh (Istio)
-- Rapport d'audit de conformité ZT
+## Deliverables
+- Documented Zero Trust architecture (diagram)
+- IAM policies per component
+- Service Mesh configuration (Istio)
+- ZT compliance audit report
 
-## Format de sortie
-Précise : infrastructure cloud · composants du système IA · menaces prioritaires · réglementation (NIS2, ISO 27001) · niveau de maturité ZT actuel
+## Output format
+Specify: cloud infrastructure · AI system components · priority threats · regulation (NIS2, ISO 27001) · current ZT maturity level

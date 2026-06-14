@@ -1,30 +1,30 @@
-# Skill — Réponse aux Incidents de Sécurité IA
-> Certifications : CISSP · CISM · CompTIA Security+
+# Skill — AI Security Incident Response
+> Certifications: CISSP · CISM · CompTIA Security+
 
-## Objectif
-Détecter, contenir et remédier aux incidents de sécurité impactant les systèmes IA, avec des procédures adaptées aux spécificités des LLMs.
+## Objective
+Detect, contain and remediate security incidents impacting AI systems, with procedures tailored to LLM specifics.
 
-## Processus PICERL adapté à l'IA
+## PICERL process adapted to AI
 
-### Préparation
+### Preparation
 ```
-Équipe IRT IA :
-  → RSSI / Security Lead
-  → Responsable IA / MLOps
-  → DPO (si données personnelles)
-  → Communication (si incident public)
-  → Juridique (si réglementaire)
+AI IRT team:
+  → CISO / Security Lead
+  → AI / MLOps Lead
+  → DPO (if personal data)
+  → Communications (if public incident)
+  → Legal (if regulatory)
 
-Outils à avoir en place :
-  → SIEM avec règles IA actives
-  → Runbooks documentés par type d'incident
-  → Sandbox isolée pour l'analyse forensique
-  → Contacts CERT-FR, ANSSI
+Tools to have in place:
+  → SIEM with active AI rules
+  → Documented runbooks per incident type
+  → Isolated sandbox for forensic analysis
+  → CERT-FR, ANSSI contacts
 ```
 
-### Identification (< 15 min pour critiques)
+### Identification (< 15 min for critical)
 ```python
-# Classification automatique des alertes
+# Automatic alert classification
 INCIDENT_SEVERITY = {
     "prompt_injection_confirmed": "CRITICAL",
     "data_exfiltration_suspected": "CRITICAL",
@@ -38,7 +38,7 @@ INCIDENT_SEVERITY = {
 def classify_incident(alert_type: str, context: dict) -> str:
     base_severity = INCIDENT_SEVERITY.get(alert_type, "LOW")
     
-    # Escalade si données sensibles impliquées
+    # Escalate if sensitive data is involved
     if context.get("data_classification") in ["PII", "CONFIDENTIAL"]:
         if base_severity == "HIGH": return "CRITICAL"
         if base_severity == "MEDIUM": return "HIGH"
@@ -46,174 +46,174 @@ def classify_incident(alert_type: str, context: dict) -> str:
     return base_severity
 ```
 
-### Confinement (< 30 min pour HIGH/CRITICAL)
+### Containment (< 30 min for HIGH/CRITICAL)
 ```python
-# Playbook de confinement automatisé
+# Automated containment playbook
 class IncidentContainment:
     async def contain_compromised_user(self, user_id: str, reason: str):
-        # 1. Révoquer tous les tokens actifs
+        # 1. Revoke all active tokens
         await self.revoke_all_sessions(user_id)
         
-        # 2. Bloquer la clé API
+        # 2. Disable the API key
         await self.disable_api_key(user_id)
         
-        # 3. Blacklister l'IP (si connue)
+        # 3. Blacklist the IP (if known)
         await self.block_ip(self.get_last_ip(user_id))
         
-        # 4. Capturer l'état pour investigation
+        # 4. Capture state for investigation
         await self.snapshot_user_activity(user_id, lookback_hours=24)
         
-        # 5. Notifier
+        # 5. Notify
         await self.notify_security_team(user_id, reason, severity="HIGH")
     
     async def isolate_compromised_model(self, model_id: str):
-        # Retirer le modèle du trafic de production
+        # Remove the model from production traffic
         await self.update_traffic_weight(model_id, weight=0)
         await self.rollback_to_previous_version(model_id)
         await self.audit_all_inferences(model_id, lookback_days=7)
 ```
 
-### Éradication et Remédiation — 6 runbooks par type d'incident
+### Eradication and Remediation — 6 runbooks per incident type
 
 #### Runbook 1 — Prompt Injection (OWASP LLM01)
 ```
-1. Isoler la session/utilisateur compromis (revoke_all_sessions)
-2. Capturer le payload exact et le contexte (logs LangSmith/Helicone)
-3. Analyser le vecteur : direct (user input) ou indirect (RAG/tool output)
-4. Auditer les actions effectuées par l'agent durant l'attaque
-   → tool_calls exécutés, données accédées, emails envoyés, etc.
-5. Patcher la validation d'entrée (allowlist, sanitization, content_filter)
-6. Mettre à jour le system prompt avec guardrails renforcés
-7. Re-jouer le payload en sandbox pour vérifier la correction
-8. Notifier les utilisateurs impactés si données personnelles touchées
+1. Isolate the compromised session/user (revoke_all_sessions)
+2. Capture the exact payload and context (LangSmith/Helicone logs)
+3. Analyze the vector: direct (user input) or indirect (RAG/tool output)
+4. Audit the actions performed by the agent during the attack
+   → tool_calls executed, data accessed, emails sent, etc.
+5. Patch input validation (allowlist, sanitization, content_filter)
+6. Update the system prompt with reinforced guardrails
+7. Replay the payload in a sandbox to verify the fix
+8. Notify affected users if personal data was touched
 ```
 
 #### Runbook 2 — Data Poisoning (OWASP LLM04)
 ```
-1. Geler les ingestions en cours (kill switch pipeline RAG)
-2. Identifier les documents corrompus (logs d'ingestion + diff snapshots)
-3. Quantifier l'impact : combien de requêtes ont utilisé ces chunks ?
-4. Purger le vector store + re-ingérer les sources saines depuis backup
-5. Ré-évaluer le modèle fine-tuné si applicable (mesure du drift)
-6. Renforcer la validation d'ingestion (source verification, hash, signing)
-7. Mettre en place anomaly detection sur les futurs embeddings
-8. Post-mortem : comment les docs corrompus sont entrés ?
+1. Freeze ongoing ingestions (RAG pipeline kill switch)
+2. Identify the corrupted documents (ingestion logs + snapshot diffs)
+3. Quantify the impact: how many requests used these chunks?
+4. Purge the vector store + re-ingest clean sources from backup
+5. Re-evaluate the fine-tuned model if applicable (drift measurement)
+6. Reinforce ingestion validation (source verification, hash, signing)
+7. Put anomaly detection in place on future embeddings
+8. Post-mortem: how did the corrupted docs get in?
 ```
 
 #### Runbook 3 — Model Theft / Extraction (OWASP LLM10)
 ```
-1. Identifier l'attaquant (IP, clés API, user-agent, pattern de requêtes)
-2. Invalider toutes les clés API exposées ou suspectes
-3. Bloquer l'IP/range au niveau WAF/Cloudflare
-4. Implémenter watermarking sur les outputs (canary tokens dans réponses)
-5. Renforcer le rate limiting (par IP, par user, par clé)
-6. Activer monitoring spécifique (volume anormal, queries répétitives)
-7. Si modèle propriétaire copié → déposer plainte + cease & desist
-8. Réviser la stratégie d'exposition (API publique vs internal only)
+1. Identify the attacker (IP, API keys, user-agent, request pattern)
+2. Invalidate all exposed or suspicious API keys
+3. Block the IP/range at the WAF/Cloudflare level
+4. Implement watermarking on the outputs (canary tokens in responses)
+5. Reinforce rate limiting (per IP, per user, per key)
+6. Enable specific monitoring (abnormal volume, repetitive queries)
+7. If a proprietary model was copied → file a complaint + cease & desist
+8. Review the exposure strategy (public API vs internal only)
 ```
 
 #### Runbook 4 — Data Exfiltration (OWASP LLM06)
 ```
-1. Couper immédiatement le système concerné (kubectl scale --replicas=0)
-2. Identifier les données exposées : type (PII/santé/finance), volume, période
-3. Snapshot des logs pour preuves (chain of custody)
-4. Notifier DPO + RSSI + Juridique (déclenchement protocole RGPD)
-5. Notification CNIL sous 72h (Art. 33) + personnes concernées si Art. 34
-6. Analyser la cause : sur-permissions ? injection ? mauvaise config RAG ?
-7. Corriger le système prompt (DLP guardrails, PII masking)
-8. Red teaming avant remise en prod (tests d'exfiltration similaires)
-9. Notifier le CERT-FR / ANSSI si incident d'ampleur
+1. Immediately shut down the affected system (kubectl scale --replicas=0)
+2. Identify the exposed data: type (PII/health/finance), volume, time window
+3. Snapshot the logs for evidence (chain of custody)
+4. Notify DPO + CISO + Legal (trigger the GDPR protocol)
+5. CNIL notification within 72h (Art. 33) + data subjects if Art. 34
+6. Analyze the cause: over-permissions? injection? misconfigured RAG?
+7. Fix the system prompt (DLP guardrails, PII masking)
+8. Red teaming before going back to prod (similar exfiltration tests)
+9. Notify CERT-FR / ANSSI if it is a large-scale incident
 ```
 
 #### Runbook 5 — Denial of Service / Token Burn (OWASP LLM04)
 ```
-1. Identifier la source de la charge anormale (IP, user, endpoint)
-2. Couper la source (block IP, désactiver clé API, kill threads agentiques)
-3. Mettre en file d'attente les requêtes légitimes (Redis queue + circuit breaker)
-4. Quantifier le coût engagé (Anthropic Console + token_cost metric)
-5. Activer rate limiting d'urgence (10 req/min par user max)
-6. Si boucle agent → ajouter max_iterations strict + termination condition
-7. Si bombe prompt (10k tokens) → max_input_tokens dans le gateway
-8. Post-mortem : pourquoi le circuit breaker n'a pas déclenché ?
+1. Identify the source of the abnormal load (IP, user, endpoint)
+2. Cut off the source (block IP, disable API key, kill agentic threads)
+3. Queue legitimate requests (Redis queue + circuit breaker)
+4. Quantify the cost incurred (Anthropic Console + token_cost metric)
+5. Enable emergency rate limiting (10 req/min per user max)
+6. If an agent loop → add a strict max_iterations + termination condition
+7. If a prompt bomb (10k tokens) → max_input_tokens in the gateway
+8. Post-mortem: why didn't the circuit breaker trip?
 ```
 
 #### Runbook 6 — Auth Bypass / Privilege Escalation
 ```
-1. Révoquer toutes les sessions/JWT actifs (rotate signing key)
-2. Identifier le mécanisme exploité (faille code, prompt injection, MFA bypass)
-3. Auditer les actions effectuées avec privilèges escaladés (audit log SIEM)
-4. Bloquer les comptes compromis (forcer reset password + MFA)
-5. Patcher la vulnérabilité (CVE tracking si lib tierce)
-6. Réviser les rôles RBAC/ABAC : principe du moindre privilège
-7. Renforcer l'authentification (MFA obligatoire, WebAuthn pour admins)
-8. Tester avec OWASP ZAP / Burp Suite avant remise en prod
-9. Communiquer aux utilisateurs si nécessaire (changement de mot de passe)
+1. Revoke all active sessions/JWTs (rotate signing key)
+2. Identify the exploited mechanism (code flaw, prompt injection, MFA bypass)
+3. Audit the actions performed with escalated privileges (SIEM audit log)
+4. Block compromised accounts (force password reset + MFA)
+5. Patch the vulnerability (CVE tracking if third-party lib)
+6. Review the RBAC/ABAC roles: principle of least privilege
+7. Reinforce authentication (mandatory MFA, WebAuthn for admins)
+8. Test with OWASP ZAP / Burp Suite before going back to prod
+9. Communicate to users if necessary (password change)
 ```
 
-### Template RCA (Root Cause Analysis) — méthode 5 Whys
+### RCA template (Root Cause Analysis) — 5 Whys method
 
 ```
-INCIDENT : [titre court]
-DATE     : [début → fin] · DURÉE : [HH:MM]
-SÉVÉRITÉ : [P0/P1/P2/P3]
+INCIDENT : [short title]
+DATE     : [start → end] · DURATION : [HH:MM]
+SEVERITY : [P0/P1/P2/P3]
 
-5 WHYS (cause racine) :
-  Q1 : Pourquoi l'incident s'est-il produit ?
-    R : [symptôme immédiat]
-  Q2 : Pourquoi [R1] ?
-    R : [cause technique]
-  Q3 : Pourquoi [R2] ?
-    R : [défaillance de processus]
-  Q4 : Pourquoi [R3] ?
-    R : [défaillance organisationnelle]
-  Q5 : Pourquoi [R4] ?
-    R : [cause racine systémique]
+5 WHYS (root cause):
+  Q1: Why did the incident happen?
+    A: [immediate symptom]
+  Q2: Why [A1]?
+    A: [technical cause]
+  Q3: Why [A2]?
+    A: [process failure]
+  Q4: Why [A3]?
+    A: [organizational failure]
+  Q5: Why [A4]?
+    A: [systemic root cause]
 
-CAUSE RACINE FINALE : [synthèse en 1 phrase]
+FINAL ROOT CAUSE: [one-sentence summary]
 
-FACTEURS CONTRIBUTIFS :
-  - [F1 : ex. absence de tests de régression sur prompts]
-  - [F2 : ex. monitoring manquant sur métrique X]
+CONTRIBUTING FACTORS:
+  - [F1: e.g. no regression tests on prompts]
+  - [F2: e.g. missing monitoring on metric X]
 
-CORRECTIFS (par horizon) :
-  Immédiat (J+1)  : [hotfix déployé]
-  Court terme (J+7) : [tests + monitoring]
-  Systémique (J+30) : [revue process / formation / outillage]
+FIXES (by horizon):
+  Immediate (D+1)  : [hotfix deployed]
+  Short term (D+7) : [tests + monitoring]
+  Systemic (D+30)  : [process review / training / tooling]
 ```
 
-### Tableau de suivi des incidents (template)
+### Incident tracking table (template)
 
 ```
-| ID         | Date début       | Sévérité | Type              | Système       | Statut       | Owner       | SLA résolution | Données exposées | RCA |
+| ID         | Start date       | Severity | Type              | System        | Status       | Owner       | Resolution SLA | Data exposed     | RCA |
 |------------|------------------|----------|-------------------|---------------|--------------|-------------|----------------|------------------|-----|
-| INC-2026-01| 2026-05-15 14:32 | P0       | Prompt Injection  | chatbot-prod  | Résolu       | sec@corp    | 2h / cible 4h  | Non              | ✓   |
-| INC-2026-02| 2026-05-18 09:10 | P1       | Token Burn        | agent-rag     | Post-mortem  | sre@corp    | 6h / cible 8h  | Non              | ⏳  |
-| INC-2026-03| 2026-05-24 23:47 | P0       | Data Exfiltration | api-public    | Containment  | ciso@corp   | en cours       | PII (47 users)   | -   |
+| INC-2026-01| 2026-05-15 14:32 | P0       | Prompt Injection  | chatbot-prod  | Resolved     | sec@corp    | 2h / target 4h | No               | ✓   |
+| INC-2026-02| 2026-05-18 09:10 | P1       | Token Burn        | agent-rag     | Post-mortem  | sre@corp    | 6h / target 8h | No               | ⏳  |
+| INC-2026-03| 2026-05-24 23:47 | P0       | Data Exfiltration | api-public    | Containment  | ciso@corp   | in progress    | PII (47 users)   | -   |
 ```
 
-SLA recommandés : P0 ≤ 4h, P1 ≤ 8h, P2 ≤ 24h, P3 ≤ 72h.
+Recommended SLAs: P0 ≤ 4h, P1 ≤ 8h, P2 ≤ 24h, P3 ≤ 72h.
 
-### Notification RGPD (72h)
+### GDPR notification (72h)
 ```
-Si violation de données personnelles (Art. 33 RGPD) :
+In case of a personal data breach (Art. 33 GDPR):
 
-Notification CNIL sous 72h :
-  → Nature de la violation
-  → Catégories et nombre de personnes concernées
-  → Conséquences probables
-  → Mesures prises ou envisagées
+CNIL notification within 72h:
+  → Nature of the breach
+  → Categories and number of data subjects concerned
+  → Likely consequences
+  → Measures taken or planned
 
-Si risque élevé pour les personnes (Art. 34) :
-  → Notification directe aux personnes concernées
-  → Sans délai (pas de délai de 72h)
+If high risk to individuals (Art. 34):
+  → Direct notification to the data subjects concerned
+  → Without delay (no 72h window)
 ```
 
-## Livrables
-- Plan de réponse aux incidents IA (IRP)
-- Runbooks par type d'incident (6 types minimum)
-- Tableau de suivi des incidents (statut, SLA)
-- Rapport post-incident (RCA + leçons apprises)
-- Exercice de simulation annuel (tabletop exercise)
+## Deliverables
+- AI incident response plan (IRP)
+- Runbooks per incident type (6 types minimum)
+- Incident tracking table (status, SLA)
+- Post-incident report (RCA + lessons learned)
+- Annual simulation exercise (tabletop exercise)
 
-## Format de sortie
-Précise : incident détecté · systèmes impactés · données exposées (type, volume) · phase actuelle (confinement/éradication/recovery) · obligations réglementaires déclenchées
+## Output format
+Specify: incident detected · affected systems · data exposed (type, volume) · current phase (containment/eradication/recovery) · regulatory obligations triggered

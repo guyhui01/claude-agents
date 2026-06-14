@@ -1,70 +1,70 @@
-# Skills — Sécurité IA & Cybersécurité
+# Skills — AI Security & Cybersecurity
 
-> Dossier rattaché à `AGENT-SECURITE-IA.md`
-> Référentiels : OWASP LLM Top 10 (2025) · NIST AI RMF 1.0 · ISO/IEC 42001:2023 · ISO 27001 · MITRE ATT&CK
+> Folder attached to `AGENT-SECURITE-IA.md`
+> Frameworks: OWASP LLM Top 10 (2025) · NIST AI RMF 1.0 · ISO/IEC 42001:2023 · ISO 27001 · MITRE ATT&CK
 
 ---
 
-## Index des skills
+## Skill index
 
-| # | Skill | Quand l'invoquer | Référence |
+| # | Skill | When to invoke it | Reference |
 |---|---|---|---|
-| 1 | [`owasp-llm-top10.md`](owasp-llm-top10.md) | Auditer un LLM contre les 10 vulnérabilités critiques 2025 + scoring CVSS | OWASP 2025 |
-| 2 | [`pentest-ia.md`](pentest-ia.md) | Conduire un test d'intrusion offensif sur un système IA (Red Team) | CEH v13 · OSCP |
-| 3 | [`devsecops.md`](devsecops.md) | Intégrer SAST/DAST/SCA dans le pipeline CI/CD | AWS Security · AZ-500 |
-| 4 | [`zero-trust.md`](zero-trust.md) | Architecturer un système Zero Trust (mTLS, IAM, micro-segmentation) | CISSP · NIST 800-207 |
-| 5 | [`iam-gestion-acces.md`](iam-gestion-acces.md) | Implémenter RBAC/ABAC, JWT, gestion des secrets et révocation | CISSP · AZ-500 |
-| 6 | [`chiffrement-donnees.md`](chiffrement-donnees.md) | Chiffrer at-rest (AES-256-GCM, KMS) et in-transit (TLS 1.3) + Differential Privacy | CISSP · ISO 27001 |
-| 7 | [`soc-siem.md`](soc-siem.md) | Déployer un SOC/SIEM avec règles Sigma et playbooks de détection | CISM · AWS Security |
-| 8 | [`threat-modeling.md`](threat-modeling.md) | Modéliser les menaces avec STRIDE + PASTA + MITRE ATT&CK | CISSP · CEH v13 |
-| 9 | [`securite-api.md`](securite-api.md) | Sécuriser une API contre les OWASP API Top 10 (auth, rate limit, WAF) | GIAC GWEB · OSCP |
-| 10 | [`incident-response.md`](incident-response.md) | Conduire la réponse à un incident (PICERL + 6 runbooks LLM-spécifiques) | CISSP · CISM |
+| 1 | [`owasp-llm-top10.md`](owasp-llm-top10.md) | Audit an LLM against the 10 critical 2025 vulnerabilities + CVSS scoring | OWASP 2025 |
+| 2 | [`pentest-ia.md`](pentest-ia.md) | Run an offensive penetration test on an AI system (Red Team) | CEH v13 · OSCP |
+| 3 | [`devsecops.md`](devsecops.md) | Integrate SAST/DAST/SCA into the CI/CD pipeline | AWS Security · AZ-500 |
+| 4 | [`zero-trust.md`](zero-trust.md) | Architect a Zero Trust system (mTLS, IAM, micro-segmentation) | CISSP · NIST 800-207 |
+| 5 | [`iam-gestion-acces.md`](iam-gestion-acces.md) | Implement RBAC/ABAC, JWT, secrets management and revocation | CISSP · AZ-500 |
+| 6 | [`chiffrement-donnees.md`](chiffrement-donnees.md) | Encrypt at rest (AES-256-GCM, KMS) and in transit (TLS 1.3) + Differential Privacy | CISSP · ISO 27001 |
+| 7 | [`soc-siem.md`](soc-siem.md) | Deploy a SOC/SIEM with Sigma rules and detection playbooks | CISM · AWS Security |
+| 8 | [`threat-modeling.md`](threat-modeling.md) | Model threats with STRIDE + PASTA + MITRE ATT&CK | CISSP · CEH v13 |
+| 9 | [`securite-api.md`](securite-api.md) | Secure an API against the OWASP API Top 10 (auth, rate limit, WAF) | GIAC GWEB · OSCP |
+| 10 | [`incident-response.md`](incident-response.md) | Run incident response (PICERL + 6 LLM-specific runbooks) | CISSP · CISM |
 
 ---
 
-## Choisir le bon skill — Arbre de décision
+## Choosing the right skill — Decision tree
 
 ```
-Tu veux ...
+You want to ...
 
-  ... AUDITER un système IA existant ?
-    → owasp-llm-top10.md (audit conformité)
-    → threat-modeling.md (modélisation amont)
-    → pentest-ia.md (validation par attaque)
+  ... AUDIT an existing AI system?
+    → owasp-llm-top10.md (compliance audit)
+    → threat-modeling.md (upstream modeling)
+    → pentest-ia.md (validation through attack)
 
-  ... CONSTRUIRE un système IA sécurisé ?
-    → zero-trust.md (architecture cible)
-    → iam-gestion-acces.md (contrôle d'accès)
-    → chiffrement-donnees.md (protection des données)
-    → securite-api.md (couche d'exposition)
+  ... BUILD a secure AI system?
+    → zero-trust.md (target architecture)
+    → iam-gestion-acces.md (access control)
+    → chiffrement-donnees.md (data protection)
+    → securite-api.md (exposure layer)
 
-  ... INDUSTRIALISER la sécurité dans la chaîne dev ?
-    → devsecops.md (CI/CD sécurisé)
+  ... INDUSTRIALIZE security in the dev chain?
+    → devsecops.md (secure CI/CD)
 
-  ... DÉTECTER & RÉPONDRE aux incidents ?
-    → soc-siem.md (détection)
-    → incident-response.md (réponse + runbooks)
+  ... DETECT & RESPOND to incidents?
+    → soc-siem.md (detection)
+    → incident-response.md (response + runbooks)
 ```
 
 ---
 
-## Frontières avec les autres agents
+## Boundaries with other agents
 
-| Sujet voisin | Agent concerné | Frontière |
+| Adjacent topic | Agent concerned | Boundary |
 |---|---|---|
-| Sensibilisation OWASP basique côté équipe dev | `AGENT-TECH-LEAD.md` skill `securite-applicative.md` | TECH-LEAD diffuse les basics ; SECURITE-IA conduit l'audit professionnel |
-| Conformité réglementaire (AI Act, RGPD) | `AGENT-JURIDIQUE-IA.md` | SECURITE-IA = contrôles techniques ; JURIDIQUE = obligations légales |
-| Sécurité infrastructure cloud | `AGENT-DEVOPS-CLOUD.md` skill `securite-devops.md` | DEVOPS sécurise l'infra ; SECURITE-IA audite et conduit le red team |
-| Architecture IA globale | `AGENT-AI-ARCHITECT.md` skill `secure-by-design.md` | AI-ARCHITECT intègre la sécurité dès le design ; SECURITE-IA valide a posteriori |
+| Basic OWASP awareness on the dev-team side | `AGENT-TECH-LEAD.md` skill `securite-applicative.md` | TECH-LEAD spreads the basics; SECURITE-IA runs the professional audit |
+| Regulatory compliance (AI Act, GDPR) | `AGENT-JURIDIQUE-IA.md` | SECURITE-IA = technical controls; JURIDIQUE = legal obligations |
+| Cloud infrastructure security | `AGENT-DEVOPS-CLOUD.md` skill `securite-devops.md` | DEVOPS secures the infrastructure; SECURITE-IA audits and runs the red team |
+| Overall AI architecture | `AGENT-AI-ARCHITECT.md` skill `secure-by-design.md` | AI-ARCHITECT builds security in from design; SECURITE-IA validates after the fact |
 
 ---
 
-## Référentiels et standards utilisés
+## Frameworks and standards used
 
-- **OWASP LLM Top 10 (2025)** : https://owasp.org/www-project-top-10-for-large-language-model-applications/
-- **NIST AI RMF 1.0 (2023)** : https://www.nist.gov/itl/ai-risk-management-framework
-- **ISO/IEC 42001:2023** : AI Management System (AIMS)
-- **ISO/IEC 27001:2022** : Information Security Management
-- **MITRE ATT&CK + MITRE ATLAS** : tactiques et techniques d'attaque sur les systèmes IA
-- **CVSS 3.1** : scoring des vulnérabilités (https://www.first.org/cvss/calculator/3.1)
-- **CWE** : taxonomie des faiblesses (https://cwe.mitre.org)
+- **OWASP LLM Top 10 (2025)**: https://owasp.org/www-project-top-10-for-large-language-model-applications/
+- **NIST AI RMF 1.0 (2023)**: https://www.nist.gov/itl/ai-risk-management-framework
+- **ISO/IEC 42001:2023**: AI Management System (AIMS)
+- **ISO/IEC 27001:2022**: Information Security Management
+- **MITRE ATT&CK + MITRE ATLAS**: attack tactics and techniques on AI systems
+- **CVSS 3.1**: vulnerability scoring (https://www.first.org/cvss/calculator/3.1)
+- **CWE**: weakness taxonomy (https://cwe.mitre.org)

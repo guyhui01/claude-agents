@@ -4,7 +4,7 @@
     "name": "claude-agents",
     "version": "v3.26.2"
   },
-  "generatedAt": "2026-06-14T16:59:54.778Z",
+  "generatedAt": "2026-06-14T20:47:25.428Z",
   "assets": [
     {
       "id": "AGENT-AI-ARCHITECT",
@@ -179,8 +179,8 @@
       "id": "AGENT-SECURITE-IA",
       "type": "agent",
       "path": "AGENT-SECURITE-IA.md",
-      "title": "Sécurité IA & Cybersécurité Expert",
-      "description": "Cybersécurité & Sécurité IA — OWASP LLM, red teaming, CISSP, Zero Trust",
+      "title": "AI Security & Cybersecurity Expert",
+      "description": "Cybersecurity & AI Security — OWASP LLM, red teaming, CISSP, Zero Trust",
       "catalogVersion": "v3.26.2",
       "source": {
         "file": "AGENT-SECURITE-IA.md",

@@ -1,14 +1,14 @@
-# Skill — IAM & Gestion des Accès pour les Systèmes IA
-> Certifications : CISSP · AWS Security Specialty · AZ-500 · Google PCSE
+# Skill — IAM & Access Management for AI Systems
+> Certifications: CISSP · AWS Security Specialty · AZ-500 · Google PCSE
 
-## Objectif
-Concevoir et implémenter une gestion des identités et des accès (IAM) pour les applications LLM, agents IA et pipelines de données.
+## Objective
+Design and implement identity and access management (IAM) for LLM applications, AI agents and data pipelines.
 
-## Modèles de contrôle d'accès
+## Access control models
 
 ### RBAC (Role-Based Access Control)
 ```python
-# Définition des rôles pour un système IA
+# Role definitions for an AI system
 ROLES = {
     "ai_user": [
         "llm:invoke",
@@ -43,11 +43,11 @@ def check_permission(user_role: str, action: str) -> bool:
 
 ### ABAC (Attribute-Based Access Control)
 ```python
-# Contrôle d'accès basé sur les attributs (plus fin que RBAC)
+# Attribute-based access control (finer-grained than RBAC)
 def evaluate_abac_policy(subject: dict, resource: dict,
                           action: str, environment: dict) -> bool:
-    # Règle : accès aux modèles de production seulement
-    # si utilisateur senior ET heure ouvrée ET accès depuis réseau interne
+    # Rule: access to production models only
+    # if the user is senior AND it is business hours AND access is from the internal network
     if resource.get('environment') == 'production':
         return (
             subject.get('level') in ['senior', 'lead'] and
@@ -57,15 +57,15 @@ def evaluate_abac_policy(subject: dict, resource: dict,
     return subject.get('department') == resource.get('owner_department')
 ```
 
-## JWT Authentication pour les APIs LLM
+## JWT Authentication for LLM APIs
 ```python
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError, jwt
 from datetime import datetime, timedelta
 
-SECRET_KEY = "your-secret-key"  # En pratique : depuis AWS Secrets Manager
-ALGORITHM = "RS256"              # Clé asymétrique pour les APIs
+SECRET_KEY = "your-secret-key"  # In practice: from AWS Secrets Manager
+ALGORITHM = "RS256"              # Asymmetric key for the APIs
 
 def create_access_token(data: dict, expires_delta: timedelta = timedelta(hours=1)):
     to_encode = data.copy()
@@ -73,7 +73,7 @@ def create_access_token(data: dict, expires_delta: timedelta = timedelta(hours=1
     to_encode.update({
         "exp": expire,
         "iat": datetime.utcnow(),
-        "jti": str(uuid.uuid4())  # Unique token ID (pour révocation)
+        "jti": str(uuid.uuid4())  # Unique token ID (for revocation)
     })
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
@@ -88,7 +88,7 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
         raise credentials_exception
 ```
 
-## API Key Management pour les LLMs
+## API Key Management for LLMs
 ```python
 import secrets
 import hashlib
@@ -103,7 +103,7 @@ class APIKeyManager:
         self.store({
             "key_hash": key_hash,
             "user_id": user_id,
-            "scope": scope,                # Ex: ["llm:invoke", "rag:query"]
+            "scope": scope,                # e.g.: ["llm:invoke", "rag:query"]
             "created_at": datetime.utcnow(),
             "expires_at": datetime.utcnow() + timedelta(days=expires_days),
             "last_used": None,
@@ -123,11 +123,11 @@ class APIKeyManager:
         )
 ```
 
-## Livrables
-- Architecture IAM documentée (rôles, permissions, flows)
-- Implémentation RBAC/ABAC pour le système IA
-- Politique de rotation des secrets (Runbook)
-- Rapport d'audit des accès (mensuel)
+## Deliverables
+- Documented IAM architecture (roles, permissions, flows)
+- RBAC/ABAC implementation for the AI system
+- Secret rotation policy (Runbook)
+- Access audit report (monthly)
 
-## Format de sortie
-Précise : nombre d'utilisateurs · types de rôles · cloud provider · systèmes à protéger (LLM, data, agents) · exigences de conformité (SOC2, ISO 27001)
+## Output format
+Specify: number of users · role types · cloud provider · systems to protect (LLM, data, agents) · compliance requirements (SOC2, ISO 27001)

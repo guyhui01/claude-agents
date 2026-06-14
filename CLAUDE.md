@@ -1,183 +1,183 @@
-# CLAUDE.md — Instructions projet Claude Agents Library
+# CLAUDE.md — Claude Agents Library project instructions
 
-> Ce fichier est lu automatiquement par Claude Code à l'ouverture de ce répertoire.
-> Il contient les conventions, l'architecture du repo et les règles de comportement.
+> This file is read automatically by Claude Code when this directory is opened.
+> It holds the repo's conventions, architecture, and behavior rules.
 
 ---
 
-## Identité du projet
+## Project identity
 
-Bibliothèque de **38 agents IA spécialisés** + **37 dossiers de skills** + **10 workflows agentiques** + **3 serveurs MCP**, utilisée par Guy HUI-BON-HOA (Product Owner IA freelance) pour ses missions de conseil IT/IA chez ses clients CAC40, GAFA, licornes, scaleups et PME.
+A library of **38 specialized AI agents** + **37 skill folders** + **10 agentic workflows** + **3 MCP servers**, used by Guy HUI-BON-HOA (freelance AI Product Owner) for his IT/AI consulting engagements with CAC40, GAFA, unicorn, scale-up, and SME clients.
 
 ---
 
 ## Architecture
 
 ```
-claude-catalogue/
-├── AGENT-*.md          # 38 agents (rôles + skills associés)
-├── skills/             # 37 dossiers de skills actionnables (un par agent)
-├── workflows/          # 10 workflows BPMN orchestrés
-├── mcp-servers/        # Intégrations Jira / Confluence / journal missions
-├── memory/             # Mémoire projet (CLAUDE.md local)
-├── backup/             # Sauvegardes (gitignored)
-├── sandbox/            # Espace de test (gitignored)
-├── projects/           # Projets clients (gitignored — repo séparé claude-projects)
-├── schema/             # Contrat sidecar (copie épinglée 1.0.0 — SSOT = runtime)
-├── tools/              # Outillage Node : générateur de sidecar (ADR-0003)
-├── sidecar.json        # Index machine-lisible du catalogue (généré, validé en CI)
-├── README.md           # Catalogue complet
+claude-agents/
+├── AGENT-*.md          # 38 agents (roles + associated skills)
+├── skills/             # 37 actionable skill folders (one per agent)
+├── workflows/          # 10 orchestrated BPMN workflows
+├── mcp-servers/        # Jira / Confluence / mission log integrations
+├── memory/             # Project memory (local CLAUDE.md)
+├── backup/             # Backups (gitignored)
+├── sandbox/            # Test area (gitignored)
+├── projects/           # Client projects (gitignored — separate claude-projects repo)
+├── schema/             # Sidecar contract (pinned 1.0.0 copy — SSOT = runtime)
+├── tools/              # Node tooling: sidecar generator (ADR-0003)
+├── sidecar.json        # Machine-readable catalog index (generated, validated in CI)
+├── README.md           # Full catalog
 ├── START.md            # Quick-start hub
-└── CLAUDE.md           # Ce fichier
+└── CLAUDE.md           # This file
 ```
 
 ---
 
 ## Conventions
 
-- **Nommage fichiers** : `snake_case.md` pour les skills, `AGENT-NOM-MAJUSCULE.md` pour les agents
-- **Langue** : français pour toutes les communications et fichiers
-- **Encodage** : UTF-8
-- **Format dates** : ISO 8601 (`AAAA-MM-JJ`) dans les memories
-- **Structure d'agent** : identité + certifications · périmètre ✅❌ · règles · table de skills · activation
-- **Structure de skill** : objectif · contenu actionable · livrables · format de sortie
-- **Structure de workflow** : YAML carte d'identité · diagramme BPMN · paramètres contextuels · fiches étapes · livrables
+- **File naming**: `snake_case.md` for skills, `AGENT-NAME-UPPERCASE.md` for agents
+- **Working language**: French in chat; all written artifacts (files, commits, PRs, docs) in US English
+- **Encoding**: UTF-8
+- **Date format**: ISO 8601 (`YYYY-MM-DD`) in memories
+- **Agent structure**: identity + certifications · scope ✅❌ · rules · skills table · activation
+- **Skill structure**: objective · actionable content · deliverables · output format
+- **Workflow structure**: YAML identity card · BPMN diagram · contextual parameters · per-step sheets · deliverables
 
 ---
 
-## Règles de comportement
+## Behavior rules
 
-- Toujours **expliquer ce que tu vas faire** avant de le faire
-- Toujours **demander confirmation** avant de modifier un fichier
-- Toujours **demander confirmation** avant de pusher sur GitHub (`git push`)
-- **Commits OK sans demande**, mais push uniquement sur accord explicite
-- **Réponses concises**, en français
-- Pour les actions destructrices ou irréversibles (`rm -rf`, `git reset --hard`, force push) → demander avant
-- Pour les éditions mécaniques (Sonnet 4.6 suffit), pour les arbitrages d'architecture (Opus 4.8)
+- Always **explain what you are about to do** before doing it
+- Always **ask for confirmation** before modifying a file
+- Always **ask for confirmation** before pushing to GitHub (`git push`)
+- **Commits OK without asking**, but push only on explicit approval
+- **Concise responses**, in French (chat)
+- For destructive or irreversible actions (`rm -rf`, `git reset --hard`, force push) → ask first
+- Mechanical edits (Sonnet 4.6 is enough); architecture trade-offs (Opus 4.8)
 
 ---
 
-## Choix du modèle
+## Model choice
 
-| Tâche | Modèle recommandé |
+| Task | Recommended model |
 |---|---|
-| Audit, raisonnement complexe, arbitrage d'architecture | **Opus 4.8** |
-| Édits ciblés, refactoring mécanique, génération de skills | **Sonnet 4.6** |
-| Génération massive de boilerplate, scripts simples | **Haiku 4.5** |
+| Audit, complex reasoning, architecture trade-offs | **Opus 4.8** |
+| Targeted edits, mechanical refactoring, skill generation | **Sonnet 4.6** |
+| Bulk boilerplate generation, simple scripts | **Haiku 4.5** |
 
 ---
 
-## Points d'entrée
+## Entry points
 
-- **Quick start** : voir `START.md`
-- **Catalogue complet** : voir `README.md`
-- **Workflows** : voir `workflows/README.md`
-- **MCP servers** : voir `mcp-servers/README.md`
-- **Mémoire utilisateur globale** : `~/.claude/CLAUDE.md`
-- **Mémoire auto conversationnelle** : `~/.claude/projects/.../memory/MEMORY.md`
+- **Quick start**: see `START.md`
+- **Full catalog**: see `README.md`
+- **Workflows**: see `workflows/README.md`
+- **MCP servers**: see `mcp-servers/README.md`
+- **Global user memory**: `~/.claude/CLAUDE.md`
+- **Conversational auto memory**: `~/.claude/projects/.../memory/MEMORY.md`
 
 ---
 
-## Gouvernance des repos
+## Repository governance
 
-- **claude-agents** (ce repo, public) : agents génériques + skills + workflows + MCP
-- **claude-projects** (séparé) : projets clients fictifs/showcase
-- **Futurs projets clients réels** : repo privé dédié par mission
+- **claude-agents** (this repo, public): generic agents + skills + workflows + MCP
+- **claude-projects** (separate): fictional/showcase client projects
+- **Future real client projects**: dedicated private repo per engagement
 
 ---
 
 ## Git workflow & versioning
 
-### Stratégie hybride (solo)
+### Hybrid strategy (solo)
 
-| Type de travail | Branche ? | Tag ? | Release GitHub ? |
+| Type of work | Branch? | Tag? | GitHub Release? |
 |---|---|---|---|
-| Typo, fix mineur, sync README | `main` direct | Non | Non |
-| 1 skill ajouté ou modifié | `main` direct | Non | Non |
-| Nouveau workflow (WF-006…) | `feature/wf-<id>-<topic>` | Patch (vX.Y.**Z**) | Non |
-| Nouvel agent (AGENT-…) | `feature/agent-<name>` | Minor (vX.**Y**.0) | Optionnel |
-| Audit + recommandations | `audit/<topic>-<date>` | Major (v**X**.0.0) | **Oui** |
-| Refactor multi-agents (> 5 fichiers) | `refactor/<topic>` | Minor | Optionnel |
+| Typo, minor fix, README sync | `main` directly | No | No |
+| 1 skill added or changed | `main` directly | No | No |
+| New workflow (WF-006…) | `feature/wf-<id>-<topic>` | Patch (vX.Y.**Z**) | No |
+| New agent (AGENT-…) | `feature/agent-<name>` | Minor (vX.**Y**.0) | Optional |
+| Audit + recommendations | `audit/<topic>-<date>` | Major (v**X**.0.0) | **Yes** |
+| Multi-agent refactor (> 5 files) | `refactor/<topic>` | Minor | Optional |
 
-### Convention de versioning (SemVer)
+### Versioning convention (SemVer)
 
-- **Major (X.0.0)** — audit complet, refactoring structurel large, breaking change
-- **Minor (X.Y.0)** — nouvel agent, nouveau workflow, nouveau dossier de skills, enrichissement majeur
-- **Patch (X.Y.Z)** — corrections ponctuelles, renommages, ajustements mineurs
+- **Major (X.0.0)** — full audit, large structural refactor, breaking change
+- **Minor (X.Y.0)** — new agent, new workflow, new skill folder, major enrichment
+- **Patch (X.Y.Z)** — point fixes, renames, minor adjustments
 
-### Convention de commits (Conventional Commits)
+### Commit convention (Conventional Commits)
 
 ```
 <type>(<scope>): <description>
 
-[corps optionnel]
+[optional body]
 
-[footer optionnel — Co-Authored-By, refs CHANGELOG]
+[optional footer — Co-Authored-By, CHANGELOG refs]
 ```
 
-Types : `feat` · `fix` · `refactor` · `chore` · `docs` · `test` · `ci`
+Types: `feat` · `fix` · `refactor` · `chore` · `docs` · `test` · `ci`
 
-### Tags annotés
+### Annotated tags
 
 ```bash
-git tag -a vX.Y.Z <commit> -m "Brève description correspondant au CHANGELOG"
+git tag -a vX.Y.Z <commit> -m "Short description matching the CHANGELOG"
 git push origin --tags
 ```
 
 ### GitHub Releases
 
-Pour chaque tag Major (et Minor important), créer une Release :
+For each Major tag (and important Minor), create a Release:
 ```bash
-gh release create vX.Y.Z --title "vX.Y.Z — <titre>" --notes-file <extrait-changelog.md>
+gh release create vX.Y.Z --title "vX.Y.Z — <title>" --notes-file <changelog-excerpt.md>
 ```
 
-### Pre-commit checklist (manuel)
+### Pre-commit checklist (manual)
 
-- [ ] Compteurs cohérents (README, START.md, AGENT-ORCHESTRATEUR-WORKFLOW.md)
-- [ ] Aucune référence orpheline (grep des anciens chemins si refactor)
-- [ ] AGENT files mis à jour si skills ajoutés/déplacés/supprimés
-- [ ] CHANGELOG.md alimenté avec entrée datée
-- [ ] Backup local si refactor majeur (`backup/claudecode_backup_<date>.zip`)
+- [ ] Counters consistent (README, START.md, AGENT-ORCHESTRATEUR-WORKFLOW.md)
+- [ ] No orphan references (grep old paths if refactoring)
+- [ ] AGENT files updated if skills added/moved/removed
+- [ ] CHANGELOG.md updated with a dated entry
+- [ ] Local backup before a major refactor (`backup/claudecode_backup_<date>.zip`)
 
-### Push & branches — règles d'or
+### Push & branches — golden rules
 
-- Push sur `main` **uniquement après accord explicite** de l'utilisateur
-- Jamais de `git push --force` sur `main`
-- Jamais de `--no-verify` sans accord explicite
-- Squash merge par défaut sur les feature branches (1 commit propre sur main)
-- Branche locale supprimée après merge (`git branch -d feature/...`)
+- Push to `main` **only after explicit approval** from the user
+- Never `git push --force` on `main`
+- Never `--no-verify` without explicit approval
+- Squash merge by default on feature branches (1 clean commit on main)
+- Local branch deleted after merge (`git branch -d feature/...`)
 
-### Branch protection (configuré via API — 2026-05-26)
+### Branch protection (configured via API — 2026-05-26)
 
-Pour le repo `main` :
-- ✅ Require linear history (squash uniquement)
+For the `main` repo:
+- ✅ Require linear history (squash only)
 - ✅ Do not allow force pushes
 - ✅ Do not allow deletions
-- ✅ Secret scanning + push protection activés
-- ⚠️ Require pull request reviews → skip en solo (impossible self-review)
+- ✅ Secret scanning + push protection enabled
+- ⚠️ Require pull request reviews → skipped in solo (self-review impossible)
 
-### Authentification GitHub — SSH
+### GitHub authentication — SSH
 
-Remote configuré en SSH : `git@github.com:guyhui01/claude-agents.git`
-Aucun token nécessaire pour les opérations `git push` / `git pull`.
+Remote configured over SSH: `git@github.com:guyhui01/claude-agents.git`
+No token needed for `git push` / `git pull` operations.
 
 ```bash
-# Vérifier la connexion SSH
+# Check the SSH connection
 ssh -T git@github.com
 ```
 
 ---
 
-## Activation rapide
+## Quick activation
 
 ```
-Lis le fichier AGENT-ORCHESTRATEUR-WORKFLOW.md et adopte ce rôle.
-Charge ensuite workflows/WF-<XXX>.md et lance le workflow.
+Read the file AGENT-ORCHESTRATEUR-WORKFLOW.md and take on this role.
+Then load workflows/WF-<XXX>.md and start the workflow.
 ```
 
-ou pour un agent unique :
+or for a single agent:
 
 ```
-Lis le fichier AGENT-<NOM>.md et adopte ce rôle.
-Confirme que tu es prêt en listant les skills disponibles.
+Read the file AGENT-<NAME>.md and take on this role.
+Confirm you are ready by listing the available skills.
 ```

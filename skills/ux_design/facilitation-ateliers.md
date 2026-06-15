@@ -1,58 +1,58 @@
-# Skill — Facilitation Design Sprint & Co-design
-> Certifications : IDF · NN/g UX-C
+# Skill — Design Sprint & Co-design Facilitation
+> Certifications: IDF · NN/g UX-C
 
-## Objectif
-Animer des ateliers collaboratifs pour idéer, prototyper et valider des solutions en équipe pluridisciplinaire.
+## Objective
+Run collaborative workshops to ideate, prototype and validate solutions in a multidisciplinary team.
 
-## Design Sprint (5 jours — Google Ventures)
-| Jour | Activité |
+## Design Sprint (5 days — Google Ventures)
+| Day | Activity |
 |---|---|
-| Lundi | Map & Target (problème, parcours, objectif) |
-| Mardi | Sketch (inspiration, crazy 8s, solution sketch) |
-| Mercredi | Decide (vote, storyboard) |
-| Jeudi | Prototype (Figma hi-fi en 1 jour) |
-| Vendredi | Test (5 utilisateurs, insights) |
+| Monday | Map & Target (problem, journey, goal) |
+| Tuesday | Sketch (inspiration, crazy 8s, solution sketch) |
+| Wednesday | Decide (vote, storyboard) |
+| Thursday | Prototype (hi-fi Figma in 1 day) |
+| Friday | Test (5 users, insights) |
 
-## Ateliers Co-design
-- **Crazy 8s** : 8 idées en 8 minutes par participant
-- **How Might We** : reformuler les problèmes en opportunités
-- **Dot voting** : priorisation démocratique des idées
-- **Rose / Thorn / Bud** : rétrospective UX
-- **Card sorting collaboratif** : architecture information en groupe
+## Co-design workshops
+- **Crazy 8s**: 8 ideas in 8 minutes per participant
+- **How Might We**: reframe problems as opportunities
+- **Dot voting**: democratic prioritization of ideas
+- **Rose / Thorn / Bud**: UX retrospective
+- **Collaborative card sorting**: information architecture as a group
 
-## Outils de facilitation
+## Facilitation tools
 FigJam · Miro · Mural · KLAXOON · Notion
 
-## Rôle du facilitateur
-- Préparer le matériel (templates, timer, post-its)
-- Neutraliser les biais (HiPPO effect)
-- Timeboxer chaque activité
-- Synthétiser les outputs en temps réel
+## Facilitator's role
+- Prepare the material (templates, timer, sticky notes)
+- Neutralize biases (HiPPO effect)
+- Timebox each activity
+- Synthesize the outputs in real time
 
-## Livrables
-- Agenda de l'atelier (timing + activités)
-- Tableau FigJam / Miro post-atelier
-- Synthèse des décisions prises
-- Next steps et ownership
+## Deliverables
+- Workshop agenda (timing + activities)
+- Post-workshop FigJam / Miro board
+- Summary of the decisions made
+- Next steps and ownership
 
-## Format de sortie
-Précise : type d'atelier · nombre de participants · durée disponible · objectif (idéation / validation / priorisation)
+## Output format
+Specify: workshop type · number of participants · available duration · goal (ideation / validation / prioritization)
 
 ## Sources
-- **Jake Knapp, John Zeratsky & Braden Kowitz** — *Sprint* (Simon & Schuster, 2016, Google Ventures) — Design Sprint 5 jours, Crazy 8s
-- **Dave Gray, Sunni Brown & James Macanufo** — *Gamestorming* (O'Reilly, 2010) — répertoire d'ateliers collaboratifs
-- **IDEO / Min Basadur** — technique *How Might We* (origine Basadur, popularisée par IDEO)
-- **Avinash Kaushik** — popularisation du terme *HiPPO* (Highest Paid Person's Opinion)
+- **Jake Knapp, John Zeratsky & Braden Kowitz** — *Sprint* (Simon & Schuster, 2016, Google Ventures) — 5-day Design Sprint, Crazy 8s
+- **Dave Gray, Sunni Brown & James Macanufo** — *Gamestorming* (O'Reilly, 2010) — repertoire of collaborative workshops
+- **IDEO / Min Basadur** — *How Might We* technique (originated by Basadur, popularized by IDEO)
+- **Avinash Kaushik** — popularized the term *HiPPO* (Highest Paid Person's Opinion)
 
 ## Anti-patterns
-- Atelier sans objectif clair ni livrable défini → « réunion post-it » sans décision
-- Pas de timeboxing : une activité déborde et fait sauter les suivantes
-- Le facilitateur prend parti au lieu de rester neutre (renforce le biais HiPPO)
-- Aucune restitution ni ownership des next steps → l'atelier reste sans suite
-- Trop de participants (> 7-8) sans sous-groupes → faible contribution individuelle
+- Workshop with no clear goal or defined deliverable → "sticky-note meeting" with no decision
+- No timeboxing: one activity overruns and skips the next ones
+- The facilitator takes sides instead of staying neutral (reinforces the HiPPO bias)
+- No write-up or ownership of the next steps → the workshop leads nowhere
+- Too many participants (> 7-8) without sub-groups → low individual contribution
 
-## Voir aussi
-- [architecture-information.md](architecture-information.md) — card sorting collaboratif
-- [prototypage-figma.md](prototypage-figma.md) — prototyper la solution retenue (jeudi du Sprint)
-- [personas-jtbd.md](personas-jtbd.md) — aligner l'équipe sur la cible en amont
-- [`../business_analyst/animation-atelier-metier.md`](../business_analyst/animation-atelier-metier.md) — ateliers d'élicitation côté métier/MOA
+## See also
+- [architecture-information.md](architecture-information.md) — collaborative card sorting
+- [prototypage-figma.md](prototypage-figma.md) — prototype the chosen solution (Thursday of the Sprint)
+- [personas-jtbd.md](personas-jtbd.md) — align the team on the target up front
+- [`../business_analyst/animation-atelier-metier.md`](../business_analyst/animation-atelier-metier.md) — elicitation workshops on the business side

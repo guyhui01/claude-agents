@@ -1,46 +1,46 @@
 # Skill — Wireframing (lo-fi → hi-fi)
-> Certifications : Google UX Design Certificate · IDF
+> Certifications: Google UX Design Certificate · IDF
 
-## Objectif
-Formaliser la structure et les interactions d'une interface avant le design visuel.
+## Objective
+Formalize the structure and interactions of an interface before the visual design.
 
-## Niveaux de fidélité
-| Niveau | Usage | Outil |
+## Fidelity levels
+| Level | Usage | Tool |
 |---|---|---|
-| Lo-fi | Idéation rapide, ateliers | Papier, FigJam, Balsamiq |
-| Mid-fi | Validation structure & flux | Figma (sans styles) |
-| Hi-fi | Livrable final stakeholders | Figma (avec Design System) |
+| Lo-fi | Quick ideation, workshops | Paper, FigJam, Balsamiq |
+| Mid-fi | Structure & flow validation | Figma (no styles) |
+| Hi-fi | Final stakeholder deliverable | Figma (with Design System) |
 
-## Éléments à inclure
-- Grille et layout (colonnes, marges, gouttières)
-- Hiérarchie visuelle (titres, corps, CTA)
-- États des composants (default, hover, focus, disabled, error)
-- Annotations fonctionnelles (comportements, règles métier)
-- Flux de navigation entre écrans
+## Elements to include
+- Grid and layout (columns, margins, gutters)
+- Visual hierarchy (headings, body, CTA)
+- Component states (default, hover, focus, disabled, error)
+- Functional annotations (behaviors, business rules)
+- Navigation flow between screens
 
-## Livrables
-- Frames Figma annotées par écran
-- Flow diagram (connexions entre écrans)
-- Liste des composants identifiés
+## Deliverables
+- Annotated Figma frames per screen
+- Flow diagram (connections between screens)
+- List of identified components
 
-## Format de sortie
-Précise : type d'écran (web, mobile, tablette) · contexte fonctionnel · niveau de fidélité souhaité
+## Output format
+Specify: screen type (web, mobile, tablet) · functional context · desired fidelity level
 
 ## Sources
-- **Bill Buxton** — *Sketching User Experiences* (Morgan Kaufmann, 2007) — rôle du sketch et de la basse fidélité
-- **Carolyn Snyder** — *Paper Prototyping* (2003) — wireframes papier et itération rapide
-- **Brad Frost** — *Atomic Design* (2016) — composition des écrans à partir de composants
-- **Nielsen Norman Group** — articles sur le *fidelity spectrum* (lo-fi vs hi-fi)
+- **Bill Buxton** — *Sketching User Experiences* (Morgan Kaufmann, 2007) — role of sketching and low fidelity
+- **Carolyn Snyder** — *Paper Prototyping* (2003) — paper wireframes and rapid iteration
+- **Brad Frost** — *Atomic Design* (2016) — composing screens from components
+- **Nielsen Norman Group** — articles on the *fidelity spectrum* (lo-fi vs hi-fi)
 
 ## Anti-patterns
-- Passer en hi-fi avant d'avoir validé la structure (perte de temps, attachement prématuré au visuel)
-- Wireframe « décoratif » qui anticipe le design visuel au lieu de la structure
-- Oublier les états (vide, erreur, chargement) et ne traiter que le happy path
-- Absence d'annotations → ambiguïté de comportement pour les devs
-- Réinventer des composants existants au lieu de réutiliser le Design System
+- Jumping to hi-fi before validating the structure (waste of time, premature attachment to visuals)
+- "Decorative" wireframe that anticipates the visual design instead of the structure
+- Forgetting states (empty, error, loading) and handling only the happy path
+- No annotations → behavioral ambiguity for the devs
+- Reinventing existing components instead of reusing the Design System
 
-## Voir aussi
-- [architecture-information.md](architecture-information.md) — structure logique en amont du wireframe
-- [prototypage-figma.md](prototypage-figma.md) — passer du wireframe au prototype interactif
-- [design-system.md](design-system.md) — composants réutilisés en mid/hi-fi
-- [accessibilite-wcag.md](accessibilite-wcag.md) — ordre de lecture et hiérarchie dès le wireframe
+## See also
+- [architecture-information.md](architecture-information.md) — logical structure upstream of the wireframe
+- [prototypage-figma.md](prototypage-figma.md) — move from wireframe to interactive prototype
+- [design-system.md](design-system.md) — components reused in mid/hi-fi
+- [accessibilite-wcag.md](accessibilite-wcag.md) — reading order and hierarchy from the wireframe stage

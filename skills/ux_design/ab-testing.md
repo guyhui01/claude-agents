@@ -1,48 +1,48 @@
-# Skill — A/B Testing & Tests Multivariés
-> Certifications : IDF · Google UX Design Certificate
+# Skill — A/B Testing & Multivariate Tests
+> Certifications: IDF · Google UX Design Certificate
 
-## Objectif
-Comparer deux versions d'une interface pour déterminer laquelle performe le mieux sur une métrique cible.
+## Objective
+Compare two versions of an interface to determine which performs better on a target metric.
 
-## Types de tests
-- **A/B test** : 2 versions, 1 variable modifiée
-- **A/B/n test** : n versions simultanées
-- **Test multivarié** : plusieurs variables combinées (nécessite fort trafic)
-- **Split URL** : 2 pages distinctes comparées
+## Test types
+- **A/B test**: 2 versions, 1 variable changed
+- **A/B/n test**: n versions simultaneously
+- **Multivariate test**: several combined variables (requires high traffic)
+- **Split URL**: 2 distinct pages compared
 
-## Étapes
-1. Définir l'hypothèse (si je change X, alors Y augmentera de Z%)
-2. Choisir la métrique principale (CTR, conversion, temps sur tâche)
-3. Calculer la taille d'échantillon (significance 95%, power 80%)
-4. Lancer le test (durée min : 2 semaines / 1 cycle business)
-5. Analyser les résultats (p-value, intervalle de confiance)
-6. Décider : déployer A, déployer B, ou relancer
+## Steps
+1. Define the hypothesis (if I change X, then Y will increase by Z%)
+2. Choose the primary metric (CTR, conversion, time on task)
+3. Calculate the sample size (significance 95%, power 80%)
+4. Run the test (min duration: 2 weeks / 1 business cycle)
+5. Analyze the results (p-value, confidence interval)
+6. Decide: ship A, ship B, or re-run
 
-## Outils
-VWO · Optimizely · AB Tasty · Statsig · GrowthBook (open-source) — *Google Optimize fermé le 30/09/2023*
+## Tools
+VWO · Optimizely · AB Tasty · Statsig · GrowthBook (open-source) — *Google Optimize shut down on 2023-09-30*
 
-## Livrables
-- Brief de test (hypothèse, variantes, métriques, durée)
-- Rapport de résultats (statistiques + recommandation)
+## Deliverables
+- Test brief (hypothesis, variants, metrics, duration)
+- Results report (statistics + recommendation)
 
-## Format de sortie
-Précise : élément à tester · métrique cible · trafic mensuel disponible · outil utilisé
+## Output format
+Specify: element to test · target metric · available monthly traffic · tool used
 
 ## Sources
-- **Ron Kohavi, Diane Tang & Ya Xu** — *Trustworthy Online Controlled Experiments* (Cambridge University Press, 2020) — référence de l'expérimentation en ligne
-- **Jacob Cohen** — *Statistical Power Analysis for the Behavioral Sciences* (2e éd., 1988) — origine de la puissance statistique 80 % (seuil conventionnel)
-- **Ronald A. Fisher** — *The Design of Experiments* (1935) — seuil de signification p < 0,05
-- Documentation produit : Optimizely Stats Engine, VWO SmartStats (inférence séquentielle vs test fixe)
+- **Ron Kohavi, Diane Tang & Ya Xu** — *Trustworthy Online Controlled Experiments* (Cambridge University Press, 2020) — reference on online experimentation
+- **Jacob Cohen** — *Statistical Power Analysis for the Behavioral Sciences* (2nd ed., 1988) — origin of the 80% statistical power (conventional threshold)
+- **Ronald A. Fisher** — *The Design of Experiments* (1935) — p < 0.05 significance threshold
+- Product documentation: Optimizely Stats Engine, VWO SmartStats (sequential inference vs fixed test)
 
 ## Anti-patterns
-- **Peeking** : arrêter le test dès qu'un résultat « gagne » avant la taille d'échantillon calculée → faux positifs
-- Lancer un test multivarié sans le trafic suffisant (combinatoire = dilution de la puissance)
-- Conclure sur une métrique proxy (CTR) sans vérifier la métrique business (conversion, rétention)
-- Ignorer la saisonnalité : test < 1 cycle business complet (jours ouvrés vs week-end)
-- **HARKing** : formuler l'hypothèse *après* avoir vu les données
+- **Peeking**: stopping the test as soon as a result "wins" before the calculated sample size → false positives
+- Running a multivariate test without enough traffic (the combinatorics dilute the power)
+- Concluding on a proxy metric (CTR) without checking the business metric (conversion, retention)
+- Ignoring seasonality: test < 1 full business cycle (weekdays vs weekend)
+- **HARKing**: forming the hypothesis *after* seeing the data
 
-## Voir aussi
-- [metriques-ux.md](metriques-ux.md) — définir la métrique cible et son baseline
-- [tests-utilisateurs.md](tests-utilisateurs.md) — complément qualitatif au quantitatif A/B
-- [audit-ux-heuristiques.md](audit-ux-heuristiques.md) — générer les hypothèses à tester
-- [`../growth_ia/experimentation-ab-testing.md`](../growth_ia/experimentation-ab-testing.md) — expérimentation côté acquisition/activation
+## See also
+- [metriques-ux.md](metriques-ux.md) — define the target metric and its baseline
+- [tests-utilisateurs.md](tests-utilisateurs.md) — qualitative complement to the quantitative A/B
+- [audit-ux-heuristiques.md](audit-ux-heuristiques.md) — generate the hypotheses to test
+- [`../growth_ia/experimentation-ab-testing.md`](../growth_ia/experimentation-ab-testing.md) — experimentation on the acquisition/activation side

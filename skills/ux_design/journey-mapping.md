@@ -1,42 +1,42 @@
 # Skill — Journey Map & Service Blueprint
-> Certifications : NN/g UX-C · IDF
+> Certifications: NN/g UX-C · IDF
 
-## Objectif
-Visualiser l'expérience utilisateur de bout en bout pour identifier les points de friction et opportunités.
+## Objective
+Visualize the end-to-end user experience to identify friction points and opportunities.
 
 ## User Journey Map
-- Étapes du parcours · Actions · Pensées · Émotions (courbe)
-- Touchpoints · Canaux · Pain points · Opportunités
-- Niveau de satisfaction par étape (1-5)
+- Journey stages · Actions · Thoughts · Emotions (curve)
+- Touchpoints · Channels · Pain points · Opportunities
+- Satisfaction level per stage (1-5)
 
 ## Service Blueprint
-- Ajoute la couche back-office : processus internes, systèmes, acteurs
-- Ligne de visibilité front / back
-- Utilisé pour la conception de services complexes
+- Adds the back-office layer: internal processes, systems, actors
+- Front / back line of visibility
+- Used to design complex services
 
-## Livrables
-- Journey Map structuré (format Figma / Miro / Confluence)
-- Service Blueprint si besoin back-office
-- Liste priorisée des pain points avec recommandations
+## Deliverables
+- Structured Journey Map (Figma / Miro / Confluence format)
+- Service Blueprint if back-office is needed
+- Prioritized list of pain points with recommendations
 
-## Format de sortie
-Précise : persona cible · scénario (achat, onboarding, support…) · périmètre (as-is ou to-be)
+## Output format
+Specify: target persona · scenario (purchase, onboarding, support…) · scope (as-is or to-be)
 
 ## Sources
-- **Kim Goodwin** — *Designing for the Digital Age* (2009) — scénarios et parcours basés personas
-- **G. Lynn Shostack** — *Designing Services That Deliver* (HBR, 1984) — origine du Service Blueprint
-- **Nielsen Norman Group** — *Journey Mapping 101* / *Service Blueprinting* — cadre et composants
-- **Jim Kalbach** — *Mapping Experiences* (O'Reilly, 2e éd. 2020) — alignement des techniques de mapping
+- **Kim Goodwin** — *Designing for the Digital Age* (2009) — persona-based scenarios and journeys
+- **G. Lynn Shostack** — *Designing Services That Deliver* (HBR, 1984) — origin of the Service Blueprint
+- **Nielsen Norman Group** — *Journey Mapping 101* / *Service Blueprinting* — framework and components
+- **Jim Kalbach** — *Mapping Experiences* (O'Reilly, 2nd ed. 2020) — aligning mapping techniques
 
 ## Anti-patterns
-- Journey Map construite sans données de recherche → carte fictive (« assumption map »)
-- Confondre journey map (vue externe utilisateur) et service blueprint (vue interne processus)
-- Courbe émotionnelle décorative, sans pain points priorisés ni recommandations
-- Cartographier un « happy path » idéalisé en ignorant les parcours d'échec/support
-- Livrable figé jamais mis à jour après évolution du produit
+- Journey Map built without research data → fictional map ("assumption map")
+- Confusing the journey map (external user view) with the service blueprint (internal process view)
+- Decorative emotional curve, without prioritized pain points or recommendations
+- Mapping an idealized "happy path" while ignoring failure/support journeys
+- Static deliverable never updated after the product evolves
 
-## Voir aussi
-- [personas-jtbd.md](personas-jtbd.md) — la cible dont on cartographie le parcours
-- [user-research.md](user-research.md) — données qualitatives alimentant la carte
-- [architecture-information.md](architecture-information.md) — structure supportant le parcours
-- [`../business_analyst/modelisation-processus.md`](../business_analyst/modelisation-processus.md) — équivalent processus métier (BPMN) côté MOA
+## See also
+- [personas-jtbd.md](personas-jtbd.md) — the target whose journey we map
+- [user-research.md](user-research.md) — qualitative data feeding the map
+- [architecture-information.md](architecture-information.md) — structure supporting the journey
+- [`../business_analyst/modelisation-processus.md`](../business_analyst/modelisation-processus.md) — the business-process equivalent (BPMN) on the BA side

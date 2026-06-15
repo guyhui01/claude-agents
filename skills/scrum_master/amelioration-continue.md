@@ -1,150 +1,150 @@
-# Skill — Amélioration Continue (Kaizen Agile)
-> Certifications : PSM III · SAFe SASM · Lean Six Sigma Green Belt · ICAgile ICP-ENT
+# Skill — Continuous Improvement (Agile Kaizen)
+> Certifications: PSM III · SAFe SASM · Lean Six Sigma Green Belt · ICAgile ICP-ENT
 
-## Objectif
-Instaurer une culture d'amélioration continue dans les équipes Scrum en utilisant les principes Lean/Kaizen pour éliminer le gaspillage et maximiser la valeur délivrée.
+## Objective
+Establish a continuous-improvement culture in Scrum teams using Lean/Kaizen principles to eliminate waste and maximize delivered value.
 
-## Cadre d'amélioration continue Agile
+## Agile continuous-improvement framework
 
-### Roue de Deming (PDCA) appliquée à Scrum
+### Deming Wheel (PDCA) applied to Scrum
 ```
-PLAN  → Identifier le problème + définir l'action (Sprint Rétro)
-DO    → Implémenter l'action dans le sprint suivant
-CHECK → Mesurer l'effet lors de la rétro suivante
-ACT   → Standardiser si succès, ajuster si échec
+PLAN  → Identify the problem + define the action (Sprint Retro)
+DO    → Implement the action in the next sprint
+CHECK → Measure the effect at the next retro
+ACT   → Standardize if successful, adjust if not
 
-Cadence : 1 cycle PDCA par sprint (2 semaines)
+Cadence: 1 PDCA cycle per sprint (2 weeks)
 ```
 
-### Les 8 gaspillages Lean (appliqués au développement logiciel)
+### The 8 Lean wastes (applied to software development)
 ```
-TRANSPORT    → Handoffs inutiles (entre équipes, entre outils)
-STOCK        → Work In Progress (WIP) excessif, backlog surchargé
-MOUVEMENT    → Réunions inutiles, multitasking, outils inadaptés
-ATTENTE      → Blocages sur dépendances, revues de code en attente
-SURPRODUCTION→ Features non demandées, over-engineering
-SURTRAITEMENT→ Documentation excessive, validations redondantes
-DÉFAUTS      → Bugs, dette technique, relivraisons
-COMPÉTENCES  → Talents non utilisés, silos de connaissances
+TRANSPORT      → Unnecessary handoffs (between teams, between tools)
+INVENTORY      → Excessive Work In Progress (WIP), overloaded backlog
+MOTION         → Useless meetings, multitasking, unsuitable tools
+WAITING        → Dependency blockers, code reviews on hold
+OVERPRODUCTION → Unrequested features, over-engineering
+OVER-PROCESSING→ Excessive documentation, redundant approvals
+DEFECTS        → Bugs, technical debt, re-deliveries
+SKILLS         → Unused talent, knowledge silos
 
-Exercice Muda Walk : L'équipe identifie les gaspillages dans son flux
-→ Durée : 30 min en atelier
-→ Outil : Value Stream Mapping simplifié
+Muda Walk exercise: the team identifies the waste in its flow
+→ Duration: 30 min in a workshop
+→ Tool: simplified Value Stream Mapping
 ```
 
 ## Value Stream Mapping (VSM)
 ```
-Étapes pour cartographier le flux de valeur :
-1. Identifier le "product family" (ex: livraison d'une US en prod)
-2. Cartographier l'état actuel (AS-IS) :
-   [ Idée ] → [ Backlog ] → [ Sprint ] → [ Dev ] → [ Review ] → [ Prod ]
-   Pour chaque étape : Lead Time / Process Time / % Complete & Accurate
-3. Identifier les goulots et gaspillages
-4. Concevoir l'état futur (TO-BE)
-5. Plan d'action priorisé
+Steps to map the value stream:
+1. Identify the "product family" (e.g. delivering a US to prod)
+2. Map the current state (AS-IS):
+   [ Idea ] → [ Backlog ] → [ Sprint ] → [ Dev ] → [ Review ] → [ Prod ]
+   For each step: Lead Time / Process Time / % Complete & Accurate
+3. Identify the bottlenecks and waste
+4. Design the future state (TO-BE)
+5. Prioritized action plan
 
-Métriques clés :
-  Cycle Time    = temps de Dev à Done
-  Lead Time     = temps de Idée à Prod (valeur client)
-  Flow Ratio    = Process Time / Lead Time × 100 (% valeur réelle)
-  Objectif Flow Ratio > 25%
+Key metrics:
+  Cycle Time    = time from Dev to Done
+  Lead Time     = time from Idea to Prod (customer value)
+  Flow Ratio    = Process Time / Lead Time × 100 (% real value)
+  Flow Ratio target > 25%
 ```
 
-## Métriques d'amélioration continue
+## Continuous-improvement metrics
 
-### Team Health Metrics (tableau de bord)
+### Team Health Metrics (dashboard)
 ```python
-# Métriques à tracker sprint par sprint
+# Metrics to track sprint by sprint
 metrics = {
-    "velocite": {
-        "valeur": [34, 38, 35, 40, 42],   # SP par sprint
-        "tendance": "stabilisation → croissance progressive",
-        "alerte": "variance > 20% = problème sous-jacent"
+    "velocity": {
+        "value": [34, 38, 35, 40, 42],   # SP per sprint
+        "trend": "stabilization → gradual growth",
+        "alert": "variance > 20% = underlying problem"
     },
     "cycle_time": {
-        "valeur": [3.2, 2.8, 2.5, 2.3],   # jours de Done à Prod
-        "cible": "< 2 jours",
-        "levier": "WIP limits, Definition of Done"
+        "value": [3.2, 2.8, 2.5, 2.3],   # days from Done to Prod
+        "target": "< 2 days",
+        "lever": "WIP limits, Definition of Done"
     },
-    "taux_bugs": {
-        "valeur": [12, 9, 7, 5],           # bugs par sprint
-        "cible": "< 5% des SP livrés",
-        "levier": "TDD, revue de code, tests automatisés"
+    "bug_rate": {
+        "value": [12, 9, 7, 5],           # bugs per sprint
+        "target": "< 5% of SP delivered",
+        "lever": "TDD, code review, automated tests"
     },
-    "dette_technique": {
-        "valeur_pct": [30, 28, 25, 22],    # % sprint dédié à la dette
-        "cible": "< 20% soit ~20% du backlog",
-        "levier": "Budget tech debt sprint, boy scout rule"
+    "technical_debt": {
+        "value_pct": [30, 28, 25, 22],    # % of sprint spent on debt
+        "target": "< 20%, i.e. ~20% of the backlog",
+        "lever": "Sprint tech-debt budget, boy scout rule"
     }
 }
 ```
 
-### Obeya Room (Management Visuel)
+### Obeya Room (Visual Management)
 ```
-Configuration recommandée (physique ou digital) :
+Recommended setup (physical or digital):
 ┌──────────────────────────────────────────────────────┐
-│  OBJECTIFS          │  MÉTRIQUES          │  ACTIONS │
-│  (OKRs du trimestre)│  (vélocité, bugs)   │  (Kaizen)│
+│  OBJECTIVES         │  METRICS            │  ACTIONS │
+│  (quarterly OKRs)   │  (velocity, bugs)   │  (Kaizen)│
 ├──────────────────────────────────────────────────────┤
-│  RISQUES            │  IMPEDIMENTS        │  AIDE ?  │
-│  (top 3 risques)    │  (bloquants actifs) │  (besoin)│
+│  RISKS              │  IMPEDIMENTS        │  HELP?   │
+│  (top 3 risks)      │  (active blockers)  │  (needs) │
 └──────────────────────────────────────────────────────┘
-Review hebdomadaire : 15 min debout, tous présents
+Weekly review: 15 min standing, everyone present
 ```
 
-## Techniques d'amélioration
+## Improvement techniques
 
-### Kaizen Event (atelier de 2h)
+### Kaizen Event (2h workshop)
 ```
-Déclencheur : problème récurrent depuis > 3 sprints
-Structure :
-  T+0h00 : Définir le problème précisément (données, pas ressenti)
-  T+0h30 : Analyse causale (5 Pourquoi ou Ishikawa)
-  T+1h00 : Générer des solutions (brainstorming)
-  T+1h30 : Prioriser par Impact / Effort (quadrant)
-  T+1h45 : Définir les actions SMART + responsables
-  T+2h00 : Clôture + planification du suivi
+Trigger: a problem recurring for > 3 sprints
+Structure:
+  T+0h00 : Define the problem precisely (data, not feelings)
+  T+0h30 : Causal analysis (5 Whys or Ishikawa)
+  T+1h00 : Generate solutions (brainstorming)
+  T+1h30 : Prioritize by Impact / Effort (quadrant)
+  T+1h45 : Define SMART actions + owners
+  T+2h00 : Close + plan the follow-up
 
-Règles :
-  ✅ Équipe complète présente
-  ✅ Data-driven (pas d'opinions non étayées)
-  ✅ Focus sur le processus, pas sur les personnes
-  ❌ Pas de recherche de coupable
+Rules:
+  ✅ Full team present
+  ✅ Data-driven (no unsupported opinions)
+  ✅ Focus on the process, not the people
+  ❌ No blame hunting
 ```
 
-### Les 5 Pourquoi
+### The 5 Whys
 ```
-Exemple — Bug en production non détecté :
-  Pourquoi 1 → Le bug est parti en prod
-  Pourquoi 2 → Il n'était pas dans les tests automatisés
-  Pourquoi 3 → La feature a été développée sans tests unitaires
-  Pourquoi 4 → Pas de règle dans la Definition of Done
-  Pourquoi 5 → La DoD n'a jamais été définie collectivement
+Example — undetected production bug:
+  Why 1 → The bug shipped to prod
+  Why 2 → It wasn't in the automated tests
+  Why 3 → The feature was developed without unit tests
+  Why 4 → No rule in the Definition of Done
+  Why 5 → The DoD was never defined collectively
 
-Action racine : Atelier DoD avec l'équipe + règle TDD obligatoire
-→ Traitez la cause racine, pas le symptôme
+Root action: DoD workshop with the team + mandatory TDD rule
+→ Treat the root cause, not the symptom
 ```
 
 ## Definition of Done (DoD) — Template
 ```
-Une User Story est DONE quand :
-  ☐ Code développé et revu (pair review ou PR review)
-  ☐ Tests unitaires écrits (coverage > 80%)
-  ☐ Tests d'intégration passent
-  ☐ Tests de régression automatisés OK
-  ☐ Critères d'acceptation validés par le PO
-  ☐ Déployé en environnement de recette
-  ☐ Documentation mise à jour (si applicable)
-  ☐ Pas de dette technique ajoutée (ou documentée)
-  ☐ Performance validée (si applicable)
+A User Story is DONE when:
+  ☐ Code developed and reviewed (pair review or PR review)
+  ☐ Unit tests written (coverage > 80%)
+  ☐ Integration tests passing
+  ☐ Automated regression tests OK
+  ☐ Acceptance criteria validated by the PO
+  ☐ Deployed to a UAT environment
+  ☐ Documentation updated (if applicable)
+  ☐ No technical debt added (or documented)
+  ☐ Performance validated (if applicable)
 ```
 
-## Livrables
-- Rapport de Value Stream Mapping (AS-IS + TO-BE)
-- Team Health Dashboard (sprint par sprint)
-- Backlog d'amélioration continue (Kaizen Backlog)
-- Compte-rendu des Kaizen Events
-- Definition of Done formalisée et validée par l'équipe
+## Deliverables
+- Value Stream Mapping report (AS-IS + TO-BE)
+- Team Health Dashboard (sprint by sprint)
+- Continuous-improvement backlog (Kaizen Backlog)
+- Kaizen Event notes
+- Formalized Definition of Done validated by the team
 
-## Format de sortie
-Précise : problème récurrent identifié · métriques actuelles disponibles · taille de l'équipe · maturité Lean/Agile · contraintes organisationnelles
+## Output format
+Specify: identified recurring problem · current metrics available · team size · Lean/Agile maturity · organizational constraints

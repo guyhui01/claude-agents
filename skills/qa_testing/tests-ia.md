@@ -1,85 +1,85 @@
-# Skill QA Agile — Tests IA (ISTQB® AI Testing)
+# QA Agile Skill — AI Testing (ISTQB® AI Testing)
 
-> Certification : CT-AI · CT-MBT
-> Agent : AGENT-QA-AGILE.md
-> Méthodologie : Agile
+> Certification: CT-AI · CT-MBT
+> Agent: AGENT-QA-AGILE.md
+> Methodology: Agile
 
-## Spécificités des systèmes IA à tester
+## Specifics of AI systems to test
 
-| Caractéristique | Impact sur les tests |
+| Characteristic | Impact on testing |
 |---|---|
-| **Non-déterminisme** | Résultats variables → pas de résultat attendu unique |
-| **Apprentissage continu** | Le modèle peut dériver → tests de monitoring |
-| **Données d'entraînement** | Biais, qualité, représentativité |
-| **Boîte noire** | Difficile d'expliquer pourquoi une erreur |
-| **Confiance / score** | Seuils d'acceptabilité à définir |
+| **Non-determinism** | Variable results → no single expected result |
+| **Continuous learning** | The model can drift → monitoring tests |
+| **Training data** | Bias, quality, representativeness |
+| **Black box** | Hard to explain why an error occurs |
+| **Confidence / score** | Acceptability thresholds to define |
 
-## Types de tests IA (ISTQB AI Testing)
+## AI test types (ISTQB AI Testing)
 
-| Type | Objectif |
+| Type | Goal |
 |---|---|
-| **Test de données** | Qualité, biais, exhaustivité des datasets |
-| **Test de modèle** | Précision, rappel, F1-score, AUC |
-| **Test fonctionnel** | Le système IA répond correctement aux cas métier |
-| **Test d'équité (Fairness)** | Pas de discrimination selon groupe |
-| **Test de robustesse** | Comportement face à des données inhabituelles |
-| **Test d'explicabilité** | La décision IA est compréhensible |
-| **Test de dérive (Drift)** | Dégradation du modèle dans le temps |
+| **Data testing** | Quality, bias, completeness of the datasets |
+| **Model testing** | Precision, recall, F1-score, AUC |
+| **Functional testing** | The AI system responds correctly to business cases |
+| **Fairness testing** | No discrimination by group |
+| **Robustness testing** | Behavior with unusual data |
+| **Explainability testing** | The AI decision is understandable |
+| **Drift testing** | Model degradation over time |
 
-## Métriques de qualité IA
-
-```
-PRÉCISION (Accuracy) : (TP + TN) / Total
-PRÉCISION (Precision) : TP / (TP + FP)
-RAPPEL (Recall) : TP / (TP + FN)
-F1-SCORE : 2 × (Precision × Recall) / (Precision + Recall)
-AUC-ROC : Capacité discriminante du modèle
-
-Seuils d'acceptabilité à définir avec le métier :
-- Précision cible : > [X]%
-- Rappel cible : > [X]% (critique si faux négatifs dangereux)
-- Taux d'erreur acceptable : < [X]%
-```
-
-## Template cas de test IA
+## AI quality metrics
 
 ```
-ID : TIA-[XXX]
-Composant IA : [nom du modèle / service]
-Type : ☐ Fonctionnel ☐ Robustesse ☐ Équité ☐ Dérive
+ACCURACY: (TP + TN) / Total
+PRECISION: TP / (TP + FP)
+RECALL: TP / (TP + FN)
+F1-SCORE: 2 × (Precision × Recall) / (Precision + Recall)
+AUC-ROC: Discriminative ability of the model
 
-ENTRÉE (Input) :
-[Description de la donnée fournie au modèle]
-
-RÉSULTAT ATTENDU :
-Classe attendue : [label]
-Score de confiance minimum : > [X]%
-Temps de réponse : < [X ms]
-
-RÉSULTAT OBTENU :
-Classe prédite : [...]
-Score : [X]%
-Temps : [X ms]
-
-STATUT : ☐ Pass  ☐ Fail  ☐ Ambigu (à évaluer avec le métier)
+Acceptability thresholds to define with the business:
+- Target precision: > [X]%
+- Target recall: > [X]% (critical if false negatives are dangerous)
+- Acceptable error rate: < [X]%
 ```
 
-## Checklist test d'un LLM / chatbot IA
+## AI test case template
 
 ```
-FONCTIONNEL :
-☐ Réponses correctes sur les cas nominaux
-☐ Gestion des questions hors périmètre
-☐ Cohérence des réponses sur questions similaires
-☐ Respect des contraintes (langue, ton, longueur)
+ID: TIA-[XXX]
+AI component: [model / service name]
+Type: ☐ Functional ☐ Robustness ☐ Fairness ☐ Drift
 
-ROBUSTESSE :
-☐ Comportement avec entrées malformées
-☐ Résistance aux prompt injections
-☐ Gestion des demandes inappropriées
+INPUT:
+[Description of the data fed to the model]
 
-QUALITÉ :
-☐ Pas d'hallucinations sur faits vérifiables
-☐ Citations sources si applicable
-☐ Pas de biais discriminatoires détectés
+EXPECTED RESULT:
+Expected class: [label]
+Minimum confidence score: > [X]%
+Response time: < [X ms]
+
+OBTAINED RESULT:
+Predicted class: [...]
+Score: [X]%
+Time: [X ms]
+
+STATUS: ☐ Pass  ☐ Fail  ☐ Ambiguous (to assess with the business)
+```
+
+## Test checklist for an LLM / AI chatbot
+
+```
+FUNCTIONAL:
+☐ Correct answers on nominal cases
+☐ Handling of out-of-scope questions
+☐ Consistency of answers on similar questions
+☐ Compliance with constraints (language, tone, length)
+
+ROBUSTNESS:
+☐ Behavior with malformed inputs
+☐ Resistance to prompt injections
+☐ Handling of inappropriate requests
+
+QUALITY:
+☐ No hallucinations on verifiable facts
+☐ Source citations if applicable
+☐ No discriminatory bias detected
 ```

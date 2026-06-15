@@ -1,95 +1,95 @@
-# Skill — Lean Business Case pour Portfolio Epics SAFe
+# Skill — Lean Business Case for SAFe Portfolio Epics
 
-> Certification : SAFe LPM · SAFe POPM 6
-> Agent : AGENT-PO-SAFE.md
+> Certification: SAFe LPM · SAFe POPM 6
+> Agent: AGENT-PO-SAFE.md
 
-## Objectif
-Construire un Lean Business Case (LBC) pour soumettre un Portfolio Epic au Portfolio Kanban et obtenir le go/no-go de financement.
+## Objective
+Build a Lean Business Case (LBC) to submit a Portfolio Epic to the Portfolio Kanban and obtain the funding go/no-go.
 
-## Structure du Lean Business Case SAFe
+## SAFe Lean Business Case structure
 
-### Template officiel SAFe 6
+### Official SAFe 6 template
 
 ```
-PORTFOLIO EPIC — [Nom de l'Epic]
-Hypothèse de bénéfice (Benefit Hypothesis) :
-"En livrant [capacité], nous attendons [résultat business]
- mesuré par [KPI] avec une cible de [valeur] à [date]."
+PORTFOLIO EPIC — [Epic name]
+Benefit Hypothesis:
+"By delivering [capability], we expect [business outcome]
+ measured by [KPI] with a target of [value] by [date]."
 
 ═══════════════════════════════════════════════════════
 
-1. CONTEXTE ET OPPORTUNITÉ
-   Problème/Opportunité : [description concise]
-   Utilisateurs impactés : [segments]
-   Alignement stratégique : [thème stratégique SAFe concerné]
+1. CONTEXT AND OPPORTUNITY
+   Problem/Opportunity: [concise description]
+   Impacted users: [segments]
+   Strategic alignment: [relevant SAFe strategic theme]
 
-2. SOLUTION PROPOSÉE
-   Description : [ce qu'on va construire / changer]
-   Périmètre MVP : [version minimum viable]
-   Hors périmètre : [ce qu'on ne fait pas]
+2. PROPOSED SOLUTION
+   Description: [what we will build / change]
+   MVP scope: [minimum viable version]
+   Out of scope: [what we won't do]
 
-3. ANALYSE DE LA VALEUR
-   Revenus potentiels : [€ / % croissance]
-   Économies potentielles : [€ / % réduction coûts]
-   Risque de ne pas le faire : [impact si on n'agit pas]
+3. VALUE ANALYSIS
+   Potential revenue: [€ / % growth]
+   Potential savings: [€ / % cost reduction]
+   Risk of not doing it: [impact if we don't act]
 
-4. ANALYSE DES COÛTS
-   Estimation effort : [nb équipes × nb sprints]
-   Coût estimé : [€ HT]
-   Time to market estimé : [PI(s) nécessaires]
+4. COST ANALYSIS
+   Effort estimate: [number of teams × number of sprints]
+   Estimated cost: [€ excl. tax]
+   Estimated time to market: [PI(s) needed]
 
-5. WSJF SCORE (cotation relative, plus petit = 1 par colonne — cf. skills/safe/wsjf.md)
+5. WSJF SCORE (relative scoring, smallest = 1 per column — cf. skills/safe/wsjf.md)
    CoD = Business Value + Time Criticality + RR/OE (Fibonacci 1·2·3·5·8·13·20)
-   Job Size : [Fibonacci]
-   WSJF = CoD / Job Size = [score final]
+   Job Size: [Fibonacci]
+   WSJF = CoD / Job Size = [final score]
 
-6. RISQUES CLÉS
-   | Risque | Probabilité | Impact | Mitigation |
-   |--------|-------------|--------|------------|
-   | [R1]   | Moyen       | Élevé  | [action]   |
+6. KEY RISKS
+   | Risk | Probability | Impact | Mitigation |
+   |------|-------------|--------|------------|
+   | [R1] | Medium      | High   | [action]   |
 
 7. GO / NO-GO CRITERIA
-   Go si : [conditions de succès mesurables]
-   No-go si : [signaux d'arrêt]
-   Point de décision : après [MVP / PI N]
+   Go if: [measurable success conditions]
+   No-go if: [stop signals]
+   Decision point: after [MVP / PI N]
 ```
 
-## Processus Portfolio Kanban
+## Portfolio Kanban process
 
 ```
-Idée Epic → Analyse LBC → Revue LPM → Approbation → En cours → Terminé
-              (2-4 sem.)   (Bimensuel)  (Financement)
+Epic idea → LBC analysis → LPM review → Approval → In progress → Done
+              (2-4 weeks)   (Bi-weekly)  (Funding)
 ```
 
-### Critères d'entrée dans le Portfolio Kanban
-- [ ] Benefit Hypothesis rédigée
-- [ ] Analyse coûts/bénéfices complète
-- [ ] WSJF calculé
-- [ ] Alignement stratégique confirmé
-- [ ] Risques identifiés + mitigation
+### Entry criteria into the Portfolio Kanban
+- [ ] Benefit Hypothesis written
+- [ ] Complete cost/benefit analysis
+- [ ] WSJF computed
+- [ ] Strategic alignment confirmed
+- [ ] Risks identified + mitigation
 
-## Calcul du WSJF pour un Epic
+## Computing the WSJF for an Epic
 
-### Cost of Delay (CoD) — 3 composantes (cf. skills/safe/wsjf.md)
+### Cost of Delay (CoD) — 3 components (cf. skills/safe/wsjf.md)
 
-> Cotation **relative**, **plus petit = 1 par colonne**, colonnes indépendantes, Fibonacci (1·2·3·5·8·13·20).
+> **Relative** scoring, **smallest = 1 per column**, independent columns, Fibonacci (1·2·3·5·8·13·20).
 
-| Composante | Description |
+| Component | Description |
 |---|---|
-| Business Value | Impact direct sur revenu/client |
-| Time Criticality | Fenêtre d'opportunité (pénalité si tard) |
-| Risk Reduction / Opportunity Enablement | Réduit un risque ou ouvre une opportunité |
+| Business Value | Direct impact on revenue/customer |
+| Time Criticality | Opportunity window (penalty if late) |
+| Risk Reduction / Opportunity Enablement | Reduces a risk or opens an opportunity |
 
 **CoD = Business Value + Time Criticality + RR/OE**
 
 ```
-WSJF = CoD / Job Size (taille relative T-shirt : XS=1, S=2, M=3, L=5, XL=8, XXL=13)
+WSJF = CoD / Job Size (relative T-shirt size: XS=1, S=2, M=3, L=5, XL=8, XXL=13)
 ```
 
-## Présentation au Portfolio Sync
+## Presentation at the Portfolio Sync
 
-**Format recommandé : 10 min par Epic**
-- 2 min : contexte + problème
-- 3 min : solution proposée + MVP
-- 3 min : analyse valeur + WSJF
-- 2 min : risques + go/no-go criteria
+**Recommended format: 10 min per Epic**
+- 2 min: context + problem
+- 3 min: proposed solution + MVP
+- 3 min: value analysis + WSJF
+- 2 min: risks + go/no-go criteria

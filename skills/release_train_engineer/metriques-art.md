@@ -1,48 +1,48 @@
-# Skill — Métriques ART et Flow SAFe
-> Certifications : SAFe RTE (Scaled Agile), SAFe POPM 6 (Scaled Agile), SAFe LPM (Scaled Agile)
+# Skill — ART and SAFe Flow Metrics
+> Certifications: SAFe RTE (Scaled Agile), SAFe POPM 6 (Scaled Agile), SAFe LPM (Scaled Agile)
 
-## Objectif
-Collecter, calculer et interpréter les métriques clés de l'ART — PI Predictability, Flow Metrics (DORA), Business Value — pour piloter la performance du train et identifier les axes d'amélioration.
+## Objective
+Collect, compute and interpret the ART's key metrics — PI Predictability, Flow Metrics (DORA), Business Value — to steer the train's performance and identify areas for improvement.
 
-## PI Predictability — Indicateur clé RTE
+## PI Predictability — Key RTE indicator
 
 ```
-PI PREDICTABILITY = (BV réalisé / BV planifié) × 100
+PI PREDICTABILITY = (actual BV / planned BV) × 100
 
-CALCUL DÉTAILLÉ
+DETAILED CALCULATION
 ────────────────────────────────────────────────────────────
-BV planifié = Somme des Business Values des PI Objectives engagés
-BV réalisé  = Somme des Business Values des PI Objectives livrés
+Planned BV = Sum of the Business Values of the committed PI Objectives
+Actual BV  = Sum of the Business Values of the delivered PI Objectives
 
-EXEMPLE PI-12
+EXAMPLE PI-12
 ────────────────────────────────────────────────────────────
-Équipe Alpha  : BO planifié 24pts → BO livré 22pts → 91.7%
-Équipe Beta   : BO planifié 18pts → BO livré 18pts → 100%
-Équipe Gamma  : BO planifié 20pts → BO livré 15pts → 75%
+Team Alpha  : planned BO 24pts → delivered BO 22pts → 91.7%
+Team Beta   : planned BO 18pts → delivered BO 18pts → 100%
+Team Gamma  : planned BO 20pts → delivered BO 15pts → 75%
 ────────────────────────────────────────────────────────────
-ART Total     : 62pts planifiés → 55pts livrés → 88.7%
+ART Total   : 62pts planned → 55pts delivered → 88.7%
 
-CIBLE SAFe : 80% minimum considéré comme sain
+SAFe TARGET: 80% minimum considered healthy
 ```
 
-## Flow Metrics SAFe (DORA + Flow)
+## SAFe Flow Metrics (DORA + Flow)
 
 ```yaml
 flow_metrics:
   pi: "PI-12"
-  equipe: "Toute l'ART"
-  
+  team: "The whole ART"
+
   # DORA Metrics
-  deployment_frequency: "2 fois par sprint"     # cible : multiple/jour
-  lead_time_for_changes: "8 jours"              # cible : < 1 semaine
-  change_failure_rate: "12%"                    # cible : < 15%
-  mean_time_to_restore: "4 heures"              # cible : < 1 heure
-  
+  deployment_frequency: "2 times per sprint"    # target: multiple/day
+  lead_time_for_changes: "8 days"               # target: < 1 week
+  change_failure_rate: "12%"                    # target: < 15%
+  mean_time_to_restore: "4 hours"               # target: < 1 hour
+
   # SAFe Flow Metrics
-  flow_velocity: 38                             # story points/sprint moyen
-  flow_efficiency: "42%"                        # temps actif vs temps d'attente
-  flow_load: 95                                 # % de capacité utilisée
-  flow_time: "6.5 jours"                        # cycle time moyen d'une US
+  flow_velocity: 38                             # average story points/sprint
+  flow_efficiency: "42%"                        # active time vs wait time
+  flow_load: 95                                 # % of capacity used
+  flow_time: "6.5 days"                         # average cycle time of a US
   flow_distribution:
     features: "35%"
     enablers: "20%"
@@ -50,41 +50,41 @@ flow_metrics:
     risk_reduction: "30%"
 ```
 
-## Tableau de bord métriques ART
+## ART metrics dashboard
 
 ```
-MÉTRIQUES ART — PI-12 — Bilan
+ART METRICS — PI-12 — Review
 ══════════════════════════════════════════════════════════
 PI PREDICTABILITY
 ─────────────────────────────────────────────────────────
-Équipe Alpha  : 91.7% ✅  Équipe Beta  : 100% ✅
-Équipe Gamma  : 75%   ⚠   Équipe Delta : 85%  ✅
-ART TOTAL     : 88.7% ✅  (cible ≥ 80%)
+Team Alpha  : 91.7% ✅  Team Beta  : 100% ✅
+Team Gamma  : 75%   ⚠   Team Delta : 85%  ✅
+ART TOTAL   : 88.7% ✅  (target ≥ 80%)
 
-QUALITÉ
+QUALITY
 ─────────────────────────────────────────────────────────
-Taux défauts échappés   : 8%  (cible < 10%) ✅
-Change Failure Rate     : 12% (cible < 15%) ✅
-MTTR                    : 4h  (cible < 1h)  ⚠
+Escaped-defect rate     : 8%  (target < 10%) ✅
+Change Failure Rate     : 12% (target < 15%) ✅
+MTTR                    : 4h  (target < 1h)  ⚠
 
 FLOW
 ─────────────────────────────────────────────────────────
 Flow Velocity    : 38pts/sprint  → trend +5% ✅
 Flow Efficiency  : 42%           → trend stable ⚠
-Lead Time        : 8 jours       → cible 5j    ⚠
+Lead Time        : 8 days        → target 5d   ⚠
 
-AXES D'AMÉLIORATION IDENTIFIÉS
+IDENTIFIED IMPROVEMENT AREAS
 ─────────────────────────────────────────────────────────
-1. MTTR trop élevé → investir en monitoring automatique
-2. Flow Efficiency faible → réduire le temps d'attente de validation
-3. Équipe Gamma PI Predictability < 80% → PI Planning coaching
+1. MTTR too high → invest in automatic monitoring
+2. Low Flow Efficiency → reduce the validation wait time
+3. Team Gamma PI Predictability < 80% → PI Planning coaching
 ```
 
-## Livrables
-- Dashboard métriques ART (YAML + tableau)
-- Calcul PI Predictability par équipe
-- Flow Metrics collectées et analysées
-- Recommandations d'amélioration I&A
+## Deliverables
+- ART metrics dashboard (YAML + table)
+- PI Predictability computation per team
+- Flow Metrics collected and analyzed
+- I&A improvement recommendations
 
-## Format de sortie
-Précise : PI en cours, nombre d'équipes, PI Objectives et BV planifiés/livrés, incidents de production, vitesses d'équipe.
+## Output format
+Specify: current PI, number of teams, PI Objectives and planned/delivered BV, production incidents, team velocities.

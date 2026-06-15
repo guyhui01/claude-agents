@@ -4,7 +4,7 @@
     "name": "claude-agents",
     "version": "v3.26.2"
   },
-  "generatedAt": "2026-06-14T20:53:55.585Z",
+  "generatedAt": "2026-06-15T19:06:09.844Z",
   "assets": [
     {
       "id": "AGENT-AI-ARCHITECT",
@@ -24,7 +24,7 @@
       "type": "agent",
       "path": "AGENT-BUSINESS-ANALYST.md",
       "title": "Business Analyst / MOA / AMOA Expert",
-      "description": "Business Analysis & MOA & AMOA — analyse, spécifications, pilotage projet, recette, conduite du changement (Agile + Cycle V)",
+      "description": "Business Analysis & MOA & AMOA — analysis, specifications, project steering, UAT, change management (Agile + V-model)",
       "catalogVersion": "v3.26.2",
       "source": {
         "file": "AGENT-BUSINESS-ANALYST.md",
@@ -89,7 +89,7 @@
       "type": "agent",
       "path": "AGENT-PO-SAFE.md",
       "title": "Product Owner SAFe Expert",
-      "description": "Product Owner SAFe — PI Planning, ART, WSJF, features, program backlog opérationnel",
+      "description": "Product Owner SAFe — PI Planning, ART, WSJF, features, operational program backlog",
       "catalogVersion": "v3.26.2",
       "source": {
         "file": "AGENT-PO-SAFE.md",
@@ -102,7 +102,7 @@
       "type": "agent",
       "path": "AGENT-PO-SCRUM.md",
       "title": "Product Owner Scrum Expert",
-      "description": "Product Owner Scrum — backlog, user stories, DoD, cérémonies Scrum",
+      "description": "Product Owner Scrum — backlog, user stories, DoD, Scrum events",
       "catalogVersion": "v3.26.2",
       "source": {
         "file": "AGENT-PO-SCRUM.md",
@@ -115,7 +115,7 @@
       "type": "agent",
       "path": "AGENT-PRODUCT-MANAGER-SAFE.md",
       "title": "Product Manager SAFe Expert",
-      "description": "Product Management SAFe — vision produit, roadmap Programme, centricité client, cadre économique, stratégie de release",
+      "description": "SAFe Product Management — product vision, Program roadmap, customer centricity, economic framework, release strategy",
       "catalogVersion": "v3.26.2",
       "source": {
         "file": "AGENT-PRODUCT-MANAGER-SAFE.md",
@@ -140,8 +140,8 @@
       "id": "AGENT-QA-AGILE",
       "type": "agent",
       "path": "AGENT-QA-AGILE.md",
-      "title": "QA Testeur Expert ISTQB® Agile",
-      "description": "QA Agile ISTQB — BDD/Gherkin, ATDD, tests exploratoires, CI/CD",
+      "title": "QA Tester Expert ISTQB® Agile",
+      "description": "Agile QA ISTQB — BDD/Gherkin, ATDD, exploratory testing, CI/CD",
       "catalogVersion": "v3.26.2",
       "source": {
         "file": "AGENT-QA-AGILE.md",
@@ -154,7 +154,7 @@
       "type": "agent",
       "path": "AGENT-RELEASE-TRAIN-ENGINEER.md",
       "title": "Release Train Engineer Expert",
-      "description": "Release Train Engineer SAFe — coordination ART, PI Planning, impediments, métriques de flux, amélioration continue",
+      "description": "Release Train Engineer SAFe — ART coordination, PI Planning, impediments, flow metrics, continuous improvement",
       "catalogVersion": "v3.26.2",
       "source": {
         "file": "AGENT-RELEASE-TRAIN-ENGINEER.md",
@@ -167,7 +167,7 @@
       "type": "agent",
       "path": "AGENT-SCRUM-MASTER.md",
       "title": "Scrum Master Expert",
-      "description": "Scrum Master — facilitation, coaching équipe, métriques agiles, scaling",
+      "description": "Scrum Master — facilitation, team coaching, agile metrics, scaling",
       "catalogVersion": "v3.26.2",
       "source": {
         "file": "AGENT-SCRUM-MASTER.md",

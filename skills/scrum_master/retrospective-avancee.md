@@ -1,142 +1,142 @@
-# Skill — Rétrospective Avancée (Scrum Master)
-> Certifications : PSM II · A-CSM (Advanced CSM) · ICAgile ICP-ATF · SAFe SASM
+# Skill — Advanced Retrospective (Scrum Master)
+> Certifications: PSM II · A-CSM (Advanced CSM) · ICAgile ICP-ATF · SAFe SASM
 
-## Objectif
-Faciliter des rétrospectives de sprint efficaces et variées qui génèrent des améliorations concrètes, mesurables et durables au sein de l'équipe.
+## Objective
+Facilitate effective, varied sprint retrospectives that generate concrete, measurable and lasting improvements within the team.
 
-## Structure de la rétrospective (5 étapes)
+## Retrospective structure (5 steps)
 ```
-1. SET THE STAGE      → Créer la sécurité psychologique (5 min)
-2. GATHER DATA        → Collecter les faits et ressentis (15 min)
-3. GENERATE INSIGHTS  → Identifier les causes racines (15 min)
-4. DECIDE WHAT TO DO  → Prioriser et planifier les actions (15 min)
-5. CLOSE              → Célébrer et engager (5 min)
+1. SET THE STAGE      → Create psychological safety (5 min)
+2. GATHER DATA        → Collect facts and feelings (15 min)
+3. GENERATE INSIGHTS  → Identify root causes (15 min)
+4. DECIDE WHAT TO DO  → Prioritize and plan actions (15 min)
+5. CLOSE              → Celebrate and commit (5 min)
 ```
 
-## Formats de rétrospective (rotation recommandée)
+## Retrospective formats (rotation recommended)
 
 ### 1. Start / Stop / Continue (baseline)
 ```
-Questions :
-  START  : Qu'est-ce qu'on devrait commencer à faire ?
-  STOP   : Qu'est-ce qu'on devrait arrêter de faire ?
-  CONTINUE: Qu'est-ce qui fonctionne bien et mérite d'être conservé ?
+Questions:
+  START   : What should we start doing?
+  STOP    : What should we stop doing?
+  CONTINUE: What works well and is worth keeping?
 
-Usage : Sprint 1-2, équipes débutantes, retour aux fondamentaux
+Use: Sprint 1-2, beginner teams, back to fundamentals
 ```
 
 ### 2. 4Ls (Liked / Learned / Lacked / Longed For)
 ```
-LIKED    : Ce qu'on a apprécié dans ce sprint
-LEARNED  : Ce qu'on a appris (technique, process, organisation)
-LACKED   : Ce qui manquait pour mieux travailler
-LONGED FOR: Ce qu'on aurait souhaité avoir ou faire
+LIKED     : What we enjoyed in this sprint
+LEARNED   : What we learned (technical, process, organizational)
+LACKED    : What was missing to work better
+LONGED FOR: What we wished we had or could do
 
-Usage : Sprints de découverte, nouvelles fonctionnalités, montée en compétences
+Use: Discovery sprints, new features, skill ramp-up
 ```
 
 ### 3. Sailboat (Innovation Games)
 ```
-Visuel : Un voilier avec :
-  🌬️ WIND   → Ce qui nous propulse (forces, succès)
-  ⚓ ANCHOR  → Ce qui nous ralentit (obstacles, dette)
-  🪨 ROCKS   → Risques à venir (menaces, dépendances)
-  🏝️ ISLAND  → Notre objectif / destination
+Visual: A sailboat with:
+  🌬️ WIND   → What propels us (strengths, successes)
+  ⚓ ANCHOR  → What slows us down (obstacles, debt)
+  🪨 ROCKS   → Upcoming risks (threats, dependencies)
+  🏝️ ISLAND  → Our goal / destination
 
-Usage : Mi-release, vision long terme, équipes sous pression
+Use: Mid-release, long-term vision, teams under pressure
 ```
 
-### 4. Fishbone (Ishikawa) — Analyse causale
+### 4. Fishbone (Ishikawa) — Causal analysis
 ```
-Pour un problème identifié, explorer les 5M :
-  MÉTHODES    → Les processus en cause ?
-  MACHINES    → Les outils / technologies ?
-  MATIÈRES    → Les inputs (specs, données) ?
-  MAIN-D'OEUVRE → Compétences, charge, RH ?
-  MILIEU      → Environnement, contexte organisationnel ?
+For an identified problem, explore the 5Ms:
+  METHODS      → The processes at fault?
+  MACHINES     → The tools / technologies?
+  MATERIALS    → The inputs (specs, data)?
+  MANPOWER     → Skills, workload, HR?
+  MILIEU       → Environment, organizational context?
 
-Usage : Problème récurrent, bug critique, qualité dégradée
-```
-
-### 5. Timeline + Feelings (rétrospective longue durée)
-```
-1. Dessiner une ligne de temps du sprint (ou trimestre)
-2. Placer les événements clés (déploiement, incident, réunion)
-3. Annoter avec les ressentis de l'équipe (émoticônes / couleurs)
-4. Identifier les corrélations événement ↔ ressenti
-
-Usage : Release rétrospective, post-mortem, rétro trimestrielle
+Use: Recurring problem, critical bug, degraded quality
 ```
 
-## Facilitation : techniques avancées
+### 5. Timeline + Feelings (long-duration retrospective)
+```
+1. Draw a timeline of the sprint (or quarter)
+2. Place the key events (deployment, incident, meeting)
+3. Annotate with the team's feelings (emoticons / colors)
+4. Identify the event ↔ feeling correlations
 
-### Silence divergent (Brainwriting)
-```
-1. Chaque membre écrit ses idées en SILENCE (3-5 min)
-2. Post-its individuels, pas de discussion pendant l'écriture
-3. Regroupement collectif et clustering thématique
-→ Évite le groupthink et les voix dominantes
+Use: Release retrospective, post-mortem, quarterly retro
 ```
 
-### Dot Voting (priorisation)
+## Facilitation: advanced techniques
+
+### Divergent silence (Brainwriting)
 ```
-Chaque participant reçoit N points (N = nombre d'items / 3)
-→ Vote sur les actions les plus impactantes
-→ Limite les discussions infinies
-→ Décision visible et objective
+1. Each member writes their ideas in SILENCE (3-5 min)
+2. Individual sticky notes, no discussion during writing
+3. Collective grouping and thematic clustering
+→ Avoids groupthink and dominant voices
+```
+
+### Dot Voting (prioritization)
+```
+Each participant gets N dots (N = number of items / 3)
+→ Vote on the most impactful actions
+→ Limits endless discussions
+→ Visible, objective decision
 ```
 
 ### SMART Action Items
 ```
-Chaque action issue de la rétro DOIT être :
-  Specific   → Quelle tâche précisément ?
-  Measurable → Comment saurons-nous que c'est fait ?
-  Assignable → Qui est responsable (une seule personne) ?
-  Realistic  → Faisable dans le prochain sprint ?
-  Time-bound → Deadline dans le sprint ou backlog ?
+Each action from the retro MUST be:
+  Specific   → Which task precisely?
+  Measurable → How will we know it's done?
+  Assignable → Who is responsible (a single person)?
+  Realistic  → Doable in the next sprint?
+  Time-bound → Deadline in the sprint or backlog?
 
-Anti-pattern : "Améliorer la communication" → trop vague, non mesurable
-Bon exemple   : "Alice crée un channel Slack #incidents avant le Sprint 5"
+Anti-pattern: "Improve communication" → too vague, not measurable
+Good example: "Alice creates a Slack channel #incidents before Sprint 5"
 ```
 
-## Métriques de santé de la rétrospective
-| Indicateur | Vert | Orange | Rouge |
+## Retrospective health metrics
+| Indicator | Green | Amber | Red |
 |---|---|---|---|
-| Participation | 100% de l'équipe | 80% | < 70% |
-| Actions générées | 2-3 actions claires | 4-5 | 0 ou > 8 |
-| Actions complétées (sprint suivant) | > 80% | 50-80% | < 50% |
-| Durée | 90 min (sprint 2 sem.) | 120 min | > 150 min |
+| Participation | 100% of the team | 80% | < 70% |
+| Actions generated | 2-3 clear actions | 4-5 | 0 or > 8 |
+| Actions completed (next sprint) | > 80% | 50-80% | < 50% |
+| Duration | 90 min (2-week sprint) | 120 min | > 150 min |
 | Safety Check (1-5) | ≥ 4 | 3 | ≤ 2 |
 
 ## Safety Check (Prime Directive)
 ```
-Avant chaque rétro (ou en clôture) :
-"Indépendamment de ce qu'on va découvrir, on suppose
- que chacun a fait de son mieux avec ce qu'il savait,
- ses compétences et les moyens disponibles."
+Before each retro (or at close):
+"Regardless of what we discover, we assume
+ that everyone did the best job they could with
+ what they knew, their skills and the resources available."
                               — Norm Kerth, Project Retrospectives
 
-Vote anonyme 1-5 sur la sécurité psychologique :
-  5 = Je peux tout dire librement
-  1 = Je préfère me taire
-→ Si moyenne < 3 : adapter le format, traiter le problème d'abord
+Anonymous 1-5 vote on psychological safety:
+  5 = I can say anything freely
+  1 = I'd rather stay silent
+→ If average < 3: adapt the format, address the problem first
 ```
 
-## Anti-patterns à éviter
+## Anti-patterns to avoid
 ```
-❌ Rétro = séance de plaintes sans action
-❌ Le SM parle plus qu'il ne facilite
-❌ Les mêmes actions reviennent sprint après sprint
-❌ Rétro annulée "parce qu'on manque de temps"
-❌ Actions collectives sans responsable individuel
-❌ Décisions prises par le manager présent, pas l'équipe
+❌ Retro = complaint session with no action
+❌ The SM talks more than they facilitate
+❌ The same actions come back sprint after sprint
+❌ Retro cancelled "because we're short on time"
+❌ Collective actions with no individual owner
+❌ Decisions made by the manager present, not the team
 ```
 
-## Livrables
-- Compte-rendu de rétro (actions SMART + responsables)
-- Tableau de suivi des actions (Jira / Confluence / Miro)
-- Health Check de l'équipe (trimestriel)
-- Backlog d'amélioration continue (team improvement backlog)
+## Deliverables
+- Retro notes (SMART actions + owners)
+- Action tracking board (Jira / Confluence / Miro)
+- Team Health Check (quarterly)
+- Continuous-improvement backlog (team improvement backlog)
 
-## Format de sortie
-Précise : vélocité actuelle · problème récurrent identifié · format de rétro souhaité · durée disponible · outil de facilitation (Miro, Mural, physique)
+## Output format
+Specify: current velocity · identified recurring problem · desired retro format · time available · facilitation tool (Miro, Mural, physical)

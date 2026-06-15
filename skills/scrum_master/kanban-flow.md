@@ -1,63 +1,63 @@
-# Skill — Kanban, Flow & Systèmes de Flux
-> Certifications : PSM I · A-CSM · SAFe SSM · ICAgile ICP-ATF
+# Skill — Kanban, Flow & Flow Systems
+> Certifications: PSM I · A-CSM · SAFe SSM · ICAgile ICP-ATF
 
-## Objectif
-Implémenter et optimiser des systèmes Kanban pour améliorer le flux, réduire le WIP et accélérer la livraison de valeur.
+## Objective
+Implement and optimize Kanban systems to improve flow, reduce WIP and accelerate value delivery.
 
-## Principes Kanban (David Anderson)
+## Kanban principles (David Anderson)
 ```
-1. Commencer par ce que vous faites actuellement
-2. Poursuivre des changements évolutifs et incrémentaux
-3. Respecter les processus, rôles et responsabilités actuels
-4. Encourager les actes de leadership à tous les niveaux
-```
-
-## Pratiques Kanban
-
-### Visualiser le flux de travail
-```
-Colonnes standard :
-  Backlog → À faire → En cours → À valider → Done
-
-Colonnes avancées :
-  Backlog → Analyse → En cours → Code Review → Test → Done
-
-Swimlanes (lignes) :
-  - Par type : Feature / Bug / Tech debt / Urgent
-  - Par équipe : Dev / QA / DevOps
-  - Par priorité : Critique / Normal
+1. Start with what you do now
+2. Pursue evolutionary, incremental change
+3. Respect current processes, roles and responsibilities
+4. Encourage acts of leadership at all levels
 ```
 
-### Limiter le WIP (Work In Progress)
-```
-Règle : nombre d'items max simultanés par colonne / par personne
+## Kanban practices
 
-Formule de départ (Little's Law) :
+### Visualize the workflow
+```
+Standard columns:
+  Backlog → To do → In progress → To validate → Done
+
+Advanced columns:
+  Backlog → Analysis → In progress → Code Review → Test → Done
+
+Swimlanes (rows):
+  - By type: Feature / Bug / Tech debt / Urgent
+  - By team: Dev / QA / DevOps
+  - By priority: Critical / Normal
+```
+
+### Limit WIP (Work In Progress)
+```
+Rule: max number of simultaneous items per column / per person
+
+Starting formula (Little's Law):
   WIP = Throughput × Cycle Time
-  → Si Throughput = 5 items/semaine et Cycle Time = 2 semaines
-  → WIP optimal = 10
+  → If Throughput = 5 items/week and Cycle Time = 2 weeks
+  → Optimal WIP = 10
 
-Bénéfices du WIP Limit :
-  ✓ Réduit le context switching (- stress)
-  ✓ Révèle les goulots d'étranglement
-  ✓ Accélère le débit réel
-  ✓ Améliore la qualité (moins de rush)
+Benefits of the WIP Limit:
+  ✓ Reduces context switching (- stress)
+  ✓ Reveals bottlenecks
+  ✓ Speeds up actual throughput
+  ✓ Improves quality (less rushing)
 ```
 
-### Classes de service
-| Classe | Exemples | Règle |
+### Classes of service
+| Class | Examples | Rule |
 |---|---|---|
-| **Expedite** | Incident prod critique | WIP max = 1, priorité absolue |
-| **Date fixe** | Réglementation, événement | Respect de la deadline |
-| **Standard** | Fonctionnalités normales | FIFO dans la colonne |
-| **Intangible** | Tech debt, refactoring | Si capacité disponible |
+| **Expedite** | Critical prod incident | Max WIP = 1, absolute priority |
+| **Fixed date** | Regulation, event | Meet the deadline |
+| **Standard** | Normal features | FIFO in the column |
+| **Intangible** | Tech debt, refactoring | If capacity available |
 
 ## Cumulative Flow Diagram (CFD)
 ```python
 import matplotlib.pyplot as plt
 import pandas as pd
 
-# Données CFD (items cumulés par colonne dans le temps)
+# CFD data (cumulative items per column over time)
 dates = pd.date_range('2026-01-01', periods=30)
 backlog = [100 - i*2 for i in range(30)]
 in_progress = [10 + i*0.5 for i in range(30)]
@@ -70,31 +70,31 @@ plt.title('Cumulative Flow Diagram')
 plt.legend(loc='upper left')
 plt.xticks(rotation=45)
 
-# Lecture du CFD :
-# Bandes larges = goulot d'étranglement
-# Bandes parallèles = flux régulier (bon)
-# Bandes qui s'écartent = accumulation = problème
+# Reading the CFD:
+# Wide bands = bottleneck
+# Parallel bands = steady flow (good)
+# Diverging bands = accumulation = problem
 ```
 
 ## Kanban Cadences (meetings)
-| Cadence | Fréquence | Objectif |
+| Cadence | Frequency | Goal |
 |---|---|---|
-| Stand-up | Quotidien | Walk the board |
-| Replenishment | Hebdo | Alimenter le backlog |
-| Delivery planning | Hebdo/bi-hebdo | Prioriser les prochains items |
-| Service Delivery Review | Mensuel | Métriques de flux (Flow Review) |
-| Operations Review | Mensuel | Santé du service |
-| Risk Review | Mensuel | Blockers, risques |
-| Strategy Review | Trimestriel | Alignement stratégique |
+| Stand-up | Daily | Walk the board |
+| Replenishment | Weekly | Feed the backlog |
+| Delivery planning | Weekly/bi-weekly | Prioritize the next items |
+| Service Delivery Review | Monthly | Flow metrics (Flow Review) |
+| Operations Review | Monthly | Service health |
+| Risk Review | Monthly | Blockers, risks |
+| Strategy Review | Quarterly | Strategic alignment |
 
-## Livrables
-- Board Kanban configuré (Jira / Trello / Azure DevOps)
-- WIP Limits définis et appliqués
-- Classes de service documentées
-- Tableau de bord Flow Metrics (Cycle Time, Throughput, CFD)
+## Deliverables
+- Configured Kanban board (Jira / Trello / Azure DevOps)
+- WIP Limits defined and applied
+- Documented classes of service
+- Flow Metrics dashboard (Cycle Time, Throughput, CFD)
 
-## Format de sortie
-Précise : type de travail (maintenance / développement / support) · niveau de maturité Kanban · WIP actuel (estimé) · outil utilisé · goulot d'étranglement identifié
+## Output format
+Specify: type of work (maintenance / development / support) · Kanban maturity level · current WIP (estimated) · tool used · identified bottleneck
 
-## Voir aussi
-- [`skills/scrum/kanban-flow.md`](../scrum/kanban-flow.md) — Pratique Scrum+Kanban (PSK-I, Scrum.org) : usage Kanban dans un cadre Scrum côté équipe / Product Owner
+## See also
+- [`skills/scrum/kanban-flow.md`](../scrum/kanban-flow.md) — Scrum+Kanban practice (PSK-I, Scrum.org): using Kanban within a Scrum frame on the team / Product Owner side

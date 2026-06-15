@@ -1,77 +1,77 @@
-# Skill — Product Vision & Stratégie Produit
+# Skill — Product Vision & Product Strategy
 
-> Certifications : **PSPO II · PSPO III** (Scrum.org) · **ICAgile ICP-APO** · **Pragmatic Marketing** · SVPG Coach Influences (Cagan)
-> Agent : AGENT-PO-SCRUM.md
+> Certifications: **PSPO II · PSPO III** (Scrum.org) · **ICAgile ICP-APO** · **Pragmatic Marketing** · SVPG Coach Influences (Cagan)
+> Agent: AGENT-PO-SCRUM.md
 
-## Objectif
+## Objective
 
-Définir une **vision produit inspirante et actionnable** (2-5 ans), la décliner en **stratégie** annuelle, **roadmap themes-based** et **OKR** mesurables — en mobilisant les référentiels modernes de Product Management (**Cagan SVPG**, **Pichler**, **Moore Crossing the Chasm**, **Christensen JTBD**, **Sinek Golden Circle**, **Kim & Mauborgne Blue Ocean**) et les frameworks Metrics & Discovery (**North Star** · **AARRR** · **HEART** · **Continuous Discovery Torres** · **PMF Sean Ellis**).
+Define an **inspiring, actionable product vision** (2-5 years), break it down into an annual **strategy**, a **themes-based roadmap** and measurable **OKRs** — drawing on modern Product Management frameworks (**Cagan SVPG**, **Pichler**, **Moore Crossing the Chasm**, **Christensen JTBD**, **Sinek Golden Circle**, **Kim & Mauborgne Blue Ocean**) and Metrics & Discovery frameworks (**North Star** · **AARRR** · **HEART** · **Continuous Discovery Torres** · **PMF Sean Ellis**).
 
-## Cadre référentiels mobilisés
+## Frameworks used
 
-| Domaine | Référentiels |
+| Domain | Frameworks |
 |---|---|
-| **Vision narrative** | Sinek Golden Circle · Pichler Product Vision Board · Cagan Inspired/Empowered |
-| **Stratégie marché** | Moore Crossing the Chasm · Christensen Disruption · Kim & Mauborgne Blue Ocean |
-| **Discovery** | Torres Continuous Discovery · Ulwick ODI · Christensen JTBD · Cagan 4 risques |
+| **Narrative vision** | Sinek Golden Circle · Pichler Product Vision Board · Cagan Inspired/Empowered |
+| **Market strategy** | Moore Crossing the Chasm · Christensen Disruption · Kim & Mauborgne Blue Ocean |
+| **Discovery** | Torres Continuous Discovery · Ulwick ODI · Christensen JTBD · Cagan 4 risks |
 | **Validation** | Andreessen/Ellis PMF · Maurya Lean Canvas · Ries Lean Startup |
 | **Roadmap** | Pichler GO Roadmap · Now/Next/Later (Sutherland) · Wodtke Radical Focus |
 | **Metrics** | North Star Framework (Amplitude) · AARRR McClure · HEART Google · OKR Doerr |
 
 ## Sinek Golden Circle (2009) — Start With Why
 
-Toute vision produit commence par le **WHY** (raison d'être), avant le HOW (comment) et le WHAT (quoi). Inversion vs approche classique features-first.
+Every product vision starts with the **WHY** (purpose), before the HOW and the WHAT. An inversion of the classic features-first approach.
 
 ```
               WHY
-         (raison d'être,
-        cause, croyance)
+        (purpose, cause,
+           belief)
               ↑
              HOW
-       (processus, méthode
-        différenciant)
+       (differentiating
+        process, method)
               ↑
             WHAT
-      (produits, services,
+      (products, services,
          features)
 ```
 
-**Anti-pattern** : commencer par WHAT ("on construit une app de gestion de tâches") → vision sans âme, copiable, ne mobilise pas. **Bonne pratique** : "On croit que chaque équipe mérite de se concentrer sur ce qui compte vraiment (WHY) — en automatisant l'orchestration des outils dispersés (HOW) — via une plateforme unifiée de productivité collaborative (WHAT)."
+**Anti-pattern**: starting with WHAT ("we're building a task-management app") → a soulless, copyable vision that doesn't mobilize. **Best practice**: "We believe every team deserves to focus on what truly matters (WHY) — by automating the orchestration of scattered tools (HOW) — through a unified collaborative-productivity platform (WHAT)."
 
 ## Pichler Product Vision Board (Strategize, 2016)
 
-Cadre 1-page condensant la vision produit en **5 sections + 1 fondatrice** :
+A 1-page canvas condensing the product vision into **5 sections + 1 founding one**:
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│  VISION (1 phrase ambitieuse, motivante, long terme)            │
+│  VISION (1 ambitious, motivating, long-term sentence)           │
 ├──────────────┬──────────────┬──────────────┬───────────────────┤
 │ TARGET GROUP │    NEEDS     │   PRODUCT    │  BUSINESS GOALS   │
-│ (utilisateurs│  (problèmes  │  (catégorie, │ (revenue, market  │
-│  + acheteurs)│   non-résolus)│   features,  │  share, NPS,     │
-│              │              │   différenciat.)│ stratégique)    │
+│ (users       │  (unsolved   │  (category,  │ (revenue, market  │
+│  + buyers)   │   problems)  │   features,  │  share, NPS,     │
+│              │              │   differentiat.)│ strategic)      │
 └──────────────┴──────────────┴──────────────┴───────────────────┘
 ```
 
-**Extended Vision Board** ajoute 4 sections : **Business Model · Competitors · Market & Trends · Technologies clés**.
+The **Extended Vision Board** adds 4 sections: **Business Model · Competitors · Market & Trends · Key technologies**.
 
-**Variante IA** (cf. [po-ai-product.md](po-ai-product.md)) : ajouter "Why IA" justifiant pourquoi l'IA bat une règle déterministe + section "AI Risks & Mitigation" (NIST AI RMF + AI Act).
+**AI variant** (cf. [po-ai-product.md](po-ai-product.md)): add a "Why AI" justifying why AI beats a deterministic rule + an "AI Risks & Mitigation" section (NIST AI RMF + AI Act).
 
 ## Cagan Product Vision Type (Inspired 2017 / Empowered 2020)
 
-Référence SVPG (Silicon Valley Product Group) — vision produit = **mission de l'équipe empowered**, pas un document.
+SVPG reference (Silicon Valley Product Group) — product vision = **the empowered team's mission**, not a document.
 
-### 4 grands risques produit à adresser dans la Discovery
-| Risque | Question | Owner principal |
+### 4 major product risks to address in Discovery
+| Risk | Question | Primary owner |
 |---|---|---|
-| **Value Risk** | Les clients vont-ils l'acheter / l'utiliser ? | Product Manager |
-| **Usability Risk** | Les utilisateurs vont-ils savoir l'utiliser ? | Product Designer |
-| **Feasibility Risk** | Pouvons-nous le construire ? | Tech Lead / Engineers |
-| **Business Viability Risk** | Cela fonctionne-t-il pour notre business ? (legal, marketing, sales, finance, ops) | Product Manager + Stakeholders |
+| **Value Risk** | Will customers buy / use it? | Product Manager |
+| **Usability Risk** | Will users know how to use it? | Product Designer |
+| **Feasibility Risk** | Can we build it? | Tech Lead / Engineers |
+| **Business Viability Risk** | Does it work for our business? (legal, marketing, sales, finance, ops) | Product Manager + Stakeholders |
 
-**Discovery continue** = tests itératifs sur ces 4 risques avant tout build (vs gates cycle V).
+**Continuous Discovery** = iterative tests on these 4 risks before any build (vs V-model gates).
 
-## Moore Crossing the Chasm (1991, rééd. 2014)
+## Moore Crossing the Chasm (1991, 2014 ed.)
 
 ### Technology Adoption Lifecycle — 5 segments
 
@@ -79,68 +79,68 @@ Référence SVPG (Silicon Valley Product Group) — vision produit = **mission d
 Innovators (2.5%) → Early Adopters (13.5%) → [CHASM] → Early Majority (34%) → Late Majority (34%) → Laggards (16%)
 ```
 
-**Le Chasm** est la cassure psychologique entre Early Adopters (visionnaires) et Early Majority (pragmatiques) — beaucoup de produits y meurent.
+**The Chasm** is the psychological break between Early Adopters (visionaries) and Early Majority (pragmatists) — many products die there.
 
-### Stratégie Bowling Alley (post-Chasm)
-1. **Tête d'épingle** : cibler 1 niche dominable à 100% (1 segment vertical × 1 use case précis)
-2. **Whole Product** : offrir solution complète (pas que le produit core), références clients, partenaires
-3. **Quilles voisines** : exploiter les références pour conquérir niches adjacentes
-4. **Tornado** : adoption Early Majority massive, scaling rapide
-5. **Main Street** : Late Majority, market leader établi
+### Bowling Alley strategy (post-Chasm)
+1. **Pin head**: target 1 fully dominatable niche (1 vertical segment × 1 precise use case)
+2. **Whole Product**: offer a complete solution (not just the core product), customer references, partners
+3. **Adjacent pins**: leverage references to conquer adjacent niches
+4. **Tornado**: massive Early Majority adoption, fast scaling
+5. **Main Street**: Late Majority, established market leader
 
 ## Christensen Innovator's Dilemma (1997) — Sustaining vs Disruptive
 
-| Innovation | Cible | Trajectoire | Exemple |
+| Innovation | Target | Trajectory | Example |
 |---|---|---|---|
-| **Sustaining** | Top customers existants | Amélioration performance produit dominant | iPhone → iPhone 15 |
-| **Disruptive low-end** | Customers sur-servis du bas de marché | Produit "moins bon" mais accessible/simple | Salesforce vs Siebel (1999) |
-| **Disruptive new-market** | Non-customers (qui n'achètent pas la catégorie) | Création d'un nouveau marché | Notion vs Confluence (early days) |
+| **Sustaining** | Existing top customers | Performance improvement of the dominant product | iPhone → iPhone 15 |
+| **Disruptive low-end** | Over-served low-end customers | A "worse" but accessible/simple product | Salesforce vs Siebel (1999) |
+| **Disruptive new-market** | Non-customers (who don't buy the category) | Creation of a new market | Notion vs Confluence (early days) |
 
-**Dilemme** : les leaders sustaining (Kodak, Blockbuster, Nokia) ratent les disruptions car elles ne servent pas leurs meilleurs clients. **Action PO** : maintenir 2 horizons (Horizon 1 sustaining + Horizon 3 disruptive exploratoire).
+**The dilemma**: sustaining leaders (Kodak, Blockbuster, Nokia) miss disruptions because they don't serve their best customers. **PO action**: maintain 2 horizons (Horizon 1 sustaining + Horizon 3 exploratory disruptive).
 
 ## Kim & Mauborgne Blue Ocean Strategy (2005, expanded 2015)
 
-### Red Ocean (compétition féroce) vs Blue Ocean (espace incontesté)
+### Red Ocean (fierce competition) vs Blue Ocean (uncontested space)
 
-**6 Paths to Reconstruct Market Boundaries** :
-1. Look across **Alternative Industries** (cinéma vs restaurants vs streaming)
+**6 Paths to Reconstruct Market Boundaries**:
+1. Look across **Alternative Industries** (cinema vs restaurants vs streaming)
 2. Look across **Strategic Groups** (Toyota Lexus vs Mercedes vs Honda)
-3. Look across **Buyer Chain** (utilisateur vs acheteur vs influenceur)
-4. Look across **Complementary Offerings** (offre élargie)
+3. Look across **Buyer Chain** (user vs buyer vs influencer)
+4. Look across **Complementary Offerings** (broadened offer)
 5. Look across **Functional-Emotional Appeal** (Cirque du Soleil)
-6. Look across **Time Trends** (anticiper tendances long terme)
+6. Look across **Time Trends** (anticipate long-term trends)
 
 ### ERRC Grid (Eliminate-Reduce-Raise-Create)
 ```
 ┌──────────────────┬──────────────────┐
 │  ELIMINATE       │  CREATE          │
-│  Quels facteurs  │  Quels facteurs  │
-│  considérés      │  jamais offerts  │
-│  acquis éliminer?│  créer ?         │
+│  Which factors   │  Which factors   │
+│  taken for       │  never offered   │
+│  granted remove? │  to create?      │
 ├──────────────────┼──────────────────┤
 │  REDUCE          │  RAISE           │
-│  Quels facteurs  │  Quels facteurs  │
-│  réduire bien    │  augmenter bien  │
-│  en-dessous std ?│  au-dessus std ? │
+│  Which factors   │  Which factors   │
+│  reduce well     │  raise well      │
+│  below standard? │  above standard? │
 └──────────────────┴──────────────────┘
 ```
 
 ## JTBD — Christensen-Ulwick (Jobs-to-be-Done)
 
 ### Christensen JTBD narrative (*Competing Against Luck*, 2016)
-**Format Job Story** : *When [situation], I want to [motivation], so I can [expected outcome]*.
+**Job Story format**: *When [situation], I want to [motivation], so I can [expected outcome]*.
 
-Exemple : *When [je dois préparer un COPIL en 24h avec 12 sources de données], I want to [agréger automatiquement les KPI dans un dashboard], so I can [me concentrer sur l'analyse stratégique au lieu du copy-paste]*.
+Example: *When [I have to prepare a steering committee in 24h from 12 data sources], I want to [automatically aggregate the KPIs into a dashboard], so I can [focus on strategic analysis instead of copy-paste]*.
 
 ### Ulwick ODI — Outcome-Driven Innovation
-- Identifier **Desired Outcomes** atomiques (ex. "Minimize the time it takes to identify a leaking pipe")
-- Mesurer **Importance (1-10)** + **Satisfaction (1-10)** par outcome
+- Identify atomic **Desired Outcomes** (e.g. "Minimize the time it takes to identify a leaking pipe")
+- Measure **Importance (1-10)** + **Satisfaction (1-10)** per outcome
 - **Opportunity Score = Importance + max(0, Importance - Satisfaction)**
-- Prioriser outcomes Opportunity Score > 10 (haute importance + faible satisfaction)
+- Prioritize outcomes with Opportunity Score > 10 (high importance + low satisfaction)
 
-**Anti-pattern majeur** : remplacer JTBD par personas démographiques ("Sophie, 32 ans, urbaine, CSP+") — démographie ne prédit pas les jobs. JTBD = causalité, persona = corrélation.
+**Major anti-pattern**: replacing JTBD with demographic personas ("Sophie, 32, urban, upper-income") — demographics don't predict jobs. JTBD = causation, persona = correlation.
 
-## Lean Canvas (Maurya 2012) — adapté startup vs BMC
+## Lean Canvas (Maurya 2012) — adapted startup vs BMC
 
 ```
 ┌──────────────┬──────────────┬──────────────┬──────────────┬──────────────┐
@@ -157,31 +157,31 @@ Exemple : *When [je dois préparer un COPIL en 24h avec 12 sources de données],
 └───────────────────────────────────────┴──────────────────────────────────┘
 ```
 
-Différences vs Business Model Canvas (Osterwalder) : Problem + Solution + Unfair Advantage + Key Metrics (vs Key Partners, Key Activities, Key Resources, Customer Relationships).
+Differences vs Business Model Canvas (Osterwalder): Problem + Solution + Unfair Advantage + Key Metrics (vs Key Partners, Key Activities, Key Resources, Customer Relationships).
 
 ## Product-Market Fit (Andreessen 2007 + Sean Ellis 40% Rule)
 
-### Définition Andreessen
-*"The only thing that matters is getting to product/market fit."* — Marc Andreessen (Pmarchive, 25 juin 2007)
+### Andreessen definition
+*"The only thing that matters is getting to product/market fit."* — Marc Andreessen (Pmarchive, June 25, 2007)
 
-### Sean Ellis PMF Survey (méthode mesurable)
-Question unique aux utilisateurs actifs : **"How would you feel if you could no longer use [product]?"**
+### Sean Ellis PMF Survey (measurable method)
+A single question to active users: **"How would you feel if you could no longer use [product]?"**
 - Very disappointed
 - Somewhat disappointed
 - Not disappointed
 - N/A — I no longer use [product]
 
-**Seuil PMF** : ≥ **40% de "Very disappointed"** = signal PMF établi. < 40% = pas de PMF, ne pas scaler.
+**PMF threshold**: ≥ **40% "Very disappointed"** = established PMF signal. < 40% = no PMF, don't scale.
 
-### Signaux complémentaires PMF
+### Complementary PMF signals
 - Organic growth (referrals, word-of-mouth)
-- Retention courbes plates (vs déclinantes) à 30/60/90j
+- Flat retention curves (vs declining) at 30/60/90d
 - NPS > 30 (consumer) / > 50 (B2B)
-- Churn < 5%/mois B2C / < 1%/mois B2B SaaS
+- Churn < 5%/month B2C / < 1%/month B2B SaaS
 
 ## Continuous Discovery (Teresa Torres 2021)
 
-**Habit** = discovery hebdomadaire continue (vs sprint discovery ad hoc).
+**Habit** = continuous weekly discovery (vs ad hoc sprint discovery).
 
 ### Opportunity Solution Tree
 ```
@@ -198,196 +198,196 @@ Question unique aux utilisateurs actifs : **"How would you feel if you could no 
    ASSUMPTION TESTS  ASSUMPTION TESTS   ASSUMPTION TESTS
 ```
 
-**Cadence** : 3-5 interviews/semaine + 1 assumption test/semaine + Tree mise à jour hebdo.
+**Cadence**: 3-5 interviews/week + 1 assumption test/week + Tree updated weekly.
 
-## Hiérarchie stratégique — Vision → Strategy → Themes → OKR → Backlog
+## Strategic hierarchy — Vision → Strategy → Themes → OKR → Backlog
 
 ```
-VISION PRODUIT (2-5 ans, narrative inspirante)
+PRODUCT VISION (2-5 years, inspiring narrative)
     ↓
-PRODUCT STRATEGY (annuelle, focus 3-5 axes)
+PRODUCT STRATEGY (annual, focus on 3-5 axes)
     ↓
-THEMES (trimestriels, problèmes/opportunités à résoudre)
+THEMES (quarterly, problems/opportunities to solve)
     ↓
-OKR (Objective + 3-5 Key Results par theme)
+OKR (Objective + 3-5 Key Results per theme)
     ↓
-INITIATIVES / EPICS (multi-sprints)
+INITIATIVES / EPICS (multi-sprint)
     ↓
 FEATURES / USER STORIES (sprint)
 ```
 
-**Règle Cagan** : la stratégie produit ne tient que sur 3-5 axes — pas 15. Le PO arbitre constamment ce qui rentre dans ces axes.
+**Cagan rule**: a product strategy only holds on 3-5 axes — not 15. The PO constantly arbitrates what fits within those axes.
 
-## Roadmap themes-based (GO Roadmap Pichler + Now/Next/Later)
+## Themes-based roadmap (Pichler GO Roadmap + Now/Next/Later)
 
-### GO Product Roadmap Pichler
+### Pichler GO Product Roadmap
 | Date | Name (Theme) | Goal | Features | Metrics |
 |---|---|---|---|---|
-| Q1 | Onboarding Excellence | Activation rate 40%→65% | Wizard 3 étapes, tutoriel interactif, sample data | Time-to-Activation < 5 min |
-| Q2 | Collaborative Workspaces | Engagement weekly +30% | Real-time co-edit, comments, mentions | WAU/MAU > 0.55 |
-| Q3 | Enterprise Readiness | 5 deals > 100k€ ARR | SSO SAML, audit logs, SLA 99.9%, certif SOC 2 | Enterprise pipeline +200% |
+| Q1 | Onboarding Excellence | Activation rate 40%→65% | 3-step wizard, interactive tutorial, sample data | Time-to-Activation < 5 min |
+| Q2 | Collaborative Workspaces | Weekly engagement +30% | Real-time co-edit, comments, mentions | WAU/MAU > 0.55 |
+| Q3 | Enterprise Readiness | 5 deals > €100k ARR | SAML SSO, audit logs, SLA 99.9%, SOC 2 cert | Enterprise pipeline +200% |
 
 ### Now / Next / Later (Sutherland, prefer date-less roadmap)
-| NOW (en cours) | NEXT (3-6 mois) | LATER (6-18 mois) |
+| NOW (in progress) | NEXT (3-6 months) | LATER (6-18 months) |
 |---|---|---|
-| Theme 1 + KR | Theme 2 + KR | Theme 3 (hypothèses à valider) |
+| Theme 1 + KR | Theme 2 + KR | Theme 3 (hypotheses to validate) |
 
-**Anti-pattern** : roadmap dates fixes 18 mois (Gantt-roadmap) → engagement non tenable, source de stress équipe.
+**Anti-pattern**: a fixed-date 18-month roadmap (Gantt-roadmap) → unsustainable commitment, a source of team stress.
 
 ## Metrics Framework
 
 ### North Star Framework (Amplitude / Cutler / Taylor 2018+)
-**One North Star Metric** reflétant la **valeur livrée aux utilisateurs** ET corrélée à la croissance business.
+**One North Star Metric** reflecting the **value delivered to users** AND correlated with business growth.
 
-Exemples North Star sectoriels :
-- Airbnb : Nights Booked
-- Spotify : Time spent listening
-- Slack : Daily Active Workspaces with ≥ 2 messages
-- Facebook : DAU
-- Amazon : Number of purchases per Prime member
+Sector North Star examples:
+- Airbnb: Nights Booked
+- Spotify: Time spent listening
+- Slack: Daily Active Workspaces with ≥ 2 messages
+- Facebook: DAU
+- Amazon: Number of purchases per Prime member
 
-**Inputs Metrics** (3-5) = drivers actionnables qui font bouger le North Star.
+**Input Metrics** (3-5) = actionable drivers that move the North Star.
 
-### AARRR Pirate Metrics (Dave McClure 500 Startups, 2007)
+### AARRR Pirate Metrics (Dave McClure, 500 Startups, 2007)
 **A**cquisition → **A**ctivation → **R**etention → **R**eferral → **R**evenue
 
 ### HEART Framework (Google, Rodden et al. CHI 2010)
 **H**appiness · **E**ngagement · **A**doption · **R**etention · **T**ask success
 
 ### OKR (Doerr 2018 — *Measure What Matters*)
-- **Objective** : qualitatif, motivant, ambitieux (verbe d'action)
-- **3-5 Key Results** : quantitatifs, mesurables, agressifs (atteindre 70% = succès)
+- **Objective**: qualitative, motivating, ambitious (action verb)
+- **3-5 Key Results**: quantitative, measurable, aggressive (hitting 70% = success)
 
-**Anti-pattern** : confondre KPI (mesures continues) et OKR (ambitions trimestrielles) — un OKR doit "faire peur" un peu.
+**Anti-pattern**: confusing KPI (continuous measures) and OKR (quarterly ambitions) — an OKR should be a little "scary".
 
-## Exemple chiffré sectoriel — Éditeur SaaS B2B européen Series B
+## Worked sector example — European B2B SaaS vendor, Series B
 
-**Contexte anonymisé** : éditeur SaaS B2B européen Series B (~150 collaborateurs, ARR 15 M€, ~1 200 customers PME-ETI, fondé 2019). Produit : plateforme collaborative de gestion de projets pour équipes hybrides. Mission : **refonte vision produit T+12 mois** suite arrivée nouveau CPO ex-Atlassian.
+**Anonymized context**: European B2B SaaS vendor, Series B (~150 employees, €15M ARR, ~1,200 SMB-mid-market customers, founded 2019). Product: a collaborative project-management platform for hybrid teams. Mission: **product-vision overhaul at T+12 months** following the arrival of a new CPO, ex-Atlassian.
 
-**Diagnostic initial (avant refonte)** :
-- PMF Sean Ellis survey : **47%** "Very disappointed" (juste sous seuil 40%, mais fragile sur Early Majority)
-- North Star floue (MAU + Revenue mélangés sur dashboard COMEX)
-- Roadmap = Gantt fixe 18 mois, 47 features prévues, sentiment d'équipe surchargée
-- OKR cascadés top-down (anti-pattern), 60% non atteints au Q précédent
-- Discovery ad hoc (1 round users tests / trimestre)
+**Initial diagnosis (before the overhaul)**:
+- PMF Sean Ellis survey: **47%** "Very disappointed" (just under the 40% threshold, but fragile on Early Majority)
+- Fuzzy North Star (MAU + Revenue mixed on the executive dashboard)
+- Roadmap = fixed 18-month Gantt, 47 planned features, sense of an overloaded team
+- OKRs cascaded top-down (anti-pattern), 60% missed in the prior Q
+- Ad hoc discovery (1 round of user tests / quarter)
 
-**Refonte vision produit (méthode appliquée)** :
+**Product-vision overhaul (method applied)**:
 
-1. **Sinek Golden Circle** :
-   - WHY : "Nous croyons que les équipes hybrides modernes méritent un espace de travail aussi naturel que la présence physique"
-   - HOW : "En unifiant les artefacts dispersés (Slack, Notion, Jira, Email) dans une vue contextuelle par projet"
-   - WHAT : "Plateforme SaaS de gestion projet contextuelle pour équipes hybrides 10-500 personnes"
+1. **Sinek Golden Circle**:
+   - WHY: "We believe modern hybrid teams deserve a workspace as natural as physical presence"
+   - HOW: "By unifying scattered artifacts (Slack, Notion, Jira, Email) into a per-project contextual view"
+   - WHAT: "A contextual project-management SaaS platform for hybrid teams of 10-500 people"
 
-2. **Pichler Product Vision Board** :
-   - **Target** : Product Managers + Engineering Managers d'équipes hybrides 10-500p
-   - **Needs** : éliminer 2-4h/jour de jongle entre 8-12 outils par PM
-   - **Product** : 1 vue contextuelle par projet agrégeant Slack/Jira/Notion/Email avec IA assistante
-   - **Business Goals** : ARR 15M€ → 28M€ T+18 (+87%), NPS B2B 38 → 60, Net Revenue Retention 105% → 120%
+2. **Pichler Product Vision Board**:
+   - **Target**: Product Managers + Engineering Managers of hybrid teams of 10-500p
+   - **Needs**: remove 2-4h/day of juggling across 8-12 tools per PM
+   - **Product**: 1 contextual view per project aggregating Slack/Jira/Notion/Email with an AI assistant
+   - **Business Goals**: ARR €15M → €28M at T+18 (+87%), B2B NPS 38 → 60, Net Revenue Retention 105% → 120%
 
-3. **Moore Crossing the Chasm — diagnostic** : la base actuelle est **Early Adopters tech-savvy** (CTO/dev-led). Le Chasm est devant : il faut conquérir **Early Majority Product Managers d'ETI** (pragmatiques, ROI-focused). Stratégie **Bowling Alley** : tête d'épingle = PM dans scale-ups Tech 50-200p.
+3. **Moore Crossing the Chasm — diagnosis**: the current base is **tech-savvy Early Adopters** (CTO/dev-led). The Chasm is ahead: we must conquer the **Early Majority of mid-market Product Managers** (pragmatic, ROI-focused). **Bowling Alley** strategy: pin head = PMs in tech scale-ups of 50-200p.
 
-4. **Blue Ocean ERRC Grid** :
-   - ELIMINATE : configuration complexe initiale (>2h setup)
-   - REDUCE : nombre d'écrans paramétrage (47 → 12)
-   - RAISE : qualité onboarding (NPS onboarding 5.2 → 8.5)
-   - CREATE : IA assistant "Project Pulse" qui détecte risques projet automatiquement à partir des artefacts agrégés (différentiation unique)
+4. **Blue Ocean ERRC Grid**:
+   - ELIMINATE: complex initial configuration (>2h setup)
+   - REDUCE: number of settings screens (47 → 12)
+   - RAISE: onboarding quality (onboarding NPS 5.2 → 8.5)
+   - CREATE: "Project Pulse" AI assistant that automatically detects project risks from the aggregated artifacts (unique differentiation)
 
-5. **JTBD interviews** (15 interviews PM d'ETI cibles) :
-   - Job principal : *When my CEO asks "where are we on Project X?", I want to give a confident answer in 30 seconds, so I can stop dreading these moments*
-   - Job secondaire : *When a deadline slips, I want to know it 2 weeks before, so I can re-plan without firefighting*
+5. **JTBD interviews** (15 interviews with target mid-market PMs):
+   - Primary job: *When my CEO asks "where are we on Project X?", I want to give a confident answer in 30 seconds, so I can stop dreading these moments*
+   - Secondary job: *When a deadline slips, I want to know it 2 weeks before, so I can re-plan without firefighting*
 
-6. **OKR Q4** :
-   - **Objective** : "Devenir la référence Product Pulse pour les scale-ups tech 50-200p"
-   - KR1 : PMF Sean Ellis → **62%** (vs 47% baseline)
-   - KR2 : 20 nouveaux logos scale-ups tech 50-200p (avec ARR moyen ≥ 30k€)
-   - KR3 : North Star "Weekly Active Workspaces with ≥ 3 contributors" : 380 → **620**
-   - KR4 : NPS onboarding ≥ 8 sur 10
+6. **Q4 OKRs**:
+   - **Objective**: "Become the Product Pulse reference for tech scale-ups of 50-200p"
+   - KR1: PMF Sean Ellis → **62%** (vs 47% baseline)
+   - KR2: 20 new tech scale-up logos of 50-200p (with average ARR ≥ €30k)
+   - KR3: North Star "Weekly Active Workspaces with ≥ 3 contributors": 380 → **620**
+   - KR4: onboarding NPS ≥ 8 out of 10
 
-7. **Roadmap Now/Next/Later** (vs Gantt fixe 18 mois supprimé) :
-   - **NOW** : Theme "Onboarding Excellence" (Time-to-Value < 15 min)
-   - **NEXT** : Theme "Project Pulse IA Assistant" (différenciation Blue Ocean)
-   - **LATER** : Theme "Enterprise Readiness" (SSO, SOC 2, audit logs — préparer Crossing au-delà du Chasm)
+7. **Now/Next/Later roadmap** (vs the removed fixed 18-month Gantt):
+   - **NOW**: "Onboarding Excellence" theme (Time-to-Value < 15 min)
+   - **NEXT**: "Project Pulse AI Assistant" theme (Blue Ocean differentiation)
+   - **LATER**: "Enterprise Readiness" theme (SSO, SOC 2, audit logs — prepare the crossing beyond the Chasm)
 
-**Gains mesurés à T+12 mois** :
-- PMF Sean Ellis : 47% → **64%** (objectif KR1 dépassé)
-- ARR : 15 M€ → 22 M€ (+47% en 12 mois, trajectoire 28M€ T+18)
-- Logos scale-ups 50-200p : 18 → **34** acquis sur l'année (vs 20 KR)
-- NPS B2B : 38 → **52**
-- Net Revenue Retention : 105% → **117%**
-- Velocity équipe produit : +35% (équipe alignée sur 3 themes vs 47 features dispersées)
+**Measured gains at T+12 months**:
+- PMF Sean Ellis: 47% → **64%** (KR1 target exceeded)
+- ARR: €15M → €22M (+47% in 12 months, on track for €28M at T+18)
+- Scale-up logos 50-200p: 18 → **34** acquired over the year (vs 20 KR)
+- B2B NPS: 38 → **52**
+- Net Revenue Retention: 105% → **117%**
+- Product-team velocity: +35% (team aligned on 3 themes vs 47 scattered features)
 
-## 8 anti-patterns Product Vision & Strategy
+## 8 Product Vision & Strategy anti-patterns
 
-- ❌ **Vision = liste de features** ("on va ajouter SSO, audit logs, dark mode...") → pas une vision, c'est un backlog
-- ❌ **Vision changée chaque trimestre** → pas de stabilité, équipe désorientée — la vision doit tenir 2-5 ans
-- ❌ **Roadmap Gantt dates fixes 18 mois** → engagement non tenable, source d'overcommitment et de stress
-- ❌ **North Star = Revenue ou MAU sans lien avec valeur utilisateur** → métrique vanité, ne guide pas la priorisation
-- ❌ **JTBD remplacé par personas démographiques** ("Sophie 32 ans urbaine CSP+") → démographie ne prédit pas les jobs
-- ❌ **OKR cascadés top-down rigide** (CEO → directions → équipes) → équipes désempowered, OKR non-alignés réalité terrain
-- ❌ **PMF confondu avec adoption initiale Early Adopters** → faux signal, Crossing the Chasm sera brutal sans préparation
-- ❌ **Skipper la phase "Bowling Alley" Crossing the Chasm** (passer direct mainstream) → croissance bloquée, beaucoup de produits y meurent
+- ❌ **Vision = feature list** ("we'll add SSO, audit logs, dark mode...") → not a vision, it's a backlog
+- ❌ **Vision changed every quarter** → no stability, disoriented team — the vision should hold for 2-5 years
+- ❌ **Fixed-date 18-month Gantt roadmap** → unsustainable commitment, a source of overcommitment and stress
+- ❌ **North Star = Revenue or MAU with no link to user value** → vanity metric, doesn't guide prioritization
+- ❌ **JTBD replaced by demographic personas** ("Sophie, 32, urban, upper-income") → demographics don't predict jobs
+- ❌ **Rigid top-down cascaded OKRs** (CEO → departments → teams) → disempowered teams, OKRs misaligned with the field
+- ❌ **PMF confused with initial Early Adopter adoption** → false signal, Crossing the Chasm will be brutal without preparation
+- ❌ **Skipping the "Bowling Alley" phase of Crossing the Chasm** (jumping straight to mainstream) → blocked growth, many products die there
 
-## Outils
+## Tools
 
-- **Vision Board / Lean Canvas** : Miro (templates) · Mural · Strategyzer · Canvanizer · Notion
-- **OKR & Strategy** : Ally.io (Microsoft Viva Goals) · Perdoo · Gtmhub (Quantive) · Atlassian Jira Align · Workboard
-- **Roadmap themes-based** : ProductPlan · Aha! · Productboard · Roadmunk · GitHub Projects
-- **JTBD & Discovery** : Productboard Insights · Dovetail · Notion · Airtable · Maze · UserTesting
-- **PMF Survey** : Sean Ellis Pyramide (survey.io ancien) · Typeform · Hotjar · Pendo
-- **Metrics & North Star** : Amplitude · Mixpanel · Heap · PostHog · Segment + dashboards Looker / Power BI
-- **Continuous Discovery (Torres)** : Productboard · Dovetail (research repository) · User Interviews · Maze · Lookback
+- **Vision Board / Lean Canvas**: Miro (templates) · Mural · Strategyzer · Canvanizer · Notion
+- **OKR & Strategy**: Ally.io (Microsoft Viva Goals) · Perdoo · Gtmhub (Quantive) · Atlassian Jira Align · Workboard
+- **Themes-based roadmap**: ProductPlan · Aha! · Productboard · Roadmunk · GitHub Projects
+- **JTBD & Discovery**: Productboard Insights · Dovetail · Notion · Airtable · Maze · UserTesting
+- **PMF Survey**: Sean Ellis Pyramid (old survey.io) · Typeform · Hotjar · Pendo
+- **Metrics & North Star**: Amplitude · Mixpanel · Heap · PostHog · Segment + Looker / Power BI dashboards
+- **Continuous Discovery (Torres)**: Productboard · Dovetail (research repository) · User Interviews · Maze · Lookback
 
-## Livrables
+## Deliverables
 
-- **Product Vision Statement** (1 phrase ambitieuse 2-5 ans, format Sinek Why)
-- **Pichler Product Vision Board** complété (5 sections + Extended si pertinent)
-- **Blue Ocean ERRC Grid** + 6 Paths analysis (si stratégie différenciation)
-- **JTBD Map** : Job principal + jobs secondaires + Outcome Statements ODI
-- **Lean Canvas** ou **Business Model Canvas** (selon maturité produit)
-- **PMF Survey Sean Ellis** (mesure baseline T0 + T+6/+12)
-- **Hiérarchie Vision → Strategy → Themes → OKR** documentée (1-page exécutif)
-- **GO Product Roadmap themes-based** (3-5 themes max) ou Now/Next/Later
-- **North Star Framework** : 1 NSM + 3-5 Inputs Metrics
-- **OKR trimestriels** : Objective + 3-5 KR par theme
-- **AARRR funnel + HEART scorecard** (selon contexte B2C/B2B)
+- **Product Vision Statement** (1 ambitious 2-5 year sentence, Sinek Why format)
+- **Pichler Product Vision Board** completed (5 sections + Extended if relevant)
+- **Blue Ocean ERRC Grid** + 6 Paths analysis (if a differentiation strategy)
+- **JTBD Map**: primary job + secondary jobs + ODI Outcome Statements
+- **Lean Canvas** or **Business Model Canvas** (depending on product maturity)
+- **Sean Ellis PMF Survey** (baseline measure at T0 + T+6/+12)
+- **Vision → Strategy → Themes → OKR hierarchy** documented (1-page executive)
+- **GO Product Roadmap themes-based** (3-5 themes max) or Now/Next/Later
+- **North Star Framework**: 1 NSM + 3-5 Input Metrics
+- **Quarterly OKRs**: Objective + 3-5 KR per theme
+- **AARRR funnel + HEART scorecard** (depending on B2C/B2B context)
 
-## Format de sortie
+## Output format
 
-Pour chaque mission vision produit, précise :
-- **Stade du produit** : 0→1 (validation idée) · PMF search · scaling post-PMF · mature (optimization) · réinvention
-- **Type marché** : Blue Ocean (création catégorie) · Red Ocean (compétition féroce) · disruption low-end · disruption new-market
-- **Segment ciblé** (Moore) : Innovators · Early Adopters · Early Majority · Late Majority · Laggards · multi-segment
-- **Modèle business** : B2C · B2B SaaS · B2B2C · marketplace · plateforme · hardware + service · open source + commercial
-- **Niveau de formalisme** : startup (Lean Canvas + intuition) · scale-up (Vision Board + OKR + Roadmap themes) · scale-up tardif/ETI (formalisme Cagan/Pichler complet) · grand groupe (Vision SAFe Solution/Portfolio)
+For each product-vision engagement, specify:
+- **Product stage**: 0→1 (idea validation) · PMF search · post-PMF scaling · mature (optimization) · reinvention
+- **Market type**: Blue Ocean (category creation) · Red Ocean (fierce competition) · low-end disruption · new-market disruption
+- **Target segment** (Moore): Innovators · Early Adopters · Early Majority · Late Majority · Laggards · multi-segment
+- **Business model**: B2C · B2B SaaS · B2B2C · marketplace · platform · hardware + service · open source + commercial
+- **Level of formality**: startup (Lean Canvas + intuition) · scale-up (Vision Board + OKR + themes-based Roadmap) · late scale-up/mid-market (full Cagan/Pichler formality) · large enterprise (SAFe Solution/Portfolio Vision)
 
 ## Sources
 
-- **Cagan M.** — *Inspired: How to Create Tech Products Customers Love* (SVPG / Wiley, 2008, 2ème éd. 2017) · *Empowered: Ordinary People, Extraordinary Products* (Wiley, 2020)
+- **Cagan M.** — *Inspired: How to Create Tech Products Customers Love* (SVPG / Wiley, 2008, 2nd ed. 2017) · *Empowered: Ordinary People, Extraordinary Products* (Wiley, 2020)
 - **Pichler R.** — *Strategize: Product Strategy and Product Roadmap Practices for the Digital Age* (Pichler Consulting, 2016)
-- **Moore G.A.** — *Crossing the Chasm* (HarperBusiness, 1991, 3ème éd. 2014)
+- **Moore G.A.** — *Crossing the Chasm* (HarperBusiness, 1991, 3rd ed. 2014)
 - **Christensen C.M.** — *The Innovator's Dilemma* (HBR Press, 1997) · *Competing Against Luck: The Story of Innovation and Customer Choice* (HBR Press, 2016)
 - **Sinek S.** — *Start With Why: How Great Leaders Inspire Everyone to Take Action* (Portfolio Penguin, 2009)
 - **Kim W.C., Mauborgne R.** — *Blue Ocean Strategy: How to Create Uncontested Market Space* (HBR Press, 2005, expanded 2015)
 - **Torres T.** — *Continuous Discovery Habits: Discover Products that Create Customer Value and Business Value* (Product Talk, 2021)
 - **Ulwick A.W.** — *What Customers Want: Using Outcome-Driven Innovation* (McGraw-Hill, 2005) — ODI framework
-- **Andreessen M.** — *The only thing that matters* (Pmarchive blog, 25 juin 2007) — Product-Market Fit definition
-- **Ellis S.** — PMF Survey methodology (survey.io, 2009-2010) — 40% rule "Very disappointed"
-- **Maurya A.** — *Running Lean: Iterate from Plan A to a Plan That Works* (O'Reilly, 2012, 3ème éd. 2022)
+- **Andreessen M.** — *The only thing that matters* (Pmarchive blog, June 25, 2007) — Product-Market Fit definition
+- **Ellis S.** — PMF Survey methodology (survey.io, 2009-2010) — 40% "Very disappointed" rule
+- **Maurya A.** — *Running Lean: Iterate from Plan A to a Plan That Works* (O'Reilly, 2012, 3rd ed. 2022)
 - **Ries E.** — *The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses* (Crown Business, 2011)
 - **Doerr J.** — *Measure What Matters: How Google, Bono, and the Gates Foundation Rock the World with OKRs* (Portfolio Penguin, 2018)
 - **McClure D.** — *Pirate Metrics: AARRR* (500 Startups Master Class, 2007)
-- **Rodden K., Hutchinson H., Fu X.** — *Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications* (CHI 2010) — HEART Framework Google
-- **Wodtke C.** — *Radical Focus: Achieving Your Most Important Goals with Objectives and Key Results* (Cucina Media, 2016, 2ème éd. 2021)
+- **Rodden K., Hutchinson H., Fu X.** — *Measuring the User Experience on a Large Scale: User-Centered Metrics for Web Applications* (CHI 2010) — Google HEART Framework
+- **Wodtke C.** — *Radical Focus: Achieving Your Most Important Goals with Objectives and Key Results* (Cucina Media, 2016, 2nd ed. 2021)
 
-## Voir aussi
+## See also
 
-- [po-backlog.md](po-backlog.md) — alimentation backlog depuis themes & initiatives
-- [product-metrics-ebm.md](product-metrics-ebm.md) — Evidence-Based Management (Scrum.org) couplage métriques business + outcomes
-- [customer-discovery.md](customer-discovery.md) — interviews JTBD + tests d'assumption (Torres Continuous Discovery)
-- [business-model-canvas.md](business-model-canvas.md) — BMC Osterwalder complémentaire Lean Canvas
-- [hypothesis-driven.md](hypothesis-driven.md) — Build-Measure-Learn Lean Startup (Ries 2011)
-- [story-mapping.md](story-mapping.md) — Jeff Patton User Story Mapping pour décliner vision → backlog
-- [lean-ux.md](lean-ux.md) — Lean UX discovery couplé Continuous Discovery
-- [po-ai-product.md](po-ai-product.md) — Vision IA produit (extension Vision Board + 4 risques Cagan adaptés IA)
-- [coaching-pos.md](coaching-pos.md) — coacher autres POs sur formulation vision (PSPO III)
-- [`../business_analyst/cadrage-projet.md`](../business_analyst/cadrage-projet.md) — pont avec cadrage projet cycle V (Vision agile ↔ Business Case PMBOK)
+- [po-backlog.md](po-backlog.md) — feeding the backlog from themes & initiatives
+- [product-metrics-ebm.md](product-metrics-ebm.md) — Evidence-Based Management (Scrum.org), pairing business metrics + outcomes
+- [customer-discovery.md](customer-discovery.md) — JTBD interviews + assumption tests (Torres Continuous Discovery)
+- [business-model-canvas.md](business-model-canvas.md) — Osterwalder BMC, complementary to the Lean Canvas
+- [hypothesis-driven.md](hypothesis-driven.md) — Build-Measure-Learn, Lean Startup (Ries 2011)
+- [story-mapping.md](story-mapping.md) — Jeff Patton User Story Mapping to break vision down → backlog
+- [lean-ux.md](lean-ux.md) — Lean UX discovery paired with Continuous Discovery
+- [po-ai-product.md](po-ai-product.md) — AI product vision (Vision Board extension + Cagan's 4 risks adapted to AI)
+- [coaching-pos.md](coaching-pos.md) — coaching other POs on vision framing (PSPO III)
+- [`../business_analyst/cadrage-projet.md`](../business_analyst/cadrage-projet.md) — bridge with V-model project scoping (agile Vision ↔ PMBOK Business Case)

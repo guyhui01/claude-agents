@@ -1,47 +1,47 @@
-# Skill — User Stories pour Features IA
-> Certifications : PSPO-AI · PSPO I
+# Skill — User Stories for AI Features
+> Certifications: PSPO-AI · PSPO I
 
-## Objectif
-Rédiger des User Stories adaptées aux fonctionnalités basées sur l'IA, en gérant l'incertitude des outputs.
+## Objective
+Write User Stories tailored to AI-based features, handling the uncertainty of outputs.
 
-## Différences clés vs. stories classiques
-| Aspect | Story classique | Story IA |
+## Key differences vs. classic stories
+| Aspect | Classic story | AI story |
 |---|---|---|
-| Output | Déterministe | Probabiliste |
-| Critères d'acceptation | Binaires (passe/échoue) | Seuils de performance (précision ≥ X%) |
-| Test | Unitaire/fonctionnel | Évaluation sur jeu de données |
-| Évolution | Stable | Peut dériver si le modèle change |
+| Output | Deterministic | Probabilistic |
+| Acceptance criteria | Binary (pass/fail) | Performance thresholds (precision ≥ X%) |
+| Test | Unit/functional | Evaluation on a dataset |
+| Evolution | Stable | May drift if the model changes |
 
-## Format recommandé
+## Recommended format
 ```
-En tant que [persona],
-Je veux que [feature IA] me propose [output attendu],
-Afin de [bénéfice utilisateur].
+As a [persona],
+I want the [AI feature] to suggest [expected output],
+So that [user benefit].
 
-Critères d'acceptation :
-- Le modèle produit une réponse pertinente dans ≥ 85% des cas de test
-- L'utilisateur peut corriger ou rejeter la suggestion en 1 clic
-- En cas d'échec, un message clair est affiché (pas de réponse vide)
-- Le temps de réponse est ≤ 3 secondes pour 95e percentile
-- Aucune donnée personnelle n'est transmise au modèle sans consentement
+Acceptance criteria:
+- The model produces a relevant answer in ≥ 85% of test cases
+- The user can correct or reject the suggestion in 1 click
+- On failure, a clear message is shown (no empty response)
+- Response time is ≤ 3 seconds at the 95th percentile
+- No personal data is sent to the model without consent
 ```
 
-## Types de stories IA courantes
-- Génération de contenu (texte, image, code)
-- Classification / détection (tags, sentiments, anomalies)
-- Recommandation (produit, contenu, action)
-- Extraction d'information (résumé, NER, parsing)
+## Common AI story types
+- Content generation (text, image, code)
+- Classification / detection (tags, sentiment, anomalies)
+- Recommendation (product, content, action)
+- Information extraction (summary, NER, parsing)
 - Conversation / Chat (assistant, support, onboarding)
 
-## Story de fallback (obligatoire)
-Toujours rédiger une story de dégradation gracieuse :
-"Si le modèle est indisponible ou retourne une réponse invalide, alors..."
+## Fallback story (mandatory)
+Always write a graceful-degradation story:
+"If the model is unavailable or returns an invalid response, then..."
 
-## Livrables
-- User Stories IA avec critères d'acceptation probabilistes
-- Story de fallback associée
-- Jeu de données de test (golden dataset)
-- Definition of Done IA (inclut seuil de performance modèle)
+## Deliverables
+- AI User Stories with probabilistic acceptance criteria
+- Associated fallback story
+- Test dataset (golden dataset)
+- AI Definition of Done (includes a model performance threshold)
 
-## Format de sortie
-Précise : type de feature IA · modèle ciblé · seuil de qualité acceptable · contraintes de latence
+## Output format
+Specify: AI feature type · target model · acceptable quality threshold · latency constraints

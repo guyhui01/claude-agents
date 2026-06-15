@@ -1,47 +1,47 @@
-# Skill QA Agile — Métriques Qualité Agile
+# QA Agile Skill — Agile Quality Metrics
 
-> Certification : CTAL-TM · CTFL-AT
-> Agent : AGENT-QA-AGILE.md
-> Méthodologie : Agile
+> Certification: CTAL-TM · CTFL-AT
+> Agent: AGENT-QA-AGILE.md
+> Methodology: Agile
 
-## Métriques sprint
+## Sprint metrics
 
-| Métrique | Formule | Cible |
+| Metric | Formula | Target |
 |---|---|---|
-| **Taux de défauts en sprint** | Bugs trouvés / US livrées | < 1 bug/US |
-| **Taux d'échappement** | Bugs post-sprint / bugs totaux | < 10% |
-| **Couverture tests auto** | Tests auto / tests totaux × 100 | > 70% |
-| **Temps de feedback** | Délai détection → correction | < 24h dans sprint |
-| **Flakiness rate** | Tests instables / tests totaux | < 2% |
+| **In-sprint defect rate** | Bugs found / US delivered | < 1 bug/US |
+| **Escape rate** | Post-sprint bugs / total bugs | < 10% |
+| **Automated test coverage** | Auto tests / total tests × 100 | > 70% |
+| **Feedback time** | Detection → fix delay | < 24h within the sprint |
+| **Flakiness rate** | Unstable tests / total tests | < 2% |
 
-## Métriques release / PI
+## Release / PI metrics
 
-| Métrique | Formule | Cible |
+| Metric | Formula | Target |
 |---|---|---|
-| **Taux de défauts production** | Bugs prod / features livrées | Proche de 0 |
-| **Mean Time to Detect (MTTD)** | Temps moyen détection bug | En réduction |
-| **Mean Time to Resolve (MTTR)** | Temps moyen résolution | En réduction |
-| **Technical debt ratio** | Dette tech / vélocité sprint | < 20% |
+| **Production defect rate** | Prod bugs / features delivered | Close to 0 |
+| **Mean Time to Detect (MTTD)** | Average time to detect a bug | Decreasing |
+| **Mean Time to Resolve (MTTR)** | Average time to resolve | Decreasing |
+| **Technical debt ratio** | Tech debt / sprint velocity | < 20% |
 
-## Dashboard qualité Agile
+## Agile quality dashboard
 
 ```
-DASHBOARD QUALITÉ — Sprint [N] — [Date]
+QUALITY DASHBOARD — Sprint [N] — [Date]
 
-🐛 DÉFAUTS
-Nouveaux ce sprint : [X]
-Résolus : [X]
-Ouverts cumulés : [X] (dont [X] bloquants)
+🐛 DEFECTS
+New this sprint: [X]
+Resolved: [X]
+Cumulative open: [X] (incl. [X] blocking)
 
-🤖 AUTOMATISATION
-Couverture : [X]%
-Tests flaky : [X]
-Durée pipeline : [X min]
+🤖 AUTOMATION
+Coverage: [X]%
+Flaky tests: [X]
+Pipeline duration: [X min]
 
-📈 TENDANCES
-Taux d'échappement : [X]% (sprint N-1 : [X]%)
-Vélocité qualité : [X pts livrés sans bug] / [X pts totaux]
+📈 TRENDS
+Escape rate: [X]% (sprint N-1: [X]%)
+Quality velocity: [X pts delivered bug-free] / [X total pts]
 
-🎯 OBJECTIF SPRINT SUIVANT
-[action d'amélioration qualité]
+🎯 NEXT-SPRINT GOAL
+[quality improvement action]
 ```

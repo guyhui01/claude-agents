@@ -1,8 +1,8 @@
 # Skill — SAFe DevOps & Continuous Delivery Pipeline
-> Certifications : SAFe POPM 6 · SAFe DevOps Practitioner (SDP)
+> Certifications: SAFe POPM 6 · SAFe DevOps Practitioner (SDP)
 
-## Objectif
-Comprendre et contribuer à la définition du Continuous Delivery Pipeline pour accélérer le Time-to-Market.
+## Objective
+Understand and contribute to defining the Continuous Delivery Pipeline to accelerate Time-to-Market.
 
 ## Continuous Delivery Pipeline (SAFe)
 ```
@@ -10,44 +10,44 @@ Continuous Exploration → Continuous Integration → Continuous Deployment → 
 ```
 
 ### Continuous Exploration
-- Hypothèses produit et discovery
+- Product hypotheses and discovery
 - Customer interviews, A/B tests, MVPs
-- Alimenter le Program Backlog de Features validées
+- Feed the Program Backlog with validated Features
 
 ### Continuous Integration
-- Intégration du code plusieurs fois par jour
-- Tests automatisés (unitaires, intégration, régression)
-- Build pipelines : Jenkins, GitHub Actions, GitLab CI
+- Code integration several times a day
+- Automated tests (unit, integration, regression)
+- Build pipelines: Jenkins, GitHub Actions, GitLab CI
 
 ### Continuous Deployment
-- Déploiement automatisé en staging / pré-prod
-- Feature Flags : décorréler déploiement et release
-- Rollback automatique si métriques dégradées
+- Automated deployment to staging / pre-prod
+- Feature Flags: decouple deployment and release
+- Automatic rollback if metrics degrade
 
 ### Release on Demand
-- Release au moment optimal (business decision, pas technique)
+- Release at the optimal moment (business decision, not technical)
 - Canary releases, blue/green deployments
-- Feature Toggles pour activer progressivement
+- Feature Toggles to activate progressively
 
-## Rôle du PO/PM dans le DevOps Pipeline
-- Définir les critères de release (quand une Feature peut être activée)
-- Gérer les Feature Flags (activation par segment, géographie, profil)
-- Monitorer les métriques post-release (DORA metrics)
-- Décider des rollbacks si NPS ou métriques business dégradés
+## The PO/PM role in the DevOps Pipeline
+- Define the release criteria (when a Feature can be activated)
+- Manage Feature Flags (activation by segment, geography, profile)
+- Monitor post-release metrics (DORA metrics)
+- Decide on rollbacks if NPS or business metrics degrade
 
-## DORA Metrics (référence DevOps)
-| Métrique | Elite | High | Medium | Low |
+## DORA Metrics (DevOps reference)
+| Metric | Elite | High | Medium | Low |
 |---|---|---|---|---|
-| Deployment Frequency | Plusieurs/jour | Semaine | Mois | Semestre |
-| Lead Time for Changes | < 1 heure | < 1 jour | < 1 semaine | < 6 mois |
+| Deployment Frequency | Multiple/day | Week | Month | Half-year |
+| Lead Time for Changes | < 1 hour | < 1 day | < 1 week | < 6 months |
 | Change Failure Rate | < 5% | < 10% | < 15% | > 15% |
-| MTTR | < 1 heure | < 1 jour | < 1 semaine | > 1 semaine |
+| MTTR | < 1 hour | < 1 day | < 1 week | > 1 week |
 
-## Livrables
-- Feature Flag Strategy documentée
-- Release Plan (Features + conditions d'activation)
-- Dashboard DORA Metrics
-- Release Notes par déploiement
+## Deliverables
+- Documented Feature Flag Strategy
+- Release Plan (Features + activation conditions)
+- DORA Metrics dashboard
+- Release Notes per deployment
 
-## Format de sortie
-Précise : fréquence de release actuelle · stack technique · feature flags disponibles · objectif DORA
+## Output format
+Specify: current release frequency · tech stack · available feature flags · DORA objective

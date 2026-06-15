@@ -1,68 +1,68 @@
-# Skill — Analyse d'Impact Organisationnel du Changement
-> Certifications : PROSCI Change Management (PROSCI), CCMP (ACMP), PMP (PMI)
-> Agent : AGENT-CHANGE-MANAGER.md
+# Skill — Organizational Change Impact Analysis
+> Certifications: PROSCI Change Management (PROSCI), CCMP (ACMP), PMP (PMI)
+> Agent: AGENT-CHANGE-MANAGER.md
 
-## Objectif
-Cartographier l'ensemble des impacts d'un changement sur l'organisation — populations concernées, processus modifiés, compétences requises — pour cibler précisément les actions d'accompagnement.
+## Objective
+Map all the impacts of a change on the organization — affected populations, modified processes, required skills — to precisely target the support actions.
 
-## Template — Analyse d'Impact Complet
+## Template — Full Impact Analysis
 
-### 1. Fiche de cadrage du changement
+### 1. Change scoping sheet
 
 ```
-NATURE DU CHANGEMENT : [ex. Déploiement outil IA générative pour les équipes RH]
-PÉRIMÈTRE            : [services / équipes / sites concernés]
-DATE DE GO-LIVE      : [date cible]
-SPONSOR              : [nom / fonction]
-CHEF DE PROJET       : [nom]
-CHANGE MANAGER       : [nom]
+NATURE OF THE CHANGE : [e.g. Rollout of a generative AI tool for HR teams]
+SCOPE                : [departments / teams / sites concerned]
+GO-LIVE DATE         : [target date]
+SPONSOR              : [name / role]
+PROJECT MANAGER      : [name]
+CHANGE MANAGER       : [name]
 ```
 
-### 2. Matrice d'impact par population
+### 2. Impact matrix by population
 
-| Population | Effectif | Impact Process | Impact Outils | Impact Compétences | Niveau Impact |
+| Population | Headcount | Process impact | Tools impact | Skills impact | Impact level |
 |---|---|---|---|---|---|
-| Managers RH | 12 | Fort — nouveaux workflows IA | Fort — nouvel outil | Fort — prompting, IA | 🔴 Critique |
-| Chargés RH | 45 | Moyen — tâches partiellement automatisées | Fort | Moyen | 🟡 Élevé |
-| DSI | 8 | Faible — intégration API | Fort — infra | Fort — sécurité IA | 🟡 Élevé |
-| Direction | 5 | Faible | Faible | Faible — reporting | 🟢 Faible |
+| HR managers | 12 | High — new AI workflows | High — new tool | High — prompting, AI | 🔴 Critical |
+| HR officers | 45 | Medium — partially automated tasks | High | Medium | 🟡 High |
+| IT | 8 | Low — API integration | High — infra | High — AI security | 🟡 High |
+| Leadership | 5 | Low | Low | Low — reporting | 🟢 Low |
 
-**Niveaux :** 🔴 Critique (résistance forte attendue) · 🟡 Élevé · 🟢 Faible
+**Levels:** 🔴 Critical (strong resistance expected) · 🟡 High · 🟢 Low
 
-### 3. Cartographie des processus impactés
+### 3. Map of impacted processes
 
 ```
-PROCESSUS ACTUEL                    PROCESSUS CIBLE
+CURRENT PROCESS                    TARGET PROCESS
 ────────────────────────────────────────────────────────────
-Rédaction offres : 45 min/offre  →  15 min/offre (IA assiste)
-Tri CV : 2h/poste                →  30 min/poste (IA pré-filtre)
-Compte-rendu entretien : manuel  →  IA transcrit + résume
-Reporting RH : hebdo manuel      →  Dashboard automatique temps réel
+Drafting job ads: 45 min/ad     →  15 min/ad (AI assists)
+CV screening: 2h/role           →  30 min/role (AI pre-filters)
+Interview write-up: manual      →  AI transcribes + summarizes
+HR reporting: weekly manual     →  Automatic real-time dashboard
 ```
 
-### 4. Analyse des écarts de compétences (skill gap)
+### 4. Skill gap analysis
 
-| Compétence requise | Niveau actuel | Niveau cible | Écart | Action |
+| Required skill | Current level | Target level | Gap | Action |
 |---|---|---|---|---|
-| Prompting LLM | 1/5 | 3/5 | -2 | Formation 4h + e-learning |
-| Critique des outputs IA | 1/5 | 4/5 | -3 | Workshop + coaching |
-| Gestion des biais IA | 0/5 | 3/5 | -3 | Module RGPD IA |
-| Workflow outil | 0/5 | 4/5 | -4 | Formation outil 8h |
+| LLM prompting | 1/5 | 3/5 | -2 | 4h training + e-learning |
+| Critiquing AI outputs | 1/5 | 4/5 | -3 | Workshop + coaching |
+| Managing AI bias | 0/5 | 3/5 | -3 | AI GDPR module |
+| Tool workflow | 0/5 | 4/5 | -4 | 8h tool training |
 
-### 5. Risques liés au changement
+### 5. Change-related risks
 
-| Risque | Probabilité | Impact | Mitigation |
+| Risk | Probability | Impact | Mitigation |
 |---|---|---|---|
-| Résistance managers senior | Haute | Critique | Impliquer dès le cadrage, quick wins |
-| Peur de remplacement | Haute | Élevé | Communication claire sur l'augmentation (pas remplacement) |
-| Surcharge formation | Moyenne | Moyen | Étaler sur 2 sprints, micro-learning |
-| Retour arrière post go-live | Faible | Critique | Champions internes, support 30 jours |
+| Senior manager resistance | High | Critical | Involve from scoping, quick wins |
+| Fear of replacement | High | High | Clear communication on augmentation (not replacement) |
+| Training overload | Medium | Medium | Spread over 2 sprints, micro-learning |
+| Post-go-live rollback | Low | Critical | Internal champions, 30-day support |
 
-## Livrables
-- Matrice d'impact complète (toutes populations)
-- Cartographie as-is / to-be des processus
-- Analyse des écarts de compétences
-- Registre des risques changement avec mitigations
+## Deliverables
+- Full impact matrix (all populations)
+- As-is / to-be process mapping
+- Skill gap analysis
+- Change risk register with mitigations
 
-## Format de sortie
-Précise : nature du changement, populations concernées, date de go-live, contexte organisationnel.
+## Output format
+Specify: nature of the change, affected populations, go-live date, organizational context.

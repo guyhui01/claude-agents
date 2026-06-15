@@ -1,48 +1,48 @@
-# Skill QA Cycle V — Tests de Performance
+# QA V-Model Skill — Performance Testing
 
-> Certification : CT-PT · CTAL-TTA
-> Agent : AGENT-QA-CYCLEV.md
-> Méthodologie : Cycle en V
+> Certification: CT-PT · CTAL-TTA
+> Agent: AGENT-QA-CYCLEV.md
+> Methodology: V-model
 
-## Types de tests de performance (ISTQB)
+## Performance test types (ISTQB)
 
-| Type | Objectif | Scénario |
+| Type | Goal | Scenario |
 |---|---|---|
-| **Charge (Load)** | Comportement sous charge normale et maximale | X utilisateurs simultanés |
-| **Stress** | Comportement au-delà des limites | Surcharge jusqu'au point de rupture |
-| **Volume** | Comportement avec grand volume de données | Base de données massive |
-| **Endurance (Soak)** | Stabilité dans la durée | X heures en continu |
-| **Pointe (Spike)** | Réaction aux pics soudains | Pic brutal puis retour normal |
+| **Load** | Behavior under normal and peak load | X concurrent users |
+| **Stress** | Behavior beyond the limits | Overload up to breaking point |
+| **Volume** | Behavior with a large data volume | Massive database |
+| **Endurance (Soak)** | Stability over time | X hours continuously |
+| **Spike** | Reaction to sudden peaks | Sharp spike then back to normal |
 
-## KPIs de performance
+## Performance KPIs
 
-| KPI | Définition | Seuil cible typique |
+| KPI | Definition | Typical target threshold |
 |---|---|---|
-| Temps de réponse | Délai entre requête et réponse | < 2s (page), < 500ms (API) |
-| Débit (Throughput) | Requêtes traitées / seconde | [X] req/s selon SLA |
-| Taux d'erreur | % requêtes en erreur | < 1% |
-| Utilisation CPU | % CPU sous charge | < 80% |
-| Utilisation mémoire | RAM consommée | < 80% |
-| Temps de réponse P95 | 95% des requêtes sous ce délai | < 3s |
+| Response time | Delay between request and response | < 2s (page), < 500ms (API) |
+| Throughput | Requests processed / second | [X] req/s per SLA |
+| Error rate | % of requests in error | < 1% |
+| CPU usage | % CPU under load | < 80% |
+| Memory usage | RAM consumed | < 80% |
+| P95 response time | 95% of requests under this delay | < 3s |
 
-## Template plan de tests de performance
+## Performance test plan template
 
 ```
-PLAN TESTS PERFORMANCE — [Projet] — [Date]
+PERFORMANCE TEST PLAN — [Project] — [Date]
 
-Objectif : [SLA à valider]
-Environnement : [specs serveur, BDD, réseau]
-Outil : [JMeter / Gatling / k6 / LoadRunner]
+Goal: [SLA to validate]
+Environment: [server, DB, network specs]
+Tool: [JMeter / Gatling / k6 / LoadRunner]
 
-Scénarios :
-| # | Type | Utilisateurs | Durée | Ramp-up | Objectif |
-|---|------|-------------|-------|---------|---------|
-| 1 | Charge | 100 | 30 min | 5 min | TR < 2s |
-| 2 | Stress | 500 | 15 min | 2 min | Pas de crash |
-| 3 | Endurance | 50 | 4h | 10 min | Pas de fuite mémoire |
+Scenarios:
+| # | Type | Users | Duration | Ramp-up | Goal |
+|---|------|-------|----------|---------|------|
+| 1 | Load | 100 | 30 min | 5 min | RT < 2s |
+| 2 | Stress | 500 | 15 min | 2 min | No crash |
+| 3 | Endurance | 50 | 4h | 10 min | No memory leak |
 
-Critères de succès :
-- Temps de réponse P95 < [X]s
-- Taux d'erreur < 1%
-- Aucun crash ou timeout
+Success criteria:
+- P95 response time < [X]s
+- Error rate < 1%
+- No crash or timeout
 ```

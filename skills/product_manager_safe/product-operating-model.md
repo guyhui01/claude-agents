@@ -1,95 +1,95 @@
-# Skill — Product Operating Model (modèle opérationnel produit)
+# Skill — Product Operating Model
 
-> Certification : PSPO III · SAFe POPM 6 · SAFe SPC
-> Agent : AGENT-PRODUCT-MANAGER-SAFE.md
+> Certification: PSPO III · SAFe POPM 6 · SAFe SPC
+> Agent: AGENT-PRODUCT-MANAGER-SAFE.md
 
-## Objectif
-Concevoir et piloter le modèle organisationnel qui permet à une organisation de livrer de la valeur produit de manière continue, autonome et alignée sur la stratégie.
+## Objective
+Design and steer the organizational model that lets an organization deliver product value continuously, autonomously and in alignment with the strategy.
 
-## Composantes du Product Operating Model
+## Components of the Product Operating Model
 
-### 1. Structure organisationnelle
+### 1. Organizational structure
 ```
-Modèle aligné sur les Value Streams (Marty Cagan / Empowered Teams) :
+Model aligned with the Value Streams (Marty Cagan / Empowered Teams):
 
 Product Leader (CPO / VP Product)
-├── Product Manager (PO senior) — Value Stream 1
+├── Product Manager (senior PO) — Value Stream 1
 │   ├── Feature Team A (PO + Dev + UX + QA)
 │   └── Feature Team B (PO + Dev + UX + QA)
-└── Product Manager (PO senior) — Value Stream 2
+└── Product Manager (senior PO) — Value Stream 2
     ├── Feature Team C
     └── Feature Team D
 ```
 
-### 2. Modèle de décision produit
+### 2. Product decision model
 
-| Décision | Niveau | Cadence |
+| Decision | Level | Cadence |
 |---|---|---|
-| Vision & Strategy | CPO / Product Leader | Annuel / OKR trimestriel |
-| Roadmap & Priorités | Product Manager | PI / Trimestriel |
-| Scope Sprint | PO | Sprint Planning |
-| Détail solution | PO + Dev + UX | Refinement / Daily |
+| Vision & Strategy | CPO / Product Leader | Annual / quarterly OKR |
+| Roadmap & Priorities | Product Manager | PI / Quarterly |
+| Sprint Scope | PO | Sprint Planning |
+| Solution detail | PO + Dev + UX | Refinement / Daily |
 
-**Principe : push decisions down** — décider au niveau le plus proche de l'information.
+**Principle: push decisions down** — decide at the level closest to the information.
 
-### 3. Rythme de discovery et delivery
+### 3. Discovery and delivery rhythm
 
 ```
 DISCOVERY TRACK          DELIVERY TRACK
 ─────────────────        ─────────────────
 Sprint N-1               Sprint N
-[Research utilisateurs]  [Dev feature validée]
-[Tests hypothèses]       [QA + Release]
+[User research]          [Validated feature dev]
+[Hypothesis tests]       [QA + Release]
 [Proto validation]
 
-→ Discovery toujours 1 sprint en avance sur Delivery
+→ Discovery always 1 sprint ahead of Delivery
 ```
 
-### 4. Gouvernance produit
+### 4. Product governance
 
-**Instances clés :**
-- **Product Council** : alignement vision (mensuel — CPO + PMs)
-- **Stakeholder Review** : présentation avancement (bimensuel)
-- **OKR Check-in** : mesure des outcomes (hebdo)
-- **Sprint Review** : démo et feedback (toutes les 2 semaines)
+**Key bodies:**
+- **Product Council**: vision alignment (monthly — CPO + PMs)
+- **Stakeholder Review**: progress presentation (biweekly)
+- **OKR Check-in**: outcome measurement (weekly)
+- **Sprint Review**: demo and feedback (every 2 weeks)
 
-**KPIs de santé du modèle opérationnel :**
-- Time to market (idée → production)
-- Taux de fonctionnalités adoptées (> 40%)
-- Ratio discovery/delivery (objectif 30/70)
-- NPS équipe produit
+**Operating-model health KPIs:**
+- Time to market (idea → production)
+- Adopted-feature rate (> 40%)
+- Discovery/delivery ratio (target 30/70)
+- Product-team NPS
 
-### 5. Principes du modèle empowered (vs feature factory)
+### 5. Principles of the empowered model (vs feature factory)
 
 | Feature Factory ❌ | Empowered Product Team ✅ |
 |---|---|
-| Roadmap = liste de features | Roadmap = outcomes à atteindre |
-| PO = proxy des stakeholders | PO = décideur produit |
-| Équipe = exécutante | Équipe = créatrice de solutions |
-| Succès = livraison on-time | Succès = adoption et valeur |
-| Discovery séparé | Discovery intégré dans l'équipe |
+| Roadmap = list of features | Roadmap = outcomes to achieve |
+| PO = stakeholder proxy | PO = product decision-maker |
+| Team = executor | Team = solution creator |
+| Success = on-time delivery | Success = adoption and value |
+| Separate discovery | Discovery embedded in the team |
 
-## Transition vers un Product Operating Model
+## Transition toward a Product Operating Model
 
-### Plan de transformation (12 mois)
+### Transformation plan (12 months)
 ```
-M1-M3 : Diagnostic & Vision
-  → Audit des pratiques actuelles
-  → Formation PO/PM aux principes empowered
-  → Définition des Value Streams
+M1-M3: Diagnosis & Vision
+  → Audit of current practices
+  → Train PO/PM on empowered principles
+  → Define the Value Streams
 
-M4-M6 : Pilote
-  → 1-2 équipes en mode empowered
-  → OKR produit définis et suivis
-  → Discovery track activé
+M4-M6: Pilot
+  → 1-2 teams in empowered mode
+  → Product OKRs defined and tracked
+  → Discovery track activated
 
-M7-M9 : Scaling
-  → Extension à toutes les équipes
-  → Product Council opérationnel
-  → Métriques de succès définies
+M7-M9: Scaling
+  → Extend to all teams
+  → Operational Product Council
+  → Success metrics defined
 
-M10-M12 : Optimisation
-  → Rétrospective du modèle
-  → Ajustements organisationnels
-  → Partage best practices (CoP)
+M10-M12: Optimization
+  → Model retrospective
+  → Organizational adjustments
+  → Share best practices (CoP)
 ```

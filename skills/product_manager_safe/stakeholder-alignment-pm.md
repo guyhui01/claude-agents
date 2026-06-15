@@ -1,78 +1,78 @@
-# Skill — Alignement des Parties Prenantes Niveau Programme
-> Certifications : SAFe POPM 6 (Scaled Agile), PMP (PMI), PMI-PBA (PMI)
+# Skill — Program-Level Stakeholder Alignment
+> Certifications: SAFe POPM 6 (Scaled Agile), PMP (PMI), PMI-PBA (PMI)
 
-## Objectif
-Aligner les parties prenantes au niveau Programme SAFe — Business Owners, sponsors, équipes, clients — sur la vision produit, les priorités et les décisions de trade-off, pour garantir un soutien continu à l'ART.
+## Objective
+Align stakeholders at the SAFe Program level — Business Owners, sponsors, teams, customers — on the product vision, priorities and trade-off decisions, to guarantee ongoing support for the ART.
 
-## Rôles clés au niveau Programme SAFe
+## Key roles at the SAFe Program level
 
 ```
 BUSINESS OWNERS (BO)
-  Rôle   : Valident les PI Objectives, notent la Business Value
-  Freq.  : PI Planning (présents) + System Demo (optionnel)
-  Action : Impliquer dans la priorisation WSJF
+  Role   : Validate the PI Objectives, score Business Value
+  Freq.  : PI Planning (present) + System Demo (optional)
+  Action : Involve in WSJF prioritization
 
 SYSTEM ARCHITECT / ENTERPRISE ARCHITECT
-  Rôle   : Valident les choix techniques du Programme
-  Freq.  : Architecture Sync hebdomadaire
-  Action : Aligner vision technique et vision produit
+  Role   : Validate the Program's technical choices
+  Freq.  : Weekly Architecture Sync
+  Action : Align technical vision and product vision
 
-BUSINESS STAKEHOLDERS (clients, direction métier)
-  Rôle   : Fournissent le feedback marché et métier
-  Freq.  : System Demo fin de sprint
-  Action : Inviter aux démos, collecter le feedback formel
+BUSINESS STAKEHOLDERS (customers, business leadership)
+  Role   : Provide market and business feedback
+  Freq.  : System Demo at sprint end
+  Action : Invite to demos, collect formal feedback
 
-PRODUCT MANAGER (vous)
-  Rôle   : Pont entre stakeholders et ART
-  Resp.  : Vision, roadmap, priorisation Programme
+PRODUCT MANAGER (you)
+  Role   : Bridge between stakeholders and the ART
+  Resp.  : Vision, roadmap, Program prioritization
 ```
 
-## Plan d'alignement — Template
+## Alignment plan — Template
 
-| Partie Prenante | Besoin d'alignement | Fréquence | Canal | Responsable |
+| Stakeholder | Alignment need | Frequency | Channel | Owner |
 |---|---|---|---|---|
-| DG / Sponsor | Vision, ROI, jalon stratégique | Mensuel | Steering Committee | PM |
-| Business Owners | PI Objectives, BV notation | Par PI | PI Planning + revue | PM |
-| DSI | Architecture, sécurité, infra | Bimensuel | Architecture Sync | PM + SA |
-| Clients pilotes | Feedback features, NPS | Bi-sprint | System Demo | PM |
-| Équipes ART | Contexte métier, priorités | Par sprint | PO Sync | PM |
-| DPO / Juridique | Conformité RGPD, IA Act | Par release | Atelier dédié | PM + DPO |
+| Leadership / Sponsor | Vision, ROI, strategic milestone | Monthly | Steering Committee | PM |
+| Business Owners | PI Objectives, BV scoring | Per PI | PI Planning + review | PM |
+| IT | Architecture, security, infra | Biweekly | Architecture Sync | PM + SA |
+| Pilot customers | Feature feedback, NPS | Bi-sprint | System Demo | PM |
+| ART teams | Business context, priorities | Per sprint | PO Sync | PM |
+| DPO / Legal | GDPR, AI Act compliance | Per release | Dedicated workshop | PM + DPO |
 
-## Communication de la roadmap — Template Executive
+## Roadmap communication — Executive template
 
 ```
-NOTE DE ROADMAP — [PRODUIT] — [DATE]
-Pour : Direction + Business Owners
-De   : Product Manager
+ROADMAP NOTE — [PRODUCT] — [DATE]
+To  : Leadership + Business Owners
+From: Product Manager
 
-ÉTAT ACTUEL (PI-12)
+CURRENT STATE (PI-12)
 ─────────────────────────────────────────────────────────
-✅ F-01 Scoring IA : 80% complété — on track
-⚠ F-02 Dashboard : 1 semaine de retard (dépendance infra)
-   → Mitigation : livraison version simplifiée Sprint 4
+✅ F-01 AI scoring: 80% complete — on track
+⚠ F-02 Dashboard: 1 week behind (infra dependency)
+   → Mitigation: deliver a simplified version Sprint 4
 
-PROCHAINS JALONS
+NEXT MILESTONES
 ─────────────────────────────────────────────────────────
-Release R2.0 : 15 juin 2026 — Pilote 3 clients CAC40
-Release R2.1 : 14 sep 2026 — Extension transcription
+Release R2.0: June 15, 2026 — Pilot 3 CAC40 clients
+Release R2.1: Sep 14, 2026 — Transcription extension
 
-DÉCISIONS DEMANDÉES
+REQUESTED DECISIONS
 ─────────────────────────────────────────────────────────
-1. Prioriser F-06 (API SIRH) ou F-07 (Module mobile) pour PI-13 ?
-   Recommandation PM : F-06 (WSJF 3.5 vs 1.2) → [VALIDATION DG]
+1. Prioritize F-06 (HRIS API) or F-07 (Mobile module) for PI-13?
+   PM recommendation: F-06 (WSJF 3.5 vs 1.2) → [LEADERSHIP SIGN-OFF]
 
-RISQUES SIGNALÉS
+FLAGGED RISKS
 ─────────────────────────────────────────────────────────
-🔴 IA Act — Délai AIPD CNIL potentiellement > 3 mois
-   Impact : Release R2.0 peut glisser de 4-6 semaines
-   Action : Accélérer consultation DPO (J+5)
+🔴 AI Act — CNIL DPIA lead time potentially > 3 months
+   Impact: Release R2.0 may slip by 4-6 weeks
+   Action: Speed up the DPO consultation (D+5)
 ```
 
-## Livrables
-- Plan d'alignement parties prenantes
-- Note de roadmap executive (1 page)
-- Compte-rendu Steering Committee
-- Log des décisions et arbitrages
+## Deliverables
+- Stakeholder alignment plan
+- Executive roadmap note (1 page)
+- Steering Committee minutes
+- Decision and trade-off log
 
-## Format de sortie
-Précise : parties prenantes identifiées, décisions en attente, roadmap actuelle, risques connus.
+## Output format
+Specify: identified stakeholders, pending decisions, current roadmap, known risks.

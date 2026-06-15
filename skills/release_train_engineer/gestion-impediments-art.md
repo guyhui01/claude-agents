@@ -1,85 +1,85 @@
-# Skill — Gestion des Impediments et Dépendances à l'Échelle ART
-> Certifications : SAFe RTE (Scaled Agile), SAFe SPC (Scaled Agile), PMP (PMI)
+# Skill — Impediment and Dependency Management at ART Scale
+> Certifications: SAFe RTE (Scaled Agile), SAFe SPC (Scaled Agile), PMP (PMI)
 
-## Objectif
-Identifier, qualifier, escalader et résoudre les impediments et dépendances qui bloquent la livraison de l'ART — en distinguant ce qui relève du niveau équipe vs du niveau ART vs du management.
+## Objective
+Identify, qualify, escalate and resolve the impediments and dependencies blocking the ART's delivery — distinguishing what belongs at team level vs ART level vs management.
 
-## Taxonomie des impediments ART
+## ART impediment taxonomy
 
 ```
-NIVEAU 1 — ÉQUIPE (Scrum Master résout)
-  Ex : Outil de build cassé, membre absent
-  Délai de résolution : < 1 sprint
+LEVEL 1 — TEAM (Scrum Master resolves)
+  E.g.: Broken build tool, absent member
+  Resolution time: < 1 sprint
 
-NIVEAU 2 — ART (RTE résout)
-  Ex : Dépendance inter-équipes bloquante, architecture commune
-  Délai de résolution : < 2 sprints
+LEVEL 2 — ART (RTE resolves)
+  E.g.: Blocking cross-team dependency, shared architecture
+  Resolution time: < 2 sprints
 
-NIVEAU 3 — MANAGEMENT (RTE escalade)
-  Ex : Budget manquant, ressource externe bloquée, décision CODIR
-  Délai de résolution : Steering Committee
+LEVEL 3 — MANAGEMENT (RTE escalates)
+  E.g.: Missing budget, blocked external resource, exec decision
+  Resolution time: Steering Committee
 ```
 
-## Registre ROAM des risques et impediments
+## ROAM register of risks and impediments
 
 ```yaml
 roam_log:
   pi: "PI-12"
-  
+
   impediments:
     - id: "IMP-07"
-      description: "API partenaire non disponible en environnement de recette"
-      equipe: "Équipe Alpha"
-      niveau: "ART"
-      proprietaire: "RTE + Tech Lead"
-      date_identification: "2026-05-15"
-      statut: "en_cours"
+      description: "Partner API unavailable in the UAT environment"
+      team: "Team Alpha"
+      level: "ART"
+      owner: "RTE + Tech Lead"
+      identified_date: "2026-05-15"
+      status: "in_progress"
       actions:
-        - "Contact partenaire J+1 — [Prénom]"
-        - "Workaround mock API si non résolu J+5"
-      echeance: "2026-05-22"
-      
-  dependances:
+        - "Contact partner D+1 — [First name]"
+        - "Mock-API workaround if unresolved by D+5"
+      due: "2026-05-22"
+
+  dependencies:
     - id: "DEP-03"
-      description: "Équipe Beta dépend de la Feature F2 de l'Équipe Alpha (Sprint 4)"
-      equipe_producteur: "Équipe Alpha"
-      equipe_consommateur: "Équipe Beta"
-      statut: "en_risque"
+      description: "Team Beta depends on Team Alpha's Feature F2 (Sprint 4)"
+      producer_team: "Team Alpha"
+      consumer_team: "Team Beta"
+      status: "at_risk"
       feature: "F2"
-      echeance: "Sprint 4"
-      mitigation: "Réunion technique Alpha+Beta J+2"
+      due: "Sprint 4"
+      mitigation: "Alpha+Beta technical meeting D+2"
 
-  risques_roam:
+  roam_risks:
     - id: "R-05"
-      description: "Retard livraison infra Cloud (Sprint 3)"
-      categorisation: "Mitigé"  # Résolu / Accepté / Mitigé / Évité
-      proprietaire: "DevOps Lead"
-      action: "Plan B infra on-premise en parallèle"
+      description: "Cloud infra delivery delay (Sprint 3)"
+      categorization: "Mitigated"  # Resolved / Accepted / Mitigated / Avoided
+      owner: "DevOps Lead"
+      action: "On-premise infra plan B in parallel"
 ```
 
-## Process d'escalade RTE
+## RTE escalation process
 
 ```
-DÉTECTION IMPEDIMENT
+IMPEDIMENT DETECTION
         │
         ▼
-SCRUM MASTER évalue → Niveau équipe ?
-    ├── OUI → SM résout en < 1 sprint
-    └── NON → Escalade au RTE via SoS
+SCRUM MASTER assesses → Team level?
+    ├── YES → SM resolves in < 1 sprint
+    └── NO  → Escalate to the RTE via SoS
                     │
                     ▼
-             RTE évalue → Niveau ART ?
-                 ├── OUI → RTE coordonne la résolution
-                 │          (ART Sync, parties impliquées)
-                 └── NON → Escalade Management
-                             (Sponsor, CODIR, Budget)
+             RTE assesses → ART level?
+                 ├── YES → RTE coordinates the resolution
+                 │          (ART Sync, parties involved)
+                 └── NO  → Escalate to Management
+                             (Sponsor, exec committee, Budget)
 ```
 
-## Livrables
-- Registre ROAM mis à jour (YAML / Jira)
-- Compte-rendu des escalades
-- Plan de résolution par impediment
-- Rapport impediments pour l'I&A
+## Deliverables
+- Updated ROAM register (YAML / Jira)
+- Escalation notes
+- Resolution plan per impediment
+- Impediments report for the I&A
 
-## Format de sortie
-Précise : impediments identifiés, équipes concernées, niveau (équipe / ART / management), délai de résolution souhaité.
+## Output format
+Specify: identified impediments, teams concerned, level (team / ART / management), desired resolution time.

@@ -1,99 +1,99 @@
-# Skill — Coaching et développement des Product Owners
+# Skill — Coaching and developing Product Owners
 
-> Certification : PSPO III · ICAgile ICP-APO
-> Agent : AGENT-PO-SCRUM.md
+> Certification: PSPO III · ICAgile ICP-APO
+> Agent: AGENT-PO-SCRUM.md
 
-## Objectif
-Accompagner et faire grandir d'autres Product Owners dans leur pratique, leur posture et leur impact business.
+## Objective
+Support and grow other Product Owners in their practice, posture and business impact.
 
-## Posture du PO coach
+## The PO coach's posture
 
-### Les 4 modes d'accompagnement (Situational Leadership)
+### The 4 support modes (Situational Leadership)
 
-| Mode | Quand | Comportement |
+| Mode | When | Behavior |
 |---|---|---|
-| **Directif** | PO débutant | Expliquer, démontrer, guider pas à pas |
-| **Coach** | PO en développement | Questions puissantes, laisser trouver la solution |
-| **Supportif** | PO autonome en difficulté | Soutien émotionnel, débloquer les freins |
-| **Délégant** | PO expert | Confier, observer, feedback ponctuel |
+| **Directing** | Junior PO | Explain, demonstrate, guide step by step |
+| **Coaching** | Developing PO | Powerful questions, let them find the solution |
+| **Supporting** | Autonomous PO who is stuck | Emotional support, remove blockers |
+| **Delegating** | Expert PO | Entrust, observe, occasional feedback |
 
-## Framework d'évaluation PO (PSPO Competency Model)
+## PO assessment framework (PSPO Competency Model)
 
-### Niveaux PSPO I → II → III
+### Levels PSPO I → II → III
 ```
-PSPO I — Fondamentaux
+PSPO I — Fundamentals
   □ Backlog management
-  □ User Stories & critères d'acceptation
-  □ Cérémonies Scrum
-  □ Stakeholders directs
+  □ User Stories & acceptance criteria
+  □ Scrum events
+  □ Direct stakeholders
 
-PSPO II — Stratégie produit
-  □ Vision produit & stratégie
+PSPO II — Product strategy
+  □ Product vision & strategy
   □ EBM / OKR
   □ Customer discovery
-  □ Stakeholder complexes
+  □ Complex stakeholders
   □ Forecasting
 
-PSPO III — Leadership produit
+PSPO III — Product leadership
   □ Product Operating Model
-  □ Coaching d'autres POs
-  □ Alignement organisationnel
-  □ Décision sous ambiguïté
-  □ Communication C-level
+  □ Coaching other POs
+  □ Organizational alignment
+  □ Decision-making under ambiguity
+  □ C-level communication
 ```
 
-## Sessions de coaching PO
+## PO coaching sessions
 
-### Structure d'une session 1:1 (60 min)
-1. **Check-in** (5 min) : "Comment tu vas ? Quoi de neuf depuis la dernière fois ?"
-2. **Topic du PO** (5 min) : "Sur quoi veux-tu qu'on travaille aujourd'hui ?"
-3. **Exploration** (30 min) : questions puissantes, écoute active
-4. **Action** (15 min) : "Quelle est la prochaine étape concrète ?"
-5. **Check-out** (5 min) : "Qu'est-ce que tu retiens de cette session ?"
+### Structure of a 1:1 session (60 min)
+1. **Check-in** (5 min): "How are you? What's new since last time?"
+2. **PO's topic** (5 min): "What do you want to work on today?"
+3. **Exploration** (30 min): powerful questions, active listening
+4. **Action** (15 min): "What's the next concrete step?"
+5. **Check-out** (5 min): "What's your takeaway from this session?"
 
-### Questions puissantes pour PO coach
-- "Qu'est-ce qui te semble le plus difficile dans cette situation ?"
-- "Si tu avais toutes les réponses, quelle décision prendrais-tu ?"
-- "Qu'est-ce que tes utilisateurs diraient de cette fonctionnalité ?"
-- "Quel impact aura cette décision dans 6 mois ?"
-- "Qu'as-tu déjà essayé ? Qu'est-ce qui n'a pas fonctionné ?"
-- "Que ferais-tu si tu n'avais pas peur ?"
+### Powerful questions for a PO coach
+- "What feels hardest to you in this situation?"
+- "If you had all the answers, what decision would you make?"
+- "What would your users say about this feature?"
+- "What impact will this decision have in 6 months?"
+- "What have you already tried? What didn't work?"
+- "What would you do if you weren't afraid?"
 
-## Plan de développement PO (IDP — Individual Development Plan)
+## PO development plan (IDP — Individual Development Plan)
 
 ### Template
 ```
-PO : [Prénom Nom]
-Niveau actuel : PSPO [I / II]
-Objectif à 6 mois : [compétence cible]
+PO: [First Name Last Name]
+Current level: PSPO [I / II]
+6-month goal: [target competency]
 
-Forces identifiées :
-  1. [Force 1]
-  2. [Force 2]
+Identified strengths:
+  1. [Strength 1]
+  2. [Strength 2]
 
-Axes de développement :
-  1. [Axe 1] — Action : [formation / pratique / mentoring]
-  2. [Axe 2] — Action : [...]
+Development areas:
+  1. [Area 1] — Action: [training / practice / mentoring]
+  2. [Area 2] — Action: [...]
 
-Métriques de progression :
-  - [Comment on mesure les progrès]
+Progress metrics:
+  - [How progress is measured]
 
-Point d'étape : [date]
+Checkpoint: [date]
 ```
 
-## Formats d'apprentissage collectif PO
+## Collective PO learning formats
 
-### Community of Practice PO (CoP)
-- Fréquence : bimensuel — 90 min
-- Structure : 20 min retour d'expérience + 40 min atelier + 30 min Q&A
-- Thèmes : cas pratiques, lecture commune, guest speaker
+### PO Community of Practice (CoP)
+- Frequency: bi-weekly — 90 min
+- Structure: 20 min experience sharing + 40 min workshop + 30 min Q&A
+- Themes: case studies, shared reading, guest speaker
 
-### Dojo PO
-- Format : situation réelle jouée en roleplay (30 min)
-- Rôles : PO · Stakeholder difficile · Observer coach
-- Débriefing : ce qui a bien marché / à améliorer
+### PO Dojo
+- Format: a real situation played out as a roleplay (30 min)
+- Roles: PO · Difficult stakeholder · Observer coach
+- Debrief: what worked well / what to improve
 
-### Revue de backlog croisée
-- 2 POs échangent leur backlog
-- Chacun donne un feedback sur la clarté, la priorisation, la valeur
-- Durée : 45 min · Cadence : mensuel
+### Cross backlog review
+- 2 POs swap their backlogs
+- Each gives feedback on clarity, prioritization, value
+- Duration: 45 min · Cadence: monthly

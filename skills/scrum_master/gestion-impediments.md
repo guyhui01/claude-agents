@@ -1,89 +1,89 @@
-# Skill — Gestion des Impediments & Protection de l'Équipe
-> Certifications : PSM I/II · CSM · A-CSM · SAFe SSM
+# Skill — Impediment Management & Team Protection
+> Certifications: PSM I/II · CSM · A-CSM · SAFe SSM
 
-## Objectif
-Identifier, prioriser et résoudre les obstacles qui bloquent l'équipe, en protégeant sa capacité à atteindre le Sprint Goal.
+## Objective
+Identify, prioritize and resolve the obstacles blocking the team, protecting its ability to reach the Sprint Goal.
 
-## Catégories d'impediments
-| Catégorie | Exemples | Qui résout |
+## Impediment categories
+| Category | Examples | Who resolves |
 |---|---|---|
-| **Techniques** | Bug bloquant, dette technique, accès refusé | Dev + SM facilite |
-| **Processus** | Processus administratif trop long, cycle d'approbation | SM escalade |
-| **Organisationnels** | Silo entre équipes, décision en attente de management | SM + management |
-| **Humains** | Conflit interpersonnel, absence de compétence | SM + RH |
-| **Externes** | Dépendance à un prestataire, API indisponible | SM + PO |
+| **Technical** | Blocking bug, technical debt, denied access | Dev + SM facilitates |
+| **Process** | Overly long admin process, approval cycle | SM escalates |
+| **Organizational** | Silo between teams, decision waiting on management | SM + management |
+| **People** | Interpersonal conflict, skill gap | SM + HR |
+| **External** | Dependency on a vendor, API unavailable | SM + PO |
 
-## Processus de gestion des impediments
+## Impediment-management process
 
 ### Identification
-- Daily Scrum : "Quels obstacles bloquent ta progression ?"
-- Rétro : items récurrents = impediments systémiques
-- 1:1 avec les membres de l'équipe
-- Observation directe des interactions
+- Daily Scrum: "What obstacles are blocking your progress?"
+- Retro: recurring items = systemic impediments
+- 1:1 with team members
+- Direct observation of interactions
 
-### Priorisation (matrice impact × urgence)
+### Prioritization (impact × urgency matrix)
 ```
-                Urgent      Pas urgent
-Important   | TRAITER      | PLANIFIER
-            | maintenant   | (backlog SM)
-Non-import. | DÉLÉGUER     | IGNORER /
-            |              | LAISSER TOMBER
+                Urgent       Not urgent
+Important   | HANDLE        | SCHEDULE
+            | now           | (SM backlog)
+Not import. | DELEGATE      | IGNORE /
+            |               | DROP
 ```
 
-### Escalade structurée
+### Structured escalation
 ```
-Niveau 1 : SM résout seul (ressources, accès, tools)
-  → Délai cible : < 1 jour
+Level 1: SM resolves alone (resources, access, tools)
+  → Target time: < 1 day
 
-Niveau 2 : SM + PO ou Tech Lead
-  → Délai cible : < 3 jours
+Level 2: SM + PO or Tech Lead
+  → Target time: < 3 days
 
-Niveau 3 : SM + Management (Scrum of Scrums, CODIR)
-  → Délai cible : < 1 semaine
+Level 3: SM + Management (Scrum of Scrums, exec committee)
+  → Target time: < 1 week
 
-Niveau 4 : Programme / Portfolio (RTE, PMO, Direction)
-  → Délai cible : < 2 semaines
+Level 4: Program / Portfolio (RTE, PMO, leadership)
+  → Target time: < 2 weeks
 ```
 
 ## Impediment Backlog (template)
 ```
-| ID | Date | Description | Impact | Escalade | Owner | Status | Date résolution |
-|----|------|-------------|--------|----------|-------|--------|-----------------|
-| I1 | ... | Accès BDD prod bloqué | Bloque 3 devs | Tech Lead | SM | En cours | - |
+| ID | Date | Description | Impact | Escalation | Owner | Status | Resolution date |
+|----|------|-------------|--------|------------|-------|--------|-----------------|
+| I1 | ... | Prod DB access blocked | Blocks 3 devs | Tech Lead | SM | In progress | - |
 ```
 
-## Protection de l'équipe — cas fréquents
+## Team protection — common cases
 
-### Interruptions non planifiées
+### Unplanned interruptions
 ```
-Règle : toute nouvelle demande en cours de sprint → PO décide
-Si urgence vraie → annulation de sprint (rare) ou swap d'item
-SM role : dire non aux parties prenantes, rediriger vers PO
-```
-
-### Scope creep (glissement de périmètre)
-```
-Symptôme : PBI augmente en complexité pendant le sprint
-Action SM :
-  1. Identifier avec l'équipe (daily / burndown anormal)
-  2. Challenger avec le PO : réduire le scope ou splitter
-  3. Si impossible : en informer les stakeholders (sprint review)
+Rule: any new request mid-sprint → the PO decides
+If a true emergency → sprint cancellation (rare) or item swap
+SM role: say no to stakeholders, redirect to the PO
 ```
 
-### Équipe sous-pression management
+### Scope creep
 ```
-Symptôme : management demande à l'équipe de "faire plus"
-Action SM :
-  1. Protéger l'espace Scrum (ceremonies, focus time)
-  2. Montrer les données de vélocité (la pression n'accélère pas)
-  3. Escalader si nécessaire au management sponsor
+Symptom: a PBI grows in complexity during the sprint
+SM action:
+  1. Identify it with the team (daily / abnormal burndown)
+  2. Challenge with the PO: reduce the scope or split
+  3. If impossible: inform the stakeholders (sprint review)
 ```
 
-## Livrables
-- Impediment Backlog tenu à jour (hebdomadaire)
-- Rapport de suivi des escalades
-- Rapport de résolution des impediments (mensuel)
-- Communication transparente vers les stakeholders
+### Team under management pressure
+```
+Symptom: management asks the team to "do more"
+SM action:
+  1. Protect the Scrum space (events, focus time)
+  2. Show the velocity data (pressure doesn't speed things up)
+  3. Escalate if needed to the sponsoring management
+```
 
-## Format de sortie
-Précise : type d'impediment · urgence · impact sur le sprint · niveau d'escalade requis · parties prenantes impliquées
+## Deliverables
+- Impediment Backlog kept up to date (weekly)
+- Escalation tracking report
+- Impediment resolution report (monthly)
+- Transparent communication to stakeholders
+
+## Output format
+Specify: impediment type · urgency · impact on the sprint · required escalation level · stakeholders involved

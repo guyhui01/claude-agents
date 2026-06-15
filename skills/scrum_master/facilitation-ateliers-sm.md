@@ -1,149 +1,149 @@
-# Skill — Facilitation d'Ateliers Agiles (Scrum Master)
-> Certifications : ICAgile ICP-ATF · A-CSM (Advanced CSM) · PSM II · Liberating Structures Practitioner
+# Skill — Agile Workshop Facilitation (Scrum Master)
+> Certifications: ICAgile ICP-ATF · A-CSM (Advanced CSM) · PSM II · Liberating Structures Practitioner
 
-## Objectif
-Concevoir et faciliter des ateliers collaboratifs (Planning, Refinement, Design Sprint, Kaizen) pour maximiser la participation et la qualité des décisions.
+## Objective
+Design and facilitate collaborative workshops (Planning, Refinement, Design Sprint, Kaizen) to maximize participation and decision quality.
 
-## Rôle du facilitateur
+## The facilitator's role
 
-### Le SM facilitateur ≠ animateur
+### The SM facilitator ≠ presenter
 ```
-ANIMATEUR            FACILITATEUR
-Suit un agenda       ← Adapte en temps réel
-Parle beaucoup       ← Écoute et questionne
-Donne des réponses   ← Aide le groupe à trouver ses réponses
-Gère le contenu      ← Gère le processus
-S'implique           ← Reste neutre
-```
-
-## Ateliers clés Scrum
-
-### Sprint Planning — Facilitation efficace
-```
-PARTIE 1 — QUOI (2h max)
-  1. PO présente les items du backlog (capacité × vélocité)
-  2. L'équipe pose des questions de clarification
-  3. Vote de confirmation : "Peut-on s'engager sur ce périmètre ?"
-  SM : Vérifie que l'objectif de sprint est défini (Sprint Goal)
-
-PARTIE 2 — COMMENT (2h max)
-  4. Équipe décompose les US en tâches (< 8h chacune)
-  5. Identification des dépendances (fil rouge ou Jira)
-  6. Vérification de la capacité réelle (congés, formations)
-  SM : Timeboxe, évite les débats techniques infinis
+PRESENTER            FACILITATOR
+Follows an agenda     ← Adapts in real time
+Talks a lot           ← Listens and questions
+Gives answers         ← Helps the group find its own answers
+Manages content       ← Manages the process
+Gets involved         ← Stays neutral
 ```
 
-### Sprint Refinement — Structure en 3 temps
+## Key Scrum workshops
+
+### Sprint Planning — Effective facilitation
 ```
-TEMPS 1 — Clarification (30 min)
-  → PO présente les US prioritaires
-  → Questions d'acceptation : "Quand est-ce que c'est fait ?"
-  → Critères d'acceptation vérifiables et testables
+PART 1 — WHAT (2h max)
+  1. PO presents the backlog items (capacity × velocity)
+  2. The team asks clarifying questions
+  3. Confirmation vote: "Can we commit to this scope?"
+  SM: Check that the Sprint Goal is defined
 
-TEMPS 2 — Estimation (30 min)
-  → Planning Poker (Fibonacci : 1, 2, 3, 5, 8, 13, 21, ?)
-  → Discussion sur les divergences d'estimation
-  → Seuil : US estimée > 13 = à découper
+PART 2 — HOW (2h max)
+  4. Team breaks US into tasks (< 8h each)
+  5. Dependency identification (red thread or Jira)
+  6. Real-capacity check (time off, training)
+  SM: Timebox, avoid endless technical debates
+```
 
-TEMPS 3 — Découpage (20 min)
-  → Splitter les US trop grosses (> 8 SP)
-  → Techniques : SPIDR, Slice by Workflow Step, Data Variation
-  → Résultat : backlog "ready" pour les 2 prochains sprints
+### Sprint Refinement — 3-part structure
+```
+PART 1 — Clarification (30 min)
+  → PO presents the priority US
+  → Acceptance questions: "When is it done?"
+  → Verifiable, testable acceptance criteria
+
+PART 2 — Estimation (30 min)
+  → Planning Poker (Fibonacci: 1, 2, 3, 5, 8, 13, 21, ?)
+  → Discussion on estimation differences
+  → Threshold: US estimated > 13 = to split
+
+PART 3 — Slicing (20 min)
+  → Split US that are too big (> 8 SP)
+  → Techniques: SPIDR, Slice by Workflow Step, Data Variation
+  → Result: backlog "ready" for the next 2 sprints
 ```
 
 ### Planning Poker — Facilitation
 ```python
-# Règles du Planning Poker
-regles = {
-    "cartes": [0, 1, 2, 3, 5, 8, 13, 21, 40, 100, "?", "∞"],
-    "processus": [
-        "1. PO lit l'US sans donner d'estimation",
-        "2. Chaque dev choisit sa carte en secret",
-        "3. Révélation simultanée",
-        "4. Si consensus (ou écart ≤ 1) → stocker l'estimation",
-        "5. Si divergence → discussion max 3 min entre extrêmes",
-        "6. Re-vote une fois"
+# Planning Poker rules
+rules = {
+    "cards": [0, 1, 2, 3, 5, 8, 13, 21, 40, 100, "?", "∞"],
+    "process": [
+        "1. PO reads the US without giving an estimate",
+        "2. Each dev secretly picks their card",
+        "3. Simultaneous reveal",
+        "4. If consensus (or gap ≤ 1) → store the estimate",
+        "5. If divergence → discuss max 3 min between extremes",
+        "6. Re-vote once"
     ],
-    "? = ": "Je ne comprends pas la story",
-    "∞ = ": "Cette US est trop grande, il faut la découper",
-    "timeout": "2 rounds max, sinon estimé par défaut"
+    "? = ": "I don't understand the story",
+    "∞ = ": "This US is too big, it needs splitting",
+    "timeout": "2 rounds max, otherwise default estimate"
 }
 ```
 
-## Techniques de facilitation avancées
+## Advanced facilitation techniques
 
 ### 1-2-4-All (Liberating Structures)
 ```
-But : Générer des idées sans que les voix dominantes écrasent les autres
-  1 min  → Réflexion individuelle (silence)
-  2 min  → Discussion en binôme
-  4 min  → Discussion en groupe de 4
-  All    → Partage en plénière (1 idée forte par groupe)
+Goal: Generate ideas without dominant voices crushing the others
+  1 min  → Individual reflection (silence)
+  2 min  → Discussion in pairs
+  4 min  → Discussion in groups of 4
+  All    → Share in plenary (1 strong idea per group)
 
-Usage : Générer des solutions, identifier des problèmes, prioriser
+Use: Generate solutions, identify problems, prioritize
 ```
 
 ### DACI (Decision Making)
 ```
-D — Driver      : qui pilote la décision (1 personne)
-A — Approver    : qui a le droit de véto (1-2 personnes)
-C — Contributor : qui contribue avec expertise
-I — Informed    : qui doit être informé de la décision
+D — Driver      : who drives the decision (1 person)
+A — Approver    : who has veto rights (1-2 people)
+C — Contributor : who contributes expertise
+I — Informed    : who must be informed of the decision
 
-Usage : Sprint Planning controversé, changement de process, arbitrage technique
-```
-
-### Fishbowl (débats complexes)
-```
-Setup : 4 chaises au centre (participants actifs) + cercle extérieur (observateurs)
-  → Seuls ceux dans le Fishbowl parlent
-  → Quand une chaise se libère, un observateur peut entrer
-  → SM facilite depuis l'extérieur
-
-Usage : Conflits persistants, décisions difficiles, sujets sensibles
+Use: Controversial Sprint Planning, process change, technical arbitration
 ```
 
-## Gestion des situations difficiles
+### Fishbowl (complex debates)
+```
+Setup: 4 chairs in the center (active participants) + outer circle (observers)
+  → Only those in the Fishbowl speak
+  → When a chair frees up, an observer can join
+  → The SM facilitates from outside
 
-### L'expert qui monopolise la parole
-```
-Technique : "Merci [nom], j'aimerais entendre d'autres perspectives.
-             Quelqu'un a-t-il un avis différent ?"
-Ou : Round Robin forcé — chacun parle 1 min dans l'ordre
-```
-
-### Le groupe qui tourne en rond
-```
-Technique : "On discute depuis X min. On a 2 options :
-             A) On vote maintenant
-             B) On timeboxe 5 min pour trouver un consensus
-             Qu'est-ce que vous préférez ?"
+Use: Persistent conflicts, hard decisions, sensitive topics
 ```
 
-### Le conflit ouvert entre deux personnes
+## Handling difficult situations
+
+### The expert who monopolizes the floor
 ```
-1. Marquer une pause (break 5 min)
-2. Rappeler la Prime Directive et les règles de collaboration
-3. Reformuler chaque position sans jugement
-4. Chercher le terrain commun ("Qu'est-ce qu'on veut TOUS les deux ?")
-5. Si persistant : reporter et traiter en coaching individuel
+Technique: "Thanks [name], I'd like to hear other perspectives.
+            Does anyone have a different view?"
+Or: Forced Round Robin — each person speaks 1 min in order
 ```
 
-## Outils digitaux recommandés
-| Outil | Usage | Points forts |
+### The group going in circles
+```
+Technique: "We've been discussing for X min. We have 2 options:
+            A) We vote now
+            B) We timebox 5 min to find consensus
+            What do you prefer?"
+```
+
+### Open conflict between two people
+```
+1. Take a break (5 min)
+2. Restate the Prime Directive and the collaboration rules
+3. Reframe each position without judgment
+4. Look for common ground ("What do we BOTH want?")
+5. If persistent: postpone and handle in individual coaching
+```
+
+## Recommended digital tools
+| Tool | Use | Strengths |
 |---|---|---|
-| **Miro** | Rétrospectives, Story Mapping | Templates riches, temps réel |
-| **Mural** | Design Thinking, Workshops | Facilitation avancée |
-| **FigJam** | Brainstorming, Refinement | Intégration Figma |
-| **Mentimeter** | Votes anonymes, Safety Check | Interactif, mobile |
-| **PlanningPoker.com** | Estimation remote | Gratuit, simple |
+| **Miro** | Retrospectives, Story Mapping | Rich templates, real time |
+| **Mural** | Design Thinking, Workshops | Advanced facilitation |
+| **FigJam** | Brainstorming, Refinement | Figma integration |
+| **Mentimeter** | Anonymous votes, Safety Check | Interactive, mobile |
+| **PlanningPoker.com** | Remote estimation | Free, simple |
 
-## Livrables
-- Agenda de l'atelier avec timeboxes
-- Support visuel (Miro / tableau physique)
-- Compte-rendu des décisions prises
-- Actions et responsables identifiés
-- Rétroaction sur la facilitation (ROTI 1-5)
+## Deliverables
+- Workshop agenda with timeboxes
+- Visual support (Miro / physical board)
+- Notes of the decisions made
+- Actions and owners identified
+- Facilitation feedback (ROTI 1-5)
 
-## Format de sortie
-Précise : type d'atelier · nombre de participants · durée disponible · remote ou présentiel · outil de facilitation · problème ou objectif spécifique
+## Output format
+Specify: workshop type · number of participants · time available · remote or on-site · facilitation tool · specific problem or goal

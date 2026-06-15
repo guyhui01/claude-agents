@@ -1,213 +1,213 @@
-# Skill QA Cycle V — Tests de Sécurité (OWASP Top 10 + ISTQB CT-SEC)
+# QA V-Model Skill — Security Testing (OWASP Top 10 + ISTQB CT-SEC)
 
-> Certification : CT-SEC · CTAL-TTA · CTFL
-> Agents : AGENT-QA-CYCLEV.md · AGENT-SECURITE-IA.md
-> Méthodologie : Cycle en V (applicable Agile)
+> Certification: CT-SEC · CTAL-TTA · CTFL
+> Agents: AGENT-QA-CYCLEV.md · AGENT-SECURITE-IA.md
+> Methodology: V-model (applicable to Agile)
 
-## Objectif
-Identifier les vulnérabilités de sécurité testables par un QA fonctionnel, en s'appuyant sur les référentiels reconnus (OWASP Top 10, CWE Top 25, NIST CSF). Détecter avant pentest spécialisé les bugs sécurité courants (injection, auth, exposition de données, contrôle d'accès).
+## Objective
+Identify security vulnerabilities testable by a functional QA, relying on recognized standards (OWASP Top 10, CWE Top 25, NIST CSF). Detect common security bugs (injection, auth, data exposure, access control) before a specialized pentest.
 
-> **Frontière** : ce skill couvre le **QA fonctionnel sécurité** (validation par tests des contrôles applicatifs). Pour la sécurité IA spécifique (prompt injection, model theft, OWASP LLM Top 10), voir `AGENT-SECURITE-IA.md`.
+> **Boundary**: this skill covers **functional security QA** (validating application controls through testing). For AI-specific security (prompt injection, model theft, OWASP LLM Top 10), see `AGENT-SECURITE-IA.md`.
 
-## Référentiels mobilisés
+## Standards used
 
-| Référentiel | Source | Année | Usage QA |
+| Standard | Source | Year | QA usage |
 |---|---|---|---|
-| **OWASP Top 10** | owasp.org/Top10 | 2021 (édition à jour) | 10 vulnérabilités web prioritaires |
-| **OWASP API Security Top 10** | owasp.org/API-Security | 2023 | Sécurité des APIs REST/GraphQL |
+| **OWASP Top 10** | owasp.org/Top10 | 2021 (current edition) | 10 priority web vulnerabilities |
+| **OWASP API Security Top 10** | owasp.org/API-Security | 2023 | Security of REST/GraphQL APIs |
 | **CWE Top 25** | cwe.mitre.org/top25 | 2024 | Most Dangerous Software Weaknesses |
-| **OWASP ASVS** | owasp.org/ASVS | v4.0.3 (2024) | Niveaux 1-2-3 de vérification sécurité |
+| **OWASP ASVS** | owasp.org/ASVS | v4.0.3 (2024) | Security verification levels 1-2-3 |
 | **NIST CSF** | nist.gov/cyberframework | 2.0 (2024) | Govern / Identify / Protect / Detect / Respond / Recover |
 | **ISTQB CT-SEC** | istqb.org | 2022 | Certified Tester Security syllabus |
-| **OWASP LLM Top 10** | owasp.org/llm-top-10 | 2025 | (IA spécifique → AGENT-SECURITE-IA) |
+| **OWASP LLM Top 10** | owasp.org/llm-top-10 | 2025 | (AI-specific → AGENT-SECURITE-IA) |
 
-## OWASP Top 10 (2021) — Mapping QA
+## OWASP Top 10 (2021) — QA mapping
 
-| # | Vulnérabilité | Description | Tests QA |
+| # | Vulnerability | Description | QA tests |
 |---|---|---|---|
-| **A01** | Broken Access Control | Contrôle d'accès défaillant (IDOR, élévation privilège) | URL directe ressource autre user, modification ID dans URL, escalade horizontal/vertical |
-| **A02** | Cryptographic Failures | Chiffrement défaillant (TLS, hashing, stockage) | HTTPS forcé, hash bcrypt/argon2 (pas MD5/SHA1), TLS ≥ 1.2 |
+| **A01** | Broken Access Control | Faulty access control (IDOR, privilege escalation) | Direct URL to another user's resource, ID tampering in URL, horizontal/vertical escalation |
+| **A02** | Cryptographic Failures | Faulty encryption (TLS, hashing, storage) | HTTPS enforced, bcrypt/argon2 hash (not MD5/SHA1), TLS ≥ 1.2 |
 | **A03** | Injection | SQL/NoSQL/OS/LDAP/XSS injection | Payloads `' OR '1'='1`, `<script>`, `${jndi:ldap://...}` |
-| **A04** | Insecure Design | Défauts architecture sécurité | Threat modeling absent, design review manquant |
-| **A05** | Security Misconfiguration | Configuration par défaut, debug en prod | Headers sécurité absents (CSP, HSTS, X-Frame-Options), erreurs verbeuses |
-| **A06** | Vulnerable Components | Dépendances obsolètes / CVE connues | Scan SCA (Snyk, Trivy, Dependabot) |
-| **A07** | Auth & Identification Failures | Auth faible, sessions vulnérables | Brute force, session fixation, JWT non vérifié |
-| **A08** | Software & Data Integrity Failures | Pipeline CI/CD compromis, désérialisation non sécurisée | Vérifier signatures de dépendances, pipeline sécurisé |
-| **A09** | Logging & Monitoring Failures | Pas de détection attaque | SIEM connecté, logs auth/erreurs, alerting brute force |
-| **A10** | Server-Side Request Forgery (SSRF) | Le serveur fait une requête contrôlée par l'attaquant | Tester URLs internes (169.254.169.254 AWS metadata, file://, gopher://) |
+| **A04** | Insecure Design | Security architecture flaws | No threat modeling, missing design review |
+| **A05** | Security Misconfiguration | Default configuration, debug in prod | Missing security headers (CSP, HSTS, X-Frame-Options), verbose errors |
+| **A06** | Vulnerable Components | Outdated dependencies / known CVEs | SCA scan (Snyk, Trivy, Dependabot) |
+| **A07** | Auth & Identification Failures | Weak auth, vulnerable sessions | Brute force, session fixation, unverified JWT |
+| **A08** | Software & Data Integrity Failures | Compromised CI/CD pipeline, insecure deserialization | Verify dependency signatures, secure pipeline |
+| **A09** | Logging & Monitoring Failures | No attack detection | SIEM connected, auth/error logs, brute-force alerting |
+| **A10** | Server-Side Request Forgery (SSRF) | The server makes a request controlled by the attacker | Test internal URLs (169.254.169.254 AWS metadata, file://, gopher://) |
 
-## OWASP API Security Top 10 (2023) — focus QA APIs
+## OWASP API Security Top 10 (2023) — QA focus on APIs
 
-| # | Vulnérabilité | Tests QA |
+| # | Vulnerability | QA tests |
 |---|---|---|
-| API1 | Broken Object Level Authorization (BOLA) | Modifier l'ID dans `/users/{id}/orders` pour accéder à un autre user |
-| API2 | Broken Authentication | JWT sans signature, refresh token leak, OAuth flow faible |
-| API3 | Broken Object Property Level Auth | Modifier des champs admin via PATCH (mass assignment) |
-| API4 | Unrestricted Resource Consumption | Rate limiting absent, pagination non bornée |
-| API5 | Broken Function Level Authorization | Accéder à `/admin/*` en user standard |
-| API6 | Unrestricted Access to Sensitive Business Flows | Scraping massif, abus de fonctionnalités |
-| API7 | Server Side Request Forgery (SSRF) | Idem A10 OWASP Top 10 mais sur APIs |
-| API8 | Security Misconfiguration | CORS trop permissif (`*`), TRACE/OPTIONS activés |
-| API9 | Improper Inventory Management | API zombies non documentées, versions v1/v2 deprecated exposées |
-| API10 | Unsafe Consumption of APIs | API tierce sans validation des réponses |
+| API1 | Broken Object Level Authorization (BOLA) | Change the ID in `/users/{id}/orders` to access another user |
+| API2 | Broken Authentication | JWT without signature, refresh token leak, weak OAuth flow |
+| API3 | Broken Object Property Level Auth | Modify admin fields via PATCH (mass assignment) |
+| API4 | Unrestricted Resource Consumption | Missing rate limiting, unbounded pagination |
+| API5 | Broken Function Level Authorization | Access `/admin/*` as a standard user |
+| API6 | Unrestricted Access to Sensitive Business Flows | Massive scraping, feature abuse |
+| API7 | Server Side Request Forgery (SSRF) | Same as A10 OWASP Top 10 but on APIs |
+| API8 | Security Misconfiguration | Overly permissive CORS (`*`), TRACE/OPTIONS enabled |
+| API9 | Improper Inventory Management | Undocumented zombie APIs, deprecated v1/v2 versions exposed |
+| API10 | Unsafe Consumption of APIs | Third-party API without response validation |
 
-## Catégories de tests QA Sécurité (alignement OWASP)
+## QA security test categories (OWASP alignment)
 
-| Catégorie OWASP | Tests prioritaires QA |
+| OWASP category | Priority QA tests |
 |---|---|
-| **Authentication (A07)** | Verrouillage compte après N tentatives, politique mot de passe, MFA, session timeout, logout côté serveur |
-| **Authorization (A01, API1, API5)** | Élévation horizontale (autre user), verticale (admin), IDOR, accès direct URL |
+| **Authentication (A07)** | Account lockout after N attempts, password policy, MFA, session timeout, server-side logout |
+| **Authorization (A01, API1, API5)** | Horizontal escalation (another user), vertical (admin), IDOR, direct URL access |
 | **Input Validation (A03)** | SQL injection, XSS reflected/stored/DOM, command injection, LDAP, XXE, path traversal |
-| **Session Management (A07)** | Fixation, token in URL, cookies sans HttpOnly/Secure/SameSite, regénération post-login |
-| **Data Protection (A02)** | Mots de passe hashés (bcrypt/argon2 ≥ 10 rounds), HTTPS forcé, logs sans données sensibles, masquage PII |
-| **Configuration (A05)** | Headers CSP/HSTS/X-Frame-Options/X-Content-Type-Options, debug désactivé prod, erreurs génériques |
-| **Dependencies (A06)** | Scan SCA dans CI, CVE bloquantes < 30 jours, mise à jour automatique |
-| **Logging (A09)** | Tentatives auth échouées loggées, alerting > 5/min, accès admin tracé |
+| **Session Management (A07)** | Fixation, token in URL, cookies without HttpOnly/Secure/SameSite, post-login regeneration |
+| **Data Protection (A02)** | Hashed passwords (bcrypt/argon2 ≥ 10 rounds), HTTPS enforced, logs without sensitive data, PII masking |
+| **Configuration (A05)** | CSP/HSTS/X-Frame-Options/X-Content-Type-Options headers, debug disabled in prod, generic errors |
+| **Dependencies (A06)** | SCA scan in CI, blocking CVEs < 30 days, automatic updates |
+| **Logging (A09)** | Failed auth attempts logged, alerting > 5/min, admin access traced |
 
-## Template cas de test sécurité
+## Security test case template
 
 ```
-ID : TSEC-[XXX]
-Titre : [Vulnérabilité testée, ex: SQLi sur /api/users?id=]
-OWASP : [A03 - Injection]
-CWE : [CWE-89 - SQL Injection]
-Risque : ☐ Critique ☐ Élevé ☐ Moyen ☐ Faible
-CVSS 3.1 : [Vector + Score, ex: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H = 9.8]
+ID: TSEC-[XXX]
+Title: [Vulnerability tested, e.g. SQLi on /api/users?id=]
+OWASP: [A03 - Injection]
+CWE: [CWE-89 - SQL Injection]
+Risk: ☐ Critical ☐ High ☐ Medium ☐ Low
+CVSS 3.1: [Vector + Score, e.g. AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H = 9.8]
 
-PRÉCONDITIONS :
-- Environnement : [pré-prod / staging]
-- Compte de test : [user standard]
-- Outil : [Burp Suite / OWASP ZAP / curl]
+PRECONDITIONS:
+- Environment: [pre-prod / staging]
+- Test account: [standard user]
+- Tool: [Burp Suite / OWASP ZAP / curl]
 
-SCÉNARIO :
-1. Capturer la requête légitime via proxy
-2. Injecter le payload : ' OR 1=1--
-3. Observer la réponse serveur
+SCENARIO:
+1. Capture the legitimate request via proxy
+2. Inject the payload: ' OR 1=1--
+3. Observe the server response
 
-RÉSULTAT ATTENDU (sécurisé) :
+EXPECTED RESULT (secure):
 - HTTP 400/422 (Bad Request)
-- Erreur générique sans stack trace
-- Log d'alerte SIEM déclenché
+- Generic error without stack trace
+- SIEM alert log triggered
 
-RÉSULTAT OBTENU : [...]
-STATUT : ☐ Pass (sécurisé) ☐ Fail (vulnérable)
+OBTAINED RESULT: [...]
+STATUS: ☐ Pass (secure) ☐ Fail (vulnerable)
 
-REMEDIATION (si Fail) : [Requêtes paramétrées, prepared statements, ORM]
+REMEDIATION (if Fail): [Parameterized queries, prepared statements, ORM]
 ```
 
-## Checklist sécurité minimale (Go/No-Go MEP)
+## Minimal security checklist (Go/No-Go go-live)
 
 ```
-🔐 Authentification & Sessions (A07)
-☐ Verrouillage compte après 5 tentatives échouées
-☐ Politique mot de passe : ≥ 12 caractères, 3 classes min
-☐ MFA disponible (TOTP / WebAuthn) pour comptes sensibles
-☐ Hashing bcrypt/argon2 (jamais MD5, SHA1, SHA256 simple)
-☐ Session invalidée côté serveur après logout
-☐ Cookie : HttpOnly + Secure + SameSite=Lax
-☐ Timeout inactif : 15 min admin, 30 min user
+🔐 Authentication & Sessions (A07)
+☐ Account lockout after 5 failed attempts
+☐ Password policy: ≥ 12 characters, min 3 classes
+☐ MFA available (TOTP / WebAuthn) for sensitive accounts
+☐ Hashing bcrypt/argon2 (never MD5, SHA1, plain SHA256)
+☐ Session invalidated server-side after logout
+☐ Cookie: HttpOnly + Secure + SameSite=Lax
+☐ Idle timeout: 15 min admin, 30 min user
 
-🛡️ Autorisation (A01)
-☐ Accès direct URL ressource autre user → 403
-☐ Modification ID dans URL → 403
-☐ API protégées par token (Bearer/OAuth2)
-☐ RBAC/ABAC effectif (audit matrice droits)
-☐ Pas d'endpoints admin exposés sans auth admin
+🛡️ Authorization (A01)
+☐ Direct URL access to another user's resource → 403
+☐ ID tampering in URL → 403
+☐ APIs protected by token (Bearer/OAuth2)
+☐ Effective RBAC/ABAC (rights matrix audit)
+☐ No admin endpoints exposed without admin auth
 
-💉 Validation entrées (A03)
-☐ Requêtes SQL paramétrées (prepared statements) — pas de concaténation
-☐ Échappement HTML/JS sur tous outputs user-controlled
-☐ Validation côté serveur (jamais uniquement client)
-☐ Upload : whitelist extensions, antivirus, isolation S3
-☐ XXE désactivé sur parsers XML
+💉 Input validation (A03)
+☐ Parameterized SQL queries (prepared statements) — no concatenation
+☐ HTML/JS escaping on all user-controlled outputs
+☐ Server-side validation (never client-only)
+☐ Upload: extension whitelist, antivirus, S3 isolation
+☐ XXE disabled on XML parsers
 
-🔒 Données & Crypto (A02)
-☐ HTTPS forcé (HSTS preload list)
-☐ TLS ≥ 1.2 (1.3 préféré)
-☐ Secrets jamais en clair (Vault, AWS Secrets Manager)
-☐ Logs sans PII / sans mots de passe / sans tokens
-☐ RGPD : pseudonymisation données analytics
+🔒 Data & Crypto (A02)
+☐ HTTPS enforced (HSTS preload list)
+☐ TLS ≥ 1.2 (1.3 preferred)
+☐ Secrets never in clear text (Vault, AWS Secrets Manager)
+☐ Logs without PII / passwords / tokens
+☐ GDPR: pseudonymization of analytics data
 
 ⚙️ Configuration (A05)
-☐ Headers : CSP, HSTS, X-Frame-Options, X-Content-Type-Options
-☐ Debug désactivé en prod (errors verbeuses cachées)
-☐ CORS : whitelist origines (jamais `*` en prod)
-☐ Méthodes HTTP : OPTIONS/TRACE désactivées
-☐ Bannière serveur masquée (Apache/Nginx version)
+☐ Headers: CSP, HSTS, X-Frame-Options, X-Content-Type-Options
+☐ Debug disabled in prod (verbose errors hidden)
+☐ CORS: origin whitelist (never `*` in prod)
+☐ HTTP methods: OPTIONS/TRACE disabled
+☐ Server banner hidden (Apache/Nginx version)
 
-📦 Dépendances (A06)
-☐ Scan SCA (Snyk / Trivy / Dependabot) en pipeline CI
-☐ CVE bloquantes (CVSS ≥ 7) corrigées < 30 jours
-☐ Bibliothèques actives (pas de version EOL)
+📦 Dependencies (A06)
+☐ SCA scan (Snyk / Trivy / Dependabot) in the CI pipeline
+☐ Blocking CVEs (CVSS ≥ 7) fixed < 30 days
+☐ Active libraries (no EOL version)
 
 📊 Logging & Monitoring (A09)
-☐ Auth échouées loggées avec IP, user-agent, timestamp
-☐ Alerting brute force (> 10 échecs/min/IP)
-☐ Audit logs admin (création user, changement droits)
-☐ Rétention logs ≥ 90 jours
+☐ Failed auth logged with IP, user-agent, timestamp
+☐ Brute-force alerting (> 10 failures/min/IP)
+☐ Admin audit logs (user creation, rights change)
+☐ Log retention ≥ 90 days
 ```
 
-## Outils QA Sécurité
+## QA security tools
 
-| Type | Outil | Usage |
+| Type | Tool | Usage |
 |---|---|---|
-| **Proxy / Pentest manuel** | Burp Suite (Pro), OWASP ZAP (gratuit) | Interception, fuzzing, replay requêtes |
-| **DAST automatisé** | OWASP ZAP, Nessus, Acunetix, Qualys WAS | Scan dynamique app en exécution |
-| **SAST (code statique)** | SonarQube SAST, Checkmarx, Snyk Code, Semgrep | Analyse code source CI/CD |
-| **SCA (dépendances)** | Snyk, Trivy, Dependabot (GitHub), OWASP Dependency-Check | Scan CVE sur libs/containers |
-| **Secrets scanner** | TruffleHog, GitGuardian, git-secrets | Détection secrets en clair commits |
-| **Container security** | Trivy, Clair, Anchore | Scan images Docker |
-| **Authentification testing** | Hydra (brute force), JWT.io (decode JWT) | Tests auth ciblés |
-| **WAF / IDS** | ModSecurity, Cloudflare WAF, Snort | Protection runtime (pas QA mais à valider) |
+| **Proxy / manual pentest** | Burp Suite (Pro), OWASP ZAP (free) | Interception, fuzzing, request replay |
+| **Automated DAST** | OWASP ZAP, Nessus, Acunetix, Qualys WAS | Dynamic scan of a running app |
+| **SAST (static code)** | SonarQube SAST, Checkmarx, Snyk Code, Semgrep | Source code analysis in CI/CD |
+| **SCA (dependencies)** | Snyk, Trivy, Dependabot (GitHub), OWASP Dependency-Check | CVE scan on libs/containers |
+| **Secrets scanner** | TruffleHog, GitGuardian, git-secrets | Detect clear-text secrets in commits |
+| **Container security** | Trivy, Clair, Anchore | Scan Docker images |
+| **Authentication testing** | Hydra (brute force), JWT.io (decode JWT) | Targeted auth tests |
+| **WAF / IDS** | ModSecurity, Cloudflare WAF, Snort | Runtime protection (not QA but to validate) |
 
-## Anti-patterns sécurité (à éviter absolument)
+## Security anti-patterns (absolutely avoid)
 
-- ❌ **Pentest tardif** (juste avant MEP) — Shift-left avec SAST/DAST dans le pipeline CI
-- ❌ **SAST/DAST absents du pipeline** — Doit échouer le build si CVE critique
-- ❌ **Secrets en clair dans le code** ou variables d'env exposées — Vault obligatoire
-- ❌ **Authentification basée uniquement sur cookie session** sans CSRF token
-- ❌ **Erreurs verbeuses en prod** (stack traces, requêtes SQL exposées)
-- ❌ **CORS permissif `Access-Control-Allow-Origin: *`** en production
-- ❌ **Désérialisation Java/Python/PHP non sécurisée** (RCE classique)
-- ❌ **JWT sans vérification de signature** ou avec `alg: none` accepté
-- ❌ **Rate limiting absent** sur endpoints sensibles (login, reset password, API)
-- ❌ **Logs PII** (mots de passe, tokens, numéros CB) en clair
-- ❌ **Sécurité testée uniquement à la fin** (cycle V séquentiel pur) — adopter DevSecOps même en cycle V
-- ❌ **Dépendances jamais mises à jour** ("ça marche, on ne touche pas")
+- ❌ **Late pentest** (just before go-live) — Shift-left with SAST/DAST in the CI pipeline
+- ❌ **SAST/DAST missing from the pipeline** — Must fail the build on a critical CVE
+- ❌ **Clear-text secrets in the code** or exposed env variables — Vault mandatory
+- ❌ **Authentication based solely on a session cookie** without a CSRF token
+- ❌ **Verbose errors in prod** (stack traces, exposed SQL queries)
+- ❌ **Permissive CORS `Access-Control-Allow-Origin: *`** in production
+- ❌ **Insecure Java/Python/PHP deserialization** (classic RCE)
+- ❌ **JWT without signature verification** or with `alg: none` accepted
+- ❌ **Missing rate limiting** on sensitive endpoints (login, reset password, API)
+- ❌ **PII logs** (passwords, tokens, card numbers) in clear text
+- ❌ **Security tested only at the end** (pure sequential V-model) — adopt DevSecOps even in a V-model
+- ❌ **Dependencies never updated** ("it works, don't touch it")
 
-## Niveaux ASVS (OWASP Application Security Verification Standard)
+## ASVS levels (OWASP Application Security Verification Standard)
 
-- **Level 1 — Opportuniste** : protection contre attaques opportunistes basiques (apps publiques low-risk)
-- **Level 2 — Standard** : protection contre la plupart des risques (apps métier, B2B, contenant données significatives)
-- **Level 3 — Avancé** : applications critiques (santé, finance, défense) — exigences les plus strictes
+- **Level 1 — Opportunistic**: protection against basic opportunistic attacks (low-risk public apps)
+- **Level 2 — Standard**: protection against most risks (business apps, B2B, holding significant data)
+- **Level 3 — Advanced**: critical applications (healthcare, finance, defense) — the strictest requirements
 
-Pour clients CAC40 / banque / luxe : viser **Level 2 minimum**, **Level 3 pour produits sensibles** (paiement, données personnelles structurelles).
+For CAC40 / banking / luxury clients: aim for **Level 2 minimum**, **Level 3 for sensitive products** (payment, structural personal data).
 
-## Livrables QA Sécurité
+## QA security deliverables
 
-- Rapport audit sécurité (OWASP Top 10 mapping, vulnérabilités identifiées + CVSS + remediation)
-- Cahier de tests sécurité (catalogue cas de test par catégorie OWASP)
-- Checklist Go/No-Go MEP signée
-- Configuration pipeline CI/CD (SAST + DAST + SCA intégrés)
-- Plan de remediation par sévérité (P0 < 24h, P1 < 7j, P2 < 30j)
-- Registre des risques résiduels acceptés (avec signature RSSI/DPO)
+- Security audit report (OWASP Top 10 mapping, identified vulnerabilities + CVSS + remediation)
+- Security test catalog (test case catalog by OWASP category)
+- Signed Go/No-Go go-live checklist
+- CI/CD pipeline configuration (SAST + DAST + SCA integrated)
+- Remediation plan by severity (P0 < 24h, P1 < 7d, P2 < 30d)
+- Register of accepted residual risks (with CISO/DPO signature)
 
-## Voir aussi
+## See also
 
-- [`AGENT-SECURITE-IA.md`](../../AGENT-SECURITE-IA.md) — Sécurité IA spécifique (OWASP LLM Top 10, prompt injection, model theft, data poisoning)
-- [`AGENT-DEVOPS-CLOUD.md`](../../AGENT-DEVOPS-CLOUD.md) — Intégration SAST/DAST/SCA dans pipeline DevSecOps
-- [`AGENT-JURIDIQUE-IA.md`](../../AGENT-JURIDIQUE-IA.md) — Conformité RGPD, AI Act, NIS2 dans la sécurité applicative
+- [`AGENT-SECURITE-IA.md`](../../AGENT-SECURITE-IA.md) — AI-specific security (OWASP LLM Top 10, prompt injection, model theft, data poisoning)
+- [`AGENT-DEVOPS-CLOUD.md`](../../AGENT-DEVOPS-CLOUD.md) — Integration of SAST/DAST/SCA into a DevSecOps pipeline
+- [`AGENT-JURIDIQUE-IA.md`](../../AGENT-JURIDIQUE-IA.md) — GDPR, AI Act, NIS2 compliance in application security
 
 ## Sources
 
-- **OWASP Top 10 (2021)** — owasp.org/Top10/ — référentiel le plus utilisé au monde pour la sécurité applicative
+- **OWASP Top 10 (2021)** — owasp.org/Top10/ — the most widely used application security standard in the world
 - **OWASP API Security Top 10 (2023)** — owasp.org/API-Security/editions/2023/en/0x11-t10/
-- **OWASP LLM Top 10 (2025)** — genai.owasp.org/llm-top-10/ (cross-référence AGENT-SECURITE-IA)
+- **OWASP LLM Top 10 (2025)** — genai.owasp.org/llm-top-10/ (cross-reference AGENT-SECURITE-IA)
 - **CWE Top 25 (2024)** — cwe.mitre.org/top25/archive/2024/2024_cwe_top25.html
 - **OWASP ASVS v4.0.3** — owasp.org/www-project-application-security-verification-standard/
 - **NIST Cybersecurity Framework 2.0 (2024)** — nist.gov/cyberframework
 - **ISTQB CT-SEC Security Tester Syllabus** — istqb.org/certifications/security-tester
 - **CVSS 3.1 Calculator** — first.org/cvss/calculator/3.1
-- **OWASP Cheat Sheets Series** — cheatsheetseries.owasp.org/ — guides pratiques par sujet
+- **OWASP Cheat Sheets Series** — cheatsheetseries.owasp.org/ — practical guides by topic
 - **Microsoft STRIDE Threat Model** — learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats
 - **OWASP SAMM** (Software Assurance Maturity Model) — owaspsamm.org/

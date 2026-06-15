@@ -1,91 +1,91 @@
-# Skill — Application du Modèle ADKAR
-> Certifications : PROSCI Change Management (PROSCI), CCMP (ACMP)
-> Agent : AGENT-CHANGE-MANAGER.md
+# Skill — Applying the ADKAR Model
+> Certifications: PROSCI Change Management (PROSCI), CCMP (ACMP)
+> Agent: AGENT-CHANGE-MANAGER.md
 
-## Objectif
-Appliquer le modèle ADKAR (Awareness, Desire, Knowledge, Ability, Reinforcement) pour diagnostiquer précisément où se situe le blocage d'adoption d'un individu ou d'une population, et construire un plan d'action ciblé.
+## Objective
+Apply the ADKAR model (Awareness, Desire, Knowledge, Ability, Reinforcement) to precisely diagnose where an individual's or a population's adoption is blocked, and build a targeted action plan.
 
-## Le Modèle ADKAR — Rappel
+## The ADKAR Model — Recap
 
 ```
-A — AWARENESS    : Comprendre pourquoi le changement est nécessaire
-D — DESIRE       : Vouloir participer et soutenir le changement
-K — KNOWLEDGE    : Savoir comment changer (compétences, processus)
-A — ABILITY      : Être capable d'implémenter le changement au quotidien
-R — REINFORCEMENT: Maintenir le changement dans le temps
+A — AWARENESS    : Understand why the change is necessary
+D — DESIRE       : Want to take part in and support the change
+K — KNOWLEDGE    : Know how to change (skills, processes)
+A — ABILITY      : Be able to implement the change day to day
+R — REINFORCEMENT: Sustain the change over time
 
-⚠ ADKAR est séquentiel : un blocage à l'étape N bloque toutes les suivantes
+⚠ ADKAR is sequential: a block at step N blocks all the following ones
 ```
 
-## Diagnostic ADKAR — Questionnaire individuel
+## ADKAR diagnosis — Individual questionnaire
 
 ```
 AWARENESS (1-5)
 ──────────────────────────────────────────────────────
-Q1 : Comprenez-vous les raisons de ce changement ?
-Q2 : Savez-vous quel problème ce changement résout ?
-Q3 : Avez-vous reçu une communication claire sur le WHY ?
-Score < 3 → Actions Awareness prioritaires
+Q1: Do you understand the reasons for this change?
+Q2: Do you know what problem this change solves?
+Q3: Have you received clear communication on the WHY?
+Score < 3 → Awareness actions are a priority
 
 DESIRE (1-5)
 ──────────────────────────────────────────────────────
-Q1 : Souhaitez-vous que ce changement réussisse ?
-Q2 : Êtes-vous prêt à modifier vos habitudes de travail ?
-Q3 : Voyez-vous des bénéfices personnels dans ce changement ?
-Score < 3 → Actions Desire prioritaires (résistances, intérêts persos)
+Q1: Do you want this change to succeed?
+Q2: Are you ready to change your work habits?
+Q3: Do you see personal benefits in this change?
+Score < 3 → Desire actions are a priority (resistance, personal interests)
 
 KNOWLEDGE (1-5)
 ──────────────────────────────────────────────────────
-Q1 : Savez-vous ce que vous devez faire différemment ?
-Q2 : Avez-vous reçu les formations nécessaires ?
-Q3 : Avez-vous accès aux ressources (guides, tutoriels) ?
-Score < 3 → Actions Knowledge (formation, documentation)
+Q1: Do you know what you must do differently?
+Q2: Have you received the necessary training?
+Q3: Do you have access to the resources (guides, tutorials)?
+Score < 3 → Knowledge actions (training, documentation)
 
 ABILITY (1-5)
 ──────────────────────────────────────────────────────
-Q1 : Êtes-vous capable d'utiliser le nouvel outil / processus ?
-Q2 : Avez-vous pratiqué en conditions réelles ?
-Q3 : Recevez-vous un soutien suffisant en cas de difficulté ?
-Score < 3 → Actions Ability (coaching, practice, support)
+Q1: Are you able to use the new tool / process?
+Q2: Have you practiced in real conditions?
+Q3: Do you get enough support when you hit difficulty?
+Score < 3 → Ability actions (coaching, practice, support)
 
 REINFORCEMENT (1-5)
 ──────────────────────────────────────────────────────
-Q1 : Votre manager reconnaît-il vos efforts d'adoption ?
-Q2 : Y a-t-il des mécanismes pour maintenir le changement ?
-Q3 : Les comportements anciens sont-ils découragés ?
-Score < 3 → Actions Reinforcement (reconnaissance, suivi)
+Q1: Does your manager recognize your adoption efforts?
+Q2: Are there mechanisms to sustain the change?
+Q3: Are old behaviors discouraged?
+Score < 3 → Reinforcement actions (recognition, follow-up)
 ```
 
-## Plan d'action par étape ADKAR
+## Action plan per ADKAR step
 
-| Étape | Score < 3 | Actions prioritaires |
+| Step | Score < 3 | Priority actions |
 |---|---|---|
-| Awareness | < 3 | Communication DG, réunions Q&A, témoignages business |
-| Desire | < 3 | Coaching 1-1, quick wins, impliquer dans la solution |
-| Knowledge | < 3 | Formation présentielle, e-learning, guides pratiques |
-| Ability | < 3 | Practice sessions, coaching terrain, hotline support |
-| Reinforcement | < 3 | Recognition programme, métriques d'adoption, célébrations |
+| Awareness | < 3 | Leadership communication, Q&A meetings, business testimonials |
+| Desire | < 3 | 1-1 coaching, quick wins, involve in the solution |
+| Knowledge | < 3 | In-person training, e-learning, practical guides |
+| Ability | < 3 | Practice sessions, on-the-ground coaching, support hotline |
+| Reinforcement | < 3 | Recognition program, adoption metrics, celebrations |
 
-## Tableau de bord ADKAR — Population
+## ADKAR dashboard — Population
 
 ```
-ÉQUIPE RH — 45 personnes — Évaluation Semaine 4
+HR TEAM — 45 people — Week 4 assessment
 ─────────────────────────────────────────────────
-         A    D    K    A    R    Blocage principal
+         A    D    K    A    R    Main blocker
 ─────────────────────────────────────────────────
-Pop. 1   4.2  3.1  2.8  2.1  1.5  K → Formation urgente
-Pop. 2   3.8  2.2  1.9  1.8  1.2  D → Résistances actives
-Pop. 3   4.5  4.1  3.9  3.2  2.8  A → Practice manque
+Pop. 1   4.2  3.1  2.8  2.1  1.5  K → Urgent training
+Pop. 2   3.8  2.2  1.9  1.8  1.2  D → Active resistance
+Pop. 3   4.5  4.1  3.9  3.2  2.8  A → Practice missing
 ─────────────────────────────────────────────────
-MOYENNE  4.2  3.1  2.9  2.4  1.8
-FOCUS    ✅   ⚠    🔴   🔴   🔴   K, A, R prioritaires
+AVERAGE  4.2  3.1  2.9  2.4  1.8
+FOCUS    ✅   ⚠    🔴   🔴   🔴   K, A, R are priorities
 ```
 
-## Livrables
-- Questionnaire ADKAR adapté au contexte
-- Scores ADKAR par population
-- Plan d'action ciblé par étape bloquante
-- Dashboard de suivi ADKAR dans le temps
+## Deliverables
+- ADKAR questionnaire adapted to the context
+- ADKAR scores per population
+- Targeted action plan per blocking step
+- ADKAR tracking dashboard over time
 
-## Format de sortie
-Précise : nature du changement, population cible, résultats d'un sondage existant (si disponible), jalons du projet.
+## Output format
+Specify: nature of the change, target population, results of an existing survey (if available), project milestones.

@@ -1,115 +1,115 @@
-# Skill — Cadre économique SAFe (Economic Framework)
+# Skill — SAFe Economic Framework
 
-> Certification : SAFe LPM · SAFe POPM 6
-> Agent : AGENT-PO-SAFE.md
+> Certification: SAFe LPM · SAFe POPM 6
+> Agent: AGENT-PO-SAFE.md
 
-## Objectif
-Appliquer le cadre économique SAFe pour prendre des décisions de priorisation basées sur la valeur économique, le coût du délai et le flux de valeur.
+## Objective
+Apply the SAFe economic framework to make prioritization decisions based on economic value, cost of delay and value flow.
 
-## Les 4 mécanismes économiques SAFe
+## The 4 SAFe economic mechanisms
 
-### 1. Comprendre les économies du système (System Economics)
+### 1. Understand the system economics
 ```
-REVENUS                COÛTS
+REVENUE                COSTS
 ────────────────       ──────────────────
-+ Features livrées    - Coût de développement
-+ Time to market      - Coût de coordination
-+ Satisfaction client - Coût de la dette tech
-+ Nouvelles lignes    - Coût du délai (CoD)
++ Features delivered  - Development cost
++ Time to market      - Coordination cost
++ Customer satisfaction - Tech-debt cost
++ New revenue lines   - Cost of Delay (CoD)
 ```
 
-**Principe clé :** la décision optimale maximise les revenus ET minimise les coûts, incluant le coût du délai.
+**Key principle:** the optimal decision maximizes revenue AND minimizes costs, including the cost of delay.
 
-### 2. Cost of Delay (CoD) — Coût du délai
+### 2. Cost of Delay (CoD)
 
-Le CoD est **la valeur perdue chaque semaine** qu'on ne livre pas une feature ou un epic.
+CoD is **the value lost each week** a feature or epic is not delivered.
 
 ```
-Profils de CoD typiques :
+Typical CoD profiles:
 
-a) Standard (linéaire)
-   Valeur │ ████████████████████
+a) Standard (linear)
+   Value  │ ████████████████████
           │ ████████████████████
-          └─────────────────────► Temps
-   → Coût constant par semaine de retard
+          └─────────────────────► Time
+   → Constant cost per week of delay
 
-b) Fixed Date (deadline critique)
-   Valeur │                 ████
-          │            ██████  
-          └─────────────────────► Temps
-   → Valeur nulle après la deadline (ex: lancement concurrent)
+b) Fixed Date (critical deadline)
+   Value  │                 ████
+          │            ██████
+          └─────────────────────► Time
+   → Zero value after the deadline (e.g. competitor launch)
 
-c) Intangible (urgence progressive)
-   Valeur │ ████████████████████
+c) Intangible (progressive urgency)
+   Value  │ ████████████████████
           │ ██████
-          └─────────────────────► Temps
-   → Urgence augmente avec le temps (conformité réglementaire)
+          └─────────────────────► Time
+   → Urgency rises over time (regulatory compliance)
 ```
 
-### 3. WSJF — Priorisation économique
+### 3. WSJF — Economic prioritization
 
 ```
-WSJF = CoD / Durée du travail (Job Size)
+WSJF = CoD / Job Size (duration of the work)
 
 CoD = Business Value + Time Criticality + Risk Reduction/Opportunity Enablement
 
-Exemple de scoring (relatif, plus petit = 1 par colonne · Fibonacci : 1, 2, 3, 5, 8, 13, 20) :
+Scoring example (relative, smallest = 1 per column · Fibonacci: 1, 2, 3, 5, 8, 13, 20):
 
 Feature      BV  TC  RR/OE  CoD  Size  WSJF
 ──────────────────────────────────────────────
-Feature A     5   5    3     13    5    2,6
-Feature B     3   8    8     19    3    6,3  ← Priorité #1
-Feature C     1   2    2      5    1    5,0  ← Priorité #2
-Feature D     8   1    1     10    8    1,3
+Feature A     5   5    3     13    5    2.6
+Feature B     3   8    8     19    3    6.3  ← Priority #1
+Feature C     1   2    2      5    1    5.0  ← Priority #2
+Feature D     8   1    1     10    8    1.3
 ```
 
-### 4. Decentralized Decision-Making (délégation des décisions)
+### 4. Decentralized Decision-Making
 
-**Principe :** décider au niveau le plus bas possible, le plus proche de l'information.
+**Principle:** decide at the lowest possible level, closest to the information.
 
 ```
-DÉCISIONS CENTRALISÉES (Portfolio)
-  → Investissements > seuil défini
-  → Changements d'architecture majeurs
-  → Nouveaux Value Streams
+CENTRALIZED DECISIONS (Portfolio)
+  → Investments > defined threshold
+  → Major architecture changes
+  → New Value Streams
 
-DÉCISIONS DÉCENTRALISÉES (ART / Équipe)
-  → Priorisation features dans le PI
-  → Choix techniques
-  → Scope d'une US
-  → Trade-offs sprint
+DECENTRALIZED DECISIONS (ART / Team)
+  → Feature prioritization within the PI
+  → Technical choices
+  → Scope of a US
+  → Sprint trade-offs
 ```
 
-**Règle d'or :** si la décision peut être prise localement sans coordination, la déléguer.
+**Golden rule:** if the decision can be made locally without coordination, delegate it.
 
-## Lean Portfolio Management — Budgets Agiles
+## Lean Portfolio Management — Agile Budgets
 
-### CapEx vs OpEx en contexte Agile
+### CapEx vs OpEx in an Agile context
 ```
-Modèle Traditionnel          Modèle Lean-Agile
+Traditional model            Lean-Agile model
 ────────────────────         ──────────────────────
-Budget projet (CapEx)    →   Budget Value Stream (OpEx)
-Projet à durée fixe      →   Financement continu ART
-Justification par projet →   OKR + métriques flux
-Réallocation annuelle    →   Ajustement PI par PI
+Project budget (CapEx)   →   Value Stream budget (OpEx)
+Fixed-duration project   →   Continuous ART funding
+Per-project justification →  OKR + flow metrics
+Annual reallocation      →   PI-by-PI adjustment
 ```
 
-### Guardrails (garde-fous) du Portfolio
-- Allocation % Value Streams définie (ex: 60% core / 30% growth / 10% explore)
-- Seuil d'approbation Lean Business Case (ex: > 500K€ → comité)
-- Réserve stratégique (ex: 20% capacité non allouée)
+### Portfolio guardrails
+- Defined Value Stream allocation % (e.g. 60% core / 30% growth / 10% explore)
+- Lean Business Case approval threshold (e.g. > €500K → committee)
+- Strategic reserve (e.g. 20% unallocated capacity)
 
-## Application pratique — Réunion de priorisation économique
+## Practical application — Economic prioritization meeting
 
-### Ordre du jour (90 min)
-1. Revue du portfolio Kanban (20 min)
-2. Calcul WSJF des nouvelles features/epics (30 min)
-3. Décisions de priorisation (20 min)
-4. Ajustement budgets si nécessaire (20 min)
+### Agenda (90 min)
+1. Portfolio Kanban review (20 min)
+2. WSJF computation of the new features/epics (30 min)
+3. Prioritization decisions (20 min)
+4. Budget adjustment if needed (20 min)
 
-### Visualisation du flux économique
+### Economic flow visualization
 ```
 Investment     Value Stream   Time to Market   Business Outcome
-(Coût)    →    (Travail)  →   (Délai)      →   (ROI)
-[€€€]          [Features]    [Semaines]        [€€€€€]
+(Cost)    →    (Work)     →   (Delay)      →   (ROI)
+[€€€]          [Features]    [Weeks]           [€€€€€]
 ```

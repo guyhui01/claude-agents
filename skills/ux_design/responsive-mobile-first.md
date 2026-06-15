@@ -1,57 +1,57 @@
 # Skill — Responsive Design & Mobile-first
-> Certifications : Google UX Design Certificate · IDF
+> Certifications: Google UX Design Certificate · IDF
 
-## Objectif
-Concevoir des interfaces qui s'adaptent à tous les écrans en partant du mobile comme référence.
+## Objective
+Design interfaces that adapt to every screen, starting from mobile as the reference.
 
-## Breakpoints — conventions courantes
-> ⚠️ Il n'existe **aucun standard normatif** de breakpoints. Les valeurs ci-dessous sont des conventions répandues (proches de Material / Tailwind / Bootstrap) ; les caler idéalement sur les données d'audience réelles du produit plutôt que sur des devices nommés.
+## Breakpoints — common conventions
+> ⚠️ There is **no normative standard** for breakpoints. The values below are widespread conventions (close to Material / Tailwind / Bootstrap); ideally set them against the product's real audience data rather than named devices.
 
-| Nom | Largeur | Usage |
+| Name | Width | Usage |
 |---|---|---|
-| Mobile S | 320px | Petits smartphones |
-| Mobile L | 390px | Smartphone standard |
-| Tablet | 768px | Tablette portrait |
+| Mobile S | 320px | Small smartphones |
+| Mobile L | 390px | Standard smartphone |
+| Tablet | 768px | Tablet portrait |
 | Desktop | 1280px | Laptop |
-| Wide | 1440px+ | Grands écrans |
+| Wide | 1440px+ | Large screens |
 
-## Principes Mobile-first
-- Concevoir pour 320-390px en premier
-- Progressive enhancement vers desktop
-- Touch targets : min 44x44px (Apple HIG) / 48x48dp (Material)
-- Gestes tactiles : tap, swipe, pinch, long press
-- Contenu prioritaire visible sans scroll (above the fold)
+## Mobile-first principles
+- Design for 320-390px first
+- Progressive enhancement toward desktop
+- Touch targets: min 44x44px (Apple HIG) / 48x48dp (Material)
+- Touch gestures: tap, swipe, pinch, long press
+- Priority content visible without scrolling (above the fold)
 
-## Adaptations clés mobile → desktop
-- Navigation : bottom bar → sidebar ou top nav
-- Grille : 4 colonnes → 8 → 12
-- Typographie : augmenter les tailles sur desktop
-- Interactions : hover states sur desktop uniquement
+## Key adaptations mobile → desktop
+- Navigation: bottom bar → sidebar or top nav
+- Grid: 4 columns → 8 → 12
+- Typography: increase sizes on desktop
+- Interactions: hover states on desktop only
 
-## Livrables
-- Frames Figma par breakpoint (mobile + tablet + desktop)
-- Grille documentée par breakpoint
-- Comportements responsives annotés
+## Deliverables
+- Figma frames per breakpoint (mobile + tablet + desktop)
+- Grid documented per breakpoint
+- Annotated responsive behaviors
 
-## Format de sortie
-Précise : breakpoints cibles · contexte (app native ou web) · Design System existant ?
+## Output format
+Specify: target breakpoints · context (native app or web) · existing Design System?
 
 ## Sources
-- **Luke Wroblewski** — *Mobile First* (A Book Apart, 2011) — origine de l'approche mobile-first
-- **Ethan Marcotte** — *Responsive Web Design* (A List Apart, 2010 ; A Book Apart, 2011) — fondateur du responsive
-- **Apple** — *Human Interface Guidelines* — cible tactile 44×44 pt
-- **Google** — *Material Design — Accessibility* — cible tactile 48×48 dp
-- **W3C** — *WCAG 2.2 — SC 2.5.8 Target Size (Minimum)* — taille de cible 24×24 px (AA)
+- **Luke Wroblewski** — *Mobile First* (A Book Apart, 2011) — origin of the mobile-first approach
+- **Ethan Marcotte** — *Responsive Web Design* (A List Apart, 2010; A Book Apart, 2011) — founder of responsive
+- **Apple** — *Human Interface Guidelines* — 44×44 pt touch target
+- **Google** — *Material Design — Accessibility* — 48×48 dp touch target
+- **W3C** — *WCAG 2.2 — SC 2.5.8 Target Size (Minimum)* — 24×24 px target size (AA)
 
 ## Anti-patterns
-- Breakpoints calés sur des modèles de téléphone précis plutôt que sur le contenu/l'audience
-- « Desktop-first » dégradé vers mobile → mobile bâclé (l'inverse de mobile-first)
-- Cibles tactiles trop petites ou trop rapprochées (sous le seuil 44px/48dp)
-- Fonctions critiques derrière un `hover` (inaccessible au tactile)
-- Cacher du contenu sur mobile au lieu de le hiérarchiser (parité de contenu)
+- Breakpoints set on specific phone models rather than on content/audience
+- "Desktop-first" degraded to mobile → sloppy mobile (the opposite of mobile-first)
+- Touch targets too small or too close together (below the 44px/48dp threshold)
+- Critical functions behind a `hover` (inaccessible on touch)
+- Hiding content on mobile instead of prioritizing it (content parity)
 
-## Voir aussi
-- [wireframing.md](wireframing.md) — structurer chaque breakpoint
-- [design-system.md](design-system.md) — grilles et tokens responsives
-- [accessibilite-wcag.md](accessibilite-wcag.md) — tailles de cible et zoom (SC 1.4.10 / 2.5.8)
-- [prototypage-figma.md](prototypage-figma.md) — tester le responsive sur device réel
+## See also
+- [wireframing.md](wireframing.md) — structure each breakpoint
+- [design-system.md](design-system.md) — responsive grids and tokens
+- [accessibilite-wcag.md](accessibilite-wcag.md) — target sizes and zoom (SC 1.4.10 / 2.5.8)
+- [prototypage-figma.md](prototypage-figma.md) — test the responsive layout on a real device

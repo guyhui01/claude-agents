@@ -1,79 +1,79 @@
 # Skills — Business Analyst / MOA / AMOA
 
-> Dossier rattaché à `AGENT-BUSINESS-ANALYST.md`
-> Référentiels : IIBA CBAP / CCBA / AAC · PMI-PBA · PMP · PRINCE2 · BCS International Diploma · TOGAF 10 · ISO 21500 · BPMN 2.0 · UML 2.5
+> Folder attached to `AGENT-BUSINESS-ANALYST.md`
+> Standards: IIBA CBAP / CCBA / AAC · PMI-PBA · PMP · PRINCE2 · BCS International Diploma · TOGAF 10 · ISO 21500 · BPMN 2.0 · UML 2.5
 
 ---
 
-## Index des skills (11)
+## Skills index (11)
 
-| # | Skill | Quand l'invoquer | Certification |
+| # | Skill | When to invoke it | Certification |
 |---|---|---|---|
-| 1 | [`elicitation-besoins.md`](elicitation-besoins.md) | Éliciter les besoins (interviews, ateliers, observation) | IIBA CBAP · CCBA |
-| 2 | [`modelisation-processus.md`](modelisation-processus.md) | Modéliser les processus (BPMN 2.0, UML, cas d'usage) | IIBA CBAP · BCS Diploma · OCEB 2 |
-| 3 | [`specification-fonctionnelle.md`](specification-fonctionnelle.md) | Rédiger les spécifications (SFG, SFD, cahier des charges) | IIBA CBAP · PMI-PBA |
-| 4 | [`recette-moa.md`](recette-moa.md) | Préparer et conduire la recette MOA (plan, cahier, PV) | IIBA CBAP · BCS Diploma |
-| 5 | [`cadrage-projet.md`](cadrage-projet.md) | Cadrer un projet (Charte PMBOK, Business Case, faisabilité TELOS) | PMI-PBA · PRINCE2 · IIBA CBAP |
-| 6 | [`pilotage-projet.md`](pilotage-projet.md) | Piloter le projet (WBS, Gantt/CPM, Tolérances PRINCE2, EVM, Clôture, Lessons Learned) | PMI-PBA · PMP · PRINCE2 · ISO 21500 |
-| 7 | [`cartographie-si.md`](cartographie-si.md) | Cartographier le SI (TOGAF 10, ArchiMate 3.2, C4, APM TIME) | TOGAF 10 · IIBA CBAP |
-| 8 | [`gestion-exigences.md`](gestion-exigences.md) | Gérer les exigences (traçabilité, matrice de couverture) | IIBA CBAP · PMI-PBA |
-| 9 | [`analyse-impact.md`](analyse-impact.md) | Analyser les impacts et conduire le changement (Kotter, ADKAR, McKinsey 7S) | PROSCI · ACMP CCMP · IIBA AAC |
-| 10 | [`animation-atelier-metier.md`](animation-atelier-metier.md) | Animer un atelier métier (co-construction, validation) | IIBA AAC · ICAgile |
-| 11 | [`reporting-moa.md`](reporting-moa.md) | Reporting MOA + gouvernance comitologique (COMEX/COSTRAT/COPIL/COTECH/CCB/CDP) | IIBA CBAP · PMI-PBA · PRINCE2 |
+| 1 | [`elicitation-besoins.md`](elicitation-besoins.md) | Elicit needs (interviews, workshops, observation) | IIBA CBAP · CCBA |
+| 2 | [`modelisation-processus.md`](modelisation-processus.md) | Model processes (BPMN 2.0, UML, use cases) | IIBA CBAP · BCS Diploma · OCEB 2 |
+| 3 | [`specification-fonctionnelle.md`](specification-fonctionnelle.md) | Write specifications (FRS, FRD, requirements specification) | IIBA CBAP · PMI-PBA |
+| 4 | [`recette-moa.md`](recette-moa.md) | Prepare and run MOA UAT (plan, test book, report) | IIBA CBAP · BCS Diploma |
+| 5 | [`cadrage-projet.md`](cadrage-projet.md) | Scope a project (PMBOK charter, Business Case, TELOS feasibility) | PMI-PBA · PRINCE2 · IIBA CBAP |
+| 6 | [`pilotage-projet.md`](pilotage-projet.md) | Steer the project (WBS, Gantt/CPM, PRINCE2 tolerances, EVM, closure, lessons learned) | PMI-PBA · PMP · PRINCE2 · ISO 21500 |
+| 7 | [`cartographie-si.md`](cartographie-si.md) | Map the IS (TOGAF 10, ArchiMate 3.2, C4, APM TIME) | TOGAF 10 · IIBA CBAP |
+| 8 | [`gestion-exigences.md`](gestion-exigences.md) | Manage requirements (traceability, coverage matrix) | IIBA CBAP · PMI-PBA |
+| 9 | [`analyse-impact.md`](analyse-impact.md) | Analyze impacts and manage change (Kotter, ADKAR, McKinsey 7S) | PROSCI · ACMP CCMP · IIBA AAC |
+| 10 | [`animation-atelier-metier.md`](animation-atelier-metier.md) | Facilitate a business workshop (co-construction, validation) | IIBA AAC · ICAgile |
+| 11 | [`reporting-moa.md`](reporting-moa.md) | MOA reporting + committee governance (COMEX/COSTRAT/COPIL/COTECH/CCB/CDP) | IIBA CBAP · PMI-PBA · PRINCE2 |
 
 ---
 
-## Choisir le bon skill — Arbre de décision
+## Choosing the right skill — Decision tree
 
 ```
-Tu veux ...
+You want to ...
 
-  ... DÉMARRER UN PROJET MOA ?
-    → cadrage-projet.md (Charte PMBOK + Business Case + faisabilité TELOS)
-    → cartographie-si.md (état des lieux SI)
+  ... START AN MOA PROJECT?
+    → cadrage-projet.md (PMBOK charter + Business Case + TELOS feasibility)
+    → cartographie-si.md (IS assessment)
 
-  ... PILOTER LE PROJET (cycle V ou hybride) ?
-    → pilotage-projet.md (WBS, Gantt/CPM, Tolérances PRINCE2, EVM, Clôture, Lessons Learned)
-    → reporting-moa.md (comitologie COMEX→COSTRAT→COPIL→COTECH→CCB→CDP, OKR projet, RAG)
+  ... STEER THE PROJECT (V-model or hybrid)?
+    → pilotage-projet.md (WBS, Gantt/CPM, PRINCE2 tolerances, EVM, closure, lessons learned)
+    → reporting-moa.md (governance COMEX→COSTRAT→COPIL→COTECH→CCB→CDP, project OKRs, RAG)
 
-  ... COMPRENDRE LE BESOIN MÉTIER ?
-    → elicitation-besoins.md (techniques d'élicitation, BABOK KA #10)
-    → animation-atelier-metier.md (ateliers de co-construction)
+  ... UNDERSTAND THE BUSINESS NEED?
+    → elicitation-besoins.md (elicitation techniques, BABOK KA #10)
+    → animation-atelier-metier.md (co-construction workshops)
 
-  ... MODÉLISER ET SPÉCIFIER ?
+  ... MODEL AND SPECIFY?
     → modelisation-processus.md (BPMN 2.0, UML 2.5, DMN, CMMN)
-    → specification-fonctionnelle.md (SFG/SFD/cahier des charges cycle V)
-    → gestion-exigences.md (traçabilité exigences → tests)
+    → specification-fonctionnelle.md (FRS/FRD/requirements specification, V-model)
+    → gestion-exigences.md (requirements → tests traceability)
 
-  ... VALIDER UNE LIVRAISON ?
-    → recette-moa.md (plan + cahier + PV de recette)
+  ... VALIDATE A DELIVERY?
+    → recette-moa.md (test plan + test book + acceptance report)
 
-  ... CONDUIRE LE CHANGEMENT ?
+  ... MANAGE CHANGE?
     → analyse-impact.md (Kotter, Lewin, Bridges, PROSCI ADKAR, McKinsey 7S, Mendelow)
 ```
 
 ---
 
-## Frontières avec les autres agents
+## Boundaries with the other agents
 
-| Sujet voisin | Agent concerné | Frontière |
+| Adjacent topic | Agent concerned | Boundary |
 |---|---|---|
-| Backlog Scrum, user stories, DoR/DoD | `AGENT-PO-SCRUM.md` | BA = analyse métier ; PO = backlog produit |
-| Backlog SAFe (Features, PI, ART) | `AGENT-PO-SAFE.md` | BA = analyse métier ; PO-SAFE = backlog ART |
-| Architecture technique IA (RAG, agents) | `AGENT-AI-ARCHITECT.md` | BA = analyse fonctionnelle ; AI-ARCHITECT = stack technique |
-| Tests QA formels (UAT, recette) | `AGENT-QA-CYCLEV.md` / `AGENT-QA-AGILE.md` | BA conduit recette MOA métier ; QA conduit recette technique |
-| Architecture d'entreprise transverse | `AGENT-SOLUTIONS-ARCHITECT.md` | BA = analyse fonctionnelle locale ; SOLUTIONS = vue SI globale TOGAF |
-| Change management organisationnel | `AGENT-CHANGE-MANAGER.md` | BA = analyse impact projet ; CHANGE-MANAGER = adoption org. |
+| Scrum backlog, user stories, DoR/DoD | `AGENT-PO-SCRUM.md` | BA = business analysis; PO = product backlog |
+| SAFe backlog (Features, PI, ART) | `AGENT-PO-SAFE.md` | BA = business analysis; PO-SAFE = ART backlog |
+| AI technical architecture (RAG, agents) | `AGENT-AI-ARCHITECT.md` | BA = functional analysis; AI-ARCHITECT = tech stack |
+| Formal QA testing (UAT, acceptance) | `AGENT-QA-CYCLEV.md` / `AGENT-QA-AGILE.md` | BA runs the business MOA UAT; QA runs the technical testing |
+| Cross-cutting enterprise architecture | `AGENT-SOLUTIONS-ARCHITECT.md` | BA = local functional analysis; SOLUTIONS = global TOGAF IS view |
+| Organizational change management | `AGENT-CHANGE-MANAGER.md` | BA = project impact analysis; CHANGE-MANAGER = org. adoption |
 
 ---
 
-## Référentiels et standards utilisés
+## Standards and frameworks used
 
-- **IIBA BABOK v3** : https://www.iiba.org/career-resources/a-business-analysis-professionals-foundation-for-success/babok/
-- **CBAP** (gold standard) : https://www.iiba.org/business-analysis-certifications/cbap/
-- **PMI-PBA** : https://www.pmi.org/certifications/business-analysis-pba
+- **IIBA BABOK v3**: https://www.iiba.org/career-resources/a-business-analysis-professionals-foundation-for-success/babok/
+- **CBAP** (gold standard): https://www.iiba.org/business-analysis-certifications/cbap/
+- **PMI-PBA**: https://www.pmi.org/certifications/business-analysis-pba
 - **BCS Diploma** (UK reference)
-- **BPMN 2.0** : https://www.omg.org/spec/BPMN/2.0/
-- **UML 2.5** : https://www.omg.org/spec/UML/
-- **TOGAF 10** : pour cartographie SI
-- **PROSCI ADKAR** : pour conduite du changement
+- **BPMN 2.0**: https://www.omg.org/spec/BPMN/2.0/
+- **UML 2.5**: https://www.omg.org/spec/UML/
+- **TOGAF 10**: for IS mapping
+- **PROSCI ADKAR**: for change management

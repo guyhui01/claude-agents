@@ -1,28 +1,28 @@
-# Skill SAFe — Dépendances Inter-équipes
+# SAFe Skill — Cross-Team Dependencies
 
-> Certification : SAFe POPM 6
-> Agent : AGENT-PO-SAFE.md
+> Certification: SAFe POPM 6
+> Agent: AGENT-PO-SAFE.md
 
 ## Program Board
 ```
            | Iter 1 | Iter 2 | Iter 3 | Iter 4 | IP |
-Équipe A   | F-01   | F-02   |        | F-05   |    |
+Team A     | F-01   | F-02   |        | F-05   |    |
            |        |   ←────────────────┘            |
-Équipe B   |        | F-03   | F-04   |        |    |
+Team B     |        | F-03   | F-04   |        |    |
 ```
-← = dépendance (fil rouge sur le board physique)
+← = dependency (red thread on the physical board)
 
-## Template suivi des dépendances
+## Dependency tracking template
 ```
-| ID  | Feature source | Équipe source | Feature cible | Équipe cible | Sprint besoin | Statut |
-|-----|---------------|--------------|--------------|-------------|---------------|--------|
-| D01 | API Auth v2   | Équipe Infra | Login SSO    | Équipe Front | Sprint 2      | 🟡     |
+| ID  | Source feature | Source team  | Target feature | Target team  | Sprint needed | Status |
+|-----|---------------|--------------|----------------|--------------|---------------|--------|
+| D01 | API Auth v2   | Infra team   | SSO Login      | Front team   | Sprint 2      | 🟡     |
 ```
-🟢 Résolu | 🟡 En cours | 🔴 Bloqué | ⚪ À confirmer
+🟢 Resolved | 🟡 In progress | 🔴 Blocked | ⚪ To confirm
 
-## Règles de gestion
-- Identifier toutes les dépendances dès le PI Planning
-- Matérialiser par des fils rouges sur le Program Board
-- PO Sync hebdomadaire pour suivre l'avancement
-- Escalader au RTE tout blocage non résolu sous 48h
-- Documenter dans Jira (type de lien : "is blocked by")
+## Management rules
+- Identify all dependencies as early as PI Planning
+- Materialize them with red threads on the Program Board
+- Weekly PO Sync to track progress
+- Escalate to the RTE any blocker unresolved within 48h
+- Document in Jira (link type: "is blocked by")

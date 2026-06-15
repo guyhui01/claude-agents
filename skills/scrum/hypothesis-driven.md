@@ -1,80 +1,80 @@
-# Skill — Développement piloté par les hypothèses (Hypothesis-Driven)
+# Skill — Hypothesis-Driven Development
 
-> Certification : PSPO II · ICAgile ICP-APO
-> Agent : AGENT-PO-SCRUM.md
+> Certification: PSPO II · ICAgile ICP-APO
+> Agent: AGENT-PO-SCRUM.md
 
-## Objectif
-Transformer les fonctionnalités incertaines en hypothèses testables pour prendre des décisions produit basées sur des preuves, et non des opinions.
+## Objective
+Turn uncertain features into testable hypotheses to make product decisions based on evidence, not opinions.
 
-## Structure d'une hypothèse produit
+## Structure of a product hypothesis
 
-### Format standard
+### Standard format
 ```
-Nous croyons que [action / fonctionnalité]
-Pour [segment utilisateur]
-Permettra d'atteindre [résultat business ou utilisateur]
-Nous mesurerons le succès par [métrique principale]
-Avec un signal positif si [seuil de validation]
-```
-
-### Exemple concret
-```
-Nous croyons qu'ajouter un récapitulatif de commande par email
-Pour les acheteurs B2B qui commandent > 500 € HT
-Réduira les appels SAV liés aux erreurs de commande
-Nous mesurerons le succès par le taux de contact SAV post-commande
-Avec un signal positif si ce taux baisse de 20% en 4 semaines
+We believe that [action / feature]
+For [user segment]
+Will achieve [business or user outcome]
+We will measure success by [primary metric]
+With a positive signal if [validation threshold]
 ```
 
-## Types d'hypothèses
+### Concrete example
+```
+We believe that adding an order summary by email
+For B2B buyers who order > €500 excl. tax
+Will reduce support calls related to ordering errors
+We will measure success by the post-order support contact rate
+With a positive signal if this rate drops by 20% in 4 weeks
+```
 
-| Type | Question clé | Risque |
+## Hypothesis types
+
+| Type | Key question | Risk |
 |---|---|---|
-| **Désirabilité** | Les utilisateurs veulent-ils cela ? | Élevé |
-| **Faisabilité** | Peut-on le construire ? | Moyen |
-| **Viabilité** | Est-ce rentable pour le business ? | Élevé |
-| **Utilisabilité** | Peuvent-ils l'utiliser sans aide ? | Moyen |
+| **Desirability** | Do users want this? | High |
+| **Feasibility** | Can we build it? | Medium |
+| **Viability** | Is it profitable for the business? | High |
+| **Usability** | Can they use it without help? | Medium |
 
-## Backlog d'hypothèses (Assumption Map)
+## Hypothesis backlog (Assumption Map)
 
-### Matrice priorisation
+### Prioritization matrix
 ```
-                  HAUTE CERTITUDE
+                  HIGH CERTAINTY
                         ↑
- Tester en dernier  │  Confirmer et livrer
+ Test last          │  Confirm and ship
                     │
-FAIBLE ─────────────┼───────────── FORT
-IMPACT             │                 IMPACT
+LOW ────────────────┼───────────── HIGH
+IMPACT             │                IMPACT
                     │
- Ignorer           │  Tester en premier (MVP/MVE)
+ Ignore            │  Test first (MVP/MVE)
                         ↓
-                  FAIBLE CERTITUDE
+                  LOW CERTAINTY
 ```
 
-## Processus en sprint
+## In-sprint process
 
-1. **Identifier** les assumptions risquées dans une US
-2. **Formuler** l'hypothèse avec le template ci-dessus
-3. **Concevoir** l'expérience minimale (MVP, A/B test, interview, prototype)
-4. **Exécuter** dans le sprint (timeboxé : max 1 sprint)
-5. **Analyser** les données
-6. **Décider** : Pivot / Persévérer / Arrêter
+1. **Identify** risky assumptions in a US
+2. **Frame** the hypothesis with the template above
+3. **Design** the minimal experiment (MVP, A/B test, interview, prototype)
+4. **Run** it within the sprint (timeboxed: max 1 sprint)
+5. **Analyze** the data
+6. **Decide**: Pivot / Persevere / Stop
 
-## Format User Story hypothesis-driven
+## Hypothesis-driven User Story format
 ```
-En tant que [persona],
-Je veux [fonctionnalité hypothèse],
-Afin de [résultat attendu]
+As a [persona],
+I want [hypothesis feature],
+So that [expected outcome]
 
-Hypothèse : Nous croyons que...
-Signal de succès : [métrique + seuil]
-Critères d'acceptation : [conditions de livraison]
-Critère d'abandon : [seuil en dessous duquel on pivote]
+Hypothesis: We believe that...
+Success signal: [metric + threshold]
+Acceptance criteria: [delivery conditions]
+Abandon criterion: [threshold below which we pivot]
 ```
 
-## Métriques de validation courantes
-- Taux de conversion (avant/après)
-- Taux d'adoption (% utilisateurs actifs)
+## Common validation metrics
+- Conversion rate (before/after)
+- Adoption rate (% active users)
 - NPS / CSAT (satisfaction)
-- Time-to-value (temps pour atteindre la valeur)
-- Taux d'erreur / support tickets
+- Time-to-value (time to reach value)
+- Error rate / support tickets

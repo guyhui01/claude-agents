@@ -1,48 +1,48 @@
-# Skill QA Cycle V — Tests Système
+# QA V-Model Skill — System Testing
 
-> Certification : CTAL-TA · CTFL
-> Agent : AGENT-QA-CYCLEV.md
-> Méthodologie : Cycle en V
+> Certification: CTAL-TA · CTFL
+> Agent: AGENT-QA-CYCLEV.md
+> Methodology: V-model
 
-## Objectif ISTQB
-Valider le comportement du système complet par rapport aux exigences spécifiées (fonctionnelles et non-fonctionnelles).
+## ISTQB goal
+Validate the behavior of the complete system against the specified requirements (functional and non-functional).
 
-## Sous-types de tests système
+## System test sub-types
 
-| Type | Objectif |
+| Type | Goal |
 |---|---|
-| **Fonctionnel** | Vérifier les fonctionnalités end-to-end |
-| **Performance** | Temps de réponse, charge, stress |
-| **Sécurité** | Accès, authentification, injections |
-| **Compatibilité** | Navigateurs, OS, devices |
-| **Utilisabilité** | Ergonomie, accessibilité |
-| **Fiabilité** | Stabilité dans le temps |
-| **Récupération** | Comportement après incident |
+| **Functional** | Verify the end-to-end features |
+| **Performance** | Response time, load, stress |
+| **Security** | Access, authentication, injections |
+| **Compatibility** | Browsers, OS, devices |
+| **Usability** | Ergonomics, accessibility |
+| **Reliability** | Stability over time |
+| **Recovery** | Behavior after an incident |
 
-## Template cas de test système (end-to-end)
+## System test case template (end-to-end)
 
 ```
-ID : TS-[XXX]
-Titre : Parcours [rôle utilisateur] — [scénario complet]
-Périmètre : End-to-end [module A → module B → module C]
-Environnement : [recette / staging / pré-prod]
+ID: TS-[XXX]
+Title: [user role] journey — [full scenario]
+Scope: End-to-end [module A → module B → module C]
+Environment: [staging / pre-prod]
 
-PRÉCONDITIONS :
-- Environnement stable et données initialisées
-- Comptes utilisateurs de test créés
-- Intégrations SI actives
+PRECONDITIONS:
+- Stable environment and initialized data
+- Test user accounts created
+- IS integrations active
 
-SCÉNARIO :
-| # | Étape | Action | Données | Attendu |
-|---|-------|--------|---------|---------|
-| 1 | [contexte] | [action] | [donnée] | [résultat] |
+SCENARIO:
+| # | Step | Action | Data | Expected |
+|---|------|--------|------|----------|
+| 1 | [context] | [action] | [data] | [result] |
 | 2 | [...] | [...] | [...] | [...] |
 
-VÉRIFICATIONS POST-EXÉCUTION :
-- [ ] Données correctement enregistrées en BDD
-- [ ] Flux SI déclenchés (logs vérifiés)
-- [ ] Email / notification envoyé si applicable
-- [ ] Aucune erreur dans les logs serveur
+POST-EXECUTION CHECKS:
+- [ ] Data correctly stored in the DB
+- [ ] IS flows triggered (logs checked)
+- [ ] Email / notification sent if applicable
+- [ ] No error in the server logs
 
-Statut : ☐ Pass  ☐ Fail  ☐ Bloqué
+Status: ☐ Pass  ☐ Fail  ☐ Blocked
 ```

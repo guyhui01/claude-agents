@@ -1,44 +1,44 @@
 # Skill — Personas & Jobs-to-be-done
-> Certifications : IDF · Google UX Design Certificate
+> Certifications: IDF · Google UX Design Certificate
 
-## Objectif
-Modéliser les utilisateurs cibles et leurs motivations réelles pour orienter les décisions de design.
+## Objective
+Model the target users and their real motivations to guide design decisions.
 
 ## Personas
-- Basés sur la recherche (non fictifs)
-- Structure : nom · photo · citation · goals · frustrations · comportements · contexte technologique
-- Format : fiche A4 Figma / slide Confluence
+- Based on research (not fictional)
+- Structure: name · photo · quote · goals · frustrations · behaviors · technology context
+- Format: Figma A4 sheet / Confluence slide
 
 ## Jobs-to-be-done (JTBD)
-> Deux écoles à ne pas amalgamer : **Tony Ulwick** (Outcome-Driven Innovation, formalisé 1999) pour la méthode, **Clayton Christensen** (2003) pour la popularisation du terme.
+> Two schools not to be conflated: **Tony Ulwick** (Outcome-Driven Innovation, formalized 1999) for the method, **Clayton Christensen** (2003) for popularizing the term.
 
-- Formulation : "Quand je [situation], je veux [motivation], afin de [résultat attendu]"
-- Identifier le job fonctionnel, émotionnel et social
-- Prioriser par fréquence × importance
+- Phrasing: "When I [situation], I want to [motivation], so that [expected outcome]"
+- Identify the functional, emotional and social job
+- Prioritize by frequency × importance
 
-## Livrables
-- 2 à 4 personas documentés
-- Matrice JTBD priorisée
-- Mapping Persona × JTBD × Feature
+## Deliverables
+- 2 to 4 documented personas
+- Prioritized JTBD matrix
+- Persona × JTBD × Feature mapping
 
-## Format de sortie
-Précise : secteur d'activité · public cible · données research disponibles
+## Output format
+Specify: industry · target audience · available research data
 
 ## Sources
-- **Alan Cooper** — *The Inmates Are Running the Asylum* (1999) — introduction des personas en design
-- **Tony Ulwick** — *Outcome-Driven Innovation* (Strategyn, formalisé 1999 ; *What Customers Want*, 2005)
-- **Clayton Christensen, Taddy Hall et al.** — *Know Your Customers' "Jobs to Be Done"* (HBR, 2016) ; popularisation du terme dès 2003
-- **Kim Goodwin** — *Designing for the Digital Age* (2009) — personas basés recherche
+- **Alan Cooper** — *The Inmates Are Running the Asylum* (1999) — introduced personas in design
+- **Tony Ulwick** — *Outcome-Driven Innovation* (Strategyn, formalized 1999; *What Customers Want*, 2005)
+- **Clayton Christensen, Taddy Hall et al.** — *Know Your Customers' "Jobs to Be Done"* (HBR, 2016); popularized the term from 2003
+- **Kim Goodwin** — *Designing for the Digital Age* (2009) — research-based personas
 
 ## Anti-patterns
-- Personas inventés (« proto-personas » figés) jamais validés par la recherche
-- Personas démographiques (âge/sexe) sans goals, frustrations ni comportements
-- Trop de personas (> 5) → dilution, aucun n'oriente les décisions
-- Attribuer JTBD au seul Christensen en ignorant Ulwick (ou inversement)
-- Confondre le « job » (résultat visé) avec la solution actuelle (« faster horse »)
+- Invented personas (static "proto-personas") never validated by research
+- Demographic personas (age/gender) without goals, frustrations or behaviors
+- Too many personas (> 5) → dilution, none guides decisions
+- Attributing JTBD solely to Christensen while ignoring Ulwick (or vice versa)
+- Confusing the "job" (intended outcome) with the current solution ("faster horse")
 
-## Voir aussi
-- [user-research.md](user-research.md) — la recherche qui fonde les personas
-- [journey-mapping.md](journey-mapping.md) — parcours du persona
-- [facilitation-ateliers.md](facilitation-ateliers.md) — aligner l'équipe sur les personas en atelier
-- [`../business_analyst/elicitation-besoins.md`](../business_analyst/elicitation-besoins.md) — besoins métier côté MOA
+## See also
+- [user-research.md](user-research.md) — the research that grounds the personas
+- [journey-mapping.md](journey-mapping.md) — the persona's journey
+- [facilitation-ateliers.md](facilitation-ateliers.md) — align the team on personas in a workshop
+- [`../business_analyst/elicitation-besoins.md`](../business_analyst/elicitation-besoins.md) — business needs on the BA side

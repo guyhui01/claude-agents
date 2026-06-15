@@ -1,45 +1,45 @@
-# Skill — Prototypage Interactif Figma
-> Certifications : Figma Professional Certification
+# Skill — Interactive Prototyping in Figma
+> Certifications: Figma Professional Certification
 
-## Objectif
-Créer des prototypes interactifs haute fidélité pour tester et valider les parcours utilisateurs.
+## Objective
+Create high-fidelity interactive prototypes to test and validate user journeys.
 
-## Techniques Figma
-- **Connections** : liens entre frames (navigate, overlay, swap)
-- **Smart Animate** : transitions fluides entre états
-- **Variables & Conditions** : prototypes dynamiques avec logique
-- **Interactive Components** : composants avec états interactifs
-- **Prototype flows** : parcours multiples depuis un même fichier
+## Figma techniques
+- **Connections**: links between frames (navigate, overlay, swap)
+- **Smart Animate**: smooth transitions between states
+- **Variables & Conditions**: dynamic prototypes with logic
+- **Interactive Components**: components with interactive states
+- **Prototype flows**: multiple journeys from a single file
 
-## Bonnes pratiques
-- Nommer toutes les frames clairement (écran/état)
-- Définir un starting point par flow
-- Utiliser les overlays pour modales et tooltips
-- Tester sur device réel via Figma Mirror
+## Best practices
+- Name all frames clearly (screen/state)
+- Define a starting point per flow
+- Use overlays for modals and tooltips
+- Test on a real device via Figma Mirror
 
-## Livrables
-- Lien prototype Figma (view only)
-- Flow annotés par parcours utilisateur
-- Guide de test pour les testeurs
+## Deliverables
+- Figma prototype link (view only)
+- Flows annotated per user journey
+- Test guide for the testers
 
-## Format de sortie
-Précise : parcours à prototyper · device cible · niveau d'interaction attendu (cliquable / animé / conditionnel)
+## Output format
+Specify: journey to prototype · target device · expected level of interaction (clickable / animated / conditional)
 
 ## Sources
-- **Figma** — documentation officielle *Prototyping* (Smart Animate, Variables, Interactive Components, Dev Mode)
-- **Carolyn Snyder** — *Paper Prototyping* (Morgan Kaufmann, 2003) — fondamentaux du prototypage itératif
-- **Todd Zaki Warfel** — *Prototyping: A Practitioner's Guide* (Rosenfeld Media, 2009) — spectre de fidélité
-- **Nielsen Norman Group** — articles sur la fidélité de prototype et le test de prototypes
+- **Figma** — official *Prototyping* documentation (Smart Animate, Variables, Interactive Components, Dev Mode)
+- **Carolyn Snyder** — *Paper Prototyping* (Morgan Kaufmann, 2003) — fundamentals of iterative prototyping
+- **Todd Zaki Warfel** — *Prototyping: A Practitioner's Guide* (Rosenfeld Media, 2009) — fidelity spectrum
+- **Nielsen Norman Group** — articles on prototype fidelity and prototype testing
 
 ## Anti-patterns
-- Sauter directement en hi-fi : sur-investir un parcours non validé en lo-fi
-- Prototype « démo » poli mais non testable (pas de starting point, flows incomplets)
-- États d'erreur / vides / chargement absents → test biaisé sur le seul happy path
-- Confondre prototype (simulation) et produit (les variables Figma ne remplacent pas la vraie logique back)
-- Ne pas tester sur device réel (tailles tactiles, gestes) avant le test utilisateur
+- Jumping straight to hi-fi: over-investing in a journey not validated in lo-fi
+- Polished "demo" prototype that is not testable (no starting point, incomplete flows)
+- Missing error / empty / loading states → biased test on the happy path only
+- Confusing a prototype (simulation) with the product (Figma variables don't replace real back-end logic)
+- Not testing on a real device (touch sizes, gestures) before the user test
 
-## Voir aussi
-- [wireframing.md](wireframing.md) — étape lo-fi en amont du prototype hi-fi
-- [tests-utilisateurs.md](tests-utilisateurs.md) — tester le prototype avec de vrais usagers
-- [design-system.md](design-system.md) — composants réutilisés dans le prototype
-- [motion-design-ui.md](motion-design-ui.md) — animer les transitions (Smart Animate)
+## See also
+- [wireframing.md](wireframing.md) — lo-fi step upstream of the hi-fi prototype
+- [tests-utilisateurs.md](tests-utilisateurs.md) — test the prototype with real users
+- [design-system.md](design-system.md) — components reused in the prototype
+- [motion-design-ui.md](motion-design-ui.md) — animate the transitions (Smart Animate)

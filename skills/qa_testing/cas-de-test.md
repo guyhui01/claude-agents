@@ -1,65 +1,65 @@
-# Skill QA Cycle V — Rédaction Cas de Test
+# QA V-Model Skill — Writing Test Cases
 
-> Certification : CTAL-TA · CTFL
-> Agent : AGENT-QA-CYCLEV.md
-> Méthodologie : Cycle en V
+> Certification: CTAL-TA · CTFL
+> Agent: AGENT-QA-CYCLEV.md
+> Methodology: V-model
 
-## Structure d'un cas de test formel
+## Structure of a formal test case
 
 ```
-ID : TC-[MODULE]-[XXX]
-Titre : [description courte et précise]
-Référence : [SFD-XXX / UC-XXX]
-Niveau : ☐ Unitaire ☐ Intégration ☐ Système ☐ UAT
-Type : ☐ Fonctionnel ☐ Régression ☐ Performance ☐ Sécurité
-Priorité : ☐ Haute ☐ Moyenne ☐ Basse
-Auteur : [Guy HUI-BON-HOA]  |  Date : [JJ/MM/AAAA]
+ID: TC-[MODULE]-[XXX]
+Title: [short, precise description]
+Reference: [FRD-XXX / UC-XXX]
+Level: ☐ Unit ☐ Integration ☐ System ☐ UAT
+Type: ☐ Functional ☐ Regression ☐ Performance ☐ Security
+Priority: ☐ High ☐ Medium ☐ Low
+Author: [Guy HUI-BON-HOA]  |  Date: [DD/MM/YYYY]
 
-PRÉCONDITIONS :
-- [état du système requis]
-- [données requises]
-- [accès / droits requis]
+PRECONDITIONS:
+- [required system state]
+- [required data]
+- [required access / rights]
 
-DONNÉES DE TEST :
-- Utilisateur : [login / rôle]
-- Jeu de données : [description]
+TEST DATA:
+- User: [login / role]
+- Data set: [description]
 
-ÉTAPES :
-| # | Action | Données | Résultat attendu |
-|---|--------|---------|-----------------|
-| 1 | [action précise] | [donnée] | [résultat observable] |
-| 2 | [action précise] | [donnée] | [résultat observable] |
-| 3 | [action précise] | [donnée] | [résultat observable] |
+STEPS:
+| # | Action | Data | Expected result |
+|---|--------|------|-----------------|
+| 1 | [precise action] | [data] | [observable result] |
+| 2 | [precise action] | [data] | [observable result] |
+| 3 | [precise action] | [data] | [observable result] |
 
-POSTCONDITIONS :
-- [état du système après le test]
+POSTCONDITIONS:
+- [system state after the test]
 
-RÉSULTAT OBTENU : [à remplir lors de l'exécution]
-STATUT : ☐ Pass  ☐ Fail  ☐ Bloqué  ☐ Non exécuté
-ANOMALIE : [ID si Fail]
-EXÉCUTÉ PAR : [nom]  |  DATE : [JJ/MM/AAAA]
+OBTAINED RESULT: [to fill in during execution]
+STATUS: ☐ Pass  ☐ Fail  ☐ Blocked  ☐ Not executed
+DEFECT: [ID if Fail]
+EXECUTED BY: [name]  |  DATE: [DD/MM/YYYY]
 ```
 
-## Techniques de conception (ISTQB)
+## Design techniques (ISTQB)
 
-| Technique | Usage | Exemple |
+| Technique | Usage | Example |
 |---|---|---|
-| **Partitions d'équivalence** | Réduire le nb de tests | Valeurs valides / invalides |
-| **Valeurs limites** | Tester les frontières | Min-1, Min, Min+1, Max-1, Max, Max+1 |
-| **Table de décision** | Combinaisons de règles | Si A et B alors C |
-| **Transition d'état** | Flux avec états | Connexion → Connecté → Déconnecté |
-| **Cas d'utilisation** | Parcours utilisateur | UC nominal + alternatifs |
-| **Tests exploratoires** | Apprentissage du système | Session libre documentée |
+| **Equivalence partitioning** | Reduce the number of tests | Valid / invalid values |
+| **Boundary values** | Test the boundaries | Min-1, Min, Min+1, Max-1, Max, Max+1 |
+| **Decision table** | Combinations of rules | If A and B then C |
+| **State transition** | Flow with states | Login → Logged in → Logged out |
+| **Use case** | User journey | Nominal UC + alternatives |
+| **Exploratory testing** | Learning the system | Documented free session |
 
-## Niveaux de priorité
-- **Haute** : cas nominal principal, règle de gestion critique
-- **Moyenne** : cas alternatifs, règles secondaires
-- **Basse** : cas limites, cosmétique, confort
+## Priority levels
+- **High**: main nominal case, critical business rule
+- **Medium**: alternative cases, secondary rules
+- **Low**: edge cases, cosmetic, convenience
 
-## Checklist cas de test
-- [ ] Titre explicite (pas "test du bouton valider")
-- [ ] Préconditions exhaustives
-- [ ] Étapes atomiques et reproductibles
-- [ ] Résultat attendu observable et vérifiable
-- [ ] Données de test spécifiées
-- [ ] Lié à la SFD / exigence source
+## Test case checklist
+- [ ] Explicit title (not "test the submit button")
+- [ ] Exhaustive preconditions
+- [ ] Atomic and reproducible steps
+- [ ] Observable and verifiable expected result
+- [ ] Test data specified
+- [ ] Linked to the source FRD / requirement

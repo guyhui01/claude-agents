@@ -1,100 +1,100 @@
-# Skill — Pratiques d'Ingénierie Agile (XP)
-> Certifications : PSM II · SAFe SSM · ICAgile ICP-ATF
+# Skill — Agile Engineering Practices (XP)
+> Certifications: PSM II · SAFe SSM · ICAgile ICP-ATF
 
-## Objectif
-Promouvoir et accompagner l'adoption des pratiques d'ingénierie Agile (XP) qui permettent une livraison continue et de haute qualité.
+## Objective
+Promote and support the adoption of Agile (XP) engineering practices that enable continuous, high-quality delivery.
 
-## Les pratiques XP essentielles
+## Essential XP practices
 
 ### Test-Driven Development (TDD)
 ```
-Cycle Red → Green → Refactor
+Red → Green → Refactor cycle
 
-1. RED    : Écrire un test qui échoue (pas encore de code)
-2. GREEN  : Écrire le minimum de code pour faire passer le test
-3. REFACTOR : Améliorer le code sans changer son comportement
+1. RED    : Write a failing test (no code yet)
+2. GREEN  : Write the minimum code to make the test pass
+3. REFACTOR : Improve the code without changing its behavior
 
-Avantages :
-  - Design émergent et propre
-  - Couverture de tests élevée
-  - Confiance pour refactorer
-  - Documentation vivante
+Benefits:
+  - Emergent, clean design
+  - High test coverage
+  - Confidence to refactor
+  - Living documentation
 ```
 
 ### Pair Programming
 ```
-Driver    → Écrit le code
-Navigator → Observe, réfléchit à la stratégie, relit
+Driver    → Writes the code
+Navigator → Observes, thinks about strategy, reviews
 
-Variantes :
-  - Ping Pong : A écrit le test, B écrit le code, puis inversé
-  - Strong Style : pour apprendre une nouvelle technologie
-  - Remote : partage d'écran + voix
+Variants:
+  - Ping Pong: A writes the test, B writes the code, then swap
+  - Strong Style: to learn a new technology
+  - Remote: screen sharing + voice
 
-SM Role : Encourager la pratique, blocker du temps dédié
+SM role: Encourage the practice, block dedicated time
 ```
 
 ### Continuous Integration / Continuous Delivery
 ```
-CI : Chaque commit déclenche :
-  → Tests unitaires (< 5 min)
-  → Tests d'intégration
-  → Analyse statique (SonarQube, linters)
-  → Build de l'artefact
+CI: Each commit triggers:
+  → Unit tests (< 5 min)
+  → Integration tests
+  → Static analysis (SonarQube, linters)
+  → Artifact build
 
-CD : Pipeline déploiement vers :
-  → Dev  : automatique sur chaque commit
-  → Test : automatique après validation CI
-  → Prod : déploiement 1-clic ou automatique
+CD: Deployment pipeline to:
+  → Dev  : automatic on each commit
+  → Test : automatic after CI validation
+  → Prod : 1-click or automatic deployment
 
-SM Role : Défendre l'investissement en CI/CD, mesurer le DORA
+SM role: Champion the CI/CD investment, measure DORA
 ```
 
-### Définition of Done (DoD) technique
+### Technical Definition of Done (DoD)
 ```
-Une story est Done quand :
-  ✅ Code développé et relu (code review)
-  ✅ Tests unitaires écrits (couverture > 80%)
-  ✅ Tests d'intégration passants
-  ✅ Pipeline CI/CD vert
-  ✅ Documentation mise à jour
-  ✅ Non-régression validée
-  ✅ Déployé en environnement de test
-  ✅ Validé par le PO
+A story is Done when:
+  ✅ Code developed and reviewed (code review)
+  ✅ Unit tests written (coverage > 80%)
+  ✅ Integration tests passing
+  ✅ CI/CD pipeline green
+  ✅ Documentation updated
+  ✅ Regression validated
+  ✅ Deployed to a test environment
+  ✅ Validated by the PO
 ```
 
-## DORA Metrics — métriques de performance DevOps
-| Métrique | Elite | High | Medium | Low |
+## DORA Metrics — DevOps performance metrics
+| Metric | Elite | High | Medium | Low |
 |---|---|---|---|---|
-| **Deployment Frequency** | Multiple/jour | 1/semaine | 1/mois | 1/6 mois |
-| **Lead Time for Changes** | < 1 heure | 1 jour | 1 semaine | 1 mois |
+| **Deployment Frequency** | Multiple/day | 1/week | 1/month | 1/6 months |
+| **Lead Time for Changes** | < 1 hour | 1 day | 1 week | 1 month |
 | **Change Failure Rate** | < 5% | < 10% | 15% | > 15% |
-| **MTTR (Recovery)** | < 1 heure | < 1 jour | < 1 semaine | > 1 semaine |
+| **MTTR (Recovery)** | < 1 hour | < 1 day | < 1 week | > 1 week |
 
-## Gestion de la dette technique
+## Managing technical debt
 
-### Matrice impact × effort
+### Impact × effort matrix
 ```
-                Effort faible    Effort élevé
-Impact élevé  | Quick wins     | À planifier
-Impact faible | Si le temps    | Ignorer
-```
-
-### Règle du Boy Scout (Clean Code)
-```
-"Laisse le code dans un meilleur état que tu l'as trouvé"
-
-SM Role : 
-  → Réserver 20% de la capacité sprint pour la dette technique
-  → Rendre la dette visible dans le backlog
-  → Protéger le temps d'ingénierie
+                Low effort       High effort
+High impact   | Quick wins     | To plan
+Low impact    | If time allows | Ignore
 ```
 
-## Livrables
-- Rapport DORA Metrics (mensuel)
-- Plan d'adoption des pratiques XP (trimestre)
-- DoD technique co-construite avec l'équipe
-- Formation "TDD en pratique" (demi-journée)
+### Boy Scout Rule (Clean Code)
+```
+"Leave the code in a better state than you found it"
 
-## Format de sortie
-Précise : stack technique de l'équipe · niveau de maturité CI/CD actuel · principale dette technique · résistances identifiées · objectif DORA cible
+SM role:
+  → Reserve 20% of sprint capacity for technical debt
+  → Make debt visible in the backlog
+  → Protect engineering time
+```
+
+## Deliverables
+- DORA Metrics report (monthly)
+- XP-practice adoption plan (quarterly)
+- Technical DoD co-built with the team
+- "TDD in practice" training (half-day)
+
+## Output format
+Specify: the team's tech stack · current CI/CD maturity level · main technical debt · identified resistance · target DORA objective

@@ -1,44 +1,44 @@
 # Skill — Definition of Ready (DoR) & Definition of Done (DoD)
-> Certifications : PSPO I · PSPO II · PSU-I
+> Certifications: PSPO I · PSPO II · PSU-I
 
-## Objectif
-Définir des critères clairs d'entrée et de sortie pour garantir la qualité et la prévisibilité du sprint.
+## Objective
+Define clear entry and exit criteria to ensure sprint quality and predictability.
 
 ## Definition of Ready (DoR)
-Critères qu'une User Story doit respecter avant d'entrer dans un sprint.
+Criteria a User Story must meet before entering a sprint.
 
-### Checklist DoR standard
-- [ ] Story rédigée au format "En tant que… Je veux… Afin de…"
-- [ ] Critères d'acceptation rédigés (Given / When / Then)
-- [ ] Estimée par l'équipe (Story Points ou T-shirt size)
-- [ ] Dépendances identifiées et levées
-- [ ] Maquette / design disponible si nécessaire
-- [ ] Règles métier documentées et validées
-- [ ] Testabilité confirmée (les critères sont vérifiables)
+### Standard DoR checklist
+- [ ] Story written in the "As a… I want… So that…" format
+- [ ] Acceptance criteria written (Given / When / Then)
+- [ ] Estimated by the team (Story Points or T-shirt size)
+- [ ] Dependencies identified and removed
+- [ ] Mockup / design available if needed
+- [ ] Business rules documented and validated
+- [ ] Testability confirmed (criteria are verifiable)
 
 ## Definition of Done (DoD)
-Critères qu'une story doit respecter pour être considérée comme terminée.
+Criteria a story must meet to be considered finished.
 
-### Checklist DoD standard
-- [ ] Code développé et reviewé (peer review)
-- [ ] Tests unitaires écrits et passants (couverture ≥ 80%)
-- [ ] Tests d'intégration passants
-- [ ] Critères d'acceptation validés par le PO
-- [ ] Documentation mise à jour si nécessaire
-- [ ] Déployé en environnement de test
-- [ ] Aucune régression introduite
-- [ ] Accessibilité vérifiée (WCAG AA minimum)
-- [ ] Performance validée (pas de dégradation)
+### Standard DoD checklist
+- [ ] Code developed and reviewed (peer review)
+- [ ] Unit tests written and passing (coverage ≥ 80%)
+- [ ] Integration tests passing
+- [ ] Acceptance criteria validated by the PO
+- [ ] Documentation updated if needed
+- [ ] Deployed to a test environment
+- [ ] No regression introduced
+- [ ] Accessibility checked (WCAG AA minimum)
+- [ ] Performance validated (no degradation)
 
-## DoD par niveau (SAFe / multi-équipes)
-- **Team DoD** : story terminée par l'équipe
-- **Program DoD** : feature terminée, intégrée, testée en System Demo
-- **Solution DoD** : solution complète, validée en Full Solution Demo
+## DoD by level (SAFe / multi-team)
+- **Team DoD**: story finished by the team
+- **Program DoD**: feature finished, integrated, tested in the System Demo
+- **Solution DoD**: complete solution, validated in the Full Solution Demo
 
-## Livrables
-- DoR documentée et affichée dans Jira / Confluence
-- DoD documentée et partagée avec l'équipe
-- Template de checklist pour le refinement
+## Deliverables
+- DoR documented and posted in Jira / Confluence
+- DoD documented and shared with the team
+- Checklist template for refinement
 
-## Format de sortie
-Précise : contexte (Scrum pur, SAFe, Kanban) · stack technique · niveau de maturité de l'équipe
+## Output format
+Specify: context (pure Scrum, SAFe, Kanban) · tech stack · team maturity level

@@ -1,35 +1,35 @@
-# Skill — Métriques Produit & Evidence-Based Management (EBM)
-> Certifications : PSPO II · PSPO III · Scrum.org EBM Guide
+# Skill — Product Metrics & Evidence-Based Management (EBM)
+> Certifications: PSPO II · PSPO III · Scrum.org EBM Guide
 
-## Objectif
-Piloter la valeur produit par des données mesurables plutôt que par des intuitions.
+## Objective
+Steer product value with measurable data rather than intuition.
 
-## Framework EBM — 4 Key Value Areas (KVA)
-| KVA | Ce qu'on mesure |
+## EBM framework — 4 Key Value Areas (KVA)
+| KVA | What we measure |
 |---|---|
-| **Current Value (CV)** | Valeur délivrée aujourd'hui (NPS, satisfaction, revenus) |
-| **Unrealized Value (UV)** | Potentiel de valeur non encore capturé (market share, churn) |
-| **Ability to Innovate (A2I)** | Capacité à innover (% temps features vs. dette technique) |
-| **Time-to-Market (T2M)** | Vitesse de livraison (lead time, cycle time, fréquence release) |
+| **Current Value (CV)** | Value delivered today (NPS, satisfaction, revenue) |
+| **Unrealized Value (UV)** | Value potential not yet captured (market share, churn) |
+| **Ability to Innovate (A2I)** | Capacity to innovate (% time on features vs. technical debt) |
+| **Time-to-Market (T2M)** | Delivery speed (lead time, cycle time, release frequency) |
 
-## Métriques produit clés
-- **Activation** : % utilisateurs atteignant le premier "aha moment"
-- **Rétention** : taux de retour J1, J7, J30
-- **Engagement** : fréquence d'usage, features utilisées
-- **Revenu** : MRR, ARR, LTV, CAC
-- **Satisfaction** : NPS, CSAT, SUS
-- **Flow** : velocity, throughput, WIP, cycle time
+## Key product metrics
+- **Activation**: % of users reaching the first "aha moment"
+- **Retention**: D1, D7, D30 return rate
+- **Engagement**: usage frequency, features used
+- **Revenue**: MRR, ARR, LTV, CAC
+- **Satisfaction**: NPS, CSAT, SUS
+- **Flow**: velocity, throughput, WIP, cycle time
 
 ## OKR — Objectives & Key Results
-- Objectif : qualitatif, ambitieux, inspirant
-- Key Results : 2-4 par objectif, mesurables, time-bound
-- Exemple : O = "Devenir le choix n°1 des POs" / KR = "NPS > 70 d'ici Q3"
+- Objective: qualitative, ambitious, inspiring
+- Key Results: 2-4 per objective, measurable, time-bound
+- Example: O = "Become the #1 choice for POs" / KR = "NPS > 70 by Q3"
 
-## Livrables
-- Dashboard EBM (4 KVA renseignés)
-- OKR trimestriels documentés
-- Rapport métriques sprint/PI
-- Recommandation data-driven pour priorisation backlog
+## Deliverables
+- EBM dashboard (4 KVA filled in)
+- Documented quarterly OKRs
+- Sprint/PI metrics report
+- Data-driven recommendation for backlog prioritization
 
-## Format de sortie
-Précise : stade produit · métriques déjà trackées · outils analytics disponibles · fréquence de reporting
+## Output format
+Specify: product stage · metrics already tracked · available analytics tools · reporting frequency

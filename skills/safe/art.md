@@ -1,40 +1,40 @@
-# Skill SAFe — ART (Agile Release Train)
+# SAFe Skill — ART (Agile Release Train)
 
-> Certification : SAFe POPM 6 · SAFe Agilist
-> Agents : AGENT-PO-SAFE.md · AGENT-PRODUCT-MANAGER-SAFE.md
+> Certification: SAFe POPM 6 · SAFe Agilist
+> Agents: AGENT-PO-SAFE.md · AGENT-PRODUCT-MANAGER-SAFE.md
 
-## Rôles clés
-| Rôle | Responsabilité |
+## Key roles
+| Role | Responsibility |
 |---|---|
-| **RTE** Release Train Engineer | Scrum Master du train, facilite les événements ART |
-| **Product Management** | Vision, roadmap, priorisation features |
-| **Product Owner** | Backlog équipe, User Stories, acceptance |
-| **System Architect** | Vision technique, NFR, enablers |
-| **Business Owners** | Valeur business, validation PI Objectives |
+| **RTE** Release Train Engineer | Scrum Master of the train, facilitates ART events |
+| **Product Management** | Vision, roadmap, feature prioritization |
+| **Product Owner** | Team backlog, User Stories, acceptance |
+| **System Architect** | Technical vision, NFRs, enablers |
+| **Business Owners** | Business value, PI Objectives validation |
 
-## Cadence ART (PI = 10 semaines typiques)
+## ART cadence (PI = typically 10 weeks)
 ```
-PI Planning (2j)
+PI Planning (2d)
 → Sprint 1 → System Demo
 → Sprint 2 → System Demo
 → Sprint 3 → System Demo
 → Sprint 4 → System Demo
 → IP Sprint → Inspect & Adapt
-→ PI Planning suivant
+→ Next PI Planning
 ```
 
 ## IP Sprint (Innovation & Planning)
-- Résolution de la dette technique
-- Innovation / hackathon équipe
-- Formation et montée en compétences
-- Préparation du prochain PI Planning
+- Technical-debt resolution
+- Team innovation / hackathon
+- Training and skill ramp-up
+- Preparing the next PI Planning
 - Inspect & Adapt
 
-## Événements ART
-| Événement | Fréquence | Durée |
+## ART events
+| Event | Frequency | Duration |
 |---|---|---|
-| PI Planning | Chaque PI | 2 jours |
-| System Demo | Chaque sprint | 1h |
-| Inspect & Adapt | Fin de PI | 4h |
-| PO Sync | Hebdomadaire | 30 min |
-| ART Sync | Hebdomadaire | 30 min |
+| PI Planning | Each PI | 2 days |
+| System Demo | Each sprint | 1h |
+| Inspect & Adapt | End of PI | 4h |
+| PO Sync | Weekly | 30 min |
+| ART Sync | Weekly | 30 min |

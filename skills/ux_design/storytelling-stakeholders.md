@@ -1,55 +1,55 @@
-# Skill — Storytelling & Présentation Stakeholders
-> Certifications : NN/g UX-C · IDF
+# Skill — Storytelling & Stakeholder Presentation
+> Certifications: NN/g UX-C · IDF
 
-## Objectif
-Convaincre les parties prenantes de la valeur des décisions UX grâce à une narration structurée et des données.
+## Objective
+Convince stakeholders of the value of UX decisions through structured narrative and data.
 
-## Structure de présentation UX
-1. **Contexte** : problème business + impact utilisateur
-2. **Research** : insights clés (3 max), verbatims, données
-3. **Hypothèse** : ce que l'on a cherché à résoudre
-4. **Solution** : design présenté (prototype ou maquette)
-5. **Validation** : résultats des tests utilisateurs
-6. **Recommandation** : next steps et ROI attendu
+## UX presentation structure
+1. **Context**: business problem + user impact
+2. **Research**: key insights (3 max), verbatims, data
+3. **Hypothesis**: what we set out to solve
+4. **Solution**: the design presented (prototype or mockup)
+5. **Validation**: user testing results
+6. **Recommendation**: next steps and expected ROI
 
-## Techniques de storytelling
-- Commencer par un verbatim utilisateur réel (ancrage émotionnel)
-- Utiliser la structure "Problème → Tension → Résolution"
-- Quantifier : "X% des utilisateurs échouaient à cette tâche"
-- Show, don't tell : démos live > slides statiques
-- Anticiper les objections (coût, délai, faisabilité tech)
+## Storytelling techniques
+- Start with a real user verbatim (emotional anchor)
+- Use the "Problem → Tension → Resolution" structure
+- Quantify: "X% of users failed at this task"
+- Show, don't tell: live demos > static slides
+- Anticipate objections (cost, timeline, technical feasibility)
 
-## Adapter au public
-| Public | Focus |
+## Adapt to the audience
+| Audience | Focus |
 |---|---|
-| C-level | Impact business, ROI, time-to-market |
-| Product Manager | User stories, priorisation, backlog |
-| Développeurs | Faisabilité, edge cases, handoff |
+| C-level | Business impact, ROI, time-to-market |
+| Product Manager | User stories, prioritization, backlog |
+| Developers | Feasibility, edge cases, handoff |
 | Marketing | Brand consistency, conversion |
 
-## Livrables
-- Deck de présentation (Figma Slides / PowerPoint / Notion)
-- One-pager synthèse décision UX
-- FAQ anticipée pour les objections courantes
+## Deliverables
+- Presentation deck (Figma Slides / PowerPoint / Notion)
+- One-pager summarizing the UX decision
+- Anticipated FAQ for common objections
 
-## Format de sortie
-Précise : public cible · durée de la présentation · décision attendue · données research disponibles
+## Output format
+Specify: target audience · presentation duration · expected decision · available research data
 
 ## Sources
-- **Nancy Duarte** — *Resonate* (2010) & *slide:ology* (2008) — structure narrative et visuelle des présentations
-- **Cole Nussbaumer Knaflic** — *Storytelling with Data* (Wiley, 2015) — narration par les données
-- **Chip & Dan Heath** — *Made to Stick* (2007) — principes des messages mémorables (SUCCESs)
-- **Aristote** — *Rhétorique* — ethos / pathos / logos (fondement de l'argumentation)
+- **Nancy Duarte** — *Resonate* (2010) & *slide:ology* (2008) — narrative and visual structure of presentations
+- **Cole Nussbaumer Knaflic** — *Storytelling with Data* (Wiley, 2015) — narration through data
+- **Chip & Dan Heath** — *Made to Stick* (2007) — principles of memorable messages (SUCCESs)
+- **Aristotle** — *Rhetoric* — ethos / pathos / logos (foundation of argumentation)
 
 ## Anti-patterns
-- Présenter le process design plutôt que la valeur business pour le décideur
-- Noyer le message sous les slides au lieu de 3 insights priorisés
-- Données sans narration (ou narration sans données) → ni crédible ni mémorable
-- Citer un chiffre (« X % échouaient ») sans en donner la source ni la méthode
-- Ne pas formuler de décision attendue claire en fin de présentation
+- Presenting the design process rather than the business value for the decision-maker
+- Drowning the message in slides instead of 3 prioritized insights
+- Data without narrative (or narrative without data) → neither credible nor memorable
+- Citing a figure ("X% failed") without giving its source or method
+- Failing to state a clear expected decision at the end of the presentation
 
-## Voir aussi
-- [metriques-ux.md](metriques-ux.md) — chiffrer l'impact présenté
-- [journey-mapping.md](journey-mapping.md) — support visuel du récit de parcours
-- [`../redacteur_ia/storytelling-ia.md`](../redacteur_ia/storytelling-ia.md) — techniques narratives rédactionnelles
-- [`../redacteur_ia/presentation-pitch.md`](../redacteur_ia/presentation-pitch.md) — structurer un pitch convaincant
+## See also
+- [metriques-ux.md](metriques-ux.md) — quantify the impact presented
+- [journey-mapping.md](journey-mapping.md) — visual support for the journey narrative
+- [`../redacteur_ia/storytelling-ia.md`](../redacteur_ia/storytelling-ia.md) — editorial narrative techniques
+- [`../redacteur_ia/presentation-pitch.md`](../redacteur_ia/presentation-pitch.md) — structure a convincing pitch

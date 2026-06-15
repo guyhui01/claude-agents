@@ -1,102 +1,102 @@
-# Skill — Communautés de Pratique & Diffusion de l'Agilité
-> Certifications : PSM II · SAFe SSM · ICAgile ICP-ATF · A-CSM
+# Skill — Communities of Practice & Spreading Agility
+> Certifications: PSM II · SAFe SSM · ICAgile ICP-ATF · A-CSM
 
-## Objectif
-Créer et animer des Communautés de Pratique (CoP) Agile pour accélérer l'apprentissage collectif, diffuser les bonnes pratiques et construire l'expertise organisationnelle.
+## Objective
+Create and run Agile Communities of Practice (CoP) to accelerate collective learning, spread best practices and build organizational expertise.
 
-## Qu'est-ce qu'une Communauté de Pratique ?
+## What is a Community of Practice?
 ```
-Définition (Wenger) : Groupe de personnes partageant un intérêt pour
-un domaine de connaissance et qui approfondissent leur expertise
-en interagissant régulièrement.
+Definition (Wenger): A group of people who share an interest in a
+domain of knowledge and deepen their expertise by interacting
+regularly.
 
-3 éléments fondamentaux :
-  Domaine    → Ce qu'on apprend ensemble (ex: Scrum, TDD, IA)
-  Communauté → Les membres et leurs relations
-  Pratique   → Ce qu'on fait et partage (outils, méthodes, cas)
+3 fundamental elements:
+  Domain     → What we learn together (e.g. Scrum, TDD, AI)
+  Community  → The members and their relationships
+  Practice   → What we do and share (tools, methods, cases)
 ```
 
-## Types de CoP dans une organisation Agile
-| CoP | Membres | Fréquence | Format |
+## Types of CoP in an Agile organization
+| CoP | Members | Frequency | Format |
 |---|---|---|---|
-| **CoP Scrum Masters** | Tous les SM | Bi-hebdomadaire | 1h, retour terrain |
-| **CoP Agile Engineering** | Développeurs | Mensuel | 2h, kata technique |
-| **CoP Product Owners** | Tous les PO | Mensuel | 2h, partage backlog |
-| **CoP IA / Data** | Équipes IA | Mensuel | 2h, démo + retex |
-| **CoP Leadership Agile** | Managers | Trimestriel | Demi-journée |
+| **Scrum Masters CoP** | All SMs | Bi-weekly | 1h, field feedback |
+| **Agile Engineering CoP** | Developers | Monthly | 2h, technical kata |
+| **Product Owners CoP** | All POs | Monthly | 2h, backlog sharing |
+| **AI / Data CoP** | AI teams | Monthly | 2h, demo + lessons learned |
+| **Agile Leadership CoP** | Managers | Quarterly | Half-day |
 
-## Lancement d'une CoP — étapes
+## Launching a CoP — steps
 
-### Phase 1 : Noyau (M1-M2)
+### Phase 1: Core (M1-M2)
 ```
-1. Identifier 3-5 practitioners motivés (noyau fondateur)
-2. Définir le domaine et la valeur attendue
-3. Choisir un format d'animation
-4. Première session de lancement (2h) :
-   - Pourquoi cette CoP ? (problèmes à résoudre)
-   - Qui sommes-nous ? (tour de table)
-   - Comment on travaille ensemble ? (charter léger)
-   - Premier vrai sujet (pas que l'organisation)
-```
-
-### Phase 2 : Croissance (M3-M6)
-```
-- Sessions régulières (mensuel minimum)
-- Formats variés : présentation, atelier, hackathon, retex
-- Inviter des experts externes (speakers)
-- Produire des livrables (guides, templates, standards)
-- Communiquer les succès en interne
+1. Identify 3-5 motivated practitioners (founding core)
+2. Define the domain and the expected value
+3. Choose a facilitation format
+4. First kickoff session (2h):
+   - Why this CoP? (problems to solve)
+   - Who are we? (round-table)
+   - How do we work together? (lightweight charter)
+   - First real topic (not just organizing)
 ```
 
-### Phase 3 : Maturité (M6+)
+### Phase 2: Growth (M3-M6)
 ```
-- Membres deviennent eux-mêmes des formateurs internes
-- CoP contribue aux standards de l'organisation
-- Spin-offs : sous-groupes sur des sujets spécifiques
-- Reconnaissance institutionnelle (budget, temps alloué)
+- Regular sessions (monthly minimum)
+- Varied formats: presentation, workshop, hackathon, lessons learned
+- Invite external experts (speakers)
+- Produce deliverables (guides, templates, standards)
+- Communicate the wins internally
 ```
 
-## Formats d'animation de session CoP
+### Phase 3: Maturity (M6+)
+```
+- Members become internal trainers themselves
+- The CoP contributes to the organization's standards
+- Spin-offs: sub-groups on specific topics
+- Institutional recognition (budget, allocated time)
+```
+
+## CoP session facilitation formats
 
 ### Lean Coffee
 ```
-1. Chaque participant propose des sujets (post-it)
-2. Vote à points (3 votes par personne)
-3. Discussion des sujets les plus votés (timebox 7-10 min)
-4. Vote "continuer / passer au suivant ?" à chaque fin
-→ Garantit les sujets les plus utiles pour le groupe
+1. Each participant proposes topics (sticky note)
+2. Dot voting (3 votes per person)
+3. Discuss the most-voted topics (7-10 min timebox)
+4. "Continue / move on?" vote at each end
+→ Guarantees the most useful topics for the group
 ```
 
-### Kata technique (Engineering CoP)
+### Technical kata (Engineering CoP)
 ```
-1. Présenter le kata (15 min)
-2. Coding en pair programming (30 min)
-3. Rétrospective : qu'avez-vous appris ? (15 min)
-Exemples : String Calculator, Roman Numerals, Bowling Game
-```
-
-### Retour d'expérience (RETEX)
-```
-1. Contexte du projet (5 min)
-2. Ce qui a bien fonctionné (10 min)
-3. Ce qui a été difficile (10 min)
-4. Ce qu'on ferait différemment (10 min)
-5. Questions / échanges (15 min)
+1. Present the kata (15 min)
+2. Coding in pair programming (30 min)
+3. Retrospective: what did you learn? (15 min)
+Examples: String Calculator, Roman Numerals, Bowling Game
 ```
 
-## Métriques de santé d'une CoP
-| Indicateur | Cible |
+### Lessons learned (RETEX)
+```
+1. Project context (5 min)
+2. What worked well (10 min)
+3. What was difficult (10 min)
+4. What we'd do differently (10 min)
+5. Questions / discussion (15 min)
+```
+
+## CoP health metrics
+| Indicator | Target |
 |---|---|
-| Participation moyenne | > 70% des membres |
-| NPS de la CoP (satisfaction) | > 7/10 |
-| Livrables produits | ≥ 1 par trimestre |
-| Nouvelles pratiques adoptées | Mesurable en equipe |
+| Average participation | > 70% of members |
+| CoP NPS (satisfaction) | > 7/10 |
+| Deliverables produced | ≥ 1 per quarter |
+| New practices adopted | Measurable per team |
 
-## Livrables
-- Charte de la CoP (objectifs, membres, format)
-- Backlog de sujets de sessions (prioritisé)
-- Compte-rendu de chaque session
-- Rapport d'impact (practices adoptées, problèmes résolus)
+## Deliverables
+- CoP charter (goals, members, format)
+- Backlog of session topics (prioritized)
+- Notes for each session
+- Impact report (practices adopted, problems solved)
 
-## Format de sortie
-Précise : domaine de la CoP · nombre de membres potentiels · contraintes organisationnelles · budget temps alloué · objectif principal (apprentissage / standardisation / networking)
+## Output format
+Specify: the CoP domain · number of potential members · organizational constraints · allocated time budget · main goal (learning / standardization / networking)

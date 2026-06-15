@@ -1,95 +1,95 @@
-# Skill — Négociation et engagement avancé des stakeholders
+# Skill — Advanced stakeholder negotiation and engagement
 
-> Certification : PSPO II · PSPO III · ICAgile ICP-APO
-> Agent : AGENT-PO-SCRUM.md
+> Certification: PSPO II · PSPO III · ICAgile ICP-APO
+> Agent: AGENT-PO-SCRUM.md
 
-## Objectif
-Gérer les situations complexes de stakeholders : conflits de priorités, pression de scope, demandes contradictoires, résistance au changement.
+## Objective
+Handle complex stakeholder situations: priority conflicts, scope pressure, contradictory requests, resistance to change.
 
-## Techniques de négociation PO
+## PO negotiation techniques
 
-### 1. Trade-off Sliders (compromis explicites)
-Présenter visuellement les curseurs de décision :
+### 1. Trade-off Sliders (explicit compromises)
+Visually present the decision sliders:
 ```
 SCOPE    [─────────────────────●─] Flexible
-DÉLAI    [●─────────────────────] Fixe
-QUALITÉ  [─────────────●────────] Importante
-COÛT     [─────────────────●────] Maîtrisé
+TIME     [●─────────────────────] Fixed
+QUALITY  [─────────────●────────] Important
+COST     [─────────────────●────] Controlled
 ```
-Forcer le stakeholder à choisir ce qui est négociable.
+Force the stakeholder to choose what is negotiable.
 
-### 2. Le "Oui, et..." au lieu du "Non"
+### 2. "Yes, and..." instead of "No"
 ```
-❌ "Non, ce n'est pas possible en Sprint 3."
+❌ "No, that's not possible in Sprint 3."
 
-✅ "Oui, on peut livrer ça, et pour le faire :
-    Option A : on retire [fonctionnalité X] du sprint 3
-    Option B : on réduit le scope à [version minimum]
-    Option C : on planifie en Sprint 4
-    Laquelle préférez-vous ?"
+✅ "Yes, we can deliver that, and to do it:
+    Option A: we remove [feature X] from sprint 3
+    Option B: we reduce the scope to [minimum version]
+    Option C: we plan it in Sprint 4
+    Which do you prefer?"
 ```
 
-### 3. Matrice Stakeholders — Gestion par quadrant
+### 3. Stakeholder Matrix — Management by quadrant
 
-| | Faible influence | Haute influence |
+| | Low influence | High influence |
 |---|---|---|
-| **Faible intérêt** | Informer (newsletter) | Satisfaire sans surcharger |
-| **Fort intérêt** | Consulter régulièrement | Gérer activement (core stakeholders) |
+| **Low interest** | Inform (newsletter) | Satisfy without overloading |
+| **High interest** | Consult regularly | Manage actively (core stakeholders) |
 
-### 4. Technique de l'ancrage
-Pour les négociations de délai ou scope :
-- Partir d'une fourchette haute (scope réduit, délai plus long)
-- Laisser le stakeholder "négocier" vers le bas
-- Résultat : ils s'approprient la décision
+### 4. Anchoring technique
+For deadline or scope negotiations:
+- Start from a high range (reduced scope, longer timeline)
+- Let the stakeholder "negotiate" downward
+- Result: they take ownership of the decision
 
-### 5. Gestion des demandes hors sprint (scope creep)
+### 5. Handling out-of-sprint requests (scope creep)
 ```
-Process en 3 étapes :
-1. Accuser réception : "C'est noté, c'est important."
-2. Évaluer : "Ça représente [X SP]. Pour l'intégrer maintenant, on retire quoi ?"
-3. Décider ensemble : stakeholder choisit le trade-off — PO documente
-```
-
-## Situations conflictuelles courantes
-
-### Conflit entre deux stakeholders de même niveau
-1. Ne pas arbitrer seul — organiser une réunion tripartite
-2. Utiliser les OKR / objectifs business comme arbitre objectif
-3. Proposer une décision par données (prototype, A/B test)
-4. Escalader au Product Manager / Sponsor si blocage persiste
-
-### Pression de deadline non négociable
-```
-Framework "Scope Flexible" :
-1. Confirmer la date comme contrainte fixe
-2. Lister les fonctionnalités Must Have / Should Have / Could Have
-3. Livrer Must Have en premier, négocier le reste
-4. Documenter les Could Have pour le sprint suivant
+3-step process:
+1. Acknowledge: "Noted, this is important."
+2. Assess: "That's about [X SP]. To add it now, what do we drop?"
+3. Decide together: the stakeholder chooses the trade-off — the PO documents it
 ```
 
-### Stakeholder qui court-circuite l'équipe
-- Rappeler le processus : "Toutes les demandes passent par le backlog."
-- Proposer un canal dédié (Slack, meeting mensuel)
-- Impliquer le Scrum Master si le comportement persiste
+## Common conflict situations
 
-## Templates de communication
+### Conflict between two same-level stakeholders
+1. Don't arbitrate alone — set up a three-way meeting
+2. Use the OKRs / business objectives as the objective arbiter
+3. Propose a data-driven decision (prototype, A/B test)
+4. Escalate to the Product Manager / Sponsor if the deadlock persists
 
-### Email de refus bienveillant
+### Non-negotiable deadline pressure
 ```
-Objet : [Demande X] — Analyse et proposition
+"Flexible Scope" framework:
+1. Confirm the date as a fixed constraint
+2. List the features Must Have / Should Have / Could Have
+3. Deliver Must Have first, negotiate the rest
+4. Document the Could Have for the next sprint
+```
 
-Bonjour [Prénom],
+### A stakeholder who bypasses the team
+- Restate the process: "All requests go through the backlog."
+- Offer a dedicated channel (Slack, monthly meeting)
+- Involve the Scrum Master if the behavior persists
 
-J'ai bien pris en compte votre demande concernant [sujet].
-Après analyse, l'intégrer en Sprint [N] impacterait [fonctionnalité Y].
+## Communication templates
 
-Voici 3 options :
-• Option 1 : [description] — impact [délai/scope]
-• Option 2 : [description] — impact [délai/scope]
-• Option 3 : Planification en Sprint [N+1] — aucun impact
+### Gracious rejection email
+```
+Subject: [Request X] — Analysis and proposal
 
-Pouvez-vous me confirmer votre préférence avant [date] ?
+Hi [First name],
 
-Cordialement,
+I've fully taken your request about [topic] into account.
+After analysis, adding it in Sprint [N] would impact [feature Y].
+
+Here are 3 options:
+• Option 1: [description] — impact [time/scope]
+• Option 2: [description] — impact [time/scope]
+• Option 3: Planned in Sprint [N+1] — no impact
+
+Could you confirm your preference before [date]?
+
+Best regards,
 [Signature]
 ```

@@ -1,82 +1,82 @@
-# Skill — Conduite du Changement & Transformation Agile
-> Certifications : PSM III · A-CSM · ICAgile ICP-ATF · SAFe SSM
+# Skill — Change Management & Agile Transformation
+> Certifications: PSM III · A-CSM · ICAgile ICP-ATF · SAFe SSM
 
-## Objectif
-Accompagner les organisations dans leur transformation Agile en gérant les résistances, les transitions culturelles et l'adoption des nouveaux modes de travail.
+## Objective
+Support organizations through their Agile transformation by managing resistance, cultural transitions and the adoption of new ways of working.
 
-## Les obstacles classiques à la transformation Agile
-| Obstacle | Manifestation | Réponse SM |
+## The classic obstacles to an Agile transformation
+| Obstacle | Manifestation | SM response |
 |---|---|---|
-| Résistance management | "On a toujours fait comme ça" | Montrer la valeur par les données |
-| Micro-management | Manager présent à chaque Daily | Éduquer sur le servant leadership |
-| Silos fonctionnels | Équipes non cross-fonctionnelles | Faciliter les conversations inter-équipes |
-| Absence de sponsorship | Budget coupé, priorités changeantes | Identifier et activer le sponsor C-level |
-| Overload de meetings | Équipe en réunion 60% du temps | Protéger le focus time, timeboxer |
+| Management resistance | "We've always done it this way" | Show the value through data |
+| Micro-management | Manager present at every Daily | Educate on servant leadership |
+| Functional silos | Non-cross-functional teams | Facilitate cross-team conversations |
+| Lack of sponsorship | Budget cut, shifting priorities | Identify and activate the C-level sponsor |
+| Meeting overload | Team in meetings 60% of the time | Protect focus time, timebox |
 
-## Courbe du changement (Kübler-Ross appliquée)
+## Change curve (Kübler-Ross applied)
 ```
-Phase 1 : Déni      → "Agile ne marchera pas ici"
-          Action    : Exposer la réalité (données de performance)
+Phase 1: Denial      → "Agile won't work here"
+         Action      : Expose reality (performance data)
 
-Phase 2 : Colère    → "On nous impose ça sans nous consulter"
-          Action    : Créer l'espace pour exprimer la frustration
+Phase 2: Anger       → "They're imposing this without consulting us"
+         Action      : Create space to express frustration
 
-Phase 3 : Négociation → "OK mais gardons le Gantt quand même"
-          Action    : Définir clairement ce qui change et ce qui reste
+Phase 3: Bargaining  → "OK but let's keep the Gantt anyway"
+         Action      : Clearly define what changes and what stays
 
-Phase 4 : Dépression → "Je ne suis plus utile dans ce modèle"
-          Action    : Valoriser les compétences existantes, formation
+Phase 4: Depression  → "I'm no longer useful in this model"
+         Action      : Value existing skills, training
 
-Phase 5 : Acceptation → "Je vois la valeur de cette approche"
-          Action    : Célébrer les succès, capitaliser
-```
-
-## Stratégie d'adoption — Diffusion of Innovations (Rogers)
-```
-Innovateurs (2,5%)  → Impliquer comme ambassadeurs
-Adopteurs précoces (13,5%) → Créer les premiers quick wins avec eux
-Majorité précoce (34%) → Convaincre par les pairs (peer learning)
-Majorité tardive (34%) → Normaliser, formation, support
-Retardataires (16%)  → Rendre le changement inévitable
+Phase 5: Acceptance  → "I see the value of this approach"
+         Action      : Celebrate wins, capitalize
 ```
 
-## Plan de transformation Agile (par trimestre)
+## Adoption strategy — Diffusion of Innovations (Rogers)
 ```
-Q1 : Fondations
-  - Formation Scrum (Scrum.org / Scrum Alliance)
-  - Lancement de 2-3 équipes pilotes
-  - Quick wins visibles en 6 semaines
-
-Q2 : Expansion
-  - Rétrofit sur les équipes pilotes
-  - Nouvelles équipes embarquées
-  - Premiers retours mesurés (vélocité, satisfaction)
-
-Q3 : Ancrage
-  - CoP (Community of Practice) Agile lancée
-  - Managers formés (management Agile)
-  - Adaptation des processus RH (évaluation, recrutement)
-
-Q4 : Scaling
-  - SAFe / LeSS si multiple équipes
-  - Métrique de transformation partagées au CODIR
-  - Plan de l'année suivante
+Innovators (2.5%)       → Involve as ambassadors
+Early adopters (13.5%)  → Create the first quick wins with them
+Early majority (34%)    → Convince through peers (peer learning)
+Late majority (34%)     → Normalize, training, support
+Laggards (16%)          → Make the change inevitable
 ```
 
-## Indicateurs de succès d'une transformation Agile
-| Indicateur | Mesure | Fréquence |
+## Agile transformation plan (by quarter)
+```
+Q1: Foundations
+  - Scrum training (Scrum.org / Scrum Alliance)
+  - Launch 2-3 pilot teams
+  - Visible quick wins in 6 weeks
+
+Q2: Expansion
+  - Retrofit on the pilot teams
+  - New teams onboarded
+  - First measured feedback (velocity, satisfaction)
+
+Q3: Anchoring
+  - Agile CoP (Community of Practice) launched
+  - Managers trained (Agile management)
+  - HR-process adaptation (appraisal, recruitment)
+
+Q4: Scaling
+  - SAFe / LeSS if multiple teams
+  - Transformation metrics shared with the exec committee
+  - Plan for the following year
+```
+
+## Success indicators for an Agile transformation
+| Indicator | Measure | Frequency |
 |---|---|---|
-| Satisfaction équipes | eNPS Agile (1-10) | Mensuel |
-| Time-to-market | Délai feature → prod | Par sprint |
-| Qualité | Défauts en prod / sprint | Par sprint |
-| Adoption rituels | % d'équipes pratiquant les 5 événements | Trimestriel |
-| Satisfaction business | NPS stakeholders | Trimestriel |
+| Team satisfaction | Agile eNPS (1-10) | Monthly |
+| Time-to-market | Feature → prod lead time | Per sprint |
+| Quality | Prod defects / sprint | Per sprint |
+| Ritual adoption | % of teams practicing the 5 events | Quarterly |
+| Business satisfaction | Stakeholder NPS | Quarterly |
 
-## Livrables
-- Diagnostic de maturité Agile (grille d'évaluation)
-- Plan de transformation sur 12 mois
-- Programme de formation (Scrum, SAFe, Agile mindset)
-- Tableau de bord de la transformation
+## Deliverables
+- Agile maturity diagnostic (assessment grid)
+- 12-month transformation plan
+- Training program (Scrum, SAFe, Agile mindset)
+- Transformation dashboard
 
-## Format de sortie
-Précise : taille de l'organisation · secteur · niveau de maturité Agile actuel · résistances identifiées · sponsor · horizon de la transformation
+## Output format
+Specify: organization size · sector · current Agile maturity level · identified resistance · sponsor · transformation horizon

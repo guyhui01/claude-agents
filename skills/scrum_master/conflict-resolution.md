@@ -1,78 +1,78 @@
-# Skill — Résolution de Conflits & Dynamiques d'Équipe
-> Certifications : PSM II/III · A-CSM · ICAgile ICP-ATF · ICAgile ICP-ACC
+# Skill — Conflict Resolution & Team Dynamics
+> Certifications: PSM II/III · A-CSM · ICAgile ICP-ATF · ICAgile ICP-ACC
 
-## Objectif
-Détecter, prévenir et résoudre les conflits au sein des équipes Agile pour maintenir la sécurité psychologique et la performance collective.
+## Objective
+Detect, prevent and resolve conflicts within Agile teams to maintain psychological safety and collective performance.
 
-## Modèle de Lencioni — 5 dysfonctionnements d'une équipe
+## Lencioni model — 5 dysfunctions of a team
 ```
-Pyramide (base → sommet) :
-  5. Inattention aux résultats → priorité aux objectifs individuels
-  4. Évitement de la responsabilité → personne ne dit les vérités difficiles
-  3. Manque d'engagement → décisions floues, pas de buy-in
-  2. Peur du conflit → fausse harmonie, pas de débats productifs
-  1. Manque de confiance → noyau du problème, peur de la vulnérabilité
+Pyramid (base → top):
+  5. Inattention to results → priority on individual goals
+  4. Avoidance of accountability → nobody speaks hard truths
+  3. Lack of commitment → fuzzy decisions, no buy-in
+  2. Fear of conflict → false harmony, no productive debate
+  1. Absence of trust → core of the problem, fear of vulnerability
 ```
 
-## Types de conflits en équipe Scrum
-| Type | Exemples | Niveau d'intervention |
+## Types of conflict in a Scrum team
+| Type | Examples | Intervention level |
 |---|---|---|
-| **Tâche** | Désaccord sur l'implémentation technique | Faible → laisser l'équipe se coordonner |
-| **Processus** | Désaccord sur les règles du jeu | Moyen → SM facilite un accord |
-| **Relationnel** | Tensions personnelles | Élevé → SM + éventuellement RH |
-| **Structurel** | Conflit de rôles, ambiguïté de périmètre | Élevé → SM + management |
+| **Task** | Disagreement on the technical implementation | Low → let the team coordinate |
+| **Process** | Disagreement on the rules of the game | Medium → SM facilitates an agreement |
+| **Relational** | Personal tensions | High → SM + possibly HR |
+| **Structural** | Role conflict, scope ambiguity | High → SM + management |
 
-## Processus de résolution de conflit (NVC)
+## Conflict-resolution process (NVC)
 
-### Communication Non Violente (Marshall Rosenberg)
+### Nonviolent Communication (Marshall Rosenberg)
 ```
-Observation : "J'observe que [fait factuel, sans jugement]"
-Sentiment   : "Je ressens [émotion] quand ça se passe"
-Besoin      : "Parce que j'ai besoin de [valeur, besoin fondamental]"
-Demande     : "Serais-tu d'accord pour [action concrète et réalisable] ?"
+Observation : "I observe that [factual statement, no judgment]"
+Feeling     : "I feel [emotion] when this happens"
+Need        : "Because I need [value, fundamental need]"
+Request     : "Would you be willing to [concrete, doable action]?"
 
-Exemple :
-❌ "Tu n'écoutes jamais les autres en réunion"
-✅ "J'observe que tu as pris la parole 8 fois cette réunion pendant que d'autres n'ont pas pu s'exprimer. Je me sens frustré car j'ai besoin que chacun puisse contribuer. Serais-tu d'accord pour qu'on limite à 2 minutes max par intervention ?"
-```
-
-### Médiation en 5 étapes
-```
-1. Créer l'espace sécurisé → règles : écoute, respect, confidentialité
-2. Chaque partie exprime son point de vue (NVC)
-3. Reformuler → SM s'assure que chacun est compris
-4. Identifier les besoins communs → ce qui est partagé
-5. Co-construire une solution → engagements concrets
+Example:
+❌ "You never listen to others in meetings"
+✅ "I observe that you spoke 8 times in this meeting while others couldn't speak up. I feel frustrated because I need everyone to be able to contribute. Would you be willing to keep each contribution to 2 minutes max?"
 ```
 
-## Sécurité psychologique (Amy Edmondson)
-
-### 4 niveaux de sécurité psychologique
+### Mediation in 5 steps
 ```
-Niveau 1 : Inclusion Safety     → Peut-on se montrer soi-même ?
-Niveau 2 : Learner Safety       → Peut-on poser des questions, faire des erreurs ?
-Niveau 3 : Contributor Safety   → Peut-on partager ses idées sans risque ?
-Niveau 4 : Challenger Safety    → Peut-on remettre en question le statu quo ?
+1. Create the safe space → rules: listening, respect, confidentiality
+2. Each party expresses their viewpoint (NVC)
+3. Reframe → the SM ensures each one is understood
+4. Identify the shared needs → what is common
+5. Co-build a solution → concrete commitments
 ```
 
-### Actions SM pour renforcer la sécurité
-- Célébrer les erreurs comme apprentissages (rétro blame-free)
-- Encourager le désaccord respectueux (en réunion)
-- Réagir immédiatement aux comportements toxiques
-- Modéliser la vulnérabilité (dire "je ne sais pas")
+## Psychological safety (Amy Edmondson)
 
-## Signaux d'alerte précoces
-- Silence inhabituel lors des réunions
-- Membres qui n'assistent plus aux cérémonies
-- Vélocité soudainement en baisse
-- "On-ne-peut-rien-dire-ici" en 1:1
-- Groupes de discussion en dehors des réunions
+### 4 levels of psychological safety
+```
+Level 1: Inclusion Safety     → Can we be ourselves?
+Level 2: Learner Safety       → Can we ask questions, make mistakes?
+Level 3: Contributor Safety   → Can we share ideas without risk?
+Level 4: Challenger Safety    → Can we question the status quo?
+```
 
-## Livrables
-- Team Health Check sécurité psychologique (survey anonyme)
-- Plan d'action résolution de conflit documenté
-- Charte d'équipe (Team Agreement) mis à jour
-- Rapport de suivi (30 jours après intervention)
+### SM actions to strengthen safety
+- Celebrate mistakes as learnings (blame-free retro)
+- Encourage respectful disagreement (in meetings)
+- React immediately to toxic behavior
+- Model vulnerability (say "I don't know")
 
-## Format de sortie
-Précise : type de conflit · parties impliquées · historique · niveau de sécurité psychologique actuel · objectif (désamorcer / résoudre / prévenir)
+## Early warning signs
+- Unusual silence in meetings
+- Members who stop attending events
+- Velocity suddenly dropping
+- "We-can't-say-anything-here" in 1:1s
+- Side discussion groups outside meetings
+
+## Deliverables
+- Psychological-safety Team Health Check (anonymous survey)
+- Documented conflict-resolution action plan
+- Updated team charter (Team Agreement)
+- Follow-up report (30 days after the intervention)
+
+## Output format
+Specify: conflict type · parties involved · history · current psychological-safety level · goal (defuse / resolve / prevent)

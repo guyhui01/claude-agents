@@ -1,85 +1,85 @@
-# Skill — Amélioration Continue de l'ART
-> Certifications : SAFe RTE (Scaled Agile), SAFe SPC (Scaled Agile), SAFe 6 Agilist (Scaled Agile)
+# Skill — ART Continuous Improvement
+> Certifications: SAFe RTE (Scaled Agile), SAFe SPC (Scaled Agile), SAFe 6 Agilist (Scaled Agile)
 
-## Objectif
-Piloter l'amélioration continue de l'ART entre deux PI — suivre les actions I&A, animer les Communautés de Pratique, mesurer la maturité Agile des équipes et construire le plan d'amélioration du prochain PI.
+## Objective
+Drive the ART's continuous improvement between two PIs — track the I&A actions, run the Communities of Practice, measure the teams' Agile maturity and build the next PI's improvement plan.
 
-## Suivi des actions I&A
+## I&A action tracking
 
 ```yaml
-actions_ia:
-  pi_source: "PI-12"
-  pi_cible: "PI-13"
-  
+ia_actions:
+  source_pi: "PI-12"
+  target_pi: "PI-13"
+
   actions:
     - id: "IA-01"
-      description: "Augmenter couverture tests automatiques à 65%"
-      proprietaire: "Tech Lead Alpha"
-      sprint_cible: 2
-      mesure: "SonarQube coverage metric"
-      statut: "en_cours"
-      avancement: "55% atteint Sprint 1"
-      
+      description: "Increase automated test coverage to 65%"
+      owner: "Tech Lead Alpha"
+      target_sprint: 2
+      measure: "SonarQube coverage metric"
+      status: "in_progress"
+      progress: "55% reached in Sprint 1"
+
     - id: "IA-02"
-      description: "Ajouter régression dans la DoD ART"
-      proprietaire: "RTE"
-      sprint_cible: 1
-      mesure: "DoD mise à jour et validée"
-      statut: "complété"
-      
+      description: "Add regression to the ART DoD"
+      owner: "RTE"
+      target_sprint: 1
+      measure: "DoD updated and validated"
+      status: "completed"
+
     - id: "IA-03"
-      description: "Réduire Lead Time de 8 à 5 jours"
-      proprietaire: "Tous les SM"
-      sprint_cible: 4
-      mesure: "Flow Time metric dans Jira"
-      statut: "en_cours"
-      avancement: "7.2 jours Sprint 2"
+      description: "Reduce Lead Time from 8 to 5 days"
+      owner: "All SMs"
+      target_sprint: 4
+      measure: "Flow Time metric in Jira"
+      status: "in_progress"
+      progress: "7.2 days in Sprint 2"
 ```
 
-## Plan d'amélioration PI
+## PI improvement plan
 
 ```
-PLAN AMÉLIORATION PI-13
+IMPROVEMENT PLAN PI-13
 ══════════════════════════════════════════════════════════
-DOMAINE QUALITÉ
+QUALITY DOMAIN
 ─────────────────────────────────────────────────────────
-✓ Couverture tests : 55% → 65% (Sprint 2) → 75% (Sprint 4)
-✓ DoD ART mise à jour (Sprint 1 — fait)
-✓ Formation TDD — 2 équipes (Sprint 1-2)
+✓ Test coverage: 55% → 65% (Sprint 2) → 75% (Sprint 4)
+✓ ART DoD updated (Sprint 1 — done)
+✓ TDD training — 2 teams (Sprint 1-2)
 
-DOMAINE FLOW
+FLOW DOMAIN
 ─────────────────────────────────────────────────────────
-✓ Réduire WIP limits (Sprint 1 — chaque équipe)
-✓ Améliorer le refinement process (< 20% sprint capacity)
-✓ Lead Time cible : 5 jours fin PI-13
+✓ Reduce WIP limits (Sprint 1 — each team)
+✓ Improve the refinement process (< 20% sprint capacity)
+✓ Lead Time target: 5 days by end of PI-13
 
-DOMAINE COLLABORATION
+COLLABORATION DOMAIN
 ─────────────────────────────────────────────────────────
-✓ CoP Architecture mensuelle (RTE + Tech Leads)
-✓ CoP Testing bimensuelle (QA Engineers)
-✓ Buddy system équipes Alpha-Beta
+✓ Monthly Architecture CoP (RTE + Tech Leads)
+✓ Bi-weekly Testing CoP (QA Engineers)
+✓ Buddy system for the Alpha-Beta teams
 ```
 
-## Évaluation maturité Agile — Team Assessment
+## Agile maturity assessment — Team Assessment
 
 ```
-RADAR DE MATURITÉ AGILE — Équipe Alpha — PI-12
+AGILE MATURITY RADAR — Team Alpha — PI-12
 ────────────────────────────────────────────────
-Pratiques Scrum     : ████████░░  4/5
-Tests automatiques  : █████░░░░░  3/5
-Collaboration équipe: ███████░░░  3.5/5
-Définition du Done  : ██████░░░░  3/5
-Continuous Delivery : ████░░░░░░  2/5
-Lean Thinking       : ██████░░░░  3/5
+Scrum practices      : ████████░░  4/5
+Automated tests      : █████░░░░░  3/5
+Team collaboration   : ███████░░░  3.5/5
+Definition of Done   : ██████░░░░  3/5
+Continuous Delivery  : ████░░░░░░  2/5
+Lean Thinking        : ██████░░░░  3/5
 ────────────────────────────────────────────────
-SCORE GLOBAL : 3.1/5 (Objectif PI+1 : 3.5/5)
+OVERALL SCORE: 3.1/5 (PI+1 target: 3.5/5)
 ```
 
-## Livrables
-- Tracker des actions I&A avec avancement
-- Plan d'amélioration PI documenté
-- Radar de maturité par équipe
-- Rapport d'amélioration pour l'I&A suivant
+## Deliverables
+- I&A action tracker with progress
+- Documented PI improvement plan
+- Per-team maturity radar
+- Improvement report for the next I&A
 
-## Format de sortie
-Précise : actions I&A du PI précédent, métriques actuelles, domaines d'amélioration prioritaires, ressources disponibles.
+## Output format
+Specify: the previous PI's I&A actions, current metrics, priority improvement areas, available resources.

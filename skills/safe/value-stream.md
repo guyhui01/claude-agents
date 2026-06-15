@@ -1,37 +1,37 @@
 # Skill — Value Stream Mapping
-> Certifications : SAFe POPM 6 · SAFe LPM
+> Certifications: SAFe POPM 6 · SAFe LPM
 
-## Objectif
-Identifier et visualiser le flux de valeur de bout en bout pour éliminer les gaspillages et optimiser la livraison.
+## Objective
+Identify and visualize the end-to-end value flow to eliminate waste and optimize delivery.
 
-## Types de Value Streams (SAFe)
-- **Operational Value Stream** : flux de valeur métier (ex : de la commande à la livraison)
-- **Development Value Stream** : flux de développement produit (ex : idée → production)
+## Types of Value Streams (SAFe)
+- **Operational Value Stream**: the business value flow (e.g. from order to delivery)
+- **Development Value Stream**: the product development flow (e.g. idea → production)
 
-## Étapes du Value Stream Mapping
-1. Définir le périmètre (début → fin du flux)
-2. Cartographier l'état actuel (as-is) : étapes, acteurs, délais, WIP
-3. Identifier les gaspillages (Lean) : attentes, sur-production, défauts, transport inutile
-4. Concevoir l'état futur (to-be) : flux optimisé
-5. Définir le plan d'action pour atteindre l'état futur
+## Value Stream Mapping steps
+1. Define the scope (start → end of the flow)
+2. Map the current state (as-is): steps, actors, lead times, WIP
+3. Identify the waste (Lean): waiting, overproduction, defects, unnecessary transport
+4. Design the future state (to-be): optimized flow
+5. Define the action plan to reach the future state
 
-## 8 gaspillages Lean à identifier
-Surproduction · Attente · Transport · Sur-traitement · Stock · Mouvements inutiles · Défauts · Sous-utilisation des talents
+## 8 Lean wastes to identify
+Overproduction · Waiting · Transport · Over-processing · Inventory · Unnecessary motion · Defects · Underused talent
 
-## Métriques clés
-- **Flow Time** : temps total de bout en bout
-- **Process Time** : temps de travail actif
-- **Flow Efficiency** : Process Time / Flow Time × 100 (objectif ≥ 15%)
+## Key metrics
+- **Flow Time**: total end-to-end time
+- **Process Time**: active working time
+- **Flow Efficiency**: Process Time / Flow Time × 100 (target ≥ 15%)
 
-## Lien avec SAFe
-- Le Value Stream est la base pour identifier l'ART
-- Chaque ART aligne ses PI Objectives sur un ou plusieurs Value Streams
-- Le Portfolio aligne les Epics sur les Value Streams stratégiques
+## Link with SAFe
+- The Value Stream is the basis for identifying the ART
+- Each ART aligns its PI Objectives with one or more Value Streams
+- The Portfolio aligns the Epics with the strategic Value Streams
 
-## Livrables
-- Value Stream Map as-is (Miro / FigJam)
-- Value Stream Map to-be avec plan de transformation
-- Métriques de flux (Flow Time, Process Time, Flow Efficiency)
+## Deliverables
+- As-is Value Stream Map (Miro / FigJam)
+- To-be Value Stream Map with a transformation plan
+- Flow metrics (Flow Time, Process Time, Flow Efficiency)
 
-## Format de sortie
-Précise : type de value stream · périmètre organisationnel · objectif (diagnostic, transformation, optimisation)
+## Output format
+Specify: value stream type · organizational scope · goal (diagnosis, transformation, optimization)

@@ -1,255 +1,255 @@
-# Skill — User Stories techniques (tech debt, spikes, infrastructure)
+# Skill — Technical User Stories (tech debt, spikes, infrastructure)
 
-> Certification : PSPO I · PSPO II · ICAgile ICP-APO
-> Agent : AGENT-PO-SCRUM.md
+> Certification: PSPO I · PSPO II · ICAgile ICP-APO
+> Agent: AGENT-PO-SCRUM.md
 
-## Objectif
+## Objective
 
-Reconnaître, formuler et prioriser les **User Stories techniques** dans le Product Backlog Scrum — celles qui ne livrent pas de valeur métier directe à l'utilisateur final mais qui sont **indispensables à la santé du produit** (dette technique, exploration, infrastructure). Décider quand une story technique est légitime, comment la rédiger et quel ratio maintenir face aux US fonctionnelles.
+Recognize, frame and prioritize **technical User Stories** in the Scrum Product Backlog — those that don't deliver direct business value to the end user but are **essential to product health** (technical debt, exploration, infrastructure). Decide when a technical story is legitimate, how to write it and what ratio to maintain against functional US.
 
-> 🔗 **En contexte SAFe** → ces stories deviennent une **catégorie officielle "Enabler Stories"** avec 4 types formalisés. Voir `skills/safe/feature-to-story-splitting.md` section "Enabler Stories — Catégorie SAFe officielle".
+> 🔗 **In a SAFe context** → these stories become an **official "Enabler Stories" category** with 4 formalized types. See `skills/safe/feature-to-story-splitting.md`, section "Enabler Stories — Official SAFe category".
 
-## Les 3 types de stories techniques en Scrum
+## The 3 types of technical stories in Scrum
 
-### Type 1 — Tech Debt Story (remboursement de dette)
+### Type 1 — Tech Debt Story (debt repayment)
 
-Refactoring, modernisation, suppression de code mort, mise à jour de dépendances obsolètes.
+Refactoring, modernization, dead-code removal, updating obsolete dependencies.
 
-**Exemples :**
-- Migrer la BDD MySQL 5.7 → MySQL 8 (sécurité + perf)
-- Refactorer le module `checkout` pour réduire le coupling avec `inventory`
-- Supprimer la branche de code legacy `v1_pricing` (mort depuis 6 mois)
-- Mettre à niveau Spring Boot 2.7 → 3.2
+**Examples:**
+- Migrate the DB MySQL 5.7 → MySQL 8 (security + perf)
+- Refactor the `checkout` module to reduce coupling with `inventory`
+- Remove the legacy code branch `v1_pricing` (dead for 6 months)
+- Upgrade Spring Boot 2.7 → 3.2
 
-**Quand c'est légitime :**
-- Risque opérationnel mesurable (incident, sécurité, performance)
-- Bloquant pour livrer une fonctionnalité prévue
-- Coût de maintenance qui augmente sprint après sprint
+**When it's legitimate:**
+- Measurable operational risk (incident, security, performance)
+- Blocker for delivering a planned feature
+- Maintenance cost rising sprint after sprint
 
-### Type 2 — Spike Story (exploration timeboxée)
+### Type 2 — Spike Story (timeboxed exploration)
 
-Recherche, prototypage ou évaluation pour lever une incertitude **avant** d'engager l'implémentation.
+Research, prototyping or evaluation to remove an uncertainty **before** committing to implementation.
 
-**Exemples :**
-- Évaluer 3 libs de génération de PDF (timeboxe 2 jours)
-- Mesurer la performance attendue d'un appel à un LLM externe vs local
-- Comprendre l'API du nouveau partenaire bancaire avant d'engager une US
+**Examples:**
+- Evaluate 3 PDF-generation libs (2-day timebox)
+- Measure the expected performance of a call to an external vs local LLM
+- Understand the new banking partner's API before committing a US
 
-**Règles d'or du Spike :**
-- **Toujours timeboxé** (2-5 jours max)
-- **Output = note de décision** (1 page), pas du code de production
-- **Code = jetable** (POC, pas livré)
-- **Question explicite à répondre** dans l'énoncé
+**Golden rules of the Spike:**
+- **Always timeboxed** (2-5 days max)
+- **Output = decision note** (1 page), not production code
+- **Code = throwaway** (POC, not shipped)
+- **Explicit question to answer** in the statement
 
-### Type 3 — Story d'Infrastructure / Outillage
+### Type 3 — Infrastructure / Tooling Story
 
-CI/CD, observabilité, qualité, sécurité — tout ce qui améliore la **capacité de livraison** de l'équipe.
+CI/CD, observability, quality, security — anything that improves the team's **delivery capability**.
 
-**Exemples :**
-- Mettre en place le pipeline GitHub Actions pour le service `notifications`
-- Ajouter des métriques Prometheus sur les endpoints critiques
-- Configurer SonarQube avec seuil bloquant à 80% de couverture
-- Provisionner un environnement de staging dédié
+**Examples:**
+- Set up the GitHub Actions pipeline for the `notifications` service
+- Add Prometheus metrics on the critical endpoints
+- Configure SonarQube with a blocking threshold at 80% coverage
+- Provision a dedicated staging environment
 
 ---
 
-## Format de rédaction recommandé
+## Recommended writing format
 
-### Template adapté (pas de "As a user…")
+### Adapted template (no "As a user…")
 
-Le template Connextra classique (*"En tant que X, je veux Y, afin de Z"*) **ne convient pas** aux stories techniques — il n'y a pas d'utilisateur métier direct. Utiliser un format adapté :
+The classic Connextra template (*"As an X, I want Y, so that Z"*) **does not fit** technical stories — there's no direct business user. Use an adapted format:
 
 ```
-TITRE         : [verbe technique précis]
+TITLE         : [precise technical verb]
 TYPE          : Tech Debt / Spike / Infra
 
-CONTEXTE      : [pourquoi maintenant — risque, bloquant, opportunité]
+CONTEXT       : [why now — risk, blocker, opportunity]
 
-OBJECTIF      : [résultat technique attendu en 1 phrase]
+OBJECTIVE     : [expected technical result in 1 sentence]
 
-BÉNÉFICE      : [conséquence pour l'utilisateur final, l'équipe ou le produit
-                — toujours faire le lien avec la valeur, même indirecte]
+BENEFIT       : [consequence for the end user, the team or the product
+                — always tie it to value, even indirectly]
 
-CRITÈRES D'ACCEPTATION :
-  □ AC1 — [vérifiable, testable]
-  □ AC2 — [vérifiable, testable]
-  □ AC3 — [vérifiable, testable]
+ACCEPTANCE CRITERIA:
+  □ AC1 — [verifiable, testable]
+  □ AC2 — [verifiable, testable]
+  □ AC3 — [verifiable, testable]
 
-ESTIMATION    : [story points]
-LABEL         : tech-debt / spike / infra (pour filtrage backlog)
+ESTIMATE      : [story points]
+LABEL         : tech-debt / spike / infra (for backlog filtering)
 ```
 
-### Exemple Tech Debt Story
+### Tech Debt Story example
 
 ```
-TITRE     : Migrer le module checkout vers Spring Boot 3.2
+TITLE     : Migrate the checkout module to Spring Boot 3.2
 TYPE      : Tech Debt
 
-CONTEXTE  : Spring Boot 2.7 fin de support juin 2026, vulnérabilité CVE
-            non patchée sur la lib actuelle.
+CONTEXT   : Spring Boot 2.7 end of support June 2026, an unpatched CVE
+            vulnerability on the current lib.
 
-OBJECTIF  : Module checkout sur Spring Boot 3.2, tests passants, perf maintenue.
+OBJECTIVE : Checkout module on Spring Boot 3.2, tests passing, perf maintained.
 
-BÉNÉFICE  : Suppression d'un risque sécurité bloquant pour l'audit Q3 + débloque
-            l'usage des nouvelles features Spring (réduction temps de dev futur).
+BENEFIT   : Removes a security risk blocking the Q3 audit + unlocks the use of
+            new Spring features (reduced future dev time).
 
-AC :
-  □ AC1 — Module checkout buildable et déployable sur Spring Boot 3.2
-  □ AC2 — Couverture de tests ≥ 80% maintenue après migration
-  □ AC3 — Pas de régression perf détectée sur le scénario de référence
-          (P95 < 200ms sur /api/checkout/validate)
-  □ AC4 — Documentation README mise à jour avec la nouvelle version
+AC:
+  □ AC1 — Checkout module buildable and deployable on Spring Boot 3.2
+  □ AC2 — Test coverage ≥ 80% maintained after migration
+  □ AC3 — No perf regression detected on the reference scenario
+          (P95 < 200ms on /api/checkout/validate)
+  □ AC4 — README documentation updated with the new version
 
-ESTIMATION : 8 SP
-LABEL      : tech-debt
+ESTIMATE  : 8 SP
+LABEL     : tech-debt
 ```
 
-### Exemple Spike Story
+### Spike Story example
 
 ```
-TITRE     : Évaluer 3 librairies de génération de PDF pour les factures
+TITLE     : Evaluate 3 PDF-generation libraries for invoices
 TYPE      : Spike
 
-CONTEXTE  : Feature "facture personnalisée" prévue PI+1, choix de stack à faire.
+CONTEXT   : "Custom invoice" feature planned for PI+1, stack choice to make.
 
-OBJECTIF  : Note de décision recommandant 1 librairie parmi iText, PDFBox, Puppeteer.
+OBJECTIVE : Decision note recommending 1 library among iText, PDFBox, Puppeteer.
 
-BÉNÉFICE  : Sécurise l'estimation de la Feature "facture personnalisée"
-            et évite un mauvais choix de stack (coût de migration ultérieur).
+BENEFIT   : Secures the estimate of the "custom invoice" Feature
+            and avoids a poor stack choice (later migration cost).
 
-TIMEBOX   : 2 jours
-OUTPUT    : Note 1 page (Confluence) avec critères + recommandation + POC jetable
+TIMEBOX   : 2 days
+OUTPUT    : 1-page note (Confluence) with criteria + recommendation + throwaway POC
 
-AC :
-  □ AC1 — Note publiée avec matrice comparative (perf, licence, complexité, doc)
-  □ AC2 — POC jetable validé sur le scénario "facture 5 pages avec logo + tableau"
-  □ AC3 — Recommandation discutée avec l'équipe et le tech lead
+AC:
+  □ AC1 — Note published with a comparison matrix (perf, license, complexity, docs)
+  □ AC2 — Throwaway POC validated on the "5-page invoice with logo + table" scenario
+  □ AC3 — Recommendation discussed with the team and the tech lead
 
-ESTIMATION : 3 SP
-LABEL      : spike
+ESTIMATE  : 3 SP
+LABEL     : spike
 ```
 
 ---
 
-## INVEST adapté aux stories techniques
+## INVEST adapted to technical stories
 
-| Critère | Tech Debt | Spike | Infra |
+| Criterion | Tech Debt | Spike | Infra |
 |---|---|---|---|
-| **I**ndependent | ⚠️ Souvent dépendant d'une US fonctionnelle | ✅ Oui par nature | ✅ Oui le plus souvent |
-| **N**egotiable | ⚠️ Souvent contraint (CVE, fin de support) | ✅ Oui (timeboxe + scope) | ✅ Oui |
-| **V**aluable | ✅ Indirect mais réel (risque évité, vélocité future) | ✅ Décision éclairée | ✅ Capacité de livraison |
-| **E**stimable | ✅ Oui | ✅ Timeboxé | ✅ Oui |
-| **S**mall | ✅ Sinon splitter | ✅ Toujours (2-5 jours max) | ✅ Oui |
-| **T**estable | ✅ AC techniques mesurables | ⚠️ "Décision prise" est l'AC | ✅ Oui |
+| **I**ndependent | ⚠️ Often dependent on a functional US | ✅ Yes by nature | ✅ Yes most of the time |
+| **N**egotiable | ⚠️ Often constrained (CVE, end of support) | ✅ Yes (timebox + scope) | ✅ Yes |
+| **V**aluable | ✅ Indirect but real (risk avoided, future velocity) | ✅ Informed decision | ✅ Delivery capability |
+| **E**stimable | ✅ Yes | ✅ Timeboxed | ✅ Yes |
+| **S**mall | ✅ Otherwise split | ✅ Always (2-5 days max) | ✅ Yes |
+| **T**estable | ✅ Measurable technical AC | ⚠️ "Decision made" is the AC | ✅ Yes |
 
 ---
 
-## DoR spécifique aux stories techniques
+## DoR specific to technical stories
 
-- [ ] **Justification du "pourquoi maintenant"** explicite (pas "ce serait mieux")
-- [ ] **Bénéfice tracé jusqu'à l'utilisateur ou au produit** (jamais "c'est juste technique")
-- [ ] **AC mesurables techniquement** (perf, couverture, version, métrique)
-- [ ] **Spike : question + timeboxe + output attendu** explicites
-- [ ] **Tech Debt : risque chiffré** si pas réalisée (probabilité × impact)
-- [ ] **Label "tech-debt / spike / infra"** posé dans l'outil pour filtrage
+- [ ] **Explicit "why now" justification** (not "it would be better")
+- [ ] **Benefit traced to the user or the product** (never "it's just technical")
+- [ ] **Technically measurable AC** (perf, coverage, version, metric)
+- [ ] **Spike: explicit question + timebox + expected output**
+- [ ] **Tech Debt: quantified risk** if not done (probability × impact)
+- [ ] **"tech-debt / spike / infra" label** set in the tool for filtering
 
 ---
 
-## Ratio dette / valeur — Règle des 15-20%
+## Debt / value ratio — The 15-20% rule
 
-### Principe Lean-Agile
+### Lean-Agile principle
 
-> **15 à 20% de la capacité de chaque sprint** doit être consacrée aux stories techniques (toutes catégories confondues).
+> **15 to 20% of each sprint's capacity** should go to technical stories (all categories combined).
 
-| Contexte | Ratio recommandé |
+| Context | Recommended ratio |
 |---|---|
-| Produit jeune (< 1 an), peu de dette | 10-15% |
-| Produit mature en run normal | **15-20%** (baseline) |
-| Produit avec dette critique identifiée | 25-30% (pendant 2-3 PIs) |
-| Refonte / modernisation lourde | 30-40% (Spike + Enabler dominants) |
+| Young product (< 1 year), little debt | 10-15% |
+| Mature product in normal run | **15-20%** (baseline) |
+| Product with identified critical debt | 25-30% (for 2-3 PIs) |
+| Heavy rebuild / modernization | 30-40% (Spike + Enabler dominant) |
 
-### Comment maintenir le ratio
+### How to maintain the ratio
 
-1. **Allocation explicite par sprint** : "5 SP réservés pour la dette" dans le Sprint Planning
-2. **Rotation thématique** : 1 sprint orienté "qualité" tous les N sprints
-3. **Quota visible** : dashboard "Capacité technique vs fonctionnelle" dans le sprint
-4. **Discussion en rétrospective** : si dette ↑ et incidents ↑ → augmenter le ratio
+1. **Explicit per-sprint allocation**: "5 SP reserved for debt" in Sprint Planning
+2. **Thematic rotation**: 1 "quality"-focused sprint every N sprints
+3. **Visible quota**: "Technical vs functional capacity" dashboard in the sprint
+4. **Retrospective discussion**: if debt ↑ and incidents ↑ → increase the ratio
 
-### Signaux d'alerte
+### Warning signs
 
-- 🚨 0% de stories techniques sur 3 sprints consécutifs → dette qui s'accumule
-- 🚨 Vélocité qui baisse sans raison apparente → dette qui freine
-- 🚨 Bugs récurrents sur le même module → besoin d'une Tech Debt Story de refactoring
-- 🚨 Estimations qui explosent en cours de sprint → besoin d'un Spike en amont
+- 🚨 0% technical stories over 3 consecutive sprints → accumulating debt
+- 🚨 Velocity dropping for no apparent reason → debt slowing things down
+- 🚨 Recurring bugs on the same module → need for a refactoring Tech Debt Story
+- 🚨 Estimates blowing up mid-sprint → need for an upfront Spike
 
 ---
 
-## Quand une story technique n'est PAS la bonne réponse
+## When a technical story is NOT the right answer
 
-| Cas | Pourquoi pas une story | Alternative |
+| Case | Why not a story | Alternative |
 |---|---|---|
-| Bug en production | Pas une story (pas une nouveauté) | **Incident / Bug ticket** séparé du backlog |
-| Tâche < 1 jour incluse dans une US fonctionnelle | Trop granulaire | **Sous-tâche** de la US parente |
-| Maintenance récurrente (mise à jour deps mensuelle) | Activité continue, pas un livrable | **BAU / running cost**, hors backlog produit |
-| Demande IT pure (provisioning serveur) | Pas de valeur produit | **Ticket ITSM**, pas backlog Scrum |
-| "Code legacy à virer un jour" sans risque immédiat | Pas de justification "maintenant" | **Note dans le backlog d'amélioration**, pas une US prête |
+| Production bug | Not a story (not new) | **Incident / Bug ticket** separate from the backlog |
+| Task < 1 day included in a functional US | Too granular | **Sub-task** of the parent US |
+| Recurring maintenance (monthly dep updates) | Ongoing activity, not a deliverable | **BAU / running cost**, outside the product backlog |
+| Pure IT request (server provisioning) | No product value | **ITSM ticket**, not the Scrum backlog |
+| "Legacy code to remove someday" with no immediate risk | No "now" justification | **Note in the improvement backlog**, not a ready US |
 
 ---
 
-## Anti-patterns à éviter
+## Anti-patterns to avoid
 
-- ❌ **Stories techniques en mode "wishlist"** sans risque ni bénéfice tracé → ne seront jamais priorisées
-- ❌ **Tout passer en story technique** ("refacto" comme excuse pour ne pas livrer) → perte de confiance stakeholders
-- ❌ **Spike sans timeboxe** → POC qui devient produit non maintenable
-- ❌ **Spike dont l'output est du code de production** → c'est plus un Spike, c'est une US qui s'ignore
-- ❌ **AC vagues** ("le code est propre", "l'archi est meilleure") → impossible à valider, jamais terminée
-- ❌ **0% de capacité allouée à la dette** → bombe à retardement, vélocité qui s'effondre dans 6 mois
-- ❌ **PO qui refuse systématiquement les stories techniques** → l'équipe les fait "en cachette", perte de visibilité
-- ❌ **Cacher la story technique dans une US fonctionnelle** → estimation faussée + pas de débat de priorisation
+- ❌ **Technical stories as a "wishlist"** with no traced risk or benefit → they'll never be prioritized
+- ❌ **Turning everything into a technical story** ("refactor" as an excuse not to deliver) → loss of stakeholder trust
+- ❌ **Spike with no timebox** → a POC that becomes an unmaintainable product
+- ❌ **Spike whose output is production code** → that's no longer a Spike, it's a US in disguise
+- ❌ **Vague AC** ("the code is clean", "the architecture is better") → impossible to validate, never done
+- ❌ **0% capacity allocated to debt** → time bomb, velocity collapsing in 6 months
+- ❌ **A PO who systematically refuses technical stories** → the team does them "in secret", loss of visibility
+- ❌ **Hiding the technical story inside a functional US** → distorted estimate + no prioritization debate
 
 ---
 
-## Cross-link avec les autres skills
+## Cross-link with other skills
 
-| Si l'objectif est… | Aller voir |
+| If the goal is… | Go see |
 |---|---|
-| Rédiger une US fonctionnelle (Connextra) | `skills/scrum/po-user-story.md` |
-| Gérer le backlog (structure, refinement) | `skills/scrum/po-backlog.md` |
-| Prioriser face aux US fonctionnelles | `skills/scrum/priorisation-techniques.md` |
-| Estimer en Planning Poker | `skills/scrum_master/planning-poker.md` |
-| **En contexte SAFe → Enabler Stories officielles** | `skills/safe/feature-to-story-splitting.md` |
+| Write a functional US (Connextra) | `skills/scrum/po-user-story.md` |
+| Manage the backlog (structure, refinement) | `skills/scrum/po-backlog.md` |
+| Prioritize against functional US | `skills/scrum/priorisation-techniques.md` |
+| Estimate in Planning Poker | `skills/scrum_master/planning-poker.md` |
+| **In a SAFe context → official Enabler Stories** | `skills/safe/feature-to-story-splitting.md` |
 
 ---
 
-## 📌 Encadré — En contexte SAFe : "Enabler Stories"
+## 📌 Callout — In a SAFe context: "Enabler Stories"
 
-En SAFe, ces stories techniques deviennent une **catégorie officielle** appelée **Enabler Stories**, avec 4 types formalisés :
+In SAFe, these technical stories become an **official category** called **Enabler Stories**, with 4 formalized types:
 
-| Type SAFe | Équivalent Scrum (ce skill) |
+| SAFe type | Scrum equivalent (this skill) |
 |---|---|
-| **Architectural** | Tech Debt Story (refonte architecturale) |
-| **Infrastructure** | Story d'Infrastructure / Outillage |
+| **Architectural** | Tech Debt Story (architectural rework) |
+| **Infrastructure** | Infrastructure / Tooling Story |
 | **Exploration (Spike)** | Spike Story |
-| **Compliance** | Tech Debt Story (mise en conformité) |
+| **Compliance** | Tech Debt Story (compliance work) |
 
-Spécificités SAFe additionnelles :
-- Reliées à une **Enabler Feature** ou Feature parente
-- Capacité réservée **12-20%** au niveau ART
-- Validation **Architecte Système** pour les types Architectural / Infrastructure
-- Visibles dans le **Program Backlog** et le **Solution Backlog**
+Additional SAFe specifics:
+- Linked to an **Enabler Feature** or a parent Feature
+- Capacity reserved **12-20%** at the ART level
+- **System Architect** validation for the Architectural / Infrastructure types
+- Visible in the **Program Backlog** and the **Solution Backlog**
 
-→ Détails complets, règles ART, intégration PI Planning : `skills/safe/feature-to-story-splitting.md`
+→ Full details, ART rules, PI Planning integration: `skills/safe/feature-to-story-splitting.md`
 
 ---
 
-## Livrables
+## Deliverables
 
-- Stories techniques rédigées au format adapté (par type)
-- Backlog labellisé (tech-debt / spike / infra) pour filtrage
-- Dashboard sprint avec ratio "capacité technique vs fonctionnelle"
-- Note de décision pour chaque Spike (1 page, archivée Confluence)
-- Plan de remboursement de la dette technique (sur 2-3 PIs)
+- Technical stories written in the adapted format (by type)
+- Labeled backlog (tech-debt / spike / infra) for filtering
+- Sprint dashboard with a "technical vs functional capacity" ratio
+- Decision note for each Spike (1 page, archived in Confluence)
+- Technical-debt repayment plan (over 2-3 PIs)
 
-## Format de sortie
+## Output format
 
-Préciser : **type de story technique** (Tech Debt / Spike / Infra / les 3), **contexte produit** (jeune / mature / en refonte), **ratio dette actuel** (si connu), **outil cible** (Jira / Linear / Notion), **livrable attendu** (rédaction d'une story / plan de dette / template équipe).
+Specify: **technical story type** (Tech Debt / Spike / Infra / all 3), **product context** (young / mature / being rebuilt), **current debt ratio** (if known), **target tool** (Jira / Linear / Notion), **expected deliverable** (writing a story / debt plan / team template).

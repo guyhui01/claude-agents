@@ -1,69 +1,69 @@
-# Skill QA Cycle V — Gestion des Anomalies
+# QA V-Model Skill — Defect Management
 
-> Certification : CTAL-TM · CTAL-TA
-> Agent : AGENT-QA-CYCLEV.md
-> Méthodologie : Cycle en V
+> Certification: CTAL-TM · CTAL-TA
+> Agent: AGENT-QA-CYCLEV.md
+> Methodology: V-model
 
-## Cycle de vie d'une anomalie
-
-```
-Nouveau → Assigné → En cours → Résolu → Re-testé → Fermé
-                                  ↓                    ↑
-                               Rejeté              Pass ✅
-                                  ↓
-                             Réouvert ──────────────────→ En cours
-```
-
-## Template anomalie (Jira / HP ALM)
+## Defect lifecycle
 
 ```
-TITRE : [MODULE] — [Description courte et factuelle]
+New → Assigned → In progress → Resolved → Re-tested → Closed
+                                   ↓                      ↑
+                                Rejected             Pass ✅
+                                   ↓
+                              Reopened ──────────────────→ In progress
+```
 
-Type : ☐ Bug  ☐ Anomalie fonctionnelle  ☐ Régression  ☐ Amélioration
-Sévérité : ☐ Bloquant  ☐ Majeur  ☐ Mineur  ☐ Cosmétique
-Priorité : ☐ Critique  ☐ Haute  ☐ Normale  ☐ Basse
-Environnement : ☐ Dev  ☐ Intégration  ☐ Recette  ☐ Production
-Version : [X.X.X]  |  Build : [XXX]
-Cas de test lié : [TC-XXX]
-Exigence liée : [SFD-XXX]
+## Defect template (Jira / HP ALM)
+
+```
+TITLE: [MODULE] — [Short, factual description]
+
+Type: ☐ Bug  ☐ Functional defect  ☐ Regression  ☐ Enhancement
+Severity: ☐ Blocking  ☐ Major  ☐ Minor  ☐ Cosmetic
+Priority: ☐ Critical  ☐ High  ☐ Normal  ☐ Low
+Environment: ☐ Dev  ☐ Integration  ☐ Staging  ☐ Production
+Version: [X.X.X]  |  Build: [XXX]
+Linked test case: [TC-XXX]
+Linked requirement: [FRD-XXX]
 
 DESCRIPTION
-[Description factuelle du problème — sans interprétation]
+[Factual description of the problem — no interpretation]
 
-ÉTAPES DE REPRODUCTION
-1. [Précondition]
+REPRODUCTION STEPS
+1. [Precondition]
 2. [Action 1]
 3. [Action 2]
 4. [Observation]
 
-COMPORTEMENT ATTENDU
-[Ce qui devrait se passer selon la SFD]
+EXPECTED BEHAVIOR
+[What should happen according to the FRD]
 
-COMPORTEMENT OBSERVÉ
-[Ce qui se passe réellement — avec capture d'écran / log]
+OBSERVED BEHAVIOR
+[What actually happens — with screenshot / log]
 
-IMPACT MÉTIER
-[Processus bloqué / utilisateurs impactés / données corrompues]
+BUSINESS IMPACT
+[Process blocked / users affected / data corrupted]
 
-CONTOURNEMENT
-☐ Oui : [description]  ☐ Non
+WORKAROUND
+☐ Yes: [description]  ☐ No
 
-PIÈCES JOINTES
-[Captures, logs, vidéo de reproduction]
+ATTACHMENTS
+[Screenshots, logs, reproduction video]
 ```
 
-## Niveaux de sévérité ISTQB
+## ISTQB severity levels
 
-| Sévérité | Définition | Exemple |
+| Severity | Definition | Example |
 |---|---|---|
-| **Bloquant** | Test impossible, système inutilisable | Crash, accès refusé |
-| **Majeur** | Fonctionnalité principale KO, contournement possible | Calcul faux, données perdues |
-| **Mineur** | Dégradation mineure, contournement facile | Message d'erreur incorrect |
-| **Cosmétique** | Aucun impact fonctionnel | Faute d'orthographe, alignement |
+| **Blocking** | Testing impossible, system unusable | Crash, access denied |
+| **Major** | Main feature down, workaround possible | Wrong calculation, data lost |
+| **Minor** | Minor degradation, easy workaround | Incorrect error message |
+| **Cosmetic** | No functional impact | Typo, alignment |
 
-## Règles de gestion
-- Sévérité = impact technique (défini par QA)
-- Priorité = urgence de correction (définie par MOA/PO)
-- Tout bloquant → bloquer la MEP
-- Re-test obligatoire sur la même version corrigée
-- Clôture = re-test Pass + validation QA
+## Management rules
+- Severity = technical impact (defined by QA)
+- Priority = fix urgency (defined by MOA/PO)
+- Any blocking defect → block the go-live
+- Mandatory re-test on the same fixed version
+- Closure = re-test Pass + QA validation

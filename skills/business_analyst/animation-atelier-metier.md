@@ -1,55 +1,55 @@
-# Skill — Animation d'Ateliers Métier
-> Certifications : IIBA AAC · ICAgile · PMI-PBA
+# Skill — Business Workshop Facilitation
+> Certifications: IIBA AAC · ICAgile · PMI-PBA
 
-## Objectif
-Préparer et animer des ateliers de co-construction avec les parties prenantes métier pour produire des livrables actionnables.
+## Objective
+Prepare and facilitate co-construction workshops with business stakeholders to produce actionable deliverables.
 
-## Types d'ateliers MOA / BA
-| Atelier | Objectif | Durée | Participants |
+## MOA / BA workshop types
+| Workshop | Goal | Duration | Participants |
 |---|---|---|---|
-| **Cadrage besoin** | Aligner sur les objectifs | 2-3h | Sponsor, MOA, MOE |
-| **Élicitation processus** | Cartographier l'existant | 3-4h | Experts métier |
-| **Co-construction cible** | Concevoir le futur état | 4h | MOA, UX, Arch. |
-| **Validation exigences** | Valider les specs | 2h | MOA, MOE, QA |
-| **Priorisation** | MoSCoW, WSJF | 2h | PO, Sponsor, Métier |
+| **Needs scoping** | Align on the objectives | 2-3h | Sponsor, MOA, MOE |
+| **Process elicitation** | Map the existing state | 3-4h | Business experts |
+| **Target co-construction** | Design the future state | 4h | MOA, UX, Arch. |
+| **Requirements validation** | Validate the specs | 2h | MOA, MOE, QA |
+| **Prioritization** | MoSCoW, WSJF | 2h | PO, Sponsor, Business |
 
-## Structure d'un atelier bien préparé
+## Structure of a well-prepared workshop
 ```
-Avant :
-  - Objectif clair et partagé
-  - Participants identifiés (décideurs + opérationnels)
-  - Matériel préparé (template, données, supports)
-  - Timing détaillé (buffer = 20% du temps)
+Before:
+  - Clear, shared objective
+  - Identified participants (decision-makers + operational staff)
+  - Prepared material (template, data, supports)
+  - Detailed timing (buffer = 20% of the time)
 
-Pendant :
-  - Règles du jeu en ouverture (bienveillance, parking lot)
-  - Timeboxing de chaque activité
-  - Capture visible (tableau, FigJam, Miro)
-  - Synthèse en fin de session
+During:
+  - Ground rules at the opening (goodwill, parking lot)
+  - Timeboxing of each activity
+  - Visible capture (whiteboard, FigJam, Miro)
+  - Synthesis at the end of the session
 
-Après :
-  - Compte rendu sous 24h
-  - Actions avec responsable et délai
-  - Points ouverts documentés
+After:
+  - Minutes within 24h
+  - Actions with owner and deadline
+  - Documented open points
 ```
 
-## Techniques d'animation
-- **Lean Coffee** : priorisation collaborative de l'agenda
-- **1-2-4-All** : réflexion individuelle → pair → groupe → plénière
-- **Dot voting** : priorisation rapide par votes
-- **Post-it silencieux** : éviter le biais du premier parlant
-- **Parking lot** : capturer les hors-sujets sans les perdre
+## Facilitation techniques
+- **Lean Coffee**: collaborative prioritization of the agenda
+- **1-2-4-All**: individual reflection → pair → group → plenary
+- **Dot voting**: fast prioritization by votes
+- **Silent sticky notes**: avoid the first-speaker bias
+- **Parking lot**: capture off-topic items without losing them
 
-## Gestion des personnalités difficiles
-- **Expert dominant** : "Merci, et qu'en pensent les autres ?"
-- **Silencieux** : questions directes, travail en sous-groupes
-- **Hors-sujet récurrent** : parking lot visible, repositionnement sur l'objectif
+## Handling difficult personalities
+- **Dominant expert**: "Thanks, and what do the others think?"
+- **Silent one**: direct questions, work in sub-groups
+- **Recurring off-topic**: visible parking lot, refocus on the objective
 
-## Livrables
-- Agenda de l'atelier (objectifs + timing)
-- Supports de facilitation (Miro, FigJam, PowerPoint)
-- Compte rendu structuré (décisions + actions + points ouverts)
-- Livrables produits pendant l'atelier (processus, exigences, priorités)
+## Deliverables
+- Workshop agenda (objectives + timing)
+- Facilitation supports (Miro, FigJam, PowerPoint)
+- Structured minutes (decisions + actions + open points)
+- Deliverables produced during the workshop (processes, requirements, priorities)
 
-## Format de sortie
-Précise : type d'atelier · nombre de participants · durée disponible · outil (présentiel, distanciel) · livrable attendu
+## Output format
+Specify: workshop type · number of participants · available duration · tool (in-person, remote) · expected deliverable

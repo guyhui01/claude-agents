@@ -1,85 +1,85 @@
-# Skill — Scrum à l'Échelle & SAFe Scrum Master (SSM)
-> Certifications : SAFe SSM 6 · SAFe SASM · PSM III · ICAgile ICP-ATF
+# Skill — Scrum at Scale & SAFe Scrum Master (SSM)
+> Certifications: SAFe SSM 6 · SAFe SASM · PSM III · ICAgile ICP-ATF
 
-## Objectif
-Accompagner les équipes Scrum dans un contexte SAFe (Scaled Agile Framework) en coordonnant avec les autres équipes de l'ART.
+## Objective
+Support Scrum teams in a SAFe (Scaled Agile Framework) context by coordinating with the other teams of the ART.
 
-## Rôle du SAFe Scrum Master (SSM)
+## The SAFe Scrum Master (SSM) role
 ```
-Au niveau Équipe    → Faciliter les cérémonies Scrum de son équipe
-Au niveau Programme → Participer au Scrum of Scrums (SoS)
-                   → Supporter le Release Train Engineer (RTE)
-                   → Faciliter les dépendances inter-équipes
-Au niveau ART       → Participer aux PI Planning, Inspect & Adapt
-                   → Coach sur les pratiques Agile Engineering
+At Team level     → Facilitate their team's Scrum events
+At Program level  → Take part in the Scrum of Scrums (SoS)
+                 → Support the Release Train Engineer (RTE)
+                 → Facilitate cross-team dependencies
+At ART level      → Take part in PI Planning, Inspect & Adapt
+                 → Coach on Agile Engineering practices
 ```
 
-## PI Planning — rôle du Scrum Master
+## PI Planning — the Scrum Master's role
 ```
-Avant le PI Planning :
-  → Aider l'équipe à comprendre les Epics / Features entrants
-  → Préparer le backlog de l'équipe (stories, estimations)
-  → Identifier les dépendances potentielles avec d'autres équipes
+Before PI Planning:
+  → Help the team understand the incoming Epics / Features
+  → Prepare the team's backlog (stories, estimates)
+  → Identify potential dependencies with other teams
 
-Pendant le PI Planning (2 jours) :
-  Jour 1 : Vision RTE + Teams Breakout Session 1
-    → SM facilite la session de son équipe
-    → Aide à rédiger les PI Objectives (SMART)
-    → Identifie et trace les dépendances sur le Program Board
-  
-  Jour 2 : Teams Breakout Session 2 + Draft Plan Review
-    → SM facilite les ajustements de plan
-    → Participe à la revue de programme
-    → Vote de confiance : SM s'assure que l'équipe vote honnêtement
+During PI Planning (2 days):
+  Day 1: RTE vision + Teams Breakout Session 1
+    → SM facilitates their team's session
+    → Helps write the PI Objectives (SMART)
+    → Identifies and traces dependencies on the Program Board
 
-Après le PI Planning :
-  → Tracker les PI Objectives dans Jira / AgileCentral
-  → Monitorer les dépendances identifiées
+  Day 2: Teams Breakout Session 2 + Draft Plan Review
+    → SM facilitates the plan adjustments
+    → Takes part in the program review
+    → Confidence vote: the SM ensures the team votes honestly
+
+After PI Planning:
+  → Track the PI Objectives in Jira / AgileCentral
+  → Monitor the identified dependencies
 ```
 
 ## Scrum of Scrums (SoS)
 ```
-Fréquence : 2-3x/semaine (15-30 min)
-Participants : SM de chaque équipe ART + RTE
+Frequency: 2-3x/week (15-30 min)
+Participants: SM from each ART team + RTE
 
-Questions SoS (vs. Daily Scrum) :
-  1. Qu'a livré mon équipe depuis le dernier SoS ?
-  2. Qu'est-ce que mon équipe va livrer avant le prochain SoS ?
-  3. Quels sont les obstacles inter-équipes ?
-  4. Quelles dépendances sont à risque ?
+SoS questions (vs. Daily Scrum):
+  1. What has my team delivered since the last SoS?
+  2. What will my team deliver before the next SoS?
+  3. What are the cross-team obstacles?
+  4. Which dependencies are at risk?
 
-SM Role :
-  → Représenter son équipe
-  → Escalader les dépendances bloquantes vers le RTE
-  → Ramener les informations du programme à son équipe
+SM role:
+  → Represent their team
+  → Escalate blocking dependencies to the RTE
+  → Bring program information back to their team
 ```
 
-## Inspect & Adapt (I&A) — fin de PI
+## Inspect & Adapt (I&A) — end of PI
 ```
-Durée : Demi-journée (4h) par PI (~3 mois)
-Structure :
-  1. PI System Demo (45 min) — démo de toutes les équipes
-  2. Quantitative measurement (30 min) — métriques ART
-  3. Problem Solving Workshop (2h30) — amélioration systémique
-     → Root cause analysis (5 pourquoi, fishbone)
-     → Plan d'amélioration pour le prochain PI
+Duration: Half-day (4h) per PI (~3 months)
+Structure:
+  1. PI System Demo (45 min) — demo from all teams
+  2. Quantitative measurement (30 min) — ART metrics
+  3. Problem Solving Workshop (2h30) — systemic improvement
+     → Root cause analysis (5 whys, fishbone)
+     → Improvement plan for the next PI
 
-SM Role : Faciliter la session pour son équipe, contribuer aux actions
+SM role: Facilitate the session for their team, contribute to the actions
 ```
 
-## Indicateurs SAFe au niveau équipe
-| Métrique | Cible | Source |
+## SAFe indicators at team level
+| Metric | Target | Source |
 |---|---|---|
-| PI Predictability | > 80% | Ratio PI Objectives atteints |
-| Sprint Goal atteint | > 80% | Chaque sprint du PI |
-| Dépendances résolues | > 90% avant leur sprint | Program Board |
-| Team Happiness | > 7/10 | Survey fin de sprint |
+| PI Predictability | > 80% | Ratio of PI Objectives met |
+| Sprint Goal met | > 80% | Each sprint of the PI |
+| Dependencies resolved | > 90% before their sprint | Program Board |
+| Team Happiness | > 7/10 | End-of-sprint survey |
 
-## Livrables
-- PI Objectives de l'équipe (SMART)
-- Contribution au Program Board (dépendances)
-- Rapport de participation au SoS
-- Plan d'amélioration post I&A
+## Deliverables
+- The team's PI Objectives (SMART)
+- Contribution to the Program Board (dependencies)
+- SoS participation report
+- Post-I&A improvement plan
 
-## Format de sortie
-Précise : taille de l'ART (nombre d'équipes) · maturité SAFe · niveau de dépendances · PI en cours · rôle RTE avec qui travailler
+## Output format
+Specify: ART size (number of teams) · SAFe maturity · level of dependencies · current PI · the RTE role to work with

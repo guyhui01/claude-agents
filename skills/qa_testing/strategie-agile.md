@@ -1,48 +1,48 @@
-# Skill QA Agile — Stratégie de Tests Agile (Shift-Left)
+# QA Agile Skill — Agile Test Strategy (Shift-Left)
 
-> Certification : CTFL-AT · CTAL-ATT
-> Agent : AGENT-QA-AGILE.md
-> Méthodologie : Agile
+> Certification: CTFL-AT · CTAL-ATT
+> Agent: AGENT-QA-AGILE.md
+> Methodology: Agile
 
-## Principe Shift-Left ISTQB
-Intégrer la qualité le plus tôt possible dans le cycle, dès la rédaction des User Stories.
+## ISTQB Shift-Left principle
+Build quality in as early as possible in the cycle, starting from the writing of the User Stories.
 
-## Quadrant de tests Agile (Brian Marick)
+## Agile testing quadrants (Brian Marick)
 
 ```
-               CRITIQUE LE PRODUIT
+               CRITIQUE THE PRODUCT
         ┌──────────────────────────────┐
-        │  Q4 : Tests de performance   │ ← Outils
-        │  Tests de sécurité           │
-        │  Tests de charge             │
-TECH    ├──────────────────────────────┤  MÉTIER
-        │  Q3 : Tests exploratoires    │
-        │  Tests d'acceptance UAT      │
-        │  Tests scénarios utilisateur │
+        │  Q4: Performance tests       │ ← Tools
+        │  Security tests              │
+        │  Load tests                  │
+TECH    ├──────────────────────────────┤  BUSINESS
+        │  Q3: Exploratory tests       │
+        │  UAT acceptance tests        │
+        │  User scenario tests         │
         ├──────────────────────────────┤
-        │  Q1 : Tests unitaires (TDD)  │ ← Automatisés
-        │  Tests de composants         │
-        │  Q2 : Tests fonctionnels     │ ← Manuels + Auto
-        │  Tests d'acceptance (BDD)    │
+        │  Q1: Unit tests (TDD)        │ ← Automated
+        │  Component tests             │
+        │  Q2: Functional tests        │ ← Manual + Auto
+        │  Acceptance tests (BDD)      │
         └──────────────────────────────┘
-               SOUTIENT L'ÉQUIPE
+               SUPPORTING THE TEAM
 ```
 
-## Stratégie par phase Scrum
+## Strategy by Scrum phase
 
-| Phase | Activité QA | Qui |
+| Phase | QA activity | Who |
 |---|---|---|
-| **Refinement** | Revue US, critères d'acceptance, risques | PO + QA |
-| **Sprint Planning** | Estimation tests, DoD qualité | QA + Équipe |
-| **Sprint (J1-J3)** | Rédaction cas de test, scénarios BDD | QA |
-| **Sprint (J4-J8)** | Tests en parallèle du dev, feedback rapide | QA + DEV |
-| **Sprint (J9-J10)** | Validation finale, DOD check | QA + PO |
-| **Review** | Démo sur environnement stable | QA valide le build |
+| **Refinement** | US review, acceptance criteria, risks | PO + QA |
+| **Sprint Planning** | Test estimation, quality DoD | QA + Team |
+| **Sprint (D1-D3)** | Writing test cases, BDD scenarios | QA |
+| **Sprint (D4-D8)** | Testing in parallel with dev, fast feedback | QA + DEV |
+| **Sprint (D9-D10)** | Final validation, DoD check | QA + PO |
+| **Review** | Demo on a stable environment | QA validates the build |
 
-## Checklist stratégie Agile
-- [ ] QA impliqué dès le Refinement
-- [ ] Critères d'acceptance = base des cas de test
-- [ ] Tests automatisés pour la régression
-- [ ] Tests exploratoires pour les nouveautés
-- [ ] DoD inclut les critères qualité
-- [ ] Feedback DEV ↔ QA < 24h dans le sprint
+## Agile strategy checklist
+- [ ] QA involved from Refinement onward
+- [ ] Acceptance criteria = basis for the test cases
+- [ ] Automated tests for regression
+- [ ] Exploratory tests for new features
+- [ ] DoD includes the quality criteria
+- [ ] DEV ↔ QA feedback < 24h within the sprint

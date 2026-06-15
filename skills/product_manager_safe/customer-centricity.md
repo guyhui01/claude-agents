@@ -1,99 +1,99 @@
-# Skill — Centricité Client et Design Thinking SAFe
-> Certifications : SAFe POPM 6 (Scaled Agile), PMI-PBA (PMI), PSPO I (Scrum.org)
+# Skill — Customer Centricity and SAFe Design Thinking
+> Certifications: SAFe POPM 6 (Scaled Agile), PMI-PBA (PMI), PSPO I (Scrum.org)
 
-## Objectif
-Appliquer les pratiques de centricité client au niveau Programme SAFe — Jobs-To-Be-Done, personas, empathy mapping, Continuous Exploration — pour s'assurer que les Features livrées répondent aux vrais besoins utilisateurs.
+## Objective
+Apply customer-centricity practices at the SAFe Program level — Jobs-To-Be-Done, personas, empathy mapping, Continuous Exploration — to ensure the delivered Features meet real user needs.
 
 ## Jobs-To-Be-Done (JTBD) — Framework
 
 ```
-FORMAT JTBD
+JTBD FORMAT
 ────────────────────────────────────────────────────────────
-Quand [SITUATION / CONTEXTE]
-Je veux [MOTIVATION / OBJECTIF]
-Afin de [RÉSULTAT ATTENDU / BÉNÉFICE]
+When [SITUATION / CONTEXT]
+I want to [MOTIVATION / GOAL]
+So that [EXPECTED OUTCOME / BENEFIT]
 
-EXEMPLE :
-Quand je reçois 200 candidatures pour un poste
-Je veux identifier rapidement les 10 meilleurs profils
-Afin de ne pas perdre de temps sur les dossiers non pertinents
+EXAMPLE:
+When I receive 200 applications for a role
+I want to quickly identify the top 10 profiles
+So that I don't waste time on irrelevant files
 ```
 
-## Persona Programme — Template
+## Program persona — Template
 
 ```yaml
 persona:
-  nom: "Claire, Chargée RH Senior"
+  name: "Claire, Senior HR Officer"
   age: 38
-  entreprise: "Grand groupe — 5000 collaborateurs"
-  
-  role: "Gère 15 recrutements simultanément"
-  
-  objectifs:
-    - "Trouver les meilleurs candidats le plus vite possible"
-    - "Réduire le temps administratif pour se concentrer sur le contact humain"
-    - "Justifier ses décisions de recrutement à sa direction"
-    
+  company: "Large group — 5000 employees"
+
+  role: "Manages 15 simultaneous hires"
+
+  goals:
+    - "Find the best candidates as fast as possible"
+    - "Reduce admin time to focus on human contact"
+    - "Justify her hiring decisions to leadership"
+
   frustrations:
-    - "Noie dans les CVs (200+ par poste)"
-    - "Outils RH trop rigides, pas d'IA"
-    - "Manque de données pour argumenter ses recommandations"
-    
-  comportements_outils:
-    - "LinkedIn Recruiter quotidien"
-    - "SIRH (SAP HCM) — usage contraint"
-    - "Excel pour ses propres tableaux de bord"
-    
-  gains_attendus:
-    - "Gagner 2h/jour sur le tri administratif"
-    - "Dashboard clair pour reporter à sa direction"
-    - "Confiance dans les suggestions de l'IA"
+    - "Drowning in CVs (200+ per role)"
+    - "HR tools too rigid, no AI"
+    - "Lack of data to back up her recommendations"
+
+  tool_behaviors:
+    - "LinkedIn Recruiter daily"
+    - "HRIS (SAP HCM) — constrained usage"
+    - "Excel for her own dashboards"
+
+  expected_gains:
+    - "Save 2h/day on admin screening"
+    - "Clear dashboard to report to leadership"
+    - "Trust in the AI's suggestions"
 ```
 
 ## Empathy Map — Template
 
 ```
-                    PENSÉE & RESSENTI
-                    "Ai-je fait les bons choix ?"
-                    "L'IA va-t-elle me remplacer ?"
+                    THINK & FEEL
+                    "Did I make the right choices?"
+                    "Will AI replace me?"
                               │
           ┌──────────────────┼──────────────────┐
-  ENTEND  │                  │                  │  VOIT
-  "L'IA   │                  │                  │  Des piles de
-  remplace│      CLAIRE      │                  │  CVs non lus
-  les RH" │      (Persona)   │                  │  Des collègues
-          │                  │                  │  débordés
+  HEARS   │                  │                  │  SEES
+  "AI     │                  │                  │  Piles of
+  replaces│      CLAIRE      │                  │  unread CVs
+  HR"     │      (Persona)   │                  │  Overwhelmed
+          │                  │                  │  colleagues
           └──────────────────┼──────────────────┘
                               │
-                    DIT & FAIT
-                    Trie les CVs manuellement
-                    Copie-colle dans Excel
-                    Se plaint du SIRH trop rigide
+                    SAYS & DOES
+                    Screens CVs manually
+                    Copy-pastes into Excel
+                    Complains the HRIS is too rigid
 ```
 
-## Continuous Exploration SAFe
+## SAFe Continuous Exploration
 
 ```
-CYCLE CONTINUOUS EXPLORATION (CE)
+CONTINUOUS EXPLORATION (CE) CYCLE
 ────────────────────────────────────────────────────────────
-HYPOTHÈSE → EXPÉRIENCE → DONNÉES → APPRENTISSAGE → PIVOT/PERSÉVÈRE
+HYPOTHESIS → EXPERIMENT → DATA → LEARNING → PIVOT/PERSEVERE
 
-EXEMPLE D'EXPÉRIENCE :
-Hypothèse : "Les RH font confiance au score IA si l'explication est fournie"
-Expérience : Pilote 2 sprints sur 10 utilisateurs
-  → Version A : Score IA seul
-  → Version B : Score IA + top 3 raisons
-Mesure : Taux d'acceptation des suggestions IA
-Résultat : B → 78% acceptation vs A → 34%
-Apprentissage : L'explicabilité est non-négociable
-Action : Feature "Explication score" → Must Have
+EXAMPLE EXPERIMENT:
+Hypothesis: "HR trusts the AI score if an explanation is provided"
+Experiment: 2-sprint pilot on 10 users
+  → Version A: AI score alone
+  → Version B: AI score + top 3 reasons
+Measure: Acceptance rate of the AI suggestions
+Result: B → 78% acceptance vs A → 34%
+Learning: Explainability is non-negotiable
+Action: "Score explanation" Feature → Must Have
 ```
 
-## Livrables
-- JTBD documentés pour les principales populations
-- Personas Programme (2-3 personas)
-- Empathy Map visuelle
-- Backlog d'expériences Continuous Exploration
+## Deliverables
+- Documented JTBD for the main populations
+- Program personas (2-3 personas)
+- Visual Empathy Map
+- Continuous Exploration experiment backlog
 
-## Format de sortie
-Précise : populations cibles, domaine produit, données utilisateurs disponibles (entretiens, analytics, support).
+## Output format
+Specify: target populations, product domain, available user data (interviews, analytics, support).

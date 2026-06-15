@@ -1,274 +1,274 @@
-# Skill — Audit Qualité d'un Skill du Catalogue (grille v2.8 en autonomie)
+# Skill — Quality Audit of a Catalog Skill (v2.8 grid, autonomously)
 
-> Certifications : **ISO/IEC 19011:2018** (lignes directrices audit) · **ISO 9001:2015 §9.2** (audit interne) · **CMMI V3.0** (appraisal SCAMPI, ISACA 2023) · **ISO/IEC 42001:2023** (AIMS) · ISO 9001:2015 Lead Auditor · CMMI Associate
-> Agent : AGENT-AUDIT-METHODO-IA.md
+> Certifications: **ISO/IEC 19011:2018** (audit guidelines) · **ISO 9001:2015 §9.2** (internal audit) · **CMMI V3.0** (SCAMPI appraisal, ISACA 2023) · **ISO/IEC 42001:2023** (AIMS) · ISO 9001:2015 Lead Auditor · CMMI Associate
+> Agent: AGENT-AUDIT-METHODO-IA.md
 
-## Objectif
+## Objective
 
-Permettre à l'agent d'**auditer en autonomie la qualité d'un ou plusieurs skills du catalogue** (fichiers `.md` de `skills/`) en consommant la grille qualité **v2.8** — sans pilotage manuel. L'agent : (1) route le skill vers la bonne déclinaison de grille selon l'agent propriétaire, (2) délègue l'extraction factuelle à un sous-agent Explore, (3) cote sur **3 dimensions × 4 niveaux**, (4) produit un rapport standardisé, (5) recommande une vague de correction **V1/V2/V3**. C'est l'**objectif final déclaré du chantier audit v2.8** : industrialiser la méthodologie pilotée manuellement sur les 33 agents (Phases 1+2).
+Enable the agent to **autonomously audit the quality of one or more catalog skills** (the `.md` files in `skills/`) by consuming the **v2.8** quality grid — with no manual steering. The agent: (1) routes the skill to the right grid variant based on the owning agent, (2) delegates the factual extraction to an Explore sub-agent, (3) scores on **3 dimensions × 4 levels**, (4) produces a standardized report, (5) recommends a correction wave **V1/V2/V3**. This is the **stated end goal of the v2.8 audit effort**: industrialize the manually-driven methodology across the 33 agents (Phases 1+2).
 
-> **Frontière nette** — ce skill audite **un livrable du catalogue** (un fichier skill). Pour auditer un **livrable runtime** produit par un agent (User Story, Feature, PI, sortie IA) → [`audit-conformite-methodo.md`](audit-conformite-methodo.md). Ne jamais confondre les deux objets d'audit.
+> **Clear boundary** — this skill audits **a catalog deliverable** (a skill file). To audit a **runtime deliverable** produced by an agent (User Story, Feature, PI, AI output) → [`audit-conformite-methodo.md`](audit-conformite-methodo.md). Never confuse the two audit objects.
 
-> **Source de vérité de la grille** : [`audits/audit-grilles-v2.8.md`](../../audits/audit-grilles-v2.8.md) — squelette commun + **5 déclinaisons** formalisées (§3.1 à §3.5) + workflow + patterns. Ce skill encode la **procédure d'exécution** ; il ne duplique pas les critères détaillés des 5 groupes — s'y référer systématiquement à l'étape de cotation.
+> **Grid source of truth**: [`audits/audit-grilles-v2.8.md`](../../audits/audit-grilles-v2.8.md) — common skeleton + **5 variants** formalized (§3.1 to §3.5) + workflow + patterns. This skill encodes the **execution procedure**; it does not duplicate the detailed criteria of the 5 groups — refer to it systematically at the scoring step.
 
-## Cadre référentiels mobilisés
+## Frameworks used
 
-| Domaine | Référentiels |
+| Domain | Frameworks |
 |---|---|
-| **Principes d'audit** | ISO/IEC 19011:2018 (7 principes) · ISO 9001:2015 §9.2 (programme d'audit interne) |
-| **Maturité / appraisal** | CMMI V3.0 — méthode SCAMPI (benchmark, classes A/B/C) |
-| **Audit IA** | ISO/IEC 42001:2023 (AI Management System) · NIST AI RMF 1.0 |
-| **Biais & angles morts** | Kahneman *Thinking, Fast and Slow* (2011) · Tversky & Kahneman (1974) |
-| **Grille interne** | grille v2.8 (3D × 4 niveaux × 5 déclinaisons) |
+| **Audit principles** | ISO/IEC 19011:2018 (7 principles) · ISO 9001:2015 §9.2 (internal audit program) |
+| **Maturity / appraisal** | CMMI V3.0 — SCAMPI method (benchmark, classes A/B/C) |
+| **AI audit** | ISO/IEC 42001:2023 (AI Management System) · NIST AI RMF 1.0 |
+| **Biases & blind spots** | Kahneman *Thinking, Fast and Slow* (2011) · Tversky & Kahneman (1974) |
+| **Internal grid** | v2.8 grid (3D × 4 levels × 5 variants) |
 
-## Les 7 principes d'audit ISO/IEC 19011:2018 appliqués à l'audit de skills
+## The 7 ISO/IEC 19011:2018 audit principles applied to auditing skills
 
-L'audit qualité du catalogue n'est pas une relecture subjective : il s'ancre dans les **7 principes** de la norme d'audit des systèmes de management.
+A catalog quality audit is not a subjective re-read: it is anchored in the **7 principles** of the management-system audit standard.
 
-| # | Principe ISO 19011 | Application à l'audit d'un skill |
+| # | ISO 19011 principle | Application to auditing a skill |
 |---|---|---|
-| 1 | **Intégrité** | L'auditeur coterait à l'identique que le skill ait été écrit par Guy, un autre agent ou lui-même. Aucune indulgence d'auteur. **Servir la qualité du projet, jamais la validation sociale de l'owner** : un « bravo » ou un « ok » ne vaut pas preuve. |
-| 2 | **Présentation impartiale** | Le rapport reflète fidèlement les ✓ **et** les ✗. On ne masque pas un P1 pour « faire propre ». |
-| 3 | **Conscience professionnelle** | Diligence : lire **tout** le skill, vérifier chaque référentiel cité, ne pas extrapoler. |
-| 4 | **Confidentialité** | Les exemples sectoriels restent anonymisés (règle catalogue généraliste — banque CIB, luxe, énergie…). |
-| 5 | **Indépendance** | L'auditeur (AGENT-AUDIT-METHODO-IA) est distinct de l'agent producteur. ⚠️ sur un même modèle LLM, les biais sont **corrélés** → §angles morts. |
-| 6 | **Approche fondée sur les preuves** | Une cotation D1/D2/D3 s'appuie sur une **citation exacte** du skill (l'extraction Explore), jamais sur une impression. |
-| 7 | **Approche par les risques** (ajoutée 2018) | Prioriser l'effort d'audit sur les skills **core mission** (N1/N2) — un P1 sur un skill mobilisé chaque semaine pèse plus qu'un P3 sur un skill N4. |
+| 1 | **Integrity** | The auditor would score identically whether the skill was written by Guy, another agent or itself. No author leniency. **Serve the project's quality, never the owner's social validation**: a "well done" or an "ok" is not proof. |
+| 2 | **Fair presentation** | The report faithfully reflects the ✓ **and** the ✗. You don't hide a P1 to "look clean". |
+| 3 | **Due professional care** | Diligence: read the **whole** skill, check every cited framework, don't extrapolate. |
+| 4 | **Confidentiality** | Sector examples stay anonymized (generalist-catalog rule — CIB banking, luxury, energy…). |
+| 5 | **Independence** | The auditor (AGENT-AUDIT-METHODO-IA) is distinct from the producing agent. ⚠️ on the same LLM model, biases are **correlated** → see the blind-spots section. |
+| 6 | **Evidence-based approach** | A D1/D2/D3 score rests on an **exact quote** from the skill (the Explore extraction), never on an impression. |
+| 7 | **Risk-based approach** (added 2018) | Prioritize the audit effort on the **core mission** skills (N1/N2) — a P1 on a skill used every week weighs more than a P3 on an N4 skill. |
 
-## 1. Rappel opérationnel de la grille v2.8
+## 1. Operational reminder of the v2.8 grid
 
-### 1.1 — Trois dimensions universelles
+### 1.1 — Three universal dimensions
 
-| # | Dimension | Question structurante |
+| # | Dimension | Structuring question |
 |---|---|---|
-| **D1** | **Conformité référentielle** | Le skill respecte-t-il scrupuleusement le référentiel officiel revendiqué par l'agent ? |
-| **D2** | **Actionabilité** | Le contenu est-il directement utilisable (copier-coller, ou suivi pas à pas) sans retravail ? |
-| **D3** | **Profondeur** | Le skill mobilise-t-il sources et retours d'expérience récents légitimant l'expertise certifiante ? |
+| **D1** | **Framework compliance** | Does the skill scrupulously follow the official framework claimed by the agent? |
+| **D2** | **Actionability** | Is the content directly usable (copy-paste, or step-by-step) with no rework? |
+| **D3** | **Depth** | Does the skill draw on recent sources and field feedback that legitimize the certifying expertise? |
 
-### 1.2 — Échelle de cotation (par dimension)
+### 1.2 — Scoring scale (per dimension)
 
-| Cotation | Sens |
+| Score | Meaning |
 |---|---|
-| **✓** | Conforme — répond aux **3** critères opérationnels du niveau attendu |
-| **⚠** | À corriger — 1-2 manques sur 3 critères |
-| **✗** | À refondre — manque structurel (0-1 critère sur 3) |
-| **N/A** | Non applicable (rare — justifier explicitement) |
+| **✓** | Compliant — meets the **3** operational criteria of the expected level |
+| **⚠** | To correct — 1-2 gaps out of 3 criteria |
+| **✗** | To rebuild — structural gap (0-1 criterion out of 3) |
+| **N/A** | Not applicable (rare — justify explicitly) |
 
-### 1.3 — Règles de verdict global par skill
+### 1.3 — Global verdict rules per skill
 
-| Verdict | Critère | Vague de correction (cf. §6) |
+| Verdict | Criterion | Correction wave (cf. §6) |
 |---|---|---|
-| **✓** | 3 dimensions ✓ | Aucune action |
-| **P3** | 1 dimension ⚠ sur formatting/structure | V4 cosmétique (optionnel) |
-| **P2** | 1-2 dimensions ⚠ sur contenu | V3 enrichissement (bundle) |
-| **P1** | 1 dimension ✗ OU ≥2 ⚠ critiques | V2 profonde (ou V1 si mécanique) |
-| **P0** | ≥2 dimensions ✗ | V2 refonte complète prioritaire |
+| **✓** | 3 dimensions ✓ | No action |
+| **P3** | 1 dimension ⚠ on formatting/structure | V4 cosmetic (optional) |
+| **P2** | 1-2 dimensions ⚠ on content | V3 enrichment (bundle) |
+| **P1** | 1 dimension ✗ OR ≥2 critical ⚠ | V2 deep (or V1 if mechanical) |
+| **P0** | ≥2 dimensions ✗ | V2 priority full rebuild |
 
-### 1.4 — Métriques de synthèse (à calculer par agent audité)
+### 1.4 — Summary metrics (to compute per audited agent)
 
-- Distribution des verdicts (% ✓ / P3 / P2 / P1 / P0)
-- % skills **sans certification déclarée** (bug structurel mécanique)
-- % skills avec ≥1 **anti-pattern explicite** · % avec ≥1 **source externe** citée
-- **Taux de couverture** des référentiels attendus (vs déclarés)
+- Verdict distribution (% ✓ / P3 / P2 / P1 / P0)
+- % skills **with no declared certification** (mechanical structural bug)
+- % skills with ≥1 **explicit anti-pattern** · % with ≥1 **external source** cited
+- **Coverage rate** of the expected frameworks (vs declared)
 
-## 2. Table de routage — agent → groupe → déclinaison de grille
+## 2. Routing table — agent → group → grid variant
 
-L'agent **choisit automatiquement** la déclinaison §3.x de `audits/audit-grilles-v2.8.md` selon l'agent propriétaire du skill audité.
+The agent **automatically chooses** the §3.x variant of `audits/audit-grilles-v2.8.md` based on the agent owning the audited skill.
 
-| Groupe | §grille | Agents (33 audités v2.8) |
+| Group | §grid | Agents (33 audited v2.8) |
 |---|:---:|---|
-| **Agile/Produit** | §3.1 | PO-SAFE · PO-SCRUM · PRODUCT-MANAGER-SAFE · SCRUM-MASTER · RELEASE-TRAIN-ENGINEER · BUSINESS-ANALYST · QA-AGILE · QA-CYCLEV · CHANGE-MANAGER |
-| **Conseil/Direction** | §3.2 | JURIDIQUE-IA · CDO-DIRECTEUR-IA · CHEF-PROJET-IA · CONSULTANT-IA · FINANCIAL-ANALYST · AUDIT-METHODO-IA |
+| **Agile/Product** | §3.1 | PO-SAFE · PO-SCRUM · PRODUCT-MANAGER-SAFE · SCRUM-MASTER · RELEASE-TRAIN-ENGINEER · BUSINESS-ANALYST · QA-AGILE · QA-CYCLEV · CHANGE-MANAGER |
+| **Consulting/Leadership** | §3.2 | JURIDIQUE-IA · CDO-DIRECTEUR-IA · CHEF-PROJET-IA · CONSULTANT-IA · FINANCIAL-ANALYST · AUDIT-METHODO-IA |
 | **Data/Tech** | §3.3 | DATA-SCIENTIST · DATA-ENGINEER · MLOPS-ENGINEER · SOLUTIONS-ARCHITECT · BI-ANALYST |
 | **Dev/CMS** | §3.4 | DEV-TYPESCRIPT-IA · DEV-DRUPAL-PHP · CMS-DIGITAL · PIM-EXPERT · DAM-EXPERT |
-| **Transverse/Méta** | §3.5 | ORCHESTRATEUR-WORKFLOW · PROMPT-ENGINEER · REDACTEUR-IA · UX-DESIGNER · FORMATEUR-IA · GROWTH-IA · RH-IA · VEILLE-STRATEGIQUE |
+| **Cross-cutting/Meta** | §3.5 | ORCHESTRATEUR-WORKFLOW · PROMPT-ENGINEER · REDACTEUR-IA · UX-DESIGNER · FORMATEUR-IA · GROWTH-IA · RH-IA · VEILLE-STRATEGIQUE |
 
-**Agents hors chantier 33 (rattachement au groupe le plus proche)** :
+**Agents outside the 33-agent effort (mapped to the closest group)**:
 
-| Agent | Groupe de rattachement | Raison |
+| Agent | Mapped group | Reason |
 |---|---|---|
-| AI-ARCHITECT | Data/Tech (§3.3) | Architecture IA, voisin SOLUTIONS-ARCHITECT |
-| TECH-LEAD · DEV-PYTHON-IA | Dev/CMS (§3.4) code ; Data/Tech (§3.3) si ML | Selon nature du skill |
-| DEVOPS-CLOUD | Data/Tech (§3.3) | CI/CD, voisin MLOPS-ENGINEER |
-| SECURITE-IA | Conseil/Direction (§3.2) conformité ; Data/Tech technique | Selon nature du skill |
+| AI-ARCHITECT | Data/Tech (§3.3) | AI architecture, neighbor of SOLUTIONS-ARCHITECT |
+| TECH-LEAD · DEV-PYTHON-IA | Dev/CMS (§3.4) code; Data/Tech (§3.3) if ML | Depending on the skill's nature |
+| DEVOPS-CLOUD | Data/Tech (§3.3) | CI/CD, neighbor of MLOPS-ENGINEER |
+| SECURITE-IA | Consulting/Leadership (§3.2) compliance; Data/Tech technical | Depending on the skill's nature |
 
-> En cas d'ambiguïté de rattachement, poser **une seule question** à Guy avant de coter (règle de l'agent).
+> When the mapping is ambiguous, ask Guy **a single question** before scoring (the agent's rule).
 
-## 3. Workflow d'audit (6 étapes exécutables)
+## 3. Audit workflow (6 executable steps)
 
 ```
-1. CADRAGE      → router l'agent vers son groupe (§2) + ouvrir la déclinaison §3.x
-2. EXTRACTION   → déléguer à un sous-agent Explore (brief standard §3.1 ci-dessous)
-3. COTATION     → appliquer la grille déclinée : D1/D2/D3 ✓/⚠/✗ + verdict P0-P3 (§4)
-4. RAPPORT      → produire audits/audit-<agent>-<AAAA-MM-JJ>.md (template §5)
-5. VALIDATION   → soumettre verdicts + plan d'action à Guy (jamais auto-promotion)
-6. CORRECTIONS  → exécuter par vagues V1/V2/V3 (§6) après arbitrage, commit par vague
+1. SCOPING      → route the agent to its group (§2) + open the §3.x variant
+2. EXTRACTION   → delegate to an Explore sub-agent (standard brief §3.1 below)
+3. SCORING      → apply the variant grid: D1/D2/D3 ✓/⚠/✗ + verdict P0-P3 (§4)
+4. REPORT       → produce audits/audit-<agent>-<YYYY-MM-DD>.md (template §5)
+5. VALIDATION   → submit verdicts + action plan to Guy (never auto-promotion)
+6. CORRECTIONS  → execute in waves V1/V2/V3 (§6) after arbitration, commit per wave
 ```
 
-### 3.1 — Brief-type pour le sous-agent Explore (extraction factuelle)
+### 3.1 — Standard brief for the Explore sub-agent (factual extraction)
 
-> ⚠️ **Leçon Phase 1.2 — méthode standard obligatoire, jamais dégradée** : un brief ultra-compact (tableau + bullets) pour économiser des tokens est **proscrit** par Guy (qualité ≠ quantité dégradée). Extraction factuelle **structurée par skill**, sans cotation (la cotation reste à l'expert Claude principal — séparation des rôles, principe d'indépendance ISO 19011).
+> ⚠️ **Phase 1.2 lesson — standard method mandatory, never degraded**: an ultra-compact brief (table + bullets) to save tokens is **forbidden** by Guy (quality ≠ degraded quantity). Factual extraction **structured per skill**, with no scoring (scoring stays with the main Claude expert — separation of roles, ISO 19011 independence principle).
 
 ```
-Lis exhaustivement tous les skills de skills/<dossier_agent>/.
-Pour CHAQUE skill, extrais factuellement (PAS de cotation, PAS de jugement) :
-- Référentiels/frameworks cités (avec version et auteur si présents)
-- Livrables actionnables proposés (templates, code, diagrammes, checklists)
-- Exemples chiffrés / cas sectoriels présents
-- Anti-patterns explicités (oui/non + lesquels)
-- Sources externes citées (oui/non + lesquelles, avec dates)
-- Cross-links internes (Voir aussi)
-- Certification déclarée en en-tête (oui/non + lesquelles)
-- Signaux d'alerte factuels (version obsolète, chiffre non sourcé, terme inexact)
-Sortie : un bloc structuré par skill, format identique pour tous.
+Read all the skills in skills/<agent_folder>/ exhaustively.
+For EACH skill, extract factually (NO scoring, NO judgment):
+- Frameworks/references cited (with version and author if present)
+- Actionable deliverables offered (templates, code, diagrams, checklists)
+- Worked examples / sector cases present
+- Anti-patterns made explicit (yes/no + which ones)
+- External sources cited (yes/no + which ones, with dates)
+- Internal cross-links (See also)
+- Certification declared in the header (yes/no + which ones)
+- Factual warning signs (obsolete version, unsourced figure, inaccurate term)
+Output: one structured block per skill, identical format for all.
 ```
 
-## 4. Critères de cotation développés (par dimension)
+## 4. Detailed scoring criteria (per dimension)
 
-### D1 — Conformité référentielle
+### D1 — Framework compliance
 
-| Cote | Critère de décision | Exemple de signal |
+| Score | Decision criterion | Example signal |
 |---|---|---|
-| **✓** | Vocabulaire exact, version datée, auteur cité, aucun mélange inter-référentiels | « Scrum Guide **2020** : 1 seul Sprint Goal » · « AI Act art. 6 haut risque » |
-| **⚠** | Bon esprit mais 1-2 imprécisions | « CRISP-DM » cité sans ses 6 phases · framework cité sans auteur/année |
-| **✗** | Déviation majeure / confusion de référentiel | Scrum Guide 2017 · MoSCoW appliqué à des Features · Kimball confondu avec Inmon |
+| **✓** | Exact vocabulary, dated version, author cited, no inter-framework mixing | "Scrum Guide **2020**: only one Sprint Goal" · "AI Act art. 6 high risk" |
+| **⚠** | Right spirit but 1-2 inaccuracies | "CRISP-DM" cited without its 6 phases · framework cited without author/year |
+| **✗** | Major deviation / framework confusion | Scrum Guide 2017 · MoSCoW applied to Features · Kimball confused with Inmon |
 
-### D2 — Actionabilité
+### D2 — Actionability
 
-| Cote | Critère de décision | Exemple de signal |
+| Score | Decision criterion | Example signal |
 |---|---|---|
-| **✓** | **≥3 livrables** prêts à coller + exemples chiffrés réalistes | Template Jira + script cérémonie minuté + Mermaid + cas chiffré sectoriel |
-| **⚠** | Contenu correct mais templates partiels ou exemples génériques | Théorie juste, mais « MyApp » au lieu d'un cas sectoriel |
-| **✗** | Majoritairement conceptuel, aucun livrable réutilisable | Que des définitions, zéro template/code |
+| **✓** | **≥3 deliverables** ready to paste + realistic worked examples | Jira template + timed event script + Mermaid + sector worked case |
+| **⚠** | Correct content but partial templates or generic examples | Theory right, but "MyApp" instead of a sector case |
+| **✗** | Mostly conceptual, no reusable deliverable | Only definitions, zero template/code |
 
-### D3 — Profondeur
+### D3 — Depth
 
-| Cote | Critère de décision | Exemple de signal |
+| Score | Decision criterion | Example signal |
 |---|---|---|
-| **✓** | Sources **2023+**, anti-patterns explicités, métriques modernes, cas variés | Section `## Sources` datée + `## Anti-patterns` + DORA/Flow metrics |
-| **⚠** | Solide mais sources implicites ou datées (<2022) | Bon contenu sans aucune référence externe |
-| **✗** | Daté, aucune source, anti-patterns absents | Version obsolète, exemples génériques mono-sectoriels |
+| **✓** | Sources **2023+**, explicit anti-patterns, modern metrics, varied cases | Dated `## Sources` section + `## Anti-patterns` + DORA/Flow metrics |
+| **⚠** | Solid but implicit or dated sources (<2022) | Good content with no external reference |
+| **✗** | Dated, no source, anti-patterns absent | Obsolete version, generic single-sector examples |
 
-### Cas-limites à maîtriser
+### Edge cases to master
 
-- **Le ✓ pur est rare** — sur tout le chantier, peu de skills l'obtiennent (ex. `story-mapping.md`, `planning-poker.md`, `archimate-modeling.md`). N'attribuer 3 ✓ que si **aucune** dimension n'appelle de réserve. Dans le doute → ⚠.
-- **Faux positif = risque n°1** (ISO 19011 présentation impartiale) : coter ✓ par complaisance pour éviter la friction est plus grave qu'un rejet non fondé. Chaque ✓ s'adosse à une preuve.
-- **P1 mécanique vs substantiel** : un P1 « certif manquante en en-tête » ou « anti-pattern absent » est **mécanique** → V1 (10 min). Un P1 « profondeur absente, référentiel non couvert » est **substantiel** → V2 (1,5-2h). Le tri conditionne la planification.
-- **Vérification factuelle obligatoire** (règle `feedback_verification_factuelle`) : avant d'affirmer qu'un libellé de certification, un % statistique, un nom de cohorte/niveau de framework ou une date est **conforme ou erroné**, lancer un **WebSearch** sur la source primaire. Ne jamais coter D1 sur une croyance — incident v3.8.0 (cohorts MIT Sloan inventés) à ne pas reproduire.
+- **The pure ✓ is rare** — across the whole effort, few skills earn it (e.g. `story-mapping.md`, `planning-poker.md`, `archimate-modeling.md`). Only award 3 ✓ if **no** dimension calls for a reservation. When in doubt → ⚠.
+- **False positive = risk #1** (ISO 19011 fair presentation): scoring ✓ out of complacency to avoid friction is more serious than an unfounded rejection. Each ✓ rests on evidence.
+- **Mechanical vs substantive P1**: a P1 "missing certification in the header" or "absent anti-pattern" is **mechanical** → V1 (10 min). A P1 "depth absent, framework not covered" is **substantive** → V2 (1.5-2h). The sorting drives the planning.
+- **Mandatory factual verification** (rule `feedback_verification_factuelle`): before stating that a certification label, a statistical %, a cohort/framework-level name or a date is **compliant or wrong**, run a **WebSearch** on the primary source. Never score D1 on a belief — the v3.8.0 incident (invented MIT Sloan cohorts) must not recur.
 
-## 5. Template de rapport d'audit standardisé (10 sections)
+## 5. Standardized audit report template (10 sections)
 
-Fichier : `audits/audit-<agent>-<AAAA-MM-JJ>.md`
+File: `audits/audit-<agent>-<YYYY-MM-DD>.md`
 
 ```markdown
-# Audit qualité — AGENT-<NOM> (grille v2.8 §3.x <groupe>)
-> Date : AAAA-MM-JJ · Modèle : <modèle Claude utilisé> · Auditeur : AGENT-AUDIT-METHODO-IA
+# Quality audit — AGENT-<NAME> (v2.8 grid §3.x <group>)
+> Date: YYYY-MM-DD · Model: <Claude model used> · Auditor: AGENT-AUDIT-METHODO-IA
 
-## 1. Synthèse (verdict global + chiffres clés)
-## 2. Méthode (groupe, déclinaison §3.x, périmètre N skills, extraction Explore)
-## 3. Tableau de cotation (1 ligne/skill : D1 | D2 | D3 | Verdict)
-## 4. Findings P1 (bloquants — constat · référence · recommandation)
-## 5. Findings P2 (enrichissements à planifier)
-## 6. Findings P3 (cosmétique fine)
-## 7. Constats transversaux (patterns récurrents sur l'agent)
-## 8. Métriques de synthèse (§1.4)
-## 9. Plan d'action recommandé (V1/V2/V3 — cf. §6)
-## 10. Validation Guy (verdicts validés / ajustés / arbitrages)
+## 1. Summary (global verdict + key figures)
+## 2. Method (group, §3.x variant, scope N skills, Explore extraction)
+## 3. Scoring table (1 row/skill: D1 | D2 | D3 | Verdict)
+## 4. P1 findings (blocking — finding · reference · recommendation)
+## 5. P2 findings (enrichments to plan)
+## 6. P3 findings (fine cosmetics)
+## 7. Cross-cutting findings (recurring patterns on the agent)
+## 8. Summary metrics (§1.4)
+## 9. Recommended action plan (V1/V2/V3 — cf. §6)
+## 10. Guy validation (verdicts validated / adjusted / arbitrations)
 ```
 
-Chaque finding suit le **format 3 parties** de l'agent : **constat · référence certifiante · recommandation concrète**.
+Each finding follows the agent's **3-part format**: **finding · certifying reference · concrete recommendation**.
 
-## 6. Logique de recommandation des vagues V1/V2/V3
+## 6. Logic for recommending the V1/V2/V3 waves
 
-| Vague | Cible | Nature | Budget indicatif |
+| Wave | Target | Nature | Indicative budget |
 |---|---|---|---|
-| **V1 mécanique** | P1 cosmétiques + P3 | Certif déclarée manquante, en-tête standardisé, anti-pattern à ajouter, source absente — correction mécanique transverse | ~10 min/skill |
-| **V2 profonde** | P1 stratégiques + P0 | Refonte de contenu : référentiels datés, exemples chiffrés sectoriels, sources primaires (WebSearch), anti-patterns explicités | 1,5-2h/skill |
-| **V3 bundles** | P2 cross-agents | Enrichissements thématiques groupés : Sources / Anti-patterns / Cross-links / Diversification sectorielle | par lot |
+| **V1 mechanical** | Cosmetic P1 + P3 | Missing declared certification, standardized header, anti-pattern to add, missing source — cross-cutting mechanical fix | ~10 min/skill |
+| **V2 deep** | Strategic P1 + P0 | Content rebuild: dated frameworks, sector worked examples, primary sources (WebSearch), explicit anti-patterns | 1.5-2h/skill |
+| **V3 bundles** | Cross-agent P2 | Grouped thematic enrichments: Sources / Anti-patterns / Cross-links / Sector diversification | per batch |
 
-**Règle de tri** : un P1 **mécanique** (manque déclaratif) bascule en V1 ; un P1 **substantiel** (déviation de fond, profondeur absente) reste en V2. Le critère **80/20 + « Mission 6 mois »** arbitre l'effort : enrichir d'abord les skills core réellement mobilisés en mission, éviter le verticalisme coûteux (anti usine à gaz).
+**Sorting rule**: a **mechanical** P1 (declarative gap) moves to V1; a **substantive** P1 (substance deviation, depth absent) stays in V2. The **80/20 + "6-month mission"** criterion arbitrates the effort: enrich the core skills actually used in engagements first, avoid costly verticalism (anti gas-factory).
 
-## 7. Exemple d'audit déroulé de bout en bout (illustratif)
+## 7. End-to-end worked audit example (illustrative)
 
-> Cas **illustratif anonymisé** d'un audit complet appliqué à un skill fictif `skills/scrum/priorisation-backlog.md` (agent PO-SCRUM → groupe **Agile/Produit §3.1**).
+> **Illustrative, anonymized** case of a full audit applied to a fictional skill `skills/scrum/priorisation-backlog.md` (agent PO-SCRUM → group **Agile/Product §3.1**).
 
-**Étape 1 — Cadrage** : propriétaire = PO-SCRUM → groupe Agile/Produit → ouvrir grille §3.1 (référentiels attendus : Scrum Guide 2020, SAFe 6, WSJF POPM 6, sources scrum.org/scaledagileframework.com 2023+).
+**Step 1 — Scoping**: owner = PO-SCRUM → Agile/Product group → open grid §3.1 (expected frameworks: Scrum Guide 2020, SAFe 6, WSJF POPM 6, sources scrum.org/scaledagileframework.com 2023+).
 
-**Étape 2 — Extraction Explore** (sortie factuelle, extraits) :
-- Référentiels cités : « MoSCoW », « WSJF », « RICE » — *aucune version/auteur*
-- Livrables : 1 tableau de priorisation MoSCoW ; *pas d'exemple chiffré WSJF, pas de template Jira*
-- Anti-patterns : **absents**
-- Sources externes : **aucune**
-- Certification en-tête : **absente**
-- Signal d'alerte : « WSJF = somme des 4 critères » (formule incomplète : WSJF = Cost of Delay / Job Size)
+**Step 2 — Explore extraction** (factual output, excerpts):
+- Frameworks cited: "MoSCoW", "WSJF", "RICE" — *no version/author*
+- Deliverables: 1 MoSCoW prioritization table; *no worked WSJF example, no Jira template*
+- Anti-patterns: **absent**
+- External sources: **none**
+- Header certification: **absent**
+- Warning sign: "WSJF = sum of the 4 criteria" (incomplete formula: WSJF = Cost of Delay / Job Size)
 
-**Étape 3 — Cotation** (grille §3.1) :
+**Step 3 — Scoring** (grid §3.1):
 
-| Dim. | Cote | Justification (preuve) |
+| Dim. | Score | Justification (evidence) |
 |---|:---:|---|
-| **D1** | **✗** | WSJF mal défini (formule incomplète) + frameworks sans version/auteur → déviation majeure |
-| **D2** | **⚠** | 1 tableau MoSCoW utilisable mais ni exemple WSJF chiffré ni template Jira (<3 livrables) |
-| **D3** | **✗** | 0 source, 0 anti-pattern, contenu daté |
+| **D1** | **✗** | WSJF poorly defined (incomplete formula) + frameworks without version/author → major deviation |
+| **D2** | **⚠** | 1 usable MoSCoW table but neither a worked WSJF example nor a Jira template (<3 deliverables) |
+| **D3** | **✗** | 0 source, 0 anti-pattern, dated content |
 
-→ **Verdict : P1** (1 dimension ✗ + une 2ᵉ ✗ ⇒ proche P0 ; ici classé **P1 substantiel** car le cœur WSJF est faux).
+→ **Verdict: P1** (1 dimension ✗ + a 2nd ✗ ⇒ close to P0; here classed **substantive P1** because the WSJF core is wrong).
 
-**Étape 4 — Findings (format 3 parties)** :
-- *Constat* : la formule WSJF est fausse (somme au lieu de CoD/Job Size). *Référence* : SAFe 6 POPM — WSJF = Cost of Delay ÷ Job Size, cotation **relative par colonne**. *Reco* : réécrire la section WSJF avec la formule officielle + exemple chiffré 5 features.
+**Step 4 — Findings (3-part format)**:
+- *Finding*: the WSJF formula is wrong (sum instead of CoD/Job Size). *Reference*: SAFe 6 POPM — WSJF = Cost of Delay ÷ Job Size, **per-column relative** scoring. *Recommendation*: rewrite the WSJF section with the official formula + a worked example of 5 features.
 
-**Étape 5 — Reco vague** : P1 **substantiel** (WSJF faux + profondeur absente) → **V2 profonde** (1,5-2h) : ajout Scrum Guide 2020 daté, formule WSJF correcte + exemple chiffré, RICE (Intercom 2016) sourcé, section Anti-patterns (« WSJF en absolu », « MoSCoW sur Epics »), en-tête certifié, `## Sources`.
+**Step 5 — Wave recommendation**: substantive P1 (WSJF wrong + depth absent) → **V2 deep** (1.5-2h): add a dated Scrum Guide 2020, the correct WSJF formula + worked example, sourced RICE (Intercom 2016), an Anti-patterns section ("absolute WSJF", "MoSCoW on Epics"), a certified header, `## Sources`.
 
-**Métriques synthèse (si agent complet audité)** : ex. PO-SCRUM 14 skills → 1 ✓ / 3 P3 / 6 P2 / 4 P1 / 0 P0 · 29 % sans certif déclarée · 36 % avec anti-patterns · 50 % avec sources.
+**Summary metrics (if a full agent is audited)**: e.g. PO-SCRUM 14 skills → 1 ✓ / 3 P3 / 6 P2 / 4 P1 / 0 P0 · 29% with no declared certification · 36% with anti-patterns · 50% with sources.
 
-## Anti-patterns d'audit
+## Audit anti-patterns
 
-- ❌ **Brief Explore compact** pour économiser des tokens → extraction dégradée (qualité dégradée proscrite, Phase 1.2)
-- ❌ **Coter ✓ par complaisance** sans vérifier les 3 critères opérationnels → faux positif (plus dangereux qu'un rejet — ISO 19011 présentation impartiale)
-- ❌ **Inventer un verdict ✓ pur** alors qu'aucune dimension n'est réellement irréprochable (le ✓ pur est rare)
-- ❌ **Auditer sans conscience des biais corrélés** producteur/auditeur sur un même modèle LLM → proposer une validation croisée (autre modèle) pour les enjeux forts
-- ❌ **Affirmer une non-conformité D1** (libellé certif, %, date, niveau framework) sans WebSearch préalable sur la source primaire
-- ❌ **Confondre** audit qualité d'un skill catalogue (ce skill) et audit d'un livrable runtime ([`audit-conformite-methodo.md`](audit-conformite-methodo.md))
-- ❌ **Indulgence d'auteur** : coter plus doucement parce que le skill a été écrit par Guy ou par soi-même (viole l'intégrité ISO 19011)
-- ❌ **Cotation sans preuve** : juger sur une impression globale au lieu d'une citation exacte issue de l'extraction (viole l'approche fondée sur les preuves)
+- ❌ **Compact Explore brief** to save tokens → degraded extraction (degraded quality forbidden, Phase 1.2)
+- ❌ **Scoring ✓ out of complacency** without checking the 3 operational criteria → false positive (more dangerous than a rejection — ISO 19011 fair presentation)
+- ❌ **Inventing a pure ✓ verdict** when no dimension is truly flawless (the pure ✓ is rare)
+- ❌ **Auditing without awareness of correlated** producer/auditor biases on the same LLM model → propose cross-validation (a different model) for high-stakes matters
+- ❌ **Stating a D1 non-compliance** (certification label, %, date, framework level) without a prior WebSearch on the primary source
+- ❌ **Confusing** the quality audit of a catalog skill (this skill) with the audit of a runtime deliverable ([`audit-conformite-methodo.md`](audit-conformite-methodo.md))
+- ❌ **Author leniency**: scoring more gently because the skill was written by Guy or by oneself (violates ISO 19011 integrity)
+- ❌ **Scoring without evidence**: judging on a global impression instead of an exact quote from the extraction (violates the evidence-based approach)
 
-## Outils
+## Tools
 
-- **Sous-agent Explore** : extraction factuelle exhaustive par skill (étape 2 — délégation)
-- **WebSearch** : vérification des sources primaires avant cotation D1 (libellés certifs, % , dates, niveaux frameworks)
-- **Grille v2.8** : `audits/audit-grilles-v2.8.md` (squelette + 5 déclinaisons + workflow)
-- **Rapports d'audit existants** : `audits/audit-<agent>-*.md` (modèles de référence calibrés sur le chantier)
-- **Bilan chantier** : `audits/BILAN-PHASE-1-CHANTIER-V2.8.md` · **cartographie core** : `audits/CARTOGRAPHIE-SKILLS-CORE-MISSION.md` (priorisation N1/N2 pour l'approche par les risques)
+- **Explore sub-agent**: exhaustive factual extraction per skill (step 2 — delegation)
+- **WebSearch**: verification of primary sources before D1 scoring (certification labels, %, dates, framework levels)
+- **v2.8 grid**: `audits/audit-grilles-v2.8.md` (skeleton + 5 variants + workflow)
+- **Existing audit reports**: `audits/audit-<agent>-*.md` (reference templates calibrated on the effort)
+- **Effort review**: `audits/BILAN-PHASE-1-CHANTIER-V2.8.md` · **core mapping**: `audits/CARTOGRAPHIE-SKILLS-CORE-MISSION.md` (N1/N2 prioritization for the risk-based approach)
 
-## Livrables
+## Deliverables
 
-- **Rapport d'audit standardisé** `audits/audit-<agent>-<AAAA-MM-JJ>.md` (10 sections)
-- **Tableau de cotation** D1/D2/D3 + verdict P0-P3 par skill
-- **Métriques de synthèse** par agent (distribution verdicts, % certif/anti-patterns/sources, taux de couverture référentiels)
-- **Plan d'action priorisé** par vagues V1/V2/V3 avec budget indicatif
-- **Liste des findings** P1/P2/P3 au format 3 parties (constat · référence · reco)
-- **Recommandation de validation croisée** (autre modèle) si enjeu fort détecté
+- **Standardized audit report** `audits/audit-<agent>-<YYYY-MM-DD>.md` (10 sections)
+- **Scoring table** D1/D2/D3 + verdict P0-P3 per skill
+- **Summary metrics** per agent (verdict distribution, % certification/anti-patterns/sources, framework coverage rate)
+- **Prioritized action plan** by waves V1/V2/V3 with indicative budget
+- **List of findings** P1/P2/P3 in the 3-part format (finding · reference · recommendation)
+- **Cross-validation recommendation** (different model) if a high-stakes matter is detected
 
-## Format de sortie
+## Output format
 
-Pour chaque mission d'audit, préciser :
-- **Périmètre** : 1 skill · 1 agent complet · 1 groupe · catalogue entier
-- **Groupe & déclinaison** : Agile/Produit §3.1 · Conseil/Direction §3.2 · Data/Tech §3.3 · Dev/CMS §3.4 · Transverse/Méta §3.5
-- **Profondeur d'audit** (approche par les risques ISO 19011) : exhaustif (tous skills) · ciblé core mission (N1/N2 only) · échantillon
-- **Niveau de formalisme du rapport** : complet 10 sections · synthèse rapide (tableau + findings P1) · note de cotation unitaire (1 skill)
-- **Posture** : audit seul · audit + corrections V1 dans la foulée · audit + plan V2/V3 à planifier
+For each audit engagement, specify:
+- **Scope**: 1 skill · 1 full agent · 1 group · the whole catalog
+- **Group & variant**: Agile/Product §3.1 · Consulting/Leadership §3.2 · Data/Tech §3.3 · Dev/CMS §3.4 · Cross-cutting/Meta §3.5
+- **Audit depth** (ISO 19011 risk-based approach): exhaustive (all skills) · targeted core mission (N1/N2 only) · sample
+- **Report formality level**: full 10 sections · quick summary (table + P1 findings) · single-skill scoring note (1 skill)
+- **Posture**: audit only · audit + V1 corrections right away · audit + V2/V3 plan to schedule
 
 ## Sources
 
-- **ISO/IEC 19011:2018** — *Guidelines for auditing management systems* — iso.org/standard/70017.html (7 principes : intégrité, présentation impartiale, conscience professionnelle, confidentialité, indépendance, approche fondée sur les preuves, **approche par les risques** ajoutée en 2018 ; lignes directrices programme d'audit + compétence des auditeurs)
-- **ISO 9001:2015 §9.2** — Audit interne (programme d'audit, critères, périmètre, objectivité, preuves) — iso.org
-- **CMMI V3.0** — CMMI Institute (ISACA, avril 2023) — méthode d'appraisal **SCAMPI** (Standard CMMI Appraisal Method for Process Improvement, SEI) : ratings benchmark, classes A/B/C selon ARC
-- **ISO/IEC 42001:2023** — *Information technology — Artificial intelligence — Management system* (AIMS) — audit de conformité des systèmes IA — iso.org
-- **NIST AI RMF 1.0** — AI Risk Management Framework (NIST, janvier 2023) — nist.gov
-- **Kahneman D.** — *Thinking, Fast and Slow* (Farrar, Straus and Giroux, 2011) — biais cognitifs ; **Tversky A. & Kahneman D.** — *Judgment under Uncertainty: Heuristics and Biases* (Science, 1974)
-- **Grille interne** : `audits/audit-grilles-v2.8.md` (squelette commun + 5 déclinaisons + workflow 6 étapes + patterns à propager)
+- **ISO/IEC 19011:2018** — *Guidelines for auditing management systems* — iso.org/standard/70017.html (7 principles: integrity, fair presentation, due professional care, confidentiality, independence, evidence-based approach, **risk-based approach** added in 2018; audit-program guidelines + auditor competence)
+- **ISO 9001:2015 §9.2** — Internal audit (audit program, criteria, scope, objectivity, evidence) — iso.org
+- **CMMI V3.0** — CMMI Institute (ISACA, April 2023) — **SCAMPI** appraisal method (Standard CMMI Appraisal Method for Process Improvement, SEI): benchmark ratings, classes A/B/C per ARC
+- **ISO/IEC 42001:2023** — *Information technology — Artificial intelligence — Management system* (AIMS) — compliance audit of AI systems — iso.org
+- **NIST AI RMF 1.0** — AI Risk Management Framework (NIST, January 2023) — nist.gov
+- **Kahneman D.** — *Thinking, Fast and Slow* (Farrar, Straus and Giroux, 2011) — cognitive biases; **Tversky A. & Kahneman D.** — *Judgment under Uncertainty: Heuristics and Biases* (Science, 1974)
+- **Internal grid**: `audits/audit-grilles-v2.8.md` (common skeleton + 5 variants + 6-step workflow + patterns to propagate)
 
-## Voir aussi
+## See also
 
-- [`audit-conformite-methodo.md`](audit-conformite-methodo.md) — audit de conformité d'un **livrable runtime** (Scrum/SAFe/ISTQB/PMI), à ne pas confondre avec l'audit d'un skill catalogue
-- [`challenge-raisonnement.md`](challenge-raisonnement.md) — biais cognitifs, devil's advocate, red-team (mobilisé pour le principe d'indépendance / angles morts corrélés LLM)
-- [`gate-validation-livrable.md`](gate-validation-livrable.md) — gates DoD avant promotion d'un livrable
-- [`../../audits/audit-grilles-v2.8.md`](../../audits/audit-grilles-v2.8.md) — **source de vérité** de la grille (5 déclinaisons détaillées)
+- [`audit-conformite-methodo.md`](audit-conformite-methodo.md) — compliance audit of a **runtime deliverable** (Scrum/SAFe/ISTQB/PMI), not to be confused with auditing a catalog skill
+- [`challenge-raisonnement.md`](challenge-raisonnement.md) — cognitive biases, devil's advocate, red-team (used for the independence principle / correlated LLM blind spots)
+- [`gate-validation-livrable.md`](gate-validation-livrable.md) — DoD gates before promoting a deliverable
+- [`../../audits/audit-grilles-v2.8.md`](../../audits/audit-grilles-v2.8.md) — **source of truth** of the grid (5 detailed variants)

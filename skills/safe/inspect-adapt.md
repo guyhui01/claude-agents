@@ -1,109 +1,109 @@
-# Skill SAFe — Inspect & Adapt (I&A)
+# SAFe Skill — Inspect & Adapt (I&A)
 
-> Certification : SAFe POPM 6 · SAFe Agilist · SAFe RTE · SAFe SPC
-> Agents : AGENT-PO-SAFE.md · AGENT-RELEASE-TRAIN-ENGINEER.md · AGENT-PRODUCT-MANAGER-SAFE.md
+> Certification: SAFe POPM 6 · SAFe Agilist · SAFe RTE · SAFe SPC
+> Agents: AGENT-PO-SAFE.md · AGENT-RELEASE-TRAIN-ENGINEER.md · AGENT-PRODUCT-MANAGER-SAFE.md
 
-## Objectif
-Faciliter l'événement Inspect & Adapt en fin de PI — PI System Demo, analyse quantitative des métriques, rétrospective ART et Problem-Solving Workshop (PSW) — pour identifier et engager les améliorations continues de l'Agile Release Train.
+## Objective
+Facilitate the Inspect & Adapt event at the end of the PI — PI System Demo, quantitative metrics analysis, ART retrospective and Problem-Solving Workshop (PSW) — to identify and commit to the Agile Release Train's continuous improvements.
 
-## Agenda I&A (4 heures) — détail minute-by-minute
+## I&A agenda (4 hours) — minute-by-minute detail
 
 ```
 INSPECT & ADAPT — PI-[N] — [DATE]
-Participants : Toute l'ART + Business Owners + Stakeholders
+Participants: The whole ART + Business Owners + Stakeholders
 
-09h00  PI System Demo (60 min)
-       → Chaque équipe démontre ses features livrées (5-8 min/équipe)
-       → Questions des stakeholders
+09:00  PI System Demo (60 min)
+       → Each team demonstrates its delivered features (5-8 min/team)
+       → Stakeholder questions
 
-10h00  ──── BREAK 15 min ────
+10:00  ──── BREAK 15 min ────
 
-10h15  Quantitative & Qualitative Review (45 min)
-       → RTE présente les métriques PI (PI Predictability, Flow, DORA)
-       → Revue des PI Objectives (engagés vs livrés)
-       → Analyse des impediments récurrents
+10:15  Quantitative & Qualitative Review (45 min)
+       → RTE presents the PI metrics (PI Predictability, Flow, DORA)
+       → Review of the PI Objectives (committed vs delivered)
+       → Analysis of recurring impediments
 
-11h00  Rétrospective ART (30 min)
-       → Format : Start / Stop / Continue
-       → Votes sur les thèmes prioritaires
+11:00  ART Retrospective (30 min)
+       → Format: Start / Stop / Continue
+       → Votes on the priority themes
 
-11h30  Problem-Solving Workshop (75 min)
-       → Identification du problème principal (1 problème)
-       → Root Cause Analysis (Fishbone Ishikawa / 5 Pourquoi)
-       → Solutions et actions SMART
+11:30  Problem-Solving Workshop (75 min)
+       → Identify the main problem (1 problem)
+       → Root Cause Analysis (Ishikawa Fishbone / 5 Whys)
+       → Solutions and SMART actions
 
-12h45  Présentation des actions I&A (15 min)
-13h00  FIN
+12:45  Presentation of the I&A actions (15 min)
+13:00  END
 ```
 
-## Métriques PI à analyser
-- **PI Predictability** : Business Value réelle / Business Value planifiée (cible **80-100%**)
-- **Flow Metrics SAFe 6** : Flow Velocity, Flow Time, Flow Load, Flow Distribution, Flow Efficiency
-- **DORA Metrics** : Deployment Frequency, Lead Time for Changes, Change Failure Rate, MTTR
-- **Vélocité** par équipe et par train
-- **Qualité** : bugs échappés, dette technique accumulée, taux défauts production
-- **Satisfaction équipes** (vote de confiance)
+## PI metrics to analyze
+- **PI Predictability**: actual Business Value / planned Business Value (target **80-100%**)
+- **SAFe 6 Flow Metrics**: Flow Velocity, Flow Time, Flow Load, Flow Distribution, Flow Efficiency
+- **DORA Metrics**: Deployment Frequency, Lead Time for Changes, Change Failure Rate, MTTR
+- **Velocity** per team and per train
+- **Quality**: escaped bugs, accumulated technical debt, production defect rate
+- **Team satisfaction** (confidence vote)
 
-## Problem-Solving Workshop — Méthode
-
-```
-Étape 1 : Identifier le problème racine (5 Whys / Fishbone Ishikawa)
-Étape 2 : Brainstorming solutions
-Étape 3 : Sélectionner les solutions (vote par points / Dot Voting)
-Étape 4 : Plan d'actions SMART avec propriétaires et mesures
-Étape 5 : Présentation et engagement de l'équipe
-```
-
-### Fishbone Ishikawa — 5 catégories de causes
+## Problem-Solving Workshop — Method
 
 ```
-PROBLÈME IDENTIFIÉ : [En 1 phrase précise]
-Ex : "Le taux de défauts échappés en production est de 18% (cible < 10%)"
+Step 1: Identify the root problem (5 Whys / Ishikawa Fishbone)
+Step 2: Brainstorm solutions
+Step 3: Select the solutions (dot voting)
+Step 4: SMART action plan with owners and measures
+Step 5: Presentation and team commitment
+```
 
-ANALYSE CAUSES RACINES (Ishikawa — 5M)
+### Ishikawa Fishbone — 5 cause categories
+
+```
+IDENTIFIED PROBLEM: [In 1 precise sentence]
+E.g.: "The escaped-defect rate in production is 18% (target < 10%)"
+
+ROOT CAUSE ANALYSIS (Ishikawa — 5Ms)
 ────────────────────────────────────────────────────────────
-Personnes      : Tests manuels insuffisants, manque formation QA
-Process        : Pas de Definition of Done claire sur les tests
-Outils         : Couverture de tests automatiques < 40%
-Environnement  : Environnement de test instable
-Management     : Tests planifiés trop tard dans le sprint
+People         : Insufficient manual testing, lack of QA training
+Process        : No clear Definition of Done on tests
+Tools          : Automated test coverage < 40%
+Environment    : Unstable test environment
+Management     : Tests planned too late in the sprint
 
-CAUSES RACINES RETENUES (vote Dot)
-1. Couverture tests automatiques insuffisante (40% → cible 80%)
-2. DoD ne mentionne pas les tests de régression
+SELECTED ROOT CAUSES (dot vote)
+1. Insufficient automated test coverage (40% → target 80%)
+2. The DoD doesn't mention regression tests
 
-ACTIONS SMART PI+1
+SMART ACTIONS PI+1
 ────────────────────────────────────────────────────────────
-Action 1 : Augmenter couverture tests à 65% d'ici fin PI+1
-  Propriétaire : Tech Lead Équipe Alpha
-  Mesure : SonarQube metric
-  
-Action 2 : Ajouter "régression couverte" dans la DoD ART
-  Propriétaire : RTE + Tous les SM
-  Mesure : DoD validée avant Sprint 1 PI+1
+Action 1: Increase test coverage to 65% by the end of PI+1
+  Owner: Team Alpha Tech Lead
+  Measure: SonarQube metric
+
+Action 2: Add "regression covered" to the ART DoD
+  Owner: RTE + All SMs
+  Measure: DoD validated before Sprint 1 of PI+1
 ```
 
-## Template rapport I&A
+## I&A report template
 
 ```
 Inspect & Adapt — PI [N] — [Date]
 
-PI Predictability : [X]% (BV réelle [X] / BV planifiée [X])
-Vélocité moyenne train : [X] pts/sprint
-Flow Efficiency : [X]% (cible > 15%)
+PI Predictability: [X]% (actual BV [X] / planned BV [X])
+Average train velocity: [X] pts/sprint
+Flow Efficiency: [X]% (target > 15%)
 
-Problèmes identifiés :
-1. [Problème] → Cause racine : [...]
-   Action : [action SMART] — Responsable : [prénom] — Délai : [date]
+Identified problems:
+1. [Problem] → Root cause: [...]
+   Action: [SMART action] — Owner: [first name] — Due: [date]
 
-Engagement équipe : [vote de confiance moyen : X/5]
+Team commitment: [average confidence vote: X/5]
 ```
 
-## Livrables
-- Compte-rendu I&A complet
-- Métriques PI documentées (Predictability, Flow, DORA)
-- Problem-Solving Workshop résumé
-- Actions I&A PI+1 (SMART, propriétaires, mesures)
+## Deliverables
+- Full I&A notes
+- Documented PI metrics (Predictability, Flow, DORA)
+- Problem-Solving Workshop summary
+- PI+1 I&A actions (SMART, owners, measures)
 
-## Format de sortie
-Précise : métriques PI (PI Predictability, Flow), problèmes récurrents identifiés, participants attendus, format (présentiel / distanciel).
+## Output format
+Specify: PI metrics (PI Predictability, Flow), identified recurring problems, expected participants, format (on-site / remote).

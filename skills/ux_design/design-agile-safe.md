@@ -1,54 +1,54 @@
-# Skill — UX dans un contexte Agile / SAFe
-> Certifications : IDF · NN/g UX-C
+# Skill — UX in an Agile / SAFe context
+> Certifications: IDF · NN/g UX-C
 
-## Objectif
-Intégrer les activités UX dans les cycles Agile (Scrum) et SAFe sans créer de goulet d'étranglement design.
+## Objective
+Integrate UX activities into Agile (Scrum) and SAFe cycles without creating a design bottleneck.
 
 ## Dual Track Agile
-- **Discovery track** : recherche, idéation, validation (1 sprint d'avance)
-- **Delivery track** : design détaillé, handoff, support dev (sprint en cours)
-- Le design est toujours 1 sprint en avance sur le dev
+- **Discovery track**: research, ideation, validation (1 sprint ahead)
+- **Delivery track**: detailed design, handoff, dev support (current sprint)
+- Design is always 1 sprint ahead of dev
 
-## UX dans le sprint Scrum
-| Cérémonie | Rôle UX |
+## UX in the Scrum sprint
+| Event | UX role |
 |---|---|
-| Sprint Planning | Présenter les designs validés, estimer les tâches UX |
-| Daily | Signaler les blocages design / dev |
-| Sprint Review | Présenter l'UX au sponsor, recueillir feedback |
-| Rétrospective | Améliorer la collaboration design-dev |
+| Sprint Planning | Present the validated designs, estimate the UX tasks |
+| Daily | Flag design / dev blockers |
+| Sprint Review | Present the UX to the sponsor, gather feedback |
+| Retrospective | Improve design-dev collaboration |
 
-## UX dans SAFe
-- Participer au **PI Planning** : présenter la roadmap UX sur le PI
-- Définir les **Enabler Stories** UX (research, prototype, test)
-- Contribuer à l'**Inspect & Adapt** : métriques UX par PI
-- Design Spike : story technique pour explorer un problème UX complexe
+## UX in SAFe
+- Take part in **PI Planning**: present the UX roadmap for the PI
+- Define UX **Enabler Stories** (research, prototype, test)
+- Contribute to **Inspect & Adapt**: UX metrics per PI
+- Design Spike: a technical story to explore a complex UX problem
 
-## Definition of Done UX
-- [ ] Research validée (insights documentés)
-- [ ] Prototype testé (min. 3 utilisateurs)
-- [ ] Design System respecté
-- [ ] Handoff complet (Dev Mode + annotations)
-- [ ] Accessibilité vérifiée (WCAG AA)
+## UX Definition of Done
+- [ ] Research validated (insights documented)
+- [ ] Prototype tested (min. 3 users)
+- [ ] Design System respected
+- [ ] Complete handoff (Dev Mode + annotations)
+- [ ] Accessibility verified (WCAG AA)
 
-## Format de sortie
-Précise : cadre (Scrum / SAFe / autre) · taille de l'équipe · maturité UX actuelle
+## Output format
+Specify: framework (Scrum / SAFe / other) · team size · current UX maturity
 
 ## Sources
-- **Desirée Sy & Lynn Miller** — *Adapting Usability Investigations for Agile User-Centered Design* (2007) — origine du Dual Track
-- **Jeff Patton** — *User Story Mapping* (O'Reilly, 2014) et formalisation Discovery/Delivery
-- **Marty Cagan** — *Inspired* (2e éd. 2018) & *Empowered* (2020, SVPG) — discovery continue en équipe produit
+- **Desirée Sy & Lynn Miller** — *Adapting Usability Investigations for Agile User-Centered Design* (2007) — origin of Dual Track
+- **Jeff Patton** — *User Story Mapping* (O'Reilly, 2014) and formalization of Discovery/Delivery
+- **Marty Cagan** — *Inspired* (2nd ed. 2018) & *Empowered* (2020, SVPG) — continuous discovery in a product team
 - **Scaled Agile, Inc.** — *SAFe 6.0* (2023) — PI Planning, Enabler Stories, Inspect & Adapt
-- **Teresa Torres** — *Continuous Discovery Habits* (2021) — cadence de discovery hebdomadaire
+- **Teresa Torres** — *Continuous Discovery Habits* (2021) — weekly discovery cadence
 
 ## Anti-patterns
-- « Sprint 0 design » figé : tout le design en amont au lieu d'un flux continu de discovery
-- Discovery et delivery menés par des personnes cloisonnées (pas d'équipe produit unie)
-- UX réduite à du « pixel polishing » en fin de sprint, sans recherche en amont
-- Definition of Done sans critère d'accessibilité ni de test utilisateur
-- Design Spike ouvert sans question de recherche ni timebox
+- Frozen "Sprint 0 design": all the design up front instead of a continuous discovery flow
+- Discovery and delivery run by siloed people (no unified product team)
+- UX reduced to "pixel polishing" at the end of the sprint, with no upstream research
+- Definition of Done without an accessibility criterion or user test
+- Design Spike opened without a research question or timebox
 
-## Voir aussi
-- [facilitation-ateliers.md](facilitation-ateliers.md) — ateliers de discovery (Design Sprint)
-- [design-handoff.md](design-handoff.md) — handoff propre en fin de delivery track
-- [design-system.md](design-system.md) — accélérateur de delivery (composants réutilisables)
-- [`../business_analyst/pilotage-projet.md`](../business_analyst/pilotage-projet.md) — articulation avec le pilotage projet
+## See also
+- [facilitation-ateliers.md](facilitation-ateliers.md) — discovery workshops (Design Sprint)
+- [design-handoff.md](design-handoff.md) — clean handoff at the end of the delivery track
+- [design-system.md](design-system.md) — delivery accelerator (reusable components)
+- [`../business_analyst/pilotage-projet.md`](../business_analyst/pilotage-projet.md) — articulation with project steering

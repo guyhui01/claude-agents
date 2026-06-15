@@ -1,86 +1,86 @@
-# Skill — Stratégie de Release et Go-to-Market
-> Certifications : SAFe POPM 6 (Scaled Agile), SAFe LPM (Scaled Agile), SAFe SPC (Scaled Agile)
+# Skill — Release Strategy and Go-to-Market
+> Certifications: SAFe POPM 6 (Scaled Agile), SAFe LPM (Scaled Agile), SAFe SPC (Scaled Agile)
 
-## Objectif
-Définir la stratégie de release au niveau Programme SAFe — cadence de release, release train vs release on demand, plan go-to-market — pour maximiser la valeur livrée aux clients et l'impact business des incréments.
+## Objective
+Define the release strategy at the SAFe Program level — release cadence, release train vs release on demand, go-to-market plan — to maximize the value delivered to customers and the business impact of the increments.
 
 ## Release Strategy — Template
 
 ```yaml
 release_strategy:
-  produit: "Solution RH IA"
+  product: "HR AI Solution"
   pi: "PI-12"
-  
-  type_release: "release_on_demand"
-  # Options : release_train (cadencé) / release_on_demand (à la valeur)
-  
-  releases_planifiees:
+
+  release_type: "release_on_demand"
+  # Options: release_train (cadenced) / release_on_demand (value-driven)
+
+  planned_releases:
     - id: "R2.0"
-      nom: "Launch — Module Scoring"
+      name: "Launch — Scoring Module"
       pi: "PI-12"
       sprint: 4
-      date_cible: "2026-06-15"
-      features_incluses: ["F-01", "F-02"]
+      target_date: "2026-06-15"
+      included_features: ["F-01", "F-02"]
       audiences:
-        - "Pilote 3 clients CAC40 (telecom, finance, hôtellerie)"
-      criteres_go_live:
-        - "Performance scoring : précision > 85%"
-        - "RGPD / AIPD validée DPO"
-        - "Tests utilisateurs : CSAT > 3.5/5"
-        - "0 bug critique en production"
-      rollout: "Feature flags — activation progressive 20% → 50% → 100%"
-      
+        - "Pilot 3 CAC40 clients (telecom, finance, hospitality)"
+      go_live_criteria:
+        - "Scoring performance: precision > 85%"
+        - "GDPR / DPIA validated by the DPO"
+        - "User tests: CSAT > 3.5/5"
+        - "0 critical bug in production"
+      rollout: "Feature flags — gradual activation 20% → 50% → 100%"
+
     - id: "R2.1"
-      nom: "Extension — Transcription entretiens"
+      name: "Extension — Interview transcription"
       pi: "PI-13"
       sprint: 4
-      date_cible: "2026-09-14"
-      features_incluses: ["F-05", "F-06"]
+      target_date: "2026-09-14"
+      included_features: ["F-05", "F-06"]
 ```
 
-## Plan Go-to-Market — Template
+## Go-to-Market Plan — Template
 
 ```
-PLAN GTM — Release R2.0 — Module Scoring IA
+GTM PLAN — Release R2.0 — AI Scoring Module
 ══════════════════════════════════════════════════════════
 
-SEGMENT CIBLE
+TARGET SEGMENT
 ─────────────────────────────────────────────────────────
-Clients pilotes    : 3 grands groupes CAC40 (telecom, finance, hôtellerie)
-Critère sélection  : > 500 recrutements / an, budget validé
+Pilot clients      : 3 large CAC40 groups (telecom, finance, hospitality)
+Selection criterion: > 500 hires / year, approved budget
 
-PROPOSITION DE VALEUR
+VALUE PROPOSITION
 ─────────────────────────────────────────────────────────
-"Réduisez de 40% votre temps de tri candidats dès le premier mois"
+"Cut your candidate-screening time by 40% from the very first month"
 
-CANAUX
+CHANNELS
 ─────────────────────────────────────────────────────────
-Avant go-live  : Démo personnalisée, atelier pilote, benchmark
-Go-live        : Session de lancement (DG + RH), formation équipes
-Post go-live   : NPS mensuel, success stories, cas client
+Before go-live : Tailored demo, pilot workshop, benchmark
+Go-live        : Launch session (leadership + HR), team training
+After go-live  : Monthly NPS, success stories, customer cases
 
-MÉTRIQUES GTM
+GTM METRICS
 ─────────────────────────────────────────────────────────
-Conversion pilote → contract : > 80%
-Time-to-value : < 30 jours post-activation
-NPS client : > 45 à 90 jours
+Pilot → contract conversion: > 80%
+Time-to-value: < 30 days after activation
+Customer NPS: > 45 at 90 days
 ```
 
-## Feature Flags — Release progressive
+## Feature Flags — Gradual release
 
 ```typescript
-// Stratégie de déploiement progressif
+// Gradual rollout strategy
 const releaseConfig = {
   featureFlags: {
     "scoring-ia-v2": {
       enabled: true,
       rollout: {
-        percentage: 20,        // 20% des utilisateurs d'abord
+        percentage: 20,        // 20% of users first
         targetGroups: ["pilot_clients"],
         schedule: [
           { date: "2026-06-15", percentage: 20 },
           { date: "2026-06-22", percentage: 50, condition: "CSAT > 3.5" },
-          { date: "2026-06-29", percentage: 100, condition: "0 bug critique" }
+          { date: "2026-06-29", percentage: 100, condition: "0 critical bug" }
         ]
       }
     }
@@ -88,11 +88,11 @@ const releaseConfig = {
 };
 ```
 
-## Livrables
-- Release strategy documentée (YAML)
-- Plan Go-to-Market complet
-- Critères go/no-go par release
-- Plan de rollout progressif (feature flags)
+## Deliverables
+- Documented release strategy (YAML)
+- Complete Go-to-Market plan
+- Go/no-go criteria per release
+- Gradual rollout plan (feature flags)
 
-## Format de sortie
-Précise : features à releaser, segments clients, date de go-live, contraintes réglementaires, canaux de distribution.
+## Output format
+Specify: features to release, customer segments, go-live date, regulatory constraints, distribution channels.

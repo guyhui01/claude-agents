@@ -1,62 +1,62 @@
-# Skill Scrum — Rédaction User Story
+# Scrum Skill — Writing a User Story
 
-> Certification : PSPO I · PSPO II
-> Agent : AGENT-PO-SCRUM.md
+> Certification: PSPO I · PSPO II
+> Agent: AGENT-PO-SCRUM.md
 
-## Format standard
+## Standard format
 ```
-En tant que [persona/rôle],
-Je veux [action / fonctionnalité],
-Afin de [bénéfice / valeur métier].
+As a [persona/role],
+I want [action / feature],
+So that [benefit / business value].
 ```
 
 ## DOR — Definition of Ready
-- [ ] US rédigée au format standard INVEST
-- [ ] Critères d'acceptation définis (min. 3)
-- [ ] Estimée en story points (Planning Poker)
-- [ ] Dépendances identifiées
-- [ ] Maquette disponible si applicable
-- [ ] Validée par le PO
+- [ ] US written in the standard INVEST format
+- [ ] Acceptance criteria defined (min. 3)
+- [ ] Estimated in story points (Planning Poker)
+- [ ] Dependencies identified
+- [ ] Mockup available if applicable
+- [ ] Validated by the PO
 
 ## DOD — Definition of Done
-- [ ] Développement terminé et revu
-- [ ] Tests unitaires passants
-- [ ] Tests d'acceptation validés
-- [ ] Documentation Confluence à jour
-- [ ] Déployé en recette
-- [ ] Validé par le PO
+- [ ] Development finished and reviewed
+- [ ] Unit tests passing
+- [ ] Acceptance tests validated
+- [ ] Confluence documentation up to date
+- [ ] Deployed to UAT
+- [ ] Validated by the PO
 
-## Critères d'acceptation — Given/When/Then
+## Acceptance criteria — Given/When/Then
 ```
-GIVEN [contexte / précondition]
-WHEN [action de l'utilisateur]
-THEN [résultat attendu]
+GIVEN [context / precondition]
+WHEN [user action]
+THEN [expected result]
 ```
 
-## Règles INVEST
-- **I**ndépendante
-- **N**égociable
-- **V**alorisable
+## INVEST rules
+- **I**ndependent
+- **N**egotiable
+- **V**aluable
 - **E**stimable
 - **S**mall (1 sprint max)
 - **T**estable
 
-## Niveaux de découpage
-Epic → Feature → User Story → Tâche technique
+## Slicing levels
+Epic → Feature → User Story → Technical task
 
-## Template Jira
+## Jira template
 ```
-Titre : [US-XXX] En tant que [persona], je veux [action]
+Title: [US-XXX] As a [persona], I want [action]
 
-Description :
-En tant que [persona], je veux [action], afin de [bénéfice].
+Description:
+As a [persona], I want [action], so that [benefit].
 
-Critères d'acceptation :
+Acceptance criteria:
 - GIVEN... WHEN... THEN...
 - GIVEN... WHEN... THEN...
 - GIVEN... WHEN... THEN...
 
-Story Points : [1/2/3/5/8/13]
-Epic link : [Epic-XXX]
-Sprint : [Sprint N]
+Story Points: [1/2/3/5/8/13]
+Epic link: [Epic-XXX]
+Sprint: [Sprint N]
 ```

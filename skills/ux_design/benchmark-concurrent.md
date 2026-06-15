@@ -1,55 +1,55 @@
-# Skill — Benchmark Concurrentiel UX
-> Certifications : UXQB CPUX-F · IDF
+# Skill — UX Competitive Benchmark
+> Certifications: UXQB CPUX-F · IDF
 
-## Objectif
-Analyser les produits concurrents et de référence pour identifier les standards du marché et les opportunités de différenciation.
+## Objective
+Analyze competitor and reference products to identify market standards and differentiation opportunities.
 
-## Types de benchmark
-- **Direct** : concurrents sur le même marché
-- **Indirect** : produits alternatifs répondant au même besoin
-- **Inspirationnel** : best-in-class UX hors secteur (ex : Airbnb pour le e-commerce)
+## Benchmark types
+- **Direct**: competitors in the same market
+- **Indirect**: alternative products addressing the same need
+- **Inspirational**: best-in-class UX outside the sector (e.g. Airbnb for e-commerce)
 
-## Dimensions d'analyse
-| Dimension | Critères |
+## Analysis dimensions
+| Dimension | Criteria |
 |---|---|
-| Onboarding | Simplicité, temps d'activation, friction |
-| Navigation | Structure, retrouvabilité, profondeur |
-| Fonctionnalités clés | Couverture, accessibilité, UX des flux |
-| Design System | Cohérence, modernité, accessibilité |
-| Mobile | Qualité de l'app, gestes, performance perçue |
-| Accessibilité | Niveau WCAG estimé |
-| Design for AI | Présence et qualité des features IA |
+| Onboarding | Simplicity, time to activation, friction |
+| Navigation | Structure, findability, depth |
+| Key features | Coverage, accessibility, flow UX |
+| Design System | Consistency, modernity, accessibility |
+| Mobile | App quality, gestures, perceived performance |
+| Accessibility | Estimated WCAG level |
+| Design for AI | Presence and quality of AI features |
 
-## Méthode
-1. Sélectionner 3 à 6 produits (2 directs, 2 indirects, 1-2 inspirationnels)
-2. Définir les critères d'évaluation (grille commune)
-3. Capturer les écrans clés (Figma ou Notion)
-4. Noter chaque critère (1-5) avec justification
-5. Synthétiser : points forts / faibles / opportunités
+## Method
+1. Select 3 to 6 products (2 direct, 2 indirect, 1-2 inspirational)
+2. Define the evaluation criteria (shared grid)
+3. Capture the key screens (Figma or Notion)
+4. Score each criterion (1-5) with justification
+5. Synthesize: strengths / weaknesses / opportunities
 
-## Livrables
-- Grille comparative (Notion / Confluence / Figma)
-- Captures annotées par produit
-- Rapport synthèse : top 3 enseignements + recommandations
+## Deliverables
+- Comparison grid (Notion / Confluence / Figma)
+- Annotated captures per product
+- Summary report: top 3 takeaways + recommendations
 
-## Format de sortie
-Précise : secteur · liste des concurrents connus · parcours à analyser · livrables attendus
+## Output format
+Specify: sector · list of known competitors · journey to analyze · expected deliverables
 
 ## Sources
-- **Robert C. Camp** — *Benchmarking* (ASQC Quality Press, 1989) — fondement méthodologique du benchmarking (Xerox)
-- **Jeff Sauro (MeasuringU)** — benchmarking UX comparatif (SUS, taux de succès inter-produits)
-- **Kathy Baxter, Catherine Courage & Kelly Caine** — *Understanding Your Users* (2e éd. 2015) — analyse concurrentielle UX
-- **Nielsen Norman Group** — *Competitive Usability Evaluations* — protocole d'évaluation comparative
+- **Robert C. Camp** — *Benchmarking* (ASQC Quality Press, 1989) — methodological foundation of benchmarking (Xerox)
+- **Jeff Sauro (MeasuringU)** — comparative UX benchmarking (SUS, cross-product success rates)
+- **Kathy Baxter, Catherine Courage & Kelly Caine** — *Understanding Your Users* (2nd ed. 2015) — competitive UX analysis
+- **Nielsen Norman Group** — *Competitive Usability Evaluations* — comparative evaluation protocol
 
 ## Anti-patterns
-- Copier un concurrent sans comprendre son contexte ni ses utilisateurs (« cargo cult UX »)
-- Comparer sans grille de critères commune → notes non rigoureuses
-- Se limiter aux concurrents directs en ignorant l'inspirationnel hors secteur
-- Confondre benchmark (état du marché) et test utilisateur (avec de vrais usagers)
-- Notes 1-5 sans justification écrite → subjectivité non traçable
+- Copying a competitor without understanding its context or its users ("cargo cult UX")
+- Comparing without a shared criteria grid → non-rigorous scores
+- Limiting yourself to direct competitors while ignoring inspirational ones outside the sector
+- Confusing a benchmark (state of the market) with a user test (with real users)
+- 1-5 scores without written justification → untraceable subjectivity
 
-## Voir aussi
-- [audit-ux-heuristiques.md](audit-ux-heuristiques.md) — grille d'évaluation appliquée aux concurrents
-- [metriques-ux.md](metriques-ux.md) — benchmark quantitatif (SUS comparé)
-- [design-for-ai.md](design-for-ai.md) — évaluer la dimension « Design for AI » des concurrents
-- [`../growth_ia/growth-frameworks.md`](../growth_ia/growth-frameworks.md) — positionnement marché côté growth
+## See also
+- [audit-ux-heuristiques.md](audit-ux-heuristiques.md) — evaluation grid applied to competitors
+- [metriques-ux.md](metriques-ux.md) — quantitative benchmark (compared SUS)
+- [design-for-ai.md](design-for-ai.md) — assess the "Design for AI" dimension of competitors
+- [`../growth_ia/growth-frameworks.md`](../growth_ia/growth-frameworks.md) — market positioning on the growth side

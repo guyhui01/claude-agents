@@ -1,65 +1,65 @@
 # Skills — Change Manager
 
-> Dossier rattaché à `AGENT-CHANGE-MANAGER.md`
-> Référentiels : PROSCI ADKAR · CCMP (ACMP) · PMP · PRINCE2 · SAFe 6 Agilist · ITIL 4 · PMI-ACP · McKinsey 7S · Kotter 8 Steps
+> Folder attached to `AGENT-CHANGE-MANAGER.md`
+> Standards: PROSCI ADKAR · CCMP (ACMP) · PMP · PRINCE2 · SAFe 6 Agilist · ITIL 4 · PMI-ACP · McKinsey 7S · Kotter 8 Steps
 
 ---
 
-## Index des skills (7)
+## Skills index (7)
 
-| # | Skill | Quand l'invoquer | Certification |
+| # | Skill | When to invoke it | Certification |
 |---|---|---|---|
-| 1 | [`analyse-impact-changement.md`](analyse-impact-changement.md) | Cartographier les impacts et populations touchées | PROSCI · CCMP · PMP |
-| 2 | [`plan-communication.md`](plan-communication.md) | Construire le plan de communication (messages, canaux, calendrier) | PROSCI · CCMP · PMI-ACP |
-| 3 | [`gestion-resistance.md`](gestion-resistance.md) | Gérer les résistances au changement (identification, mitigation) | PROSCI · CCMP · SAFe 6 |
-| 4 | [`adkar-model.md`](adkar-model.md) | Appliquer le modèle ADKAR (Awareness → Desire → Knowledge → Ability → Reinforcement) | PROSCI · CCMP |
-| 5 | [`strategie-adoption.md`](strategie-adoption.md) | Définir la stratégie d'adoption et formation (e-learning, coaching, ambassadeurs) | PROSCI · CCMP · ITIL 4 |
-| 6 | [`stakeholder-engagement-change.md`](stakeholder-engagement-change.md) | Engager les parties prenantes au changement (cartographie + RACI) | PROSCI · PMP · PRINCE2 |
-| 7 | [`mesure-adoption.md`](mesure-adoption.md) | Mesurer l'adoption et produire les KPIs (taux usage, satisfaction) | PROSCI · CCMP · PMI-ACP |
+| 1 | [`analyse-impact-changement.md`](analyse-impact-changement.md) | Map the impacts and affected populations | PROSCI · CCMP · PMP |
+| 2 | [`plan-communication.md`](plan-communication.md) | Build the communication plan (messages, channels, schedule) | PROSCI · CCMP · PMI-ACP |
+| 3 | [`gestion-resistance.md`](gestion-resistance.md) | Manage resistance to change (identification, mitigation) | PROSCI · CCMP · SAFe 6 |
+| 4 | [`adkar-model.md`](adkar-model.md) | Apply the ADKAR model (Awareness → Desire → Knowledge → Ability → Reinforcement) | PROSCI · CCMP |
+| 5 | [`strategie-adoption.md`](strategie-adoption.md) | Define the adoption and training strategy (e-learning, coaching, ambassadors) | PROSCI · CCMP · ITIL 4 |
+| 6 | [`stakeholder-engagement-change.md`](stakeholder-engagement-change.md) | Engage stakeholders in the change (mapping + RACI) | PROSCI · PMP · PRINCE2 |
+| 7 | [`mesure-adoption.md`](mesure-adoption.md) | Measure adoption and produce the KPIs (usage rate, satisfaction) | PROSCI · CCMP · PMI-ACP |
 
 ---
 
-## Choisir le bon skill — Arbre de décision
+## Choosing the right skill — Decision tree
 
 ```
-Tu veux ...
+You want to ...
 
-  ... DÉMARRER UN CHANGE PROGRAMME ?
-    → analyse-impact-changement.md (cartographie)
+  ... START A CHANGE PROGRAM?
+    → analyse-impact-changement.md (mapping)
     → stakeholder-engagement-change.md (RACI + engagement)
-    → adkar-model.md (cadre méthodologique)
+    → adkar-model.md (methodology framework)
 
-  ... COMMUNIQUER & FORMER ?
-    → plan-communication.md (messages, canaux, calendrier)
-    → strategie-adoption.md (formation, ambassadeurs)
+  ... COMMUNICATE & TRAIN?
+    → plan-communication.md (messages, channels, schedule)
+    → strategie-adoption.md (training, ambassadors)
 
-  ... GÉRER LES OBSTACLES ?
-    → gestion-resistance.md (diagnostic + mitigation)
+  ... MANAGE THE OBSTACLES?
+    → gestion-resistance.md (diagnosis + mitigation)
 
-  ... MESURER LE SUCCÈS ?
-    → mesure-adoption.md (KPIs adoption + satisfaction)
+  ... MEASURE SUCCESS?
+    → mesure-adoption.md (adoption + satisfaction KPIs)
 ```
 
 ---
 
-## Frontières avec les autres agents
+## Boundaries with the other agents
 
-| Sujet voisin | Agent concerné | Frontière |
+| Adjacent topic | Agent concerned | Boundary |
 |---|---|---|
-| Formation technique IA | `AGENT-FORMATEUR-IA.md` | CHANGE = adoption ; FORMATEUR = ingénierie pédagogique |
-| Stratégie IA organisationnelle | `AGENT-CDO-DIRECTEUR-IA.md` | CHANGE = exécution adoption ; CDO = stratégie data-IA |
-| Gestion de projet | `AGENT-CHEF-PROJET-IA.md` | CHANGE = adoption ; CHEF-PROJET = delivery |
-| PI Planning SAFe | `AGENT-PO-SAFE.md` | CHANGE = adoption transverse ; PO-SAFE = backlog ART |
-| Change RH (GEPP, processus RH) | `AGENT-RH-IA.md` | CHANGE = adoption transverse ; RH-IA = RH spécifique |
+| Technical AI training | `AGENT-FORMATEUR-IA.md` | CHANGE = adoption; FORMATEUR = instructional design |
+| Organizational AI strategy | `AGENT-CDO-DIRECTEUR-IA.md` | CHANGE = adoption execution; CDO = data-AI strategy |
+| Project management | `AGENT-CHEF-PROJET-IA.md` | CHANGE = adoption; CHEF-PROJET = delivery |
+| SAFe PI Planning | `AGENT-PO-SAFE.md` | CHANGE = cross-cutting adoption; PO-SAFE = ART backlog |
+| HR change (GEPP, HR processes) | `AGENT-RH-IA.md` | CHANGE = cross-cutting adoption; RH-IA = HR-specific |
 
 ---
 
-## Référentiels et standards utilisés
+## Standards and frameworks used
 
-- **PROSCI ADKAR** : https://www.prosci.com/methodology/adkar
-- **CCMP (ACMP)** : https://www.acmpglobal.org/
-- **Kotter's 8 Steps** : "Leading Change" (1996)
+- **PROSCI ADKAR**: https://www.prosci.com/methodology/adkar
+- **CCMP (ACMP)**: https://www.acmpglobal.org/
+- **Kotter's 8 Steps**: "Leading Change" (1996)
 - **McKinsey 7S Framework**
 - **Bridges Transition Model** (William Bridges)
 - **Lewin's Change Model** (Unfreeze-Change-Refreeze)
-- **ITIL 4** : pour change dans contextes IT services
+- **ITIL 4**: for change in IT-services contexts

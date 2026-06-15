@@ -1,50 +1,50 @@
-# Skill — Accessibilité WCAG 2.2 / RGAA
-> Certifications : IAAP CPACC · IAAP WAS
+# Skill — WCAG 2.2 / RGAA Accessibility
+> Certifications: IAAP CPACC · IAAP WAS
 
-## Objectif
-Garantir que les interfaces sont utilisables par toutes les personnes, y compris en situation de handicap.
+## Objective
+Ensure that interfaces are usable by everyone, including people with disabilities.
 
-## Référentiels
-- **WCAG 2.2** (W3C, Recommandation du 5 octobre 2023 ; reprise en ISO/IEC 40500:2025) : 4 principes — Perceptible, Utilisable, Compréhensible, Robuste. *WCAG 3.0 reste au stade Working Draft, non normatif.*
-- **RGAA 4.1.2** (2021) : déclinaison française obligatoire pour les services publics
-- **European Accessibility Act** (directive UE 2019/882) : exigences applicables depuis le 28 juin 2025 à de nombreux produits/services privés (e-commerce, banque, transport)
-- Niveaux : A (minimum) · AA (standard légal cible) · AAA (optimal)
+## Standards
+- **WCAG 2.2** (W3C, Recommendation of October 5, 2023; adopted as ISO/IEC 40500:2025): 4 principles — Perceivable, Operable, Understandable, Robust. *WCAG 3.0 remains at the Working Draft stage, non-normative.*
+- **RGAA 4.1.2** (2021): the French implementation, mandatory for public services
+- **European Accessibility Act** (EU Directive 2019/882): requirements applicable since June 28, 2025 to many private products/services (e-commerce, banking, transport)
+- Levels: A (minimum) · AA (legal target standard) · AAA (optimal)
 
-## Critères clés à vérifier
-- Contraste couleurs : ratio ≥ 4.5:1 (texte normal), ≥ 3:1 (grand texte)
-- Navigation clavier complète (Tab, Shift+Tab, Entrée, Échap)
-- Alternatives textuelles (images, icônes, graphiques)
-- Structure sémantique HTML (headings, landmarks, listes)
-- Formulaires accessibles (labels, erreurs, focus visible)
-- Sous-titres vidéos et transcriptions audio
+## Key criteria to check
+- Color contrast: ratio ≥ 4.5:1 (normal text), ≥ 3:1 (large text)
+- Full keyboard navigation (Tab, Shift+Tab, Enter, Esc)
+- Text alternatives (images, icons, charts)
+- Semantic HTML structure (headings, landmarks, lists)
+- Accessible forms (labels, errors, visible focus)
+- Video captions and audio transcripts
 
-## Livrables
-- Rapport d'audit WCAG par critère (conforme / non conforme / NA)
-- Niveau d'accessibilité global estimé
-- Plan de correction priorisé
+## Deliverables
+- WCAG audit report per criterion (compliant / non-compliant / NA)
+- Estimated overall accessibility level
+- Prioritized remediation plan
 
-## Outils
+## Tools
 Axe DevTools · WAVE · Contrast Checker · NVDA · VoiceOver
 
-## Format de sortie
-Précise : type d'interface · niveau cible (AA/AAA) · contexte légal (secteur public ?)
+## Output format
+Specify: interface type · target level (AA/AAA) · legal context (public sector?)
 
 ## Sources
-- **W3C / WAI** — *Web Content Accessibility Guidelines (WCAG) 2.2* (Recommandation, 5 octobre 2023) — [w3.org/TR/WCAG22](https://www.w3.org/TR/WCAG22/)
+- **W3C / WAI** — *Web Content Accessibility Guidelines (WCAG) 2.2* (Recommendation, October 5, 2023) — [w3.org/TR/WCAG22](https://www.w3.org/TR/WCAG22/)
 - **DINUM** — *RGAA 4.1.2* (Référentiel général d'amélioration de l'accessibilité, 2021)
-- **Union européenne** — *Directive (UE) 2019/882* (European Accessibility Act, applicable depuis le 28/06/2025)
-- **ISO/IEC 40500:2025** — adoption de WCAG 2.2 comme norme internationale
-- **IAAP** — certifications *CPACC* (Core Competencies) et *WAS* (Web Accessibility Specialist)
+- **European Union** — *Directive (EU) 2019/882* (European Accessibility Act, applicable since 2025-06-28)
+- **ISO/IEC 40500:2025** — adoption of WCAG 2.2 as an international standard
+- **IAAP** — *CPACC* (Core Competencies) and *WAS* (Web Accessibility Specialist) certifications
 
 ## Anti-patterns
-- Viser AAA partout : AAA n'est pas exigible globalement (W3C), AA est la cible légale
-- Se reposer uniquement sur un auditeur automatique (Axe/WAVE couvrent ~30-40 % des critères) sans test manuel ni lecteur d'écran
-- Contraste validé sur le texte mais oublié sur les composants UI et icônes (SC 1.4.11)
-- « Accessibilité » traitée en fin de projet plutôt que dès le design (coût de correction × élevé)
-- Confondre conformité technique et utilisabilité réelle par les personnes handicapées
+- Aiming for AAA everywhere: AAA is not required globally (W3C), AA is the legal target
+- Relying solely on an automated checker (Axe/WAVE cover ~30-40% of criteria) without manual testing or a screen reader
+- Contrast validated on text but forgotten on UI components and icons (SC 1.4.11)
+- "Accessibility" handled at the end of the project rather than from the design stage (remediation cost × high)
+- Confusing technical compliance with real usability by people with disabilities
 
-## Voir aussi
-- [design-system.md](design-system.md) — composants accessibles par défaut (états focus, contrastes tokens)
-- [design-handoff.md](design-handoff.md) — annotations d'accessibilité transmises aux devs
-- [wireframing.md](wireframing.md) — structure sémantique et ordre de lecture dès le wireframe
-- [`../redacteur_ia/ux-writing.md`](../redacteur_ia/ux-writing.md) — libellés, messages d'erreur et microcopy accessibles
+## See also
+- [design-system.md](design-system.md) — components accessible by default (focus states, token contrasts)
+- [design-handoff.md](design-handoff.md) — accessibility annotations passed to the devs
+- [wireframing.md](wireframing.md) — semantic structure and reading order from the wireframe stage
+- [`../redacteur_ia/ux-writing.md`](../redacteur_ia/ux-writing.md) — accessible labels, error messages and microcopy

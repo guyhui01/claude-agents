@@ -1,43 +1,43 @@
-# Skill — UX intégré dans le Sprint (Dual Track)
-> Certifications : PSU-I (Professional Scrum with UX)
+# Skill — UX embedded in the Sprint (Dual Track)
+> Certifications: PSU-I (Professional Scrum with UX)
 
-## Objectif
-Intégrer la recherche utilisateur et le design dans le cycle Scrum sans créer de goulet d'étranglement.
+## Objective
+Embed user research and design into the Scrum cycle without creating a bottleneck.
 
 ## Dual Track Scrum
 ```
-Discovery Track  : Recherche → Proto → Test → Validated Learning
-                         ↓ (1 sprint d'avance)
-Delivery Track   : Story rédigée → Dev → Test → Done
+Discovery Track : Research → Proto → Test → Validated Learning
+                         ↓ (1 sprint ahead)
+Delivery Track  : Story written → Dev → Test → Done
 ```
 
 ## Proto-Personas (PSU)
-- Version allégée des personas basée sur hypothèses + observations rapides
-- Structure : nom · comportement · objectif · frustration principale
-- Validée progressivement via la recherche
+- A lightweight version of personas based on hypotheses + quick observations
+- Structure: name · behavior · goal · primary frustration
+- Validated progressively through research
 
 ## Hypothesis-Driven Development
-- Format : "Nous croyons que [fonctionnalité] atteindra [résultat] pour [persona]. Nous le saurons quand [métrique] changera de X%"
-- Chaque story est une hypothèse à valider, pas une certitude
+- Format: "We believe that [feature] will achieve [outcome] for [persona]. We will know it when [metric] changes by X%"
+- Each story is a hypothesis to validate, not a certainty
 
-## Activités UX dans le sprint
-| Moment | Activité UX |
+## UX activities in the sprint
+| Moment | UX activity |
 |---|---|
-| Sprint Planning | Présenter les designs validés, créer UX stories |
-| Pendant le sprint | Tests utilisateurs rapides (30-45 min), itérations design |
-| Sprint Review | Démontrer l'UX + métriques utilisateurs |
-| Rétrospective | Améliorer la collaboration PO-UX-Dev |
+| Sprint Planning | Present validated designs, create UX stories |
+| During the sprint | Quick user tests (30-45 min), design iterations |
+| Sprint Review | Demonstrate the UX + user metrics |
+| Retrospective | Improve PO-UX-Dev collaboration |
 
 ## UX Debt
-- Identifier et suivre la dette UX comme la dette technique
-- Ajouter les UX stories au backlog avec priorité explicite
-- Viser : ratio 20% UX debt / 80% nouvelles features
+- Identify and track UX debt like technical debt
+- Add UX stories to the backlog with explicit priority
+- Aim for: a 20% UX debt / 80% new features ratio
 
-## Livrables
-- Proto-personas documentés (Figma / Notion)
-- Hypothèses produit formalisées
-- UX stories avec critères d'acceptation comportementaux
-- Résultats des tests utilisateurs en sprint
+## Deliverables
+- Documented proto-personas (Figma / Notion)
+- Formalized product hypotheses
+- UX stories with behavioral acceptance criteria
+- In-sprint user-test results
 
-## Format de sortie
-Précise : maturité UX de l'équipe · designer disponible (oui/non) · type de sprint (2 semaines ?)
+## Output format
+Specify: team UX maturity · designer available (yes/no) · sprint type (2 weeks?)

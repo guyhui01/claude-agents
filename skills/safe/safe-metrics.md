@@ -1,45 +1,45 @@
-# Skill — Métriques SAFe (Flow, Quality, Outcomes)
-> Certifications : SAFe POPM 6 · SAFe 6 Agilist (SA)
+# Skill — SAFe Metrics (Flow, Quality, Outcomes)
+> Certifications: SAFe POPM 6 · SAFe 6 Agilist (SA)
 
-## Objectif
-Piloter la performance de l'ART et du produit par des métriques SAFe adaptées à chaque niveau.
+## Objective
+Steer ART and product performance with SAFe metrics tailored to each level.
 
-## SAFe Metrics — 4 domaines
+## SAFe Metrics — 4 domains
 
-### 1. Flow Metrics (livraison)
-| Métrique | Définition |
+### 1. Flow Metrics (delivery)
+| Metric | Definition |
 |---|---|
-| Flow Velocity | Story Points livrés par PI |
-| Flow Time | Temps de bout en bout (idée → production) |
-| Flow Load | WIP au niveau ART |
-| Flow Efficiency | % temps actif vs. temps d'attente |
-| Flow Distribution | Répartition Features / Tech Debt / Enablers / Bugs |
+| Flow Velocity | Story Points delivered per PI |
+| Flow Time | End-to-end time (idea → production) |
+| Flow Load | WIP at the ART level |
+| Flow Efficiency | % active time vs. wait time |
+| Flow Distribution | Split of Features / Tech Debt / Enablers / Bugs |
 
 ### 2. Quality Metrics
-- Escaped defects (bugs trouvés en prod)
-- Test coverage (% code testé)
+- Escaped defects (bugs found in prod)
+- Test coverage (% of code tested)
 - Technical Debt ratio
 - MTTR (Mean Time To Repair)
 
 ### 3. Business Outcomes (EBM)
-- Current Value : NPS, CSAT, revenus
-- Unrealized Value : part de marché adressable
-- Ability to Innovate : % temps innovation vs. maintenance
-- Time to Market : fréquence de release, lead time
+- Current Value: NPS, CSAT, revenue
+- Unrealized Value: addressable market share
+- Ability to Innovate: % time on innovation vs. maintenance
+- Time to Market: release frequency, lead time
 
 ### 4. PI Metrics
-- PI Predictability : % PI Objectives atteints (cible ≥ 80%)
+- PI Predictability: % of PI Objectives met (target ≥ 80%)
 - Business Value delivered vs. planned
-- Nombre de dépendances résolues
+- Number of dependencies resolved
 
-## Dashboard métriques ART
-- Fréquence : par sprint (flow) · par PI (business outcomes)
-- Public : Scrum Masters, RTE, Product Management, Business Owners
+## ART metrics dashboard
+- Frequency: per sprint (flow) · per PI (business outcomes)
+- Audience: Scrum Masters, RTE, Product Management, Business Owners
 
-## Livrables
-- Dashboard métriques ART (Jira / PowerBI / Confluence)
-- Rapport PI Predictability post-PI
-- Recommandations d'amélioration basées sur les métriques
+## Deliverables
+- ART metrics dashboard (Jira / PowerBI / Confluence)
+- Post-PI Predictability report
+- Metric-based improvement recommendations
 
-## Format de sortie
-Précise : nombre d'équipes · outils de tracking · métriques déjà collectées · audience du reporting
+## Output format
+Specify: number of teams · tracking tools · metrics already collected · reporting audience

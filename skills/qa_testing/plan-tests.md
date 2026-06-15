@@ -1,74 +1,74 @@
-# Skill QA Cycle V — Plan de Tests (Master Test Plan IEEE 829)
+# QA V-Model Skill — Test Plan (Master Test Plan IEEE 829)
 
-> Certification : CTAL-TM · CTFL
-> Agent : AGENT-QA-CYCLEV.md
-> Méthodologie : Cycle en V
+> Certification: CTAL-TM · CTFL
+> Agent: AGENT-QA-CYCLEV.md
+> Methodology: V-model
 
-## Structure IEEE 829
-
-```
-1. Identifiant du plan
-2. Introduction et objectifs
-3. Éléments testés (test items)
-4. Fonctionnalités à tester
-5. Fonctionnalités hors périmètre
-6. Approche / stratégie
-7. Critères de pass/fail
-8. Critères de suspension et reprise
-9. Livrables de test
-10. Tâches de test
-11. Besoins en environnement
-12. Responsabilités
-13. Planning et estimation
-14. Risques et contingences
-15. Approbation
-```
-
-## Template Master Test Plan
+## IEEE 829 structure
 
 ```
-MASTER TEST PLAN — [Projet] — v[X.X] — [Date]
-Auteur : [Guy HUI-BON-HOA]  |  Statut : ☐ Brouillon ☐ Validé
+1. Plan identifier
+2. Introduction and objectives
+3. Test items
+4. Features to be tested
+5. Features out of scope
+6. Approach / strategy
+7. Pass/fail criteria
+8. Suspension and resumption criteria
+9. Test deliverables
+10. Test tasks
+11. Environment needs
+12. Responsibilities
+13. Schedule and estimation
+14. Risks and contingencies
+15. Approval
+```
+
+## Master Test Plan template
+
+```
+MASTER TEST PLAN — [Project] — v[X.X] — [Date]
+Author: [Guy HUI-BON-HOA]  |  Status: ☐ Draft ☐ Validated
 
 1. INTRODUCTION
-   Objectif : [...]
-   Référence SFG/SFD : [doc v X.X]
+   Objective: [...]
+   FRS/FRD reference: [doc v X.X]
 
-2. PÉRIMÈTRE
-   In scope : [liste des fonctionnalités]
-   Out of scope : [liste]
+2. SCOPE
+   In scope: [list of features]
+   Out of scope: [list]
 
-3. APPROCHE
-   Niveaux : Unitaire → Intégration → Système → UAT
-   Priorité : [MoSCoW appliqué aux cas de test]
+3. APPROACH
+   Levels: Unit → Integration → System → UAT
+   Priority: [MoSCoW applied to the test cases]
 
-4. CRITÈRES DE PASS/FAIL
-   Pass : Résultat obtenu = Résultat attendu
-   Fail : Tout écart documenté comme anomalie
+4. PASS/FAIL CRITERIA
+   Pass: Obtained result = Expected result
+   Fail: Any deviation documented as a defect
 
 5. SUSPENSION
-   Suspendre si : > [X] anomalies bloquantes ouvertes
-   Reprendre si : anomalies bloquantes corrigées et re-testées
+   Suspend if: > [X] blocking defects open
+   Resume if: blocking defects fixed and re-tested
 
-6. LIVRABLES
-   - Cas de test : [date]
-   - Rapport exécution J1 : [date]
-   - Rapport final : [date]
+6. DELIVERABLES
+   - Test cases: [date]
+   - D1 execution report: [date]
+   - Final report: [date]
 
-7. PLANNING
-   | Phase | Début | Fin | Charge (j/h) | Responsable |
+7. SCHEDULE
+   | Phase | Start | End | Effort (person-days) | Owner |
    |---|---|---|---|---|
-   | Rédaction cas de test | [date] | [date] | [X j] | [nom] |
-   | Exécution recette | [date] | [date] | [X j] | [nom] |
-   | Rapport final | [date] | [date] | [X j] | [nom] |
+   | Writing test cases | [date] | [date] | [X d] | [name] |
+   | UAT execution | [date] | [date] | [X d] | [name] |
+   | Final report | [date] | [date] | [X d] | [name] |
 
-8. RISQUES
-   | Risque | Impact | Mitigation |
+8. RISKS
+   | Risk | Impact | Mitigation |
    |---|---|---|
-   | Env. instable | Blocage tests | Prévoir env. de secours |
-   | Données manquantes | Tests incomplets | Préparer jeux de données |
+   | Unstable env. | Tests blocked | Plan a backup env. |
+   | Missing data | Incomplete tests | Prepare data sets |
 
-9. APPROBATION
-   Chef de projet : [nom] — Date : [...]
-   MOA : [nom] — Date : [...]
+9. APPROVAL
+   Project manager: [name] — Date: [...]
+   MOA: [name] — Date: [...]
 ```

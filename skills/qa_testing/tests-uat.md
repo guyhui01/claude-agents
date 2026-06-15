@@ -1,76 +1,76 @@
-# Skill QA Cycle V — Tests d'Acceptance (UAT)
+# QA V-Model Skill — Acceptance Testing (UAT)
 
-> Certification : CTAL-TA · CTFL
-> Agents : AGENT-QA-CYCLEV.md · AGENT-BUSINESS-ANALYST.md
-> Méthodologie : Cycle en V
+> Certification: CTAL-TA · CTFL
+> Agents: AGENT-QA-CYCLEV.md · AGENT-BUSINESS-ANALYST.md
+> Methodology: V-model
 
-## Définition ISTQB
-Les UAT (User Acceptance Tests) valident que le système est conforme aux besoins métier et prêt pour la mise en production. Réalisés par les utilisateurs finaux ou la MOA.
+## ISTQB definition
+UAT (User Acceptance Tests) validate that the system meets the business needs and is ready for production. Performed by end users or the business owner (MOA).
 
-## Responsabilités UAT
-| Rôle | Responsabilité |
+## UAT responsibilities
+| Role | Responsibility |
 |---|---|
-| **MOA / PO** | Définit les critères d'acceptance, valide le GO |
-| **Métier / Utilisateurs** | Exécutent les tests de leur domaine |
-| **QA** | Prépare les cas de test, support technique |
-| **Chef de projet** | Décision GO / NO GO finale |
+| **MOA / PO** | Defines the acceptance criteria, validates the GO |
+| **Business / Users** | Run the tests for their domain |
+| **QA** | Prepares the test cases, technical support |
+| **Project manager** | Final GO / NO GO decision |
 
-## Template cas de test UAT
-
-```
-ID : UAT-[XXX]
-Titre : [Scénario métier — langage utilisateur]
-Référence : [Exigence métier / User Story / UC]
-Exécuté par : [Nom utilisateur / MOA]
-Date : [JJ/MM/AAAA]
-
-CONTEXTE MÉTIER :
-[Description en langage métier — pas technique]
-
-SCÉNARIO :
-1. [Action utilisateur en langage naturel]
-2. [Action utilisateur]
-3. [Vérification]
-
-RÉSULTAT ATTENDU (langage métier) :
-[Ce que l'utilisateur doit voir / obtenir]
-
-RÉSULTAT OBTENU :
-[À remplir par l'utilisateur]
-
-VERDICT : ☐ Accepté  ☐ Refusé — motif : [...]
-COMMENTAIRES : [retour utilisateur libre]
-```
-
-## Critères GO MEP (UAT)
+## UAT test case template
 
 ```
-☐ 100% des scénarios critiques : Accepté
-☐ 0 anomalie bloquante ouverte
-☐ < [X] anomalies majeures (avec plan de correction daté)
-☐ Procédures d'exploitation validées
-☐ Plan de retour arrière défini
-☐ Formation utilisateurs réalisée
-☐ Signature du PV de recette par MOA / Métier
+ID: UAT-[XXX]
+Title: [Business scenario — user language]
+Reference: [Business requirement / User Story / UC]
+Executed by: [User name / MOA]
+Date: [DD/MM/YYYY]
+
+BUSINESS CONTEXT:
+[Description in business language — not technical]
+
+SCENARIO:
+1. [User action in natural language]
+2. [User action]
+3. [Verification]
+
+EXPECTED RESULT (business language):
+[What the user must see / obtain]
+
+OBTAINED RESULT:
+[To be filled in by the user]
+
+VERDICT: ☐ Accepted  ☐ Rejected — reason: [...]
+COMMENTS: [free user feedback]
 ```
 
-## PV de Recette
+## Go-live GO criteria (UAT)
 
 ```
-PROCÈS-VERBAL DE RECETTE — [Projet] — [Date]
+☐ 100% of critical scenarios: Accepted
+☐ 0 blocking defect open
+☐ < [X] major defects (with a dated fix plan)
+☐ Operations procedures validated
+☐ Rollback plan defined
+☐ User training completed
+☐ Sign-off report signed by MOA / Business
+```
 
-Périmètre testé : [liste fonctionnalités]
-Cas de test exécutés : [X]
-Acceptés : [X] | Refusés : [X]
+## Acceptance Sign-off Report
 
-Anomalies résiduelles acceptées :
-| ID | Sévérité | Description | Plan de correction |
+```
+ACCEPTANCE SIGN-OFF REPORT — [Project] — [Date]
+
+Scope tested: [list of features]
+Test cases executed: [X]
+Accepted: [X] | Rejected: [X]
+
+Residual defects accepted:
+| ID | Severity | Description | Fix plan |
 |---|---|---|---|
 
-Décision : ☐ RECETTE PRONONCÉE  ☐ RECETTE REFUSÉE
+Decision: ☐ ACCEPTANCE GRANTED  ☐ ACCEPTANCE REJECTED
 
-Signataires :
-MOA : [nom] — Date : [...]
-Métier : [nom] — Date : [...]
-Chef de projet : [nom] — Date : [...]
+Signatories:
+MOA: [name] — Date: [...]
+Business: [name] — Date: [...]
+Project manager: [name] — Date: [...]
 ```

@@ -1,55 +1,55 @@
-# Skill QA Agile — Definition of Done orientée Qualité
+# QA Agile Skill — Quality-Oriented Definition of Done
 
-> Certification : CTFL-AT · CTAL-TM
-> Agent : AGENT-QA-AGILE.md
-> Méthodologie : Agile
+> Certification: CTFL-AT · CTAL-TM
+> Agent: AGENT-QA-AGILE.md
+> Methodology: Agile
 
-## Principe
-La DoD est un engagement collectif de l'équipe sur ce que signifie "terminé". Elle inclut les critères qualité non négociables.
+## Principle
+The DoD is a collective commitment by the team on what "done" means. It includes the non-negotiable quality criteria.
 
-## DoD par niveau
+## DoD by level
 
-### DoD User Story
+### User Story DoD
 ```
-☐ Code développé et revu par un pair (code review)
-☐ Tests unitaires rédigés et passants (couverture > [X]%)
-☐ Tests d'acceptance exécutés et validés (PO)
-☐ Scénarios BDD passants (si applicable)
-☐ Aucune anomalie bloquante ou majeure ouverte
-☐ Documentation technique mise à jour
-☐ Déployé sur environnement de recette
-☐ Validé par le PO sur environnement de recette
-```
-
-### DoD Sprint
-```
-☐ Toutes les US du sprint satisfont la DoD US
-☐ Tests de régression exécutés sur les zones impactées
-☐ Aucune régression introduite
-☐ Dette technique du sprint documentée dans le backlog
-☐ Rapport de tests du sprint disponible
-☐ Environnement de recette stable pour la démo
-☐ Sprint Review possible sur environnement stable
+☐ Code developed and peer-reviewed (code review)
+☐ Unit tests written and passing (coverage > [X]%)
+☐ Acceptance tests executed and validated (PO)
+☐ BDD scenarios passing (if applicable)
+☐ No blocking or major defect open
+☐ Technical documentation updated
+☐ Deployed to the staging environment
+☐ Validated by the PO on the staging environment
 ```
 
-### DoD Release / MEP
+### Sprint DoD
 ```
-☐ Toutes les US de la release satisfont la DoD Sprint
-☐ Tests de régression complets exécutés
-☐ Tests de performance validés (si applicable)
-☐ Tests de sécurité validés (si applicable)
-☐ Zéro anomalie bloquante ouverte
-☐ Plan de retour arrière (rollback) validé
-☐ Documentation utilisateur à jour
-☐ GO MEP prononcé par PO + QA Lead
+☐ Every US in the sprint meets the User Story DoD
+☐ Regression tests executed on the impacted areas
+☐ No regression introduced
+☐ Sprint technical debt documented in the backlog
+☐ Sprint test report available
+☐ Staging environment stable for the demo
+☐ Sprint Review possible on a stable environment
 ```
 
-## Template DoD partagée Confluence
+### Release / Go-live DoD
 ```
-DOD — [Équipe] — [Projet] — v[X.X] — [Date]
-Validée par : [équipe + PO + QA]
+☐ Every US in the release meets the Sprint DoD
+☐ Full regression tests executed
+☐ Performance tests validated (if applicable)
+☐ Security tests validated (if applicable)
+☐ Zero blocking defect open
+☐ Rollback plan validated
+☐ User documentation up to date
+☐ Go-live GO given by PO + QA Lead
+```
 
-[Copier les 3 niveaux ci-dessus]
+## Shared DoD Confluence template
+```
+DOD — [Team] — [Project] — v[X.X] — [Date]
+Validated by: [team + PO + QA]
 
-Révision prévue : [prochaine rétrospective]
+[Copy the 3 levels above]
+
+Planned revision: [next retrospective]
 ```

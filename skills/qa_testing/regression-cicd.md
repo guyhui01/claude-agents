@@ -1,51 +1,51 @@
-# Skill QA Agile — Régression Automatisée CI/CD
+# QA Agile Skill — Automated CI/CD Regression
 
-> Certification : CT-TAE · CTAL-ATT
-> Agent : AGENT-QA-AGILE.md
-> Méthodologie : Agile
+> Certification: CT-TAE · CTAL-ATT
+> Agent: AGENT-QA-AGILE.md
+> Methodology: Agile
 
-## Principe
-En Agile, la régression est automatisée et intégrée au pipeline CI/CD pour garantir la qualité à chaque commit.
+## Principle
+In Agile, regression is automated and integrated into the CI/CD pipeline to guarantee quality at every commit.
 
-## Niveaux de régression Agile
+## Agile regression levels
 
-| Niveau | Déclencheur | Durée cible | Contenu |
+| Level | Trigger | Target duration | Content |
 |---|---|---|---|
-| **Smoke** | Chaque commit | < 10 min | 20-30 cas critiques |
-| **Régression rapide** | Chaque PR/MR | < 30 min | Zones impactées |
-| **Régression complète** | Nuit / fin sprint | < 2h | 100% des cas stables |
-| **Sanity** | Avant démo / MEP | < 15 min | Fonctionnalités clés |
+| **Smoke** | Every commit | < 10 min | 20-30 critical cases |
+| **Fast regression** | Every PR/MR | < 30 min | Impacted areas |
+| **Full regression** | Night / end of sprint | < 2h | 100% of stable cases |
+| **Sanity** | Before demo / go-live | < 15 min | Key features |
 
-## Template suite de régression
+## Regression suite template
 
 ```
-SUITE RÉGRESSION — [Projet] — v[X.X]
+REGRESSION SUITE — [Project] — v[X.X]
 
-Smoke Tests (toujours actifs) :
-| TC-ID | Titre | Priorité | Auto | Durée |
+Smoke Tests (always active):
+| TC-ID | Title | Priority | Auto | Duration |
 |---|---|---|---|---|
-| TC-001 | Login nominal | Critique | ✅ | 30s |
-| TC-002 | Page accueil charge | Critique | ✅ | 20s |
+| TC-001 | Nominal login | Critical | ✅ | 30s |
+| TC-002 | Home page load | Critical | ✅ | 20s |
 
-Régression fonctionnelle :
-| Module | Nb cas | Auto | Manuel |
+Functional regression:
+| Module | # cases | Auto | Manual |
 |---|---|---|---|
 | [Module A] | [X] | [X] | [X] |
 | [Module B] | [X] | [X] | [X] |
 
-Critère d'arrêt : 1 Smoke fail = pipeline bloqué
+Stop criterion: 1 Smoke fail = pipeline blocked
 ```
 
-## Rapport régression CI/CD
+## CI/CD regression report
 
 ```
-RÉGRESSION CI/CD — Build [#XXX] — [Date/Heure]
-Durée : [X min]  |  Branche : [nom]
+CI/CD REGRESSION — Build [#XXX] — [Date/Time]
+Duration: [X min]  |  Branch: [name]
 
-✅ Pass : [X]  ❌ Fail : [X]  ⚠️ Flaky : [X]
+✅ Pass: [X]  ❌ Fail: [X]  ⚠️ Flaky: [X]
 
-Échecs :
-- [TC-XXX] [description] — depuis : [build #XXX]
+Failures:
+- [TC-XXX] [description] — since: [build #XXX]
 
-Action requise : ☐ Fix immédiat  ☐ Ticket créé  ☐ Test à revoir
+Action required: ☐ Immediate fix  ☐ Ticket created  ☐ Test to review
 ```

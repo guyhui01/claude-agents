@@ -1,136 +1,136 @@
-# Skill — Gestion des environnements de test
+# Skill — Test environment management
 
-> **Méthodologie :** Mixte (Agile + Cycle en V)
-> Certification : ISTQB® CTAL-TM · ISTQB® CTAL-TTA
-> Agent : AGENT-QA-CYCLEV.md
+> **Methodology:** Mixed (Agile + V-model)
+> Certification: ISTQB® CTAL-TM · ISTQB® CTAL-TTA
+> Agent: AGENT-QA-CYCLEV.md
 
-## Objectif
-Concevoir, gérer et maintenir les environnements de test pour garantir la fiabilité des campagnes de tests — de l'environnement d'intégration jusqu'à la pré-production.
+## Objective
+Design, manage and maintain test environments to guarantee the reliability of test campaigns — from the integration environment through to pre-production.
 
-## Types d'environnements de test
+## Test environment types
 
 ```
-DÉVELOPPEMENT  →  INTÉGRATION  →  QUALIFICATION  →  PRÉ-PROD  →  PRODUCTION
+DEVELOPMENT    →  INTEGRATION  →  QUALIFICATION  →  PRE-PROD  →  PRODUCTION
     (DEV)            (INT)            (QUA/REC)        (PPR)         (PROD)
 
-Objectif :       Tests unitaires   Tests E2E         Recette UAT   Clone prod   Live
-Données :        Fictives          Fictives/masquées Masquées      Anonymisées  Réelles
-Accès :          Dev               Dev + QA          QA + Métier   Restreint    Contrôlé
-Déploiement :    Continu           CI/CD             Manuel/CI     Contrôlé     Release
+Goal:            Unit tests        E2E tests         UAT           Prod clone   Live
+Data:            Fictitious        Fictitious/masked Masked        Anonymized   Real
+Access:          Dev               Dev + QA          QA + Business Restricted   Controlled
+Deployment:      Continuous        CI/CD             Manual/CI     Controlled   Release
 ```
 
-## Exigences d'un environnement de test
+## Requirements of a test environment
 
-### Dimensionnement
-| Paramètre | INT | QUA | PPR |
+### Sizing
+| Parameter | INT | QUA | PPR |
 |---|---|---|---|
-| Ressources CPU/RAM | 50% prod | 75% prod | 100% prod |
-| Données | Jeu de test dédié | Données masquées | Copie anonymisée |
-| Services tiers | Mock / Sandbox | Sandbox | Sandbox prod-like |
-| Accès réseau | Restreint | Restreint | Contrôlé |
+| CPU/RAM resources | 50% prod | 75% prod | 100% prod |
+| Data | Dedicated test set | Masked data | Anonymized copy |
+| Third-party services | Mock / Sandbox | Sandbox | Prod-like sandbox |
+| Network access | Restricted | Restricted | Controlled |
 
-### Critères de stabilité d'un environnement
-- [ ] Même version du code que le sprint/release en cours
-- [ ] Base de données remise à zéro ou restaurée entre campagnes
-- [ ] Services tiers (API, paiement, email) en mode sandbox
-- [ ] Pas de déploiements en cours pendant les tests
-- [ ] Monitoring actif (logs, alertes)
+### Environment stability criteria
+- [ ] Same code version as the current sprint/release
+- [ ] Database reset or restored between campaigns
+- [ ] Third-party services (API, payment, email) in sandbox mode
+- [ ] No deployments in progress during testing
+- [ ] Active monitoring (logs, alerts)
 
-## Processus de gestion des environnements
+## Environment management process
 
-### 1. Demande et provisionnement
+### 1. Request and provisioning
 ```
-Demande (Test Manager) → Validation (DevOps) → Provisionnement → Recette environnement
-     |                                                |
-  JIRA ticket                                  Infrastructure as Code
-  (type: Env Request)                          (Terraform / Ansible)
+Request (Test Manager) → Approval (DevOps) → Provisioning → Environment acceptance
+     |                                              |
+  JIRA ticket                              Infrastructure as Code
+  (type: Env Request)                      (Terraform / Ansible)
 ```
 
-### 2. Plan de gestion des environnements
+### 2. Environment management plan
 
 ```
-ENVIRONNEMENT   VERSION APP   BASE DE DONNÉES      RESPONSABLE   STATUT
-INT-01          sprint-42     db_int_s42           Dev Lead       Disponible
-QUA-01          release-3.2   db_qua_r32_masked    QA Manager     En test
+ENVIRONMENT     APP VERSION   DATABASE             OWNER          STATUS
+INT-01          sprint-42     db_int_s42           Dev Lead       Available
+QUA-01          release-3.2   db_qua_r32_masked    QA Manager     Testing
 PPR-01          release-3.1   db_ppr_anonymized    DevOps         Maintenance
 ```
 
-### 3. Réinitialisation des données de test
+### 3. Test data reset
 
 ```bash
-# Script de reset d'environnement (pseudocode)
+# Environment reset script (pseudocode)
 restore_database(snapshot="baseline_sprint_42")
 seed_data(dataset="test_fixtures_v2")
 reset_mock_services(config="sandbox")
 notify_team(env="QUA-01", status="ready")
 ```
 
-## Données de test — Stratégies
+## Test data — Strategies
 
-### Types de données de test
+### Test data types
 | Type | Description | Usage |
 |---|---|---|
-| Données statiques | Jeux fixes réutilisables | Tests fonctionnels stables |
-| Données dynamiques | Générées à la volée | Tests de charge, stress |
-| Données masquées | Vraies données anonymisées | Tests de conformité RGPD |
-| Données de bord | Cas limites, nulls, extrêmes | Tests négatifs |
+| Static data | Fixed reusable sets | Stable functional tests |
+| Dynamic data | Generated on the fly | Load, stress tests |
+| Masked data | Real anonymized data | GDPR compliance tests |
+| Boundary data | Edge cases, nulls, extremes | Negative tests |
 
-### Outils de gestion des données de test
-- **Génération** : Faker (Python/JS), Mockaroo, TestContainers
-- **Masquage** : Anonymizer, DataVeil, Delphix
-- **Versioning** : Liquibase, Flyway (schéma DB)
-- **Snapshots** : AWS RDS Snapshot, pg_dump, mysqldump
+### Test data management tools
+- **Generation**: Faker (Python/JS), Mockaroo, TestContainers
+- **Masking**: Anonymizer, DataVeil, Delphix
+- **Versioning**: Liquibase, Flyway (DB schema)
+- **Snapshots**: AWS RDS Snapshot, pg_dump, mysqldump
 
-## Gestion des conflits d'environnement
+## Environment conflict management
 
-### Problèmes fréquents et solutions
+### Frequent problems and solutions
 
-| Problème | Impact | Solution |
+| Problem | Impact | Solution |
 |---|---|---|
-| Environnement instable | Tests non fiables | Lock de l'env pendant les tests |
-| Données corrompues | Faux négatifs | Procédure de reset automatisé |
-| Service tiers indisponible | Blocage campagne | Basculement sur mock |
-| Version mal déployée | Résultats incorrects | Pipeline CI/CD avec smoke test auto |
-| Conflit d'accès (2 équipes) | Tests parasités | Booking calendar environnements |
+| Unstable environment | Unreliable tests | Lock the env during testing |
+| Corrupted data | False negatives | Automated reset procedure |
+| Third-party service unavailable | Campaign blocked | Switch to a mock |
+| Wrongly deployed version | Incorrect results | CI/CD pipeline with auto smoke test |
+| Access conflict (2 teams) | Tests polluted | Environment booking calendar |
 
-### Matrice de responsabilités (RACI)
-| Activité | Test Manager | QA Engineer | DevOps | Dev |
+### Responsibility matrix (RACI)
+| Activity | Test Manager | QA Engineer | DevOps | Dev |
 |---|---|---|---|---|
-| Définir les besoins env. | R/A | C | I | I |
-| Provisionner l'env. | I | I | R/A | C |
-| Maintenir les données | A | R | C | I |
-| Surveiller la stabilité | I | R | R | I |
-| Résoudre les incidents | A | C | R | C |
+| Define env. needs | R/A | C | I | I |
+| Provision the env. | I | I | R/A | C |
+| Maintain the data | A | R | C | I |
+| Monitor stability | I | R | R | I |
+| Resolve incidents | A | C | R | C |
 
-## Monitoring et alertes
+## Monitoring and alerts
 
-### Métriques à surveiller
-| Dimension | Métrique | Cible |
+### Metrics to monitor
+| Dimension | Metric | Target |
 |---|---|---|
-| Disponibilité | Uptime environnement | > 99% |
-| Performance | Temps de réponse vs prod | < 3× prod |
-| Données | Fraîcheur du jeu de test | Reset < 24h |
-| Déploiement | Version vérifiée avant tests | Tag git versionné |
+| Availability | Environment uptime | > 99% |
+| Performance | Response time vs prod | < 3× prod |
+| Data | Freshness of the test set | Reset < 24h |
+| Deployment | Version verified before testing | Versioned git tag |
 
-### Template de rapport d'état d'environnement
+### Environment status report template
 ```
-RAPPORT ENVIRONNEMENT — [Date]
-Environnement  : QUA-01
-Version app    : release-3.2.1
+ENVIRONMENT REPORT — [Date]
+Environment    : QUA-01
+App version    : release-3.2.1
 DB snapshot    : 2026-05-20 08:00
-Disponibilité  : 99,2% (7 derniers jours)
-Incidents      : 1 (résolu — redémarrage service Auth)
-Prochaine MAJ  : 2026-05-22 (sprint 43)
-Statut         : Disponible pour tests
+Availability   : 99.2% (last 7 days)
+Incidents      : 1 (resolved — Auth service restart)
+Next update    : 2026-05-22 (sprint 43)
+Status         : Available for testing
 ```
 
-## Checklist — Qualification d'un environnement
+## Checklist — Environment qualification
 
-Avant de lancer une campagne de tests :
-- [ ] Version applicative vérifiée (git tag / numéro de build)
-- [ ] Base de données remise à l'état de référence
-- [ ] Services tiers (API tierces, paiement, email) en sandbox
-- [ ] Smoke tests exécutés et passants (> 95%)
-- [ ] Accès équipe QA vérifiés (login, permissions)
-- [ ] Monitoring actif (Grafana, Datadog, ELK)
-- [ ] Communication envoyée aux équipes (env disponible)
+Before launching a test campaign:
+- [ ] Application version verified (git tag / build number)
+- [ ] Database reset to the reference state
+- [ ] Third-party services (external APIs, payment, email) in sandbox
+- [ ] Smoke tests executed and passing (> 95%)
+- [ ] QA team access verified (login, permissions)
+- [ ] Active monitoring (Grafana, Datadog, ELK)
+- [ ] Communication sent to the teams (env available)

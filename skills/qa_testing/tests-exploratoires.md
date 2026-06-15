@@ -1,56 +1,56 @@
-# Skill QA Agile — Tests Exploratoires
+# QA Agile Skill — Exploratory Testing
 
-> Certification : CTFL-AT · CTAL-TA
-> Agents : AGENT-QA-AGILE.md · AGENT-QA-CYCLEV.md
-> Méthodologie : Agile
+> Certification: CTFL-AT · CTAL-TA
+> Agents: AGENT-QA-AGILE.md · AGENT-QA-CYCLEV.md
+> Methodology: Agile
 
-## Définition ISTQB
-Les tests exploratoires combinent apprentissage, conception et exécution simultanément. Le testeur explore librement le système en documentant sa démarche.
+## ISTQB definition
+Exploratory testing combines learning, design and execution simultaneously. The tester freely explores the system while documenting their approach.
 
 ## Session-Based Test Management (SBTM)
 
 ```
-SESSION DE TEST EXPLORATOIRE
+EXPLORATORY TEST SESSION
 
-ID session : SE-[XXX]
-Date : [JJ/MM/AAAA]  |  Durée : [60-90 min]
-Testeur : [Guy HUI-BON-HOA]
-Charter (mission) : [Ce que je veux explorer et pourquoi]
+Session ID: SE-[XXX]
+Date: [DD/MM/YYYY]  |  Duration: [60-90 min]
+Tester: [Guy HUI-BON-HOA]
+Charter (mission): [What I want to explore and why]
 
-Zone explorée : [module / fonctionnalité / flux]
-Risques ciblés : [ce qui pourrait mal se passer]
+Area explored: [module / feature / flow]
+Targeted risks: [what could go wrong]
 
-NOTES D'EXPLORATION :
-[Notes libres durant la session — observations, questions, anomalies]
+EXPLORATION NOTES:
+[Free-form notes during the session — observations, questions, defects]
 
-ANOMALIES DÉTECTÉES :
-| ID | Description | Sévérité | Reproductible |
+DEFECTS DETECTED:
+| ID | Description | Severity | Reproducible |
 |---|---|---|---|
-| BUG-XXX | [...] | Majeur | ☐ Oui ☐ Non |
+| BUG-XXX | [...] | Major | ☐ Yes ☐ No |
 
-QUESTIONS / ZONES À APPROFONDIR :
+QUESTIONS / AREAS TO DIG INTO:
 - [question 1]
 - [question 2]
 
-COUVERTURE ESTIMÉE : [X]%
-DURÉE RÉELLE : [X min]
-VERDICT : ☐ Zone saine  ☐ Risques identifiés  ☐ Investigation requise
+ESTIMATED COVERAGE: [X]%
+ACTUAL DURATION: [X min]
+VERDICT: ☐ Healthy area  ☐ Risks identified  ☐ Investigation required
 ```
 
-## Techniques d'exploration
+## Exploration techniques
 
 | Technique | Description |
 |---|---|
-| **Tour du fou** | Saisir des données aberrantes partout |
-| **Tour du flâneur** | Suivre les liens / boutons sans but précis |
-| **Tour de l'historique** | Tester les anciennes anomalies régressées |
-| **Tour du collectionneur** | Rassembler tous les outputs du système |
-| **Tour du saboteur** | Interrompre les processus en cours |
-| **Tour des limites** | Valeurs min, max, vides, null |
+| **Antisocial tour** | Enter aberrant data everywhere |
+| **Landmark tour** | Follow links / buttons with no specific goal |
+| **Back-alley tour** | Test old defects that have regressed |
+| **Collector tour** | Gather all the system's outputs |
+| **Saboteur tour** | Interrupt processes in progress |
+| **Boundary tour** | Min, max, empty, null values |
 
-## Quand utiliser les tests exploratoires ?
-- Nouveau module à découvrir rapidement
-- Complément aux tests scriptés
-- Après une correction complexe
-- Quand le temps est contraint
-- Pour les fonctionnalités mal spécifiées
+## When to use exploratory testing?
+- A new module to discover quickly
+- Complement to scripted tests
+- After a complex fix
+- When time is constrained
+- For poorly specified features

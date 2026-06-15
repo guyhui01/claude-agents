@@ -1,53 +1,53 @@
-# Skill QA Cycle V — Revues & Inspections
+# QA V-Model Skill — Reviews & Inspections
 
-> Certification : CTFL · CTAL-TM
-> Agent : AGENT-QA-CYCLEV.md
-> Méthodologie : Cycle en V
+> Certification: CTFL · CTAL-TM
+> Agent: AGENT-QA-CYCLEV.md
+> Methodology: V-model
 
-## Types de revues (ISTQB)
+## Review types (ISTQB)
 
-| Type | Formalisme | Participants | Objectif |
+| Type | Formality | Participants | Goal |
 |---|---|---|---|
-| **Revue informelle** | Faible | 1-2 pairs | Détection rapide d'erreurs |
-| **Walkthrough** | Moyen | Auteur + équipe | Compréhension partagée |
-| **Revue technique** | Élevé | Pairs techniques | Évaluation technique |
-| **Inspection** | Très élevé | Équipe + modérateur | Détection formelle de défauts |
+| **Informal review** | Low | 1-2 peers | Quick error detection |
+| **Walkthrough** | Medium | Author + team | Shared understanding |
+| **Technical review** | High | Technical peers | Technical assessment |
+| **Inspection** | Very high | Team + moderator | Formal defect detection |
 
-## Processus d'inspection (IEEE 1028)
-
-```
-1. Planning → Sélection du document, constitution de l'équipe
-2. Présentation → L'auteur présente le document
-3. Préparation individuelle → Chaque relecteur annote
-4. Réunion d'inspection → Discussion et enregistrement des défauts
-5. Correction → L'auteur corrige les défauts identifiés
-6. Suivi → Vérification des corrections
-```
-
-## Template liste de contrôle (Checklist de revue SFD)
+## Inspection process (IEEE 1028)
 
 ```
-REVUE — [Document] — v[X.X] — [Date]
-Relecteur : [nom]  |  Auteur : [nom]
+1. Planning → Document selection, team setup
+2. Kick-off → The author presents the document
+3. Individual preparation → Each reviewer annotates
+4. Inspection meeting → Discussion and recording of defects
+5. Rework → The author fixes the identified defects
+6. Follow-up → Verification of the fixes
+```
 
-COMPLÉTUDE :
-☐ Tous les cas nominaux documentés
-☐ Cas alternatifs et d'erreur présents
-☐ Règles de gestion numérotées et complètes
-☐ Interfaces SI identifiées
+## Checklist template (FRD review checklist)
 
-CLARTÉ :
-☐ Langage non ambigu
-☐ Termes du glossaire utilisés
-☐ Exemples fournis pour les règles complexes
+```
+REVIEW — [Document] — v[X.X] — [Date]
+Reviewer: [name]  |  Author: [name]
 
-TESTABILITÉ :
-☐ Chaque exigence est vérifiable
-☐ Critères d'acceptance mesurables
-☐ Données de test identifiables
+COMPLETENESS:
+☐ All nominal cases documented
+☐ Alternative and error cases present
+☐ Business rules numbered and complete
+☐ IS interfaces identified
 
-Défauts relevés :
-| # | Localisation | Description | Sévérité | Type |
+CLARITY:
+☐ Unambiguous language
+☐ Glossary terms used
+☐ Examples provided for complex rules
+
+TESTABILITY:
+☐ Each requirement is verifiable
+☐ Acceptance criteria measurable
+☐ Test data identifiable
+
+Defects found:
+| # | Location | Description | Severity | Type |
 |---|---|---|---|---|
-| 1 | [section X] | [description] | Majeur | Manquant |
+| 1 | [section X] | [description] | Major | Missing |
 ```

@@ -1,60 +1,60 @@
-# Skill QA Cycle V — Tests de Régression & TNR
+# QA V-Model Skill — Regression & Non-Regression Testing (NRT)
 
-> Certification : CTAL-TA · CT-TAE
-> Agent : AGENT-QA-CYCLEV.md
-> Méthodologie : Cycle en V
+> Certification: CTAL-TA · CT-TAE
+> Agent: AGENT-QA-CYCLEV.md
+> Methodology: V-model
 
-## Définition ISTQB
-Les tests de régression vérifient qu'une modification (correction, évolution) n'a pas introduit de nouveaux défauts dans les fonctionnalités existantes.
+## ISTQB definition
+Regression tests verify that a change (fix, enhancement) has not introduced new defects into the existing features.
 
-## Stratégies de régression
+## Regression strategies
 
-| Stratégie | Description | Usage |
+| Strategy | Description | Usage |
 |---|---|---|
-| **Régression complète** | Tous les cas de test existants | MEP majeure |
-| **Régression partielle** | Zones impactées par la modification | Correction ciblée |
-| **Régression par risque** | Cas critiques en priorité | Délai contraint |
-| **Régression automatisée** | Exécution via scripts | Livraisons fréquentes |
+| **Full regression** | All existing test cases | Major go-live |
+| **Partial regression** | Areas impacted by the change | Targeted fix |
+| **Risk-based regression** | Critical cases first | Constrained deadline |
+| **Automated regression** | Execution via scripts | Frequent releases |
 
-## Périmètre TNR — Définition
-
-```
-MATRICE D'IMPACT — [Version X.X] — [Date]
-
-Modification : [description de la correction / évolution]
-Composants impactés : [liste]
-Zones à re-tester :
-  ├── Directement impacté : [module A, module B]
-  └── Indirectement impacté : [module C — flux de données]
-Zones exclues du TNR : [module D — aucune dépendance]
-```
-
-## Template plan de régression
+## NRT scope — Definition
 
 ```
-PLAN DE RÉGRESSION — [Projet] — Sprint/Version [X]
+IMPACT MATRIX — [Version X.X] — [Date]
 
-Déclencheur : ☐ Correction anomalie  ☐ Évolution  ☐ MEP
-Cas de test sélectionnés : [X] / [Y] total
-Critère de sélection : [impact / risque / priorité]
-
-| ID | Titre | Priorité | Automatisé | Responsable |
-|----|-------|----------|------------|-------------|
-| TC-XXX | [...] | Haute | ☐ Oui ☐ Non | [nom] |
-
-Durée estimée : [X h]
-Critère de sortie : 0 régression bloquante
+Change: [description of the fix / enhancement]
+Impacted components: [list]
+Areas to re-test:
+  ├── Directly impacted: [module A, module B]
+  └── Indirectly impacted: [module C — data flow]
+Areas excluded from NRT: [module D — no dependency]
 ```
 
-## Rapport TNR
+## Regression plan template
 
 ```
-RAPPORT TNR — [Projet] — [Date]
-Cas exécutés : [X]
-Pass : [X] ✅ | Fail : [X] ❌ | Bloqués : [X] ⚠️
+REGRESSION PLAN — [Project] — Sprint/Version [X]
 
-Régressions détectées :
-- [TC-XXX] [description] — Sévérité : [niveau]
+Trigger: ☐ Defect fix  ☐ Enhancement  ☐ Go-live
+Selected test cases: [X] / [Y] total
+Selection criterion: [impact / risk / priority]
 
-Décision : ☐ GO ☐ NO GO — motif : [...]
+| ID | Title | Priority | Automated | Owner |
+|----|-------|----------|-----------|-------|
+| TC-XXX | [...] | High | ☐ Yes ☐ No | [name] |
+
+Estimated duration: [X h]
+Exit criterion: 0 blocking regression
+```
+
+## NRT report
+
+```
+NRT REPORT — [Project] — [Date]
+Cases executed: [X]
+Pass: [X] ✅ | Fail: [X] ❌ | Blocked: [X] ⚠️
+
+Regressions detected:
+- [TC-XXX] [description] — Severity: [level]
+
+Decision: ☐ GO ☐ NO GO — reason: [...]
 ```

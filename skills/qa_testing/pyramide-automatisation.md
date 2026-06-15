@@ -1,57 +1,57 @@
-# Skill QA Agile — Pyramide d'Automatisation
+# QA Agile Skill — Automation Pyramid
 
-> Certification : CT-TAE · CTAL-ATT
-> Agent : AGENT-QA-AGILE.md
-> Méthodologie : Agile
+> Certification: CT-TAE · CTAL-ATT
+> Agent: AGENT-QA-AGILE.md
+> Methodology: Agile
 
-## La pyramide de tests (Mike Cohn)
+## The test pyramid (Mike Cohn)
 
 ```
            ╱─────────────╲
-          ╱   E2E / UI    ╲   ← Peu, lents, coûteux
+          ╱   E2E / UI    ╲   ← Few, slow, costly
          ╱─────────────────╲    (Selenium, Playwright, Cypress)
-        ╱   Intégration     ╲  ← Moyennement nombreux
+        ╱   Integration     ╲  ← Moderately many
        ╱─────────────────────╲   (Postman, RestAssured, API tests)
-      ╱   Unitaires (TDD)     ╲ ← Nombreux, rapides, peu coûteux
+      ╱   Unit tests (TDD)    ╲ ← Many, fast, cheap
      ╱─────────────────────────╲  (JUnit, Jest, pytest...)
 ```
 
-## Règles de la pyramide
-- **Unitaires** : 70% des tests automatisés — rapides, isolés, maintenables
-- **Intégration** : 20% — vérifient les contrats entre composants
-- **E2E / UI** : 10% — parcours critiques uniquement (pas tout automatiser)
+## Pyramid rules
+- **Unit**: 70% of automated tests — fast, isolated, maintainable
+- **Integration**: 20% — verify the contracts between components
+- **E2E / UI**: 10% — critical journeys only (don't automate everything)
 
-## Stratégie d'automatisation par type
+## Automation strategy by type
 
-| Type | Quoi automatiser | Outil suggéré |
+| Type | What to automate | Suggested tool |
 |---|---|---|
-| Unitaires | Logique métier, calculs, règles | JUnit / Jest / pytest |
-| API / Intégration | Contrats REST, flux de données | Postman / RestAssured |
-| UI E2E | Parcours critiques (login, checkout) | Playwright / Cypress |
-| Régression | Tous les cas stables et répétitifs | CI/CD pipeline |
-| Performance | Scénarios de charge récurrents | k6 / Gatling |
+| Unit | Business logic, calculations, rules | JUnit / Jest / pytest |
+| API / Integration | REST contracts, data flows | Postman / RestAssured |
+| UI E2E | Critical journeys (login, checkout) | Playwright / Cypress |
+| Regression | All stable and repetitive cases | CI/CD pipeline |
+| Performance | Recurring load scenarios | k6 / Gatling |
 
-## Critères de sélection pour l'automatisation
+## Selection criteria for automation
 ```
-Automatiser si :
-☐ Le test est exécuté > 3 fois par sprint
-☐ Le test est stable (pas de changement fréquent)
-☐ Le test est déterministe (résultat prévisible)
-☐ Le ROI est positif (gain temps > coût création)
+Automate if:
+☐ The test runs > 3 times per sprint
+☐ The test is stable (no frequent change)
+☐ The test is deterministic (predictable result)
+☐ The ROI is positive (time saved > creation cost)
 
-Ne pas automatiser si :
-☐ La fonctionnalité change souvent
-☐ Le test est exploratoire par nature
-☐ Le test concerne l'ergonomie / l'UX
-☐ C'est un test one-shot
+Do not automate if:
+☐ The feature changes often
+☐ The test is exploratory by nature
+☐ The test concerns ergonomics / UX
+☐ It is a one-shot test
 ```
 
-## Pipeline CI/CD et tests
+## CI/CD pipeline and tests
 
 ```
-Commit DEV
-  → Tests unitaires (< 5 min) ──── ❌ Fail = blocage immédiat
-  → Tests intégration (< 15 min) ── ❌ Fail = blocage build
-  → Tests E2E smoke (< 10 min) ──── ❌ Fail = blocage déploiement recette
-  → Tests régression complets (nuit) ← résultat disponible le lendemain
+DEV commit
+  → Unit tests (< 5 min) ──────── ❌ Fail = immediate block
+  → Integration tests (< 15 min) ─ ❌ Fail = build blocked
+  → E2E smoke tests (< 10 min) ─── ❌ Fail = staging deploy blocked
+  → Full regression tests (night) ← result available the next day
 ```

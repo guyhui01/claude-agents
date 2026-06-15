@@ -1,77 +1,77 @@
-# Skill QA Cycle V — Stratégie de Tests
+# QA V-Model Skill — Test Strategy
 
-> Certification : CTAL-TM · CTFL
-> Agent : AGENT-QA-CYCLEV.md
-> Méthodologie : Cycle en V
+> Certification: CTAL-TM · CTFL
+> Agent: AGENT-QA-CYCLEV.md
+> Methodology: V-model
 
-## Définition ISTQB
-La stratégie de tests définit l'approche générale : niveaux de tests, types de tests, critères d'entrée/sortie, outils et responsabilités.
+## ISTQB definition
+The test strategy defines the overall approach: test levels, test types, entry/exit criteria, tools and responsibilities.
 
-## Niveaux de tests (Cycle en V)
+## Test levels (V-model)
 
 ```
-Besoins métier     ←→   Tests d'acceptance (UAT)
-Spécifications     ←→   Tests système
-Architecture       ←→   Tests d'intégration
-Conception détail  ←→   Tests unitaires
-             CODE
+Business needs       ←→   Acceptance tests (UAT)
+Specifications       ←→   System tests
+Architecture         ←→   Integration tests
+Detailed design      ←→   Unit tests
+              CODE
 ```
 
-## Types de tests à couvrir
+## Test types to cover
 
-| Type | Objectif |
+| Type | Goal |
 |---|---|
-| Fonctionnel | Vérifier les comportements attendus |
-| Non-fonctionnel | Performance, sécurité, compatibilité |
-| Structurel (boîte blanche) | Couverture du code |
-| Régression | Non-dégradation de l'existant |
-| Confirmation (re-test) | Vérification correction anomalie |
+| Functional | Verify the expected behaviors |
+| Non-functional | Performance, security, compatibility |
+| Structural (white box) | Code coverage |
+| Regression | No degradation of the existing system |
+| Confirmation (re-test) | Verify a defect fix |
 
-## Template Stratégie de Tests
+## Test Strategy template
 
 ```
-STRATÉGIE DE TESTS — [Projet] — v[X.X] — [Date]
-Auteur : [Guy HUI-BON-HOA]  |  Validé par : [nom]
+TEST STRATEGY — [Project] — v[X.X] — [Date]
+Author: [Guy HUI-BON-HOA]  |  Validated by: [name]
 
-1. CONTEXTE
-   Projet : [description]
-   Périmètre testé : [in scope]
-   Hors périmètre : [out of scope]
+1. CONTEXT
+   Project: [description]
+   Scope tested: [in scope]
+   Out of scope: [out of scope]
 
-2. OBJECTIFS QUALITÉ
-   - [objectif 1 — ex: 0 anomalie bloquante en UAT]
-   - [objectif 2 — ex: couverture fonctionnelle > 90%]
+2. QUALITY OBJECTIVES
+   - [objective 1 — e.g. 0 blocking defect in UAT]
+   - [objective 2 — e.g. functional coverage > 90%]
 
-3. NIVEAUX DE TESTS
-   ☐ Tests unitaires — Responsable : [DEV]
-   ☐ Tests intégration — Responsable : [QA / DEV]
-   ☐ Tests système — Responsable : [QA]
-   ☐ Tests UAT — Responsable : [MOA / Métier]
+3. TEST LEVELS
+   ☐ Unit tests — Owner: [DEV]
+   ☐ Integration tests — Owner: [QA / DEV]
+   ☐ System tests — Owner: [QA]
+   ☐ UAT — Owner: [MOA / Business]
 
-4. TYPES DE TESTS
-   ☐ Fonctionnels   ☐ Régression   ☐ Performance
-   ☐ Sécurité       ☐ Compatibilité ☐ Accessibilité
+4. TEST TYPES
+   ☐ Functional    ☐ Regression    ☐ Performance
+   ☐ Security      ☐ Compatibility ☐ Accessibility
 
-5. CRITÈRES D'ENTRÉE (début des tests)
-   - Spécifications fonctionnelles validées
-   - Environnement de test stable
-   - Données de test préparées
-   - Build livré et déployé
+5. ENTRY CRITERIA (test start)
+   - Functional specifications validated
+   - Stable test environment
+   - Test data prepared
+   - Build delivered and deployed
 
-6. CRITÈRES DE SORTIE (fin des tests)
-   - 0 anomalie bloquante ouverte
-   - < [X] anomalies majeures
-   - Couverture des cas de test > [X]%
-   - Rapport de tests validé par le chef de projet
+6. EXIT CRITERIA (test end)
+   - 0 blocking defect open
+   - < [X] major defects
+   - Test case coverage > [X]%
+   - Test report validated by the project manager
 
-7. OUTILS
-   - Gestion des tests : [HP ALM / Jira+Xray / TestRail]
-   - Automatisation : [outil]
-   - Gestion des anomalies : [Jira / Mantis]
+7. TOOLS
+   - Test management: [HP ALM / Jira+Xray / TestRail]
+   - Automation: [tool]
+   - Defect management: [Jira / Mantis]
 
-8. LIVRABLES QA
-   - Plan de tests
-   - Cas de test
-   - Rapport d'exécution
-   - Rapport de recette finale
+8. QA DELIVERABLES
+   - Test plan
+   - Test cases
+   - Execution report
+   - Final UAT report
 ```

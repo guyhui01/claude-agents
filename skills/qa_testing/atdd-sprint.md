@@ -1,59 +1,59 @@
-# Skill QA Agile — Tests d'Acceptance en Sprint (ATDD)
+# QA Agile Skill — In-Sprint Acceptance Testing (ATDD)
 
-> Certification : CTFL-AT · CTAL-ATT
-> Agent : AGENT-QA-AGILE.md
-> Méthodologie : Agile
+> Certification: CTFL-AT · CTAL-ATT
+> Agent: AGENT-QA-AGILE.md
+> Methodology: Agile
 
 ## ATDD — Acceptance Test Driven Development
-Les tests d'acceptance sont écrits AVANT le développement, en collaboration PO + DEV + QA (les "3 amigos").
+Acceptance tests are written BEFORE development, collaboratively by PO + DEV + QA (the "3 amigos").
 
-## Réunion 3 Amigos
-
-```
-PARTICIPANTS : PO + DEV (lead) + QA
-DURÉE : 30-45 min par US
-OBJECTIF : Aligner la compréhension avant de coder
-
-Ordre du jour :
-1. PO présente l'US et les critères d'acceptance
-2. QA traduit les critères en scénarios de test
-3. DEV identifie les contraintes techniques
-4. Équipe valide les scénarios ensemble
-5. Résultat : scénarios BDD validés = base du dev ET des tests
-```
-
-## Flux ATDD dans le sprint
+## 3 Amigos meeting
 
 ```
-Refinement → 3 Amigos → Scénarios BDD écrits
-     ↓
-Sprint Planning → US sélectionnée
-     ↓
-DEV code en TDD (tests unitaires)
-     ↓
-QA teste en parallèle (dès J+1 ou J+2)
-     ↓
-Feedback immédiat (< 24h)
-     ↓
-DoD validée → US Done
+PARTICIPANTS: PO + DEV (lead) + QA
+DURATION: 30-45 min per US
+GOAL: Align understanding before coding
+
+Agenda:
+1. PO presents the US and the acceptance criteria
+2. QA translates the criteria into test scenarios
+3. DEV identifies the technical constraints
+4. The team validates the scenarios together
+5. Outcome: validated BDD scenarios = basis for both dev AND tests
 ```
 
-## Template session 3 Amigos
+## ATDD flow within the sprint
 
 ```
-3 AMIGOS — US-[XXX] — [Titre] — [Date]
-PO : [nom]  |  DEV : [nom]  |  QA : [nom]
+Refinement → 3 Amigos → BDD scenarios written
+     ↓
+Sprint Planning → US selected
+     ↓
+DEV codes in TDD (unit tests)
+     ↓
+QA tests in parallel (from D+1 or D+2)
+     ↓
+Immediate feedback (< 24h)
+     ↓
+DoD validated → US Done
+```
 
-US : [rappel]
-Critères d'acceptance initiaux : [liste PO]
+## 3 Amigos session template
 
-Scénarios validés collectivement :
-1. [Scénario nominal — Gherkin]
-2. [Scénario alternatif 1]
-3. [Scénario d'erreur]
+```
+3 AMIGOS — US-[XXX] — [Title] — [Date]
+PO: [name]  |  DEV: [name]  |  QA: [name]
 
-Questions / clarifications :
-- [question] → [réponse]
+US: [reminder]
+Initial acceptance criteria: [PO list]
 
-Estimation impact tests : [X] h
+Scenarios validated collectively:
+1. [Nominal scenario — Gherkin]
+2. [Alternative scenario 1]
+3. [Error scenario]
+
+Questions / clarifications:
+- [question] → [answer]
+
+Estimated test impact: [X] h
 ```

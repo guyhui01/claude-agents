@@ -1,54 +1,54 @@
-# Skill QA Cycle V — Tests d'Intégration
+# QA V-Model Skill — Integration Testing
 
-> Certification : CTAL-TTA · CTFL
-> Agent : AGENT-QA-CYCLEV.md
-> Méthodologie : Cycle en V
+> Certification: CTAL-TTA · CTFL
+> Agent: AGENT-QA-CYCLEV.md
+> Methodology: V-model
 
-## Objectif ISTQB
-Vérifier les interfaces et interactions entre composants, modules ou systèmes.
+## ISTQB goal
+Verify the interfaces and interactions between components, modules or systems.
 
-## Approches d'intégration
+## Integration approaches
 
-| Approche | Description | Avantages |
+| Approach | Description | Advantages |
 |---|---|---|
-| **Big Bang** | Tout intégrer d'un coup | Simple à organiser |
-| **Top-Down** | Du module principal vers les sous-modules | Détecte tôt les défauts architecture |
-| **Bottom-Up** | Des modules bas vers le haut | Teste les composants de base en premier |
-| **Incrémentale** | Module par module progressivement | Localisation précise des défauts |
+| **Big Bang** | Integrate everything at once | Simple to organize |
+| **Top-Down** | From the main module to the sub-modules | Detects architecture defects early |
+| **Bottom-Up** | From low-level modules upward | Tests the base components first |
+| **Incremental** | Module by module, progressively | Precise defect localization |
 
-## Types de tests d'intégration
+## Types of integration tests
 
-- **Tests d'interface API** : vérification des contrats REST/SOAP (format, codes HTTP, données)
-- **Tests de flux de données** : données émises = données reçues
-- **Tests d'intégration SI** : cohérence entre systèmes (CRM ↔ ERP ↔ CMS)
-- **Tests de base de données** : intégrité des données après échanges
+- **API interface tests**: verify the REST/SOAP contracts (format, HTTP codes, data)
+- **Data flow tests**: data sent = data received
+- **IS integration tests**: consistency between systems (CRM ↔ ERP ↔ CMS)
+- **Database tests**: data integrity after exchanges
 
-## Template cas de test intégration API
+## API integration test case template
 
 ```
-ID : TI-[XXX]
-Titre : [Composant A] → [Composant B] — [Flux testé]
-Endpoint : [GET/POST/PUT/DELETE] [URL]
-Authentification : [type]
+ID: TI-[XXX]
+Title: [Component A] → [Component B] — [Flow tested]
+Endpoint: [GET/POST/PUT/DELETE] [URL]
+Authentication: [type]
 
-Corps de la requête (Request Body) :
+Request Body:
 {
-  "champ1": "valeur",
-  "champ2": "valeur"
+  "field1": "value",
+  "field2": "value"
 }
 
-Réponse attendue :
-Code HTTP : [200 / 201 / 400 / 404...]
-Body attendu :
+Expected response:
+HTTP code: [200 / 201 / 400 / 404...]
+Expected body:
 {
-  "champ": "valeur attendue"
+  "field": "expected value"
 }
 
-Assertions :
-- [ ] Code HTTP correct
-- [ ] Structure JSON conforme au contrat
-- [ ] Valeurs des champs correctes
-- [ ] Temps de réponse < [X ms]
+Assertions:
+- [ ] Correct HTTP code
+- [ ] JSON structure matches the contract
+- [ ] Field values correct
+- [ ] Response time < [X ms]
 
-Statut : ☐ Pass  ☐ Fail  ☐ Bloqué
+Status: ☐ Pass  ☐ Fail  ☐ Blocked
 ```

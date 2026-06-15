@@ -1,71 +1,71 @@
-# Skill QA Agile — BDD & Scénarios Gherkin
+# QA Agile Skill — BDD & Gherkin Scenarios
 
-> Certification : CTFL-AT · CTAL-ATT
-> Agent : AGENT-QA-AGILE.md
-> Méthodologie : Agile
+> Certification: CTFL-AT · CTAL-ATT
+> Agent: AGENT-QA-AGILE.md
+> Methodology: Agile
 
 
 ## BDD — Behavior Driven Development
-Approche collaborative (PO + DEV + QA) qui exprime les comportements attendus en langage naturel structuré, exécutable par des outils (Cucumber, SpecFlow, Behave).
+A collaborative approach (PO + DEV + QA) that expresses expected behaviors in structured natural language, executable by tools (Cucumber, SpecFlow, Behave).
 
-## Syntaxe Gherkin
+## Gherkin syntax
 
 ```gherkin
-Feature: [Nom de la fonctionnalité]
-  En tant que [persona]
-  Je veux [capacité]
-  Afin de [bénéfice]
+Feature: [Feature name]
+  As a [persona]
+  I want [capability]
+  So that [benefit]
 
-  Background: (préconditions communes à tous les scénarios)
-    Given [état initial commun]
+  Background: (preconditions common to all scenarios)
+    Given [common initial state]
 
-  Scenario: [Cas nominal — description courte]
-    Given [contexte initial]
-    And [contexte supplémentaire]
-    When [action déclenchée]
-    And [action supplémentaire]
-    Then [résultat attendu]
-    And [résultat complémentaire]
-    But [résultat à ne pas obtenir]
+  Scenario: [Nominal case — short description]
+    Given [initial context]
+    And [additional context]
+    When [triggered action]
+    And [additional action]
+    Then [expected result]
+    And [additional result]
+    But [result that must not occur]
 
-  Scenario Outline: [Cas avec données multiples]
-    Given un utilisateur avec le rôle <rôle>
-    When il accède à <page>
-    Then il voit <résultat>
+  Scenario Outline: [Case with multiple data sets]
+    Given a user with the role <role>
+    When they access <page>
+    Then they see <result>
 
     Examples:
-      | rôle    | page        | résultat          |
-      | admin   | dashboard   | tous les widgets  |
-      | viewer  | dashboard   | widgets limités   |
+      | role    | page        | result            |
+      | admin   | dashboard   | all widgets       |
+      | viewer  | dashboard   | limited widgets   |
 ```
 
-## Exemple complet
+## Full example
 
 ```gherkin
-Feature: Connexion utilisateur
+Feature: User login
 
-  Scenario: Connexion réussie avec identifiants valides
-    Given l'utilisateur est sur la page de connexion
-    And il dispose d'un compte actif
-    When il saisit l'email "test@example.com"
-    And il saisit le mot de passe "MotDePasse123!"
-    And il clique sur "Se connecter"
-    Then il est redirigé vers le tableau de bord
-    And son prénom apparaît dans le menu
+  Scenario: Successful login with valid credentials
+    Given the user is on the login page
+    And they have an active account
+    When they enter the email "test@example.com"
+    And they enter the password "Password123!"
+    And they click "Log in"
+    Then they are redirected to the dashboard
+    And their first name appears in the menu
 
-  Scenario: Connexion échouée avec mauvais mot de passe
-    Given l'utilisateur est sur la page de connexion
-    When il saisit l'email "test@example.com"
-    And il saisit le mot de passe "mauvais"
-    And il clique sur "Se connecter"
-    Then un message d'erreur s'affiche
-    But il n'est pas connecté
+  Scenario: Failed login with a wrong password
+    Given the user is on the login page
+    When they enter the email "test@example.com"
+    And they enter the password "wrong"
+    And they click "Log in"
+    Then an error message is displayed
+    But they are not logged in
 ```
 
-## Bonnes pratiques Gherkin
-- Un scénario = un comportement testé
-- Langage métier (pas technique)
-- Given = état, When = action, Then = résultat observable
-- Pas de "je clique sur le bouton ID#42" → "je clique sur Valider"
-- Scénarios indépendants (pas de dépendance entre scénarios)
-- Background pour les préconditions communes uniquement
+## Gherkin best practices
+- One scenario = one behavior tested
+- Business language (not technical)
+- Given = state, When = action, Then = observable result
+- Not "I click the button ID#42" → "I click Submit"
+- Independent scenarios (no dependency between scenarios)
+- Background for common preconditions only

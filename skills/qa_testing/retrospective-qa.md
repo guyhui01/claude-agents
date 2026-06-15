@@ -1,49 +1,49 @@
-# Skill QA Agile — Rétrospective QA & Amélioration Continue
+# QA Agile Skill — QA Retrospective & Continuous Improvement
 
-> Certification : CTFL-AT · CTAL-TM
-> Agent : AGENT-QA-AGILE.md
-> Méthodologie : Agile
+> Certification: CTFL-AT · CTAL-TM
+> Agent: AGENT-QA-AGILE.md
+> Methodology: Agile
 
-## Contribution QA à la rétrospective Scrum
+## QA contribution to the Scrum retrospective
 
-Le QA apporte des données factuelles sur la qualité du sprint :
-- Nombre et type de défauts détectés
-- Taux d'échappement (bugs trouvés après la démo)
-- Couverture des tests
-- Temps moyen de feedback DEV ↔ QA
+QA brings factual data on the quality of the sprint:
+- Number and type of defects detected
+- Escape rate (bugs found after the demo)
+- Test coverage
+- Average DEV ↔ QA feedback time
 
-## Template bilan qualité pré-rétrospective
+## Pre-retrospective quality summary template
 
 ```
-BILAN QUALITÉ — Sprint [N] — Préparé par QA
+QUALITY SUMMARY — Sprint [N] — Prepared by QA
 
-DÉFAUTS :
-Détectés en sprint : [X]
-Dont : Bloquant [X] | Majeur [X] | Mineur [X]
-Échappés (trouvés en review / prod) : [X]
-Taux d'échappement : [X]%
+DEFECTS:
+Detected in sprint: [X]
+Of which: Blocking [X] | Major [X] | Minor [X]
+Escaped (found in review / prod): [X]
+Escape rate: [X]%
 
-TESTS :
-Cas exécutés : [X] | Pass : [X]% | Fail : [X]%
-Nouveaux tests auto créés : [X]
-Tests flaky identifiés : [X]
+TESTS:
+Cases executed: [X] | Pass: [X]% | Fail: [X]%
+New auto tests created: [X]
+Flaky tests identified: [X]
 
-CE QUI A BIEN MARCHÉ (qualité) :
-- [exemple : 3 Amigos a évité 2 incompréhensions]
+WHAT WENT WELL (quality):
+- [example: the 3 Amigos avoided 2 misunderstandings]
 
-CE QUI PEUT S'AMÉLIORER :
-- [exemple : les tests n'ont démarré qu'au J7 — trop tard]
+WHAT CAN IMPROVE:
+- [example: testing only started on D7 — too late]
 
-PROPOSITION D'ACTION :
-- [action SMART pour le prochain sprint]
+PROPOSED ACTION:
+- [SMART action for the next sprint]
 ```
 
-## Actions d'amélioration qualité fréquentes
+## Frequent quality improvement actions
 
-| Problème détecté | Action corrective |
+| Problem detected | Corrective action |
 |---|---|
-| Bugs détectés trop tard | Démarrer les tests dès J2 du sprint |
-| Trop de bugs post-démo | Renforcer les 3 Amigos |
-| Tests flaky | Audit et stabilisation des tests instables |
-| Couverture auto < 50% | Sprint dédié à l'automatisation |
-| Critères d'acceptance flous | Checklist de complétude en Refinement |
+| Bugs detected too late | Start testing from D2 of the sprint |
+| Too many post-demo bugs | Strengthen the 3 Amigos |
+| Flaky tests | Audit and stabilize the unstable tests |
+| Auto coverage < 50% | Dedicated automation sprint |
+| Vague acceptance criteria | Completeness checklist at Refinement |

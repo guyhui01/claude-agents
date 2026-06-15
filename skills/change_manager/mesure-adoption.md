@@ -1,97 +1,97 @@
-# Skill — Mesure de l'Adoption et KPIs du Changement
-> Certifications : PROSCI Change Management (PROSCI), CCMP (ACMP), PMI-ACP (PMI)
-> Agent : AGENT-CHANGE-MANAGER.md
+# Skill — Adoption Measurement and Change KPIs
+> Certifications: PROSCI Change Management (PROSCI), CCMP (ACMP), PMI-ACP (PMI)
+> Agent: AGENT-CHANGE-MANAGER.md
 
-## Objectif
-Définir, collecter et analyser les indicateurs d'adoption d'un changement — taux d'utilisation, satisfaction, compétences, impact business — pour piloter l'accompagnement en temps réel et démontrer la valeur du change management.
+## Objective
+Define, collect and analyze the adoption indicators of a change — usage rate, satisfaction, skills, business impact — to steer the support in real time and demonstrate the value of change management.
 
-## Framework de mesure — 4 niveaux (Kirkpatrick adapté)
+## Measurement framework — 4 levels (adapted Kirkpatrick)
 
 ```
-NIVEAU 1 — RÉACTION
-  "Les personnes apprécient-elles le changement ?"
-  Mesure : Satisfaction, NPS change, perception
+LEVEL 1 — REACTION
+  "Do people appreciate the change?"
+  Measure: Satisfaction, change NPS, perception
 
-NIVEAU 2 — APPRENTISSAGE
-  "Les personnes ont-elles acquis les compétences ?"
-  Mesure : Taux completion formations, scores quiz, skill assessments
+LEVEL 2 — LEARNING
+  "Have people acquired the skills?"
+  Measure: Training completion rate, quiz scores, skill assessments
 
-NIVEAU 3 — COMPORTEMENT
-  "Les personnes utilisent-elles réellement le changement ?"
-  Mesure : Taux d'utilisation, fréquence d'usage, comportements observés
+LEVEL 3 — BEHAVIOR
+  "Are people actually using the change?"
+  Measure: Usage rate, usage frequency, observed behaviors
 
-NIVEAU 4 — RÉSULTATS
-  "Le changement produit-il les bénéfices attendus ?"
-  Mesure : ROI, gains de productivité, KPIs métier
+LEVEL 4 — RESULTS
+  "Does the change produce the expected benefits?"
+  Measure: ROI, productivity gains, business KPIs
 ```
 
-## Tableau de bord adoption — Template
+## Adoption dashboard — Template
 
-| KPI | Niveau | Source | Fréq. | J+30 | J+60 | J+90 | Cible |
+| KPI | Level | Source | Freq. | D+30 | D+60 | D+90 | Target |
 |---|---|---|---|---|---|---|---|
-| Taux activation comptes | Comportement | Système | Hebdo | 95% | 98% | 100% | 100% |
-| Taux utilisation hebdo | Comportement | Logs | Hebdo | 55% | 72% | 85% | 85% |
-| Score satisfaction (CSAT) | Réaction | Survey | Mensuel | 3.4/5 | 3.7/5 | 4.1/5 | 4/5 |
-| Taux completion formation | Apprentissage | LMS | Fin form. | 82% | — | — | 90% |
-| Score quiz compétences | Apprentissage | LMS | Fin form. | 74% | — | — | 80% |
-| Volume tickets support | Comportement | ITSM | Hebdo | 42 | 18 | 7 | < 5/sem |
-| Gain productivité (temps) | Résultat | Métier | Mensuel | -15% | -25% | -35% | -35% |
+| Account activation rate | Behavior | System | Weekly | 95% | 98% | 100% | 100% |
+| Weekly usage rate | Behavior | Logs | Weekly | 55% | 72% | 85% | 85% |
+| Satisfaction score (CSAT) | Reaction | Survey | Monthly | 3.4/5 | 3.7/5 | 4.1/5 | 4/5 |
+| Training completion rate | Learning | LMS | End of training | 82% | — | — | 90% |
+| Skills quiz score | Learning | LMS | End of training | 74% | — | — | 80% |
+| Support ticket volume | Behavior | ITSM | Weekly | 42 | 18 | 7 | < 5/week |
+| Productivity gain (time) | Results | Business | Monthly | -15% | -25% | -35% | -35% |
 
-## Enquête de satisfaction — Template
+## Satisfaction survey — Template
 
 ```
-SONDAGE ADOPTION — [NOM OUTIL/CHANGEMENT] — Semaine [N]
+ADOPTION SURVEY — [TOOL/CHANGE NAME] — Week [N]
 ────────────────────────────────────────────────────────────
-(Anonyme — 5 minutes)
+(Anonymous — 5 minutes)
 
-Q1. Dans quelle mesure utilisez-vous [outil] dans votre travail quotidien ?
-    1 (jamais) — 2 (rarement) — 3 (parfois) — 4 (souvent) — 5 (toujours)
+Q1. To what extent do you use [tool] in your daily work?
+    1 (never) — 2 (rarely) — 3 (sometimes) — 4 (often) — 5 (always)
 
-Q2. Comment évaluez-vous votre niveau de compétence sur [outil] ?
-    1 (débutant) — 2 — 3 — 4 — 5 (expert)
+Q2. How do you rate your skill level on [tool]?
+    1 (beginner) — 2 — 3 — 4 — 5 (expert)
 
-Q3. La formation que vous avez reçue était-elle suffisante ?
-    1 (insuffisante) — 2 — 3 — 4 — 5 (très suffisante)
+Q3. Was the training you received sufficient?
+    1 (insufficient) — 2 — 3 — 4 — 5 (very sufficient)
 
-Q4. Recommanderiez-vous ce changement à un collègue ? (NPS)
+Q4. Would you recommend this change to a colleague? (NPS)
     0-10
 
-Q5. [Ouvert] Qu'est-ce qui vous aiderait à mieux utiliser [outil] ?
+Q5. [Open] What would help you use [tool] better?
 ```
 
-## Rapport mensuel adoption — Format 1 page
+## Monthly adoption report — 1-page format
 
 ```
-RAPPORT ADOPTION — [CHANGEMENT] — [MOIS]
+ADOPTION REPORT — [CHANGE] — [MONTH]
 ══════════════════════════════════════════════════════════
-SYNTHÈSE : 🟡 En progression — Cible J+90 atteignable
+SUMMARY: 🟡 Progressing — D+90 target achievable
 
-INDICATEURS CLÉS
+KEY INDICATORS
 ─────────────────────────────────────────────────────────
-Taux utilisation  : 72%  (cible 85% → 🟡 en cours)
-Satisfaction      : 3.7  (cible 4.0 → 🟡 en cours)
-Support tickets   : 18/sem (cible 5 → 🟡 décroissant ✅)
-Formation         : 82%  (cible 90% → 🟡 relance nécessaire)
+Usage rate       : 72%  (target 85% → 🟡 in progress)
+Satisfaction     : 3.7  (target 4.0 → 🟡 in progress)
+Support tickets  : 18/week (target 5 → 🟡 decreasing ✅)
+Training         : 82%  (target 90% → 🟡 follow-up needed)
 
-FAITS MARQUANTS
+HIGHLIGHTS
 ─────────────────────────────────────────────────────────
-✅ Super-utilisateurs actifs et appréciés des équipes
-✅ Gain productivité visible sur le traitement des offres
-⚠ 18% des utilisateurs n'ont pas encore activé leur compte
-⚠ Service Finance sous-représenté dans les formations
+✅ Super-users active and appreciated by the teams
+✅ Visible productivity gain on job-ad processing
+⚠ 18% of users have not activated their account yet
+⚠ Finance department under-represented in the training
 
-ACTIONS PRIORITAIRES MOIS SUIVANT
+PRIORITY ACTIONS NEXT MONTH
 ─────────────────────────────────────────────────────────
-1. Relance ciblée non-activés (liste nominative)
-2. Session de rattrapage Finance (J+40)
-3. Publication témoignages succès (Newsletter)
+1. Targeted follow-up of non-activated users (named list)
+2. Finance catch-up session (D+40)
+3. Publish success testimonials (Newsletter)
 ```
 
-## Livrables
-- Framework de mesure 4 niveaux adapté
-- Tableau de bord adoption complet
-- Enquête de satisfaction (Typeform / Google Forms)
-- Rapport mensuel adoption 1 page
+## Deliverables
+- Adapted 4-level measurement framework
+- Complete adoption dashboard
+- Satisfaction survey (Typeform / Google Forms)
+- 1-page monthly adoption report
 
-## Format de sortie
-Précise : nature du changement, système de collecte disponible (LMS, ITSM, Analytics), population cible, date de go-live.
+## Output format
+Specify: nature of the change, available collection system (LMS, ITSM, Analytics), target population, go-live date.

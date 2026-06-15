@@ -1,104 +1,104 @@
-# Skill — Stratégie d'Adoption et de Formation
-> Certifications : PROSCI Change Management (PROSCI), CCMP (ACMP), ITIL 4 Foundation (Axelos)
-> Agent : AGENT-CHANGE-MANAGER.md
+# Skill — Adoption and Training Strategy
+> Certifications: PROSCI Change Management (PROSCI), CCMP (ACMP), ITIL 4 Foundation (Axelos)
+> Agent: AGENT-CHANGE-MANAGER.md
 
-## Objectif
-Concevoir et piloter la stratégie d'adoption d'un changement — plan de formation multi-canal, réseau d'ambassadeurs, dispositif de support post go-live — pour maximiser l'utilisation réelle du nouveau système ou processus.
+## Objective
+Design and steer the adoption strategy for a change — multi-channel training plan, ambassador network, post-go-live support setup — to maximize real usage of the new system or process.
 
-## Architecture de l'adoption
+## Adoption architecture
 
 ```
-PHASE 1 — SENSIBILISATION (J-60 à J-30)
-  Objectif : Créer l'Awareness et le Desire (ADKAR A+D)
-  Actions  : Communication, témoignages, démos, Q&A
+PHASE 1 — AWARENESS (D-60 to D-30)
+  Goal    : Create Awareness and Desire (ADKAR A+D)
+  Actions : Communication, testimonials, demos, Q&A
 
-PHASE 2 — FORMATION (J-30 à J-5)
-  Objectif : Développer Knowledge et Ability (ADKAR K+A)
-  Actions  : Formations, e-learning, guides pratiques, pilote
+PHASE 2 — TRAINING (D-30 to D-5)
+  Goal    : Build Knowledge and Ability (ADKAR K+A)
+  Actions : Training, e-learning, practical guides, pilot
 
-PHASE 3 — ACCOMPAGNEMENT GO-LIVE (J à J+30)
-  Objectif : Renforcer l'Ability en conditions réelles
-  Actions  : Support terrain, hotline, super-utilisateurs, FAQ
+PHASE 3 — GO-LIVE SUPPORT (D to D+30)
+  Goal    : Reinforce Ability in real conditions
+  Actions : On-the-ground support, hotline, super-users, FAQ
 
-PHASE 4 — ANCRAGE (J+30 à J+90)
-  Objectif : Reinforcement (ADKAR R)
-  Actions  : KPIs d'usage, reconnaissance, amélioration continue
+PHASE 4 — ANCHORING (D+30 to D+90)
+  Goal    : Reinforcement (ADKAR R)
+  Actions : Usage KPIs, recognition, continuous improvement
 ```
 
-## Plan de formation — Template
+## Training plan — Template
 
-| Formation | Population | Format | Durée | Animateur | Date | Taille |
+| Training | Population | Format | Duration | Facilitator | Date | Size |
 |---|---|---|---|---|---|---|
-| Formation managers | Managers (12) | Présentiel | 4h | Change Manager | J-21 | Max 12 |
-| Formation outil — niveau 1 | Utilisateurs (45) | Atelier | 3h | Super-utilisateurs | J-14 | Max 15 |
-| E-learning complément | Tous | Auto-formant | 1h | LMS | J-10 | Illimité |
-| Session pratique | Volontaires | Hands-on | 2h | IT + CM | J-7 | Max 10 |
-| Hotline go-live | Tous | Slack / Tel | - | Super-users | J à J+30 | - |
+| Manager training | Managers (12) | In person | 4h | Change Manager | D-21 | Max 12 |
+| Tool training — level 1 | Users (45) | Workshop | 3h | Super-users | D-14 | Max 15 |
+| Complementary e-learning | All | Self-paced | 1h | LMS | D-10 | Unlimited |
+| Practice session | Volunteers | Hands-on | 2h | IT + CM | D-7 | Max 10 |
+| Go-live hotline | All | Slack / Phone | - | Super-users | D to D+30 | - |
 
-## Réseau d'ambassadeurs (Change Champions)
+## Ambassador network (Change Champions)
 
 ```
-STRUCTURE DU RÉSEAU
+NETWORK STRUCTURE
 ─────────────────────────────────────────────
-Change Manager (pilote)
+Change Manager (lead)
     │
-    ├── Super-Utilisateur Marketing  (1/service)
-    ├── Super-Utilisateur RH
-    ├── Super-Utilisateur Finance
-    └── Super-Utilisateur IT
+    ├── Super-User Marketing  (1/department)
+    ├── Super-User HR
+    ├── Super-User Finance
+    └── Super-User IT
 
-RÔLE DES SUPER-UTILISATEURS
+SUPER-USERS' ROLE
 ─────────────────────────────────────────────
-✓ Premier point de contact pour leurs collègues
-✓ Remontent les difficultés terrain au CM
-✓ Animent les sessions pratiques
-✓ Partagent leurs succès (témoignages)
-✓ Valident la documentation utilisateur
+✓ First point of contact for their colleagues
+✓ Escalate on-the-ground difficulties to the CM
+✓ Run the practice sessions
+✓ Share their successes (testimonials)
+✓ Validate the user documentation
 
-AVANTAGES POUR LES SUPER-UTILISATEURS
+BENEFITS FOR SUPER-USERS
 ─────────────────────────────────────────────
-→ Formation avancée (niveau expert)
-→ Reconnaissance officielle (mail DG)
-→ Accès prioritaire aux nouvelles fonctionnalités
-→ Badge / certification interne
+→ Advanced training (expert level)
+→ Official recognition (leadership email)
+→ Priority access to new features
+→ Internal badge / certification
 ```
 
-## Dispositif de support post go-live
+## Post-go-live support setup
 
 ```
-NIVEAU 1 — SELF-SERVICE (J à J+90)
-  FAQ dynamique (top 20 questions)
-  Vidéos tutorielles courtes (2-3 min)
-  Guide de référence rapide (1 page)
+LEVEL 1 — SELF-SERVICE (D to D+90)
+  Dynamic FAQ (top 20 questions)
+  Short tutorial videos (2-3 min)
+  Quick reference guide (1 page)
 
-NIVEAU 2 — PAIR-TO-PAIR (J à J+30)
-  Réseau super-utilisateurs (Slack #aide-outil-ia)
-  Permanences hebdo (30 min, virtuel)
+LEVEL 2 — PEER-TO-PEER (D to D+30)
+  Super-user network (Slack #ai-tool-help)
+  Weekly office hours (30 min, virtual)
 
-NIVEAU 3 — SUPPORT CHANGE MANAGER (J à J+15)
-  Hotline dédiée (créneaux 9h-11h)
-  Réponse < 4h sur tickets
+LEVEL 3 — CHANGE MANAGER SUPPORT (D to D+15)
+  Dedicated hotline (9-11am slots)
+  Response < 4h on tickets
 
-NIVEAU 4 — ESCALADE IT (si bug technique)
-  Ticket ITSM prioritaire
-  SLA : résolution < 24h
+LEVEL 4 — IT ESCALATION (if a technical bug)
+  Priority ITSM ticket
+  SLA: resolution < 24h
 ```
 
-## KPIs d'adoption
+## Adoption KPIs
 
-| KPI | Cible J+30 | Cible J+90 |
+| KPI | Target D+30 | Target D+90 |
 |---|---|---|
-| Taux d'activation comptes | 100% | 100% |
-| Taux d'utilisation hebdo | > 60% | > 85% |
-| Score satisfaction (CSAT) | > 3.5/5 | > 4/5 |
-| Taux completion e-learning | > 80% | > 90% |
-| Volume tickets support | Décroissant | < 5/semaine |
+| Account activation rate | 100% | 100% |
+| Weekly usage rate | > 60% | > 85% |
+| Satisfaction score (CSAT) | > 3.5/5 | > 4/5 |
+| E-learning completion rate | > 80% | > 90% |
+| Support ticket volume | Decreasing | < 5/week |
 
-## Livrables
-- Plan de formation détaillé (tableau)
-- Constitution du réseau de super-utilisateurs
-- Dispositif de support J à J+90
-- Tableau de bord KPIs d'adoption
+## Deliverables
+- Detailed training plan (table)
+- Super-user network setup
+- D to D+90 support setup
+- Adoption KPI dashboard
 
-## Format de sortie
-Précise : nature du changement, population et taille, outils disponibles (LMS, Slack, intranet), date de go-live.
+## Output format
+Specify: nature of the change, population and size, available tools (LMS, Slack, intranet), go-live date.

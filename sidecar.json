@@ -4,7 +4,7 @@
     "name": "claude-agents",
     "version": "v3.26.2"
   },
-  "generatedAt": "2026-06-14T20:53:55.585Z",
+  "generatedAt": "2026-06-15T11:11:21.360Z",
   "assets": [
     {
       "id": "AGENT-AI-ARCHITECT",
@@ -102,7 +102,7 @@
       "type": "agent",
       "path": "AGENT-PO-SCRUM.md",
       "title": "Product Owner Scrum Expert",
-      "description": "Product Owner Scrum — backlog, user stories, DoD, cérémonies Scrum",
+      "description": "Product Owner Scrum — backlog, user stories, DoD, Scrum events",
       "catalogVersion": "v3.26.2",
       "source": {
         "file": "AGENT-PO-SCRUM.md",

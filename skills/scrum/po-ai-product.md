@@ -1,118 +1,118 @@
-# Skill — PO de Produit IA (Responsible AI Ownership)
+# Skill — AI Product PO (Responsible AI Ownership)
 
-> Certification : PSPO-AI (Scrum.org 2024) · PSPO II
-> Agent : AGENT-PO-SCRUM.md
+> Certification: PSPO-AI (Scrum.org 2024) · PSPO II
+> Agent: AGENT-PO-SCRUM.md
 
-## Objectif
+## Objective
 
-Gérer le backlog et la stratégie d'un produit intégrant IA générative ou ML en contexte régulé (AI Act UE 2025-2026, NIST AI RMF, ISO 42001) — c'est-à-dire passer d'une acceptance déterministe à une acceptance **probabiliste** mesurée et tracée.
+Manage the backlog and strategy of a product that embeds generative AI or ML in a regulated context (EU AI Act 2025-2026, NIST AI RMF, ISO 42001) — i.e. move from deterministic acceptance to **probabilistic**, measured and traced acceptance.
 
-## Cadre réglementaire & normatif (à connaître avant tout backlog IA)
+## Regulatory & normative framework (to know before any AI backlog)
 
-| Référentiel | Année | Portée | Impact PO |
+| Framework | Year | Scope | PO impact |
 |---|---|---|---|
-| **AI Act UE** (Règl. 2024/1689) | 2024, application 2025-2027 | 4 niveaux de risque : interdit, haut, limité, minimal | Classifier chaque feature IA, prévoir transparence (art. 50), supervision humaine (art. 14) |
-| **NIST AI RMF 1.0** | janv. 2023 | 4 fonctions : Govern, Map, Measure, Manage | Structure l'AI Risk Register et le pilotage cycle de vie |
-| **ISO/IEC 42001** | 2023 | AIMS (AI Management System certifiable) | Cadre gouvernance produit IA |
-| **ISO/IEC 23894** | 2023 | Risk management AI | Taxonomie risques + traitement |
-| **PSPO-AI Guide** | Scrum.org 2024 | 5 responsabilités PO en contexte IA | Référentiel rôle |
+| **EU AI Act** (Reg. 2024/1689) | 2024, application 2025-2027 | 4 risk levels: prohibited, high, limited, minimal | Classify each AI feature, plan for transparency (art. 50), human oversight (art. 14) |
+| **NIST AI RMF 1.0** | Jan. 2023 | 4 functions: Govern, Map, Measure, Manage | Structures the AI Risk Register and lifecycle steering |
+| **ISO/IEC 42001** | 2023 | AIMS (certifiable AI Management System) | AI product governance framework |
+| **ISO/IEC 23894** | 2023 | AI risk management | Risk taxonomy + treatment |
+| **PSPO-AI Guide** | Scrum.org 2024 | 5 PO responsibilities in an AI context | Role framework |
 
-## Posture PO en IA — Ce qui change
+## PO posture in AI — What changes
 
-- **Outputs probabilistes, pas déterministes** → critères d'acceptation = **seuils statistiques** (precision, recall, latence p95) et non plus "doit retourner X"
-- **Valeur floue au démarrage** → discovery renforcé, hypothèses testées avec A/B + shadow mode avant rollout
-- **Modèles versionnés** (LLM v1 vs v2, fine-tuning) → versionner les comportements attendus dans le DoD (cf. [dor-dod.md](dor-dod.md))
-- **Régulation = exigence backlog**, pas annexe → l'AI Act intègre des items obligatoires (journalisation, transparence, fallback)
+- **Probabilistic, not deterministic outputs** → acceptance criteria = **statistical thresholds** (precision, recall, p95 latency) rather than "must return X"
+- **Fuzzy value at the start** → reinforced discovery, hypotheses tested with A/B + shadow mode before rollout
+- **Versioned models** (LLM v1 vs v2, fine-tuning) → version the expected behaviors in the DoD (cf. [dor-dod.md](dor-dod.md))
+- **Regulation = a backlog requirement**, not an annex → the AI Act introduces mandatory items (logging, transparency, fallback)
 
-## 5 responsabilités PSPO-AI (Scrum.org 2024)
+## 5 PSPO-AI responsibilities (Scrum.org 2024)
 
-1. **AI Vision** — Démontrer pourquoi l'IA bat une règle métier déterministe (sinon ne pas la déployer)
-2. **AI Ethics** — Équité, transparence, vie privée, non-nuisance (alignement art. 5 AI Act)
-3. **AI Backlog** — Stories adaptées à l'incertitude (cf. [ai-user-stories.md](ai-user-stories.md))
-4. **AI Value** — Mesure valeur business + métriques modèle, jamais l'un sans l'autre
-5. **AI Risk** — Identification, mitigation, monitoring continu (cf. [gestion-risques.md](gestion-risques.md))
+1. **AI Vision** — Demonstrate why AI beats a deterministic business rule (otherwise don't deploy it)
+2. **AI Ethics** — Fairness, transparency, privacy, non-harm (alignment with AI Act art. 5)
+3. **AI Backlog** — Stories tailored to uncertainty (cf. [ai-user-stories.md](ai-user-stories.md))
+4. **AI Value** — Measure business value + model metrics, never one without the other
+5. **AI Risk** — Identification, mitigation, continuous monitoring (cf. [gestion-risques.md](gestion-risques.md))
 
-## AI Risk Register — Structure NIST AI RMF
+## AI Risk Register — NIST AI RMF structure
 
-| Fonction NIST | Question à instruire | Livrable PO |
+| NIST function | Question to address | PO deliverable |
 |---|---|---|
-| **Govern** | Qui est responsable, quelles politiques, quelle conformité ? | Charte IA produit, RACI, traçabilité décisions |
-| **Map** | Quel contexte, quels acteurs, quel risque tolérable ? | Cartographie usages, classification AI Act |
-| **Measure** | Comment quantifier risques et performance ? | Dashboard métriques (cf. section suivante) |
-| **Manage** | Comment traiter, monitorer, dégrader gracieusement ? | Plan mitigation, fallback, kill switch |
+| **Govern** | Who is accountable, which policies, what compliance? | AI product charter, RACI, decision traceability |
+| **Map** | What context, which actors, what tolerable risk? | Use-case mapping, AI Act classification |
+| **Measure** | How to quantify risks and performance? | Metrics dashboard (cf. next section) |
+| **Manage** | How to treat, monitor, gracefully degrade? | Mitigation plan, fallback, kill switch |
 
-**Taxonomie risques IA** : hallucination · biais (genre, âge, origine) · prompt injection (OWASP LLM01) · data leak · dérive modèle (drift) · dépendance fournisseur LLM · conformité (AI Act, RGPD, sectoriel) · coût compute imprévisible.
+**AI risk taxonomy**: hallucination · bias (gender, age, origin) · prompt injection (OWASP LLM01) · data leak · model drift · LLM-vendor dependency · compliance (AI Act, GDPR, sector-specific) · unpredictable compute cost.
 
-## Métriques IA — Acceptance probabiliste
+## AI metrics — Probabilistic acceptance
 
-| Métrique | Définition | Source / référence | Seuil indicatif |
+| Metric | Definition | Source / reference | Indicative threshold |
 |---|---|---|---|
-| `hallucination_rate` | % réponses factuellement fausses | FActScore (Min et al. 2023) | ≤ 2% (usage grand public) |
-| `factuality_score` | Score de véracité benchmark | TruthfulQA (Lin et al. 2022) | ≥ 0.7 |
-| `disparate_impact_ratio` | Ratio acceptation groupe protégé / majoritaire | EEOC 4/5ths rule (1978), repris AI Act | ≥ 0.8 (seuil légal US, alerte UE) |
+| `hallucination_rate` | % factually wrong answers | FActScore (Min et al. 2023) | ≤ 2% (consumer use) |
+| `factuality_score` | Benchmark truthfulness score | TruthfulQA (Lin et al. 2022) | ≥ 0.7 |
+| `disparate_impact_ratio` | Acceptance ratio protected group / majority | EEOC 4/5ths rule (1978), echoed by the AI Act | ≥ 0.8 (US legal threshold, EU alert) |
 | `confidence_calibration` | Expected Calibration Error (ECE) | Guo et al. 2017 | ECE ≤ 0.05 |
-| `latence_p95` / `p99` | Temps réponse 95e / 99e percentile | SRE Google (Beyer et al. 2016) | p95 ≤ 500ms (UX interactive) |
-| `precision` / `recall` / `F1` | Performance classification | Standard ML | Dépend usage (cf. exemple) |
-| `human_override_rate` | % d'outputs corrigés par l'utilisateur | Signal qualité perçue | < 10% (sinon revoir modèle) |
+| `latence_p95` / `p99` | Response time at the 95th / 99th percentile | Google SRE (Beyer et al. 2016) | p95 ≤ 500ms (interactive UX) |
+| `precision` / `recall` / `F1` | Classification performance | ML standard | Depends on use case (cf. example) |
+| `human_override_rate` | % of outputs corrected by the user | Perceived-quality signal | < 10% (otherwise revisit the model) |
 
-## Exemple chiffré — Feature "Recommandation produit IA" (retail e-commerce)
+## Worked example — "AI product recommendation" feature (retail e-commerce)
 
-**User Story** : *En tant qu'acheteur connecté, je veux recevoir 3 reco produits personnalisées sur la fiche produit, afin de découvrir des articles complémentaires pertinents.*
+**User Story**: *As a logged-in buyer, I want to receive 3 personalized product recommendations on the product page, so that I can discover relevant complementary items.*
 
-**Critères d'acceptation** (extrait — version complète dans [po-acceptance-tests.md](po-acceptance-tests.md)) :
+**Acceptance criteria** (excerpt — full version in [po-acceptance-tests.md](po-acceptance-tests.md)):
 
-| AC | Seuil |
+| AC | Threshold |
 |---|---|
-| Precision@3 (clic) | ≥ 0.70 mesuré sur 7 jours roulants |
-| Recall@10 (catalogue couvert) | ≥ 0.60 |
-| Latence p95 inférence | ≤ 500 ms |
-| `hallucination_rate` (produit recommandé existant en stock) | ≤ 1% (bloquant) |
-| `disparate_impact_ratio` (genre / tranche d'âge) | ≥ 0.8 |
-| **Fallback non-IA** : si latence > 800 ms ou modèle indisponible → top 3 ventes catégorie | Obligatoire |
-| Mention transparence "Suggestions personnalisées par IA" visible | Conformité AI Act art. 50 |
-| Journalisation décision (inputs, version modèle, output) | Conservation 6 mois |
+| Precision@3 (click) | ≥ 0.70 measured over a rolling 7 days |
+| Recall@10 (catalog covered) | ≥ 0.60 |
+| Inference p95 latency | ≤ 500 ms |
+| `hallucination_rate` (recommended product in stock) | ≤ 1% (blocker) |
+| `disparate_impact_ratio` (gender / age bracket) | ≥ 0.8 |
+| **Non-AI fallback**: if latency > 800 ms or model unavailable → category top 3 sellers | Mandatory |
+| "Personalized AI suggestions" transparency notice visible | AI Act art. 50 compliance |
+| Decision logging (inputs, model version, output) | 6-month retention |
 
-## Mapping AI Act → backlog PO
+## AI Act → PO backlog mapping
 
-| Niveau de risque | Exemples | Items backlog obligatoires |
+| Risk level | Examples | Mandatory backlog items |
 |---|---|---|
-| **Interdit** (art. 5) | Social scoring, manipulation comportementale | Ne pas développer |
-| **Haut risque** (art. 6, Annexe III) | Recrutement, scoring crédit, biométrie | Documentation technique, supervision humaine effective, journalisation, robustesse, qualité données — items dédiés dans le backlog |
-| **Risque limité** (art. 50) | Chatbot, deepfake, contenu généré | Transparence : utilisateur informé qu'il interagit avec IA |
-| **Risque minimal** | Filtre antispam, reco produit basique | Bonnes pratiques recommandées, pas d'obligation légale stricte |
+| **Prohibited** (art. 5) | Social scoring, behavioral manipulation | Do not develop |
+| **High risk** (art. 6, Annex III) | Recruitment, credit scoring, biometrics | Technical documentation, effective human oversight, logging, robustness, data quality — dedicated backlog items |
+| **Limited risk** (art. 50) | Chatbot, deepfake, generated content | Transparency: the user is informed they're interacting with AI |
+| **Minimal risk** | Spam filter, basic product rec | Recommended best practices, no strict legal obligation |
 
-## Anti-patterns PO IA
+## AI PO anti-patterns
 
-- ❌ **Feature IA sans fallback non-IA** — un modèle down = produit down (violation continuité de service)
-- ❌ **Pas de mesure de confiance utilisateur** — `human_override_rate` non instrumenté = pas de signal de dérive
-- ❌ **Sécurité prompt-injection ignorée** — OWASP LLM01 non couverte, surface d'attaque ouverte
-- ❌ **Données entraînement non documentées** — Datasheets for Datasets (Gebru et al. 2021) absents, conformité AI Act art. 10 impossible
-- ❌ **Acceptance criteria sans seuils statistiques** — "le modèle fonctionne bien" n'est pas un AC, c'est un vœu
-- ❌ **Transparence absente** — "magic IA" présentée sans mention = violation AI Act art. 50
-- ❌ **Versioning modèle absent** — impossible de reproduire un comportement passé, impossible d'auditer une décision contestée
-- ❌ **Mesure de valeur = "feature livrée"** au lieu d'outcome business (revenue uplift, NPS, taux clic) — output ≠ outcome (cf. [product-metrics-ebm.md](product-metrics-ebm.md))
+- ❌ **AI feature with no non-AI fallback** — a model down = product down (service-continuity breach)
+- ❌ **No user-confidence measurement** — `human_override_rate` not instrumented = no drift signal
+- ❌ **Prompt-injection security ignored** — OWASP LLM01 not covered, attack surface open
+- ❌ **Training data not documented** — Datasheets for Datasets (Gebru et al. 2021) missing, AI Act art. 10 compliance impossible
+- ❌ **Acceptance criteria without statistical thresholds** — "the model works well" is not an AC, it's a wish
+- ❌ **No transparency** — "AI magic" presented without a notice = AI Act art. 50 breach
+- ❌ **No model versioning** — impossible to reproduce a past behavior, impossible to audit a contested decision
+- ❌ **Value measure = "feature shipped"** instead of business outcome (revenue uplift, NPS, click rate) — output ≠ outcome (cf. [product-metrics-ebm.md](product-metrics-ebm.md))
 
-## Livrables
+## Deliverables
 
-- **AI Product Vision Statement** — extension Product Vision Board (Pichler) avec section "Why IA"
-- **AI Backlog versionné** — chaque story porte la version de modèle attendue
-- **AI Risk Register** — structuré NIST AI RMF (Govern/Map/Measure/Manage)
+- **AI Product Vision Statement** — Product Vision Board extension (Pichler) with a "Why AI" section
+- **Versioned AI Backlog** — each story carries the expected model version
+- **AI Risk Register** — structured by NIST AI RMF (Govern/Map/Measure/Manage)
 - **Model Card** (Mitchell et al. 2019) + **Datasheet for Datasets** (Gebru et al. 2021)
-- **Dashboard métriques** — couple métriques modèle + métriques business
+- **Metrics dashboard** — pairs model metrics + business metrics
 
-## Format de sortie
+## Output format
 
-Pour chaque feature IA, précise :
-- **Type d'IA** : LLM générative · ML classique · computer vision · RAG · agent
-- **Cas d'usage** : description + utilisateur cible
-- **Niveau de risque AI Act** : interdit / haut / limité / minimal (justifier)
-- **Contraintes régulatoires** : RGPD, AI Act, sectoriel (DSA, DORA banque, MDR santé…)
+For each AI feature, specify:
+- **AI type**: generative LLM · classic ML · computer vision · RAG · agent
+- **Use case**: description + target user
+- **AI Act risk level**: prohibited / high / limited / minimal (justify)
+- **Regulatory constraints**: GDPR, AI Act, sector-specific (DSA, DORA banking, MDR health…)
 
 ## Sources
 
 - **PSPO-AI Guide** — Scrum.org (2024) — https://www.scrum.org/resources/professional-scrum-product-owner-pspo-ai-guide
-- **AI Act UE** — Règlement (UE) 2024/1689 du 13 juin 2024 — JO L 2024/1689
-- **NIST AI Risk Management Framework 1.0** — NIST (jan. 2023)
+- **EU AI Act** — Regulation (EU) 2024/1689 of June 13, 2024 — OJ L 2024/1689
+- **NIST AI Risk Management Framework 1.0** — NIST (Jan. 2023)
 - **ISO/IEC 42001:2023** — AI Management System
 - **ISO/IEC 23894:2023** — AI Risk Management
 - **OWASP Top 10 for LLM Applications** — OWASP (2024, v2)
@@ -121,14 +121,14 @@ Pour chaque feature IA, précise :
 - Min et al. — *FActScore: Fine-grained Atomic Evaluation of Factual Precision* (EMNLP 2023)
 - Lin, Hilton, Evans — *TruthfulQA* (ACL 2022)
 - Guo et al. — *On Calibration of Modern Neural Networks* (ICML 2017)
-- Beyer et al. — *Site Reliability Engineering* (Google / O'Reilly 2016) — sur p95/p99
+- Beyer et al. — *Site Reliability Engineering* (Google / O'Reilly 2016) — on p95/p99
 
-## Voir aussi
+## See also
 
-- [ai-user-stories.md](ai-user-stories.md) — formats user story adaptés à l'incertitude IA
-- [dor-dod.md](dor-dod.md) — intégrer critères IA (bias, hallucination, fallback) dans le DoD
-- [gestion-risques.md](gestion-risques.md) — gestion risques projet, articulation avec AI Risk Register
-- [product-metrics-ebm.md](product-metrics-ebm.md) — mesure valeur (EBM) — couplage métriques business + modèle
-- [product-vision.md](product-vision.md) — Product Vision Board, base de l'AI Vision Statement
-- [`../securite_ia/owasp-llm-top10.md`](../securite_ia/owasp-llm-top10.md) — OWASP LLM Top 10 détaillé (prompt injection, data leak)
-- [`../juridique_ia/ai-act-conformite.md`](../juridique_ia/ai-act-conformite.md) — AI Act UE — guide opérationnel conformité
+- [ai-user-stories.md](ai-user-stories.md) — user story formats tailored to AI uncertainty
+- [dor-dod.md](dor-dod.md) — embed AI criteria (bias, hallucination, fallback) in the DoD
+- [gestion-risques.md](gestion-risques.md) — project risk management, articulation with the AI Risk Register
+- [product-metrics-ebm.md](product-metrics-ebm.md) — value measurement (EBM) — pairing business + model metrics
+- [product-vision.md](product-vision.md) — Product Vision Board, basis of the AI Vision Statement
+- [`../securite_ia/owasp-llm-top10.md`](../securite_ia/owasp-llm-top10.md) — detailed OWASP LLM Top 10 (prompt injection, data leak)
+- [`../juridique_ia/ai-act-conformite.md`](../juridique_ia/ai-act-conformite.md) — EU AI Act — operational compliance guide

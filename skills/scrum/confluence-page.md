@@ -1,31 +1,31 @@
-# Skill Scrum — Page Confluence
+# Scrum Skill — Confluence Page
 
-> Certification : PSPO I
-> Agent : AGENT-PO-SCRUM.md
+> Certification: PSPO I
+> Agent: AGENT-PO-SCRUM.md
 
-## Structure recommandée
+## Recommended structure
 ```
-# [Titre]
-> [Résumé en 1-2 phrases]
+# [Title]
+> [1-2 sentence summary]
 
-Statut : ☐ Brouillon  ☐ En revue  ☐ Validé
-Mise à jour : [date]  |  Auteur : Guy HUI-BON-HOA
+Status: ☐ Draft  ☐ In review  ☐ Approved
+Updated: [date]  |  Author: Guy HUI-BON-HOA
 
 ---
-## Contexte
-## Contenu principal
-## Ressources liées
-- [Lien Jira]
-- [Lien document]
+## Context
+## Main content
+## Related resources
+- [Jira link]
+- [Document link]
 
-## Historique
-| Date | Auteur | Modification |
+## History
+| Date | Author | Change |
 |---|---|---|
 ```
 
-## Bonnes pratiques
-- Une page = un sujet
-- Macros utiles : Status, Info, Warning, Table of Contents
-- Labels systématiques pour la recherche
-- Archiver (ne pas supprimer) les pages obsolètes
-- Toujours lier aux tickets Jira associés
+## Best practices
+- One page = one topic
+- Useful macros: Status, Info, Warning, Table of Contents
+- Systematic labels for search
+- Archive (don't delete) obsolete pages
+- Always link to the related Jira tickets

@@ -1,63 +1,63 @@
-# Skill Scrum — Email Stakeholder
+# Scrum Skill — Stakeholder Email
 
-> Certification : PSPO I · PSPO II
-> Agent : AGENT-PO-SCRUM.md
+> Certification: PSPO I · PSPO II
+> Agent: AGENT-PO-SCRUM.md
 
-## Règles
-- Objet clair et actionnable
-- 3 paragraphes max : contexte → message clé → action attendue
-- Pas de formules creuses
-- Toujours terminer par une action avec deadline
-- Signature : Guy HUI-BON-HOA | Product Owner
+## Rules
+- Clear, actionable subject line
+- 3 paragraphs max: context → key message → expected action
+- No empty pleasantries
+- Always end with an action and a deadline
+- Signature: Guy HUI-BON-HOA | Product Owner
 
 ## Templates
 
-### Compte rendu post-réunion
+### Post-meeting notes
 ```
-Objet : CR [Réunion] — [Date] — Décisions & Actions
+Subject: Notes [Meeting] — [Date] — Decisions & Actions
 
-Bonjour [prénom],
+Hi [first name],
 
-Suite à notre réunion du [date], voici la synthèse et le plan d'actions.
+Following our meeting on [date], here is the summary and the action plan.
 
-[Décisions]
-[Plan d'actions : action / responsable / échéance]
+[Decisions]
+[Action plan: action / owner / due date]
 
-Merci de confirmer votre accord avant le [date].
+Please confirm your agreement by [date].
 
-Cordialement, Guy HUI-BON-HOA
-```
-
-### Point d'alerte / escalade
-```
-Objet : ⚠️ Alerte — [Projet] — Action requise avant [date]
-
-Bonjour [prénom],
-
-Je souhaite attirer votre attention sur [problème].
-
-Impact : [conséquences si non traité]
-Action requise : [ce qui est attendu]
-Délai : [date limite]
-
-Disponible pour en discuter.
-
-Cordialement, Guy HUI-BON-HOA
+Best regards, Guy HUI-BON-HOA
 ```
 
-### Demande de validation
+### Alert / escalation note
 ```
-Objet : ✅ Validation requise — [Livrable] — [Projet]
+Subject: ⚠️ Alert — [Project] — Action required before [date]
 
-Bonjour [prénom],
+Hi [first name],
 
-Veuillez trouver ci-joint [livrable] pour validation.
+I want to bring [issue] to your attention.
 
-Points clés :
+Impact: [consequences if unaddressed]
+Required action: [what is expected]
+Deadline: [due date]
+
+Happy to discuss.
+
+Best regards, Guy HUI-BON-HOA
+```
+
+### Approval request
+```
+Subject: ✅ Approval required — [Deliverable] — [Project]
+
+Hi [first name],
+
+Please find attached [deliverable] for approval.
+
+Key points:
 - [point 1]
 - [point 2]
 
-Retour attendu : [date] | Lien : [URL Confluence/Jira]
+Feedback expected by: [date] | Link: [Confluence/Jira URL]
 
-Cordialement, Guy HUI-BON-HOA
+Best regards, Guy HUI-BON-HOA
 ```

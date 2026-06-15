@@ -1,30 +1,30 @@
-# Skill Scrum — Reporting KPI Sprint
+# Scrum Skill — Sprint KPI Reporting
 
-> Certification : PSPO II · ICAgile ICP-APO
-> Agent : AGENT-PO-SCRUM.md
+> Certification: PSPO II · ICAgile ICP-APO
+> Agent: AGENT-PO-SCRUM.md
 
-## KPIs sprint
-| KPI | Définition | Cible |
+## Sprint KPIs
+| KPI | Definition | Target |
 |---|---|---|
-| Vélocité | Story points livrés (Done) | Stable ou croissante |
-| Taux de complétion | US Done / US planifiées | > 80% |
-| Dette technique | % sprint consacré à la dette | < 20% |
-| Taux de bugs | Anomalies / US livrées | < 5% bloquants |
+| Velocity | Story points delivered (Done) | Stable or increasing |
+| Completion rate | US Done / US planned | > 80% |
+| Technical debt | % of sprint spent on debt | < 20% |
+| Bug rate | Defects / US delivered | < 5% blockers |
 
-## Template Reporting Sprint
+## Sprint Reporting Template
 ```
-📊 Reporting Sprint [N] — [Date]
+📊 Sprint Reporting [N] — [Date]
 
-✅ Sprint Goal : ☐ Atteint  ☐ Partiel  ☐ Non atteint
-⚡ Vélocité : [X] pts (cible : [Y] pts)
-📦 US livrées : [X] / [Y] planifiées
-🐛 Anomalies ouvertes : [X] (dont [X] bloquants)
-🔧 Dette technique : [X]%
+✅ Sprint Goal: ☐ Met  ☐ Partial  ☐ Not met
+⚡ Velocity: [X] pts (target: [Y] pts)
+📦 US delivered: [X] / [Y] planned
+🐛 Open defects: [X] (including [X] blockers)
+🔧 Technical debt: [X]%
 
-Points d'attention :
+Points of attention:
 - [point 1]
 - [point 2]
 
-Actions :
-- [action] — [responsable] — [échéance]
+Actions:
+- [action] — [owner] — [due date]
 ```

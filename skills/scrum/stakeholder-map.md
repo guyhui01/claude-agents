@@ -1,37 +1,37 @@
-# Skill — Cartographie & Gestion des Stakeholders
-> Certifications : PSPO II · PSPO III · ICAgile ICP-APO
+# Skill — Stakeholder Mapping & Management
+> Certifications: PSPO II · PSPO III · ICAgile ICP-APO
 
-## Objectif
-Identifier, analyser et engager les parties prenantes pour maximiser leur soutien et gérer les résistances.
+## Objective
+Identify, analyze and engage stakeholders to maximize their support and manage resistance.
 
-## Matrice Pouvoir / Intérêt
+## Power / Interest matrix
 ```
-Pouvoir élevé + Intérêt élevé → Gérer de près (key players)
-Pouvoir élevé + Intérêt faible → Garder satisfaits
-Pouvoir faible + Intérêt élevé → Garder informés
-Pouvoir faible + Intérêt faible → Surveiller (effort minimal)
+High power + High interest → Manage closely (key players)
+High power + Low interest  → Keep satisfied
+Low power + High interest  → Keep informed
+Low power + Low interest   → Monitor (minimal effort)
 ```
 
-## Types de stakeholders PO
-- **Sponsors** : décideurs budget et vision
-- **Utilisateurs finaux** : personnes qui utilisent le produit
-- **Clients** : payeurs (≠ utilisateurs en B2B)
-- **Équipe de développement** : stakeholder interne clé
-- **Support / Ops** : impactés par les releases
-- **Legal / Compliance** : contraintes réglementaires
-- **Marketing / Sales** : go-to-market
+## PO stakeholder types
+- **Sponsors**: budget and vision decision-makers
+- **End users**: the people who use the product
+- **Customers**: payers (≠ users in B2B)
+- **Development team**: a key internal stakeholder
+- **Support / Ops**: impacted by releases
+- **Legal / Compliance**: regulatory constraints
+- **Marketing / Sales**: go-to-market
 
-## Techniques d'engagement
-- **Revue sprint** : démonstration régulière de valeur
-- **Newsletter produit** : updates légères et fréquentes
-- **One-on-one** : alignement individuel pour les key players
-- **Comité produit** : gouvernance mensuelle ou trimestrielle
+## Engagement techniques
+- **Sprint review**: regular demonstration of value
+- **Product newsletter**: light, frequent updates
+- **One-on-one**: individual alignment for key players
+- **Product committee**: monthly or quarterly governance
 
-## Livrables
-- Matrice stakeholders (pouvoir × intérêt)
-- Plan de communication par profil
-- RACI simplifié par décision produit
-- Template email stakeholder (→ email-stakeholder.md)
+## Deliverables
+- Stakeholder matrix (power × interest)
+- Communication plan per profile
+- Simplified RACI per product decision
+- Stakeholder email template (→ email-stakeholder.md)
 
-## Format de sortie
-Précise : contexte organisationnel · nombre de stakeholders · niveau de complexité politique
+## Output format
+Specify: organizational context · number of stakeholders · level of political complexity

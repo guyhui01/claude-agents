@@ -1,116 +1,116 @@
-# Skill — User Story Mapping (méthode Jeff Patton)
+# Skill — User Story Mapping (Jeff Patton method)
 
-> Certification : PSPO II · PSU-I · ICAgile ICP-APO
-> Agent : AGENT-PO-SCRUM.md
+> Certification: PSPO II · PSU-I · ICAgile ICP-APO
+> Agent: AGENT-PO-SCRUM.md
 
-## Objectif
+## Objective
 
-Construire un Story Map collaboratif qui révèle le **parcours utilisateur complet** (axe horizontal = activités) et permet de **découper le MVP et les releases** (axe vertical = priorité), pour aligner équipe + stakeholders sur la valeur livrée à chaque incrément.
+Build a collaborative Story Map that reveals the **full user journey** (horizontal axis = activities) and supports **slicing the MVP and releases** (vertical axis = priority), to align team + stakeholders on the value delivered at each increment.
 
-## Quand utiliser le Story Mapping
+## When to use Story Mapping
 
-| Situation | Adapté ? |
+| Situation | Suitable? |
 |---|---|
-| Découverte d'un nouveau produit / module | ✅ Indispensable |
-| Identifier le MVP d'une refonte | ✅ Très adapté |
-| Onboarding d'une nouvelle équipe sur le produit | ✅ Excellent outil pédagogique |
-| Alignement métier + tech + UX | ✅ Crée un langage commun |
-| Backlog à prioriser sur une seule feature | ❌ Trop lourd, préférer Value/Effort |
-| Bug fixing ou dette technique pure | ❌ Pas le bon outil |
+| Discovering a new product / module | ✅ Essential |
+| Identifying the MVP of a rebuild | ✅ Very suitable |
+| Onboarding a new team onto the product | ✅ Excellent teaching tool |
+| Aligning business + tech + UX | ✅ Creates a shared language |
+| Backlog to prioritize on a single feature | ❌ Too heavy, prefer Value/Effort |
+| Bug fixing or pure technical debt | ❌ Not the right tool |
 
-## Théorie en 3 minutes (Jeff Patton)
+## Theory in 3 minutes (Jeff Patton)
 
-Le backlog plat est un mensonge : il perd la **narrative utilisateur**. Le Story Map restaure la structure :
-- **Axe horizontal (Backbone)** : raconte l'histoire utilisateur, gauche → droite, dans l'ordre chronologique d'usage
-- **Axe vertical** : décompose chaque activité en tâches/stories, du plus essentiel (haut) au plus optionnel (bas)
-- **Lignes horizontales = releases** : tranches successives livrables, chacune un parcours utilisateur complet
+The flat backlog is a lie: it loses the **user narrative**. The Story Map restores the structure:
+- **Horizontal axis (Backbone)**: tells the user story, left → right, in the chronological order of use
+- **Vertical axis**: breaks each activity into tasks/stories, from the most essential (top) to the most optional (bottom)
+- **Horizontal lines = releases**: successive deliverable slices, each a complete user journey
 
 > *"Cut the cake horizontally, not vertically."* — Jeff Patton
 
 ---
 
-## Préparation de l'atelier
+## Workshop preparation
 
-### Logistique
+### Logistics
 
-| Paramètre | Présentiel | Remote |
+| Parameter | On-site | Remote |
 |---|---|---|
-| Durée | 2-4 h | 2 × 90 min (avec pause) |
-| Participants | 5-9 (PO, dev, QA, UX, métier) | Idem, max 7-8 pour rester gérable |
-| Matériel | Mur ou tableau, post-its 4 couleurs, marqueurs | Miro / FigJam / Mural |
-| Pré-requis | Personas validés, vision produit alignée | Idem |
+| Duration | 2-4 h | 2 × 90 min (with a break) |
+| Participants | 5-9 (PO, dev, QA, UX, business) | Same, max 7-8 to stay manageable |
+| Materials | Wall or board, 4-color sticky notes, markers | Miro / FigJam / Mural |
+| Prerequisites | Validated personas, aligned product vision | Same |
 
-### Code couleur recommandé
+### Recommended color code
 
-| Couleur | Utilisation |
+| Color | Use |
 |---|---|
-| 🟧 Orange | Activités utilisateur (Backbone) |
-| 🟦 Bleu | Tâches utilisateur (sous-étapes) |
-| 🟨 Jaune | User Stories |
-| 🟩 Vert | Annotations métier / business value |
-| 🟥 Rouge | Risques, dépendances, questions ouvertes |
+| 🟧 Orange | User activities (Backbone) |
+| 🟦 Blue | User tasks (sub-steps) |
+| 🟨 Yellow | User Stories |
+| 🟩 Green | Business annotations / business value |
+| 🟥 Red | Risks, dependencies, open questions |
 
 ---
 
-## Méthode pas à pas (6 étapes)
+## Step-by-step method (6 steps)
 
-### Étape 1 — Définir l'utilisateur et son objectif (15 min)
-
-```
-PERSONA cible      : [Sophie, responsable marketing PME]
-OBJECTIF principal : [Lancer une campagne email en moins de 30 min]
-CONTEXTE d'usage   : [Depuis bureau, 1× par semaine, parfois sous pression]
-```
-
-> 💡 Si plusieurs personas → faire un Story Map par persona ou différencier par couleur.
-
-### Étape 2 — Identifier les activités utilisateur — le Backbone (30 min)
-
-Question clé : *"Que fait l'utilisateur, dans quel ordre, pour atteindre son objectif ?"*
-
-Exemple e-commerce :
+### Step 1 — Define the user and their goal (15 min)
 
 ```
-[Découvrir]→[Choisir]→[Acheter]→[Recevoir]→[Évaluer]→[Réutiliser]
+TARGET PERSONA   : [Sophie, SMB marketing manager]
+PRIMARY GOAL     : [Launch an email campaign in under 30 min]
+USAGE CONTEXT    : [From the office, 1× per week, sometimes under pressure]
 ```
 
-Règles :
-- Verbes d'action utilisateur (pas de "le système…")
-- Granularité gros grain (5-10 activités max)
-- Ordre chronologique typique
+> 💡 If multiple personas → do one Story Map per persona or differentiate by color.
 
-### Étape 3 — Décomposer en tâches utilisateur (45 min)
+### Step 2 — Identify user activities — the Backbone (30 min)
 
-Pour chaque activité, lister les tâches concrètes :
+Key question: *"What does the user do, in what order, to reach their goal?"*
 
-```
-[Acheter]
-   ├── Mettre au panier
-   ├── Saisir adresse livraison
-   ├── Choisir mode de paiement
-   ├── Valider commande
-   └── Recevoir confirmation
-```
-
-### Étape 4 — Détailler en User Stories (60 min)
-
-Sous chaque tâche, lister les stories possibles, **de la plus essentielle (haut) à l'enrichissement (bas)** :
+E-commerce example:
 
 ```
-[Choisir mode de paiement]
-   ├── 🟨 US01 — Payer par carte bancaire (essentiel)
-   ├── 🟨 US02 — Payer par PayPal
-   ├── 🟨 US03 — Sauvegarder ma carte pour réutilisation
-   ├── 🟨 US04 — Payer en 3 fois
-   └── 🟨 US05 — Payer en cryptomonnaie (nice-to-have)
+[Discover]→[Choose]→[Buy]→[Receive]→[Rate]→[Reuse]
 ```
 
-### Étape 5 — Tracer le Walking Skeleton (MVP) (30 min)
+Rules:
+- User action verbs (no "the system…")
+- Coarse granularity (5-10 activities max)
+- Typical chronological order
 
-Tirer une **ligne horizontale** sous le minimum nécessaire pour que l'utilisateur **complète tout son parcours** :
+### Step 3 — Break down into user tasks (45 min)
+
+For each activity, list the concrete tasks:
 
 ```
-Backbone :   [Découvrir]   [Choisir]   [Acheter]   [Recevoir]
+[Buy]
+   ├── Add to cart
+   ├── Enter delivery address
+   ├── Choose payment method
+   ├── Confirm order
+   └── Receive confirmation
+```
+
+### Step 4 — Detail into User Stories (60 min)
+
+Under each task, list the possible stories, **from the most essential (top) to enrichment (bottom)**:
+
+```
+[Choose payment method]
+   ├── 🟨 US01 — Pay by credit card (essential)
+   ├── 🟨 US02 — Pay with PayPal
+   ├── 🟨 US03 — Save my card for reuse
+   ├── 🟨 US04 — Pay in 3 installments
+   └── 🟨 US05 — Pay in cryptocurrency (nice-to-have)
+```
+
+### Step 5 — Draw the Walking Skeleton (MVP) (30 min)
+
+Draw a **horizontal line** under the minimum needed for the user to **complete their entire journey**:
+
+```
+Backbone:    [Discover]    [Choose]    [Buy]        [Receive]
              ─────────────────────────────────────────────────────
 WALKING       US 1 essent.  US 2 essent. US 3 essent. US 4 essent.   ← Walking Skeleton (MVP)
 SKELETON     ─────────────────────────────────────────────────────
@@ -118,29 +118,29 @@ SKELETON     ──────────────────────�
              US 9          US 10        US 11        US 12          ← Release 3
 ```
 
-> ⚠️ Le MVP = parcours **complet de bout en bout**, pas une feature isolée. C'est l'erreur n°1 du Story Mapping.
+> ⚠️ The MVP = a **complete end-to-end journey**, not an isolated feature. This is Story Mapping mistake #1.
 
-### Étape 6 — Définir les releases (30 min)
+### Step 6 — Define the releases (30 min)
 
-Tirer 2-3 lignes supplémentaires pour les itérations suivantes :
+Draw 2-3 more lines for the following iterations:
 
-| Release | Objectif | Outcome attendu |
+| Release | Goal | Expected outcome |
 |---|---|---|
-| **R1 (MVP)** | Parcours utilisable de bout en bout | Validation hypothèse principale |
-| **R2** | Enrichissement valeur | Augmentation adoption / NPS |
-| **R3** | Optimisation et différenciation | Rétention, monétisation, wow effect |
+| **R1 (MVP)** | Usable end-to-end journey | Validate the primary hypothesis |
+| **R2** | Value enrichment | Increased adoption / NPS |
+| **R3** | Optimization and differentiation | Retention, monetization, wow effect |
 
 ---
 
-## Template visuel ASCII complet
+## Full ASCII visual template
 
 ```
-                  ┌──────────── BACKBONE (Activités) ─────────────┐
+                  ┌──────────── BACKBONE (Activities) ────────────┐
                   ▼              ▼              ▼              ▼
-                  Découvrir    Choisir       Acheter      Recevoir
+                  Discover     Choose        Buy          Receive
                   ──────────────────────────────────────────────────
-TÂCHES utilisateur   Chercher    Filtrer        Payer       Tracker
-                     Comparer    Configurer     Confirmer   Recevoir
+USER tasks           Search      Filter         Pay         Track
+                     Compare     Configure      Confirm     Receive
                   ──────────────────────────────────────────────────
 🚶 WALKING SKELETON  US essent.  US essent.    US essent.   US essent.
                   ──────────────────────────────────────────────────
@@ -153,65 +153,65 @@ TÂCHES utilisateur   Chercher    Filtrer        Payer       Tracker
 
 ---
 
-## Atelier remote (Miro / FigJam / Mural)
+## Remote workshop (Miro / FigJam / Mural)
 
-### Template Miro recommandé
+### Recommended Miro template
 
-1. Frame principal "Story Map" (5000 × 2500 px)
-2. Sticky notes orange en haut (Backbone) — taille L
-3. Sticky notes bleus sous chaque activité (Tâches) — taille M
-4. Sticky notes jaunes empilés (Stories) — taille S
-5. Lignes pointillées horizontales pour les releases
-6. Frame annexe "Parking lot" pour les idées non placées
+1. Main "Story Map" frame (5000 × 2500 px)
+2. Orange sticky notes at the top (Backbone) — size L
+3. Blue sticky notes under each activity (Tasks) — size M
+4. Yellow sticky notes stacked (Stories) — size S
+5. Dashed horizontal lines for the releases
+6. Side "Parking lot" frame for unplaced ideas
 
-### Règles de facilitation remote
+### Remote facilitation rules
 
-- 1 facilitateur dédié (pas le PO)
-- Timeboxing strict (Pomodoro 25 min × 4)
-- Pauses caméra-off toutes les 50 min
-- Capture finale en .png + export structuré (Miro → CSV → Jira)
-
----
-
-## Anti-patterns fréquents
-
-- ❌ **Trop technique** : "Système valide JWT" n'est pas une activité utilisateur
-- ❌ **Backbone trop fin** : 50 activités → c'est déjà un backlog, pas un story map
-- ❌ **MVP qui n'est pas un parcours** : "On livre juste l'inscription en MVP" → l'utilisateur ne peut rien faire avec ça
-- ❌ **Story Map figé** : il doit vivre, être mis à jour à chaque refinement
-- ❌ **PO seul à construire** : l'atelier collaboratif est l'essence de la méthode
-- ❌ **Confondre Story Mapping et Backlog** : le Story Map est la vue, le backlog en découle
+- 1 dedicated facilitator (not the PO)
+- Strict timeboxing (Pomodoro 25 min × 4)
+- Camera-off breaks every 50 min
+- Final capture as .png + structured export (Miro → CSV → Jira)
 
 ---
 
-## Du Story Map au Backlog
+## Common anti-patterns
 
-### Étapes de conversion
-
-1. **Photographier / exporter** le Story Map (source de vérité visuelle)
-2. **Saisir Release 1 en Epics + US dans Jira/Linear** :
-   - 1 activité Backbone = 1 Epic
-   - 1 tâche utilisateur = 1 Feature (ou Story directe si simple)
-   - 1 US essentielle = 1 User Story dans le backlog
-3. **Lier chaque US à son Epic Story Map** (custom field "Story Map Area")
-4. **Conserver le Story Map à jour** comme vue d'ensemble (mis à jour à chaque refinement)
-
-### Maintenance dans le temps
-
-- Revue de Story Map **toutes les 4-6 semaines** (ou à chaque PI en SAFe)
-- Ajout des nouvelles activités identifiées en cours de release
-- Retrait/archivage des US livrées (les laisser visibles ✅ pour mémoire)
+- ❌ **Too technical**: "System validates JWT" is not a user activity
+- ❌ **Backbone too fine**: 50 activities → that's already a backlog, not a story map
+- ❌ **An MVP that isn't a journey**: "We just ship sign-up as the MVP" → the user can't do anything with it
+- ❌ **Frozen Story Map**: it must live, be updated at each refinement
+- ❌ **PO building it alone**: the collaborative workshop is the essence of the method
+- ❌ **Confusing Story Mapping and Backlog**: the Story Map is the view, the backlog derives from it
 
 ---
 
-## Livrables
+## From Story Map to Backlog
 
-- Story Map visuel (Miro / FigJam ou photo si présentiel)
-- Définition explicite du Walking Skeleton (liste des US R1)
-- Roadmap dérivée (Now / Next / Later) alignée sur les releases
-- Compte-rendu d'atelier avec décisions et points ouverts
-- Backlog importé dans l'outil (Jira / Linear / Notion)
+### Conversion steps
 
-## Format de sortie
+1. **Photograph / export** the Story Map (visual source of truth)
+2. **Enter Release 1 as Epics + US in Jira/Linear**:
+   - 1 Backbone activity = 1 Epic
+   - 1 user task = 1 Feature (or a direct Story if simple)
+   - 1 essential US = 1 User Story in the backlog
+3. **Link each US to its Story Map Epic** (custom field "Story Map Area")
+4. **Keep the Story Map up to date** as the overview (updated at each refinement)
 
-Préciser : **persona cible** (rôle + objectif principal), **niveau de profondeur** (Backbone seul / Backbone + Tâches / complet avec stories), **format** (atelier présentiel / remote Miro / export Markdown), **horizon de release** (MVP seul / 3 releases / 6 mois).
+### Maintenance over time
+
+- Story Map review **every 4-6 weeks** (or at each PI in SAFe)
+- Add the new activities identified during a release
+- Remove/archive delivered US (keep them visible ✅ for memory)
+
+---
+
+## Deliverables
+
+- Visual Story Map (Miro / FigJam or a photo if on-site)
+- Explicit definition of the Walking Skeleton (list of R1 US)
+- Derived roadmap (Now / Next / Later) aligned with the releases
+- Workshop notes with decisions and open points
+- Backlog imported into the tool (Jira / Linear / Notion)
+
+## Output format
+
+Specify: **target persona** (role + primary goal), **depth level** (Backbone only / Backbone + Tasks / full with stories), **format** (on-site workshop / remote Miro / Markdown export), **release horizon** (MVP only / 3 releases / 6 months).

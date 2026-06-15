@@ -1,89 +1,89 @@
-# Skill — Décomposition de la valeur et Value Stream Mapping produit
+# Skill — Value decomposition and product Value Stream Mapping
 
-> Certification : PSPO II · PSPO III
-> Agent : AGENT-PO-SCRUM.md
+> Certification: PSPO II · PSPO III
+> Agent: AGENT-PO-SCRUM.md
 
-## Objectif
-Identifier et éliminer les gaspillages dans le flux de valeur produit, du besoin utilisateur jusqu'à la mise en production, pour maximiser la valeur livrée par sprint.
+## Objective
+Identify and eliminate waste in the product value stream, from user need to production release, to maximize value delivered per sprint.
 
-## Value Stream Mapping produit (niveau équipe)
+## Product Value Stream Mapping (team level)
 
-### Étapes du flux de valeur typique
+### Steps of a typical value stream
 ```
-Idée/Besoin → Discovery → Backlog → Refinement → Sprint → Test → Déploiement → Utilisateur
-    [2j]        [5j]        [3j]      [2j]          [10j]    [2j]    [1j]          [0j]
+Idea/Need → Discovery → Backlog → Refinement → Sprint → Test → Deployment → User
+   [2d]       [5d]        [3d]      [2d]          [10d]    [2d]    [1d]          [0d]
 ```
 
-### Métriques clés à mesurer
-- **Lead Time** : durée totale idée → production
-- **Process Time** : durée de travail actif uniquement
-- **Flow Efficiency** : Process Time / Lead Time × 100 (objectif : >40%)
-- **Cycle Time** : durée moyenne d'une US en développement actif
+### Key metrics to measure
+- **Lead Time**: total duration idea → production
+- **Process Time**: active working time only
+- **Flow Efficiency**: Process Time / Lead Time × 100 (target: >40%)
+- **Cycle Time**: average duration of a US in active development
 
-### Identification des gaspillages (MUDA)
-| Gaspillage | Exemple produit | Solution |
+### Waste identification (MUDA)
+| Waste | Product example | Solution |
 |---|---|---|
-| Surproduction | Features livrées non utilisées | Hypothesis-driven development |
-| Attente | US bloquées en review 3 jours | Limiter le WIP, DoD claire |
-| Transport | Handoffs multiples PO→Dev→QA | Équipe cross-fonctionnelle |
-| Surtraitement | Documentation excessive | Just enough documentation |
-| Inventaire | Backlog > 3 sprints de travail | Backlog = living document |
-| Défauts | Bugs détectés en production | Shift-left testing, DoD |
-| Sous-utilisation | Dev non impliqués en discovery | Dual track agile |
+| Overproduction | Shipped, unused features | Hypothesis-driven development |
+| Waiting | US stuck in review for 3 days | Limit WIP, clear DoD |
+| Transport | Multiple handoffs PO→Dev→QA | Cross-functional team |
+| Over-processing | Excessive documentation | Just enough documentation |
+| Inventory | Backlog > 3 sprints of work | Backlog = living document |
+| Defects | Bugs detected in production | Shift-left testing, DoD |
+| Underutilization | Devs not involved in discovery | Dual track agile |
 
-## Techniques de décomposition de valeur
+## Value decomposition techniques
 
-### 1. Story Splitting (découpage des US)
-**Patterns SPIDR :**
-- **S**pikes : séparer l'exploration de l'implémentation
-- **P**aths : un chemin utilisateur = une US
-- **I**nterfaces : desktop d'abord, mobile ensuite
-- **D**ata : sous-ensemble de données d'abord
-- **R**ules : règle métier simple d'abord, complexe ensuite
+### 1. Story Splitting (slicing US)
+**SPIDR patterns:**
+- **S**pikes: separate exploration from implementation
+- **P**aths: one user path = one US
+- **I**nterfaces: desktop first, mobile next
+- **D**ata: a subset of data first
+- **R**ules: a simple business rule first, complex next
 
-**Test de la valeur indépendante :**
+**Independent value test:**
 ```
-Chaque US doit répondre OUI à :
-□ Livrable indépendamment en production ?
-□ Testable sans dépendance bloquante ?
-□ Valeur perceptible par l'utilisateur seule ?
-```
-
-### 2. User Story Mapping — Découpe verticale
-```
-BACKBONE (Activités)
-├── Trouver un produit → Rechercher → Filtrer → Voir la fiche
-├── Acheter → Panier → Checkout → Paiement → Confirmation
-└── Gérer → Historique → Retours → Profil
-
-WALKING SKELETON (MVP vertical — 1 US par activité)
-RELEASE 1 (fonctionnalités essentielles)
-RELEASE 2 (enrichissement)
-RELEASE 3 (optimisation)
+Each US must answer YES to:
+□ Deliverable to production independently?
+□ Testable without a blocking dependency?
+□ Value perceptible by the user on its own?
 ```
 
-### 3. Jobs To Be Done (JTBD) — Décomposition par job
+### 2. User Story Mapping — Vertical slicing
 ```
-Job principal : [Ce que l'utilisateur cherche à accomplir]
-├── Job fonctionnel : [action concrète]
-├── Job émotionnel : [ressenti attendu]
-└── Job social : [image projetée]
+BACKBONE (Activities)
+├── Find a product → Search → Filter → View the page
+├── Buy → Cart → Checkout → Payment → Confirmation
+└── Manage → History → Returns → Profile
 
-→ Chaque job = potentielle US ou Epic
+WALKING SKELETON (vertical MVP — 1 US per activity)
+RELEASE 1 (essential features)
+RELEASE 2 (enrichment)
+RELEASE 3 (optimization)
 ```
 
-## Mesure de la valeur livrée
+### 3. Jobs To Be Done (JTBD) — Decomposition by job
+```
+Primary job: [What the user is trying to accomplish]
+├── Functional job: [concrete action]
+├── Emotional job: [expected feeling]
+└── Social job: [projected image]
+
+→ Each job = a potential US or Epic
+```
+
+## Measuring value delivered
 
 ### Value Burn-up Chart
-- Axe X : sprints
-- Axe Y : valeur cumulée livrée (SP ou nombre de features)
-- Ligne cible vs ligne réelle
-- Identifier les sprints à faible valeur → analyser les causes
+- X axis: sprints
+- Y axis: cumulative value delivered (SP or number of features)
+- Target line vs actual line
+- Identify low-value sprints → analyze the causes
 
-### Métriques de valeur business
-| Métrique | Formule | Fréquence |
+### Business value metrics
+| Metric | Formula | Frequency |
 |---|---|---|
-| Feature adoption rate | Users actifs feature / Users total | Hebdo |
-| Time to value | Date découverte → Date 1er usage | Par feature |
-| Value delivered / sprint | SP livrés × valeur métier pondérée | Sprint |
-| ROI feature | Revenu généré / Coût développement | Trimestriel |
+| Feature adoption rate | Active feature users / Total users | Weekly |
+| Time to value | Discovery date → First-use date | Per feature |
+| Value delivered / sprint | SP delivered × weighted business value | Sprint |
+| Feature ROI | Revenue generated / Development cost | Quarterly |

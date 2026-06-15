@@ -1,38 +1,38 @@
-# Skill Scrum — Compte Rendu de Réunion
+# Scrum Skill — Meeting Notes
 
-> Certification : PSPO I
-> Agent : AGENT-PO-SCRUM.md
+> Certification: PSPO I
+> Agent: AGENT-PO-SCRUM.md
 
 ## Template
 ```
-COMPTE RENDU — [Titre]
-Date : [JJ/MM/AAAA]  |  Durée : [X h]  |  Lieu : [Teams / présentiel]
-Animateur : [prénom]  |  Rédacteur : [Guy HUI-BON-HOA]
+MEETING NOTES — [Title]
+Date: [DD/MM/YYYY]  |  Duration: [X h]  |  Location: [Teams / on-site]
+Facilitator: [first name]  |  Author: [Guy HUI-BON-HOA]
 
-Participants : [liste avec rôles]
-Absents excusés : [liste]
-
----
-ORDRE DU JOUR
-1. [Point 1]
-2. [Point 2]
+Attendees: [list with roles]
+Excused absentees: [list]
 
 ---
-SYNTHÈSE
-
-[Point 1] :
-→ [résumé]
-→ Décision : [...]
-
-[Point 2] :
-→ [résumé]
-→ Décision : [...]
+AGENDA
+1. [Item 1]
+2. [Item 2]
 
 ---
-PLAN D'ACTIONS
-| # | Action | Responsable | Échéance | Statut |
-|---|--------|-------------|----------|--------|
-| 1 | [action] | [prénom] | [date] | ☐ |
+SUMMARY
 
-PROCHAINE RÉUNION : [date] — [sujet]
+[Item 1]:
+→ [summary]
+→ Decision: [...]
+
+[Item 2]:
+→ [summary]
+→ Decision: [...]
+
+---
+ACTION PLAN
+| # | Action | Owner | Due date | Status |
+|---|--------|-------|----------|--------|
+| 1 | [action] | [first name] | [date] | ☐ |
+
+NEXT MEETING: [date] — [topic]
 ```

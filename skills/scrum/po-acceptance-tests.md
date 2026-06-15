@@ -1,63 +1,63 @@
-# Skill Scrum — Tests d'Acceptation
+# Scrum Skill — Acceptance Tests
 
-> Certification : PSPO I · ISTQB CTFL
-> Agent : AGENT-PO-SCRUM.md
+> Certification: PSPO I · ISTQB CTFL
+> Agent: AGENT-PO-SCRUM.md
 
-## Format Given/When/Then
+## Given/When/Then format
 ```
-GIVEN [contexte initial]
-AND [condition supplémentaire]
-WHEN [action déclenchée]
-THEN [résultat attendu]
-AND [résultat complémentaire]
-```
-
-## Exemple
-```
-GIVEN l'utilisateur est connecté
-AND son contrat est actif
-WHEN il clique sur "Télécharger mon relevé"
-THEN un PDF est généré et téléchargé
-AND le nom du fichier contient la date (AAAA-MM-JJ)
+GIVEN [initial context]
+AND [additional condition]
+WHEN [triggered action]
+THEN [expected result]
+AND [additional result]
 ```
 
-## Types de tests
-| Type | Description | Qui |
+## Example
+```
+GIVEN the user is logged in
+AND their contract is active
+WHEN they click "Download my statement"
+THEN a PDF is generated and downloaded
+AND the file name contains the date (YYYY-MM-DD)
+```
+
+## Test types
+| Type | Description | Who |
 |---|---|---|
-| Fonctionnel | Comportement attendu | PO + QA |
-| Non-régression (TNR) | Pas de régression | QA |
-| Acceptation utilisateur (UAT) | Validation métier | PO + Métier |
-| Performance | Temps de réponse | Tech Lead |
+| Functional | Expected behavior | PO + QA |
+| Regression (NRT) | No regression | QA |
+| User Acceptance (UAT) | Business validation | PO + Business |
+| Performance | Response time | Tech Lead |
 
-## Structure cas de test
+## Test case structure
 ```
-ID : TC-[XXX]  |  US : [US-XXX]
-Titre : [description courte]
-Préconditions : [état du système]
+ID: TC-[XXX]  |  US: [US-XXX]
+Title: [short description]
+Preconditions: [system state]
 
-Étapes :
+Steps:
 1. [action]
 2. [action]
 
-Résultat attendu : [...]
-Résultat obtenu : [à remplir]
-Statut : ☐ Pass  ☐ Fail  ☐ Bloqué
-Anomalie : [JIRA-XXX si Fail]
+Expected result: [...]
+Actual result: [to fill in]
+Status: ☐ Pass  ☐ Fail  ☐ Blocked
+Defect: [JIRA-XXX if Fail]
 ```
 
-## Niveaux de sévérité
-| Niveau | Définition | Délai |
+## Severity levels
+| Level | Definition | Deadline |
 |---|---|---|
-| Bloquant | Inutilisable, pas de contournement | Immédiat |
-| Majeur | Dégradé, contournement possible | Sprint en cours |
-| Mineur | Gêne sans impact fonctionnel | Prochain sprint |
-| Cosmétique | Visuel, orthographe | Backlog |
+| Blocker | Unusable, no workaround | Immediate |
+| Major | Degraded, workaround possible | Current sprint |
+| Minor | Annoyance with no functional impact | Next sprint |
+| Cosmetic | Visual, spelling | Backlog |
 
-## Critères GO / NO GO MEP
+## GO / NO GO go-live criteria
 ```
-☐ 0 anomalie bloquante
-☐ < 3 anomalies majeures ouvertes
-☐ Tous les cas nominaux : Pass
-☐ TNR validé
-☐ Validation PO signée
+☐ 0 blocker defects
+☐ < 3 major defects open
+☐ All nominal cases: Pass
+☐ Regression testing validated
+☐ PO sign-off
 ```

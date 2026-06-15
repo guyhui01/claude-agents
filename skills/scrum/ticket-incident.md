@@ -1,43 +1,43 @@
-# Skill Scrum — Ticket Incident
+# Scrum Skill — Incident Ticket
 
-> Certification : PSPO I
-> Agent : AGENT-PO-SCRUM.md
+> Certification: PSPO I
+> Agent: AGENT-PO-SCRUM.md
 
-## Template Jira
+## Jira template
 ```
-Titre : [PROD/REC] [Composant] — [Description courte]
+Title: [PROD/UAT] [Component] — [Short description]
 
-Type : ☐ Bug  ☐ Incident Prod  ☐ Anomalie Recette
-Sévérité : ☐ Bloquant  ☐ Majeur  ☐ Mineur  ☐ Cosmétique
-Environnement : ☐ Production  ☐ Recette  ☐ Intégration
-US liée : [US-XXX]
+Type: ☐ Bug  ☐ Prod Incident  ☐ UAT Defect
+Severity: ☐ Blocker  ☐ Major  ☐ Minor  ☐ Cosmetic
+Environment: ☐ Production  ☐ UAT  ☐ Integration
+Linked US: [US-XXX]
 
 DESCRIPTION
-[Description précise et factuelle]
+[Precise, factual description]
 
-ÉTAPES DE REPRODUCTION
-1. Se connecter en tant que [rôle]
-2. Naviguer vers [page]
-3. Cliquer sur [élément]
-4. Observer [comportement]
+STEPS TO REPRODUCE
+1. Log in as [role]
+2. Navigate to [page]
+3. Click [element]
+4. Observe [behavior]
 
-COMPORTEMENT ATTENDU
-[Ce qui devrait se passer]
+EXPECTED BEHAVIOR
+[What should happen]
 
-COMPORTEMENT OBSERVÉ
-[Ce qui se passe réellement]
+OBSERVED BEHAVIOR
+[What actually happens]
 
-IMPACT MÉTIER
-[Utilisateurs impactés, processus bloqué]
+BUSINESS IMPACT
+[Affected users, blocked process]
 
-CONTOURNEMENT : ☐ Oui : [description]  ☐ Non
-CAPTURES / LOGS : [lien ou pièce jointe]
+WORKAROUND: ☐ Yes: [description]  ☐ No
+SCREENSHOTS / LOGS: [link or attachment]
 ```
 
-## Niveaux de sévérité
-| Niveau | Définition | Délai |
+## Severity levels
+| Level | Definition | Deadline |
 |---|---|---|
-| Bloquant | Inutilisable, pas de contournement | Immédiat |
-| Majeur | Dégradé, contournement possible | Sprint en cours |
-| Mineur | Gêne sans impact fonctionnel | Prochain sprint |
-| Cosmétique | Visuel / orthographe | Backlog |
+| Blocker | Unusable, no workaround | Immediate |
+| Major | Degraded, workaround possible | Current sprint |
+| Minor | Annoyance with no functional impact | Next sprint |
+| Cosmetic | Visual / spelling | Backlog |

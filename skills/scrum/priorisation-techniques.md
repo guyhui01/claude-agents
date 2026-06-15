@@ -1,124 +1,124 @@
-# Skill — Techniques de priorisation du Product Backlog
+# Skill — Product Backlog prioritization techniques
 
-> Certification : PSPO II · PSPO III · ICAgile ICP-APO
-> Agent : AGENT-PO-SCRUM.md
+> Certification: PSPO II · PSPO III · ICAgile ICP-APO
+> Agent: AGENT-PO-SCRUM.md
 
-## Objectif
+## Objective
 
-Choisir et appliquer la bonne technique de priorisation selon le contexte (early stage, mature, multi-stakeholders, contrainte budgétaire, produit IA…) pour maximiser la valeur livrée à chaque sprint, en s'appuyant sur des critères objectifs et défendables auprès des stakeholders.
+Choose and apply the right prioritization technique for the context (early stage, mature, multi-stakeholder, budget constraint, AI product…) to maximize the value delivered each sprint, relying on objective criteria that are defensible to stakeholders.
 
-## Grille de choix rapide
+## Quick selection grid
 
-| Contexte | Technique recommandée | Pourquoi |
+| Context | Recommended technique | Why |
 |---|---|---|
-| Release à scope contraint (échéance fixe) | **MoSCoW** | Communicable, négociable, traçable |
-| Comparaison data-driven entre features | **RICE** | Quantifié, ROI implicite |
-| Satisfaction client (qualité perçue) | **Kano** | Différencie basique / performance / excitateur |
-| Backlog explosé, arbitrage rapide | **Value vs Effort** | 2×2 visuel, atelier 30 min |
-| Atelier multi-stakeholders divergents | **Buy a Feature** | Engageant, révèle les vraies priorités |
-| Vote collégial budgété | **100$ test** | Force les trade-offs |
-| Identification d'opportunités sous-servies | **Opportunity Scoring** | Importance × Insatisfaction |
-| Contexte SAFe (Programme, ART) | **WSJF** → AGENT-PO-SAFE.md | Hors périmètre Scrum équipe |
+| Scope-constrained release (fixed deadline) | **MoSCoW** | Communicable, negotiable, traceable |
+| Data-driven comparison between features | **RICE** | Quantified, implicit ROI |
+| Customer satisfaction (perceived quality) | **Kano** | Distinguishes basic / performance / delighter |
+| Exploded backlog, fast arbitration | **Value vs Effort** | Visual 2×2, 30-min workshop |
+| Workshop with divergent stakeholders | **Buy a Feature** | Engaging, reveals the real priorities |
+| Budgeted collective vote | **$100 test** | Forces trade-offs |
+| Identifying underserved opportunities | **Opportunity Scoring** | Importance × Dissatisfaction |
+| SAFe context (Program, ART) | **WSJF** → AGENT-PO-SAFE.md | Out of team-Scrum scope |
 
 ---
 
 ## 1. MoSCoW — Must / Should / Could / Won't
 
-### Définition opérationnelle des 4 niveaux
+### Operational definition of the 4 levels
 
-| Niveau | Critère objectif | Action |
+| Level | Objective criterion | Action |
 |---|---|---|
-| **Must Have** | Sans cela, la release est un échec (conformité, contrat, valeur cœur) | Sprint en cours / locked |
-| **Should Have** | Important, mais contournable (workaround acceptable) | Prochain sprint |
-| **Could Have** | Apporte de la valeur si capacité disponible | Backlog moyen terme |
-| **Won't Have (this time)** | Reconnu utile, mais explicitement exclu du périmètre actuel | Roadmap future / refusé |
+| **Must Have** | Without it, the release is a failure (compliance, contract, core value) | Current sprint / locked |
+| **Should Have** | Important, but workable around (acceptable workaround) | Next sprint |
+| **Could Have** | Adds value if capacity is available | Medium-term backlog |
+| **Won't Have (this time)** | Acknowledged useful, but explicitly excluded from current scope | Future roadmap / declined |
 
-### Règle d'or des Must Have
+### Golden rule for Must Haves
 
-> Les **Must** ne doivent pas dépasser **60% de la capacité** de la release.
-> Sinon : la priorisation n'a pas eu lieu — tout est "critique" = rien n'est critique.
+> **Must** items must not exceed **60% of the release capacity**.
+> Otherwise: prioritization didn't happen — everything is "critical" = nothing is critical.
 
-### Template de décision MoSCoW (1 ligne par feature)
+### MoSCoW decision template (1 line per feature)
 
 ```
-[Feature] : [niveau]
-Justification : [pourquoi ce niveau, en 1 phrase]
-Conséquence si non livré : [impact métier ou utilisateur]
-Workaround acceptable : [oui / non + lequel]
+[Feature]: [level]
+Rationale: [why this level, in 1 sentence]
+Consequence if not delivered: [business or user impact]
+Acceptable workaround: [yes / no + which one]
 ```
 
-### Pièges à éviter
+### Pitfalls to avoid
 
-- ❌ Tout mettre en Must → c'est une liste de vœux, pas une priorisation
-- ❌ Mettre en Won't ce qui ne sera "jamais" fait → utiliser un statut "Rejected"
-- ❌ MoSCoW figé pour 6 mois → ré-évaluer à chaque refinement
+- ❌ Putting everything in Must → it's a wish list, not a prioritization
+- ❌ Putting in Won't what will "never" be done → use a "Rejected" status
+- ❌ MoSCoW frozen for 6 months → re-evaluate at each refinement
 
 ---
 
 ## 2. RICE — Reach × Impact × Confidence / Effort
 
-### Formule
+### Formula
 
 ```
-Score RICE = (Reach × Impact × Confidence) / Effort
+RICE Score = (Reach × Impact × Confidence) / Effort
 ```
 
-### Échelles standard
+### Standard scales
 
-| Critère | Échelle | Définition |
+| Criterion | Scale | Definition |
 |---|---|---|
-| **Reach** | Nombre d'utilisateurs / trimestre | Combien de personnes touchées sur une période ? |
-| **Impact** | 0.25 / 0.5 / 1 / 2 / 3 | Minimal / Bas / Moyen / Fort / Massif par utilisateur touché |
-| **Confidence** | 50% / 80% / 100% | Confiance dans les estimations Reach + Impact |
-| **Effort** | Person-months | Coût équipe estimé |
+| **Reach** | Number of users / quarter | How many people affected over a period? |
+| **Impact** | 0.25 / 0.5 / 1 / 2 / 3 | Minimal / Low / Medium / High / Massive per affected user |
+| **Confidence** | 50% / 80% / 100% | Confidence in the Reach + Impact estimates |
+| **Effort** | Person-months | Estimated team cost |
 
-### Exemple chiffré
+### Worked example
 
 ```
 Feature A — Onboarding redesign
-Reach = 2000 users/trim · Impact = 2 · Confidence = 80% · Effort = 3 PM
+Reach = 2000 users/quarter · Impact = 2 · Confidence = 80% · Effort = 3 PM
 Score = (2000 × 2 × 0.8) / 3 = 1067
 
-Feature B — Export PDF
-Reach = 500 users/trim · Impact = 1 · Confidence = 100% · Effort = 1 PM
+Feature B — PDF export
+Reach = 500 users/quarter · Impact = 1 · Confidence = 100% · Effort = 1 PM
 Score = (500 × 1 × 1) / 1 = 500
 
-→ Prioriser A (1067 > 500)
+→ Prioritize A (1067 > 500)
 ```
 
-### Quand l'utiliser
-- Backlog > 20 items avec données d'usage disponibles
-- Stakeholders demandant une justification quantifiée
-- Comparaison entre features hétérogènes
+### When to use it
+- Backlog > 20 items with usage data available
+- Stakeholders asking for quantified justification
+- Comparison between heterogeneous features
 
 ---
 
-## 3. Modèle de Kano — Qualité perçue
+## 3. Kano Model — Perceived quality
 
-### 5 catégories de satisfaction utilisateur
+### 5 categories of user satisfaction
 
-| Catégorie | Description | Exemple SaaS B2B |
+| Category | Description | B2B SaaS example |
 |---|---|---|
-| **Must-Be (basique)** | Absence = forte insatisfaction, présence = neutre | SSO fonctionnel, export CSV |
-| **Performance (linéaire)** | Plus c'est bon, plus la satisfaction monte | Vitesse de chargement |
-| **Excitement (attractif)** | Absence = neutre, présence = forte satisfaction (effet "wow") | Assistant IA contextuel |
-| **Indifferent** | Aucun impact sur la satisfaction | Skin de couleur changeable |
-| **Reverse** | Présence = insatisfaction (ex : trop d'options) | Notifications par défaut activées |
+| **Must-Be (basic)** | Absence = strong dissatisfaction, presence = neutral | Working SSO, CSV export |
+| **Performance (linear)** | The better it is, the higher satisfaction rises | Load speed |
+| **Excitement (attractive)** | Absence = neutral, presence = strong satisfaction ("wow" effect) | Contextual AI assistant |
+| **Indifferent** | No impact on satisfaction | Changeable color skin |
+| **Reverse** | Presence = dissatisfaction (e.g. too many options) | Notifications on by default |
 
-### Méthode de questionnaire Kano
+### Kano questionnaire method
 
-Pour chaque feature, poser 2 questions à 5+ utilisateurs :
-- **Fonctionnelle** : "Comment te sentirais-tu si cette feature était présente ?"
-- **Dysfonctionnelle** : "Comment te sentirais-tu si elle était absente ?"
+For each feature, ask 2 questions to 5+ users:
+- **Functional**: "How would you feel if this feature were present?"
+- **Dysfunctional**: "How would you feel if it were absent?"
 
-→ Réponses (J'aimerais / Doit être / Neutre / Tolère / N'aime pas) → matrice de catégorisation.
+→ Answers (I like it / Must be / Neutral / Tolerate / Dislike) → categorization matrix.
 
-### Règles de priorisation Kano
+### Kano prioritization rules
 
-1. Tous les **Must-Be** doivent être implémentés (hygiène)
-2. Maximiser les **Performance** dans la limite des ressources
-3. Sélectionner 1-2 **Excitement** par release (différenciation)
-4. Ignorer ou supprimer les **Indifferent** et **Reverse**
+1. All **Must-Be** must be implemented (hygiene)
+2. Maximize **Performance** within the resource limit
+3. Select 1-2 **Excitement** per release (differentiation)
+4. Ignore or remove the **Indifferent** and **Reverse**
 
 ---
 
@@ -127,112 +127,112 @@ Pour chaque feature, poser 2 questions à 5+ utilisateurs :
 ### Construction
 
 ```
-       ▲ Valeur élevée
+       ▲ High value
        │
    QUICK WINS    │   BIG BETS
-   (Faire vite)  │   (Planifier)
-   ──────────────┼──────────────────▶ Effort élevé
+   (Do quickly)  │   (Plan)
+   ──────────────┼──────────────────▶ High effort
    FILL-INS      │   MONEY PITS
-   (Si capa)     │   (À éviter)
+   (If capacity) │   (Avoid)
        │
-       ▼ Valeur faible
+       ▼ Low value
 ```
 
-### Atelier 30 min
+### 30-min workshop
 
-1. Lister 15-30 items du backlog sur post-its (5 min)
-2. Placement collectif valeur perçue × effort estimé (15 min)
-3. Décision quadrant par quadrant (10 min) :
-   - Quick Wins → top du backlog
-   - Big Bets → analyser ROI avant
-   - Fill-Ins → réservoir d'opportunité
-   - Money Pits → fermer ou retirer
-
----
-
-## 5. Buy a Feature — Atelier collaboratif
-
-### Principe
-
-Donner un "budget" fictif aux stakeholders pour qu'ils "achètent" les features qu'ils veulent.
-
-### Préparation
-
-- 15-20 features avec prix proposé (proportionnel à l'effort)
-- Budget par participant = ~40-60% du budget total nécessaire
-- Forcer la collaboration (certaines features doivent être achetées à plusieurs)
-
-### Déroulement (60-90 min)
-
-1. Pitch rapide de chaque feature par le PO (2 min/feature)
-2. Phase d'achat individuelle (15 min)
-3. Phase de négociation et regroupement (30 min)
-4. Synthèse : ce qui est acheté = prioritaire
-
-### Valeur
-
-Révèle les **vraies priorités stakeholders** (pas le "tout est important") + crée de l'alignement par la négociation directe.
+1. List 15-30 backlog items on sticky notes (5 min)
+2. Collective placement: perceived value × estimated effort (15 min)
+3. Decision, quadrant by quadrant (10 min):
+   - Quick Wins → top of the backlog
+   - Big Bets → analyze ROI first
+   - Fill-Ins → opportunity reservoir
+   - Money Pits → close or remove
 
 ---
 
-## 6. 100$ Test — Vote budgété
+## 5. Buy a Feature — Collaborative workshop
 
-Distribuer 100$ (fictifs) à chaque stakeholder à répartir sur N features.
+### Principle
 
-### Variantes
-- **Standard** : 100$ par stakeholder, lecture des totaux
-- **Pondéré** : budgets différents selon poids stakeholder (CEO=200$, métier=100$, support=50$)
-- **Anti-spam** : maximum 30$ par feature (force la diversification)
+Give stakeholders a fictitious "budget" so they can "buy" the features they want.
 
-### Avantages
-- Rapide (15 min)
-- Forces les trade-offs (budget limité)
-- Données quantitatives par stakeholder
+### Preparation
+
+- 15-20 features with a proposed price (proportional to effort)
+- Budget per participant = ~40-60% of the total budget needed
+- Force collaboration (some features must be bought jointly)
+
+### Run (60-90 min)
+
+1. Quick pitch of each feature by the PO (2 min/feature)
+2. Individual buying phase (15 min)
+3. Negotiation and pooling phase (30 min)
+4. Summary: what gets bought = priority
+
+### Value
+
+Reveals the **real stakeholder priorities** (not "everything is important") + builds alignment through direct negotiation.
+
+---
+
+## 6. $100 Test — Budgeted vote
+
+Hand out $100 (fictitious) to each stakeholder to spread across N features.
+
+### Variants
+- **Standard**: $100 per stakeholder, read the totals
+- **Weighted**: different budgets by stakeholder weight (CEO=$200, business=$100, support=$50)
+- **Anti-spam**: maximum $30 per feature (forces diversification)
+
+### Advantages
+- Fast (15 min)
+- Forces trade-offs (limited budget)
+- Quantitative data per stakeholder
 
 ---
 
 ## 7. Opportunity Scoring (Outcome-Driven Innovation)
 
-### Formule
+### Formula
 
 ```
 Opportunity Score = Importance + max(Importance - Satisfaction, 0)
 ```
 
-### Méthode
+### Method
 
-1. Identifier les "outcomes" (résultats que l'utilisateur cherche, pas les features)
-2. Pour chaque outcome, mesurer :
-   - **Importance** (1-10) : à quel point est-ce important ?
-   - **Satisfaction** (1-10) : à quel point es-tu satisfait aujourd'hui ?
-3. Calculer le score → opportunities = haute importance + faible satisfaction
+1. Identify the "outcomes" (results the user seeks, not the features)
+2. For each outcome, measure:
+   - **Importance** (1-10): how important is it?
+   - **Satisfaction** (1-10): how satisfied are you today?
+3. Compute the score → opportunities = high importance + low satisfaction
 
-### Interprétation
+### Interpretation
 
-| Score | Lecture |
+| Score | Reading |
 |---|---|
-| > 15 | Opportunité majeure (sous-servie) |
-| 12-15 | Opportunité significative |
-| 10-12 | À surveiller |
-| < 10 | Saturé (over-served) ou peu important |
+| > 15 | Major opportunity (underserved) |
+| 12-15 | Significant opportunity |
+| 10-12 | To watch |
+| < 10 | Saturated (over-served) or low importance |
 
 ---
 
-## Anti-patterns transversaux
+## Cross-cutting anti-patterns
 
-- ❌ Choisir une seule technique pour toujours → adapter au contexte
-- ❌ Priorisation sans critères explicites → "feeling PO" indéfendable
-- ❌ Priorisation sans données utilisateur → biais HiPPO (Highest Paid Person's Opinion)
-- ❌ Ignorer la dette technique dans la priorisation → bombe à retardement
-- ❌ Re-prioriser à chaque demande stakeholder → instabilité d'équipe
+- ❌ Choosing a single technique forever → adapt to the context
+- ❌ Prioritization with no explicit criteria → indefensible "PO feeling"
+- ❌ Prioritization with no user data → HiPPO bias (Highest Paid Person's Opinion)
+- ❌ Ignoring technical debt in prioritization → time bomb
+- ❌ Re-prioritizing on every stakeholder request → team instability
 
-## Livrables types
+## Typical deliverables
 
-- Backlog priorisé avec score / catégorie par technique utilisée
-- Compte-rendu d'atelier (Buy a Feature, 100$ test) avec photos / captures Miro
-- Note de cadrage de la méthode choisie + critères (pour défense stakeholder)
-- Roadmap découlant de la priorisation (Now / Next / Later)
+- Prioritized backlog with score / category per technique used
+- Workshop notes (Buy a Feature, $100 test) with photos / Miro screenshots
+- Method scoping note + criteria (for stakeholder defense)
+- Roadmap derived from the prioritization (Now / Next / Later)
 
-## Format de sortie
+## Output format
 
-Préciser : **technique souhaitée** (MoSCoW / RICE / Kano / Value-Effort / Buy a Feature / 100$ / Opportunity Scoring), **liste des items à prioriser**, **stakeholders impliqués**, **contraintes** (échéance, budget, équipe), **données disponibles** (usage, NPS, interviews).
+Specify: **desired technique** (MoSCoW / RICE / Kano / Value-Effort / Buy a Feature / $100 / Opportunity Scoring), **list of items to prioritize**, **stakeholders involved**, **constraints** (deadline, budget, team), **available data** (usage, NPS, interviews).

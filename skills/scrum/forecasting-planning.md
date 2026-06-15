@@ -1,82 +1,82 @@
-# Skill — Forecasting et planification avancée produit
+# Skill — Advanced product forecasting and planning
 
-> Certification : PSPO II · PSPO III
-> Agent : AGENT-PO-SCRUM.md
+> Certification: PSPO II · PSPO III
+> Agent: AGENT-PO-SCRUM.md
 
-## Objectif
-Produire des prévisions de livraison fiables et transparentes en utilisant des données empiriques (vélocité, throughput) plutôt que des estimations déterministes.
+## Objective
+Produce reliable, transparent delivery forecasts using empirical data (velocity, throughput) rather than deterministic estimates.
 
-## Approches de forecasting
+## Forecasting approaches
 
-### 1. Forecasting par vélocité (Story Points)
+### 1. Velocity-based forecasting (Story Points)
 ```
-Formule : Nb de sprints = Total SP backlog / Vélocité moyenne
+Formula: Number of sprints = Total backlog SP / Average velocity
 
-Exemple :
-- Backlog restant : 120 SP
-- Vélocité moyenne S1-S4 : 32 SP (±5)
-- Prévision : 3,75 sprints → 4 sprints (fourchette : 3,5 à 5)
-```
-
-**Bonnes pratiques :**
-- Utiliser la vélocité des 3-5 derniers sprints (pas la moyenne totale)
-- Toujours communiquer une fourchette, jamais une date exacte
-- Inclure un buffer de 15-20% pour les imprévus
-
-### 2. Forecasting par Throughput (sans estimation)
-```
-Throughput = Nombre de US livrées / sprint (sans SP)
-
-Exemple : 8, 6, 9, 7, 8 US/sprint → médiane = 8
-Backlog : 40 US → 5 sprints (fourchette : 4,5 à 6,5)
+Example:
+- Remaining backlog: 120 SP
+- Average velocity S1-S4: 32 SP (±5)
+- Forecast: 3.75 sprints → 4 sprints (range: 3.5 to 5)
 ```
 
-**Avantage :** élimine le débat sur les estimations, plus stable.
+**Best practices:**
+- Use the velocity of the last 3-5 sprints (not the overall average)
+- Always communicate a range, never an exact date
+- Include a 15-20% buffer for the unexpected
 
-### 3. Monte Carlo Simulation (forecasting probabiliste)
-- Outil : actionableagile.com ou Nave
-- Input : données de throughput des 30-60 derniers jours
-- Output : probabilité (ex. 85% de livrer avant le 15 juin)
-- Recommandé pour les prévisions > 3 mois
+### 2. Throughput-based forecasting (no estimation)
+```
+Throughput = Number of US delivered / sprint (no SP)
 
-## Planification par horizon (3 niveaux)
+Example: 8, 6, 9, 7, 8 US/sprint → median = 8
+Backlog: 40 US → 5 sprints (range: 4.5 to 6.5)
+```
 
-| Horizon | Outil | Précision | Usage |
+**Advantage:** removes the estimation debate, more stable.
+
+### 3. Monte Carlo Simulation (probabilistic forecasting)
+- Tool: actionableagile.com or Nave
+- Input: throughput data from the last 30-60 days
+- Output: probability (e.g. 85% chance of delivering before June 15)
+- Recommended for forecasts > 3 months
+
+## Planning by horizon (3 levels)
+
+| Horizon | Tool | Accuracy | Use |
 |---|---|---|---|
-| **Sprint** (2 sem.) | Sprint Planning + vélocité | 90% | Engagement équipe |
-| **Trimestre** (PI) | Roadmap + story mapping | 70% | Stakeholders internes |
-| **Annuel** | Now/Next/Later + OKR | 50% | Comité de direction |
+| **Sprint** (2 weeks) | Sprint Planning + velocity | 90% | Team commitment |
+| **Quarter** (PI) | Roadmap + story mapping | 70% | Internal stakeholders |
+| **Annual** | Now/Next/Later + OKR | 50% | Executive committee |
 
-## Now / Next / Later — Roadmap sans dates
+## Now / Next / Later — Roadmap without dates
 ```
-NOW (Sprint en cours)          NEXT (1-3 mois)          LATER (3-12 mois)
+NOW (current sprint)           NEXT (1-3 months)        LATER (3-12 months)
 ───────────────────────────────────────────────────────────────────────
-[Fonctionnalité A - livraison  [Fonctionnalité C - haute  [Thème stratégique X]
- confirmée]                     priorité]                 [Thème stratégique Y]
-[Fonctionnalité B - livraison  [Fonctionnalité D - haute  [Exploration Z]
- confirmée]                     priorité]
+[Feature A - delivery          [Feature C - high         [Strategic theme X]
+ confirmed]                     priority]                 [Strategic theme Y]
+[Feature B - delivery          [Feature D - high         [Exploration Z]
+ confirmed]                     priority]
 ```
 
-## Communication des prévisions aux stakeholders
+## Communicating forecasts to stakeholders
 
-### Template de communication
+### Communication template
 ```
-PRÉVISION DE LIVRAISON — [Date de mise à jour]
+DELIVERY FORECAST — [Update date]
 
-Périmètre : [Feature / Epic concernée]
-Scope restant : [X US / Y SP]
+Scope: [Feature / Epic concerned]
+Remaining scope: [X US / Y SP]
 
-Scénario optimiste  : Sprint [N] — [Date] — probabilité 30%
-Scénario nominal    : Sprint [N+1] — [Date] — probabilité 60%
-Scénario pessimiste : Sprint [N+2] — [Date] — probabilité 90%
+Optimistic scenario  : Sprint [N] — [Date] — 30% probability
+Nominal scenario     : Sprint [N+1] — [Date] — 60% probability
+Pessimistic scenario : Sprint [N+2] — [Date] — 90% probability
 
-Hypothèses : [vélocité stable, pas de changement scope majeur]
-Risques identifiés : [liste]
+Assumptions: [stable velocity, no major scope change]
+Identified risks: [list]
 ```
 
 ## Anti-patterns
-- ❌ Promettre une date fixe sans buffer
-- ❌ Utiliser la vélocité comme objectif de performance
-- ❌ Communiquer une seule date sans fourchette
-- ❌ Ignorer la dette technique dans les prévisions
-- ❌ Planifier à 100% de la capacité (laisser 20% pour imprévus)
+- ❌ Promising a fixed date with no buffer
+- ❌ Using velocity as a performance target
+- ❌ Communicating a single date with no range
+- ❌ Ignoring technical debt in forecasts
+- ❌ Planning at 100% of capacity (leave 20% for the unexpected)

@@ -1,137 +1,137 @@
-# Skill — Gestion du Product Backlog
+# Skill — Product Backlog Management
 
-> Certification : PSPO I · PSPO II
-> Agent : AGENT-PO-SCRUM.md
+> Certification: PSPO I · PSPO II
+> Agent: AGENT-PO-SCRUM.md
 
-## Objectif
+## Objective
 
-Maintenir un Product Backlog **vivant, ordonné, juste assez détaillé**, qui sert de source unique de vérité entre PO, équipe et stakeholders — sans devenir une accumulation de tickets périmés.
+Keep a **living, ordered, just-detailed-enough** Product Backlog that serves as the single source of truth between the PO, the team and stakeholders — without becoming a pile of stale tickets.
 
-> 🔗 Pour la **priorisation** (MoSCoW, RICE, Kano…) : voir `priorisation-techniques.md`
-> 🔗 Pour le **découpage par parcours utilisateur** : voir `story-mapping.md`
+> 🔗 For **prioritization** (MoSCoW, RICE, Kano…): see `priorisation-techniques.md`
+> 🔗 For **slicing by user journey**: see `story-mapping.md`
 
-## Structure hiérarchique
+## Hierarchical structure
 
 ```
-Vision Produit
-   └── Product Goal (Sprint Goal cumulé sur 1-3 mois)
-         └── Epics (gros morceaux fonctionnels, 2-3 mois)
-               └── Features (lots cohérents livrables, 2-4 sprints)
-                     └── User Stories (livrables en 1 sprint)
-                           └── Tâches techniques (heures-jour)
+Product Vision
+   └── Product Goal (Sprint Goal accumulated over 1-3 months)
+         └── Epics (large functional chunks, 2-3 months)
+               └── Features (coherent deliverable lots, 2-4 sprints)
+                     └── User Stories (deliverable within 1 sprint)
+                           └── Technical tasks (person-days)
 ```
 
-### Règles de profondeur
+### Depth rules
 
-| Horizon | Niveau de détail attendu |
+| Horizon | Expected level of detail |
 |---|---|
-| **Sprint en cours** | US complètes, DoR validée, AC écrits, estimées |
-| **Sprint N+1** | US identifiées, DoR à valider en refinement |
-| **2-3 mois** | Features décomposées, US esquissées |
-| **> 3 mois** | Epics uniquement, intentions de valeur |
+| **Current sprint** | Full US, DoR validated, AC written, estimated |
+| **Sprint N+1** | US identified, DoR to validate in refinement |
+| **2-3 months** | Features decomposed, US sketched |
+| **> 3 months** | Epics only, value intentions |
 
-> 💡 **Anti-pattern** : avoir 200 US détaillées dans le backlog → 80% deviendront obsolètes.
+> 💡 **Anti-pattern**: having 200 detailed US in the backlog → 80% will become obsolete.
 
-## Definition of Ready (DoR) — checklist d'entrée sprint
+## Definition of Ready (DoR) — sprint-entry checklist
 
-Une User Story est prête à entrer en sprint si :
+A User Story is ready to enter a sprint if:
 
-- [ ] **I**ndépendante (ou dépendances explicitées et résolues)
-- [ ] **N**égociable (pas un contrat figé, la conversation reste ouverte)
-- [ ] **V**aluable (valeur métier ou utilisateur claire)
-- [ ] **E**stimable (l'équipe peut donner un ordre de grandeur)
-- [ ] **S**mall (livrable dans le sprint, max 1/3 de la capacité équipe)
-- [ ] **T**estable (critères d'acceptation rédigés et compréhensibles)
-- [ ] Maquette UX disponible si pertinent
-- [ ] Dépendances techniques / API identifiées
-- [ ] Données nécessaires accessibles (jeu de test)
+- [ ] **I**ndependent (or dependencies made explicit and resolved)
+- [ ] **N**egotiable (not a frozen contract, the conversation stays open)
+- [ ] **V**aluable (clear business or user value)
+- [ ] **E**stimable (the team can give a rough order of magnitude)
+- [ ] **S**mall (deliverable within the sprint, max 1/3 of team capacity)
+- [ ] **T**estable (acceptance criteria written and understandable)
+- [ ] UX mockup available if relevant
+- [ ] Technical / API dependencies identified
+- [ ] Required data accessible (test dataset)
 
-## Estimation — Rôle du PO
+## Estimation — the PO's role
 
-Le PO **n'estime pas** : il clarifie l'US, répond aux questions de l'équipe pendant l'atelier et veille à ce que la DoR soit valide pour permettre l'estimation. L'équipe Dev estime collectivement, le Scrum Master facilite.
+The PO **does not estimate**: they clarify the US, answer the team's questions during the workshop and ensure the DoR is valid so estimation can happen. The Dev team estimates collectively, the Scrum Master facilitates.
 
-**Méthode de référence : Planning Poker (Fibonacci 1, 2, 3, 5, 8, 13, 21, ?, ∞).**
+**Reference method: Planning Poker (Fibonacci 1, 2, 3, 5, 8, 13, 21, ?, ∞).**
 
-> 🔗 Détails facilitation + alternatives (T-shirt, #NoEstimates, Affinity, Magic Estimation, Bucket System) + adaptation SAFe + outils remote : voir `skills/scrum_master/planning-poker.md`
+> 🔗 Facilitation details + alternatives (T-shirt, #NoEstimates, Affinity, Magic Estimation, Bucket System) + SAFe adaptation + remote tools: see `skills/scrum_master/planning-poker.md`
 
 ## Backlog Refinement (Grooming)
 
-### Cadence et format
+### Cadence and format
 
-| Paramètre | Recommandation |
+| Parameter | Recommendation |
 |---|---|
-| Fréquence | 1× par sprint (milieu) — voire 2× pour équipe junior |
-| Durée max | 10% du sprint (1h pour sprint 2 semaines) |
-| Participants | PO + équipe complète + Scrum Master |
-| Préparation PO | 30 min en amont pour proposer les US à raffiner |
+| Frequency | 1× per sprint (mid) — or 2× for a junior team |
+| Max duration | 10% of the sprint (1h for a 2-week sprint) |
+| Participants | PO + full team + Scrum Master |
+| PO prep | 30 min beforehand to propose the US to refine |
 
-### Ordre du jour type (1h)
+### Typical agenda (1h)
 
-1. **Tour d'horizon backlog** (5 min) — état des prochains sprints
-2. **Clarification US prioritaires** (30 min) — questions équipe → PO
-3. **Estimation Planning Poker** (15 min) — sur 3-5 US
-4. **Identification dépendances/risques** (5 min)
-5. **Validation DoR** (5 min) — quelles US passent en "Ready"
+1. **Backlog overview** (5 min) — state of the upcoming sprints
+2. **Clarify priority US** (30 min) — team questions → PO
+3. **Planning Poker estimation** (15 min) — on 3-5 US
+4. **Identify dependencies/risks** (5 min)
+5. **DoR validation** (5 min) — which US move to "Ready"
 
-### Sortie attendue
+### Expected output
 
-À l'issue du refinement : **2 sprints d'avance** avec DoR validée pour le PO.
+After refinement: **2 sprints ahead** with DoR validated for the PO.
 
-## Checklist santé du backlog (revue mensuelle)
+## Backlog health checklist (monthly review)
 
-- [ ] **Ordonné** par priorité (1 seul ordre, pas de "tous Must-Have")
-- [ ] **2 sprints d'avance** avec DoR validée
-- [ ] **US obsolètes archivées** (statut "Rejected" avec raison)
-- [ ] **Dépendances inter-équipes tracées** (custom field ou label)
-- [ ] **Estimations à jour** (pas de US de plus de 3 mois sans re-challenge)
-- [ ] **Epics liés à Product Goals** (traçabilité valeur)
-- [ ] **Ratio dette tech / valeur** : 15-20% capacité réservée à la dette
-- [ ] **Dernière revue documentée** : [date]
+- [ ] **Ordered** by priority (a single order, not "all Must-Have")
+- [ ] **2 sprints ahead** with DoR validated
+- [ ] **Obsolete US archived** ("Rejected" status with a reason)
+- [ ] **Cross-team dependencies traced** (custom field or label)
+- [ ] **Estimates up to date** (no US older than 3 months without a re-challenge)
+- [ ] **Epics linked to Product Goals** (value traceability)
+- [ ] **Tech-debt / value ratio**: 15-20% of capacity reserved for debt
+- [ ] **Last review documented**: [date]
 
-## Template Roadmap trimestrielle
+## Quarterly Roadmap template
 
 ```
-TRIMESTRE Q[X] — Product Goal : [objectif mesurable]
+QUARTER Q[X] — Product Goal: [measurable objective]
 
-Sprint N      | [Feature 1]       | [Feature 2]      | [Dette]
-Sprint N+1    | [Feature 3]       | [Feature 4]      | [Spike R&D]
-Sprint N+2    | [Feature 5]       | [Polish R1]      | [Dette]
-Sprint N+3    | RELEASE 1 stabilisée — démo CODIR
+Sprint N      | [Feature 1]       | [Feature 2]      | [Debt]
+Sprint N+1    | [Feature 3]       | [Feature 4]      | [R&D Spike]
+Sprint N+2    | [Feature 5]       | [Polish R1]      | [Debt]
+Sprint N+3    | RELEASE 1 stabilized — exec demo
 
-KPIs cibles (Outcome) :
-  - [Métrique 1] : [baseline] → [cible]
-  - [Métrique 2] : [baseline] → [cible]
+Target KPIs (Outcome):
+  - [Metric 1]: [baseline] → [target]
+  - [Metric 2]: [baseline] → [target]
 
-Hypothèses validées en fin de trimestre :
-  - [Hypothèse 1] : oui / non / partiellement
-  - [Hypothèse 2] : oui / non / partiellement
+Hypotheses validated by end of quarter:
+  - [Hypothesis 1]: yes / no / partially
+  - [Hypothesis 2]: yes / no / partially
 ```
 
-## Outils de gestion recommandés
+## Recommended management tools
 
-| Contexte | Outil |
+| Context | Tool |
 |---|---|
-| Équipe < 10, simple | Linear, Notion, Trello |
-| Mid-market, Scrum classique | Jira Cloud, Azure DevOps |
-| SAFe Programme | Jira Align, Targetprocess |
-| Story Map visuel persistant | Avion, StoriesOnBoard, Miro |
+| Team < 10, simple | Linear, Notion, Trello |
+| Mid-market, classic Scrum | Jira Cloud, Azure DevOps |
+| SAFe Program | Jira Align, Targetprocess |
+| Persistent visual Story Map | Avion, StoriesOnBoard, Miro |
 
 ## Anti-patterns
 
-- ❌ Backlog = poubelle de toutes les idées → ne sera jamais nettoyé
-- ❌ PO seul gestionnaire → manque de visibilité équipe
-- ❌ US détaillées 6 mois à l'avance → obsolescence garantie
-- ❌ Pas de DoR → planning poker impossible, sprint chaotique
-- ❌ Refinement annulé pour "manque de temps" → dette de clarification cumulative
-- ❌ Plus de 50% du backlog à priorité "Haute" → la priorisation n'a pas eu lieu
+- ❌ Backlog = dumping ground for every idea → it will never be cleaned up
+- ❌ PO as sole manager → lack of team visibility
+- ❌ US detailed 6 months ahead → guaranteed obsolescence
+- ❌ No DoR → planning poker impossible, chaotic sprint
+- ❌ Refinement cancelled for "lack of time" → cumulative clarification debt
+- ❌ More than 50% of the backlog at "High" priority → prioritization didn't happen
 
-## Livrables
+## Deliverables
 
-- Backlog ordonné et raffiné dans l'outil (Jira / Linear / Notion)
-- Compte-rendu de refinement (US discutées, décisions, points ouverts)
-- Roadmap trimestrielle visuelle (1 page CODIR-ready)
-- Note de santé backlog (mensuelle, 1 page) avec KPIs et actions
+- Ordered, refined backlog in the tool (Jira / Linear / Notion)
+- Refinement notes (US discussed, decisions, open points)
+- Visual quarterly roadmap (1-page exec-ready)
+- Backlog health note (monthly, 1 page) with KPIs and actions
 
-## Format de sortie
+## Output format
 
-Préciser : **outil cible** (Jira / Linear / Notion / autre), **horizon** (sprint en cours / trimestre / semestre), **niveau de détail** (Epics seuls / Features / US complètes), **livrable attendu** (backlog import, roadmap visuelle, note de santé).
+Specify: **target tool** (Jira / Linear / Notion / other), **horizon** (current sprint / quarter / half-year), **level of detail** (Epics only / Features / full US), **expected deliverable** (backlog import, visual roadmap, health note).

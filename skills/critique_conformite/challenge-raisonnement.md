@@ -1,128 +1,128 @@
-# Skill Contre-Expert — Challenge du Raisonnement
+# Counter-Expert Skill — Reasoning Challenge
 
-> **Référence :** CTAL-TM (revue critique) · PMI-ACP (décision éclairée) · ISO 9001 §9.3 (revue par les pairs) · Psychologie cognitive (Kahneman, Tversky)
-
----
-
-## Objectif
-
-Challenger de manière structurée le raisonnement contenu dans un livrable IA : identifier les biais cognitifs, formuler une contre-thèse solide, et appliquer une session red-team pour découvrir les angles morts avant mise en production.
+> **Reference:** CTAL-TM (critical review) · PMI-ACP (informed decision) · ISO 9001 §9.3 (peer review) · Cognitive psychology (Kahneman, Tversky)
 
 ---
 
-## Module 1 — Détection des biais cognitifs
+## Objective
 
-### Biais les plus fréquents dans les livrables IA
+Challenge the reasoning contained in an AI deliverable in a structured way: identify cognitive biases, formulate a solid counter-thesis, and run a red-team session to uncover blind spots before going to production.
 
-| Biais | Description | Signal d'alerte dans un livrable |
+---
+
+## Module 1 — Cognitive-bias detection
+
+### Most frequent biases in AI deliverables
+
+| Bias | Description | Warning sign in a deliverable |
 |---|---|---|
-| **Confirmation** | Ne cherche que les preuves qui confirment | Exemples tous favorables, contre-exemples absents |
-| **Ancrage** | Surpondère la première information reçue | Solution = copie du premier exemple mentionné |
-| **Halo** | Généralise un succès partiel à tout le livrable | "Ça a marché sur X, donc ça marchera partout" |
-| **Dunning-Kruger** | Confiance excessive sur un périmètre mal maîtrisé | Assertions définitives sur un domaine peu documenté |
-| **Disponibilité** | Surpondère les cas récents ou mémorables | "Le dernier projet a échoué, donc ce pattern est mauvais" |
-| **Sunk cost** | Persiste dans une mauvaise direction par inertie | "On a déjà investi X, on ne peut pas changer" |
-| **Surconfiance IA** | Présente une réponse probable comme certaine | Absence de nuances, de conditions, de limites |
-| **Complaisance** | Valide pour éviter la friction | Validation sans vérification réelle (→ faux positif) |
+| **Confirmation** | Seeks only the evidence that confirms | All examples favorable, counter-examples absent |
+| **Anchoring** | Overweights the first information received | Solution = a copy of the first example mentioned |
+| **Halo** | Generalizes a partial success to the whole deliverable | "It worked on X, so it'll work everywhere" |
+| **Dunning-Kruger** | Excessive confidence on a poorly-mastered scope | Definitive assertions on a thinly-documented domain |
+| **Availability** | Overweights recent or memorable cases | "The last project failed, so this pattern is bad" |
+| **Sunk cost** | Persists in a wrong direction out of inertia | "We've already invested X, we can't change" |
+| **AI overconfidence** | Presents a probable answer as certain | Absence of nuance, conditions, limits |
+| **Complacency** | Validates to avoid friction | Validation with no real check (→ false positive) |
 
-### Format de rapport de biais
+### Bias report format
 
 ```
-DÉTECTION DE BIAIS
+BIAS DETECTION
 ==================
-Biais identifié : [nom du biais]
-Localisation    : [section / paragraphe / item du livrable]
-Evidence        : [citation exacte du passage concerné]
-Impact potentiel : [conséquence si non corrigé]
-Recommandation  : [reformulation neutre ou complément à apporter]
+Identified bias: [bias name]
+Location       : [section / paragraph / deliverable item]
+Evidence       : [exact quote of the passage concerned]
+Potential impact: [consequence if not corrected]
+Recommendation : [neutral rewording or complement to add]
 ```
 
 ---
 
-## Module 2 — Argumentation contradictoire (Devil's Advocate)
+## Module 2 — Adversarial argumentation (Devil's Advocate)
 
-### Protocole en 4 étapes
+### 4-step protocol
 
-**Étape 1 — Thèse principale**
-Reformuler en 1 phrase la thèse centrale du livrable.
+**Step 1 — Main thesis**
+Restate the deliverable's central thesis in 1 sentence.
 
-**Étape 2 — Contre-thèse**
-Formuler la thèse opposée la plus solide possible, avec les meilleures preuves disponibles.
+**Step 2 — Counter-thesis**
+Formulate the strongest possible opposing thesis, with the best available evidence.
 
-**Étape 3 — Synthèse dialectique**
-Identifier ce que chaque position a de valide. Formuler une position enrichie qui intègre les deux.
+**Step 3 — Dialectical synthesis**
+Identify what is valid in each position. Formulate an enriched position that integrates both.
 
-**Étape 4 — Verdict motivé**
-Conclure en précisant :
-- Ce qui résiste au challenge
-- Ce qui doit être amendé
-- Ce qui doit être rejeté
+**Step 4 — Reasoned verdict**
+Conclude by stating:
+- What withstands the challenge
+- What must be amended
+- What must be rejected
 
-### Format de rapport contradictoire
+### Adversarial report format
 
 ```
-ARGUMENTATION CONTRADICTOIRE
+ADVERSARIAL ARGUMENTATION
 =============================
-Thèse principale   : [reformulation en 1 phrase]
-Contre-thèse       : [thèse opposée + meilleure preuve]
+Main thesis        : [restatement in 1 sentence]
+Counter-thesis     : [opposing thesis + best evidence]
 
-Arguments POUR     :
+Arguments FOR      :
   1. [argument · source]
   2. [argument · source]
 
-Arguments CONTRE   :
+Arguments AGAINST  :
   1. [argument · source]
   2. [argument · source]
 
-Synthèse           : [ce qui résiste / ce qui cède]
-Verdict            : ☐ Thèse validée  ☐ Thèse amendée  ☐ Thèse rejetée
-Amendement requis  : [formulation corrigée si verdict = amendée]
+Synthesis          : [what withstands / what gives way]
+Verdict            : ☐ Thesis validated  ☐ Thesis amended  ☐ Thesis rejected
+Required amendment : [corrected wording if verdict = amended]
 ```
 
 ---
 
 ## Module 3 — Red Team
 
-### Qu'est-ce que le red team ?
-Le red team consiste à adopter délibérément une posture adversariale pour tenter de **casser** le livrable, l'argument ou la décision — avant qu'un tiers ou la réalité ne le fasse.
+### What is red teaming?
+Red teaming means deliberately adopting an adversarial stance to try to **break** the deliverable, argument or decision — before a third party or reality does.
 
-### Protocole red team IA (3 attaques minimum)
+### AI red-team protocol (3 attacks minimum)
 
-| Axe d'attaque | Question adversariale | Ce que ça révèle |
+| Attack axis | Adversarial question | What it reveals |
 |---|---|---|
-| **Cas limite** | Dans quel cas précis cette solution échoue-t-elle ? | Fragilité des hypothèses |
-| **Acteur hostile** | Comment un utilisateur mal intentionné exploiterait-il cela ? | Vulnérabilités non anticipées |
-| **Hypothèse cachée** | Quelle hypothèse implicite devient fausse en contexte réel ? | Dépendances non déclarées |
-| **Pire scénario** | Si on déploie cela en production demain, que se passe-t-il en cas d'échec ? | Impact et réversibilité |
-| **Obsolescence** | Dans 6 mois, quelle partie de ce livrable sera dépassée ? | Durée de vie et maintenance |
+| **Edge case** | In which precise case does this solution fail? | Fragility of the assumptions |
+| **Hostile actor** | How would a malicious user exploit this? | Unanticipated vulnerabilities |
+| **Hidden assumption** | Which implicit assumption becomes false in a real context? | Undeclared dependencies |
+| **Worst case** | If we deploy this to production tomorrow, what happens on failure? | Impact and reversibility |
+| **Obsolescence** | In 6 months, which part of this deliverable will be outdated? | Lifespan and maintenance |
 
-### Format de rapport red team
+### Red-team report format
 
 ```
-SESSION RED TEAM
+RED TEAM SESSION
 ================
-Cible        : [livrable / décision / argument]
-Date         : [JJ/MM/AAAA]
-Attaquant    : AGENT-AUDIT-METHODO-IA
+Target       : [deliverable / decision / argument]
+Date         : [DD/MM/YYYY]
+Attacker     : AGENT-AUDIT-METHODO-IA
 
-ATTAQUE #1 — [axe d'attaque]
-  Vecteur    : [description de l'attaque]
-  Résultat   : ☐ Résiste  ☐ Partiellement vulnérable  ☐ Échoue
-  Evidence   : [pourquoi ça résiste ou échoue]
-  Recommandation : [renforcement si vulnérable]
+ATTACK #1 — [attack axis]
+  Vector     : [attack description]
+  Result     : ☐ Withstands  ☐ Partially vulnerable  ☐ Fails
+  Evidence   : [why it withstands or fails]
+  Recommendation : [hardening if vulnerable]
 
-[Répéter pour chaque attaque]
+[Repeat for each attack]
 
-BILAN RED TEAM :
-  Attaques totales  : [N]
-  Résistances       : [N]
-  Vulnérabilités    : [N]
-  Échecs            : [N]
-  Verdict           : ☐ Robuste  ☐ À renforcer  ☐ À rejeter
+RED TEAM SUMMARY:
+  Total attacks     : [N]
+  Withstood         : [N]
+  Vulnerabilities   : [N]
+  Failures          : [N]
+  Verdict           : ☐ Robust  ☐ To harden  ☐ To reject
 ```
 
 ---
 
-## Note sur les angles morts du modèle
+## Note on the model's blind spots
 
-Sur un même modèle LLM, les biais de l'agent producteur et de cet agent-ci sont **corrélés** (même architecture, même training). Pour les livrables à fort enjeu, proposer une validation croisée sur un modèle différent (ex : si produit sur Claude Sonnet, faire valider sur GPT-4o ou Gemini Advanced).
+On the same LLM model, the biases of the producing agent and of this one are **correlated** (same architecture, same training). For high-stakes deliverables, propose a cross-validation on a different model (e.g.: if produced on Claude Sonnet, have it validated on GPT-4o or Gemini Advanced).

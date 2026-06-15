@@ -1,16 +1,16 @@
-# Skill Contre-Expert — Gate de Validation Avant Promotion d'un Livrable
+# Counter-Expert Skill — Validation Gate Before Promoting a Deliverable
 
-> **Référence :** SAFe 6 DoD · ISTQB Exit Criteria (CTAL-TM) · PMI Quality Gate (PMBOK 7) · CMMI ML2 (Verification & Validation)
-
----
-
-## Objectif
-
-Appliquer une **gate de validation structurée** avant de promouvoir un livrable vers l'étape suivante (Story → Feature, Feature → Release, Sprint → PI, etc.). La gate est binaire : le livrable passe ou ne passe pas. Il n'y a pas de "passe avec réserves" sans plan d'action daté.
+> **Reference:** SAFe 6 DoD · ISTQB Exit Criteria (CTAL-TM) · PMI Quality Gate (PMBOK 7) · CMMI ML2 (Verification & Validation)
 
 ---
 
-## Hiérarchie des Definition of Done (SAFe 6)
+## Objective
+
+Apply a **structured validation gate** before promoting a deliverable to the next step (Story → Feature, Feature → Release, Sprint → PI, etc.). The gate is binary: the deliverable passes or it doesn't. There is no "passes with reservations" without a dated action plan.
+
+---
+
+## Definition of Done hierarchy (SAFe 6)
 
 ```
 SOLUTION DoD
@@ -19,103 +19,103 @@ SOLUTION DoD
               └── Story DoD
 ```
 
-Chaque niveau inclut les critères du niveau inférieur. Une Story ne peut pas être "Done" si ses critères de Story DoD ne sont pas tous verts — même si la Feature passe sa gate.
+Each level includes the criteria of the level below. A Story cannot be "Done" if its Story DoD criteria are not all green — even if the Feature passes its gate.
 
 ---
 
 ## Gate 1 — Story DoD (Scrum Guide 2020 + SAFe 6)
 
-| Critère | ☐/☑ | Notes |
+| Criterion | ☐/☑ | Notes |
 |---|---|---|
-| Critères d'acceptance TOUS validés (pas de compromis) | | |
-| Tests unitaires écrits ET passants | | |
-| Code reviewé par au moins 1 autre Developer | | |
-| Intégré sur la branche principale sans conflit | | |
-| Démontré au PO (ou PO Proxy) et accepté | | |
-| Documentation technique mise à jour si nécessaire | | |
-| Aucune dette technique introduite (ou tracée dans le backlog) | | |
+| ALL acceptance criteria validated (no compromise) | | |
+| Unit tests written AND passing | | |
+| Code reviewed by at least 1 other Developer | | |
+| Integrated on the main branch with no conflict | | |
+| Demonstrated to the PO (or PO Proxy) and accepted | | |
+| Technical documentation updated if needed | | |
+| No technical debt introduced (or tracked in the backlog) | | |
 
-**Verdict Gate 1 :** ☐ DONE ✓  ☐ NOT DONE — retour en développement
+**Gate 1 verdict:** ☐ DONE ✓  ☐ NOT DONE — back to development
 
 ---
 
 ## Gate 2 — Feature DoD (SAFe 6)
 
-| Critère | ☐/☑ | Notes |
+| Criterion | ☐/☑ | Notes |
 |---|---|---|
-| Toutes les Stories de la Feature sont DONE | | |
-| Benefit Hypothesis définie et mesurable | | |
-| Tests d'acceptation Feature (UAT ou démo ART) validés | | |
-| Performance et sécurité vérifiées (critères non-fonctionnels) | | |
-| Release notes / documentation utilisateur à jour | | |
-| PI Objective associé atteint ou progression tracée | | |
-| Déployable indépendamment (découplage validé) | | |
+| All the Feature's Stories are DONE | | |
+| Benefit Hypothesis defined and measurable | | |
+| Feature acceptance tests (UAT or ART demo) validated | | |
+| Performance and security verified (non-functional criteria) | | |
+| Release notes / user documentation up to date | | |
+| Associated PI Objective met or progress tracked | | |
+| Independently deployable (decoupling validated) | | |
 
-**Verdict Gate 2 :** ☐ DONE ✓  ☐ NOT DONE — escalade au PO/PM
+**Gate 2 verdict:** ☐ DONE ✓  ☐ NOT DONE — escalate to the PO/PM
 
 ---
 
 ## Gate 3 — PI / Release DoD (SAFe 6 + ISTQB Exit Criteria)
 
-| Critère | ☐/☑ | Notes |
+| Criterion | ☐/☑ | Notes |
 |---|---|---|
-| Toutes les Features du PI sont DONE | | |
-| Taux de couverture de tests ≥ seuil défini (ex : 80%) | | |
-| 0 anomalie Critique ou Bloquante ouverte | | |
-| Anomalies Majeures : toutes tracées avec priorité et owner | | |
-| System Demo validée par les Business Owners | | |
-| I&A (Inspect & Adapt) réalisé et actions tracées | | |
-| Métriques Flow (Velocity, Load, Distribution, Time) disponibles | | |
-| Solution déployée en staging sans régression | | |
-| Go/No-Go obtenu auprès du Release Manager | | |
+| All the PI's Features are DONE | | |
+| Test coverage rate ≥ defined threshold (e.g.: 80%) | | |
+| 0 Critical or Blocking defect open | | |
+| Major defects: all tracked with priority and owner | | |
+| System Demo validated by the Business Owners | | |
+| I&A (Inspect & Adapt) done and actions tracked | | |
+| Flow metrics (Velocity, Load, Distribution, Time) available | | |
+| Solution deployed to staging with no regression | | |
+| Go/No-Go obtained from the Release Manager | | |
 
-**Verdict Gate 3 :** ☐ RELEASED ✓  ☐ NO-GO — plan de remédiation requis
+**Gate 3 verdict:** ☐ RELEASED ✓  ☐ NO-GO — remediation plan required
 
 ---
 
-## Gate 4 — Livrable IA généré par un agent (spécifique AGENT-AUDIT-METHODO-IA)
+## Gate 4 — AI deliverable generated by an agent (specific to AGENT-AUDIT-METHODO-IA)
 
-| Critère | ☐/☑ | Notes |
+| Criterion | ☐/☑ | Notes |
 |---|---|---|
-| Conformité méthode auditée (skill `audit-conformite-methodo.md`) | | |
-| Raisonnement challengé (skill `challenge-raisonnement.md`) | | |
-| Aucun biais cognitif critique non traité | | |
-| Aucune assertion définitive sans source vérifiable | | |
-| Angles morts documentés (ou validation croisée modèle effectuée) | | |
-| Format et structure conformes aux conventions du catalogue | | |
-| Cohérence titre / certifications revendiquées / contenu vérifiée | | |
-| Aucun faux positif introduit (validation sans vérification réelle) | | |
+| Method compliance audited (skill `audit-conformite-methodo.md`) | | |
+| Reasoning challenged (skill `challenge-raisonnement.md`) | | |
+| No critical cognitive bias left unaddressed | | |
+| No definitive assertion without a verifiable source | | |
+| Blind spots documented (or model cross-validation done) | | |
+| Format and structure compliant with the catalog conventions | | |
+| Title / claimed certifications / content consistency verified | | |
+| No false positive introduced (validation with no real check) | | |
 
-**Verdict Gate 4 :** ☐ PROMOUVOIR ✓  ☐ CORRIGER avant promotion  ☐ REJETER
+**Gate 4 verdict:** ☐ PROMOTE ✓  ☐ CORRECT before promotion  ☐ REJECT
 
 ---
 
-## Format de rapport de gate
+## Gate report format
 
 ```
-RAPPORT DE GATE DE VALIDATION
+VALIDATION GATE REPORT
 ==============================
-Livrable      : [nom du livrable]
-Type de gate  : ☐ Story DoD  ☐ Feature DoD  ☐ PI/Release DoD  ☐ Livrable IA
-Date          : [JJ/MM/AAAA]
-Validateur    : AGENT-AUDIT-METHODO-IA
+Deliverable   : [deliverable name]
+Gate type     : ☐ Story DoD  ☐ Feature DoD  ☐ PI/Release DoD  ☐ AI deliverable
+Date          : [DD/MM/YYYY]
+Validator     : AGENT-AUDIT-METHODO-IA
 
-RÉSUMÉ :
-  Critères vérifiés  : [N] / [Total]
-  Critères vert      : [N]
-  Critères rouge     : [N]
-  Critères N/A       : [N]
+SUMMARY:
+  Criteria checked   : [N] / [Total]
+  Green criteria     : [N]
+  Red criteria       : [N]
+  N/A criteria       : [N]
 
-BLOCAGES (critères rouges) :
-  1. [critère] — [pourquoi non satisfait] — [action corrective · owner · date]
+BLOCKERS (red criteria):
+  1. [criterion] — [why not met] — [corrective action · owner · date]
   2. [...]
 
-VERDICT FINAL : ☐ PASS  ☐ FAIL
-Condition de re-soumission : [ce qui doit changer avant la prochaine gate]
+FINAL VERDICT: ☐ PASS  ☐ FAIL
+Re-submission condition: [what must change before the next gate]
 ```
 
 ---
 
-## Règle des gates
+## Gate rule
 
-Une gate FAIL bloque la promotion. Il n'existe pas de "PASS conditionnel" sans plan d'action daté et owner nommé. Tout PASS sans vérification réelle des critères est un **faux positif** — le risque le plus dangereux en assurance qualité.
+A FAIL gate blocks promotion. There is no "conditional PASS" without a dated action plan and a named owner. Any PASS without a real check of the criteria is a **false positive** — the most dangerous risk in quality assurance.

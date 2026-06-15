@@ -4,7 +4,7 @@
     "name": "claude-agents",
     "version": "v3.26.2"
   },
-  "generatedAt": "2026-06-15T11:11:21.360Z",
+  "generatedAt": "2026-06-15T11:21:16.303Z",
   "assets": [
     {
       "id": "AGENT-AI-ARCHITECT",
@@ -167,7 +167,7 @@
       "type": "agent",
       "path": "AGENT-SCRUM-MASTER.md",
       "title": "Scrum Master Expert",
-      "description": "Scrum Master — facilitation, coaching équipe, métriques agiles, scaling",
+      "description": "Scrum Master — facilitation, team coaching, agile metrics, scaling",
       "catalogVersion": "v3.26.2",
       "source": {
         "file": "AGENT-SCRUM-MASTER.md",

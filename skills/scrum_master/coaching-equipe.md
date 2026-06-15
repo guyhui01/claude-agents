@@ -1,72 +1,72 @@
-# Skill — Coaching d'Équipe Agile & Servant Leadership
-> Certifications : PSM II/III · A-CSM · ICAgile ICP-ATF · ICAgile ICP-ACC
+# Skill — Agile Team Coaching & Servant Leadership
+> Certifications: PSM II/III · A-CSM · ICAgile ICP-ATF · ICAgile ICP-ACC
 
-## Objectif
-Accompagner les équipes vers l'auto-organisation, la haute performance et l'amélioration continue par le coaching et le servant leadership.
+## Objective
+Guide teams toward self-organization, high performance and continuous improvement through coaching and servant leadership.
 
-## Les 4 modes d'intervention du Scrum Master
+## The Scrum Master's 4 intervention modes
 ```
-ENSEIGNER    → Partager les connaissances Scrum/Agile
-MENTORER     → Partager son expérience vécue
-FACILITER    → Créer les conditions du succès collectif
-COACHER      → Faire émerger les solutions de l'équipe
+TEACH      → Share Scrum/Agile knowledge
+MENTOR     → Share your lived experience
+FACILITATE → Create the conditions for collective success
+COACH      → Surface the team's own solutions
 ```
 
-## Niveaux de maturité d'une équipe Scrum (Tuckman)
-| Phase | Comportements | Intervention SM |
+## Maturity levels of a Scrum team (Tuckman)
+| Phase | Behaviors | SM intervention |
 |---|---|---|
-| **Forming** | Politesse, manque de clarté des rôles | Clarifier vision, rôles, règles |
-| **Storming** | Conflits, résistances, désaccords | Faciliter les conflits, créer la sécurité |
-| **Norming** | Règles partagées, collaboration | Encourager, déléguer la facilitation |
-| **Performing** | Auto-organisation, haute performance | Retrait progressif, coaching de niveau 2 |
-| **Adjourning** | Fin de sprint ou changement d'équipe | Célébrer, capitaliser les apprentissages |
+| **Forming** | Politeness, unclear roles | Clarify vision, roles, rules |
+| **Storming** | Conflicts, resistance, disagreements | Facilitate conflicts, create safety |
+| **Norming** | Shared rules, collaboration | Encourage, delegate facilitation |
+| **Performing** | Self-organization, high performance | Gradual withdrawal, level-2 coaching |
+| **Adjourning** | End of sprint or team change | Celebrate, capture the learnings |
 
-## Techniques de coaching
+## Coaching techniques
 
-### Questions puissantes (coaching niveau 2)
+### Powerful questions (level-2 coaching)
 ```
-"Qu'est-ce qui vous empêche d'avancer sur ce sujet ?"
-"Si vous saviez déjà la réponse, quelle serait-elle ?"
-"Qu'est-ce qui changerait si ce problème était résolu ?"
-"Comment pourriez-vous aborder ça différemment ?"
-"Qu'est-ce qui est le plus important pour l'équipe maintenant ?"
-```
-
-### Check-in émotionnel (sécurité psychologique)
-```
-Météo intérieure :
-  ☀️ Bien, motivé
-  ⛅ Correct, quelques doutes
-  🌧️ Difficile, fatigué
-  ⛈️ En difficulté, besoin de support
-
-Objectif : créer un espace où il est safe de dire comment on va vraiment
+"What's stopping you from moving forward on this topic?"
+"If you already knew the answer, what would it be?"
+"What would change if this problem were solved?"
+"How could you approach this differently?"
+"What's most important for the team right now?"
 ```
 
-### Team Agreements (charte d'équipe)
+### Emotional check-in (psychological safety)
 ```
-Notre définition du Done :
-Notre définition du Ready :
-Nos heures de travail partagées :
-Notre façon de prendre des décisions :
-Notre façon de résoudre les conflits :
-Ce que nous attendons les uns des autres :
+Inner weather:
+  ☀️ Good, motivated
+  ⛅ OK, some doubts
+  🌧️ Hard, tired
+  ⛈️ Struggling, need support
+
+Goal: create a space where it's safe to say how you're really doing
 ```
 
-## Indicateurs de santé d'une équipe Scrum
-| Indicateur | Vert | Orange | Rouge |
+### Team Agreements (team charter)
+```
+Our definition of Done:
+Our definition of Ready:
+Our shared working hours:
+How we make decisions:
+How we resolve conflicts:
+What we expect from one another:
+```
+
+## Health indicators of a Scrum team
+| Indicator | Green | Amber | Red |
 |---|---|---|---|
-| Vélocité | Stable ± 10% | Variation > 20% | Chute > 30% |
-| Sprint Goal atteint | > 80% des sprints | 60-80% | < 60% |
-| Participation rétro | > 90% | 70-90% | < 70% |
-| Satisfaction équipe | > 7/10 | 5-7/10 | < 5/10 |
-| Impediments résolus | < 2 jours | 2-5 jours | > 5 jours |
+| Velocity | Stable ± 10% | Variation > 20% | Drop > 30% |
+| Sprint Goal met | > 80% of sprints | 60-80% | < 60% |
+| Retro participation | > 90% | 70-90% | < 70% |
+| Team satisfaction | > 7/10 | 5-7/10 | < 5/10 |
+| Impediments resolved | < 2 days | 2-5 days | > 5 days |
 
-## Livrables
-- Team Health Check (rapport trimestriel)
-- Charte d'équipe co-construite
-- Plan de développement de l'équipe (trimestre)
-- Tableau de bord des indicateurs d'équipe
+## Deliverables
+- Team Health Check (quarterly report)
+- Co-built team charter
+- Team development plan (quarterly)
+- Team-indicator dashboard
 
-## Format de sortie
-Précise : phase Tuckman de l'équipe · principaux dysfonctionnements observés · contraintes organisationnelles · objectif de coaching (court/moyen terme)
+## Output format
+Specify: the team's Tuckman phase · main dysfunctions observed · organizational constraints · coaching goal (short/medium term)

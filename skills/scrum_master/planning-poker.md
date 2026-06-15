@@ -1,219 +1,219 @@
-# Skill — Planning Poker (estimation collective)
+# Skill — Planning Poker (collective estimation)
 
-> Certification : PSM I · PSM II · CSM · A-CSM · SAFe SSM · SAFe SASM · ICAgile ICP-ATF
-> Agent : AGENT-SCRUM-MASTER.md (facilitation) — utilisé en collaboration avec AGENT-PO-SCRUM.md (préparation) et AGENT-PO-SAFE.md (PI Planning)
+> Certification: PSM I · PSM II · CSM · A-CSM · SAFe SSM · SAFe SASM · ICAgile ICP-ATF
+> Agent: AGENT-SCRUM-MASTER.md (facilitation) — used in collaboration with AGENT-PO-SCRUM.md (preparation) and AGENT-PO-SAFE.md (PI Planning)
 
-## Objectif
+## Objective
 
-Animer une session de Planning Poker rigoureuse permettant à l'équipe Scrum d'estimer ses User Stories en story points (Fibonacci), en utilisant l'**intelligence collective** pour éviter les biais (anchoring, HiPPO) et en convergeant rapidement vers un consensus défendable.
+Run a rigorous Planning Poker session that lets the Scrum team estimate its User Stories in story points (Fibonacci), using **collective intelligence** to avoid biases (anchoring, HiPPO) and quickly converging toward a defensible consensus.
 
-> 🔗 Pour la gestion globale du backlog : voir `skills/scrum/po-backlog.md`
-> 🔗 Pour le split d'US (Feature → Story en SAFe) : voir `skills/safe/feature-to-story-splitting.md`
+> 🔗 For overall backlog management: see `skills/scrum/po-backlog.md`
+> 🔗 For US splitting (Feature → Story in SAFe): see `skills/safe/feature-to-story-splitting.md`
 
-## Origine et principes
+## Origin and principles
 
-- Inventé par **James Grenning (2002)**, popularisé par **Mike Cohn / Mountain Goat Software**
-- Basé sur la **méthode Wideband Delphi** (anonymat + convergence)
-- 3 principes clés :
-  1. **Estimation collective** par toute l'équipe Dev (pas le PO seul)
-  2. **Vote simultané** (cartes révélées en même temps → anti-anchoring)
-  3. **Discussion sur les écarts** (intelligence collective qui révèle les non-dits)
+- Invented by **James Grenning (2002)**, popularized by **Mike Cohn / Mountain Goat Software**
+- Based on the **Wideband Delphi method** (anonymity + convergence)
+- 3 key principles:
+  1. **Collective estimation** by the whole Dev team (not the PO alone)
+  2. **Simultaneous vote** (cards revealed at the same time → anti-anchoring)
+  3. **Discussion of the gaps** (collective intelligence that surfaces the unsaid)
 
-## Cartes Fibonacci — Suite officielle
+## Fibonacci cards — Official sequence
 
-| Carte | Signification | Usage typique |
+| Card | Meaning | Typical use |
 |---|---|---|
-| **0** | Déjà fait / aucun effort | Rare, US déjà couverte par une autre |
-| **1, 2, 3** | Petites US | Sprint capacity élevée, fluide |
-| **5, 8** | US moyennes | Cœur du backlog raffiné |
-| **13** | Grosse US | À surveiller — challenger la décomposition |
-| **21, 40, 100** | US trop grosse | À splitter impérativement |
-| **? (point d'interrogation)** | Pas assez d'info | Besoin de clarification PO |
-| **∞ (infini)** | Imposssible à estimer | Probable Spike nécessaire |
-| **☕ (café)** | Pause demandée | Signal de fatigue d'équipe |
+| **0** | Already done / no effort | Rare, US already covered by another |
+| **1, 2, 3** | Small US | High sprint capacity, smooth |
+| **5, 8** | Medium US | Core of the refined backlog |
+| **13** | Large US | To watch — challenge the decomposition |
+| **21, 40, 100** | US too big | Must be split |
+| **? (question mark)** | Not enough info | Needs PO clarification |
+| **∞ (infinity)** | Impossible to estimate | Likely needs a Spike |
+| **☕ (coffee)** | Break requested | Team fatigue signal |
 
-### Pourquoi Fibonacci (pas 1-10) ?
+### Why Fibonacci (not 1-10)?
 
-L'écart **non-linéaire** force l'équipe à reconnaître que **plus une US est grosse, plus l'incertitude grandit** :
-- Entre 2 et 3 SP : précision possible
-- Entre 13 et 21 SP : incertitude majeure, mieux vaut splitter
+The **non-linear** gap forces the team to acknowledge that **the bigger a US, the greater the uncertainty**:
+- Between 2 and 3 SP: precision is possible
+- Between 13 and 21 SP: major uncertainty, better to split
 
 ---
 
-## Procédure d'animation (30-90 min pour 5-10 US)
+## Facilitation procedure (30-90 min for 5-10 US)
 
-### Préparation (avant la session)
+### Preparation (before the session)
 
-| Élément | Responsable | Détail |
+| Item | Owner | Detail |
 |---|---|---|
-| Backlog raffiné | **PO** | DoR validée pour les US à estimer |
-| Cartes (physiques ou outil) | **Scrum Master** | Decks pour chaque participant |
-| Salle / outil remote | **Scrum Master** | Voir section "Facilitation remote" |
-| Référentiel d'US déjà estimées | **Scrum Master** | Au moins 5 US passées comme "ancres calibration" |
+| Refined backlog | **PO** | DoR validated for the US to estimate |
+| Cards (physical or tool) | **Scrum Master** | Decks for each participant |
+| Room / remote tool | **Scrum Master** | See "Remote facilitation" section |
+| Reference of already-estimated US | **Scrum Master** | At least 5 past US as "calibration anchors" |
 
-### Déroulement d'une US estimée (5-10 min)
+### Flow for one estimated US (5-10 min)
 
-1. **Présentation par le PO** (1-2 min) — énoncé + AC + valeur métier
-2. **Questions de clarification** (1-3 min) — équipe interroge PO
-3. **Vote individuel et secret** (30 s) — chacun choisit sa carte, face cachée
-4. **Révélation simultanée** (5 s) — facilitateur dit "1-2-3 révélez !"
-5. **Discussion des écarts** si > 2 paliers Fibonacci entre min et max (2-5 min)
-   - Le **plus bas** explique pourquoi c'est simple
-   - Le **plus haut** explique pourquoi c'est complexe
-   - Ne pas chercher la moyenne, chercher la **compréhension partagée**
-6. **Re-vote** jusqu'à convergence (max 3 tours, puis arbitrage)
+1. **Presentation by the PO** (1-2 min) — statement + AC + business value
+2. **Clarifying questions** (1-3 min) — team questions the PO
+3. **Individual, secret vote** (30 s) — each picks their card, face down
+4. **Simultaneous reveal** (5 s) — facilitator says "1-2-3 reveal!"
+5. **Discuss the gaps** if > 2 Fibonacci steps between min and max (2-5 min)
+   - The **lowest** explains why it's simple
+   - The **highest** explains why it's complex
+   - Don't seek the average, seek **shared understanding**
+6. **Re-vote** until convergence (max 3 rounds, then arbitration)
 
-### Sortie attendue
+### Expected output
 
-- Backlog estimé en story points
-- Liste des US > 13 SP à splitter
-- Spikes identifiés (US votées "?" ou "∞")
-- Questions ouvertes documentées (champ "Points ouverts")
+- Backlog estimated in story points
+- List of US > 13 SP to split
+- Spikes identified (US voted "?" or "∞")
+- Open questions documented (field "Open points")
 
 ---
 
-## Référentiel d'US d'ancrage (calibration)
+## Anchor US reference (calibration)
 
-Avant le premier Planning Poker, l'équipe choisit collectivement **5 US déjà livrées** comme ancres de référence :
+Before the first Planning Poker, the team collectively chooses **5 already-delivered US** as reference anchors:
 
 ```
-ANCRES DE CALIBRATION — Sprint 12
+CALIBRATION ANCHORS — Sprint 12
 
-US "Ajouter un bouton 'Exporter PDF' simple"      → 2 SP
-US "Refactor du composant de tarification"        → 3 SP
-US "Intégrer un nouveau provider de paiement"     → 5 SP
-US "Migrer le module client vers la nouvelle API" → 8 SP
-US "Refonte UX du parcours d'inscription"         → 13 SP
+US "Add a simple 'Export PDF' button"               → 2 SP
+US "Refactor the pricing component"                 → 3 SP
+US "Integrate a new payment provider"               → 5 SP
+US "Migrate the customer module to the new API"     → 8 SP
+US "Redesign the sign-up journey UX"                → 13 SP
 ```
 
-Ces ancres servent de **référence relative** : la nouvelle US à estimer ressemble plus à "5 SP" ou "8 SP" parmi les ancres ?
+These anchors serve as a **relative reference**: does the new US to estimate look more like "5 SP" or "8 SP" among the anchors?
 
-> 💡 Re-calibrer le référentiel **tous les 3-4 mois** : la maturité de l'équipe évolue.
+> 💡 Re-calibrate the reference **every 3-4 months**: the team's maturity evolves.
 
 ---
 
-## Facilitation remote
+## Remote facilitation
 
-### Outils dédiés (gratuits ou freemium)
+### Dedicated tools (free or freemium)
 
-| Outil | Type | Avantages | Limites |
+| Tool | Type | Advantages | Limits |
 |---|---|---|---|
-| **Planning Poker Online** (planningpokeronline.com) | Web | Simple, gratuit, pas d'inscription | UX basique |
-| **Scrum Poker** (scrumpoker.online) | Web | Stats par participant, intégration Jira | Freemium au-delà de 5 participants |
-| **Miro / Mural** (template Planning Poker) | Whiteboard | Capture visuelle, post-its parallèles | Pas de vote secret natif |
-| **Discord / Slack** (bot Pluralsight, Geekbot) | Chat | Asynchrone possible | Pas d'anti-anchoring (chat visible) |
-| **Visual Studio Code** (extension Pointing Poker) | IDE | Devs déjà dans VSCode | Inadapté aux non-tech |
+| **Planning Poker Online** (planningpokeronline.com) | Web | Simple, free, no sign-up | Basic UX |
+| **Scrum Poker** (scrumpoker.online) | Web | Per-participant stats, Jira integration | Freemium beyond 5 participants |
+| **Miro / Mural** (Planning Poker template) | Whiteboard | Visual capture, parallel sticky notes | No native secret vote |
+| **Discord / Slack** (Pluralsight bot, Geekbot) | Chat | Async possible | No anti-anchoring (chat visible) |
+| **Visual Studio Code** (Pointing Poker extension) | IDE | Devs already in VSCode | Unsuitable for non-tech |
 
-### Règles de facilitation remote
+### Remote facilitation rules
 
-- 🎥 **Caméras allumées** pendant la phase de vote (engagement)
-- 🔇 **Mute par défaut** sauf intervention
-- ⏱️ **Timer visible** sur écran partagé (Pomodoro 25 min)
-- ✋ **Système de main levée** pour ne pas se couper
-- 📊 **Capture finale** : export JSON/CSV de l'outil + screenshot
+- 🎥 **Cameras on** during the voting phase (engagement)
+- 🔇 **Muted by default** except when speaking
+- ⏱️ **Visible timer** on the shared screen (Pomodoro 25 min)
+- ✋ **Hand-raise system** to avoid interrupting
+- 📊 **Final capture**: JSON/CSV export from the tool + screenshot
 
-### Format hybride (présentiel + remote)
+### Hybrid format (on-site + remote)
 
-- 1 facilitateur dédié pour le remote (pas le SM principal)
-- Outil unique pour tous (pas de cartes physiques + online en parallèle)
-- Caméra grand angle sur la salle pour les remote
+- 1 dedicated facilitator for the remote side (not the main SM)
+- A single tool for everyone (no physical cards + online in parallel)
+- Wide-angle camera on the room for remote participants
 
 ---
 
-## Alternatives à Planning Poker
+## Alternatives to Planning Poker
 
-| Méthode | Quand l'utiliser | Cadre |
+| Method | When to use it | Frame |
 |---|---|---|
-| **T-shirt Sizing (XS/S/M/L/XL/XXL)** | Estimation grossière, early product, Roadmap | 30 min, équipe junior bienvenue |
-| **#NoEstimates** | Équipe mature, US toujours découpées en ~1 jour | Cycle time monitoring requis |
-| **Affinity Estimation** | > 30 US à estimer en bloc | Atelier 90 min, classement par groupe |
-| **Magic Estimation** | Décharge cognitive après long refinement | 15 min, tri silencieux sur table de SPs |
-| **Bucket System** | Très grand backlog (> 50 US), pas de raffinement individuel possible | 60-90 min, cartes 0, 1, 2, 3, 5, 8, 13, 20, 40, 100 sur la table |
+| **T-shirt Sizing (XS/S/M/L/XL/XXL)** | Rough estimation, early product, Roadmap | 30 min, junior team welcome |
+| **#NoEstimates** | Mature team, US always sliced to ~1 day | Cycle time monitoring required |
+| **Affinity Estimation** | > 30 US to estimate in bulk | 90-min workshop, ranking by group |
+| **Magic Estimation** | Cognitive offload after a long refinement | 15 min, silent sort on a table of SPs |
+| **Bucket System** | Very large backlog (> 50 US), individual refinement not possible | 60-90 min, cards 0, 1, 2, 3, 5, 8, 13, 20, 40, 100 on the table |
 
-### Comparaison rapide
+### Quick comparison
 
 ```
-            Précision    Vitesse    Engagement   Quand
+            Precision    Speed      Engagement   When
             ──────────  ─────────  ───────────  ───────────────────────
-Planning P. ███████      ████       ███████      Backlog raffiné sprint
+Planning P. ███████      ████       ███████      Refined sprint backlog
 T-shirt     ███          ███████    █████        Roadmap, early product
-#NoEstim.   █            ███████    ██████       Équipe mature, flow >>
-Affinity    █████        ██████     ████         Bloc > 30 US
-Magic E.    ████         ███████    ██           Backlog déjà vu
-Bucket      ████         █████      █████        Très grand backlog
+#NoEstim.   █            ███████    ██████       Mature team, flow >>
+Affinity    █████        ██████     ████         Bulk > 30 US
+Magic E.    ████         ███████    ██           Already-seen backlog
+Bucket      ████         █████      █████        Very large backlog
 ```
 
 ---
 
-## Anti-patterns à éviter
+## Anti-patterns to avoid
 
-### Pendant l'animation
+### During facilitation
 
-- ❌ **Anchoring** : un senior vote en premier "5" → tous suivent → **vote secret obligatoire**
-- ❌ **Vote du Scrum Master** : le SM facilite, **n'estime pas**
-- ❌ **Vote du PO** : le PO clarifie, **n'estime pas non plus**
-- ❌ **HiPPO bias** : "Le CTO dit que c'est facile" → l'équipe doit valider
-- ❌ **Moyenne automatique** : 3 + 8 = 5.5 → non, discuter et re-voter
+- ❌ **Anchoring**: a senior votes "5" first → everyone follows → **secret vote mandatory**
+- ❌ **Scrum Master voting**: the SM facilitates, **does not estimate**
+- ❌ **PO voting**: the PO clarifies, **does not estimate either**
+- ❌ **HiPPO bias**: "The CTO says it's easy" → the team must validate
+- ❌ **Automatic average**: 3 + 8 = 5.5 → no, discuss and re-vote
 
-### Au-delà de l'animation
+### Beyond facilitation
 
-- ❌ **Convertir SP en heures** : "1 SP = 4h" → détruit la nature relative et le NoEstimates implicite
-- ❌ **Comparer la vélocité entre équipes** : les SP sont **relatifs à l'équipe**, pas absolus
-- ❌ **Bonus si vélocité ↑** : invitation directe à l'inflation des SPs
-- ❌ **Estimer en silence sans Spike** : si la techno est inconnue, faire un Spike avant
-- ❌ **Réviser les SPs en cours de sprint** : on garde l'estimation initiale, on apprend pour la suite
+- ❌ **Converting SP to hours**: "1 SP = 4h" → destroys the relative nature and the implicit NoEstimates
+- ❌ **Comparing velocity between teams**: SP are **relative to the team**, not absolute
+- ❌ **Bonus if velocity ↑**: a direct invitation to SP inflation
+- ❌ **Estimating in silence without a Spike**: if the tech is unknown, run a Spike first
+- ❌ **Revising SPs mid-sprint**: keep the initial estimate, learn for next time
 
 ---
 
-## Adaptation SAFe (PI Planning)
+## SAFe adaptation (PI Planning)
 
-### Story Points normalisés (Normalized Story Points)
+### Normalized Story Points
 
-Pour permettre la **comparaison cross-équipes au niveau ART**, SAFe propose une normalisation :
+To enable **cross-team comparison at the ART level**, SAFe proposes a normalization:
 
 ```
-1 Story Point Normalisé = 1 personne-jour de travail (en moyenne ART)
+1 Normalized Story Point = 1 person-day of work (ART average)
 ```
 
-### Démarche de calibration ART
+### ART calibration approach
 
-1. Chaque équipe estime **1 US de référence simple** (ex : "ajouter un bouton") à **1 SP**
-2. Les autres US sont estimées **relativement** à cette ancre commune
-3. La vélocité initiale ART = nb de devs × jours du sprint × ~0.8
+1. Each team estimates **1 simple reference US** (e.g. "add a button") at **1 SP**
+2. The other US are estimated **relative** to this common anchor
+3. The initial ART velocity = number of devs × sprint days × ~0.8
 
-> ⚠️ Cette normalisation est **utile pour la planification PI** mais ne remplace pas l'estimation relative équipe.
+> ⚠️ This normalization is **useful for PI planning** but does not replace relative team estimation.
 
-### Planning Poker en PI Planning
+### Planning Poker in PI Planning
 
-| Moment | Granularité | Méthode recommandée |
+| Moment | Granularity | Recommended method |
 |---|---|---|
-| **Pre-PI Planning** (refinement Features) | Feature en T-shirt | T-shirt sizing |
-| **PI Planning Day 1** (briefing) | Features ordonnées par WSJF | Pas d'estimation, présentation |
-| **PI Planning Day 2** (par équipe) | US des 5 prochains sprints | Planning Poker (rapide, 3-5 US/min) |
-| **Refinements en cours de PI** | US individuelles | Planning Poker classique |
+| **Pre-PI Planning** (Feature refinement) | Feature in T-shirt | T-shirt sizing |
+| **PI Planning Day 1** (briefing) | Features ordered by WSJF | No estimation, presentation |
+| **PI Planning Day 2** (per team) | US of the next 5 sprints | Planning Poker (fast, 3-5 US/min) |
+| **Refinements during the PI** | Individual US | Classic Planning Poker |
 
 ---
 
-## Cross-link avec les autres skills
+## Cross-link with other skills
 
-| Si l'objectif est… | Aller voir |
+| If the goal is… | Go see |
 |---|---|
-| Gérer la structure complète du backlog | `skills/scrum/po-backlog.md` |
-| Rédiger une US bien formée (DoR INVEST) | `skills/scrum/po-user-story.md` |
-| Splitter une Feature en US (SAFe) | `skills/safe/feature-to-story-splitting.md` |
-| Animer un atelier Scrum Master | `skills/scrum_master/facilitation-ateliers-sm.md` |
-| Prioriser avant d'estimer | `skills/scrum/priorisation-techniques.md` |
+| Manage the full backlog structure | `skills/scrum/po-backlog.md` |
+| Write a well-formed US (DoR INVEST) | `skills/scrum/po-user-story.md` |
+| Split a Feature into US (SAFe) | `skills/safe/feature-to-story-splitting.md` |
+| Facilitate a Scrum Master workshop | `skills/scrum_master/facilitation-ateliers-sm.md` |
+| Prioritize before estimating | `skills/scrum/priorisation-techniques.md` |
 
 ---
 
-## Livrables
+## Deliverables
 
-- Backlog estimé en story points (export Jira / Linear / Notion)
-- Référentiel d'US d'ancrage (5 US calibrées, mis à jour trimestriellement)
-- Liste des US à splitter (> 13 SP)
-- Liste des Spikes nécessaires (votes "?" ou "∞")
-- Compte-rendu d'atelier avec points ouverts
+- Backlog estimated in story points (export Jira / Linear / Notion)
+- Anchor US reference (5 calibrated US, updated quarterly)
+- List of US to split (> 13 SP)
+- List of needed Spikes (votes "?" or "∞")
+- Workshop notes with open points
 
-## Format de sortie
+## Output format
 
-Préciser : **nombre d'US à estimer**, **format de session** (présentiel / remote / hybride), **outil souhaité** (cartes physiques / Planning Poker Online / Miro / Scrum Poker), **maturité équipe** (junior / intermédiaire / expert), **contexte** (Scrum équipe / PI Planning SAFe).
+Specify: **number of US to estimate**, **session format** (on-site / remote / hybrid), **desired tool** (physical cards / Planning Poker Online / Miro / Scrum Poker), **team maturity** (junior / intermediate / expert), **context** (team Scrum / SAFe PI Planning).

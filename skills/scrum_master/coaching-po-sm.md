@@ -1,124 +1,124 @@
-# Skill — Coaching PO / Stakeholders (Scrum Master)
-> Certifications : PSM II · PSM III · A-CSM · ICAgile ICP-ACC · Professional Coaching (ICF)
+# Skill — PO / Stakeholder Coaching (Scrum Master)
+> Certifications: PSM II · PSM III · A-CSM · ICAgile ICP-ACC · Professional Coaching (ICF)
 
-## Objectif
-Accompagner le Product Owner et les parties prenantes dans leur rôle, leur posture et leurs pratiques pour maximiser la valeur délivrée et la collaboration avec l'équipe.
+## Objective
+Support the Product Owner and stakeholders in their role, posture and practices to maximize delivered value and collaboration with the team.
 
-## La relation SM / PO : complémentarité
+## The SM / PO relationship: complementarity
 
-### Répartition des responsabilités
+### Split of responsibilities
 ```
 SCRUM MASTER                    PRODUCT OWNER
-Processus Scrum              ↔  Vision et valeur produit
-Santé de l'équipe            ↔  Priorisation du backlog
-Levée des impediments        ↔  Décisions business
-Facilitation des cérémonies  ↔  Engagement des stakeholders
-Coach de l'équipe            ↔  Représente le client
+Scrum process                ↔  Product vision and value
+Team health                  ↔  Backlog prioritization
+Impediment removal           ↔  Business decisions
+Facilitating events          ↔  Stakeholder engagement
+Team coach                   ↔  Represents the customer
 ```
 
-### Ce que le SM NE doit PAS faire
+### What the SM must NOT do
 ```
-❌ Décider des priorités du backlog (rôle PO)
-❌ Accepter/refuser les User Stories (rôle PO)
-❌ Représenter l'équipe auprès du client (rôle PO)
-❌ Protéger l'équipe sans en informer le PO
-❌ Prendre position dans les débats de contenu
-```
-
-## Coaching du Product Owner
-
-### Diagnostic de maturité PO
-```
-NIVEAU 1 — Backlog Writer
-  Symptômes : US mal formées, pas de critères d'acceptation, priorisation par HiPPO
-  Coaching  : Ateliers US, formation "3Cs" (Card, Conversation, Confirmation), INVEST
-
-NIVEAU 2 — Proxy PO
-  Symptômes : Dépendant d'un autre (chef de projet, client), décisions lentes
-  Coaching  : Clarifier le périmètre décisionnel, empowerment, escalade structurée
-
-NIVEAU 3 — Product Owner
-  Symptômes : Backlog ready, bonne relation équipe, mais vision floue
-  Coaching  : Product Vision Board, Impact Mapping, North Star Metric
-
-NIVEAU 4 — Product Leader
-  Symptômes : Excellente collaboration, mais difficultés stakeholders
-  Coaching  : Gestion des attentes, stakeholder map, OKRs
+❌ Decide backlog priorities (PO role)
+❌ Accept/reject User Stories (PO role)
+❌ Represent the team to the customer (PO role)
+❌ Protect the team without informing the PO
+❌ Take sides in content debates
 ```
 
-### Techniques de coaching PO
+## Coaching the Product Owner
+
+### PO maturity diagnosis
+```
+LEVEL 1 — Backlog Writer
+  Symptoms: poorly formed US, no acceptance criteria, HiPPO prioritization
+  Coaching: US workshops, "3Cs" training (Card, Conversation, Confirmation), INVEST
+
+LEVEL 2 — Proxy PO
+  Symptoms: dependent on someone else (project manager, customer), slow decisions
+  Coaching: clarify the decision scope, empowerment, structured escalation
+
+LEVEL 3 — Product Owner
+  Symptoms: ready backlog, good team relationship, but fuzzy vision
+  Coaching: Product Vision Board, Impact Mapping, North Star Metric
+
+LEVEL 4 — Product Leader
+  Symptoms: excellent collaboration, but stakeholder difficulties
+  Coaching: expectation management, stakeholder map, OKRs
+```
+
+### PO coaching techniques
 
 #### GROW (Goal / Reality / Options / Will)
 ```
-GOAL    → "Qu'est-ce que tu veux accomplir d'ici la fin du trimestre ?"
-REALITY → "Où en es-tu aujourd'hui ? Qu'est-ce qui se passe concrètement ?"
-OPTIONS → "Quelles options as-tu ? Qu'as-tu déjà essayé ?"
-WILL    → "Qu'est-ce que tu t'engages à faire ? Dans quel délai ?"
+GOAL    → "What do you want to accomplish by the end of the quarter?"
+REALITY → "Where are you today? What's actually happening?"
+OPTIONS → "What options do you have? What have you already tried?"
+WILL    → "What do you commit to doing? By when?"
 
-Usage : Session 1-on-1 mensuelle SM/PO, décision difficile, blocage récurrent
+Use: monthly SM/PO 1-on-1 session, hard decision, recurring blocker
 ```
 
-#### Questions puissantes pour PO
+#### Powerful questions for a PO
 ```
-Sur la valeur :
-  → "Si on ne livrait qu'UNE seule chose ce sprint, laquelle aurait le plus d'impact ?"
-  → "Comment mesures-tu que cette US a apporté de la valeur ?"
-  → "Qui est le client réel de cette fonctionnalité ?"
+On value:
+  → "If we shipped only ONE thing this sprint, which would have the most impact?"
+  → "How do you measure that this US delivered value?"
+  → "Who is the real customer of this feature?"
 
-Sur le backlog :
-  → "Qu'est-ce qui se passe si on ne fait pas cet item ce sprint ?"
-  → "Cette US répond à quel besoin utilisateur précis ?"
-  → "Quel est le coût du délai de cet item ?"
+On the backlog:
+  → "What happens if we don't do this item this sprint?"
+  → "Which precise user need does this US address?"
+  → "What's the cost of delay of this item?"
 
-Sur les stakeholders :
-  → "Qui a été consulté pour cette décision ?"
-  → "Qu'attend vraiment [Stakeholder X] quand il demande ça ?"
-  → "Comment vas-tu gérer la déception si on ne livre pas X ?"
-```
-
-## Gestion des stakeholders
-
-### Matrice Pouvoir / Intérêt
-```
-                INTÉRÊT FAIBLE    INTÉRÊT FORT
-POUVOIR FORT  → SATISFAIRE        GÉRER DE PRÈS (sponsors, DSI)
-POUVOIR FAIBLE→ SURVEILLER        INFORMER (équipes utilisatrices)
-
-Stratégie par quadrant :
-  Gérer de près   : Review bi-hebdomadaire, impliqués dans les démos
-  Satisfaire      : Rapport mensuel, décisions escaladées si nécessaire
-  Informer        : Sprint Review, newsletter, dashboard
-  Surveiller      : Communication minimale, réactivité si sollicitation
+On stakeholders:
+  → "Who was consulted for this decision?"
+  → "What does [Stakeholder X] really expect when they ask for this?"
+  → "How will you handle the disappointment if we don't ship X?"
 ```
 
-### Gestion des demandes hors-sprint
-```
-Protocole d'urgence :
-  1. Qualifier : "Est-ce un bug critique en prod ?" → Si oui : slot d'urgence défini
-  2. Évaluer l'impact : "Qu'est-ce qu'on enlève pour ajouter ça ?"
-  3. PO décide (pas le stakeholder, pas le SM)
-  4. Documenter la décision et ses raisons
-  5. Adapter la vélocité prévisionnelle si récurrent
+## Stakeholder management
 
-Anti-pattern : Le SM qui accepte les demandes directement sans PO
+### Power / Interest matrix
+```
+                LOW INTEREST      HIGH INTEREST
+HIGH POWER    → KEEP SATISFIED    MANAGE CLOSELY (sponsors, CIO)
+LOW POWER     → MONITOR           KEEP INFORMED (user teams)
+
+Strategy by quadrant:
+  Manage closely  : Bi-weekly review, involved in the demos
+  Keep satisfied  : Monthly report, decisions escalated if needed
+  Keep informed   : Sprint Review, newsletter, dashboard
+  Monitor         : Minimal communication, responsiveness when asked
 ```
 
-## Indicateurs de maturité PO à tracker
-| Indicateur | Cible |
+### Handling out-of-sprint requests
+```
+Emergency protocol:
+  1. Qualify: "Is this a critical prod bug?" → If yes: defined emergency slot
+  2. Assess the impact: "What do we remove to add this?"
+  3. The PO decides (not the stakeholder, not the SM)
+  4. Document the decision and its reasons
+  5. Adjust the forecast velocity if recurring
+
+Anti-pattern: the SM accepting requests directly without the PO
+```
+
+## PO maturity indicators to track
+| Indicator | Target |
 |---|---|
 | % US with Acceptance Criteria | > 90% |
-| % backlog "Ready" avant sprint | > 80% |
-| Taux de changement en sprint | < 10% |
-| Présence aux Sprint Reviews | 100% |
-| Délai de réponse aux questions équipe | < 4h |
-| NPS équipe sur la collaboration PO | > 7/10 |
+| % backlog "Ready" before sprint | > 80% |
+| In-sprint change rate | < 10% |
+| Attendance at Sprint Reviews | 100% |
+| Response time to team questions | < 4h |
+| Team NPS on PO collaboration | > 7/10 |
 
-## Livrables
-- Plan de développement PO (trimestrie)
-- Stakeholder Map actualisée
-- Compte-rendu des sessions de coaching 1-on-1
-- Tableau de bord maturité PO
-- Accord de collaboration SM/PO (Working Agreement)
+## Deliverables
+- PO development plan (quarterly)
+- Updated Stakeholder Map
+- 1-on-1 coaching session notes
+- PO maturity dashboard
+- SM/PO collaboration agreement (Working Agreement)
 
-## Format de sortie
-Précise : niveau de maturité actuel du PO · problème spécifique à traiter · contexte stakeholders · fréquence des sessions de coaching souhaitée
+## Output format
+Specify: the PO's current maturity level · specific problem to address · stakeholder context · desired coaching-session frequency

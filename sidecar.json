@@ -4,7 +4,7 @@
     "name": "claude-agents",
     "version": "v3.26.2"
   },
-  "generatedAt": "2026-06-15T18:49:29.250Z",
+  "generatedAt": "2026-06-15T19:06:09.844Z",
   "assets": [
     {
       "id": "AGENT-AI-ARCHITECT",
@@ -115,7 +115,7 @@
       "type": "agent",
       "path": "AGENT-PRODUCT-MANAGER-SAFE.md",
       "title": "Product Manager SAFe Expert",
-      "description": "Product Management SAFe — vision produit, roadmap Programme, centricité client, cadre économique, stratégie de release",
+      "description": "SAFe Product Management — product vision, Program roadmap, customer centricity, economic framework, release strategy",
       "catalogVersion": "v3.26.2",
       "source": {
         "file": "AGENT-PRODUCT-MANAGER-SAFE.md",

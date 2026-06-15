@@ -1,89 +1,89 @@
-# Skill — Vision et Stratégie Produit au Niveau Programme
-> Certifications : SAFe POPM 6 (Scaled Agile), SAFe LPM (Scaled Agile), PSPO I (Scrum.org)
+# Skill — Product Vision and Strategy at the Program Level
+> Certifications: SAFe POPM 6 (Scaled Agile), SAFe LPM (Scaled Agile), PSPO I (Scrum.org)
 
-## Objectif
-Définir et communiquer la vision produit au niveau Programme SAFe — Product Vision Statement, Solution Vision, alignement avec les Value Streams et les OKR — pour guider l'ART sur un horizon de 12-24 mois.
+## Objective
+Define and communicate the product vision at the SAFe Program level — Product Vision Statement, Solution Vision, alignment with the Value Streams and the OKRs — to guide the ART over a 12-24 month horizon.
 
-## Product Vision Statement — Template SAFe
+## Product Vision Statement — SAFe template
 
 ```
 VISION STATEMENT FORMAT (Geoffrey Moore — Crossing the Chasm)
 
-Pour [CLIENT CIBLE]
-Qui [BESOIN OU OPPORTUNITÉ]
-Le [NOM DU PRODUIT / SOLUTION]
-Est un [CATÉGORIE DE PRODUIT]
-Qui [BÉNÉFICE CLÉS / RAISON D'ACHETER]
-Contrairement à [ALTERNATIVE CONCURRENTE]
-Notre produit [DIFFÉRENCIATION PRINCIPALE]
+For [TARGET CUSTOMER]
+Who [NEED OR OPPORTUNITY]
+The [PRODUCT / SOLUTION NAME]
+Is a [PRODUCT CATEGORY]
+That [KEY BENEFIT / REASON TO BUY]
+Unlike [COMPETING ALTERNATIVE]
+Our product [MAIN DIFFERENTIATION]
 
-EXEMPLE :
-Pour les équipes RH des grands groupes
-Qui perdent 60% de leur temps sur des tâches administratives répétitives
-La Solution RH IA
-Est une plateforme d'automatisation RH propulsée par l'IA générative
-Qui réduit de 40% le temps de traitement des dossiers candidats
-Contrairement aux SIRH traditionnels non intelligents
-Notre produit intègre nativement les LLMs pour augmenter (pas remplacer) les RH
+EXAMPLE:
+For HR teams at large groups
+Who lose 60% of their time on repetitive administrative tasks
+The HR AI Solution
+Is an HR automation platform powered by generative AI
+That cuts candidate-file processing time by 40%
+Unlike traditional non-intelligent HRIS
+Our product natively integrates LLMs to augment (not replace) HR
 ```
 
-## Lean UX Canvas — Niveau Programme
+## Lean UX Canvas — Program Level
 
 ```yaml
 lean_ux_canvas:
-  probleme_metier: |
-    Les équipes RH passent 60% de leur temps sur des tâches répétitives
-    (tri CV, rédaction offres, comptes-rendus entretiens).
-    Cela réduit le temps disponible pour les activités à haute valeur ajoutée.
-    
-  utilisateurs: |
-    Primaires : Chargés RH (45 pers.) — tâches opérationnelles
-    Secondaires : Managers RH (12) — validation, pilotage
-    
+  business_problem: |
+    HR teams spend 60% of their time on repetitive tasks
+    (CV screening, drafting job ads, interview write-ups).
+    This reduces the time available for high-value activities.
+
+  users: |
+    Primary: HR officers (45 people) — operational tasks
+    Secondary: HR managers (12) — validation, steering
+
   hypotheses:
-    - "Si nous automatisons le tri CV, les chargés RH gagneront 2h/semaine"
-    - "Si nous générons les comptes-rendus en IA, la qualité s'améliorera"
-    
-  resultats_attendus:
-    - "Réduction 40% temps tâches répétitives"
-    - "CSAT collaborateurs RH > 4/5"
-    
-  assumptions_risquees:
-    - "Les RH accepteront de faire confiance à l'IA pour pré-scorer"
-    - "La CNIL validera l'usage IA dans le recrutement"
+    - "If we automate CV screening, HR officers will save 2h/week"
+    - "If we generate write-ups with AI, quality will improve"
+
+  expected_outcomes:
+    - "40% reduction in repetitive-task time"
+    - "HR employee CSAT > 4/5"
+
+  risky_assumptions:
+    - "HR will agree to trust AI for pre-scoring"
+    - "The CNIL will approve AI use in recruitment"
 ```
 
-## OKR Produit — Niveau Programme
+## Product OKRs — Program Level
 
 ```yaml
-okrs_programme:
-  objectif: "Devenir le leader IA augmenté des équipes RH d'ici fin 2026"
-  
+program_okrs:
+  objective: "Become the leader in AI-augmented HR teams by end of 2026"
+
   key_results:
     - kr: "KR1"
-      description: "Réduire de 40% le temps de traitement dossier candidat"
-      mesure: "Tracking temps moyen SIRH"
-      baseline: "45 min/dossier"
-      cible: "27 min/dossier"
-      
+      description: "Cut candidate-file processing time by 40%"
+      measure: "Average-time tracking in the HRIS"
+      baseline: "45 min/file"
+      target: "27 min/file"
+
     - kr: "KR2"
-      description: "Atteindre 85% de taux d'utilisation hebdo des features IA"
-      mesure: "Analytics produit"
+      description: "Reach 85% weekly usage of the AI features"
+      measure: "Product analytics"
       baseline: "0%"
-      cible: "85%"
-      
+      target: "85%"
+
     - kr: "KR3"
-      description: "NPS produit > 45 auprès des utilisateurs RH"
-      mesure: "Enquête in-app trimestrielle"
-      baseline: "NPS actuel : 12"
-      cible: "NPS > 45"
+      description: "Product NPS > 45 among HR users"
+      measure: "Quarterly in-app survey"
+      baseline: "Current NPS: 12"
+      target: "NPS > 45"
 ```
 
-## Livrables
-- Vision Statement produit (format Moore)
-- Lean UX Canvas niveau Programme
-- OKR produit sur 2 horizons (6 mois / 12 mois)
-- Product Roadmap (features, jalons, releases)
+## Deliverables
+- Product Vision Statement (Moore format)
+- Program-level Lean UX Canvas
+- Product OKRs over 2 horizons (6 months / 12 months)
+- Product Roadmap (features, milestones, releases)
 
-## Format de sortie
-Précise : domaine produit, clients cibles, contexte concurrentiel, contraintes stratégiques, horizon temporel.
+## Output format
+Specify: product domain, target customers, competitive context, strategic constraints, time horizon.

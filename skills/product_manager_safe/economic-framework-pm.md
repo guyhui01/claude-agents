@@ -1,82 +1,82 @@
-# Skill — Cadre Économique SAFe (WSJF, Lean Business Case, ROI)
-> Certifications : SAFe LPM (Scaled Agile), SAFe POPM 6 (Scaled Agile), SAFe SPC (Scaled Agile)
+# Skill — SAFe Economic Framework (WSJF, Lean Business Case, ROI)
+> Certifications: SAFe LPM (Scaled Agile), SAFe POPM 6 (Scaled Agile), SAFe SPC (Scaled Agile)
 
-## Objectif
-Appliquer le cadre économique SAFe au niveau Programme — calculer le WSJF des Features, monter un Lean Business Case pour les Epics, et piloter le ROI des investments produit — pour prendre des décisions de priorisation fondées sur la valeur économique.
+## Objective
+Apply the SAFe economic framework at the Program level — compute the WSJF of Features, build a Lean Business Case for Epics, and steer the ROI of product investments — to make prioritization decisions grounded in economic value.
 
-## WSJF au niveau Programme (Features)
+## WSJF at the Program level (Features)
 
 ```
 WSJF = Cost of Delay / Job Size
 
 Cost of Delay = Business Value + Time Criticality + Risk Reduction/Opportunity Enablement
 
-ÉCHELLE DE NOTATION (Fibonacci modifié : 1, 2, 3, 5, 8, 13, 20)
+SCORING SCALE (modified Fibonacci: 1, 2, 3, 5, 8, 13, 20)
 ────────────────────────────────────────────────────────────────────
-Business Value (BV)    : Valeur directe pour le client / business
-Time Criticality (TC)  : Urgence temporelle (fenêtre d'opportunité)
-RR/OE                  : Réduction de risque ou activation d'opportunité
-Job Size               : Effort estimé (story points ou T-shirt sizing)
+Business Value (BV)    : Direct value for the customer / business
+Time Criticality (TC)  : Time urgency (window of opportunity)
+RR/OE                  : Risk reduction or opportunity enablement
+Job Size               : Estimated effort (story points or T-shirt sizing)
 ```
 
-## Tableau WSJF — Template Features
+## WSJF table — Features template
 
-> Cotation **relative**, **plus petit = 1 par colonne**, colonnes indépendantes, échelle Fibonacci (cf. `skills/safe/wsjf.md`).
+> **Relative** rating, **smallest = 1 per column**, independent columns, Fibonacci scale (cf. `skills/safe/wsjf.md`).
 
-| ID | Feature | BV | TC | RR/OE | CoD | Size | WSJF | Priorité |
+| ID | Feature | BV | TC | RR/OE | CoD | Size | WSJF | Priority |
 |---|---|---|---|---|---|---|---|---|
-| F-01 | Scoring CVs IA | 8 | 8 | 5 | 21 | 5 | **4.2** | 🥈 2 |
-| F-02 | Dashboard RH | 5 | 3 | 3 | 11 | 1 | **11.0** | 🥇 1 (petit job !) |
-| F-03 | API SIRH | 3 | 5 | 8 | 16 | 8 | **2.0** | 🥉 3 |
-| F-04 | Mobile App | 1 | 1 | 1 | 3 | 13 | **0.2** | ❌ Déprioritisé (à splitter) |
+| F-01 | AI CV scoring | 8 | 8 | 5 | 21 | 5 | **4.2** | 🥈 2 |
+| F-02 | HR dashboard | 5 | 3 | 3 | 11 | 1 | **11.0** | 🥇 1 (small job!) |
+| F-03 | HRIS API | 3 | 5 | 8 | 16 | 8 | **2.0** | 🥉 3 |
+| F-04 | Mobile App | 1 | 1 | 1 | 3 | 13 | **0.2** | ❌ Deprioritized (to split) |
 
-> Plus petit par colonne : BV → F-04 · TC → F-04 · RR/OE → F-04 · Size → F-02. F-02 remonte #1 (plus petit job) ; F-04 déprioritisé car gros job → à splitter.
+> Smallest per column: BV → F-04 · TC → F-04 · RR/OE → F-04 · Size → F-02. F-02 rises to #1 (smallest job); F-04 deprioritized because it's a large job → to split.
 
-## Lean Business Case — Template Epic
+## Lean Business Case — Epic template
 
 ```yaml
 lean_business_case:
-  epic: "EPIC-01 — Module Formation IA"
+  epic: "EPIC-01 — AI Training Module"
   version: "v1.0"
   date: "2026-05-22"
-  owner: "Product Manager — [NOM]"
-  
-  contexte_probleme: |
-    Les équipes RH manquent de compétences sur les outils IA déployés.
-    Le taux d'adoption stagne à 42% (cible 80%).
-    Coût de l'inaction : -38% de productivité attendue non réalisée.
-    
-  solution_proposee: |
-    Module de formation intégré au produit : micro-learning in-app,
-    coaching IA personnalisé, certifications internes.
-    
-  impacts_business:
-    - "Augmenter le taux d'adoption de 42% à 80% en 2 PI"
-    - "Réduire les coûts de formation externes de 30%"
-    - "Améliorer le CSAT utilisateurs de 3.4 à 4.2/5"
-    
-  estimation_cout:
-    developpement: "8 Features — ~80 story points — PI-14 à PI-15"
-    budget_infrastructure: "15 000 € / an (LMS cloud)"
-    
-  estimation_valeur:
-    gain_productivite: "180 000 € / an (38% adoption gap × coût RH)"
-    reduction_formation: "25 000 € / an"
-    roi_annuel: "205 000 €"
-    payback_period: "8 mois"
-    
-  go_no_go: "GO — ROI positif à 8 mois, aligné sur OKR KR2"
-  
-  hypotheses_cles:
-    - "Le module in-app est adopté à 75% dans les 3 premiers mois"
-    - "Les utilisateurs consacrent 20 min/semaine à la formation"
+  owner: "Product Manager — [NAME]"
+
+  problem_context: |
+    HR teams lack skills on the deployed AI tools.
+    The adoption rate stalls at 42% (target 80%).
+    Cost of inaction: -38% of expected productivity not realized.
+
+  proposed_solution: |
+    Training module embedded in the product: in-app micro-learning,
+    personalized AI coaching, internal certifications.
+
+  business_impacts:
+    - "Raise the adoption rate from 42% to 80% in 2 PIs"
+    - "Cut external training costs by 30%"
+    - "Improve user CSAT from 3.4 to 4.2/5"
+
+  cost_estimate:
+    development: "8 Features — ~80 story points — PI-14 to PI-15"
+    infrastructure_budget: "€15,000 / year (cloud LMS)"
+
+  value_estimate:
+    productivity_gain: "€180,000 / year (38% adoption gap × HR cost)"
+    training_reduction: "€25,000 / year"
+    annual_roi: "€205,000"
+    payback_period: "8 months"
+
+  go_no_go: "GO — positive ROI at 8 months, aligned with OKR KR2"
+
+  key_assumptions:
+    - "The in-app module reaches 75% adoption within the first 3 months"
+    - "Users spend 20 min/week on training"
 ```
 
-## Livrables
-- Tableau WSJF Features complet
-- Lean Business Case Epic (YAML / PowerPoint)
-- Analyse ROI avec payback period
-- Recommandation go / no-go documentée
+## Deliverables
+- Complete WSJF Features table
+- Epic Lean Business Case (YAML / PowerPoint)
+- ROI analysis with payback period
+- Documented go / no-go recommendation
 
-## Format de sortie
-Précise : liste des features / epics à évaluer, données de coût disponibles, contraintes budgétaires, horizon de retour sur investissement attendu.
+## Output format
+Specify: list of features / epics to evaluate, available cost data, budget constraints, expected return-on-investment horizon.

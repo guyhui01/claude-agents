@@ -1,241 +1,241 @@
-# Skill — Décomposer un Epic en Features (Epic → Feature Splitting)
+# Skill — Decompose an Epic into Features (Epic → Feature Splitting)
 
-> Certification : SAFe POPM 6 · SAFe LPM · SAFe SPC
-> Agents : AGENT-PO-SAFE.md · AGENT-PRODUCT-MANAGER-SAFE.md
+> Certification: SAFe POPM 6 · SAFe LPM · SAFe SPC
+> Agents: AGENT-PO-SAFE.md · AGENT-PRODUCT-MANAGER-SAFE.md
 
-## Objectif
+## Objective
 
-Décomposer un Portfolio Epic (ou Capability) en **Features livrables sur 1 PI** par l'ART, en respectant les **8 patterns officiels SAFe** de splitting et le principe de **vertical slicing** (chaque Feature livre de la valeur utilisateur de bout en bout).
+Decompose a Portfolio Epic (or Capability) into **Features deliverable within 1 PI** by the ART, following the **8 official SAFe splitting patterns** and the **vertical slicing** principle (each Feature delivers end-to-end user value).
 
-> 🔗 Pour la formulation d'Epic + MVP : voir `epic-hypothesis-mvp.md`
-> 🔗 Pour décomposer Feature → US : voir `feature-to-story-splitting.md`
+> 🔗 For Epic formulation + MVP: see `epic-hypothesis-mvp.md`
+> 🔗 To decompose Feature → US: see `feature-to-story-splitting.md`
 
-## Cascade SAFe — Rappel
+## SAFe cascade — Reminder
 
 ```
-Portfolio Epic (12-24 mois, plusieurs ARTs)
+Portfolio Epic (12-24 months, several ARTs)
    └── Capability (Large Solution, multi-PI, cross-ART)
-         └── Feature (1 PI, 1 ART, livrable de bout en bout)
-               └── User Story (1 sprint, 1 équipe)
-                     └── Tâches techniques
+         └── Feature (1 PI, 1 ART, end-to-end deliverable)
+               └── User Story (1 sprint, 1 team)
+                     └── Technical tasks
 ```
 
-### Définition d'une Feature SAFe
+### Definition of a SAFe Feature
 
-| Critère | Règle |
+| Criterion | Rule |
 |---|---|
-| **Taille** | Livrable dans **1 PI** (10 semaines max) par 1 ART |
-| **Valeur** | Apporte un **Benefit Hypothesis** vérifiable |
-| **Vertical** | Traverse toutes les couches (UI → API → data) — pas un layer cake |
-| **AC** | A des **Acceptance Criteria** explicites (testables) |
-| **Estimable** | Estimée en story points ou T-shirt (au PI Planning) |
+| **Size** | Deliverable within **1 PI** (10 weeks max) by 1 ART |
+| **Value** | Brings a verifiable **Benefit Hypothesis** |
+| **Vertical** | Crosses all layers (UI → API → data) — not a layer cake |
+| **AC** | Has explicit (testable) **Acceptance Criteria** |
+| **Estimable** | Estimated in story points or T-shirt (at PI Planning) |
 
 ---
 
-## Les 8 patterns officiels SAFe de splitting
+## The 8 official SAFe splitting patterns
 
-### Pattern 1 — Workflow Steps (étapes du parcours)
+### Pattern 1 — Workflow Steps
 
-Découper selon les **étapes successives** d'un processus utilisateur.
+Split by the **successive steps** of a user process.
 
-**Exemple — Epic "Onboarding client B2B" :**
-- Feature 1 : Création de compte + KYC
-- Feature 2 : Configuration profil entreprise
-- Feature 3 : Invitation collaborateurs
-- Feature 4 : Activation des modules sélectionnés
+**Example — Epic "B2B customer onboarding":**
+- Feature 1: Account creation + KYC
+- Feature 2: Company profile setup
+- Feature 3: Inviting collaborators
+- Feature 4: Activating the selected modules
 
-**Quand l'utiliser :** processus séquentiel clair, parcours utilisateur identifié.
+**When to use it:** clear sequential process, identified user journey.
 
 ---
 
 ### Pattern 2 — Business Rules Variations
 
-Découper selon la **complexité croissante des règles métier**.
+Split by **increasing complexity of business rules**.
 
-**Exemple — Epic "Calcul tarification dynamique" :**
-- Feature 1 : Règle tarifaire simple (1 produit, 1 client type)
-- Feature 2 : Règles multi-produits avec remises
-- Feature 3 : Règles segmentées (B2B/B2C, géographie)
-- Feature 4 : Tarification avec contraintes contractuelles
+**Example — Epic "Dynamic pricing calculation":**
+- Feature 1: Simple pricing rule (1 product, 1 customer type)
+- Feature 2: Multi-product rules with discounts
+- Feature 3: Segmented rules (B2B/B2C, geography)
+- Feature 4: Pricing with contractual constraints
 
-**Quand l'utiliser :** logique métier complexe, "simple first" applicable.
+**When to use it:** complex business logic, "simple first" applicable.
 
 ---
 
 ### Pattern 3 — Operations (CRUD)
 
-Découper selon les **opérations atomiques** sur une entité.
+Split by the **atomic operations** on an entity.
 
-**Exemple — Epic "Gestion catalogue produits" :**
-- Feature 1 : Consultation catalogue (Read)
-- Feature 2 : Création de produits (Create) + workflow validation
-- Feature 3 : Modification de produits (Update) + audit trail
-- Feature 4 : Archivage / suppression (Delete) + RGPD
+**Example — Epic "Product catalog management":**
+- Feature 1: Catalog browsing (Read)
+- Feature 2: Product creation (Create) + validation workflow
+- Feature 3: Product editing (Update) + audit trail
+- Feature 4: Archiving / deletion (Delete) + GDPR
 
-**Quand l'utiliser :** entité métier centrale, opérations CRUD bien identifiées.
+**When to use it:** central business entity, clearly identified CRUD operations.
 
 ---
 
 ### Pattern 4 — Scenarios / Use Cases
 
-Découper selon les **scénarios utilisateur principaux**.
+Split by the **main user scenarios**.
 
-**Exemple — Epic "Plateforme de paiement B2B" :**
-- Feature 1 : Paiement instantané par virement
-- Feature 2 : Paiement différé (échéance + relance)
-- Feature 3 : Paiement fractionné (3-12 fois)
-- Feature 4 : Remboursement et avoirs
+**Example — Epic "B2B payment platform":**
+- Feature 1: Instant payment by bank transfer
+- Feature 2: Deferred payment (due date + reminder)
+- Feature 3: Split payment (3-12 installments)
+- Feature 4: Refunds and credit notes
 
-**Quand l'utiliser :** plusieurs use cases distincts, indépendants entre eux.
+**When to use it:** several distinct, mutually independent use cases.
 
 ---
 
 ### Pattern 5 — Simple First / Complex Later
 
-Découper en **version simple en premier**, raffinements ensuite.
+Split into a **simple version first**, refinements later.
 
-**Exemple — Epic "Tableau de bord analytics" :**
-- Feature 1 : Dashboard statique avec 5 KPIs prédéfinis
-- Feature 2 : Filtres temporels (jour/semaine/mois/trimestre)
-- Feature 3 : Drill-down sur les KPIs
-- Feature 4 : Dashboards personnalisables par l'utilisateur
+**Example — Epic "Analytics dashboard":**
+- Feature 1: Static dashboard with 5 predefined KPIs
+- Feature 2: Time filters (day/week/month/quarter)
+- Feature 3: Drill-down on the KPIs
+- Feature 4: User-customizable dashboards
 
-**Quand l'utiliser :** valeur immédiate possible avec une version minimale, raffinements observables.
+**When to use it:** immediate value possible with a minimal version, observable refinements.
 
 ---
 
-### Pattern 6 — Variations (segments, géographies, devices)
+### Pattern 6 — Variations (segments, geographies, devices)
 
-Découper selon les **variantes de contexte d'usage**.
+Split by the **variations of usage context**.
 
-**Exemple — Epic "App mobile commerce" :**
-- Feature 1 : Web responsive (toutes plateformes)
-- Feature 2 : App native iOS
-- Feature 3 : App native Android
-- Feature 4 : Watch / wearables
+**Example — Epic "Commerce mobile app":**
+- Feature 1: Responsive web (all platforms)
+- Feature 2: Native iOS app
+- Feature 3: Native Android app
+- Feature 4: Watch / wearables
 
-**Quand l'utiliser :** segments ou canaux différents, priorisation par volume utilisateur.
+**When to use it:** different segments or channels, prioritization by user volume.
 
 ---
 
 ### Pattern 7 — Data Variations
 
-Découper selon la **complexité ou le volume de données**.
+Split by the **complexity or volume of data**.
 
-**Exemple — Epic "Migration data legacy → cloud" :**
-- Feature 1 : Migration référentiel produits (volume faible, structure simple)
-- Feature 2 : Migration historique commandes (gros volume, schéma stable)
-- Feature 3 : Migration historique interactions clients (gros volume, schéma hétérogène)
-- Feature 4 : Migration archives juridiques (volume modéré, contraintes RGPD)
+**Example — Epic "Legacy → cloud data migration":**
+- Feature 1: Product reference data migration (low volume, simple structure)
+- Feature 2: Order history migration (high volume, stable schema)
+- Feature 3: Customer interaction history migration (high volume, heterogeneous schema)
+- Feature 4: Legal archives migration (moderate volume, GDPR constraints)
 
-**Quand l'utiliser :** données hétérogènes, contraintes de volume ou de qualité.
+**When to use it:** heterogeneous data, volume or quality constraints.
 
 ---
 
 ### Pattern 8 — Defer Performance / Quality Attributes
 
-Découper en **livrant la fonction d'abord**, optimisation après.
+Split by **delivering the function first**, optimization after.
 
-**Exemple — Epic "Recherche produit IA" :**
-- Feature 1 : Recherche fonctionnelle (latence ~5s, batch nocturne)
-- Feature 2 : Recherche temps réel (latence < 1s)
-- Feature 3 : Recherche avec auto-complétion (latence < 200ms)
-- Feature 4 : Recherche personnalisée (RAG + historique)
+**Example — Epic "AI product search":**
+- Feature 1: Functional search (latency ~5s, nightly batch)
+- Feature 2: Real-time search (latency < 1s)
+- Feature 3: Search with auto-complete (latency < 200ms)
+- Feature 4: Personalized search (RAG + history)
 
-**Quand l'utiliser :** la fonction a de la valeur même non-optimisée, optimisation = effort distinct.
+**When to use it:** the function has value even unoptimized, optimization = a distinct effort.
 
 ---
 
-## Template de Feature SAFe (à produire pour chaque split)
+## SAFe Feature template (to produce for each split)
 
 ```
-FEATURE : [nom court, orienté valeur]
+FEATURE: [short, value-oriented name]
 
-BENEFIT HYPOTHESIS :
-  Pour [persona]
-  Qui [besoin]
-  [Cette Feature] livrera [bénéfice mesurable]
-  Mesuré par [leading indicator + seuil]
+BENEFIT HYPOTHESIS:
+  For [persona]
+  Who [need]
+  [This Feature] will deliver [measurable benefit]
+  Measured by [leading indicator + threshold]
 
-ACCEPTANCE CRITERIA :
-  □ AC1 — [critère testable]
-  □ AC2 — [critère testable]
-  □ AC3 — [critère testable]
+ACCEPTANCE CRITERIA:
+  □ AC1 — [testable criterion]
+  □ AC2 — [testable criterion]
+  □ AC3 — [testable criterion]
 
-NON-FUNCTIONAL REQUIREMENTS (si pertinent) :
-  - Performance : [seuil]
-  - Sécurité : [exigence]
-  - Conformité : [norme]
+NON-FUNCTIONAL REQUIREMENTS (if relevant):
+  - Performance: [threshold]
+  - Security: [requirement]
+  - Compliance: [standard]
 
-ESTIMATION : [story points ou T-shirt size]
-WSJF : [score] (voir wsjf.md)
-DEPENDENCIES : [autres Features, équipes, externes]
-ENABLERS NÉCESSAIRES : [Enabler Features ou Stories]
+ESTIMATE: [story points or T-shirt size]
+WSJF: [score] (see wsjf.md)
+DEPENDENCIES: [other Features, teams, external]
+REQUIRED ENABLERS: [Enabler Features or Stories]
 ```
 
 ---
 
-## Atelier de splitting Epic → Features (Continuous Exploration)
+## Epic → Features splitting workshop (Continuous Exploration)
 
-### Préparation
+### Preparation
 
-| Élément | Détail |
+| Item | Detail |
 |---|---|
-| **Participants** | Epic Owner, PM SAFe, Architecte Système, Business Owners, 1-2 POs |
-| **Durée** | 2-3h (ou 2× 90 min en remote) |
-| **Pré-requis** | Epic Hypothesis Statement validé, LBC approuvé |
-| **Outils** | Miro / FigJam (template Story Map ou Feature Map) |
+| **Participants** | Epic Owner, SAFe PM, System Architect, Business Owners, 1-2 POs |
+| **Duration** | 2-3h (or 2× 90 min remote) |
+| **Prerequisites** | Validated Epic Hypothesis Statement, approved LBC |
+| **Tools** | Miro / FigJam (Story Map or Feature Map template) |
 
-### Déroulement (3h)
+### Run (3h)
 
-1. **Rappel Epic Hypothesis + MVP cible** (15 min)
-2. **Brainstorm tous les patterns applicables** (30 min) — souvent 2-3 patterns combinés
-3. **Génération de Features candidates** (45 min) — Post-its individuels puis mise en commun
-4. **Regroupement et tri** (30 min) — élimination des doublons, regroupements
-5. **Priorisation pour le MVP** (30 min) — appliquer WSJF (Features et Epics — MoSCoW réservé aux User Stories)
-6. **Définition du Benefit Hypothesis par Feature MVP** (30 min)
-7. **Identification des dépendances et Enablers** (15 min)
+1. **Reminder of Epic Hypothesis + target MVP** (15 min)
+2. **Brainstorm all applicable patterns** (30 min) — often 2-3 combined patterns
+3. **Generate candidate Features** (45 min) — individual sticky notes then pooling
+4. **Grouping and sorting** (30 min) — removing duplicates, regrouping
+5. **MVP prioritization** (30 min) — apply WSJF (Features and Epics — MoSCoW reserved for User Stories)
+6. **Define the Benefit Hypothesis per MVP Feature** (30 min)
+7. **Identify dependencies and Enablers** (15 min)
 
-### Sortie attendue
+### Expected output
 
-- 8-15 Features identifiées, ordonnées par WSJF
-- 3-5 Features sélectionnées pour le MVP
-- Backlog des Enabler Features
-- Liste des dépendances inter-ART ou externes
+- 8-15 Features identified, ordered by WSJF
+- 3-5 Features selected for the MVP
+- Backlog of Enabler Features
+- List of cross-ART or external dependencies
 
 ---
 
-## Combinaisons fréquentes de patterns
+## Frequent pattern combinations
 
-| Type d'Epic | Patterns recommandés |
+| Epic type | Recommended patterns |
 |---|---|
-| **Nouveau produit B2C** | Workflow + Simple First + Variations |
-| **Refonte applicative** | Operations CRUD + Data Variations + Defer Performance |
-| **Plateforme transverse** | Operations + Scenarios + Variations |
-| **Migration / décommissionnement** | Data Variations + Workflow + Defer Quality |
-| **IA / Machine Learning** | Simple First + Data Variations + Defer Performance |
+| **New B2C product** | Workflow + Simple First + Variations |
+| **Application rebuild** | Operations CRUD + Data Variations + Defer Performance |
+| **Cross-cutting platform** | Operations + Scenarios + Variations |
+| **Migration / decommissioning** | Data Variations + Workflow + Defer Quality |
+| **AI / Machine Learning** | Simple First + Data Variations + Defer Performance |
 
 ---
 
-## Anti-patterns à éviter
+## Anti-patterns to avoid
 
-- ❌ **Layer cake splitting** : "Feature 1 = la DB, Feature 2 = l'API, Feature 3 = l'UI" → aucune valeur livrée avant la fin
-- ❌ **Splits trop fins** : 50 Features pour un Epic → c'est déjà du backlog équipe
-- ❌ **Pas d'AC sur les Features** : impossible à recetter en System Demo
-- ❌ **Ignorer les Enabler Features** : la dette d'infrastructure plombera le PI 2
-- ❌ **Splits sans Benefit Hypothesis** : Feature = liste de tâches, pas de la valeur
-- ❌ **1 seul pattern pour tout l'Epic** : combiner 2-3 patterns donne presque toujours un meilleur split
+- ❌ **Layer cake splitting**: "Feature 1 = the DB, Feature 2 = the API, Feature 3 = the UI" → no value delivered before the end
+- ❌ **Slices too fine**: 50 Features for one Epic → that's already team backlog
+- ❌ **No AC on the Features**: impossible to accept in the System Demo
+- ❌ **Ignoring Enabler Features**: infrastructure debt will weigh down PI 2
+- ❌ **Splits with no Benefit Hypothesis**: a Feature = a task list, not value
+- ❌ **A single pattern for the whole Epic**: combining 2-3 patterns almost always gives a better split
 
 ---
 
-## Livrables
+## Deliverables
 
-- Feature Map (Miro / FigJam) avec les 8 patterns affichés
-- Backlog Features de l'Epic, ordonnées WSJF, prêt pour Program Backlog
-- Fiche Feature standardisée par Feature MVP (Benefit Hypothesis + AC + NFR)
-- Tableau dépendances inter-ART / externes
-- Compte-rendu d'atelier (décisions, points ouverts)
+- Feature Map (Miro / FigJam) with the 8 patterns displayed
+- The Epic's Features backlog, ordered by WSJF, ready for the Program Backlog
+- Standardized Feature sheet per MVP Feature (Benefit Hypothesis + AC + NFR)
+- Cross-ART / external dependencies table
+- Workshop notes (decisions, open points)
 
-## Format de sortie
+## Output format
 
-Préciser : **Epic source** (nom + hypothèse), **patterns à privilégier** ou "à proposer", **horizon MVP** (1 PI / 2 PIs), **stakeholders disponibles** (Epic Owner, PM, Architectes), **niveau de détail** (liste Features seule / fiches complètes avec AC).
+Specify: **source Epic** (name + hypothesis), **patterns to favor** or "to propose", **MVP horizon** (1 PI / 2 PIs), **available stakeholders** (Epic Owner, PM, Architects), **level of detail** (Features list only / full sheets with AC).

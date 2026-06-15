@@ -1,111 +1,111 @@
-# Skill — PI Objectives — Rédaction et pilotage
+# Skill — PI Objectives — Writing and steering
 
-> Certification : SAFe POPM 6 · SAFe Agilist
-> Agent : AGENT-PO-SAFE.md
+> Certification: SAFe POPM 6 · SAFe Agilist
+> Agent: AGENT-PO-SAFE.md
 
-## Objectif
-Rédiger des PI Objectives de qualité qui alignent les équipes sur les outcomes business et servent de boussole tout au long du Program Increment.
+## Objective
+Write high-quality PI Objectives that align teams on business outcomes and serve as a compass throughout the Program Increment.
 
-## Qu'est-ce qu'un PI Objective ?
+## What is a PI Objective?
 
-Les PI Objectives sont les **engagements de l'ART** pour le PI, exprimés en résultats business — pas en tâches techniques.
+PI Objectives are the **ART's commitments** for the PI, expressed as business outcomes — not technical tasks.
 
 ```
-❌ Mauvais PI Objective : "Développer le module de paiement Stripe"
-✅ Bon PI Objective     : "Permettre aux clients B2B de payer en ligne 
-                           avec validation en temps réel (taux d'erreur < 1%)"
+❌ Bad PI Objective: "Develop the Stripe payment module"
+✅ Good PI Objective: "Let B2B customers pay online
+                       with real-time validation (error rate < 1%)"
 ```
 
-## Types de PI Objectives
+## Types of PI Objectives
 
 ### 1. Business Objectives
-Valeur directe pour les clients et le business.
+Direct value for customers and the business.
 ```
-Format : [Verbe d'action] + [Capacité/Feature] + [Bénéfice mesurable]
+Format: [Action verb] + [Capability/Feature] + [Measurable benefit]
 
-Exemples :
-- "Livrer le catalogue produits filtrable (3 critères) avec temps de chargement < 2s"
-- "Intégrer le paiement Stripe 3DS avec 0 bug critique en production"
-- "Atteindre 95% de couverture BDD sur les US Must Have"
+Examples:
+- "Deliver the filterable product catalog (3 criteria) with load time < 2s"
+- "Integrate Stripe 3DS payment with 0 critical bug in production"
+- "Reach 95% BDD coverage on the Must Have US"
 ```
 
 ### 2. Stretch Objectives
-Objectifs ambitieux, non engagés — "best effort".
+Ambitious, uncommitted objectives — "best effort".
 ```
-- Marqués [Stretch] dans le PI Plan
-- Livrés si vélocité > prévision ou scope réduit
-- Ne pénalisent pas si non atteints
-- Exemples : améliorations de performance, expérimentations UX
+- Marked [Stretch] in the PI Plan
+- Delivered if velocity > forecast or scope reduced
+- No penalty if not met
+- Examples: performance improvements, UX experiments
 ```
 
-## Critères SMART pour les PI Objectives
+## SMART criteria for PI Objectives
 
-| Critère | Question | Exemple |
+| Criterion | Question | Example |
 |---|---|---|
-| **S**pécifique | Qu'est-ce qu'on livre exactement ? | "Module historique commandes" |
-| **M**esurable | Comment savoir si c'est atteint ? | "> 95% des commandes visibles" |
-| **A**tteignable | Est-ce réaliste en 1 PI ? | Validé en PI Planning |
-| **R**elevant | Aligné sur les OKR / thèmes stratégiques ? | Tracé vers OKR Q3 |
-| **T**ime-bound | Délai fixe = fin du PI | Sprint N (date) |
+| **S**pecific | What exactly do we deliver? | "Order history module" |
+| **M**easurable | How do we know it's met? | "> 95% of orders visible" |
+| **A**chievable | Is it realistic in 1 PI? | Validated at PI Planning |
+| **R**elevant | Aligned with the OKRs / strategic themes? | Traced to Q3 OKR |
+| **T**ime-bound | Fixed deadline = end of PI | Sprint N (date) |
 
-## Processus de rédaction (PI Planning)
+## Writing process (PI Planning)
 
-### Étape 1 — Draft Team Objectives (Jour 1 après-midi)
-- Chaque équipe rédige ses team PI Objectives
-- Format : 3-5 objectifs par équipe
-- Inclure la confiance estimée (1-10)
+### Step 1 — Draft Team Objectives (Day 1 afternoon)
+- Each team writes its team PI Objectives
+- Format: 3-5 objectives per team
+- Include the estimated confidence (1-10)
 
-### Étape 2 — ART PI Objectives (Jour 2 matin)
-- Le PM/PO consolide les team objectives en ART objectives
-- Éliminer les doublons, regrouper par thème
-- Valider l'alignement avec les Business Owners
+### Step 2 — ART PI Objectives (Day 2 morning)
+- The PM/PO consolidates the team objectives into ART objectives
+- Remove duplicates, group by theme
+- Validate alignment with the Business Owners
 
-### Étape 3 — Business Value Review (Jour 2 après-midi)
-- Les Business Owners notent chaque PI Objective (1-10)
-- Discussion et ajustement si désalignement
-- Score final = valeur attendue par le business
+### Step 3 — Business Value Review (Day 2 afternoon)
+- The Business Owners score each PI Objective (1-10)
+- Discussion and adjustment if misaligned
+- Final score = value expected by the business
 
-## Template PI Objectives — Format ART
+## PI Objectives template — ART format
 
 ```
-PI [N] — [Trimestre] — ART [Nom]
-Date de création : [date PI Planning]
+PI [N] — [Quarter] — ART [Name]
+Creation date: [PI Planning date]
 ═══════════════════════════════════════════════════════════
 
-OBJECTIVE 1 : [Titre court et actionnable]
-Description  : [1-2 phrases — quoi + pourquoi]
-Critère      : [Comment mesurer l'atteinte]
-Business Value (BOs) : [score /10]
-Confiance équipe     : [score /10]
-Statut fin PI        : [Atteint ✅ / Partiel ⚠️ / Non atteint ❌]
+OBJECTIVE 1: [Short, actionable title]
+Description: [1-2 sentences — what + why]
+Criterion: [How to measure achievement]
+Business Value (BOs): [score /10]
+Team confidence: [score /10]
+End-of-PI status: [Met ✅ / Partial ⚠️ / Not met ❌]
 
-OBJECTIVE 2 : [...]
-[idem]
+OBJECTIVE 2: [...]
+[same]
 
-STRETCH 1 : [Titre] [Stretch]
-Description  : [...]
-Confiance    : [4-6/10 max pour un stretch]
-Statut       : [Livré ✅ / Non livré (acceptable) ⬜]
+STRETCH 1: [Title] [Stretch]
+Description: [...]
+Confidence: [4-6/10 max for a stretch]
+Status: [Delivered ✅ / Not delivered (acceptable) ⬜]
 
 ─────────────────────────────────────────────────────────
-SCORE TOTAL
-Business Value planifiée : [somme scores BOs]
-Business Value réalisée  : [score à la fin du PI]
-Predictability           : [réalisé / planifié × 100] %
+TOTAL SCORE
+Planned Business Value: [sum of BO scores]
+Actual Business Value: [score at the end of the PI]
+Predictability: [actual / planned × 100] %
 ```
 
-## Pilotage des PI Objectives en cours de PI
+## Steering PI Objectives during the PI
 
-### PO Sync hebdomadaire — Suivi PI Objectives
+### Weekly PO Sync — PI Objectives tracking
 ```
-| Objective | BV | Confiance J1 | Confiance J14 | Confiance J21 | Statut |
-|-----------|----|--------------|----|----|----|
-| OBJ-1     | 8  | 8/10         | 7/10 | 6/10 | ⚠️ Risque |
-| OBJ-2     | 9  | 9/10         | 9/10 | 9/10 | ✅ On track |
-| OBJ-3     | 6  | 5/10         | 3/10 | 2/10 | 🔴 Escalade |
+| Objective | BV | Confidence D1 | Confidence D14 | Confidence D21 | Status |
+|-----------|----|---------------|----|----|----|
+| OBJ-1     | 8  | 8/10          | 7/10 | 6/10 | ⚠️ At risk |
+| OBJ-2     | 9  | 9/10          | 9/10 | 9/10 | ✅ On track |
+| OBJ-3     | 6  | 5/10          | 3/10 | 2/10 | 🔴 Escalate |
 ```
 
-### Signaux d'alerte
-- Confiance < 5/10 → action corrective immédiate
-- Confiance en baisse 2 semaines consécutives → escalade au RTE
-- Dépendance non résolue → mise à jour Program Board
+### Warning signs
+- Confidence < 5/10 → immediate corrective action
+- Confidence dropping for 2 consecutive weeks → escalate to the RTE
+- Unresolved dependency → update the Program Board

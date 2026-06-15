@@ -1,70 +1,70 @@
-# Skill SAFe — Rédaction Features
+# SAFe Skill — Writing Features
 
-> Certification : SAFe POPM 6
-> Agents : AGENT-PO-SAFE.md · AGENT-PRODUCT-MANAGER-SAFE.md
+> Certification: SAFe POPM 6
+> Agents: AGENT-PO-SAFE.md · AGENT-PRODUCT-MANAGER-SAFE.md
 
-## Format Feature SAFe
+## SAFe Feature format
 ```
-Titre : [Verbe] + [Capacité] + [Contexte]
+Title: [Verb] + [Capability] + [Context]
 
-Énoncé (Feature Statement) :
-[Action] — [Résultat mesurable] — [Critère de succès]
+Statement (Feature Statement):
+[Action] — [Measurable result] — [Success criterion]
 
-Benefit Hypothesis :
-Si nous livrons [cette feature],
-Alors [bénéfice attendu utilisateur / business],
-Ce que nous mesurerons par [KPI / métrique].
+Benefit Hypothesis:
+If we deliver [this feature],
+Then [expected user / business benefit],
+Which we will measure by [KPI / metric].
 
-Acceptance Criteria :
-1. [Critère observable et vérifiable]
-2. [Critère observable et vérifiable]
-3. [Critère observable et vérifiable]
-```
-
-## Exemple
-```
-Titre : Mettre en place le tableau de bord de suivi des commandes B2B
-
-Énoncé :
-Permettre aux clients B2B de consulter leurs commandes en temps réel
-— réduire les appels support de 30%
-— accessible en moins de 2 clics.
-
-Benefit Hypothesis :
-Si nous livrons ce tableau de bord,
-Alors les clients B2B auront une autonomie complète sur le suivi,
-Ce que nous mesurerons par : taux d'appels support (cible : -30%).
-
-Acceptance Criteria :
-1. Filtres par statut, date et référence disponibles
-2. Statut mis à jour en temps réel (< 5 min)
-3. Export CSV disponible sur toutes les vues
+Acceptance Criteria:
+1. [Observable and verifiable criterion]
+2. [Observable and verifiable criterion]
+3. [Observable and verifiable criterion]
 ```
 
-## Découpage Feature → User Stories
+## Example
 ```
-Feature : [Titre]
-├── US-01 : [...]
-├── US-02 : [...]
-├── US-03 : [...]
-└── US-04 : [...]
+Title: Set up the B2B order-tracking dashboard
+
+Statement:
+Let B2B customers view their orders in real time
+— reduce support calls by 30%
+— accessible in under 2 clicks.
+
+Benefit Hypothesis:
+If we deliver this dashboard,
+Then B2B customers will have full autonomy over tracking,
+Which we will measure by: support-call rate (target: -30%).
+
+Acceptance Criteria:
+1. Filters by status, date and reference available
+2. Status updated in real time (< 5 min)
+3. CSV export available on all views
+```
+
+## Feature → User Stories breakdown
+```
+Feature: [Title]
+├── US-01: [...]
+├── US-02: [...]
+├── US-03: [...]
+└── US-04: [...]
 ```
 
 ## T-Shirt Sizing
-| Taille | Story Points | Durée |
+| Size | Story Points | Duration |
 |---|---|---|
 | XS | 1-2 | < 1 sprint |
 | S | 3-5 | 1 sprint |
 | M | 8-13 | 1-2 sprints |
 | L | 20-30 | 2-3 sprints |
-| XL | 40+ | À découper obligatoirement |
+| XL | 40+ | Must be split |
 
-## DOR Feature SAFe
-- [ ] Énoncé au format Action/Résultat/Critère
-- [ ] Benefit Hypothesis avec KPI mesurable
+## SAFe Feature DOR
+- [ ] Statement in the Action/Result/Criterion format
+- [ ] Benefit Hypothesis with a measurable KPI
 - [ ] Minimum 3 Acceptance Criteria
-- [ ] Découpée en User Stories (max 8)
-- [ ] Estimée en T-Shirt Sizing
-- [ ] Dépendances identifiées
-- [ ] Priorisée par WSJF
-- [ ] Validée par Business Owner
+- [ ] Broken down into User Stories (max 8)
+- [ ] Estimated in T-Shirt Sizing
+- [ ] Dependencies identified
+- [ ] Prioritized by WSJF
+- [ ] Validated by the Business Owner

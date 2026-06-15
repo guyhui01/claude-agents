@@ -1,45 +1,45 @@
 # Skill — Program Backlog Management (ART)
-> Certifications : SAFe POPM 6
+> Certifications: SAFe POPM 6
 
-## Objectif
-Gérer le backlog au niveau Programme (ART) : alimenter, prioriser et maintenir les Features prêtes pour le PI Planning.
+## Objective
+Manage the backlog at the Program (ART) level: feed, prioritize and keep Features ready for PI Planning.
 
-## Structure du Program Backlog
+## Program Backlog structure
 ```
 Portfolio Epics
   └── Program Epics → Features (Program Backlog)
         └── User Stories (Team Backlog)
 ```
 
-## Rôle du PO/PM sur le Program Backlog
-- **Product Manager** : responsable du Program Backlog (Features et au-dessus)
-- **Product Owner** : responsable du Team Backlog (User Stories)
-- En pratique (contexte PME / PO senior) : souvent les deux rôles
+## The PO/PM role on the Program Backlog
+- **Product Manager**: owns the Program Backlog (Features and above)
+- **Product Owner**: owns the Team Backlog (User Stories)
+- In practice (SMB context / senior PO): often both roles
 
-## Critères d'une Feature ready pour le PI Planning
-- [ ] Énoncé : "En tant que [utilisateur], je veux [capability] afin de [bénéfice business]"
-- [ ] Benefit Hypothesis rédigée
-- [ ] Acceptance Criteria (Feature AC) définis
-- [ ] WSJF calculé et documenté
-- [ ] Dépendances identifiées (inter-équipes, inter-ARTs)
-- [ ] Estimée en Story Points (capacité équipe)
-- [ ] Enables Epics ou PI Objectives identifiés
+## Criteria for a Feature ready for PI Planning
+- [ ] Statement: "As a [user], I want [capability] so that [business benefit]"
+- [ ] Benefit Hypothesis written
+- [ ] Acceptance Criteria (Feature AC) defined
+- [ ] WSJF computed and documented
+- [ ] Dependencies identified (cross-team, cross-ART)
+- [ ] Estimated in Story Points (team capacity)
+- [ ] Enabled Epics or PI Objectives identified
 
-## Priorisation du Program Backlog
-1. WSJF (Weighted Shortest Job First) — score automatique
-2. Alignement sur les PI Objectives
-3. Dépendances et risques
-4. Capacité ART (nombre d'équipes × vélocité)
+## Program Backlog prioritization
+1. WSJF (Weighted Shortest Job First) — automatic score
+2. Alignment with the PI Objectives
+3. Dependencies and risks
+4. ART capacity (number of teams × velocity)
 
-## Cérémonie : Pre-PI Planning (Product Management sync)
-- Préparer et prioriser le Program Backlog
-- Aligner avec le Business Owners sur les priorités
-- Identifier les Features candidates pour le prochain PI
+## Event: Pre-PI Planning (Product Management sync)
+- Prepare and prioritize the Program Backlog
+- Align with the Business Owners on priorities
+- Identify the candidate Features for the next PI
 
-## Livrables
-- Program Backlog priorisé (Jira / Rally / Azure DevOps)
-- Features rédigées et estimées
-- Rapport de capacité ART vs. backlog
+## Deliverables
+- Prioritized Program Backlog (Jira / Rally / Azure DevOps)
+- Features written and estimated
+- ART capacity vs. backlog report
 
-## Format de sortie
-Précise : nombre d'équipes dans l'ART · durée du PI · outil de gestion backlog · niveau de maturité SAFe
+## Output format
+Specify: number of teams in the ART · PI duration · backlog management tool · SAFe maturity level

@@ -1,79 +1,79 @@
-# Skill — Continuous Exploration (CE) dans le Continuous Delivery Pipeline SAFe
+# Skill — Continuous Exploration (CE) in the SAFe Continuous Delivery Pipeline
 
-> Certification : SAFe POPM 6 · SAFe DevOps Practitioner
-> Agent : AGENT-PO-SAFE.md
+> Certification: SAFe POPM 6 · SAFe DevOps Practitioner
+> Agent: AGENT-PO-SAFE.md
 
-## Objectif
-Piloter la phase de Continuous Exploration du Continuous Delivery Pipeline SAFe pour alimenter en continu le Program Backlog avec des features validées et priorisées.
+## Objective
+Drive the Continuous Exploration phase of the SAFe Continuous Delivery Pipeline to continuously feed the Program Backlog with validated, prioritized features.
 
-## Le Continuous Delivery Pipeline SAFe
+## The SAFe Continuous Delivery Pipeline
 
 ```
 CONTINUOUS    →  CONTINUOUS    →  CONTINUOUS    →  CONTINUOUS
 EXPLORATION      INTEGRATION      DEPLOYMENT       RELEASE
 (CE)             (CI)             (CD)             (CR)
 
-[Besoin]         [Build + Test]   [Deploy Auto]    [Release]
-[Hypothèse]      [Intégration]    [Staging]        [Production]
-[Feature]        [Qualité]        [Monitoring]     [Feedback]
+[Need]           [Build + Test]   [Auto Deploy]    [Release]
+[Hypothesis]     [Integration]    [Staging]        [Production]
+[Feature]        [Quality]        [Monitoring]     [Feedback]
 
-← Rôle PM/PO →  ← Rôle Dev/DevOps ──────────────────────────→
+← PM/PO role →  ← Dev/DevOps role ───────────────────────────→
 ```
 
-## Les 4 activités de la Continuous Exploration
+## The 4 Continuous Exploration activities
 
-### 1. Hypothesize (Formuler des hypothèses)
-- Analyser les tendances marché et retours clients
-- Formuler des hypothèses produit (cf. skill hypothesis-driven.md)
-- Aligner sur les Strategic Themes du Portfolio
+### 1. Hypothesize
+- Analyze market trends and customer feedback
+- Formulate product hypotheses (cf. hypothesis-driven.md skill)
+- Align with the Portfolio's Strategic Themes
 
-### 2. Collaborate & Research (Collaborer et Rechercher)
-- User Research : interviews, observations, surveys
-- Benchmarking concurrentiel
-- Analyse des données produit (analytics, NPS, support)
-- Design Thinking workshops (cross-fonctionnel)
-- Spike techniques pour valider la faisabilité
+### 2. Collaborate & Research
+- User Research: interviews, observations, surveys
+- Competitive benchmarking
+- Product data analysis (analytics, NPS, support)
+- Design Thinking workshops (cross-functional)
+- Technical spikes to validate feasibility
 
-### 3. Architect & Design (Concevoir)
-- Définir les Features SAFe (titre + Benefit Hypothesis + AC)
-- Préparer les enablers architecturaux (en coordination Architect)
-- Wireframing / Prototypage (fidélité croissante)
-- Validation utilisateur (tests de prototype)
+### 3. Architect & Design
+- Define the SAFe Features (title + Benefit Hypothesis + AC)
+- Prepare the architectural enablers (in coordination with the Architect)
+- Wireframing / Prototyping (increasing fidelity)
+- User validation (prototype testing)
 
-### 4. Synthesize (Synthétiser → Program Backlog)
-- Prioriser par WSJF
-- Rédiger les Features prêtes pour le PI Planning
-- Mettre à jour la Roadmap
-- Communiquer aux stakeholders (Vision + PI Objectives)
+### 4. Synthesize (→ Program Backlog)
+- Prioritize by WSJF
+- Write the Features ready for PI Planning
+- Update the Roadmap
+- Communicate to stakeholders (Vision + PI Objectives)
 
-## Cadence CE dans le PI
+## CE cadence within the PI
 
 ```
-PI (10 semaines = 4 Iterations + 1 IP)
+PI (10 weeks = 4 Iterations + 1 IP)
 
-Semaine 1-2   : CE Iteration N (hypothèses + research)
-Semaine 3-4   : CE Iteration N+1 (design + validation)
-Semaine 5-6   : CE Iteration N+2 (synthèse + features prêtes)
-Semaine 7     : PI Planning prep (Program Backlog finalisé)
-Semaine 8-10  : Livraison + feedback → nouveau cycle CE
+Week 1-2   : CE Iteration N (hypotheses + research)
+Week 3-4   : CE Iteration N+1 (design + validation)
+Week 5-6   : CE Iteration N+2 (synthesis + features ready)
+Week 7     : PI Planning prep (Program Backlog finalized)
+Week 8-10  : Delivery + feedback → new CE cycle
 ```
 
-## Program Backlog — Features issues de la CE
+## Program Backlog — Features from CE
 
-### DoR Feature (Definition of Ready)
-- [ ] Titre au format "Verbe + Objet + Valeur"
-- [ ] Benefit Hypothesis rédigée
-- [ ] Acceptance Criteria définis (minimum 3)
-- [ ] WSJF calculé et score documenté
-- [ ] Dépendances identifiées
-- [ ] Enablers architecturaux identifiés si nécessaire
-- [ ] Estimation T-shirt validée par l'ART
+### Feature DoR (Definition of Ready)
+- [ ] Title in the "Verb + Object + Value" format
+- [ ] Benefit Hypothesis written
+- [ ] Acceptance Criteria defined (minimum 3)
+- [ ] WSJF computed and score documented
+- [ ] Dependencies identified
+- [ ] Architectural enablers identified if needed
+- [ ] T-shirt estimate validated by the ART
 
-## Métriques CE
+## CE metrics
 
-| Métrique | Description | Cible |
+| Metric | Description | Target |
 |---|---|---|
-| Feature validation rate | % features validées avec users avant dev | > 60% |
-| Discovery lead time | Temps idée → feature prête PI Planning | < 1 PI |
-| Hypothesis confirmation rate | % hypothèses confirmées en production | Mesurer (baseline) |
-| Research to backlog ratio | % insights research → features backlog | > 30% |
+| Feature validation rate | % features validated with users before dev | > 60% |
+| Discovery lead time | Time from idea → feature ready for PI Planning | < 1 PI |
+| Hypothesis confirmation rate | % hypotheses confirmed in production | Measure (baseline) |
+| Research to backlog ratio | % research insights → backlog features | > 30% |

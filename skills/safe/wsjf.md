@@ -1,43 +1,43 @@
-# Skill SAFe — Priorisation WSJF
+# SAFe Skill — WSJF Prioritization
 
-> Certification : SAFe POPM 6 · SAFe LPM
-> Agents : AGENT-PO-SAFE.md · AGENT-PRODUCT-MANAGER-SAFE.md
+> Certification: SAFe POPM 6 · SAFe LPM
+> Agents: AGENT-PO-SAFE.md · AGENT-PRODUCT-MANAGER-SAFE.md
 
-## Formule
+## Formula
 
 ```
 WSJF = CoD (Cost of Delay) / Job Size
 CoD  = Business Value + Time Criticality + RR/OE
 ```
 
-## Échelle Fibonacci modifiée
+## Modified Fibonacci scale
 
 ```
 1 — 2 — 3 — 5 — 8 — 13 — 20
 ```
 
-## Composantes
+## Components
 
-| Composante | Question |
+| Component | Question |
 |---|---|
-| **BV** Business Value | Quelle valeur pour le client / le business ? |
-| **TC** Time Criticality | Y a-t-il une deadline ou contrainte marché ? La valeur décroît-elle dans le temps ? |
-| **RR/OE** Risk Reduction / Opportunity Enablement | Réduit un risque ou ouvre une opportunité future ? |
-| **Size** Job Size | Taille / durée relative pour livrer ? |
+| **BV** Business Value | What value for the customer / the business? |
+| **TC** Time Criticality | Is there a deadline or market constraint? Does the value decay over time? |
+| **RR/OE** Risk Reduction / Opportunity Enablement | Does it reduce a risk or open a future opportunity? |
+| **Size** Job Size | Relative size / duration to deliver? |
 
-## Méthode de cotation officielle (à respecter strictement)
+## Official scoring method (to follow strictly)
 
-1. **Estimation relative** — on ne note jamais dans l'absolu : on compare les items entre eux.
-2. **Plus petit = 1 par colonne** — dans chaque colonne (BV, TC, RR/OE, Size), l'item le plus petit reçoit **1**, les autres sont cotés relativement à lui sur l'échelle Fibonacci.
-3. **Colonnes indépendantes** — chaque colonne est estimée séparément. Le rang d'un item en BV n'influence pas son rang en TC, RR/OE ou Size.
-4. **Forcer la différenciation** — étaler les valeurs sur l'échelle, éviter les ex-aequo (sinon la priorisation ne tranche pas).
-5. **Recalculer** à chaque PI Planning / évolution des estimations.
+1. **Relative estimation** — never score in absolute terms: compare items against each other.
+2. **Smallest = 1 per column** — in each column (BV, TC, RR/OE, Size), the smallest item gets **1**, the others are scored relative to it on the Fibonacci scale.
+3. **Independent columns** — each column is estimated separately. An item's rank in BV doesn't influence its rank in TC, RR/OE or Size.
+4. **Force differentiation** — spread the values across the scale, avoid ties (otherwise the prioritization doesn't decide).
+5. **Recompute** at each PI Planning / when estimates evolve.
 
-> ⚠️ Anti-pattern : noter sur une échelle 1-10 linéaire, ou réutiliser un score global hérité d'un autre niveau (Épic → Feature). Toujours recotiser au niveau concerné.
+> ⚠️ Anti-pattern: scoring on a linear 1-10 scale, or reusing a global score inherited from another level (Epic → Feature). Always re-score at the relevant level.
 
-## Tableau de calcul (exemple conforme)
+## Calculation table (compliant example)
 
-> Chaque colonne a bien son plus petit item = 1, sur des features différentes (colonnes indépendantes).
+> Each column does have its smallest item = 1, on different features (independent columns).
 
 ```
 | Feature   | BV | TC | RR/OE | CoD | Size | WSJF |
@@ -48,23 +48,23 @@ CoD  = Business Value + Time Criticality + RR/OE
 | Feature D |  5 |  1 |   3   |   9 |   3  |  3.0 |
 ```
 
-- Plus petit par colonne : BV → C (1) · TC → D (1) · RR/OE → B (1) · Size → B (1)
-- Classement WSJF : **B (6.0) > C (3.4) > D (3.0) > A (2.3)**
-- Lecture : B remonte car c'est le plus petit job (mécanique *Weighted Shortest Job First*) ; A descend car c'est le plus gros (à splitter plutôt qu'à override).
+- Smallest per column: BV → C (1) · TC → D (1) · RR/OE → B (1) · Size → B (1)
+- WSJF ranking: **B (6.0) > C (3.4) > D (3.0) > A (2.3)**
+- Reading: B rises because it's the smallest job (the *Weighted Shortest Job First* mechanic); A drops because it's the biggest (to split rather than override).
 
-## Règles d'usage
+## Usage rules
 
-1. Cotation **relative** et **par colonne indépendante** (plus petit = 1).
-2. Consensus avec Business Owners et ART.
-3. Recalculer à chaque PI Planning.
-4. WSJF élevé ≠ toujours exécuté en premier → le **séquencement** intègre les **dépendances** (Program Board), distinctes de la priorité de valeur.
-5. Une Feature à forte valeur mais gros Job Size (WSJF bas) se **splitte** — on ne contourne pas le WSJF.
+1. **Relative** scoring, **per independent column** (smallest = 1).
+2. Consensus with the Business Owners and the ART.
+3. Recompute at each PI Planning.
+4. High WSJF ≠ always executed first → **sequencing** factors in the **dependencies** (Program Board), distinct from value priority.
+5. A high-value Feature with a large Job Size (low WSJF) is **split** — you don't bypass WSJF.
 
-## Atelier WSJF (45 min)
+## WSJF workshop (45 min)
 
 ```
-10 min : Présenter les features
-15 min : Voter BV, TC, RR/OE (cartes) — colonne par colonne, plus petit = 1
-10 min : Voter le Job Size — plus petit = 1
-10 min : Calculer et valider le classement
+10 min: Present the features
+15 min: Vote BV, TC, RR/OE (cards) — column by column, smallest = 1
+10 min: Vote the Job Size — smallest = 1
+10 min: Compute and validate the ranking
 ```

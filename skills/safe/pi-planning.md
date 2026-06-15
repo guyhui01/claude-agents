@@ -1,59 +1,59 @@
-# Skill SAFe — PI Planning
+# SAFe Skill — PI Planning
 
-> Certification : SAFe POPM 6 · SAFe Agilist
-> Agent : AGENT-PO-SAFE.md
+> Certification: SAFe POPM 6 · SAFe Agilist
+> Agent: AGENT-PO-SAFE.md
 
-## Durée et structure (2 jours)
+## Duration and structure (2 days)
 
-### Jour 1
-| Horaire | Activité | Animateur |
+### Day 1
+| Time | Activity | Facilitator |
 |---|---|---|
-| 08h30 | Vision Business | Business Owners |
-| 09h00 | Vision Produit & Architecture | Product Management + Architecte |
-| 10h00 | Présentation Features par équipe | PO de chaque équipe |
-| 11h00 | Breakout équipes — Iteration Planning | Chaque équipe |
-| 17h00 | Draft Plan Review | Toutes équipes |
-| 18h00 | Management Review & Problem Solving | RTE + Management |
+| 08:30 | Business Vision | Business Owners |
+| 09:00 | Product Vision & Architecture | Product Management + Architect |
+| 10:00 | Feature presentation per team | PO of each team |
+| 11:00 | Team breakout — Iteration Planning | Each team |
+| 17:00 | Draft Plan Review | All teams |
+| 18:00 | Management Review & Problem Solving | RTE + Management |
 
-### Jour 2
-| Horaire | Activité | Animateur |
+### Day 2
+| Time | Activity | Facilitator |
 |---|---|---|
-| 08h30 | Ajustements post-Management Review | Équipes |
-| 10h00 | Final Plan Review | Toutes équipes |
-| 11h00 | Risques ROAM | RTE + équipes |
-| 12h00 | Vote de confiance | Toutes équipes |
-| 12h30 | Clôture & PI Objectives signés | Business Owners |
+| 08:30 | Post-Management Review adjustments | Teams |
+| 10:00 | Final Plan Review | All teams |
+| 11:00 | ROAM risks | RTE + teams |
+| 12:00 | Confidence vote | All teams |
+| 12:30 | Close & signed PI Objectives | Business Owners |
 
 ## PI Objectives — Format
 ```
-PI Objective [N] — Équipe [Nom]
+PI Objective [N] — Team [Name]
 
-Objectif : [valeur métier en 1 phrase]
-Business Value cible : [1-10]
-Business Value réelle : [fin de PI]
-Statut : ☐ Committed  ☐ Uncommitted (stretch)
+Objective: [business value in 1 sentence]
+Target Business Value: [1-10]
+Actual Business Value: [end of PI]
+Status: ☐ Committed  ☐ Uncommitted (stretch)
 
-Features : [F-XXX] / [F-XXX]
+Features: [F-XXX] / [F-XXX]
 ```
 
-## Risques ROAM
-| | Signification | Action |
+## ROAM risks
+| | Meaning | Action |
 |---|---|---|
-| **R** Resolved | Résolu pendant le PI Planning | Clore |
-| **O** Owned | Responsable assigné | Suivi hebdo |
-| **A** Accepted | Accepté sans action | Documenter |
-| **M** Mitigated | Plan d'atténuation défini | Mettre en œuvre |
+| **R** Resolved | Resolved during PI Planning | Close |
+| **O** Owned | Owner assigned | Weekly tracking |
+| **A** Accepted | Accepted with no action | Document |
+| **M** Mitigated | Mitigation plan defined | Implement |
 
-## Vote de confiance
-Échelle 1-5 — Cible : moyenne ≥ 3.5
-- 1-2 : Problème majeur → résoudre avant de démarrer
-- 3 : Réserves → ajustements nécessaires
-- 4-5 : Confiant — plan réaliste
+## Confidence vote
+Scale 1-5 — Target: average ≥ 3.5
+- 1-2: Major problem → resolve before starting
+- 3: Reservations → adjustments needed
+- 4-5: Confident — realistic plan
 
-## Checklist PO avant PI Planning
-- [ ] Features priorisées par WSJF, validées par Business Owners
-- [ ] Vision produit préparée (max 10 min)
-- [ ] Backlog features à jour dans Jira
-- [ ] Dépendances connues listées
-- [ ] Capacité calculée (congés, formations)
-- [ ] Stakeholders invités et confirmés
+## PO checklist before PI Planning
+- [ ] Features prioritized by WSJF, validated by Business Owners
+- [ ] Product vision prepared (max 10 min)
+- [ ] Features backlog up to date in Jira
+- [ ] Known dependencies listed
+- [ ] Capacity computed (time off, training)
+- [ ] Stakeholders invited and confirmed

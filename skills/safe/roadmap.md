@@ -1,49 +1,49 @@
-# Skill SAFe — Roadmap
+# SAFe Skill — Roadmap
 
-> Certification : SAFe POPM 6 · SAFe LPM
-> Agents : AGENT-PO-SAFE.md · AGENT-PRODUCT-MANAGER-SAFE.md
+> Certification: SAFe POPM 6 · SAFe LPM
+> Agents: AGENT-PO-SAFE.md · AGENT-PRODUCT-MANAGER-SAFE.md
 
-## Niveaux de roadmap
+## Roadmap levels
 ```
-Vision Produit (2-3 ans)
+Product Vision (2-3 years)
 └── Strategic Themes
-    └── Portfolio Roadmap (annuelle)
-        └── PI Roadmap (trimestrielle)
-            └── Sprint Roadmap (courante)
+    └── Portfolio Roadmap (annual)
+        └── PI Roadmap (quarterly)
+            └── Sprint Roadmap (current)
 ```
 
-## Types de jalons SAFe
+## SAFe milestone types
 | Type | Description |
 |---|---|
-| Jalon fixe | Date non négociable (réglementaire, contractuel, marché) |
-| Jalon apprenant | Date de décision basée sur les résultats obtenus |
-| Jalon de release | Livraison au client final |
+| Fixed milestone | Non-negotiable date (regulatory, contractual, market) |
+| Learning milestone | Decision date based on the results obtained |
+| Release milestone | Delivery to the end customer |
 
-## Template Roadmap PI
+## PI Roadmap template
 ```
-ROADMAP — [Nom Produit] — [Année]
+ROADMAP — [Product Name] — [Year]
 
 Q1 — PI [N]
-├── [Feature] — BV : [X] — Équipe : [nom] — Committed
-├── [Feature] — BV : [X] — Équipe : [nom] — Stretch
-└── 🏁 Release [nom] — [date]
+├── [Feature] — BV: [X] — Team: [name] — Committed
+├── [Feature] — BV: [X] — Team: [name] — Stretch
+└── 🏁 Release [name] — [date]
 
 Q2 — PI [N+1]
-├── [Feature] — BV : [X]
-└── [Feature] — BV : [X]
+├── [Feature] — BV: [X]
+└── [Feature] — BV: [X]
 
-Q3 — PI [N+2] ⚠️ Planification à confirmer en I&A
-Q4 — PI [N+3] 💡 Vision — sujette à changement
+Q3 — PI [N+2] ⚠️ Planning to confirm at I&A
+Q4 — PI [N+3] 💡 Vision — subject to change
 
-Hypothèses clés :
-- [hypothèse 1]
-- [hypothèse 2]
+Key assumptions:
+- [assumption 1]
+- [assumption 2]
 
-Risques roadmap :
-- [risque] → ROAM : [R/O/A/M]
+Roadmap risks:
+- [risk] → ROAM: [R/O/A/M]
 ```
 
-## Mise à jour de la roadmap
-- Après chaque PI Planning : mise à jour PI courant et suivant
-- Après chaque I&A : ajustement Q courant et Q+1
-- Communication aux Business Owners : à chaque SteerCo
+## Updating the roadmap
+- After each PI Planning: update the current and next PI
+- After each I&A: adjust the current Q and Q+1
+- Communication to the Business Owners: at each SteerCo

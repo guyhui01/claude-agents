@@ -4,7 +4,7 @@
     "name": "claude-agents",
     "version": "v3.26.2"
   },
-  "generatedAt": "2026-06-15T11:21:16.303Z",
+  "generatedAt": "2026-06-15T11:37:13.272Z",
   "assets": [
     {
       "id": "AGENT-AI-ARCHITECT",
@@ -89,7 +89,7 @@
       "type": "agent",
       "path": "AGENT-PO-SAFE.md",
       "title": "Product Owner SAFe Expert",
-      "description": "Product Owner SAFe — PI Planning, ART, WSJF, features, program backlog opérationnel",
+      "description": "Product Owner SAFe — PI Planning, ART, WSJF, features, operational program backlog",
       "catalogVersion": "v3.26.2",
       "source": {
         "file": "AGENT-PO-SAFE.md",

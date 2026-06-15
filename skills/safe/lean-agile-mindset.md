@@ -1,39 +1,39 @@
-# Skill — Lean-Agile Mindset & Principes SAFe
-> Certifications : SAFe POPM 6 · SAFe 6 Agilist (SA)
+# Skill — Lean-Agile Mindset & SAFe Principles
+> Certifications: SAFe POPM 6 · SAFe 6 Agilist (SA)
 
-## Objectif
-Ancrer les décisions produit dans les principes Lean-Agile pour maximiser la valeur et réduire les gaspillages.
+## Objective
+Ground product decisions in Lean-Agile principles to maximize value and reduce waste.
 
-## Les 10 principes SAFe
-1. Adopter une vision économique
-2. Appliquer la pensée systémique
-3. Supposer variabilité, préserver les options
-4. Construire de façon incrémentale avec des cycles d'apprentissage rapides
-5. Baser les jalons sur l'évaluation objective des systèmes fonctionnels
-6. Rendre la valeur visible et les files d'attente transparentes
-7. Cadencer, synchroniser avec la planification inter-domaines
-8. Libérer la motivation intrinsèque des travailleurs du savoir
-9. Décentraliser la prise de décision
-10. Organiser autour de la valeur
+## The 10 SAFe principles
+1. Take an economic view
+2. Apply systems thinking
+3. Assume variability, preserve options
+4. Build incrementally with fast, integrated learning cycles
+5. Base milestones on objective evaluation of working systems
+6. Make value flow without interruptions (visualize and limit WIP)
+7. Apply cadence, synchronize with cross-domain planning
+8. Unlock the intrinsic motivation of knowledge workers
+9. Decentralize decision-making
+10. Organize around value
 
-## Lean Thinking — 5 valeurs fondamentales
-1. Identifier la valeur (du point de vue client)
-2. Cartographier le flux de valeur
-3. Créer le flux (éliminer les interruptions)
-4. Établir le pull (produire à la demande)
-5. Viser la perfection (amélioration continue)
+## Lean Thinking — 5 core values
+1. Identify value (from the customer's point of view)
+2. Map the value stream
+3. Create flow (eliminate interruptions)
+4. Establish pull (produce on demand)
+5. Seek perfection (continuous improvement)
 
-## Application pratique pour le PO/PM
-- Prioriser par valeur économique (WSJF), pas par ancienneté ou pression
-- Réduire la taille des lots (Minimum Marketable Feature)
-- Décider au dernier moment responsable (ne pas sur-spécifier trop tôt)
-- Livrer de la valeur fréquemment (chaque sprint, chaque PI)
-- Mesurer les résultats, pas les livrables (EBM)
+## Practical application for the PO/PM
+- Prioritize by economic value (WSJF), not by seniority or pressure
+- Reduce batch size (Minimum Marketable Feature)
+- Decide at the last responsible moment (don't over-specify too early)
+- Deliver value frequently (every sprint, every PI)
+- Measure outcomes, not deliverables (EBM)
 
-## Livrables
-- Workshop Lean-Agile Mindset (slides / FigJam)
-- Checklist de décision basée sur les 10 principes SAFe
-- Auto-évaluation de maturité Lean-Agile de l'équipe
+## Deliverables
+- Lean-Agile Mindset workshop (slides / FigJam)
+- Decision checklist based on the 10 SAFe principles
+- Team Lean-Agile maturity self-assessment
 
-## Format de sortie
-Précise : contexte (coaching, onboarding équipe, PI Planning) · niveau de maturité SAFe actuel
+## Output format
+Specify: context (coaching, team onboarding, PI Planning) · current SAFe maturity level

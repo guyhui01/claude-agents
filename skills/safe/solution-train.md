@@ -1,20 +1,20 @@
-# Skill — Solution Train et Large Solution SAFe
+# Skill — Solution Train and SAFe Large Solution
 
-> Certification : SAFe POPM 6 · SAFe LPM
-> Agent : AGENT-PO-SAFE.md
+> Certification: SAFe POPM 6 · SAFe LPM
+> Agent: AGENT-PO-SAFE.md
 
-## Objectif
-Coordonner plusieurs ARTs (Agile Release Trains) dans le cadre du niveau Large Solution SAFe pour livrer des solutions complexes nécessitant plusieurs centaines de personnes.
+## Objective
+Coordinate several ARTs (Agile Release Trains) within the SAFe Large Solution level to deliver complex solutions requiring several hundred people.
 
-## Quand utiliser le niveau Large Solution ?
+## When to use the Large Solution level?
 
-Le niveau Large Solution s'applique quand :
-- Le produit nécessite **plusieurs ARTs** (> 150 personnes)
-- Les systèmes sont **cyber-physiques** (embarqué, défense, aéronautique)
-- Les **dépendances cross-ART** sont nombreuses et complexes
-- Un **Solution Train** est nécessaire pour coordonner
+The Large Solution level applies when:
+- The product requires **several ARTs** (> 150 people)
+- The systems are **cyber-physical** (embedded, defense, aerospace)
+- The **cross-ART dependencies** are numerous and complex
+- A **Solution Train** is needed to coordinate
 
-## Structure du Solution Train
+## Solution Train structure
 
 ```
 SOLUTION TRAIN
@@ -22,83 +22,83 @@ SOLUTION TRAIN
 ├── Solution Architect
 ├── Solution Train Engineer (STE)
 │
-├── ART 1 (Release Train Engineer + équipes Scrum)
+├── ART 1 (Release Train Engineer + Scrum teams)
 │   ├── Feature Team A
 │   ├── Feature Team B
 │   └── Feature Team C
 │
-├── ART 2 (RTE + équipes)
+├── ART 2 (RTE + teams)
 │   ├── Feature Team D
 │   └── Feature Team E
 │
-└── ART 3 (RTE + équipes)
+└── ART 3 (RTE + teams)
     ├── Feature Team F
     └── Feature Team G
 ```
 
-## Rôles clés du niveau Large Solution
+## Key roles at the Large Solution level
 
-| Rôle | Responsabilité |
+| Role | Responsibility |
 |---|---|
-| **Solution Manager** | Vision solution, Backlog Solution, stakeholders |
-| **Solution Architect** | Architecture cross-ART, Capabilities, enablers |
-| **Solution Train Engineer (STE)** | Coordination RTEs, cadence Solution Train |
-| **Business Owner** | Validation solution, financement, ROI |
-| **Customer** | Besoins réels, validation, acceptance |
+| **Solution Manager** | Solution vision, Solution Backlog, stakeholders |
+| **Solution Architect** | Cross-ART architecture, Capabilities, enablers |
+| **Solution Train Engineer (STE)** | RTE coordination, Solution Train cadence |
+| **Business Owner** | Solution validation, funding, ROI |
+| **Customer** | Real needs, validation, acceptance |
 
-## Backlog Solution — Capabilities
+## Solution Backlog — Capabilities
 
 ### Capabilities vs Features
 
 ```
-Portfolio   → Epics (très large scope, financement LPM)
+Portfolio   → Epics (very large scope, LPM funding)
                 │
 Large Sol.  → Capabilities (cross-ART, 1-2 PIs)
                 │
 ART         → Features (1 ART, 1 PI)
                 │
-Equipe      → User Stories (1 sprint)
+Team        → User Stories (1 sprint)
 ```
 
-### Format d'une Capability
+### Capability format
 ```
-Titre : [Verbe + Objet] pour [utilisateur / système]
-Benefit Hypothesis : "En livrant [capability], nous permettrons à 
-                      [utilisateur] d'atteindre [résultat]."
-Acceptance Criteria (SMART) :
-  1. [Critère mesurable 1]
-  2. [Critère mesurable 2]
-Split : [Feature ART-1] + [Feature ART-2] + [Feature ART-3]
+Title: [Verb + Object] for [user / system]
+Benefit Hypothesis: "By delivering [capability], we will let
+                     [user] achieve [outcome]."
+Acceptance Criteria (SMART):
+  1. [Measurable criterion 1]
+  2. [Measurable criterion 2]
+Split: [Feature ART-1] + [Feature ART-2] + [Feature ART-3]
 ```
 
-## Événements du Solution Train
+## Solution Train events
 
 ### Pre-PI Planning (Large Solution)
-- **Qui** : Solution Management + Architects + RTEs
-- **Quand** : 1-2 jours avant le PI Planning de chaque ART
-- **Objectif** : Aligner les inputs (Capabilities, contraintes, dépendances cross-ART)
+- **Who**: Solution Management + Architects + RTEs
+- **When**: 1-2 days before each ART's PI Planning
+- **Goal**: Align the inputs (Capabilities, constraints, cross-ART dependencies)
 
 ### Solution Demo
-- **Qui** : Toutes les équipes du Solution Train
-- **Quand** : Fin de chaque iteration (ou IP Sprint)
-- **Objectif** : Démontrer l'intégration cross-ART fonctionnelle
-- **Durée** : 2-4h selon la complexité
+- **Who**: All the Solution Train teams
+- **When**: End of each iteration (or IP Sprint)
+- **Goal**: Demonstrate working cross-ART integration
+- **Duration**: 2-4h depending on complexity
 
 ### Post-PI Planning (Large Solution)
-- **Qui** : Solution Management + Architects + RTEs
-- **Quand** : 1-2 jours après le PI Planning des ARTs
-- **Objectif** : Consolider les PI Plans, identifier les dépendances résiduelles
+- **Who**: Solution Management + Architects + RTEs
+- **When**: 1-2 days after the ARTs' PI Planning
+- **Goal**: Consolidate the PI Plans, identify residual dependencies
 
-## Gestion des dépendances cross-ART
+## Cross-ART dependency management
 
 ### Solution Kanban
 ```
-Backlog → Analyse → Implémentation → Démo → Déployé
-  (Capabilities non commencées)      (Solution Demo validée)
+Backlog → Analysis → Implementation → Demo → Deployed
+  (Capabilities not started)         (Solution Demo validated)
 ```
 
-### Matrice des dépendances
-| Feature / Capability | ART Producteur | ART Consommateur | Sprint livraison | Statut |
+### Dependency matrix
+| Feature / Capability | Producer ART | Consumer ART | Delivery sprint | Status |
 |---|---|---|---|---|
-| API Auth | ART-1 | ART-2 + ART-3 | Sprint 2 | ⏳ En cours |
-| Data Model | ART-2 | ART-1 | Sprint 1 | ✅ Livré |
+| Auth API | ART-1 | ART-2 + ART-3 | Sprint 2 | ⏳ In progress |
+| Data Model | ART-2 | ART-1 | Sprint 1 | ✅ Delivered |

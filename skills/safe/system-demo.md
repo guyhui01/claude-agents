@@ -1,41 +1,41 @@
 # Skill — System Demo & Solution Demo
-> Certifications : SAFe POPM 6
+> Certifications: SAFe POPM 6
 
-## Objectif
-Préparer et faciliter la démonstration intégrée de l'incrément de valeur livré par l'ART à la fin de chaque PI ou sprint.
+## Objective
+Prepare and facilitate the integrated demonstration of the value increment delivered by the ART at the end of each PI or sprint.
 
 ## System Demo vs. Solution Demo
-| Critère | System Demo | Solution Demo |
+| Criterion | System Demo | Solution Demo |
 |---|---|---|
-| Fréquence | Fin de chaque sprint (ou PI) | Fin du PI (Large Solution) |
-| Périmètre | Un ART complet | Plusieurs ARTs intégrés |
-| Public | Business Owners, stakeholders | Portfolio Management, clients |
-| Animé par | Product Management + équipes | Solution Management |
+| Frequency | End of each sprint (or PI) | End of the PI (Large Solution) |
+| Scope | A full ART | Several integrated ARTs |
+| Audience | Business Owners, stakeholders | Portfolio Management, customers |
+| Facilitated by | Product Management + teams | Solution Management |
 
-## Préparer la System Demo
-1. **Coordination** : synchroniser toutes les équipes (intégration code + tests)
-2. **Environnement** : déployer sur l'environnement de staging / démo
-3. **Script** : parcours utilisateur cohérent qui traverse les contributions de chaque équipe
-4. **Données** : préparer les jeux de données de démo (réalistes, non personnelles)
-5. **Backup** : prévoir les slides en cas de panne technique
+## Preparing the System Demo
+1. **Coordination**: synchronize all teams (code integration + tests)
+2. **Environment**: deploy to the staging / demo environment
+3. **Script**: a coherent user journey crossing each team's contributions
+4. **Data**: prepare the demo datasets (realistic, non-personal)
+5. **Backup**: have slides ready in case of a technical failure
 
-## Structure de la System Demo (60-90 min)
-1. Contexte et rappel des PI Objectives (5 min)
-2. Démonstration des Features intégrées (40-60 min)
-3. Métriques de qualité et flow (10 min)
-4. Feedback des Business Owners (15-20 min)
+## System Demo structure (60-90 min)
+1. Context and reminder of the PI Objectives (5 min)
+2. Demonstration of the integrated Features (40-60 min)
+3. Quality and flow metrics (10 min)
+4. Business Owner feedback (15-20 min)
 5. Next steps (5 min)
 
-## Critères de succès
-- Demo sur système intégré réel (pas de maquettes)
-- Toutes les Features terminées démontrées
-- Feedback structuré collecté et documenté
-- Business Value réelle mesurée et communiquée
+## Success criteria
+- Demo on a real integrated system (no mockups)
+- All completed Features demonstrated
+- Structured feedback collected and documented
+- Actual Business Value measured and communicated
 
-## Livrables
-- Script de démo (parcours utilisateur)
-- Rapport Business Value delivered vs. planned
-- Feedback collecté et priorisé pour le prochain PI
+## Deliverables
+- Demo script (user journey)
+- Business Value delivered vs. planned report
+- Feedback collected and prioritized for the next PI
 
-## Format de sortie
-Précise : nombre d'équipes · features à démontrer · durée disponible · public attendu
+## Output format
+Specify: number of teams · features to demonstrate · time available · expected audience

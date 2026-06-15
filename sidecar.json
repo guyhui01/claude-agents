@@ -4,7 +4,7 @@
     "name": "claude-agents",
     "version": "v3.26.2"
   },
-  "generatedAt": "2026-06-15T11:37:13.272Z",
+  "generatedAt": "2026-06-15T11:43:37.098Z",
   "assets": [
     {
       "id": "AGENT-AI-ARCHITECT",
@@ -154,7 +154,7 @@
       "type": "agent",
       "path": "AGENT-RELEASE-TRAIN-ENGINEER.md",
       "title": "Release Train Engineer Expert",
-      "description": "Release Train Engineer SAFe — coordination ART, PI Planning, impediments, métriques de flux, amélioration continue",
+      "description": "Release Train Engineer SAFe — ART coordination, PI Planning, impediments, flow metrics, continuous improvement",
       "catalogVersion": "v3.26.2",
       "source": {
         "file": "AGENT-RELEASE-TRAIN-ENGINEER.md",

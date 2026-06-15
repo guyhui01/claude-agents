@@ -1,239 +1,239 @@
-# Skill — Reporting MOA & Gouvernance Projet
+# Skill — MOA Reporting & Project Governance
 
-> Certifications : **IIBA CBAP** · **PMI-PBA** · **PRINCE2 Practitioner** · ISO 21500
-> Agent : AGENT-BUSINESS-ANALYST.md
+> Certifications: **IIBA CBAP** · **PMI-PBA** · **PRINCE2 Practitioner** · ISO 21500
+> Agent: AGENT-BUSINESS-ANALYST.md
 
-## Objectif
+## Objective
 
-Produire des **reportings actionnables** et structurer la **comitologie complète** (COMEX → COSTRAT → COPIL → COTECH → CCB → CDP) pour piloter un projet/programme MOA avec **escalade tracée** et **décisions documentées** — en s'appuyant sur les indicateurs RAG (Red-Amber-Green), les OKR projet et les dashboards multi-niveaux.
+Produce **actionable reporting** and structure the **full committee governance** (COMEX → COSTRAT → COPIL → COTECH → CCB → CDP) to steer an MOA project/program with **traced escalation** and **documented decisions** — relying on RAG (Red-Amber-Green) indicators, project OKRs and multi-level dashboards.
 
-## Cadre BABOK v3 (IIBA 2015)
+## BABOK v3 framework (IIBA 2015)
 
-| KA BABOK v3 | Tâches typiques reporting/gouvernance |
+| BABOK v3 KA | Typical reporting/governance tasks |
 |---|---|
 | **#2 BA Planning & Monitoring** | T2.5 Plan Stakeholder Engagement · T2.6 Plan Governance Approach · T2.7 Identify BA Performance Improvements |
-| **#10 Stakeholder Engagement** | Communication ciblée par quadrant Mendelow (cf. analyse-impact) |
+| **#10 Stakeholder Engagement** | Targeted communication per Mendelow quadrant (cf. analyse-impact) |
 | **#6 Solution Evaluation** | T6.1 Measure Solution Performance · T6.2 Analyze Performance Measures |
 
-## Comitologie complète — Pyramide de gouvernance projet/programme
+## Full committee governance — Project/program governance pyramid
 
 ```
                     ┌──────────────────────┐
-                    │  COMEX (Comité Exéc.) │  Stratégique entreprise
-                    │  Fréq. trimestrielle  │  Programme > 5 M€ ou stratégique
+                    │  COMEX (Exec. Comm.)  │  Enterprise strategic
+                    │  Quarterly frequency  │  Program > €5M or strategic
                     └──────────┬───────────┘
                                │
                     ┌──────────▼───────────┐
-                    │  COSTRAT (Comité     │  Stratégique programme
-                    │   Stratégique)        │  Fréq. trimestrielle
+                    │  COSTRAT (Strategic  │  Program strategic
+                    │   Committee)         │  Quarterly frequency
                     └──────────┬───────────┘
                                │
                     ┌──────────▼───────────┐
-                    │  COPIL (Comité de    │  Pilotage projet
-                    │   Pilotage)          │  Fréq. mensuelle (parfois bimensuelle)
+                    │  COPIL (Steering     │  Project steering
+                    │   Committee)         │  Monthly (sometimes biweekly)
                     └──────────┬───────────┘
                                │
               ┌────────────────┼─────────────────┐
               │                │                 │
        ┌──────▼──────┐  ┌──────▼──────┐  ┌──────▼─────┐
        │  COTECH     │  │  CCB (Change│  │  CDP       │
-       │  (Comité    │  │  Control    │  │  (Comité   │
-       │   Technique)│  │   Board)    │  │   Projet)  │
-       │  Bimensuel  │  │  Hebdo      │  │  Hebdo     │
+       │  (Technical │  │  Control    │  │  (Project  │
+       │   Committee)│  │   Board)    │  │  Committee)│
+       │  Biweekly   │  │  Weekly     │  │  Weekly    │
        └─────────────┘  └─────────────┘  └────────────┘
 ```
 
-| Instance | Fréquence | Composition typique | Périmètre décisionnel |
+| Body | Frequency | Typical composition | Decision scope |
 |---|---|---|---|
-| **COMEX** | Trimestrielle | DG/CEO + Direction Générale + Sponsor exécutif | Validation programme stratégique, arbitrages > 1 M€, alignement portefeuille |
-| **COSTRAT** | Trimestrielle | Sponsor + DG métier + DSI + Direction Programme + Régulateur si applicable | Cap stratégique programme, business case, jalons majeurs, exceptions sponsor |
-| **COPIL** | Mensuelle (bimensuelle si projet rapide) | Sponsor + CdP MOA + CdP MOE + Métier + DSI + PMO | Pilotage projet RAG, jalons, budget, exceptions PRINCE2, arbitrages périmètre |
-| **COTECH** | Bimensuelle | CdP MOA + CdP MOE + Architectes + Tech leads + RSSI | Décisions techniques, architecture, dépendances, dette technique |
-| **CCB** (Change Control Board) | Hebdomadaire ou ad hoc | CdP MOA + Sponsor + BA + Architecte + représentant métier | Change Requests : Approved / Rejected / Deferred / Need More Info |
-| **CDP** (Comité de Projet) | Hebdomadaire | Équipe projet élargie (CdP MOA, BA, MOE, Métier référents) | Suivi opérationnel hebdomadaire, blocages, plan d'actions |
+| **COMEX** | Quarterly | DG/CEO + Executive Leadership + executive Sponsor | Strategic program validation, trade-offs > €1M, portfolio alignment |
+| **COSTRAT** | Quarterly | Sponsor + business DG + IT Director + Program Director + Regulator if applicable | Program strategic direction, business case, major milestones, sponsor exceptions |
+| **COPIL** | Monthly (biweekly for fast projects) | Sponsor + MOA PM + MOE PM + Business + IT + PMO | RAG project steering, milestones, budget, PRINCE2 exceptions, scope trade-offs |
+| **COTECH** | Biweekly | MOA PM + MOE PM + Architects + Tech leads + CISO | Technical decisions, architecture, dependencies, technical debt |
+| **CCB** (Change Control Board) | Weekly or ad hoc | MOA PM + Sponsor + BA + Architect + business representative | Change Requests: Approved / Rejected / Deferred / Need More Info |
+| **CDP** (Project Committee) | Weekly | Extended project team (MOA PM, BA, MOE, business reference users) | Weekly operational tracking, blockers, action plan |
 
-## Escalade pyramidale — Triggers automatiques
+## Pyramidal escalation — Automatic triggers
 
-| Trigger | Niveau cible | Délai escalade |
+| Trigger | Target level | Escalation lead time |
 |---|---|---|
-| Risque 🔴 nouveau identifié | COPIL (suivant) | < 7 jours |
-| Tolérance PRINCE2 dépassée (Time/Cost) | COPIL → COSTRAT | Immédiat (exception report) |
-| Demande de change Must (CCB) | COPIL ou COSTRAT selon impact | < 14 jours |
-| Réserve majeure régulateur / audit | COSTRAT | < 48h |
-| Tolérance globale programme dépassée | COSTRAT → COMEX | Trimestre suivant |
-| Bloquant ressources critiques | CDP → COPIL → COSTRAT | Selon ancienneté blocage (3/7/14j) |
+| New 🔴 risk identified | COPIL (next) | < 7 days |
+| PRINCE2 tolerance exceeded (Time/Cost) | COPIL → COSTRAT | Immediate (exception report) |
+| Must change request (CCB) | COPIL or COSTRAT per impact | < 14 days |
+| Major regulator / audit reservation | COSTRAT | < 48h |
+| Overall program tolerance exceeded | COSTRAT → COMEX | Next quarter |
+| Critical resource blocker | CDP → COPIL → COSTRAT | Per blocker age (3/7/14d) |
 
-## Types de reportings MOA
+## MOA reporting types
 
-| Format | Fréquence | Public | Durée présentation |
+| Format | Frequency | Audience | Presentation length |
 |---|---|---|---|
-| **Daily Standup MOA** | Quotidien | Équipe projet | 15 min |
-| **Point hebdomadaire CDP** | Hebdo | Équipe + CdP | 30 min |
-| **Rapport d'avancement** | Bimensuel | CdP MOA → CdP MOE → PMO | 1 page PDF |
-| **Compte rendu CCB** | Hebdo | Membres CCB + archive Confluence | 15 min |
-| **Tableau de bord COPIL** | Mensuel | Sponsors + Direction métier + DSI | 30-45 min, 5-8 slides |
-| **Bilan de Gate (Go/No-Go)** | Fin de phase | Comité de steering / COSTRAT | 1h, 10-15 slides |
-| **Reporting COSTRAT** | Trimestriel | Direction Générale + Sponsor exécutif | 30 min, 5 slides exécutifs |
-| **Reporting COMEX** | Trimestriel | COMEX entreprise | 10-15 min, 1-3 slides |
+| **MOA Daily Standup** | Daily | Project team | 15 min |
+| **Weekly CDP point** | Weekly | Team + PM | 30 min |
+| **Progress report** | Biweekly | MOA PM → MOE PM → PMO | 1-page PDF |
+| **CCB minutes** | Weekly | CCB members + Confluence archive | 15 min |
+| **COPIL dashboard** | Monthly | Sponsors + business leadership + IT | 30-45 min, 5-8 slides |
+| **Gate review (Go/No-Go)** | End of phase | Steering committee / COSTRAT | 1h, 10-15 slides |
+| **COSTRAT reporting** | Quarterly | Executive Leadership + executive Sponsor | 30 min, 5 executive slides |
+| **COMEX reporting** | Quarterly | Enterprise COMEX | 10-15 min, 1-3 slides |
 
-## Tableau de bord COPIL — Structure 5 slides (gabarit standard)
+## COPIL dashboard — 5-slide structure (standard template)
 
-### Slide 1 — Synthèse exécutive (1 slide récap)
-- **Indicateur global RAG** : 🟢 Vert · 🟡 Orange · 🔴 Rouge
-- 3 points clés période + 3 décisions demandées
-- Trend (vs COPIL précédent)
+### Slide 1 — Executive summary (1 recap slide)
+- **Overall RAG indicator**: 🟢 Green · 🟡 Amber · 🔴 Red
+- 3 key points for the period + 3 requested decisions
+- Trend (vs previous COPIL)
 
-### Slide 2 — Avancement planning
-- Jalons réalisés vs prévus (% avancement par phase)
-- Jalons à venir M+1 / M+2 / M+3
-- Chemin critique mis à jour (cf. [pilotage-projet.md](pilotage-projet.md))
-- Tolérance Time consommée (vs ±10% PRINCE2)
+### Slide 2 — Schedule progress
+- Milestones completed vs planned (% progress per phase)
+- Upcoming milestones M+1 / M+2 / M+3
+- Updated critical path (cf. [pilotage-projet.md](pilotage-projet.md))
+- Time tolerance consumed (vs PRINCE2 ±10%)
 
-### Slide 3 — Budget & ressources
-- Budget consommé vs budgété par phase + global
-- RAF (Reste À Faire) + EAC (Estimate At Completion)
-- Tolérance Cost consommée (vs ±5% PRINCE2)
-- Charge équipe (ETP utilisés / planifiés)
+### Slide 3 — Budget & resources
+- Budget consumed vs budgeted per phase + overall
+- ETC (Estimate To Complete) + EAC (Estimate At Completion)
+- Cost tolerance consumed (vs PRINCE2 ±5%)
+- Team load (FTE used / planned)
 
-### Slide 4 — Risques & qualité
-- Top 5 risques actifs (P × I, owner, trend)
-- Anomalies détectées par phase (bloquantes / majeures / mineures)
-- Tolérance Quality consommée
-- Risques montants 🔴 nouveaux
+### Slide 4 — Risks & quality
+- Top 5 active risks (P × I, owner, trend)
+- Defects detected per phase (blocking / major / minor)
+- Quality tolerance consumed
+- New 🔴 rising risks
 
-### Slide 5 — Décisions demandées + Change Requests
-- CR Approved / Rejected / Deferred ce mois
-- Arbitrages COPIL attendus (options + recommandation CdP MOA)
-- Lessons Learned intermédiaires
+### Slide 5 — Requested decisions + Change Requests
+- CR Approved / Rejected / Deferred this month
+- COPIL trade-offs expected (options + MOA PM recommendation)
+- Interim Lessons Learned
 
-## OKR projet — Couplage Objectives + Key Results
+## Project OKRs — Coupling Objectives + Key Results
 
-**Inspiré OKR (John Doerr 2018, *Measure What Matters*)** appliqué au pilotage projet.
+**Inspired by OKRs (John Doerr 2018, *Measure What Matters*)** applied to project steering.
 
-### Structure OKR projet
+### Project OKR structure
 ```
-Objective (qualitatif, motivant, ambitieux)
+Objective (qualitative, motivating, ambitious)
   ↓
-Key Result 1 (quantitatif, mesurable, ambitieux)
+Key Result 1 (quantitative, measurable, ambitious)
 Key Result 2
 Key Result 3
 ```
 
-### Exemple OKR projet conformité réglementaire
-- **Objective** : Atteindre la conformité régulateur à l'échéance avec sérénité
-- **KR1** : 100% des 47 services critiques documentés et testés (TLPT) au 17/01/2025
-- **KR2** : 0 réserve majeure à l'audit ACPR/EBA
-- **KR3** : RTO services critiques < 4h (exigence DORA)
+### Regulatory-compliance project OKR example
+- **Objective**: Reach regulator compliance by the deadline with confidence
+- **KR1**: 100% of the 47 critical services documented and tested (TLPT) by 2025-01-17
+- **KR2**: 0 major reservation at the ACPR/EBA audit
+- **KR3**: critical-service RTO < 4h (DORA requirement)
 
-### Couplage KPI projet ↔ KPI business case
-- **KPI projet** : avancement, budget, qualité, risques (pilotage CdP MOA)
-- **KPI bénéfices business case** : ROI, NPS, productivité, conformité (validation Sponsor → COSTRAT)
-- **Reporting COPIL** : KPI projet dominants
-- **Reporting COSTRAT** : KPI bénéfices dominants
+### Coupling project KPIs ↔ business-case KPIs
+- **Project KPIs**: progress, budget, quality, risks (MOA PM steering)
+- **Business-case benefit KPIs**: ROI, NPS, productivity, compliance (Sponsor validation → COSTRAT)
+- **COPIL reporting**: project KPIs dominant
+- **COSTRAT reporting**: benefit KPIs dominant
 
-## Indicateurs clés MOA (KPI standardisés)
+## Key MOA indicators (standardized KPIs)
 
-### Couverture & Qualité
-- **Taux de couverture des exigences** : % exigences testées et validées
-- **Taux de réussite recette** : % cas de test OK / total
-- **Densité d'anomalies** : nombre d'anomalies / KLOC ou / cas de test
-- **Anomalies bloquantes ouvertes** : nombre (objectif 0 pour GO MEP)
-- **DRE** (Defect Removal Efficiency) : anomalies détectées en pré-prod / total anomalies — cible ≥ 95%
+### Coverage & Quality
+- **Requirements coverage rate**: % of requirements tested and validated
+- **Acceptance success rate**: % of test cases OK / total
+- **Defect density**: number of defects / KLOC or / test case
+- **Open blocking defects**: number (target 0 for go-live GO)
+- **DRE** (Defect Removal Efficiency): defects detected pre-prod / total defects — target ≥ 95%
 
-### Avancement & Performance
-- **% avancement physique** : livrables validés / livrables planifiés
-- **% avancement valeur** : EVM Earned Value / Budget At Completion (cf. pilotage-projet)
+### Progress & Performance
+- **% physical progress**: validated deliverables / planned deliverables
+- **% value progress**: EVM Earned Value / Budget At Completion (cf. pilotage-projet)
 - **SPI** (Schedule Performance Index) = EV / PV — ≥ 1 OK
 - **CPI** (Cost Performance Index) = EV / AC — ≥ 1 OK
-- **Vélocité agile** (si hybride) : points story / sprint
+- **Agile velocity** (if hybrid): story points / sprint
 
 ### Engagement & Satisfaction
-- **NPS projet stakeholders** : Net Promoter Score interne post-comité
-- **Satisfaction utilisateurs ateliers** : score 1-5 post-workshop
-- **Taux participation comités** : présence effective / convocation
-- **eNPS équipe projet** : engagement collaborateurs équipe
+- **Stakeholder project NPS**: internal Net Promoter Score after a committee
+- **Workshop user satisfaction**: 1-5 score after a workshop
+- **Committee attendance rate**: actual attendance / invitations
+- **Project team eNPS**: team employee engagement
 
-## Code couleur RAG (Red-Amber-Green) — Définition stricte
+## RAG color code (Red-Amber-Green) — Strict definition
 
-| Statut | Critères objectifs | Action attendue |
+| Status | Objective criteria | Expected action |
 |:---:|---|---|
-| 🟢 **Vert** | Dans tolérances Time/Cost/Quality/Risk + 0 risque 🔴 nouveau + Sponsor satisfait | Continuer, pas d'arbitrage |
-| 🟡 **Orange** | 1 tolérance consommée à > 70% OU 1-2 risques 🔴 sous contrôle OU dérive amorcée | Plan d'action + suivi rapproché + reporting hebdo |
-| 🔴 **Rouge** | Tolérance dépassée OU risque 🔴 actif sans mitigation OU sponsor insatisfait majeur | Exception report immédiat + escalade COSTRAT + décision sponsor < 7 jours |
+| 🟢 **Green** | Within Time/Cost/Quality/Risk tolerances + 0 new 🔴 risk + Sponsor satisfied | Continue, no trade-off |
+| 🟡 **Amber** | 1 tolerance consumed > 70% OR 1-2 🔴 risks under control OR drift starting | Action plan + close tracking + weekly reporting |
+| 🔴 **Red** | Tolerance exceeded OR active 🔴 risk without mitigation OR major sponsor dissatisfaction | Immediate exception report + COSTRAT escalation + sponsor decision < 7 days |
 
-**Anti-pattern** : RAG "subjectif" mis Vert pour rassurer le Sponsor alors que tolérances dépassées → perte de confiance majeure si découverte tardive. Toujours **RAG quantitatif** basé sur seuils définis en Charte.
+**Anti-pattern**: a "subjective" RAG set Green to reassure the Sponsor while tolerances are exceeded → major loss of trust if discovered late. Always a **quantitative RAG** based on thresholds defined in the Charter.
 
-## Bilan de Gate (Go/No-Go) — Structure 10 slides
+## Gate review (Go/No-Go) — 10-slide structure
 
-1. **Rappel objectifs phase** (Charter + critères Gate)
-2. **Livrables produits** (vs prévus, avec preuve de validation)
-3. **Critères Gate Go/No-Go** : ✅ / ❌ / 🟡 par critère
-4. **Avancement consolidé** (planning, budget, qualité)
-5. **Risques résiduels** sortie de phase + transition phase suivante
-6. **Lessons Learned phase** (à capitaliser)
-7. **Charge équipe** ressources mobilisées + plan ressources phase suivante
-8. **Budget consommé phase** + revue budget phase suivante
-9. **Recommandation Go/No-Go** + conditions éventuelles
-10. **Décision COSTRAT** + signataires + minutes
+1. **Recap of phase objectives** (Charter + Gate criteria)
+2. **Produced deliverables** (vs planned, with validation proof)
+3. **Go/No-Go Gate criteria**: ✅ / ❌ / 🟡 per criterion
+4. **Consolidated progress** (schedule, budget, quality)
+5. **Residual risks** at phase exit + transition to the next phase
+6. **Phase Lessons Learned** (to capitalize on)
+7. **Team load** mobilized resources + next-phase resource plan
+8. **Phase budget consumed** + next-phase budget review
+9. **Go/No-Go recommendation** + any conditions
+10. **COSTRAT decision** + signatories + minutes
 
-## 8 anti-patterns reporting & gouvernance
+## 8 reporting & governance anti-patterns
 
-- ❌ **RAG subjectif sans seuils** (Vert pour rassurer) → perte de confiance Sponsor si découverte tardive
-- ❌ **Comitologie unique COPIL pour tout** (pas de COSTRAT, pas de CCB) → sponsor saturé par opérationnel, décisions techniques mal arbitrées
-- ❌ **Pas d'escalade pyramidale formalisée** → risques 🔴 traités en COPIL au lieu de remonter COSTRAT
-- ❌ **Reporting figé sans analyse** (tableau de chiffres bruts sans interprétation CdP) → Sponsor doit décoder, perte de temps comité
-- ❌ **Décisions COPIL non tracées** → conflits ultérieurs sur ce qui a été acté, pas de Change Log
-- ❌ **OKR confondus avec KPI** → OKR = ambitions trimestrielles, KPI = mesures continues, ne pas mélanger
-- ❌ **Compte rendu CCB inexistant** → Change Log absent, scope creep silencieux
-- ❌ **Reporting COMEX = reporting COPIL agrandi** → noyer le COMEX dans le détail au lieu de décisions stratégiques
+- ❌ **Subjective RAG without thresholds** (Green to reassure) → loss of Sponsor trust if discovered late
+- ❌ **Single COPIL governance for everything** (no COSTRAT, no CCB) → sponsor flooded with operational matters, technical decisions poorly arbitrated
+- ❌ **No formalized pyramidal escalation** → 🔴 risks handled in COPIL instead of escalating to COSTRAT
+- ❌ **Static reporting without analysis** (raw figures with no PM interpretation) → the Sponsor has to decode, committee time wasted
+- ❌ **Untraced COPIL decisions** → later conflicts over what was agreed, no Change Log
+- ❌ **OKRs confused with KPIs** → OKRs = quarterly ambitions, KPIs = continuous measures, don't mix them
+- ❌ **Nonexistent CCB minutes** → no Change Log, silent scope creep
+- ❌ **COMEX reporting = enlarged COPIL reporting** → drowning the COMEX in detail instead of strategic decisions
 
-## Outils
+## Tools
 
-- **Comitologie & Comptes Rendus** : Confluence · Notion · MS Loop · SharePoint
-- **Tableaux de bord COPIL** : PowerPoint · Google Slides · Confluence Roadmaps · Smartsheet Dashboards
-- **Reporting automatisé** : Power BI · Tableau · Looker · Domo · Qlik Sense
-- **Reporting projet** : MS Project Online · Smartsheet · Asana Goals · ServiceNow PPM · Planview
-- **OKR** : Ally.io (Microsoft Viva Goals) · Perdoo · Gtmhub (Quantive) · Atlassian Jira Align
-- **Change Log (CCB)** : Jira (workflow Change Request custom) · ServiceNow Change Management · Confluence Change Log
-- **Dashboards multi-niveaux** : ThoughtSpot · Sisense · Power BI (Premium pour large audience)
+- **Governance & Minutes**: Confluence · Notion · MS Loop · SharePoint
+- **COPIL dashboards**: PowerPoint · Google Slides · Confluence Roadmaps · Smartsheet Dashboards
+- **Automated reporting**: Power BI · Tableau · Looker · Domo · Qlik Sense
+- **Project reporting**: MS Project Online · Smartsheet · Asana Goals · ServiceNow PPM · Planview
+- **OKRs**: Ally.io (Microsoft Viva Goals) · Perdoo · Gtmhub (Quantive) · Atlassian Jira Align
+- **Change Log (CCB)**: Jira (custom Change Request workflow) · ServiceNow Change Management · Confluence Change Log
+- **Multi-level dashboards**: ThoughtSpot · Sisense · Power BI (Premium for a large audience)
 
-## Livrables
+## Deliverables
 
-- **Charte de gouvernance projet** (comitologie + RACI comités + fréquence + ordre du jour standard)
-- **Tableau de bord COPIL mensuel** (PowerPoint 5 slides + dashboard live Confluence/Power BI)
-- **Rapport d'avancement hebdomadaire** (1 page PDF) pour PMO + filière
-- **Compte rendu CCB hebdomadaire** + Change Log à jour (Excel/Jira)
-- **Bilan de Gate** (10 slides + PV signé COSTRAT)
-- **Reporting COSTRAT trimestriel** (5 slides exécutifs, KPI bénéfices)
-- **Reporting COMEX trimestriel** (1-3 slides programme, alignement portefeuille)
-- **OKR projet trimestriels** documentés et tracés
-- **Exception Reports PRINCE2** archivés (escalade Time/Cost/Scope/Quality)
+- **Project governance charter** (committee structure + committee RACI + frequency + standard agenda)
+- **Monthly COPIL dashboard** (5-slide PowerPoint + live Confluence/Power BI dashboard)
+- **Weekly progress report** (1-page PDF) for PMO + stream
+- **Weekly CCB minutes** + up-to-date Change Log (Excel/Jira)
+- **Gate review** (10 slides + signed COSTRAT sign-off)
+- **Quarterly COSTRAT reporting** (5 executive slides, benefit KPIs)
+- **Quarterly COMEX reporting** (1-3 program slides, portfolio alignment)
+- **Quarterly project OKRs** documented and traced
+- **Archived PRINCE2 Exception Reports** (Time/Cost/Scope/Quality escalation)
 
-## Format de sortie
+## Output format
 
-Pour chaque mission reporting, précise :
-- **Type de reporting** : COPIL · COSTRAT · COMEX · CCB · CDP · Bilan de Gate
-- **Fréquence cible** : daily · hebdo · bimensuel · mensuel · trimestriel · ad hoc
-- **Public** : équipe / management / sponsor / DG / COMEX / régulateur
-- **Indicateurs disponibles** : EVM (SPI/CPI) · ratios qualité · NPS / eNPS · OKR avancement
-- **Outil de présentation** : PowerPoint · Confluence · Power BI · Smartsheet · combiné
-- **Niveau de formalisme** : startup léger · ETI structuré · grand groupe / secteur public protocolaire
+For each reporting engagement, specify:
+- **Reporting type**: COPIL · COSTRAT · COMEX · CCB · CDP · Gate review
+- **Target frequency**: daily · weekly · biweekly · monthly · quarterly · ad hoc
+- **Audience**: team / management / sponsor / DG / COMEX / regulator
+- **Available indicators**: EVM (SPI/CPI) · quality ratios · NPS / eNPS · OKR progress
+- **Presentation tool**: PowerPoint · Confluence · Power BI · Smartsheet · combined
+- **Formality level**: lightweight startup · structured mid-cap · large group / public sector protocol
 
 ## Sources
 
-- **PMBOK Guide, 7th Edition** — PMI (2021) — Performance Domain Measurement, Earned Value Management
-- **PRINCE2 7th Edition** — PeopleCert/Axelos (septembre 2023, remplace 6e édition) — Theme Progress, Process DP (Directing a Project)
+- **PMBOK Guide, 7th Edition** — PMI (2021) — Measurement Performance Domain, Earned Value Management
+- **PRINCE2 7th Edition** — PeopleCert/Axelos (September 2023, replaces 6th edition) — Progress Theme, DP Process (Directing a Project)
 - **BABOK Guide v3** — IIBA (2015) — KA #2 Planning & Monitoring + KA #6 Solution Evaluation + KA #10 Stakeholder Engagement
 - **ISO 21500:2021** — Project, programme and portfolio management — Performance reporting
 - **Doerr J.** — *Measure What Matters: How Google, Bono, and the Gates Foundation Rock the World with OKRs* (Portfolio Penguin, 2018)
-- **Mendelow A.** — *Stakeholder Power-Interest Grid* (1991) — pour ciblage communication par audience
-- **Kerzner H.** — *Project Management Metrics, KPIs, and Dashboards* (Wiley, 4ème éd. 2022)
+- **Mendelow A.** — *Stakeholder Power-Interest Grid* (1991) — for audience-targeted communication
+- **Kerzner H.** — *Project Management Metrics, KPIs, and Dashboards* (Wiley, 4th ed. 2022)
 
-## Voir aussi
+## See also
 
-- [pilotage-projet.md](pilotage-projet.md) — pilotage projet aval (WBS, Gantt, Tolerances, EVM)
-- [cadrage-projet.md](cadrage-projet.md) — Charte projet amont, définit la comitologie initiale
-- [analyse-impact.md](analyse-impact.md) — Stakeholder Impact Matrix Mendelow pour ciblage communication
-- [`../scrum/gestion-risques.md`](../scrum/gestion-risques.md) — Risk Register projet, escalade COSTRAT
-- [`../scrum/reporting-kpi.md`](../scrum/reporting-kpi.md) — équivalent reporting agile (PO Scrum)
-- [`../scrum/po-backlog.md`](../scrum/po-backlog.md) — vue backlog agile pour reporting hybride
+- [pilotage-projet.md](pilotage-projet.md) — downstream project steering (WBS, Gantt, tolerances, EVM)
+- [cadrage-projet.md](cadrage-projet.md) — upstream project charter, defines the initial governance
+- [analyse-impact.md](analyse-impact.md) — Mendelow Stakeholder Impact Matrix for communication targeting
+- [`../scrum/gestion-risques.md`](../scrum/gestion-risques.md) — project Risk Register, COSTRAT escalation
+- [`../scrum/reporting-kpi.md`](../scrum/reporting-kpi.md) — agile reporting equivalent (PO Scrum)
+- [`../scrum/po-backlog.md`](../scrum/po-backlog.md) — agile backlog view for hybrid reporting

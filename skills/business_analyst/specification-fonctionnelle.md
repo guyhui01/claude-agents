@@ -1,133 +1,133 @@
-# Skill — Spécifications Fonctionnelles
-> Certifications : IIBA CBAP · PMI-PBA · BCS Diploma BA
-> Référentiels normatifs : **ISO/IEC/IEEE 29148:2018** (Requirements engineering — remplace IEEE 830-1998) · **Cockburn** *Writing Effective Use Cases* (2001) · **BABOK v3** (IIBA 2015)
+# Skill — Functional Specifications
+> Certifications: IIBA CBAP · PMI-PBA · BCS Diploma BA
+> Normative standards: **ISO/IEC/IEEE 29148:2018** (Requirements engineering — replaces IEEE 830-1998) · **Cockburn** *Writing Effective Use Cases* (2001) · **BABOK v3** (IIBA 2015)
 
-## Objectif
-Rédiger des spécifications fonctionnelles complètes, traçables et validables pour guider le développement et servir de base à la recette MOA.
+## Objective
+Write complete, traceable and validatable functional specifications to guide development and serve as the basis for MOA UAT.
 
-## Types de documents
-| Document | Contexte | Détail | Skill associé |
+## Document types
+| Document | Context | Detail | Associated skill |
 |---|---|---|---|
-| **SFG** (Spécifications Fonctionnelles Générales) | Vision macro, cycle en V | Exigences de haut niveau | ce skill |
-| **SFD** (Spécifications Fonctionnelles Détaillées) | Détail technique, cycle en V | Règles de gestion, IHM | ce skill |
-| **Cahier des charges fonctionnel (CDCF)** | Appel d'offres MOA→MOE | Besoins + contraintes + critères choix | ce skill |
-| **User Stories + Acceptance Criteria** | Agile / Scrum / SAFe | Format PO, Connextra + Gherkin | [`../scrum/po-user-story.md`](../scrum/po-user-story.md) + [`../scrum/po-acceptance-tests.md`](../scrum/po-acceptance-tests.md) |
+| **FRS** (General Functional Specifications) | Macro vision, V-model | High-level requirements | this skill |
+| **FRD** (Detailed Functional Specifications) | Technical detail, V-model | Business rules, UI | this skill |
+| **Functional requirements specification (CDCF)** | RFP, MOA→MOE | Needs + constraints + selection criteria | this skill |
+| **User Stories + Acceptance Criteria** | Agile / Scrum / SAFe | PO format, Connextra + Gherkin | [`../scrum/po-user-story.md`](../scrum/po-user-story.md) + [`../scrum/po-acceptance-tests.md`](../scrum/po-acceptance-tests.md) |
 
-**Règle d'orientation rôle/méthodologie** :
-- Contexte cycle en V → MOA / BA → ce skill (SFG, SFD, CDCF) + [`recette-moa.md`](recette-moa.md)
-- Contexte Agile/Scrum → PO Scrum → [`../scrum/po-user-story.md`](../scrum/po-user-story.md) + [`../scrum/po-acceptance-tests.md`](../scrum/po-acceptance-tests.md) + [`../scrum/po-backlog.md`](../scrum/po-backlog.md)
-- Contexte SAFe Programme → Product Manager SAFe → [`../safe/`](../safe/)
+**Role/methodology routing rule**:
+- V-model context → MOA / BA → this skill (FRS, FRD, CDCF) + [`recette-moa.md`](recette-moa.md)
+- Agile/Scrum context → PO Scrum → [`../scrum/po-user-story.md`](../scrum/po-user-story.md) + [`../scrum/po-acceptance-tests.md`](../scrum/po-acceptance-tests.md) + [`../scrum/po-backlog.md`](../scrum/po-backlog.md)
+- SAFe Program context → Product Manager SAFe → [`../safe/`](../safe/)
 
-## SFG ≠ SFD — délimitation (alignée niveaux ISO/IEC/IEEE 29148)
-| | **SFG** | **SFD** |
+## FRS ≠ FRD — boundary (aligned with ISO/IEC/IEEE 29148 levels)
+| | **FRS** | **FRD** |
 |---|---|---|
-| Niveau 29148 | StRS / SyRS (besoins parties prenantes / système) | SRS (exigences logicielles) |
-| Question | **Quoi** et **pourquoi** (intention métier) | **Comment fonctionnellement** (règles, IHM, données) |
-| Contenu | Périmètre, acteurs, processus macro, exigences de haut niveau, contraintes | Cas d'usage détaillés, règles de gestion, écrans, formats, codes d'erreur |
-| Lecteur | Sponsor, métier, MOE pour cadrage | Développeur, testeur, recetteur |
-| Validation | Comité de cadrage / sponsor | Revue MOA + MOE, base des cas de recette |
+| 29148 level | StRS / SyRS (stakeholder / system needs) | SRS (software requirements) |
+| Question | **What** and **why** (business intent) | **How functionally** (rules, UI, data) |
+| Content | Scope, actors, macro processes, high-level requirements, constraints | Detailed use cases, business rules, screens, formats, error codes |
+| Reader | Sponsor, business, MOE for scoping | Developer, tester, UAT tester |
+| Validation | Scoping committee / sponsor | MOA + MOE review, basis for the UAT cases |
 
-> Principe : la **SFG ne descend pas au niveau d'une règle de gestion** ; la **SFD ne réinvente pas le périmètre** — elle le décline. Une exigence SFG (haut niveau) se trace vers une ou plusieurs exigences SFD.
+> Principle: the **FRS does not go down to a business-rule level**; the **FRD does not reinvent the scope** — it breaks it down. An FRS requirement (high level) traces to one or more FRD requirements.
 
-## Structure d'une SFD type
+## Structure of a typical FRD
 ```
-1. Objet et périmètre
-2. Documents de référence
-3. Glossaire
-4. Description des acteurs
-5. Cas d'usage / Scénarios fonctionnels
-   5.1 Flux nominal
-   5.2 Flux alternatifs
-   5.3 Flux d'exception
-6. Règles de gestion
-7. Exigences non-fonctionnelles (performance, sécurité, accessibilité)
-8. Maquettes IHM (si disponibles)
-9. Matrice de traçabilité (besoins → exigences → cas de test)
-10. Points ouverts / hypothèses
-```
-
-## Méthode cas d'usage — Cockburn (2001)
-Le **cas d'usage au niveau « but utilisateur » (sea-level)** est la maille de référence d'une SFD : un acteur atteint un objectif métier en une session.
-
-**Template Cockburn — exemple (assurance)**
-```
-Cas d'usage : Souscrire un contrat auto
-Acteur principal : Conseiller commercial
-Périmètre : Système de souscription   ·   Niveau : But utilisateur (sea-level)
-Parties prenantes & intérêts : Assuré (devis juste) · Assureur (risque maîtrisé) · Conformité (DDA respectée)
-Préconditions : Conseiller authentifié, prospect identifié
-Garantie minimale : Aucune donnée prospect perdue en cas d'échec
-Garantie de succès : Contrat créé au statut « émis », prime calculée, documents générés
-Déclencheur : Le prospect demande un devis auto
-
-Scénario nominal :
-  1. Le conseiller saisit le profil et le véhicule
-  2. Le système vérifie l'éligibilité (règles RG-012..RG-015)
-  3. Le système calcule la prime
-  4. Le conseiller valide le devis
-  5. Le système émet le contrat et génère les documents
-
-Extensions (flux alternatifs / exceptions) :
-  2a. Profil inéligible → le système notifie le motif et propose une orientation
-  3a. Donnée tarifaire manquante → le système bloque et liste les champs requis
-  5a. Échec génération documentaire → le contrat reste « en attente », alerte exploitation
+1. Purpose and scope
+2. Reference documents
+3. Glossary
+4. Description of actors
+5. Use cases / Functional scenarios
+   5.1 Main flow
+   5.2 Alternative flows
+   5.3 Exception flows
+6. Business rules
+7. Non-functional requirements (performance, security, accessibility)
+8. UI mockups (if available)
+9. Traceability matrix (needs → requirements → test cases)
+10. Open points / assumptions
 ```
 
-## Caractéristiques d'une bonne exigence (ISO/IEC/IEEE 29148)
-> Remplace l'usage impropre du « SMART » (cadre d'objectifs, Doran 1981) par le référentiel d'ingénierie des exigences.
+## Use case method — Cockburn (2001)
+The **"user goal" (sea-level) use case** is the reference grain of an FRD: an actor reaches a business goal in one session.
 
-- **Nécessaire** : retire-la et il manque une capacité → sinon, à supprimer.
-- **Appropriée** : au bon niveau (pas de détail de conception en SFG).
-- **Non ambiguë** : une seule interprétation possible.
-- **Complète** : se suffit à elle-même, aucune information requise manquante.
-- **Singulière** : une exigence = une seule chose (pas de « et » masquant deux exigences).
-- **Réalisable** : techniquement et budgétairement.
-- **Vérifiable** : on peut prouver objectivement qu'elle est satisfaite (→ cas de test).
-- **Correcte** : reflète fidèlement le besoin réel.
-- **Conforme** : respecte le gabarit et le glossaire du projet.
-
-## Règles de gestion — format standard
+**Cockburn template — example (insurance)**
 ```
-RG-001 : [Libellé de la règle]
-Déclencheur : [Événement qui active la règle]
-Condition : [Si...]
-Action : [Alors...]
-Priorité : [Obligatoire / Souhaitable / Optionnel]
+Use case: Subscribe to an auto policy
+Primary actor: Sales advisor
+Scope: Subscription system   ·   Level: User goal (sea-level)
+Stakeholders & interests: Policyholder (fair quote) · Insurer (controlled risk) · Compliance (IDD respected)
+Preconditions: Advisor authenticated, prospect identified
+Minimal guarantee: No prospect data lost on failure
+Success guarantee: Policy created in "issued" status, premium calculated, documents generated
+Trigger: The prospect requests an auto quote
+
+Main scenario:
+  1. The advisor enters the profile and the vehicle
+  2. The system checks eligibility (rules RG-012..RG-015)
+  3. The system calculates the premium
+  4. The advisor validates the quote
+  5. The system issues the policy and generates the documents
+
+Extensions (alternative flows / exceptions):
+  2a. Ineligible profile → the system notifies the reason and proposes a redirection
+  3a. Missing pricing data → the system blocks and lists the required fields
+  5a. Document generation failure → the policy stays "pending", operations alert
 ```
 
-## Traçabilité & critères d'acceptation SFD
-- Chaque exigence SFD porte un **critère d'acceptation vérifiable** (condition mesurable de satisfaction), réutilisé tel quel comme résultat attendu en recette.
-- **Matrice de traçabilité** : besoin (SFG/StRS) → exigence (SFD/SRS) → cas de test (cf. [`recette-moa.md`](recette-moa.md) et [`gestion-exigences.md`](gestion-exigences.md)).
+## Characteristics of a good requirement (ISO/IEC/IEEE 29148)
+> Replaces the improper use of "SMART" (a goals framework, Doran 1981) with the requirements-engineering standard.
 
-## Livrables
-- SFG ou SFD selon le contexte
-- Matrice de traçabilité besoins → exigences → cas de test
-- Liste des règles de gestion numérotées
-- Cas d'usage Cockburn (nominal + extensions)
-- Points ouverts et hypothèses documentés
+- **Necessary**: remove it and a capability is missing → otherwise, delete it.
+- **Appropriate**: at the right level (no design detail in the FRS).
+- **Unambiguous**: only one possible interpretation.
+- **Complete**: self-sufficient, no required information missing.
+- **Singular**: one requirement = one thing (no "and" hiding two requirements).
+- **Feasible**: technically and budget-wise.
+- **Verifiable**: it can be objectively proven satisfied (→ test case).
+- **Correct**: faithfully reflects the real need.
+- **Conforming**: respects the project's template and glossary.
 
-## Format de sortie
-Précise : type de document · contexte (cycle en V, Agile) · domaine fonctionnel · niveau de détail attendu.
+## Business rules — standard format
+```
+RG-001: [Rule label]
+Trigger: [Event that activates the rule]
+Condition: [If...]
+Action: [Then...]
+Priority: [Mandatory / Desirable / Optional]
+```
+
+## Traceability & FRD acceptance criteria
+- Each FRD requirement carries a **verifiable acceptance criterion** (a measurable satisfaction condition), reused as-is as the expected result in UAT.
+- **Traceability matrix**: need (FRS/StRS) → requirement (FRD/SRS) → test case (cf. [`recette-moa.md`](recette-moa.md) and [`gestion-exigences.md`](gestion-exigences.md)).
+
+## Deliverables
+- FRS or FRD depending on the context
+- Needs → requirements → test cases traceability matrix
+- List of numbered business rules
+- Cockburn use cases (main + extensions)
+- Documented open points and assumptions
+
+## Output format
+Specify: document type · context (V-model, Agile) · functional domain · expected level of detail.
 
 ## Sources
-- ISO/IEC/IEEE 29148:2018 — *Systems and software engineering — Life cycle processes — Requirements engineering* (caractéristiques d'exigence, niveaux StRS/SyRS/SRS ; remplace IEEE 830-1998)
-- Cockburn A. — *Writing Effective Use Cases* (Addison-Wesley 2001) — niveaux de but, scénario nominal, extensions
+- ISO/IEC/IEEE 29148:2018 — *Systems and software engineering — Life cycle processes — Requirements engineering* (requirement characteristics, StRS/SyRS/SRS levels; replaces IEEE 830-1998)
+- Cockburn A. — *Writing Effective Use Cases* (Addison-Wesley 2001) — goal levels, main scenario, extensions
 - IIBA — *BABOK Guide v3* (IIBA 2015) — Requirements Analysis & Design Definition
-- Doran G. T. — *There's a S.M.A.R.T. way to write management's goals and objectives* (Management Review 1981) — cadre d'objectifs (à distinguer des exigences)
+- Doran G. T. — *There's a S.M.A.R.T. way to write management's goals and objectives* (Management Review 1981) — goals framework (to distinguish from requirements)
 
 ## Anti-patterns
-- ❌ **Mélange des niveaux** — règles de gestion dans la SFG, ou périmètre re-décrit dans la SFD → documents redondants et incohérents.
-- ❌ **Exigence non singulière** — « le système calcule la prime **et** édite le contrat » = deux exigences masquées, intestables séparément.
-- ❌ **Exigence non vérifiable** — « l'interface doit être conviviale » → aucun critère d'acceptation possible.
-- ❌ **Cas d'usage sans extensions** — seul le flux nominal est spécifié → les exceptions (le gros du code) émergent en recette.
-- ❌ **SMART appliqué aux exigences** — confusion cadre d'objectifs / ingénierie des exigences ; préférer les caractéristiques ISO 29148.
-- ❌ **Pas de traçabilité besoin → exigence → test** — impossible de prouver la couverture, ni d'évaluer l'impact d'un changement.
+- ❌ **Mixed levels** — business rules in the FRS, or scope re-described in the FRD → redundant and inconsistent documents.
+- ❌ **Non-singular requirement** — "the system calculates the premium **and** issues the policy" = two hidden requirements, untestable separately.
+- ❌ **Non-verifiable requirement** — "the interface must be user-friendly" → no possible acceptance criterion.
+- ❌ **Use case without extensions** — only the main flow specified → exceptions (the bulk of the code) emerge during UAT.
+- ❌ **SMART applied to requirements** — confusing the goals framework with requirements engineering; prefer the ISO 29148 characteristics.
+- ❌ **No need → requirement → test traceability** — impossible to prove coverage or assess the impact of a change.
 
-## Voir aussi
+## See also
 
-- [elicitation-besoins.md](elicitation-besoins.md) — collecte besoins en amont (BABOK KA #10, 14 techniques, Volere)
-- [gestion-exigences.md](gestion-exigences.md) — cycle de vie des exigences, traçabilité bidirectionnelle (BABOK KA #5)
-- [modelisation-processus.md](modelisation-processus.md) — BPMN 2.0 / UML 2.5 pour les processus métier modélisés en SFG
-- [recette-moa.md](recette-moa.md) — recette MOA, cahier de recette, PV (livrable cycle V aval, consomme les critères d'acceptation SFD)
-- [`../scrum/po-user-story.md`](../scrum/po-user-story.md) — pont Agile : User Story (Connextra) équivalent SFD côté PO Scrum
-- [`../scrum/po-acceptance-tests.md`](../scrum/po-acceptance-tests.md) — Acceptance Criteria (Gherkin) équivalent règles de gestion vérifiables côté PO
+- [elicitation-besoins.md](elicitation-besoins.md) — upstream needs gathering (BABOK KA #10, 14 techniques, Volere)
+- [gestion-exigences.md](gestion-exigences.md) — requirements life cycle, bidirectional traceability (BABOK KA #5)
+- [modelisation-processus.md](modelisation-processus.md) — BPMN 2.0 / UML 2.5 for business processes modeled in the FRS
+- [recette-moa.md](recette-moa.md) — MOA UAT, test book, sign-off (downstream V-model deliverable, consumes the FRD acceptance criteria)
+- [`../scrum/po-user-story.md`](../scrum/po-user-story.md) — Agile bridge: User Story (Connextra), FRD equivalent on the PO Scrum side
+- [`../scrum/po-acceptance-tests.md`](../scrum/po-acceptance-tests.md) — Acceptance Criteria (Gherkin), equivalent to verifiable business rules on the PO side

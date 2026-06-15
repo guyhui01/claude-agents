@@ -1,89 +1,89 @@
-# Skill — Gestion des Exigences (BABOK Knowledge Area #5)
-> Certifications : IIBA CBAP · PMI-PBA
-> Référentiels normatifs : **BABOK v3** (IIBA 2015) — KA #5 *Requirements Life Cycle Management* · **ISO/IEC/IEEE 29148:2018** (traçabilité)
+# Skill — Requirements Management (BABOK Knowledge Area #5)
+> Certifications: IIBA CBAP · PMI-PBA
+> Normative standards: **BABOK v3** (IIBA 2015) — KA #5 *Requirements Life Cycle Management* · **ISO/IEC/IEEE 29148:2018** (traceability)
 
-## Objectif
-Gérer le **cycle de vie** des exigences une fois recueillies : les tracer, les maintenir, les prioriser, évaluer leurs changements et les faire approuver, du recueil jusqu'à la vérification en recette.
+## Objective
+Manage the **life cycle** of requirements once gathered: trace them, maintain them, prioritize them, assess their changes and get them approved, from gathering through verification in UAT.
 
-> Périmètre distinct de [`elicitation-besoins.md`](elicitation-besoins.md) : l'élicitation (BABOK KA #4) **recueille** les exigences ; ce skill (KA #5) en **gère le cycle de vie**. Pas de re-déclinaison des techniques de recueil, de Volere ou de Kano ici.
+> Distinct scope from [`elicitation-besoins.md`](elicitation-besoins.md): elicitation (BABOK KA #4) **gathers** requirements; this skill (KA #5) **manages their life cycle**. No re-statement of gathering techniques, Volere or Kano here.
 
-## Les 5 tâches du cycle de vie (BABOK KA #5)
-| Tâche | Activité |
+## The 5 life-cycle tasks (BABOK KA #5)
+| Task | Activity |
 |---|---|
-| **5.1 Trace** | Établir et maintenir les liens exigence ↔ source ↔ solution ↔ test |
-| **5.2 Maintain** | Conserver l'exactitude des exigences dans le temps, gérer la réutilisation |
-| **5.3 Prioritize** | Ordonner selon valeur, risque, dépendances, coût (MoSCoW) |
-| **5.4 Assess Changes** | Analyser l'impact d'une demande de changement avant décision |
-| **5.5 Approve** | Obtenir l'accord formel et fixer la baseline |
+| **5.1 Trace** | Establish and maintain the requirement ↔ source ↔ solution ↔ test links |
+| **5.2 Maintain** | Keep the requirements accurate over time, manage reuse |
+| **5.3 Prioritize** | Order by value, risk, dependencies, cost (MoSCoW) |
+| **5.4 Assess Changes** | Analyze the impact of a change request before deciding |
+| **5.5 Approve** | Obtain formal agreement and set the baseline |
 
-## Types d'exigences gérées (taxonomie BABOK v3)
-Business · Stakeholder · Solution (Fonctionnelles / Non-Fonctionnelles) · Transition (migration, formation, décommissionnement).
+## Types of requirements managed (BABOK v3 taxonomy)
+Business · Stakeholder · Solution (Functional / Non-Functional) · Transition (migration, training, decommissioning).
 
-## États d'une exigence (lifecycle)
+## States of a requirement (lifecycle)
 ```
-Proposée → Analysée → Approuvée → Baseline → Implémentée → Vérifiée → (Clôturée | Rejetée)
+Proposed → Analyzed → Approved → Baseline → Implemented → Verified → (Closed | Rejected)
 ```
-Chaque transition est tracée (qui, quand, décision). Une exigence **baseline** ne change plus que par le processus de gestion des changements.
+Each transition is traced (who, when, decision). A **baselined** requirement only changes through the change management process.
 
-## Attributs de gestion d'une exigence
-ID unique · Version · Statut (cf. cycle ci-dessus) · Priorité (MoSCoW) · Source/Originator · Propriétaire · Dépendances · Date(s) clés. *(Pour les caractéristiques de qualité — non ambiguë, vérifiable… — voir [`specification-fonctionnelle.md`](specification-fonctionnelle.md), ISO 29148.)*
+## Management attributes of a requirement
+Unique ID · Version · Status (see cycle above) · Priority (MoSCoW) · Source/Originator · Owner · Dependencies · Key date(s). *(For quality characteristics — unambiguous, verifiable… — see [`specification-fonctionnelle.md`](specification-fonctionnelle.md), ISO 29148.)*
 
-## Traçabilité bidirectionnelle (BABOK 5.1 + ISO 29148)
-- **Amont (backward)** : exigence → besoin métier / partie prenante source → justifie *pourquoi* elle existe.
-- **Aval (forward)** : exigence → conception → cas de test → release → prouve *qu'elle est couverte*.
-- Types de liens : *derive*, *satisfy*, *verify*, *depend on*.
+## Bidirectional traceability (BABOK 5.1 + ISO 29148)
+- **Backward**: requirement → business need / source stakeholder → justifies *why* it exists.
+- **Forward**: requirement → design → test case → release → proves *it is covered*.
+- Link types: *derive*, *satisfy*, *verify*, *depend on*.
 
-| ID Besoin | Libellé Besoin | ID Exigence | Libellé Exigence | Cas de Test | Statut |
+| Need ID | Need label | Requirement ID | Requirement label | Test Case | Status |
 |---|---|---|---|---|---|
-| BES-001 | Accès mobile | EXI-001 | L'appli doit être responsive | CT-001 | Vérifié |
+| BES-001 | Mobile access | EXI-001 | The app must be responsive | CT-001 | Verified |
 
-## Priorisation MoSCoW (BABOK 5.3)
-- **Must have** : indispensable, le projet échoue sans
-- **Should have** : important mais contournable temporairement
-- **Could have** : souhaitable si le budget le permet
-- **Won't have** : hors périmètre de cette version
+## MoSCoW prioritization (BABOK 5.3)
+- **Must have**: essential, the project fails without it
+- **Should have**: important but temporarily workable around
+- **Could have**: desirable if the budget allows
+- **Won't have**: out of scope for this version
 
 ## Baselining & versioning
-- **Baseline** : version de référence approuvée d'un ensemble d'exigences, figée à un jalon (fin de cadrage, entrée en réalisation).
-- Tout écart ultérieur passe par une demande de changement ; la baseline est ré-éditée avec un numéro de version et un historique.
+- **Baseline**: an approved reference version of a set of requirements, frozen at a milestone (end of scoping, entry into build).
+- Any later deviation goes through a change request; the baseline is re-issued with a version number and a history.
 
-## Gestion des changements d'exigences (BABOK 5.4 + 5.5)
-1. Demande de changement formalisée (RFC — Request for Change)
-2. **Analyse d'impact** (périmètre, délai, coût, risque, exigences tracées impactées)
-3. Décision du **comité de pilotage / CCB** (Change Control Board)
-4. Mise à jour de la documentation, de la baseline et de la matrice de traçabilité
-5. Communication aux équipes impactées
+## Requirements change management (BABOK 5.4 + 5.5)
+1. Formalized change request (RFC — Request for Change)
+2. **Impact analysis** (scope, schedule, cost, risk, impacted traced requirements)
+3. Decision by the **steering committee / CCB** (Change Control Board)
+4. Update of the documentation, the baseline and the traceability matrix
+5. Communication to the impacted teams
 
-## Métriques de couverture & pilotage
-- **Taux de couverture** : % d'exigences *Must* liées à ≥ 1 cas de test vérifié (cible 100 %).
-- **Exigences orphelines** : sans source amont (à requalifier) ou sans test aval (risque de non-couverture).
-- **Volatilité** : nombre de changements par exigence (signal de cadrage instable).
+## Coverage & steering metrics
+- **Coverage rate**: % of *Must* requirements linked to ≥ 1 verified test case (target 100%).
+- **Orphan requirements**: without a backward source (to requalify) or without a forward test (non-coverage risk).
+- **Volatility**: number of changes per requirement (signal of unstable scoping).
 
-## Livrables
-- Catalogue des exigences (Excel, Jira, Doors, ReqView) avec attributs et statuts
-- Matrice de traçabilité besoins → exigences → tests (bidirectionnelle)
-- Baseline versionnée + historique des changements
-- Rapport d'impact des demandes de changement
-- Tableau de bord de couverture et de volatilité
+## Deliverables
+- Requirements catalog (Excel, Jira, Doors, ReqView) with attributes and statuses
+- Needs → requirements → tests traceability matrix (bidirectional)
+- Versioned baseline + change history
+- Change-request impact report
+- Coverage and volatility dashboard
 
-## Format de sortie
-Précise : domaine fonctionnel · outil de gestion · phase du projet · existence d'une baseline · niveau de détail requis.
+## Output format
+Specify: functional domain · management tool · project phase · existence of a baseline · required level of detail.
 
 ## Sources
 - IIBA — *BABOK Guide v3* (IIBA 2015) — Knowledge Area #5 *Requirements Life Cycle Management*
-- ISO/IEC/IEEE 29148:2018 — *Requirements engineering* (traçabilité, gestion des exigences dans le cycle de vie)
-- Wiegers K. & Beatty J. — *Software Requirements* 3rd ed (Microsoft Press 2013) — baselining, change control, traçabilité
+- ISO/IEC/IEEE 29148:2018 — *Requirements engineering* (traceability, requirements management across the life cycle)
+- Wiegers K. & Beatty J. — *Software Requirements* 3rd ed (Microsoft Press 2013) — baselining, change control, traceability
 
 ## Anti-patterns
-- ❌ **Pas de baseline** — les exigences « bougent » en continu sans version de référence → impossible d'arbitrer un changement.
-- ❌ **Traçabilité unidirectionnelle** — seulement amont *ou* aval → on ne peut ni justifier ni prouver la couverture.
-- ❌ **Changement sans analyse d'impact** — RFC acceptée à l'instinct → dérive de périmètre et de coût.
-- ❌ **Confondre gestion et élicitation** — re-recueillir au lieu de gérer le cycle de vie (cf. [`elicitation-besoins.md`](elicitation-besoins.md)).
-- ❌ **Exigences orphelines tolérées** — sans source ou sans test → bruit dans le catalogue, audit impossible.
+- ❌ **No baseline** — requirements "move" continuously without a reference version → impossible to arbitrate a change.
+- ❌ **One-way traceability** — backward *or* forward only → you can neither justify nor prove coverage.
+- ❌ **Change without impact analysis** — RFC accepted on instinct → scope and cost creep.
+- ❌ **Confusing management with elicitation** — re-gathering instead of managing the life cycle (cf. [`elicitation-besoins.md`](elicitation-besoins.md)).
+- ❌ **Tolerated orphan requirements** — without a source or a test → noise in the catalog, audit impossible.
 
-## Voir aussi
-- [elicitation-besoins.md](elicitation-besoins.md) — recueil des exigences en amont (BABOK KA #4) — **complément, pas doublon**
-- [specification-fonctionnelle.md](specification-fonctionnelle.md) — caractéristiques de qualité d'une exigence (ISO 29148), SFG/SFD
-- [recette-moa.md](recette-moa.md) — vérification aval : RTM tests ↔ exigences, couverture
-- [analyse-impact.md](analyse-impact.md) — analyse d'impact d'un changement (Kotter, BABOK Strategy Analysis)
-- [`../scrum/po-backlog.md`](../scrum/po-backlog.md) — équivalent Agile : gestion et priorisation du backlog produit
+## See also
+- [elicitation-besoins.md](elicitation-besoins.md) — upstream requirements gathering (BABOK KA #4) — **complement, not a duplicate**
+- [specification-fonctionnelle.md](specification-fonctionnelle.md) — quality characteristics of a requirement (ISO 29148), FRS/FRD
+- [recette-moa.md](recette-moa.md) — forward verification: RTM tests ↔ requirements, coverage
+- [analyse-impact.md](analyse-impact.md) — change impact analysis (Kotter, BABOK Strategy Analysis)
+- [`../scrum/po-backlog.md`](../scrum/po-backlog.md) — Agile equivalent: product backlog management and prioritization

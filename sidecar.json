@@ -4,7 +4,7 @@
     "name": "claude-agents",
     "version": "v3.26.2"
   },
-  "generatedAt": "2026-06-15T18:12:07.682Z",
+  "generatedAt": "2026-06-15T18:49:29.250Z",
   "assets": [
     {
       "id": "AGENT-AI-ARCHITECT",
@@ -24,7 +24,7 @@
       "type": "agent",
       "path": "AGENT-BUSINESS-ANALYST.md",
       "title": "Business Analyst / MOA / AMOA Expert",
-      "description": "Business Analysis & MOA & AMOA — analyse, spécifications, pilotage projet, recette, conduite du changement (Agile + Cycle V)",
+      "description": "Business Analysis & MOA & AMOA — analysis, specifications, project steering, UAT, change management (Agile + V-model)",
       "catalogVersion": "v3.26.2",
       "source": {
         "file": "AGENT-BUSINESS-ANALYST.md",

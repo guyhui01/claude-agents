@@ -1,217 +1,217 @@
-# Skill — Cartographie du SI (Urbanisme & Enterprise Architecture)
+# Skill — IS Mapping (Urbanization & Enterprise Architecture)
 
-> Certifications : **TOGAF 10** (The Open Group 2022) · **ArchiMate 3** (OpenCA) · **IIBA CBAP** · ISO/IEC/IEEE 42010:2022
-> Agent : AGENT-BUSINESS-ANALYST.md
+> Certifications: **TOGAF 10** (The Open Group 2022) · **ArchiMate 3** (OpenCA) · **IIBA CBAP** · ISO/IEC/IEEE 42010:2022
+> Agent: AGENT-BUSINESS-ANALYST.md
 
-## Objectif
+## Objective
 
-Documenter, analyser et faire évoluer le système d'information existant via les référentiels d'**Enterprise Architecture** normés (TOGAF 10 ADM, ArchiMate 3.2, C4 Model) afin d'**urbaniser** durablement le SI : identifier les impacts projet, rationaliser le portefeuille applicatif, alimenter le schéma directeur, sécuriser les décisions build/buy/migrate.
+Document, analyze and evolve the existing information system via standardized **Enterprise Architecture** frameworks (TOGAF 10 ADM, ArchiMate 3.2, C4 Model) in order to **urbanize** the IS sustainably: identify project impacts, rationalize the application portfolio, feed the IS master plan, and secure build/buy/migrate decisions.
 
-## Cadre BABOK v3 (IIBA 2015) — Knowledge Areas mobilisées
+## BABOK v3 framework (IIBA 2015) — Knowledge Areas leveraged
 
-| KA BABOK v3 | Tâches typiques cartographie SI |
+| BABOK v3 KA | Typical IS-mapping tasks |
 |---|---|
 | **#2 Business Analysis Planning & Monitoring** | T2.1 Plan BA Approach · T2.5 Plan Stakeholder Engagement · T2.6 Plan Governance Approach |
 | **#9 Strategy Analysis** | T9.1 Analyze Current State · T9.2 Define Future State · T9.3 Assess Risks · T9.4 Define Change Strategy |
-| **Perspective Information Technology** | Cartographie applicative · Référentiels EA · Patterns d'intégration · APM |
+| **Information Technology perspective** | Application mapping · EA frameworks · Integration patterns · APM |
 
-## TOGAF 10 ADM — 8 phases du cycle d'architecture (The Open Group 2022)
+## TOGAF 10 ADM — 8 phases of the architecture cycle (The Open Group 2022)
 
-| Phase | Objectif | Livrable cartographie |
+| Phase | Goal | Mapping deliverable |
 |:---:|---|---|
-| **Prelim.** | Établir capacité architecture + tailoring framework | Charte EA, Architecture Capability |
-| **A — Vision** | Définir vision business + scope + parties prenantes | Statement of Architecture Work, Vision Diagram |
-| **B — Business** | Cartographier processus, organisations, fonctions, services métier | Business Architecture (cf. [modelisation-processus.md](modelisation-processus.md)) |
-| **C — IS Architecture** | Data Architecture + Application Architecture | **Cartographie applicative AS-IS + TO-BE**, matrice CRUD données↔applis |
-| **D — Technology** | Plateformes, infrastructures, hébergement | Technology Architecture (réseau, cloud, serveurs) |
-| **E — Opportunities & Solutions** | Identifier work packages, contraintes, gaps | Gap Analysis, Migration Plan candidats |
-| **F — Migration Planning** | Roadmap priorisée transition | Implementation & Migration Plan, Transition Architectures |
-| **G — Implementation Gov.** | Pilotage architectural projet par projet | Architecture Contract, Compliance Reviews |
-| **H — Change Management** | Gestion changements EA post-mise en œuvre | Requests for Architecture Change |
+| **Prelim.** | Establish architecture capability + framework tailoring | EA charter, Architecture Capability |
+| **A — Vision** | Define business vision + scope + stakeholders | Statement of Architecture Work, Vision Diagram |
+| **B — Business** | Map processes, organizations, functions, business services | Business Architecture (cf. [modelisation-processus.md](modelisation-processus.md)) |
+| **C — IS Architecture** | Data Architecture + Application Architecture | **AS-IS + TO-BE application map**, data↔apps CRUD matrix |
+| **D — Technology** | Platforms, infrastructure, hosting | Technology Architecture (network, cloud, servers) |
+| **E — Opportunities & Solutions** | Identify work packages, constraints, gaps | Gap Analysis, candidate Migration Plan |
+| **F — Migration Planning** | Prioritized transition roadmap | Implementation & Migration Plan, Transition Architectures |
+| **G — Implementation Gov.** | Architectural steering project by project | Architecture Contract, Compliance Reviews |
+| **H — Change Management** | Manage post-implementation EA changes | Requests for Architecture Change |
 
-**Architecture Content Framework** : 21 livrables types + 4 Architecture Domains (Business/Data/Application/Technology = BDAT) + 4 Reference Models (TRM Technical Reference Model · III-RM Integrated Information Infrastructure RM).
+**Architecture Content Framework**: 21 deliverable types + 4 Architecture Domains (Business/Data/Application/Technology = BDAT) + 4 Reference Models (TRM Technical Reference Model · III-RM Integrated Information Infrastructure RM).
 
-## ArchiMate 3.2 (The Open Group 2023, ISO/IEC 19770) — 7 couches officielles
+## ArchiMate 3.2 (The Open Group 2023, ISO/IEC 19770) — 7 official layers
 
-| Couche | Périmètre | Éléments clés |
+| Layer | Scope | Key elements |
 |---|---|---|
-| **Strategy** | Capacités stratégiques | Capability · Resource · Course of Action · Value Stream |
-| **Business** | Acteurs, processus, services, contrats | Business Actor/Role · Process · Service · Object · Contract |
-| **Application** | Applications, composants, services applicatifs | Application Component/Service · Data Object · Interface · Function |
-| **Technology** | Plateformes, nœuds, infrastructure logique | Node · Device · System Software · Network · Communication Path |
-| **Physical** | Équipements physiques, matériels | Equipment · Facility · Distribution Network · Material |
-| **Motivation** | Drivers, goals, requirements, contraintes | Stakeholder · Driver · Goal · Outcome · Principle · Requirement · Constraint |
-| **Implementation & Migration** | Programmes, gaps, plateaux | Work Package · Deliverable · Plateau · Gap |
+| **Strategy** | Strategic capabilities | Capability · Resource · Course of Action · Value Stream |
+| **Business** | Actors, processes, services, contracts | Business Actor/Role · Process · Service · Object · Contract |
+| **Application** | Applications, components, application services | Application Component/Service · Data Object · Interface · Function |
+| **Technology** | Platforms, nodes, logical infrastructure | Node · Device · System Software · Network · Communication Path |
+| **Physical** | Physical equipment, hardware | Equipment · Facility · Distribution Network · Material |
+| **Motivation** | Drivers, goals, requirements, constraints | Stakeholder · Driver · Goal · Outcome · Principle · Requirement · Constraint |
+| **Implementation & Migration** | Programs, gaps, plateaus | Work Package · Deliverable · Plateau · Gap |
 
-**Relations standardisées** : Composition · Aggregation · Assignment · Realization · Used By · Serving · Triggering · Flow · Association · Influence (cf. spec ArchiMate 3.2 §5).
+**Standardized relationships**: Composition · Aggregation · Assignment · Realization · Used By · Serving · Triggering · Flow · Association · Influence (cf. ArchiMate 3.2 spec §5).
 
-## C4 Model (Simon Brown 2018) — zoom applicatif complémentaire
+## C4 Model (Simon Brown 2018) — complementary application zoom
 
-| Niveau | Cible | Quand utiliser |
+| Level | Target | When to use |
 |:---:|---|---|
-| **C1 — System Context** | Système + utilisateurs + systèmes externes | Vue d'entrée parties prenantes non techniques |
-| **C2 — Container** | Conteneurs (apps, BDD, microservices, file system) | Architecture solution, choix techno |
-| **C3 — Component** | Composants internes d'un container | Conception détaillée, ownership équipe |
-| **C4 — Code** | Classes, fonctions (généralement diagrammes auto-générés) | Rarement utile à ce niveau de granularité |
+| **C1 — System Context** | System + users + external systems | Entry view for non-technical stakeholders |
+| **C2 — Container** | Containers (apps, DB, microservices, file system) | Solution architecture, tech choices |
+| **C3 — Component** | Internal components of a container | Detailed design, team ownership |
+| **C4 — Code** | Classes, functions (usually auto-generated diagrams) | Rarely useful at this granularity |
 
-Complémentarité : **ArchiMate** = vue large EA multi-domaines · **C4** = zoom application individuelle. Ne pas mélanger les deux dans un même diagramme.
+Complementarity: **ArchiMate** = broad multi-domain EA view · **C4** = zoom on a single application. Don't mix the two in the same diagram.
 
-## 5 niveaux d'urbanisme SI (Longépé 2009)
+## 5 IS urbanization levels (Longépé 2009)
 
 ```
-Niveau 1 — Métier         → Processus, acteurs, événements, objets métier
-Niveau 2 — Fonctionnel    → Blocs fonctionnels, services métier (PAS — Plan d'Architecture Stratégique)
-Niveau 3 — Applicatif     → Applications, modules, flux applicatifs
-Niveau 4 — Technique      → Serveurs, middleware, BDD, conteneurs
-Niveau 5 — Infrastructure → Réseau, datacenter, cloud, sécurité physique
+Level 1 — Business        → Processes, actors, events, business objects
+Level 2 — Functional      → Functional blocks, business services (PAS — Strategic Architecture Plan)
+Level 3 — Application     → Applications, modules, application flows
+Level 4 — Technical       → Servers, middleware, DB, containers
+Level 5 — Infrastructure  → Network, datacenter, cloud, physical security
 ```
 
-**Règle d'or urbanisme** (Longépé) : **un bloc fonctionnel = une seule application principale**. Toute redondance fonctionnelle est un dossier d'urbanisme à instruire (rationalisation candidate).
+**Urbanization golden rule** (Longépé): **one functional block = a single main application**. Any functional redundancy is an urbanization case to investigate (rationalization candidate).
 
-## Inventaire applicatif & APM Gartner (Application Portfolio Management)
+## Application inventory & Gartner APM (Application Portfolio Management)
 
-### Attributs critiques par application (CMDB / référentiel APM)
+### Critical attributes per application (CMDB / APM repository)
 
-| Attribut | Exemple |
+| Attribute | Example |
 |---|---|
-| Identifiant unique | `APP-CRM-001` |
-| Nom fonctionnel + technique | "CRM Ventes B2B" / Salesforce Sales Cloud |
-| Éditeur / version | Salesforce / Spring '24 |
-| Criticité métier | Vital · Important · Standard · Faible |
-| Propriétaire métier / DSI | Direction Commerciale / DSI Front-Office |
-| Cycle de vie | Build / Run / Sunset / Decommissioned |
-| Coût annuel (TCO) | Licences + RUN + évolutions |
-| Technologie | SaaS · COTS · Custom · Legacy |
-| Conformité (RGPD, AI Act, sectoriel) | Statut + DPIA si applicable |
+| Unique identifier | `APP-CRM-001` |
+| Functional + technical name | "B2B Sales CRM" / Salesforce Sales Cloud |
+| Vendor / version | Salesforce / Spring '24 |
+| Business criticality | Vital · Important · Standard · Low |
+| Business / IT owner | Sales Department / Front-Office IT |
+| Lifecycle | Build / Run / Sunset / Decommissioned |
+| Annual cost (TCO) | Licenses + RUN + enhancements |
+| Technology | SaaS · COTS · Custom · Legacy |
+| Compliance (GDPR, AI Act, sector-specific) | Status + DPIA if applicable |
 
-### Méthode TIME APM (Gartner) — pour chaque application, 4 décisions stratégiques
+### Gartner TIME APM method — for each application, 4 strategic decisions
 
-| Catégorie | Critère | Action |
+| Category | Criterion | Action |
 |:---:|---|---|
-| **T**olerate | Stable, ROI neutre, pas de risque | Maintenir RUN minimal |
-| **I**nvest | Valeur business forte, croissance attendue | Enrichir, évoluer |
-| **M**igrate | Obsolescence technique, alternative existe | Plan de migration |
-| **E**liminate | Redondante, obsolète, sans valeur | Décommissionnement |
+| **T**olerate | Stable, neutral ROI, no risk | Maintain minimal RUN |
+| **I**nvest | Strong business value, expected growth | Enrich, evolve |
+| **M**igrate | Technical obsolescence, an alternative exists | Migration plan |
+| **E**liminate | Redundant, obsolete, no value | Decommissioning |
 
-## Matrice d'échanges (flux) — patterns d'intégration
+## Exchange (flow) matrix — integration patterns
 
-| Source | Destination | Données | Protocole | Fréquence | Criticité | Pattern |
+| Source | Destination | Data | Protocol | Frequency | Criticality | Pattern |
 |---|---|---|---|---|---|---|
-| CRM | ERP | Commandes client | API REST | Temps réel | Vital | API Gateway |
-| ERP | BI | Données ventes | Batch CSV nightly | J+1 | Standard | ETL / Data Pipeline |
-| Portail Client | OSS | Demandes d'activation | Event (Kafka) | Temps réel | Vital | Event Streaming |
-| Billing | DWH | Factures détaillées | CDC (Change Data Capture) | 15 min | Important | CDC / Streaming |
-| RH | Annuaire AD | Comptes utilisateurs | LDAP / SCIM | Temps réel | Vital | Identity Provisioning |
+| CRM | ERP | Customer orders | REST API | Real time | Vital | API Gateway |
+| ERP | BI | Sales data | Nightly CSV batch | D+1 | Standard | ETL / Data Pipeline |
+| Customer Portal | OSS | Activation requests | Event (Kafka) | Real time | Vital | Event Streaming |
+| Billing | DWH | Detailed invoices | CDC (Change Data Capture) | 15 min | Important | CDC / Streaming |
+| HR | AD directory | User accounts | LDAP / SCIM | Real time | Vital | Identity Provisioning |
 
-**5 patterns d'intégration** (Hohpe & Woolf 2003, *Enterprise Integration Patterns*) :
-- **Point-à-point** : ≤ 5 systèmes, sinon explosion combinatoire (N(N-1)/2)
-- **Hub & Spoke / ESB** (Enterprise Service Bus) : Mule ESB, Tibco, Software AG webMethods
-- **iPaaS** (Integration Platform as a Service) : MuleSoft Anypoint, Boomi, Talend, Workato, Zapier
-- **API Gateway** : Kong, Apigee, AWS API Gateway, Azure APIM — orchestration microservices
-- **Event Streaming** : Apache Kafka, Confluent, AWS Kinesis, Azure Event Hubs — Event-Driven Architecture
+**5 integration patterns** (Hohpe & Woolf 2003, *Enterprise Integration Patterns*):
+- **Point-to-point**: ≤ 5 systems, otherwise combinatorial explosion (N(N-1)/2)
+- **Hub & Spoke / ESB** (Enterprise Service Bus): Mule ESB, Tibco, Software AG webMethods
+- **iPaaS** (Integration Platform as a Service): MuleSoft Anypoint, Boomi, Talend, Workato, Zapier
+- **API Gateway**: Kong, Apigee, AWS API Gateway, Azure APIM — microservices orchestration
+- **Event Streaming**: Apache Kafka, Confluent, AWS Kinesis, Azure Event Hubs — Event-Driven Architecture
 
-## Analyse d'impact SI (méthode BABOK Strategy Analysis)
+## IS impact analysis (BABOK Strategy Analysis method)
 
-1. **Périmètre projet** : applications directement modifiées (ajout/évolution/suppression fonctionnalité)
-2. **Cercle 1 — Impact direct** : applications dont le code/config/schéma change
-3. **Cercle 2 — Impact indirect** : applications consommatrices (flux entrant) ou productrices (flux sortant) impactées par changement contrat d'interface
-4. **Cercle 3 — Impact transverse** : socle (auth, logging, monitoring, search), data lake, BI consolidée
-5. **Cotation impact** : Majeur (refonte code) · Mineur (config + tests régression) · Surveillance (monitoring renforcé sans intervention)
-6. **RACI projet** par application impactée : Responsible · Accountable · Consulted · Informed
-7. **Tests d'intégration** à prévoir : matrice scénarios × applications × volumétrie + non-régression
+1. **Project scope**: applications directly modified (feature addition/change/removal)
+2. **Circle 1 — Direct impact**: applications whose code/config/schema changes
+3. **Circle 2 — Indirect impact**: consumer applications (inbound flow) or producer applications (outbound flow) impacted by an interface-contract change
+4. **Circle 3 — Cross-cutting impact**: foundation (auth, logging, monitoring, search), data lake, consolidated BI
+5. **Impact rating**: Major (code overhaul) · Minor (config + regression tests) · Watch (reinforced monitoring without intervention)
+6. **Project RACI** per impacted application: Responsible · Accountable · Consulted · Informed
+7. **Integration tests** to plan: scenarios × applications × volume matrix + non-regression
 
-## Schéma directeur SI (Master Plan) 3-5 ans
+## IS master plan 3-5 years
 
-| Volet | Contenu |
+| Section | Content |
 |---|---|
-| **Vision cible** | Architecture TO-BE alignée stratégie business + capabilities futures |
-| **Roadmap évolutions** | Programmes pluriannuels (build, intégration, migration) |
-| **Rationalisation** | Décommissionnements priorisés (TIME-Eliminate), fusion redondances |
-| **Build / Buy / SaaS** | Critères de décision (souveraineté, TCO, time-to-market, criticité) |
-| **Migration cloud** | 6R AWS (Retire, Retain, Repurchase, Rehost, Replatform, Refactor) |
-| **Souveraineté & conformité** | SecNumCloud (ANSSI), CSPN, DORA banque, NIS2, AI Act, RGPD |
-| **Gouvernance EA** | Comité d'architecture, RACI décisions, Architecture Review Board |
+| **Target vision** | TO-BE architecture aligned with business strategy + future capabilities |
+| **Evolution roadmap** | Multi-year programs (build, integration, migration) |
+| **Rationalization** | Prioritized decommissioning (TIME-Eliminate), redundancy merging |
+| **Build / Buy / SaaS** | Decision criteria (sovereignty, TCO, time-to-market, criticality) |
+| **Cloud migration** | AWS 6R (Retire, Retain, Repurchase, Rehost, Replatform, Refactor) |
+| **Sovereignty & compliance** | SecNumCloud (ANSSI), CSPN, DORA banking, NIS2, AI Act, GDPR |
+| **EA governance** | Architecture committee, decision RACI, Architecture Review Board |
 
-## Exemple chiffré sectoriel — Opérateur télécom européen multi-pays
+## Sector-specific worked example — European multi-country telecom operator
 
-**Contexte anonymisé** : opérateur télécom européen présent dans 25+ pays B2C/B2B (~250M clients), SI hérité de fusions/acquisitions successives sur 20 ans, mission cartographie 18 mois sur périmètre France + 4 pays pilotes.
+**Anonymized context**: European telecom operator present in 25+ B2C/B2B countries (~250M customers), IS inherited from 20 years of successive mergers/acquisitions, an 18-month mapping engagement covering France + 4 pilot countries.
 
-**Périmètre cartographié** :
-- **412 applications** identifiées (objectif : exhaustivité ≥ 95%) répartis en 5 domaines **TM Forum eTOM** : Customer Domain (78) · Product Domain (61) · Service Domain (94 — OSS) · Resource Domain (112 — réseau/infra) · Enterprise Domain (67 — RH/Finance/Achats)
-- **Référentiel TM Forum Frameworx** appliqué : eTOM (Business Process Framework) + SID (Shared Information Data) + TAM (Telecom Application Map) — référentiel sectoriel mature standard de l'industrie télécoms, en évolution continue vers Open Digital Architecture (ODA)
-- **3 250 flux applicatifs** inventoriés (Source → Cible × pattern × criticité)
+**Mapped scope**:
+- **412 applications** identified (target: completeness ≥ 95%) across 5 **TM Forum eTOM** domains: Customer Domain (78) · Product Domain (61) · Service Domain (94 — OSS) · Resource Domain (112 — network/infra) · Enterprise Domain (67 — HR/Finance/Procurement)
+- **TM Forum Frameworx** standard applied: eTOM (Business Process Framework) + SID (Shared Information Data) + TAM (Telecom Application Map) — a mature, standard industry framework for telecoms, continuously evolving toward Open Digital Architecture (ODA)
+- **3,250 application flows** inventoried (Source → Target × pattern × criticality)
 
-**Modélisation ArchiMate 3.2** :
-- Couche Business : 47 processus eTOM Level 3 modélisés
-- Couche Application : 412 Application Components + 184 Application Services (API publiées)
-- Couche Technology : 89 Nodes (datacenters + cloud AWS/Azure + edge)
-- Couche Motivation : 12 Drivers stratégiques (5G rollout, cloudification, fin du cuivre, conformité DORA)
+**ArchiMate 3.2 modeling**:
+- Business layer: 47 eTOM Level 3 processes modeled
+- Application layer: 412 Application Components + 184 Application Services (published APIs)
+- Technology layer: 89 Nodes (datacenters + AWS/Azure cloud + edge)
+- Motivation layer: 12 strategic Drivers (5G rollout, cloudification, copper switch-off, DORA compliance)
 
-**Diagnostic TIME APM** :
+**TIME APM diagnosis**:
 
-| Catégorie | Nombre apps | % portefeuille | Action |
+| Category | App count | % of portfolio | Action |
 |:---:|:---:|:---:|---|
-| Tolerate | 162 | 39% | Maintien RUN, budget figé |
-| Invest | 98 | 24% | Modernisation, enrichissement digital |
-| Migrate | 96 | 23% | Plan migration cloud / SaaS / décommissionnement progressif |
-| Eliminate | 56 | 14% | Décommissionnement immédiat (12 mois) |
+| Tolerate | 162 | 39% | Maintain RUN, frozen budget |
+| Invest | 98 | 24% | Modernization, digital enrichment |
+| Migrate | 96 | 23% | Cloud / SaaS migration plan / gradual decommissioning |
+| Eliminate | 56 | 14% | Immediate decommissioning (12 months) |
 
-**Identification redondances** : **64 doublons fonctionnels** détectés (ex. 4 outils de ticketing différents hérités fusions, 3 self-care client par pays, 5 systèmes d'inventaire réseau) — règle d'or Longépé non respectée historiquement.
+**Redundancy identification**: **64 functional duplicates** detected (e.g. 4 different ticketing tools inherited from mergers, 3 customer self-care portals per country, 5 network inventory systems) — the Longépé golden rule was historically not respected.
 
-**Plan de rationalisation 5 ans** :
-- Décommissionnement 56 apps Eliminate (T+12 mois) — économie OPEX **8.2 M€/an**
-- Migration 96 apps Migrate vers SaaS/cloud (T+24-48 mois) — réduction TCO **~30%**
-- Fusion 22 doublons fonctionnels (T+36 mois) — sécurité données + simplification flux
-- Investissement 98 apps Invest (T+12-60 mois) — accélération digital + observabilité
+**5-year rationalization plan**:
+- Decommission 56 Eliminate apps (T+12 months) — OPEX savings **€8.2M/year**
+- Migrate 96 Migrate apps to SaaS/cloud (T+24-48 months) — TCO reduction **~30%**
+- Merge 22 functional duplicates (T+36 months) — data security + flow simplification
+- Invest in 98 Invest apps (T+12-60 months) — digital acceleration + observability
 
-**Gains mesurés post-POC 18 mois** (périmètre pilote 5 pays) :
-- Time-to-market projet : 9 mois → 5 mois (impact analysis automatisée via repository ArchiMate)
-- Couverture observabilité : 45% → 88% des flux critiques instrumentés
-- Réduction incidents inter-applications : -42% (cartographie flux + APM proactif)
-- Conformité DORA : 100% des applications critiques identifiées et documentées (échéance janvier 2025 respectée)
-- ROI cartographie : **18 mois** (économie OPEX rationalisation > coût programme EA)
+**Measured gains after an 18-month POC** (5-country pilot scope):
+- Project time-to-market: 9 months → 5 months (impact analysis automated via the ArchiMate repository)
+- Observability coverage: 45% → 88% of critical flows instrumented
+- Inter-application incident reduction: -42% (flow mapping + proactive APM)
+- DORA compliance: 100% of critical applications identified and documented (January 2025 deadline met)
+- Mapping ROI: **18 months** (rationalization OPEX savings > EA program cost)
 
-## 8 anti-patterns cartographie SI
+## 8 IS-mapping anti-patterns
 
-- ❌ **Cartographie mono-niveau** : ne modéliser que l'applicatif sans relier au métier/technique → perte d'alignement stratégique, schéma directeur déconnecté
-- ❌ **Zoom prématuré** : démarrer par diagrammes détaillés (C4 niveau 3) avant cadrage Context (C1) → effort gaspillé, parties prenantes perdues
-- ❌ **Format propriétaire fermé** : choisir un outil sans support BPMN-XML / ArchiMate-XMI / Open Group Exchange Format → enfermement éditeur, impossibilité d'audit externe
-- ❌ **Obsolescence non gouvernée** : cartographie figée post-projet, pas de processus de mise à jour (Change Management TOGAF Phase H absent) → modèle mort en 6 mois
-- ❌ **ArchiMate sans légende ni couches** : diagrammes lisibles uniquement par l'auteur → adoption nulle parties prenantes métier
-- ❌ **Flux temps réel ignorés** : matrice limitée aux batchs nightly, pas de représentation Event Streaming / CDC → SI réel mal compris (45% des flux modernes invisibles)
-- ❌ **Schéma directeur déconnecté business** : roadmap technique sans capability map alignée stratégie → DSI vue comme cost-center, pas comme partenaire
-- ❌ **Cloud non modélisé** : ArchiMate Technology Layer figé "on-prem" alors que 40% des charges sont SaaS/IaaS → invisibilité TCO réel et risques souveraineté
+- ❌ **Single-level mapping**: modeling only the application layer without linking to business/technical → loss of strategic alignment, disconnected master plan
+- ❌ **Premature zoom**: starting with detailed diagrams (C4 level 3) before scoping the Context (C1) → wasted effort, stakeholders lost
+- ❌ **Closed proprietary format**: choosing a tool without BPMN-XML / ArchiMate-XMI / Open Group Exchange Format support → vendor lock-in, no external audit possible
+- ❌ **Ungoverned obsolescence**: mapping frozen after the project, no update process (TOGAF Phase H Change Management absent) → a dead model in 6 months
+- ❌ **ArchiMate without a legend or layers**: diagrams readable only by the author → zero business-stakeholder adoption
+- ❌ **Real-time flows ignored**: matrix limited to nightly batches, no Event Streaming / CDC representation → the real IS poorly understood (45% of modern flows invisible)
+- ❌ **Master plan disconnected from business**: technical roadmap without a strategy-aligned capability map → IT seen as a cost-center, not a partner
+- ❌ **Cloud not modeled**: ArchiMate Technology Layer frozen "on-prem" while 40% of workloads are SaaS/IaaS → invisibility of real TCO and sovereignty risks
 
-## Outils
+## Tools
 
-**Modeleurs EA gratuits / open source** : Archi (Open Group, gratuit, ArchiMate natif) · draw.io / diagrams.net (générique) · PlantUML (C4 + UML scriptable)
+**Free / open-source EA modelers**: Archi (Open Group, free, native ArchiMate) · draw.io / diagrams.net (generic) · PlantUML (scriptable C4 + UML)
 
-**Modeleurs EA enterprise** : Sparx Enterprise Architect · Visual Paradigm · BiZZdesign Enterprise Studio (ArchiMate natif) · MEGA HOPEX · Avolution ABACUS
+**Enterprise EA modelers**: Sparx Enterprise Architect · Visual Paradigm · BiZZdesign Enterprise Studio (native ArchiMate) · MEGA HOPEX · Avolution ABACUS
 
-**Plateformes APM / EA cloud** : LeanIX (SAP) · Ardoq · Mega HOPEX · Software AG ARIS Aris · ServiceNow APM (intégré CMDB)
+**Cloud APM / EA platforms**: LeanIX (SAP) · Ardoq · Mega HOPEX · Software AG ARIS · ServiceNow APM (CMDB-integrated)
 
-**iPaaS / EAI / API Management** : MuleSoft Anypoint · Boomi · Talend · Workato · Kong · Apigee · AWS API Gateway · Azure APIM
+**iPaaS / EAI / API Management**: MuleSoft Anypoint · Boomi · Talend · Workato · Kong · Apigee · AWS API Gateway · Azure APIM
 
-**Event Streaming** : Apache Kafka · Confluent Cloud · AWS Kinesis · Azure Event Hubs · RabbitMQ (messaging)
+**Event Streaming**: Apache Kafka · Confluent Cloud · AWS Kinesis · Azure Event Hubs · RabbitMQ (messaging)
 
-## Livrables
+## Deliverables
 
-- **Cartographie applicative AS-IS** (ArchiMate 3.2 + format export XMI/CSV)
-- **Cartographie cible TO-BE** (3-5 ans) avec Plateaux intermédiaires
-- **Inventaire applicatif APM** (CMDB enrichi 9-15 attributs + cotation TIME)
-- **Matrice des flux** (3 colonnes minimum : Source / Cible / Données + pattern d'intégration)
+- **AS-IS application map** (ArchiMate 3.2 + XMI/CSV export format)
+- **TO-BE target map** (3-5 years) with intermediate Plateaus
+- **APM application inventory** (CMDB enriched with 9-15 attributes + TIME rating)
+- **Flow matrix** (3 columns minimum: Source / Target / Data + integration pattern)
 - **Gap Analysis** AS-IS / TO-BE (TOGAF Phase E)
-- **Schéma directeur SI** 3-5 ans avec roadmap rationalisation + budget OPEX/CAPEX
-- **Analyse d'impact projet** (3 cercles + RACI applications + plan tests intégration)
-- **Architecture Decision Records (ADR)** datés et tracés (cf. Nygard 2011)
+- **IS master plan** 3-5 years with rationalization roadmap + OPEX/CAPEX budget
+- **Project impact analysis** (3 circles + application RACI + integration test plan)
+- **Architecture Decision Records (ADR)** dated and traced (cf. Nygard 2011)
 
-## Format de sortie
+## Output format
 
-Pour chaque mission cartographie, précise :
-- **Périmètre** : domaines métier (Customer/Product/Service/Resource/Enterprise — eTOM si télécom) · pays/BU concernés · cycles de vie (in scope / hors scope)
-- **Profondeur cible** : macro (~Niveau 2 fonctionnel) · détaillée (~Niveau 3 applicatif) · approfondie (~Niveau 4 technique)
-- **Objectif** : analyse d'impact projet (3-6 mois) · schéma directeur (12-18 mois) · rationalisation portefeuille (24-36 mois) · conformité réglementaire (DORA, NIS2, AI Act)
-- **Référentiels mobilisés** : TOGAF 10 ADM phases (lesquelles) · ArchiMate 3.2 couches (lesquelles) · C4 Model (niveaux) · sectoriels (TM Forum eTOM télécom · BIAN banque · ACORD assurance · HL7 santé)
+For each mapping engagement, specify:
+- **Scope**: business domains (Customer/Product/Service/Resource/Enterprise — eTOM if telecom) · countries/BUs concerned · lifecycles (in scope / out of scope)
+- **Target depth**: macro (~Level 2 functional) · detailed (~Level 3 application) · in-depth (~Level 4 technical)
+- **Goal**: project impact analysis (3-6 months) · master plan (12-18 months) · portfolio rationalization (24-36 months) · regulatory compliance (DORA, NIS2, AI Act)
+- **Frameworks leveraged**: TOGAF 10 ADM phases (which ones) · ArchiMate 3.2 layers (which ones) · C4 Model (levels) · sector-specific (TM Forum eTOM telecom · BIAN banking · ACORD insurance · HL7 healthcare)
 
 ## Sources
 
@@ -220,18 +220,18 @@ Pour chaque mission cartographie, précise :
 - **ISO/IEC/IEEE 42010:2022** — Software, systems and enterprise — Architecture description
 - **Zachman Framework 3.0** — John Zachman (2011) — *The Concise Definition of The Zachman Framework*
 - **C4 Model** — Simon Brown (2018) — *The C4 model for visualising software architecture* — https://c4model.com
-- **Longépé Christophe** — *Le projet d'urbanisation du SI* (Dunod, 4ème éd. 2009)
+- **Longépé Christophe** — *Le projet d'urbanisation du SI* (Dunod, 4th ed. 2009)
 - **Hohpe G., Woolf B.** — *Enterprise Integration Patterns* (Addison-Wesley 2003)
 - **Nygard Michael T.** — *Documenting Architecture Decisions* (ADR pattern, 2011)
-- **BABOK Guide v3** — IIBA (2015), KA #2 Planning + KA #9 Strategy Analysis + Perspective IT
-- **TM Forum Frameworx** — eTOM (Process Framework) + SID (Shared Information Data) + TAM (Application Framework) + évolution Open Digital Architecture (ODA, cloud-native re-packaging) — https://www.tmforum.org/oda
-- **APM Gartner** — *IT Application Portfolio Management* (Gartner Research, méthode TIME 2010+)
+- **BABOK Guide v3** — IIBA (2015), KA #2 Planning + KA #9 Strategy Analysis + IT Perspective
+- **TM Forum Frameworx** — eTOM (Process Framework) + SID (Shared Information Data) + TAM (Application Framework) + Open Digital Architecture evolution (ODA, cloud-native re-packaging) — https://www.tmforum.org/oda
+- **Gartner APM** — *IT Application Portfolio Management* (Gartner Research, TIME method 2010+)
 
-## Voir aussi
+## See also
 
-- [modelisation-processus.md](modelisation-processus.md) — BPMN/UML pour zoom sur processus métier modélisés en couche Business ArchiMate
-- [elicitation-besoins.md](elicitation-besoins.md) — collecte besoins en amont de Strategy Analysis (TOGAF Phase A)
-- [analyse-impact.md](analyse-impact.md) — analyse d'impact projet, articulation TOGAF Phase E + Strategy Analysis BABOK
-- [gestion-exigences.md](gestion-exigences.md) — traçabilité exigences ↔ Application Components ArchiMate
-- [`../scrum/po-backlog.md`](../scrum/po-backlog.md) — alimentation backlog projet depuis Gap Analysis EA
-- [`../change_manager/strategie-adoption.md`](../change_manager/strategie-adoption.md) — pilotage transformation post-cartographie (Kotter, PROSCI, ADKAR)
+- [modelisation-processus.md](modelisation-processus.md) — BPMN/UML to zoom on business processes modeled in the ArchiMate Business layer
+- [elicitation-besoins.md](elicitation-besoins.md) — needs gathering upstream of Strategy Analysis (TOGAF Phase A)
+- [analyse-impact.md](analyse-impact.md) — project impact analysis, articulating TOGAF Phase E + BABOK Strategy Analysis
+- [gestion-exigences.md](gestion-exigences.md) — requirements ↔ ArchiMate Application Components traceability
+- [`../scrum/po-backlog.md`](../scrum/po-backlog.md) — feeding the project backlog from the EA Gap Analysis
+- [`../change_manager/strategie-adoption.md`](../change_manager/strategie-adoption.md) — steering the post-mapping transformation (Kotter, PROSCI, ADKAR)

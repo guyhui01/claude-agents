@@ -1,234 +1,234 @@
-# Skill — Cadrage de Projet MOA
+# Skill — MOA Project Scoping
 
-> Certifications : **PMI-PBA** · **PMP** · **PRINCE2 Practitioner** · **IIBA CBAP** · **TOGAF 10** · ISO 21500
-> Agent : AGENT-BUSINESS-ANALYST.md
+> Certifications: **PMI-PBA** · **PMP** · **PRINCE2 Practitioner** · **IIBA CBAP** · **TOGAF 10** · ISO 21500
+> Agent: AGENT-BUSINESS-ANALYST.md
 
-## Objectif
+## Objective
 
-Définir le périmètre, le business case, la gouvernance et les conditions de succès d'un projet **avant son lancement formel** — produire les artefacts d'**initialisation** (Note de cadrage, **Charte projet PMBOK**, **PID PRINCE2**) qui autorisent l'engagement budgétaire et nomment formellement le Chef de projet MOA.
+Define the scope, business case, governance and success conditions of a project **before its formal launch** — produce the **initiation** artifacts (scoping note, **PMBOK Project Charter**, **PRINCE2 PID**) that authorize the budget commitment and formally appoint the MOA Project Manager.
 
-## Cadre BABOK v3 (IIBA 2015)
+## BABOK v3 framework (IIBA 2015)
 
-| KA BABOK v3 | Tâches typiques cadrage |
+| BABOK v3 KA | Typical scoping tasks |
 |---|---|
 | **#9 Strategy Analysis** | T9.1 Analyze Current State · T9.2 Define Future State · T9.4 Define Change Strategy |
 | **#2 BA Planning & Monitoring** | T2.1 Plan BA Approach · T2.3 Plan BA Governance |
-| **#10 Stakeholder Engagement** | Identification des parties prenantes (cf. Mendelow Power/Interest) |
+| **#10 Stakeholder Engagement** | Stakeholder identification (cf. Mendelow Power/Interest) |
 
-## Charte projet (Project Charter PMBOK 7) — Document fondateur signé Sponsor
+## Project Charter (PMBOK 7) — Founding document signed by the Sponsor
 
-**À distinguer de la simple note de cadrage** : la Charte est l'**autorisation formelle** signée par le Sponsor avant tout engagement budgétaire — elle nomme le CdP MOA et lui confère son autorité.
+**To be distinguished from a simple scoping note**: the Charter is the **formal authorization** signed by the Sponsor before any budget commitment — it appoints the MOA Project Manager and grants their authority.
 
 ```
 1. Identification
-   - Nom du projet, code, version, date
+   - Project name, code, version, date
 
-2. Justification / Business Case (cf. section dédiée)
-   - Problématique métier + bénéfices attendus chiffrés
-   - Investissement total estimé + ROI cible + délai retour
+2. Justification / Business Case (cf. dedicated section)
+   - Business problem + quantified expected benefits
+   - Total estimated investment + target ROI + payback period
 
-3. Objectifs SMART
-   - 3-5 objectifs Specific Measurable Achievable Realistic Time-bound
+3. SMART objectives
+   - 3-5 Specific Measurable Achievable Realistic Time-bound objectives
 
-4. Périmètre (Scope Statement)
-   - In scope · Out of scope · Hypothèses · Contraintes
+4. Scope (Scope Statement)
+   - In scope · Out of scope · Assumptions · Constraints
 
-5. Livrables majeurs avec critères d'acceptation
+5. Major deliverables with acceptance criteria
 
-6. Jalons macro (Gates Go/No-Go, max 5-10)
+6. Macro milestones (Go/No-Go gates, max 5-10)
 
-7. Gouvernance (cf. reporting-moa)
-   - COPIL : composition, fréquence, périmètre décisionnel
-   - COTECH, CCB (Change Control Board), Comité Risques
+7. Governance (cf. reporting-moa)
+   - COPIL: composition, frequency, decision scope
+   - COTECH, CCB (Change Control Board), Risk Committee
 
-8. RACI macro (acteurs clés × phases)
+8. Macro RACI (key actors × phases)
 
-9. Budget global + Tolérances PRINCE2
+9. Overall budget + PRINCE2 tolerances
    - Time ±X%, Cost ±Y%, Scope MoSCoW
 
-10. Top 5 risques + appétit pour le risque
+10. Top 5 risks + risk appetite
 
-11. Hypothèses & dépendances projet externes
+11. External project assumptions & dependencies
 
-12. Autorisation
-    - Signatures Sponsor + CdP MOA + Direction
+12. Authorization
+    - Sponsor + MOA Project Manager + Leadership signatures
 ```
 
-## Note de cadrage — Structure (livrable amont de la Charte)
+## Scoping note — Structure (upstream deliverable of the Charter)
 
 ```
-1. Contexte et enjeux (situation actuelle, problématique, drivers stratégiques)
-2. Périmètre (in scope / out of scope / frontières SI)
-3. Parties prenantes (Sponsor, MOA, MOE, utilisateurs, RACI simplifié)
-4. Livrables attendus (avec critères de succès macro)
-5. Planning macro (jalons clés, Go/No-Go envisagés)
-6. Budget estimatif (enveloppe, postes coût principaux)
-7. Risques et hypothèses (Top 5 risques + mitigation, hypothèses de travail)
-8. Conditions de succès (KPI projet + KPI business)
-9. Décision demandée (validation lancement, arbitrages)
+1. Context and stakes (current situation, problem, strategic drivers)
+2. Scope (in scope / out of scope / IS boundaries)
+3. Stakeholders (Sponsor, MOA, MOE, users, simplified RACI)
+4. Expected deliverables (with macro success criteria)
+5. Macro schedule (key milestones, envisaged Go/No-Go)
+6. Estimated budget (envelope, main cost items)
+7. Risks and assumptions (Top 5 risks + mitigation, working assumptions)
+8. Success conditions (project KPIs + business KPIs)
+9. Decision requested (launch validation, trade-offs)
 ```
 
-## Business Case — Méthode chiffrée (PRINCE2 Theme Business Case)
+## Business Case — Quantified method (PRINCE2 Business Case Theme)
 
-### Structure type
+### Typical structure
 ```
 1. Reasons / Drivers (Why now?)
 2. Business options (Do nothing / Do minimum / Do something)
-3. Expected Benefits — quantifiés en € ou unités mesurables
-   - Hard benefits : revenus, économies, productivité, time-to-market
-   - Soft benefits : satisfaction client (NPS), engagement collaborateurs (eNPS), conformité, image
-4. Expected Dis-benefits — coûts ou impacts négatifs assumés
-5. Timescale — délais, jalons macro
-6. Costs — CAPEX + OPEX projet + RUN post-MEP
+3. Expected Benefits — quantified in € or measurable units
+   - Hard benefits: revenue, savings, productivity, time-to-market
+   - Soft benefits: customer satisfaction (NPS), employee engagement (eNPS), compliance, image
+4. Expected Dis-benefits — accepted costs or negative impacts
+5. Timescale — timelines, macro milestones
+6. Costs — CAPEX + project OPEX + post-go-live RUN
 7. Investment Appraisal — ROI, NPV (Net Present Value), Payback Period, IRR
-8. Major Risks — top risques business case (cf. gestion-risques)
+8. Major Risks — top business-case risks (cf. risk management)
 ```
 
-### Calculs financiers clés
+### Key financial calculations
 
-| Indicateur | Formule | Décision |
+| Indicator | Formula | Decision |
 |---|---|---|
-| **ROI** | (Bénéfices - Coûts) / Coûts × 100% | ≥ 20% sur 3 ans : favorable |
-| **NPV** (Net Present Value) | Σ Cash flows actualisés - Investissement initial | NPV > 0 : projet créateur de valeur |
-| **Payback Period** | Investissement / Bénéfice annuel moyen | < 24-36 mois selon secteur |
-| **IRR** (Internal Rate of Return) | Taux qui annule NPV | > Coût du capital (CMPC) entreprise |
+| **ROI** | (Benefits - Costs) / Costs × 100% | ≥ 20% over 3 years: favorable |
+| **NPV** (Net Present Value) | Σ discounted cash flows - initial investment | NPV > 0: value-creating project |
+| **Payback Period** | Investment / average annual benefit | < 24-36 months depending on sector |
+| **IRR** (Internal Rate of Return) | Rate that zeroes out NPV | > company cost of capital (WACC) |
 
-## Étude de faisabilité — 5 dimensions (TELOS étendu)
+## Feasibility study — 5 dimensions (extended TELOS)
 
-| Dimension | Questions clés | Livrable |
+| Dimension | Key questions | Deliverable |
 |---|---|---|
-| **Technique** | Technologies disponibles ? Compétences internes ? Architecture cible viable ? | POC / Spike technique |
-| **Économique / Financière** | ROI ? Budget disponible ? Funding source ? | Business Case + NPV |
-| **Légale / Réglementaire** | RGPD, AI Act, sectoriel (DORA, NIS2, MDR), licences | Analyse juridique + DPIA |
-| **Opérationnelle / Organisationnelle** | Capacité absorption changement ? Disponibilité ressources ? | Analyse d'impact + capacity planning |
-| **Temporelle / Calendrier** | Délai réaliste ? Fenêtre de marché ? Dépendances externes ? | Planning macro + analyse chemin critique |
-| **Environnementale / RSE** *(optionnel)* | Bilan carbone projet ? Conformité CSRD ? | Évaluation environnementale |
+| **Technical** | Technologies available? Internal skills? Viable target architecture? | POC / technical Spike |
+| **Economic / Financial** | ROI? Budget available? Funding source? | Business Case + NPV |
+| **Legal / Regulatory** | GDPR, AI Act, sector-specific (DORA, NIS2, MDR), licenses | Legal analysis + DPIA |
+| **Operational / Organizational** | Change absorption capacity? Resource availability? | Impact analysis + capacity planning |
+| **Time / Schedule** | Realistic timeline? Market window? External dependencies? | Macro schedule + critical path analysis |
+| **Environmental / CSR** *(optional)* | Project carbon footprint? CSRD compliance? | Environmental assessment |
 
-## Matrice Eisenhower appliquée au cadrage périmètre
+## Eisenhower matrix applied to scope framing
 
 ```
 Important + Urgent       → Phase 1 (MVP) — Must (MoSCoW)
-Important + Non urgent   → Phase 2-3 — Should / Could
-Non important + Urgent   → Déprioriser ou déléguer — Could
-Non important + Non urgent → Out of scope — Won't (this time)
+Important + Not urgent   → Phase 2-3 — Should / Could
+Not important + Urgent   → Deprioritize or delegate — Could
+Not important + Not urgent → Out of scope — Won't (this time)
 ```
 
-## WBS niveau 2 — Décomposition initiale phases × lots
+## WBS level 2 — Initial breakdown phases × work packages
 
-À ce stade de cadrage, on produit le **WBS macro** (2 niveaux maximum) — le WBS détaillé (3-4 niveaux, work packages 8-80h) vient en phase d'initialisation projet (cf. [pilotage-projet.md](pilotage-projet.md)).
+At this scoping stage, you produce the **macro WBS** (2 levels max) — the detailed WBS (3-4 levels, 8-80h work packages) comes during the project initiation phase (cf. [pilotage-projet.md](pilotage-projet.md)).
 
 ```
-Projet (Niveau 0)
-├── Phase 1 — Cadrage & Initialisation (Niveau 1)
-│   ├── Lot 1.1 — Études faisabilité
-│   ├── Lot 1.2 — Business case
-│   └── Lot 1.3 — Charte projet
-├── Phase 2 — Spécification
-├── Phase 3 — Conception
-├── Phase 4 — Réalisation
-├── Phase 5 — Recette & MEP
-└── Phase 6 — Clôture
+Project (Level 0)
+├── Phase 1 — Scoping & Initiation (Level 1)
+│   ├── WP 1.1 — Feasibility studies
+│   ├── WP 1.2 — Business case
+│   └── WP 1.3 — Project charter
+├── Phase 2 — Specification
+├── Phase 3 — Design
+├── Phase 4 — Build
+├── Phase 5 — UAT & Go-live
+└── Phase 6 — Closure
 ```
 
-## Arbre de décision Build / Buy / SaaS / Lease (TOGAF + Gartner)
+## Build / Buy / SaaS / Lease decision tree (TOGAF + Gartner)
 
-| Critère | Build (sur-mesure) | Buy (COTS on-prem) | SaaS (cloud) | Lease (open source + intégration) |
+| Criterion | Build (custom) | Buy (COTS on-prem) | SaaS (cloud) | Lease (open source + integration) |
 |---|:---:|:---:|:---:|:---:|
-| Coût initial CAPEX | Élevé | Moyen-Élevé | Faible | Moyen |
-| TCO sur 5 ans | Variable, souvent élevé | Moyen | Élevé (abonnement) | Faible-Moyen |
-| Time-to-market | Long (12-24 mois) | Moyen (6-12 mois) | Rapide (1-3 mois) | Moyen (3-9 mois) |
-| Différenciation business | Forte | Faible | Faible | Moyenne |
-| Souveraineté données | Totale | Forte | Variable (cf. localisation) | Forte |
-| Dépendance fournisseur | Faible (interne) | Moyenne (éditeur) | Forte (lock-in) | Faible (open source) |
-| Critère décision dominant | Différenciation compétitive forte | Métier standard + besoin spécifique | Métier standardisé, besoin time-to-market | Mix flexibilité + souveraineté |
+| Initial CAPEX cost | High | Medium-High | Low | Medium |
+| 5-year TCO | Variable, often high | Medium | High (subscription) | Low-Medium |
+| Time-to-market | Long (12-24 months) | Medium (6-12 months) | Fast (1-3 months) | Medium (3-9 months) |
+| Business differentiation | Strong | Weak | Weak | Medium |
+| Data sovereignty | Total | Strong | Variable (cf. location) | Strong |
+| Vendor dependency | Low (internal) | Medium (vendor) | Strong (lock-in) | Low (open source) |
+| Dominant decision criterion | Strong competitive differentiation | Standard business + specific need | Standardized business, time-to-market need | Mix of flexibility + sovereignty |
 
-## Exemple chiffré sectoriel — Cadrage transformation **secteur public** (administration)
+## Sector-specific worked example — **Public sector** transformation scoping (administration)
 
-**Contexte anonymisé** : agence publique européenne (~15 000 agents, 28 sites territoriaux). Cadrage du programme **"Démat'Services 2025"** — dématérialisation 32 procédures administratives usagers (12 M demandes/an).
+**Anonymized context**: European public agency (~15,000 staff, 28 regional sites). Scoping of the **"Démat'Services 2025"** program — digitalization of 32 citizen-facing administrative procedures (12M requests/year).
 
-**Charte projet validée** :
-- Sponsor : Directeur Général + Directeur Programme Transformation
-- CdP MOA : 1 directeur de programme + 4 CdP MOA filière
-- Budget global : **18 M€** (CAPEX 11 M€ + OPEX projet 7 M€ sur 30 mois)
-- Tolérances PRINCE2 : Time ±10% phase / ±5% global · Cost ±5% phase / ±3% global · Scope Must intangible (32 procédures cibles)
+**Validated project charter**:
+- Sponsor: Director General + Transformation Program Director
+- MOA Project Manager: 1 program director + 4 stream MOA Project Managers
+- Overall budget: **€18M** (CAPEX €11M + project OPEX €7M over 30 months)
+- PRINCE2 tolerances: Time ±10% phase / ±5% overall · Cost ±5% phase / ±3% overall · Scope Must intangible (32 target procedures)
 
-**Business Case** :
-- Bénéfices T+36 mois (post-MEP totale) :
-  - Économie traitement papier : 4.2 M€/an (réduction 65% volumes papier)
-  - Productivité agents : 380 ETP recentrés sur tâches valeur ajoutée
-  - Délais traitement usagers : 21 jours → **5 jours** moyenne pondérée (-76%)
-  - Satisfaction usagers (baromètre annuel) : 5.8/10 → cible **7.5/10**
-  - Conformité RGPD + Référentiel Général de Sécurité ANSSI : 100%
-- Investissement : 18 M€ projet + 2 M€/an RUN
-- ROI 5 ans : **+34 M€ net** · Payback 28 mois · NPV (taux 4%) : +12 M€
+**Business Case**:
+- Benefits at T+36 months (after full go-live):
+  - Paper-handling savings: €4.2M/year (65% reduction in paper volumes)
+  - Staff productivity: 380 FTE refocused on value-added tasks
+  - Citizen processing times: 21 days → **5 days** weighted average (-76%)
+  - Citizen satisfaction (annual barometer): 5.8/10 → target **7.5/10**
+  - GDPR + ANSSI General Security Framework compliance: 100%
+- Investment: €18M project + €2M/year RUN
+- 5-year ROI: **+€34M net** · Payback 28 months · NPV (4% rate): +€12M
 
-**Étude de faisabilité (TELOS étendu)** :
-- Technique : ✅ (cloud SecNumCloud disponible, agents formés Numérique)
-- Économique : ✅ (financement Plan France Relance + Plan IA ministère)
-- Légale : ✅ sous conditions (DPIA obligatoire, RGS ANSSI, accessibilité RGAA 4.1, Référentiel Général Eco-conception RGESN)
-- Opérationnelle : 🟡 (forte conduite changement requise, dialogue social syndical, formation 8 500 agents)
-- Temporelle : ✅ (30 mois, alignée mandature politique)
+**Feasibility study (extended TELOS)**:
+- Technical: ✅ (SecNumCloud cloud available, staff trained in digital)
+- Economic: ✅ (funding via Plan France Relance + ministry AI Plan)
+- Legal: ✅ under conditions (mandatory DPIA, ANSSI RGS, RGAA 4.1 accessibility, RGESN eco-design framework)
+- Operational: 🟡 (strong change management required, union social dialogue, training 8,500 staff)
+- Time: ✅ (30 months, aligned with the political term)
 
-**Matrice Eisenhower** → Phase 1 MVP : 8 procédures les plus volumiques (60% des 12M demandes) · Phase 2 : 16 procédures complémentaires · Phase 3 : 8 procédures niches · Out of scope (V2 future) : interopérabilité inter-administrations.
+**Eisenhower matrix** → Phase 1 MVP: the 8 highest-volume procedures (60% of the 12M requests) · Phase 2: 16 additional procedures · Phase 3: 8 niche procedures · Out of scope (future V2): inter-agency interoperability.
 
-**Décision COPIL** : GO programme avec 3 conditions (DPIA validée préalablement par CNIL, plan formation 8 500 agents budgété, dispositif accompagnement syndical formalisé).
+**COPIL decision**: GO program with 3 conditions (DPIA validated beforehand by the CNIL, training plan for 8,500 staff budgeted, formalized union support arrangement).
 
-## 6 anti-patterns cadrage projet
+## 6 project-scoping anti-patterns
 
-- ❌ **Note de cadrage sans business case chiffré** ("c'est stratégique") → pas d'autorité d'engagement budgétaire, arbitrage Comex impossible
-- ❌ **Charte projet absente** (on saute directement au plan de management) → CdP MOA non-empowered formellement, scope creep garanti
-- ❌ **In scope défini, out of scope absent** → ambiguïté périmètre, demandes additionnelles non tracées
-- ❌ **Faisabilité limitée au technique** (TELOS partiel : économique + légal + opérationnel + temporel ignorés) → risques découverts en cours de projet
-- ❌ **Top 5 risques sans cotation P×I ni owner** → ne déclenche aucune action concrète
-- ❌ **Pas de tolérances PRINCE2 définies** → impossible de piloter par exception, sponsor saturé par opérationnel
+- ❌ **Scoping note without a quantified business case** ("it's strategic") → no budget-commitment authority, COMEX trade-off impossible
+- ❌ **Missing project charter** (jumping straight to the management plan) → MOA Project Manager not formally empowered, scope creep guaranteed
+- ❌ **In scope defined, out of scope missing** → scope ambiguity, additional requests untraced
+- ❌ **Feasibility limited to the technical dimension** (partial TELOS: economic + legal + operational + time ignored) → risks discovered mid-project
+- ❌ **Top 5 risks without P×I rating or owner** → triggers no concrete action
+- ❌ **No PRINCE2 tolerances defined** → impossible to manage by exception, sponsor flooded with operational matters
 
-## Outils
+## Tools
 
-- **Note de cadrage / Charte / Business Case** : Word + Confluence + Notion · ProjectLibre (gratuit) · Smartsheet
-- **WBS macro** : MindManager · XMind · Lucidchart · Miro · draw.io
-- **Faisabilité technique POC** : Notion · Confluence · GitHub (POC repository) · Postman (API tests)
-- **Business case financier** : Excel + templates PMI · Smartsheet Financial Templates · Power BI dashboards
-- **Évaluation Build/Buy/SaaS** : Gartner Decision Tools · Forrester TEI (Total Economic Impact) calculator
-- **DPIA / Compliance** : CNIL PIA software (gratuit) · OneTrust · Vanta
+- **Scoping note / Charter / Business Case**: Word + Confluence + Notion · ProjectLibre (free) · Smartsheet
+- **Macro WBS**: MindManager · XMind · Lucidchart · Miro · draw.io
+- **Technical feasibility POC**: Notion · Confluence · GitHub (POC repository) · Postman (API tests)
+- **Financial business case**: Excel + PMI templates · Smartsheet Financial Templates · Power BI dashboards
+- **Build/Buy/SaaS evaluation**: Gartner Decision Tools · Forrester TEI (Total Economic Impact) calculator
+- **DPIA / Compliance**: CNIL PIA software (free) · OneTrust · Vanta
 
-## Livrables
+## Deliverables
 
-- **Note de cadrage validée Sponsor** (livrable amont avant Charte)
-- **Charte projet PMBOK signée** ou **PID PRINCE2** (autorisation formelle)
-- **Business Case** chiffré (ROI, NPV, Payback, IRR)
-- **Étude de faisabilité TELOS** (5 dimensions documentées)
-- **Périmètre MoSCoW** (Must / Should / Could / Won't)
-- **WBS macro niveau 2** (phases × lots)
-- **Top 5 risques + plan mitigation**
-- **Arbre décision Build/Buy/SaaS** documenté si pertinent
-- **DPIA + analyse conformité** réglementaire (si traitement données sensibles)
+- **Sponsor-validated scoping note** (upstream deliverable before the Charter)
+- **Signed PMBOK project charter** or **PRINCE2 PID** (formal authorization)
+- **Quantified Business Case** (ROI, NPV, Payback, IRR)
+- **TELOS feasibility study** (5 documented dimensions)
+- **MoSCoW scope** (Must / Should / Could / Won't)
+- **Macro WBS level 2** (phases × work packages)
+- **Top 5 risks + mitigation plan**
+- **Build/Buy/SaaS decision tree** documented if relevant
+- **DPIA + regulatory compliance analysis** (if sensitive data processing)
 
-## Format de sortie
+## Output format
 
-Pour chaque mission cadrage, précise :
-- **Type de projet** : SI/digital · transformation organisationnelle · réglementaire · IA · transverse
-- **Contexte client** : taille organisation · secteur · maturité projet · gouvernance existante
-- **Contraintes connues** : budget cap · délai impératif · réglementation · disponibilité ressources
-- **Décision attendue** : Go/No-Go Comex · arbitrage budgétaire · validation périmètre · choix Build/Buy/SaaS
-- **Niveau de formalisme** : startup/scale-up (cadrage léger) · ETI (note de cadrage + business case) · grand groupe / secteur public (Charte PMBOK + PID PRINCE2 + DPIA + COPIL formalisé)
+For each scoping engagement, specify:
+- **Project type**: IS/digital · organizational transformation · regulatory · AI · cross-cutting
+- **Client context**: organization size · sector · project maturity · existing governance
+- **Known constraints**: budget cap · hard deadline · regulation · resource availability
+- **Expected decision**: COMEX Go/No-Go · budget trade-off · scope validation · Build/Buy/SaaS choice
+- **Formality level**: startup/scale-up (lightweight scoping) · mid-cap (scoping note + business case) · large group / public sector (PMBOK Charter + PRINCE2 PID + DPIA + formalized COPIL)
 
 ## Sources
 
 - **PMBOK Guide, 7th Edition** — PMI (2021) — Project Charter, Business Case
-- **PRINCE2 7th Edition** — PeopleCert/Axelos (septembre 2023, remplace 6e édition) — Theme Business Case, Process SU (Starting Up a Project)
+- **PRINCE2 7th Edition** — PeopleCert/Axelos (September 2023, replaces 6th edition) — Business Case Theme, SU Process (Starting Up a Project)
 - **ISO 21500:2021** — Project, programme and portfolio management — Context and concepts
 - **BABOK Guide v3** — IIBA (2015) — KA #9 Strategy Analysis, KA #2 Planning & Monitoring
-- **AFNOR FD X50-115:2001** — Management de projet — Présentation générale
-- **Cooper R.G.** — *Winning at New Products: Creating Value Through Innovation* (Basic Books, 5ème éd. 2017) — Stage-Gate
-- **Eisenhower Matrix** — Eisenhower D.D. (1954) — priorisation Important/Urgent
+- **AFNOR FD X50-115:2001** — Project management — General presentation
+- **Cooper R.G.** — *Winning at New Products: Creating Value Through Innovation* (Basic Books, 5th ed. 2017) — Stage-Gate
+- **Eisenhower Matrix** — Eisenhower D.D. (1954) — Important/Urgent prioritization
 - **TOGAF Standard 10th Edition** — The Open Group (2022) — Phase A Architecture Vision
 
-## Voir aussi
+## See also
 
-- [pilotage-projet.md](pilotage-projet.md) — pilotage projet aval (WBS détaillé, Gantt/CPM, Tolerances, Clôture, Lessons Learned)
-- [elicitation-besoins.md](elicitation-besoins.md) — élicitation amont avant la note de cadrage
-- [cartographie-si.md](cartographie-si.md) — état des lieux SI mobilisé pour faisabilité technique
-- [analyse-impact.md](analyse-impact.md) — analyse impact organisationnel + conduite changement
-- [reporting-moa.md](reporting-moa.md) — gouvernance projet, COPIL, escalade
-- [`../scrum/gestion-risques.md`](../scrum/gestion-risques.md) — Risk Register projet (ISO 31000, COSO ERM)
-- [`../scrum/business-model-canvas.md`](../scrum/business-model-canvas.md) — Business Model Canvas pour business case agile
+- [pilotage-projet.md](pilotage-projet.md) — downstream project steering (detailed WBS, Gantt/CPM, tolerances, closure, lessons learned)
+- [elicitation-besoins.md](elicitation-besoins.md) — upstream elicitation before the scoping note
+- [cartographie-si.md](cartographie-si.md) — IS assessment leveraged for technical feasibility
+- [analyse-impact.md](analyse-impact.md) — organizational impact analysis + change management
+- [reporting-moa.md](reporting-moa.md) — project governance, COPIL, escalation
+- [`../scrum/gestion-risques.md`](../scrum/gestion-risques.md) — project Risk Register (ISO 31000, COSO ERM)
+- [`../scrum/business-model-canvas.md`](../scrum/business-model-canvas.md) — Business Model Canvas for an agile business case

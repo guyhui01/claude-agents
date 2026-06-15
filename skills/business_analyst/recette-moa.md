@@ -1,112 +1,112 @@
-# Skill — Recette MOA
-> Certifications : IIBA CBAP · BCS International Diploma BA
-> Référentiels normatifs : **ISTQB CTFL** (Foundation Level, syllabus v4.0 2023) · **ISO/IEC/IEEE 29119** (Software testing, Parts 1-5) · **ISO/IEC/IEEE 29148:2018** (traçabilité exigences)
+# Skill — MOA UAT
+> Certifications: IIBA CBAP · BCS International Diploma BA
+> Normative standards: **ISTQB CTFL** (Foundation Level, syllabus v4.0 2023) · **ISO/IEC/IEEE 29119** (Software testing, Parts 1-5) · **ISO/IEC/IEEE 29148:2018** (requirements traceability)
 
-## Objectif
-Planifier, préparer et conduire la recette fonctionnelle pour valider que le système livré satisfait les exigences MOA et les critères d'acceptation, et prononcer une décision go/no-go tracée et défendable en audit.
+## Objective
+Plan, prepare and run functional acceptance testing to validate that the delivered system meets the MOA requirements and acceptance criteria, and reach a traced, audit-defensible go/no-go decision.
 
-## Types de recette (niveaux de test — ISTQB)
-| Type | Qui | Quand | Terme ISTQB |
+## Acceptance types (test levels — ISTQB)
+| Type | Who | When | ISTQB term |
 |---|---|---|---|
-| **Recette fonctionnelle** | MOA / métier | Avant mise en production | Functional acceptance |
-| **Recette utilisateur (UAT)** | Utilisateurs finaux | Avant déploiement | User Acceptance Testing |
-| **Recette de non-régression (TNR)** | MOA + QA | À chaque livraison | Regression testing |
-| **Recette d'exploitation** | MOA + Exploitation | Go-live | Operational Acceptance Testing |
-| **Recette contractuelle / réglementaire** | MOA + Juridique / Conformité | Jalon contractuel ou régulateur | Contract / Regulatory acceptance |
+| **Functional acceptance** | MOA / business | Before production | Functional acceptance |
+| **User acceptance (UAT)** | End users | Before deployment | User Acceptance Testing |
+| **Non-regression acceptance (NRT)** | MOA + QA | At every delivery | Regression testing |
+| **Operational acceptance** | MOA + Operations | Go-live | Operational Acceptance Testing |
+| **Contractual / regulatory acceptance** | MOA + Legal / Compliance | Contractual or regulator milestone | Contract / Regulatory acceptance |
 
-## Stratégie de test — approche par les risques (risk-based testing)
-Prioriser l'effort de recette selon le **risque = probabilité de défaut × impact métier** :
-1. Cartographier les fonctions par criticité métier (lien priorisation MoSCoW des exigences).
-2. Définir une **couverture cible par niveau de risque** : 100 % des exigences *Must* / critiques, échantillon dégressif sur *Should* / *Could*.
-3. Concentrer les cas approfondis (combinatoires) sur les zones à fort impact (calcul de prime, éligibilité, montants d'indemnisation).
+## Test strategy — risk-based testing
+Prioritize the testing effort by **risk = defect probability × business impact**:
+1. Map functions by business criticality (link to the MoSCoW prioritization of requirements).
+2. Define a **target coverage per risk level**: 100% of *Must* / critical requirements, a decreasing sample on *Should* / *Could*.
+3. Concentrate the deep (combinatorial) cases on high-impact areas (premium calculation, eligibility, claim amounts).
 
-## Techniques de conception des cas de test (ISTQB — boîte noire)
-| Technique | Usage | Exemple (assurance) |
+## Test case design techniques (ISTQB — black box)
+| Technique | Usage | Example (insurance) |
 |---|---|---|
-| **Partition d'équivalence** | Regrouper les entrées en classes équivalentes | Tranches d'âge du souscripteur |
-| **Valeurs limites (BVA)** | Tester les bornes | Âge 17/18 ans, 64/65/66 ans |
-| **Table de décision** | Couvrir les combinaisons de règles | Éligibilité garantie = f(âge × antécédents × type de contrat) |
-| **Transition d'états** | Couvrir un cycle de vie | Statut sinistre : déclaré → instruit → indemnisé → clos |
+| **Equivalence partitioning** | Group inputs into equivalent classes | Subscriber age brackets |
+| **Boundary value analysis (BVA)** | Test the bounds | Age 17/18, 64/65/66 |
+| **Decision table** | Cover rule combinations | Eligibility = f(age × history × policy type) |
+| **State transition** | Cover a lifecycle | Claim status: reported → assessed → settled → closed |
 
-## Plan de recette — Structure (alignée ISO/IEC/IEEE 29119-3)
+## Test plan — Structure (aligned with ISO/IEC/IEEE 29119-3)
 ```
-1. Objectifs et périmètre de la recette
-2. Stratégie de test (approche par les risques, techniques, couverture cible)
-3. Critères d'entrée (environnement, données, build versionné, SFD baseline, RTM)
-4. Organisation (équipe, RACI, planning, outils)
-5. Critères de sortie (seuil de réussite, anomalies tolérées)
-6. Procédure de gestion des anomalies et des dérogations
+1. Objectives and scope of the acceptance testing
+2. Test strategy (risk-based approach, techniques, target coverage)
+3. Entry criteria (environment, data, versioned build, FRD baseline, RTM)
+4. Organization (team, RACI, schedule, tools)
+5. Exit criteria (success threshold, tolerated defects)
+6. Defect and waiver management procedure
 ```
 
-## Critères d'entrée / sortie (ISTQB — entry / exit criteria)
-- **Entrée** : environnement de recette iso-prod prêt · jeu de données représentatif · build livré versionné · SFD/exigences en version de référence (baseline) · matrice de traçabilité (RTM) disponible.
-- **Sortie** : taux de réussite ≥ seuil défini (ex. 95 %) · **0 anomalie bloquante ouverte** · 0 majeure ouverte sans dérogation signée · couverture des exigences *Must* = 100 %.
+## Entry / exit criteria (ISTQB — entry / exit criteria)
+- **Entry**: prod-like acceptance environment ready · representative data set · versioned build delivered · FRD/requirements at a reference version (baseline) · traceability matrix (RTM) available.
+- **Exit**: success rate ≥ defined threshold (e.g. 95%) · **0 blocking defect open** · 0 major open without a signed waiver · *Must* requirements coverage = 100%.
 
-## Cahier de recette — Format standard
-| ID | Cas de test | Exigence couverte | Prérequis | Étapes | Résultat attendu | Résultat obtenu | Statut |
+## Test book — Standard format
+| ID | Test case | Requirement covered | Prerequisite | Steps | Expected result | Obtained result | Status |
 |---|---|---|---|---|---|---|---|
-| CR-001 | Souscription contrat auto | EXI-014 | Compte courtier actif | 1. Saisir profil… | Devis + prime calculés | … | OK / KO / Bloquant |
+| CR-001 | Auto policy subscription | EXI-014 | Active broker account | 1. Enter profile… | Quote + premium calculated | … | OK / KO / Blocking |
 
-## Traçabilité tests ↔ exigences (RTM)
-Matrice **bidirectionnelle** prouvant la couverture (exigée en audit ; cf. traçabilité ISO/IEC/IEEE 29148) :
+## Tests ↔ requirements traceability (RTM)
+A **bidirectional** matrix proving coverage (required in audit; cf. ISO/IEC/IEEE 29148 traceability):
 
-| ID Exigence | Source (SFD / US) | Priorité | Cas de test | Statut |
+| Requirement ID | Source (FRD / US) | Priority | Test case | Status |
 |---|---|---|---|---|
-| EXI-014 | SFD §5.2 | Must | CR-001, CR-008 | Validé |
+| EXI-014 | FRD §5.2 | Must | CR-001, CR-008 | Validated |
 
-> Règle : **toute exigence *Must* est couverte par ≥ 1 cas**, et **tout cas remonte à une exigence** (pas de test orphelin).
+> Rule: **every *Must* requirement is covered by ≥ 1 case**, and **every case traces to a requirement** (no orphan test).
 
-## Cycle de vie d'une anomalie en recette
+## Defect lifecycle in UAT
 ```
-Détectée → Qualifiée (sévérité) → Affectée → Corrigée → Vérifiée → Fermée
+Detected → Qualified (severity) → Assigned → Fixed → Verified → Closed
 ```
-Sévérités : **Bloquant** · **Majeur** · **Mineur** · **Cosmétique**
+Severities: **Blocking** · **Major** · **Minor** · **Cosmetic**
 
-## Critères de sévérité
-- **Bloquant** : impossible de continuer la recette, fonctionnalité inutilisable.
-- **Majeur** : fonctionnalité dégradée, contournement difficile.
-- **Mineur** : impact faible, contournement possible.
-- **Cosmétique** : visuel, ergonomie, orthographe.
+## Severity criteria
+- **Blocking**: impossible to continue testing, feature unusable.
+- **Major**: degraded feature, hard workaround.
+- **Minor**: low impact, workaround possible.
+- **Cosmetic**: visual, ergonomics, spelling.
 
-## PV de recette — décision, réserves et dérogations
-- **Décision** : **Go** · **Go conditionnel** (avec réserves) · **No-go**.
-- **Réserves** : anomalies résiduelles acceptées (mineures, ou majeures contournables) + **engagement de correction daté** + responsable désigné.
-- **Dérogation (waiver)** : acceptation formelle d'un écart, avec justification métier, **signée Sponsor + MOA**, et échéance de levée.
-- **Contenu** : résumé exécutif (périmètre, résultats, décision) · tableau de bord (testés / réussis / échoués / bloquants) · liste des réserves · liste des dérogations · signatures MOA / MOE / Sponsor.
+## Acceptance report (PV) — decision, reservations and waivers
+- **Decision**: **Go** · **Conditional go** (with reservations) · **No-go**.
+- **Reservations**: accepted residual defects (minor, or workable-around major) + **dated fix commitment** + assigned owner.
+- **Waiver**: formal acceptance of a deviation, with business justification, **signed by Sponsor + MOA**, and a resolution deadline.
+- **Content**: executive summary (scope, results, decision) · dashboard (tested / passed / failed / blocking) · list of reservations · list of waivers · MOA / MOE / Sponsor signatures.
 
-## Exemple chiffré — Recette d'un parcours de souscription (assurance)
-**Contexte** : refonte du parcours de souscription multi-produits d'un assureur. 96 exigences, dont 58 *Must*.
-- **184 cas de test** conçus (couverture *Must* = 100 %, techniques BVA + table de décision sur l'éligibilité et le calcul de prime).
-- Exécution : **178 OK / 184** (taux de réussite **96,7 %**), 6 anomalies → 2 majeures + 4 mineures.
-- Traitement : 1 majeure corrigée et re-vérifiée avant PV · 1 majeure → **dérogation** (édition PDF du contrat non conforme charte, contournement manuel, levée sous 30 j) · 4 mineures → **réserves** (engagement correctif sprint suivant).
-- **Décision : Go conditionnel** (2 réserves + 1 dérogation, 0 bloquant, *Must* couverts à 100 %).
+## Worked example — Acceptance of a subscription journey (insurance)
+**Context**: overhaul of an insurer's multi-product subscription journey. 96 requirements, 58 of them *Must*.
+- **184 test cases** designed (*Must* coverage = 100%, BVA + decision table techniques on eligibility and premium calculation).
+- Execution: **178 OK / 184** (success rate **96.7%**), 6 defects → 2 major + 4 minor.
+- Handling: 1 major fixed and re-verified before the report · 1 major → **waiver** (PDF policy edition not brand-compliant, manual workaround, resolution within 30 days) · 4 minor → **reservations** (fix commitment next sprint).
+- **Decision: Conditional go** (2 reservations + 1 waiver, 0 blocking, *Must* covered at 100%).
 
-## Livrables
-- Plan de recette (stratégie de test incluse)
-- Cahier de recette (cas de test rédigés) + RTM tests ↔ exigences
-- Rapport d'anomalies + tableau de bord de couverture
-- PV de recette signé (décision, réserves, dérogations)
+## Deliverables
+- Test plan (test strategy included)
+- Test book (written test cases) + tests ↔ requirements RTM
+- Defect report + coverage dashboard
+- Signed acceptance report (decision, reservations, waivers)
 
-## Format de sortie
-Précise : périmètre fonctionnel · sprint ou version à tester · niveau de risque des fonctions · outil de gestion (Jira, TestRail, HP ALM, Xray) · deadline go-live.
+## Output format
+Specify: functional scope · sprint or version to test · function risk level · management tool (Jira, TestRail, HP ALM, Xray) · go-live deadline.
 
 ## Sources
 - ISTQB — *Certified Tester Foundation Level (CTFL) Syllabus v4.0* (2023) + *ISTQB Glossary* (acceptance testing, entry/exit criteria, test design techniques)
-- ISO/IEC/IEEE 29119 — *Software and systems engineering — Software testing*, Parts 1 à 5 (Part 3 *Test documentation* : 29119-3:2021)
-- ISO/IEC/IEEE 29148:2018 — *Requirements engineering* (traçabilité exigences ↔ vérification)
+- ISO/IEC/IEEE 29119 — *Software and systems engineering — Software testing*, Parts 1 to 5 (Part 3 *Test documentation*: 29119-3:2021)
+- ISO/IEC/IEEE 29148:2018 — *Requirements engineering* (requirements ↔ verification traceability)
 - IIBA — *BABOK Guide v3* (IIBA 2015), Knowledge Area #7 *Solution Evaluation*
 
 ## Anti-patterns
-- ❌ **Recette sans stratégie de risque** — tout tester à plat, effort dilué, zones critiques sous-couvertes.
-- ❌ **Cas de test sans traçabilité** — impossible de prouver la couverture des exigences en audit.
-- ❌ **Go prononcé avec des bloquants « en cours »** — pas de critère de sortie tenu → dette livrée en prod.
-- ❌ **Réserves sans engagement daté ni responsable** — anomalies acceptées qui ne seront jamais corrigées.
-- ❌ **Dérogation orale** — écart accepté sans trace signée → litige MOA/MOE au go-live.
-- ❌ **Jeu de données non représentatif** — recette « verte » en recette, défauts massifs en prod.
+- ❌ **Acceptance without a risk strategy** — testing everything flat, diluted effort, critical areas under-covered.
+- ❌ **Test cases without traceability** — impossible to prove requirements coverage in audit.
+- ❌ **Go declared with blocking defects "in progress"** — exit criterion not met → debt shipped to prod.
+- ❌ **Reservations without a dated commitment or owner** — accepted defects that will never be fixed.
+- ❌ **Oral waiver** — deviation accepted without a signed record → MOA/MOE dispute at go-live.
+- ❌ **Non-representative data set** — "green" in acceptance, massive defects in prod.
 
-## Voir aussi
-- [gestion-exigences.md](gestion-exigences.md) — matrice de traçabilité exigences ↔ tests (amont de la RTM recette)
-- [specification-fonctionnelle.md](specification-fonctionnelle.md) — SFD et critères d'acceptation, source des cas de test
-- [elicitation-besoins.md](elicitation-besoins.md) — Fit Criterion (Volere) vérifié en recette
-- [`../scrum/po-acceptance-tests.md`](../scrum/po-acceptance-tests.md) — équivalent Agile : critères d'acceptation Gherkin côté PO
-- [`../scrum/gestion-risques.md`](../scrum/gestion-risques.md) — approche par les risques (ISO 31000) appliquée au pilotage de la recette
+## See also
+- [gestion-exigences.md](gestion-exigences.md) — requirements ↔ tests traceability matrix (upstream of the acceptance RTM)
+- [specification-fonctionnelle.md](specification-fonctionnelle.md) — FRD and acceptance criteria, source of the test cases
+- [elicitation-besoins.md](elicitation-besoins.md) — Fit Criterion (Volere) verified in acceptance
+- [`../scrum/po-acceptance-tests.md`](../scrum/po-acceptance-tests.md) — Agile equivalent: Gherkin acceptance criteria on the PO side
+- [`../scrum/gestion-risques.md`](../scrum/gestion-risques.md) — risk-based approach (ISO 31000) applied to steering the acceptance

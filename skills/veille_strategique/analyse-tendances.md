@@ -1,114 +1,114 @@
-# Skill — Analyse des Tendances Tech et Sectorielles
-> Certifications : SIC (SCIP — Strategic Consortium of Intelligence Professionals), SAFe LPM (Scaled Agile)
+# Skill — Tech and Sector Trend Analysis
+> Certifications: SIC (SCIP — Strategic Consortium of Intelligence Professionals), SAFe LPM (Scaled Agile)
 
-## Objectif
-Analyser les tendances technologiques et sectorielles — IA Act, adoption GenAI en entreprise, évolution des métiers du conseil — pour anticiper les opportunités et adapter le positionnement stratégique.
+## Objective
+Analyze technological and sector trends — AI Act, enterprise GenAI adoption, the evolution of consulting roles — to anticipate opportunities and adapt strategic positioning.
 
-## Analyse PESTEL — IA et Conseil Digital
+## PESTEL analysis — AI and Digital Consulting
 
 ```
-POLITIQUE
+POLITICAL
 ─────────────────────────────────────────────────────────
-+ AI Act européen en vigueur → besoin de conformité urgent
-+ Investissements publics IA (France 2030)
-+ Régulation des modèles fondationnels (GPAI)
-→ Opportunité : expertise AI Act pour les CAC40
++ European AI Act in force → urgent compliance need
++ Public AI investment (France 2030)
++ Regulation of foundation models (GPAI)
+→ Opportunity: AI Act expertise for CAC40s
 
-ÉCONOMIQUE
+ECONOMIC
 ─────────────────────────────────────────────────────────
-+ Dépenses GenAI mondiales en forte croissance (Gartner 03/2025 : +76 % à ~644 Md$ ; IA globale +47 % en 2026)
-+ Budgets IA CAC40 en hausse malgré contexte macro
-+ Pression sur les marges → demande d'automatisation
-→ Opportunité : ROI de l'IA comme argument commercial
++ Strong growth in global GenAI spending (Gartner 03/2025: +76% to ~$644B; global AI +47% in 2026)
++ CAC40 AI budgets rising despite the macro context
++ Margin pressure → demand for automation
+→ Opportunity: AI ROI as a sales argument
 
 SOCIAL
 ─────────────────────────────────────────────────────────
-~ Résistances humaines à l'IA (peur de remplacement)
-+ Besoin d'accompagnement au changement
-+ Montée du "vibe-coding" chez les professionnels
-→ Opportunité : Change Management IA + formation
+~ Human resistance to AI (fear of replacement)
++ Need for change support
++ Rise of "vibe-coding" among professionals
+→ Opportunity: AI Change Management + training
 
-TECHNOLOGIQUE
+TECHNOLOGICAL
 ─────────────────────────────────────────────────────────
-+ LLM multimodaux de plus en plus capables
-+ Coûts API à la baisse structurelle (ordre de grandeur — vérifier sur les grilles de pricing officielles)
-+ Agents IA et MCP — workflows automatisés
-+ Edge AI — IA locale sans cloud
-→ Opportunité : Orchestration agents comme compétence clé
++ Increasingly capable multimodal LLMs
++ Structurally declining API costs (order of magnitude — verify against official pricing grids)
++ AI agents and MCP — automated workflows
++ Edge AI — local AI without cloud
+→ Opportunity: agent orchestration as a key skill
 
-ENVIRONNEMENTAL
+ENVIRONMENTAL
 ─────────────────────────────────────────────────────────
-~ Empreinte carbone de l'IA questionnée
-+ IA pour l'optimisation énergétique (ESG)
-→ Vigilance : Positionnement "IA responsable"
+~ AI's carbon footprint under scrutiny
++ AI for energy optimization (ESG)
+→ Watch: "responsible AI" positioning
 
-LÉGAL
+LEGAL
 ─────────────────────────────────────────────────────────
-+ RGPD — renforcé par AI Act
-+ AIPD obligatoire pour systèmes IA à risque
-+ Responsabilité algorithmique en cours
-→ Opportunité : Expertise conformité IA (RGPD + AI Act)
++ GDPR — reinforced by the AI Act
++ DPIA mandatory for high-risk AI systems
++ Algorithmic liability emerging
+→ Opportunity: AI compliance expertise (GDPR + AI Act)
 ```
 
-## Radar Technologique — IA Entreprise 2026
+## Technology Radar — Enterprise AI 2026
 
 ```
-ADOPTER (Maintenant)
+ADOPT (Now)
 ────────────────────────────────────────────────────────────
-✅ LLM pour génération de contenu (prompts, docs, US)
-✅ RAG pour bases de connaissances d'entreprise
-✅ Agents IA pour automatisation de workflows
+✅ LLMs for content generation (prompts, docs, US)
+✅ RAG for enterprise knowledge bases
+✅ AI agents for workflow automation
 
-EXPÉRIMENTER (6-12 mois)
+EXPERIMENT (6-12 months)
 ────────────────────────────────────────────────────────────
-🔬 Agents IA multi-modaux (vision + texte)
-🔬 Fine-tuning LLM sur données propriétaires
-🔬 IA edge / locale pour données sensibles
+🔬 Multimodal AI agents (vision + text)
+🔬 LLM fine-tuning on proprietary data
+🔬 Edge / local AI for sensitive data
 
-SURVEILLER (12-24 mois)
+WATCH (12-24 months)
 ────────────────────────────────────────────────────────────
-👁 Modèles de raisonnement avancé (séries o-* OpenAI, R-* — à actualiser)
-👁 IA générative vidéo en entreprise
-👁 Quantum AI (horizon 5+ ans)
+👁 Advanced reasoning models (OpenAI o-* series, R-* — to refresh)
+👁 Generative video AI in the enterprise
+👁 Quantum AI (5+ year horizon)
 
-ÉVITER (aujourd'hui)
+AVOID (today)
 ────────────────────────────────────────────────────────────
-❌ Deep fake pour usage professionnel
-❌ LLM non conformes RGPD sans AIPD
+❌ Deepfakes for professional use
+❌ GDPR-non-compliant LLMs with no DPIA
 ```
 
-## Livrables
-- Analyse PESTEL complète
-- Radar technologique mis à jour
-- Recommandations stratégiques par tendance
-- Opportunités de missions identifiées
+## Deliverables
+- Complete PESTEL analysis
+- Updated technology radar
+- Strategic recommendations per trend
+- Identified engagement opportunities
 
-## Format de sortie
-Précise : secteur ciblé (conseil IA / transformation digitale / grands comptes), horizon temporel (6 mois / 1 an / 3 ans), contraintes réglementaires prioritaires.
+## Output format
+Specify: the target sector (AI consulting / digital transformation / large accounts), the time horizon (6 months / 1 year / 3 years), the priority regulatory constraints.
 
-## Cadres d'analyse complémentaires
-- **PESTEL** : balayage macro-environnemental (6 dimensions ci-dessus).
-- **Gartner Hype Cycle** (Gartner 1995) : positionner chaque techno sur la courbe (Innovation Trigger → Peak of Inflated Expectations → Trough of Disillusionment → Slope of Enlightenment → Plateau of Productivity) pour calibrer le *timing* d'adoption.
-- **McKinsey Three Horizons** (1999) : structurer le radar en H1 (cœur, 0-2 ans) / H2 (émergent, 2-5 ans) / H3 (options long terme, 5-10 ans) — aligné avec les blocs ADOPTER / EXPÉRIMENTER / SURVEILLER.
-- **Wardley Mapping** (Wardley 2005, CC BY-SA) : cartographier la chaîne de valeur par stade d'évolution (Genesis → Custom → Product → Commodity) pour anticiper les bascules.
+## Complementary analysis frameworks
+- **PESTEL**: macro-environmental sweep (6 dimensions above).
+- **Gartner Hype Cycle** (Gartner 1995): position each technology on the curve (Innovation Trigger → Peak of Inflated Expectations → Trough of Disillusionment → Slope of Enlightenment → Plateau of Productivity) to calibrate adoption *timing*.
+- **McKinsey Three Horizons** (1999): structure the radar into H1 (core, 0-2 years) / H2 (emerging, 2-5 years) / H3 (long-term options, 5-10 years) — aligned with the ADOPT / EXPERIMENT / WATCH blocks.
+- **Wardley Mapping** (Wardley 2005, CC BY-SA): map the value chain by evolution stage (Genesis → Custom → Product → Commodity) to anticipate shifts.
 
 ## Anti-patterns
-- ❌ **Chiffre de marché non sourcé/non daté** présenté comme un fait (« +X %/an ») — toujours citer la source primaire et l'année, ou parler en ordre de grandeur.
-- ❌ **PESTEL descriptif sans « So what »** : chaque ligne doit déboucher sur une opportunité/vigilance actionnable.
-- ❌ **Confondre Hype Cycle et adoption réelle** : le pic médiatique ≠ maturité ; éviter d'« adopter au Peak ».
-- ❌ **Radar techno figé** : sans date de revue, il devient obsolète en quelques mois (cycle veille IA = semaines).
+- ❌ **Unsourced/undated market figure** presented as a fact ("+X%/year") — always cite the primary source and year, or speak in orders of magnitude.
+- ❌ **Descriptive PESTEL with no "So what"**: each line must lead to an actionable opportunity/watch point.
+- ❌ **Confusing Hype Cycle with real adoption**: the media peak ≠ maturity; avoid "adopting at the Peak."
+- ❌ **Frozen tech radar**: with no review date, it becomes obsolete in a few months (AI intelligence cycle = weeks).
 
-## Voir aussi
-- [`detection-signaux-faibles.md`](detection-signaux-faibles.md) — Ansoff : capter en amont du Hype Cycle
-- [`veille-ia-llm.md`](veille-ia-llm.md) — flux d'alimentation techno
-- [`veille-concurrentielle.md`](veille-concurrentielle.md) — Porter, volet concurrentiel
-- `AGENT-CONSULTANT-IA.md` (`diagnostic-maturite-ia`) — exploiter les tendances en mission
-- `AGENT-JURIDIQUE-IA.md` (`veille-reglementaire`) — volet AI Act / RGPD
+## See also
+- [`detection-signaux-faibles.md`](detection-signaux-faibles.md) — Ansoff: catch ahead of the Hype Cycle
+- [`veille-ia-llm.md`](veille-ia-llm.md) — technology feed
+- [`veille-concurrentielle.md`](veille-concurrentielle.md) — Porter, competitive aspect
+- `AGENT-CONSULTANT-IA.md` (`diagnostic-maturite-ia`) — leverage trends during an engagement
+- `AGENT-JURIDIQUE-IA.md` (`veille-reglementaire`) — AI Act / GDPR aspect
 
 ## Sources
-- **Gartner — Hype Cycle** : J. Fenn, *When to Leap on the Hype Cycle* (Gartner, 1995) · gartner.com/en/research/methodologies/gartner-hype-cycle
-- **McKinsey — Three Horizons of Growth** : Baghai, Coley, White, *The Alchemy of Growth* (1999)
-- **Wardley Maps** : Simon Wardley, *Wardley Mapping* (2005, CC BY-SA) · learnwardleymapping.com
-- **PESTEL** : analyse macro-environnementale (Politique/Économique/Social/Technologique/Environnemental/Légal)
-- **Gartner — prévisions dépenses IA/GenAI** : communiqués gartner.com/en/newsroom (2025-2026)
-- **AI Act UE 2024/1689** · **RGPD UE 2016/679** — sources primaires conformité
+- **Gartner — Hype Cycle**: J. Fenn, *When to Leap on the Hype Cycle* (Gartner, 1995) · gartner.com/en/research/methodologies/gartner-hype-cycle
+- **McKinsey — Three Horizons of Growth**: Baghai, Coley, White, *The Alchemy of Growth* (1999)
+- **Wardley Maps**: Simon Wardley, *Wardley Mapping* (2005, CC BY-SA) · learnwardleymapping.com
+- **PESTEL**: macro-environmental analysis (Political/Economic/Social/Technological/Environmental/Legal)
+- **Gartner — AI/GenAI spending forecasts**: gartner.com/en/newsroom releases (2025-2026)
+- **EU AI Act 2024/1689** · **EU GDPR 2016/679** — primary compliance sources

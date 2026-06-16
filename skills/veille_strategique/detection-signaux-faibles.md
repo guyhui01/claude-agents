@@ -1,105 +1,105 @@
-# Skill — Détection de Signaux Faibles et Opportunités
-> Certifications : SIC (SCIP — Strategic Consortium of Intelligence Professionals), SAFe LPM (Scaled Agile)
+# Skill — Weak-Signal and Opportunity Detection
+> Certifications: SIC (SCIP — Strategic Consortium of Intelligence Professionals), SAFe LPM (Scaled Agile)
 
-## Objectif
-Identifier les signaux faibles dans l'écosystème IA et du conseil — technologies émergentes, besoins clients non exprimés, opportunités de marché en formation — pour anticiper les évolutions et positionner Guy HUI-BON-HOA en avance de phase.
+## Objective
+Identify weak signals in the AI and consulting ecosystem — emerging technologies, unexpressed client needs, market opportunities in the making — to anticipate developments and position Guy HUI-BON-HOA ahead of the curve.
 
-## Définition — Signal faible vs tendance
+## Definition — Weak signal vs. trend
 
-> Concept fondateur : **H. I. Ansoff, « Managing Strategic Surprise by Response to Weak Signals », *California Management Review*, 1975** — un *signal faible* est une information partielle et précoce sur une discontinuité, perçue avant que la menace/opportunité ne soit confirmée. L'enjeu : adapter la **réponse** au **niveau de connaissance** disponible, sans attendre la certitude (qui arrive trop tard).
-
-```
-SIGNAL FORT    : Tendance confirmée, consensus marché, presse grand public
-               → Tout le monde le sait, compétition forte
-
-SIGNAL FAIBLE  : Émergence précoce, peu de sources, contre-intuitif
-               → Fenêtre d'opportunité avant la masse
-
-BRUIT          : Information sans substance ni répétition
-               → À filtrer
-```
-
-## Grille de détection — Méthode SCIP
+> Founding concept: **H. I. Ansoff, "Managing Strategic Surprise by Response to Weak Signals," *California Management Review*, 1975** — a *weak signal* is partial, early information about a discontinuity, perceived before the threat/opportunity is confirmed. The challenge: adapt the **response** to the available **level of knowledge**, without waiting for certainty (which comes too late).
 
 ```
-ÉTAPE 1 — COLLECTE (sources multiples)
+STRONG SIGNAL  : Confirmed trend, market consensus, mainstream press
+               → Everyone knows it, strong competition
+
+WEAK SIGNAL    : Early emergence, few sources, counter-intuitive
+               → Opportunity window before the crowd
+
+NOISE          : Information with no substance or repetition
+               → To filter out
+```
+
+## Detection grid — SCIP method
+
+```
+STEP 1 — COLLECTION (multiple sources)
 ────────────────────────────────────────────────────────────
-Sources primaires   : Conversations clients, RFP/appels d'offres
-Sources secondaires : Forums spécialisés, GitHub issues, ArXiv preprints
-Sources tertiaires  : LinkedIn, Twitter/X, conférences
+Primary sources    : Client conversations, RFP/tenders
+Secondary sources  : Specialized forums, GitHub issues, ArXiv preprints
+Tertiary sources   : LinkedIn, Twitter/X, conferences
 
-ÉTAPE 2 — FILTRAGE (3 critères)
+STEP 2 — FILTERING (3 criteria)
 ────────────────────────────────────────────────────────────
-① Répétition : Le signal revient de sources indépendantes ?
-② Cohérence  : Cohérent avec d'autres tendances observées ?
-③ Impact     : Fort potentiel si confirmé ?
+① Repetition  : Does the signal recur from independent sources?
+② Consistency : Consistent with other observed trends?
+③ Impact      : High potential if confirmed?
 
-ÉTAPE 3 — QUALIFICATION
+STEP 3 — QUALIFICATION
 ────────────────────────────────────────────────────────────
-Signal fort confirmé   → Agir maintenant
-Signal faible probable → Surveiller et expérimenter
-Bruit                  → Ignorer
+Confirmed strong signal → Act now
+Probable weak signal    → Watch and experiment
+Noise                   → Ignore
 ```
 
-## Signaux faibles identifiés — Exemples 2026
+## Identified weak signals — 2026 examples
 
-| Signal | Source | Fiabilité | Horizon | Opportunité pour Guy |
+| Signal | Source | Reliability | Horizon | Opportunity for Guy |
 |---|---|---|---|---|
-| Entreprises cherchent des "PO IA" | Hausse des offres d'emploi LinkedIn (à quantifier) | Élevée | 3-6 mois | Positionner comme PO IA certifié Anthropic |
-| Demande AI Act compliance | RFP CAC40 mentionnent "AI Act" | Élevée | Immédiat | Offre conseil conformité IA |
-| Agents IA pour PO (rituels Agile) | GitHub repos, blogs tech | Moyenne | 6-12 mois | Développer catalogue agents PO |
-| Vibe-coding se démocratise chez non-devs | Reddit, LinkedIn anecdotes | Moyenne | 6 mois | Formation vibe-coding pour POs |
-| Appel d'offres IA "locaux" (RGPD) | Discussions DSI CAC40 | Faible | 12-18 mois | Expertise modèles locaux / Mistral |
+| Companies looking for "AI POs" | Rise in LinkedIn job postings (to quantify) | High | 3-6 months | Position as Anthropic-certified AI PO |
+| AI Act compliance demand | CAC40 RFPs mention "AI Act" | High | Immediate | AI compliance consulting offer |
+| AI agents for PO (Agile events) | GitHub repos, tech blogs | Medium | 6-12 months | Develop a PO agents catalog |
+| Vibe-coding spreading to non-devs | Reddit, LinkedIn anecdotes | Medium | 6 months | Vibe-coding training for POs |
+| "Local" AI tenders (GDPR) | CAC40 CIO discussions | Low | 12-18 months | Local models / Mistral expertise |
 
-## Radar des opportunités personnelles
+## Personal opportunity radar
 
 ```
-OPPORTUNITÉS IMMÉDIATES (3 mois)
+IMMEDIATE OPPORTUNITIES (3 months)
 ────────────────────────────────────────────────────────────
-🎯 Positionnement "PO IA certifié Anthropic" sur LinkedIn
-   Signal : hausse des offres "PO IA" · Signal fort · Agir maintenant
+🎯 "Anthropic-certified AI PO" positioning on LinkedIn
+   Signal: rise in "AI PO" postings · Strong signal · Act now
 
-🎯 Offre conseil AI Act pour clients CAC40
-   Signal : RFP mentionnent AI Act dès 2026 · Immédiat
+🎯 AI Act consulting offer for CAC40 clients
+   Signal: RFPs mention the AI Act from 2026 · Immediate
 
-OPPORTUNITÉS MOYEN TERME (3-12 mois)
+MEDIUM-TERM OPPORTUNITIES (3-12 months)
 ────────────────────────────────────────────────────────────
-🔬 Catalogue agents IA pour rituels Agile (à tester)
-   Signal : Intérêt croissant sur GitHub/LinkedIn · Expérimenter
+🔬 AI agents catalog for Agile events (to test)
+   Signal: growing interest on GitHub/LinkedIn · Experiment
 
-🔬 Formation "vibe-coding pour PO" (non-développeurs)
-   Signal : Demande émergente · Prototyper une offre
+🔬 "Vibe-coding for PO" training (non-developers)
+   Signal: emerging demand · Prototype an offer
 
-SIGNAUX À SURVEILLER (12-24 mois)
+SIGNALS TO WATCH (12-24 months)
 ────────────────────────────────────────────────────────────
-👁 IA locale / on-premise pour CAC40 (RGPD strict)
-👁 Agents IA dans les SI d'entreprise (ERP, CRM)
+👁 Local / on-premise AI for CAC40 (strict GDPR)
+👁 AI agents in enterprise IS (ERP, CRM)
 ```
 
-## Livrables
-- Radar des signaux faibles (mise à jour mensuelle)
-- Tableau d'opportunités qualifiées
-- Note de recommandation stratégique
-- Plan d'action "First Mover" pour les opportunités identifiées
+## Deliverables
+- Weak-signal radar (monthly update)
+- Qualified opportunity table
+- Strategic recommendation note
+- "First Mover" action plan for identified opportunities
 
-## Format de sortie
-Précise : domaine de surveillance (marché conseil IA / opportunités missions / technologies), horizon (3 mois / 12 mois / 3 ans), niveau de risque acceptable.
+## Output format
+Specify: the monitoring domain (AI consulting market / engagement opportunities / technologies), the horizon (3 months / 12 months / 3 years), the acceptable risk level.
 
 ## Anti-patterns
-- ❌ **Confondre signal faible et bruit** : un signal faible doit se répéter via des sources *indépendantes* — une anecdote isolée n'en est pas un.
-- ❌ **Attendre la confirmation** : par définition le signal faible se traite dans l'incertitude (Ansoff) ; attendre le consensus = perdre l'avance.
-- ❌ **Quantifier un signal avec un chiffre inventé** (« +40 % ») : qualifier la tendance (hausse/baisse) et la source plutôt que fabriquer un pourcentage.
-- ❌ **Détection sans plan d'action** : chaque signal qualifié doit déboucher sur surveiller / expérimenter / agir.
+- ❌ **Confusing weak signal and noise**: a weak signal must recur via *independent* sources — an isolated anecdote isn't one.
+- ❌ **Waiting for confirmation**: by definition a weak signal is handled under uncertainty (Ansoff); waiting for consensus = losing the lead.
+- ❌ **Quantifying a signal with an invented figure** ("+40%"): qualify the trend (up/down) and the source rather than fabricate a percentage.
+- ❌ **Detection with no action plan**: each qualified signal must lead to watch / experiment / act.
 
-## Voir aussi
-- [`analyse-tendances.md`](analyse-tendances.md) — Hype Cycle : le signal faible précède le « Innovation Trigger »
-- [`veille-concurrentielle.md`](veille-concurrentielle.md) — Porter, menaces concurrentielles
-- [`veille-ia-llm.md`](veille-ia-llm.md) — sources techniques amont (ArXiv, GitHub)
-- `AGENT-CONSULTANT-IA.md` — transformer un signal en offre de mission
-- `AGENT-GROWTH-IA.md` — exploitation acquisition (frontière)
+## See also
+- [`analyse-tendances.md`](analyse-tendances.md) — Hype Cycle: the weak signal precedes the "Innovation Trigger"
+- [`veille-concurrentielle.md`](veille-concurrentielle.md) — Porter, competitive threats
+- [`veille-ia-llm.md`](veille-ia-llm.md) — upstream technical sources (ArXiv, GitHub)
+- `AGENT-CONSULTANT-IA.md` — turn a signal into an engagement offer
+- `AGENT-GROWTH-IA.md` — acquisition leverage (boundary)
 
 ## Sources
-- **Ansoff** : H. I. Ansoff, *Managing Strategic Surprise by Response to Weak Signals*, California Management Review 18(2), 1975
-- **SCIP** — Strategic Consortium of Intelligence Professionals · scip.org (cycle du renseignement, déontologie)
-- **Strategic Early Warning System** — détection précoce (filiation Ansoff)
-- Sources ouvertes amont : ArXiv, GitHub Trending, appels d'offres, communautés spécialisées
+- **Ansoff**: H. I. Ansoff, *Managing Strategic Surprise by Response to Weak Signals*, California Management Review 18(2), 1975
+- **SCIP** — Strategic Consortium of Intelligence Professionals · scip.org (intelligence cycle, code of ethics)
+- **Strategic Early Warning System** — early detection (Ansoff lineage)
+- Upstream open sources: ArXiv, GitHub Trending, tenders, specialized communities

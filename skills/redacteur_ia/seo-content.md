@@ -1,90 +1,90 @@
-# Skill — SEO Content & Référencement Naturel IA
-> Certifications : Semrush SEO · Google Digital Marketing · HubSpot Content Marketing
+# Skill — SEO Content & Organic Search (AI)
+> Certifications: Semrush SEO · Google Digital Marketing · HubSpot Content Marketing
 
-## Objectif
-Produire des contenus web optimisés pour le référencement naturel en utilisant l'IA pour accélérer la production et améliorer la qualité.
+## Objective
+Produce web content optimized for organic search, using AI to speed up production and improve quality.
 
-## Processus SEO content IA en 6 étapes
-1. **Recherche de mots-clés** : Semrush / Ahrefs / Google Search Console
-2. **Analyse d'intention de recherche** : informationnelle, transactionnelle, navigationnelle
-3. **Audit de la SERP** : analyser le top 10 pour comprendre ce que Google valorise
-4. **Structure de l'article** : plan (H1, H2, H3) aligné sur les attentes
-5. **Rédaction IA + optimisation** : contenu original, E-E-A-T fort
-6. **Optimisation technique** : balises meta, schema markup, maillage interne
+## AI SEO content process in 6 steps
+1. **Keyword research**: Semrush / Ahrefs / Google Search Console
+2. **Search intent analysis**: informational, transactional, navigational
+3. **SERP audit**: analyze the top 10 to understand what Google rewards
+4. **Article structure**: outline (H1, H2, H3) aligned with expectations
+5. **AI writing + optimization**: original content, strong E-E-A-T
+6. **Technical optimization**: meta tags, schema markup, internal linking
 
-## Template article SEO optimisé
+## Optimized SEO article template
 ```
-H1 : [Mot-clé principal] — [promesse de valeur]
-  
-  Introduction (150 mots)
-  → Hook : question ou statistique frappante
-  → Problème : ce que le lecteur cherche
-  → Promesse : ce qu'il va trouver ici
+H1: [Main keyword] — [value promise]
 
-H2 : [Sous-thème 1 — mot-clé secondaire]
-  [250-400 mots]
-  
-H2 : [Sous-thème 2 — mot-clé secondaire]
-  [250-400 mots]
-  
-H2 : FAQ (People Also Ask)
-  → 3-5 questions avec réponses courtes (50-100 mots)
-  
-Conclusion (100 mots)
-  → Résumé des points clés
-  → CTA clair
+  Introduction (150 words)
+  → Hook: striking question or statistic
+  → Problem: what the reader is looking for
+  → Promise: what they'll find here
+
+H2: [Subtopic 1 — secondary keyword]
+  [250-400 words]
+
+H2: [Subtopic 2 — secondary keyword]
+  [250-400 words]
+
+H2: FAQ (People Also Ask)
+  → 3-5 questions with short answers (50-100 words)
+
+Conclusion (100 words)
+  → Summary of key points
+  → Clear CTA
 ```
 
-## Critères E-E-A-T (Google, décembre 2022 — 2ᵉ « E » Experience ajouté à E-A-T)
-| Critère | Description | Comment le montrer |
+## E-E-A-T criteria (Google, December 2022 — 2nd "E" for Experience added to E-A-T)
+| Criterion | Description | How to show it |
 |---|---|---|
-| **Experience** | Expérience vécue | Témoignages, cas réels, études |
-| **Expertise** | Compétence | Auteur qualifié, sources citées |
-| **Authoritativeness** | Autorité | Backlinks, mentions, ancienneté |
-| **Trustworthiness** | Confiance | Sources fiables, transparence |
+| **Experience** | Lived experience | Testimonials, real cases, studies |
+| **Expertise** | Competence | Qualified author, cited sources |
+| **Authoritativeness** | Authority | Backlinks, mentions, seniority |
+| **Trustworthiness** | Trust | Reliable sources, transparency |
 
-## Prompt SEO pour IA
+## SEO prompt for AI
 ```
-"Écris un article SEO de [X mots] sur '[mot-clé principal]'.
-Audience : [persona].
-Intention de recherche : [informationnelle / transactionnelle].
-Inclure les mots-clés secondaires : [liste].
-Structure : H1, 4 H2, FAQ avec 3 questions, conclusion + CTA.
-Respecter les critères E-E-A-T : [spécifications].
-Ton : [expert / accessible / neutre]."
+"Write a [X-word] SEO article on '[main keyword]'.
+Audience: [persona].
+Search intent: [informational / transactional].
+Include the secondary keywords: [list].
+Structure: H1, 4 H2s, FAQ with 3 questions, conclusion + CTA.
+Meet the E-E-A-T criteria: [specifications].
+Tone: [expert / accessible / neutral]."
 ```
 
-## KPIs SEO à suivre
-- Position moyenne sur les mots-clés cibles
-- Trafic organique (Google Search Console)
-- CTR (Click Through Rate) des snippets
-- Taux de rebond et temps sur page
-- Conversions issues du trafic organique
+## SEO KPIs to track
+- Average position on target keywords
+- Organic traffic (Google Search Console)
+- Snippet CTR (Click Through Rate)
+- Bounce rate and time on page
+- Conversions from organic traffic
 
-## Livrables
-- Article SEO optimisé (ready to publish)
-- Balises meta title + description
-- Plan de maillage interne
-- Rapport d'audit SEO du contenu existant
+## Deliverables
+- Optimized SEO article (ready to publish)
+- Meta title + description tags
+- Internal linking plan
+- SEO audit report of existing content
 
-## Format de sortie
-Précise : mot-clé principal · audience · intention de recherche · longueur cible · concurrents à battre · CTA final
+## Output format
+Specify: main keyword · audience · search intent · target length · competitors to beat · final CTA
 
 ## Anti-patterns
-- ❌ **Keyword stuffing** — bourrage de mots-clés au détriment de la lisibilité → pénalité Google (Helpful Content System), expérience dégradée.
-- ❌ **Contenu sans expérience first-hand** — IA générant un article générique sans le « E » d'Experience d'E-E-A-T → faible valeur perçue, mal classé.
-- ❌ **Ignorer l'intention de recherche** — produire un contenu informationnel pour une requête transactionnelle → mismatch SERP, taux de rebond élevé.
-- ❌ **Publier sans relecture humaine** — laisser l'IA publier sans vérification factuelle ni E-E-A-T → risque de désinformation et de déclassement.
-- ❌ **Oublier le maillage interne** — articles isolés sans liens vers les contenus piliers → autorité topique diluée.
+- ❌ **Keyword stuffing** — cramming keywords at the expense of readability → Google penalty (Helpful Content System), degraded experience.
+- ❌ **Content with no first-hand experience** — AI generating a generic article without the "E" for Experience in E-E-A-T → low perceived value, poorly ranked.
+- ❌ **Ignoring search intent** — producing informational content for a transactional query → SERP mismatch, high bounce rate.
+- ❌ **Publishing without human review** — letting AI publish with no fact-checking or E-E-A-T → risk of misinformation and ranking drop.
+- ❌ **Forgetting internal linking** — isolated articles with no links to pillar content → diluted topical authority.
 
 ## Sources
-- **Google Search Central** — *Our latest update to the quality rater guidelines: E-A-T gets an extra E for Experience* (décembre 2022) — E-A-T existe depuis ~2014, le 2ᵉ « E » est ajouté en 2022
-- **Google** — *Search Quality Rater Guidelines* (mises à jour régulières) — critères de qualité de page
-- **Google** — *Helpful Content System* (2022+) — contenu « people-first »
-- **Semrush / Ahrefs** — documentation officielle — recherche de mots-clés, audit SERP
+- **Google Search Central** — *Our latest update to the quality rater guidelines: E-A-T gets an extra E for Experience* (December 2022) — E-A-T has existed since ~2014, the 2nd "E" was added in 2022
+- **Google** — *Search Quality Rater Guidelines* (regularly updated) — page quality criteria
+- **Google** — *Helpful Content System* (2022+) — "people-first" content
+- **Semrush / Ahrefs** — official documentation — keyword research, SERP audit
 
-## Voir aussi
-- [content-strategy.md](content-strategy.md) — stratégie éditoriale et content pillars amont
-- [copywriting-ia.md](copywriting-ia.md) — rédaction persuasive du corps de l'article
-- [newsletter-email.md](newsletter-email.md) — distribution du contenu par email
-- [`../ux_design/architecture-information.md`](../ux_design/architecture-information.md) — architecture de l'information et maillage
+## See also
+- [content-strategy.md](content-strategy.md) — upstream editorial strategy and content pillars
+- [copywriting-ia.md](copywriting-ia.md) — persuasive writing of the article body
+- [newsletter-email.md](newsletter-email.md) — distributing content by email
+- [`../ux_design/architecture-information.md`](../ux_design/architecture-information.md) — information architecture and linking

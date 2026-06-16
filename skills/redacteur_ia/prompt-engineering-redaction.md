@@ -1,100 +1,100 @@
-# Skill — Prompt Engineering pour la Rédaction IA
-> Certifications : Anthropic Claude Code in Action · HubSpot Content Marketing
+# Skill — Prompt Engineering for AI Writing
+> Certifications: Anthropic Claude Code in Action · HubSpot Content Marketing
 
-## Objectif
-Maîtriser l'art du prompt engineering appliqué à la production de contenu écrit pour maximiser la qualité et réduire les itérations.
+## Objective
+Master the art of prompt engineering applied to written-content production to maximize quality and reduce iterations.
 
-## Anatomie d'un prompt de rédaction efficace
+## Anatomy of an effective writing prompt
 ```
-[RÔLE]      → "Tu es un [expert en...] qui [contexte]"
-[CONTEXTE]  → Audience, canal, objectif, contraintes
-[TÂCHE]     → Action précise à accomplir
-[FORMAT]    → Structure attendue, longueur, ton
-[EXEMPLES]  → Modèles de référence si pertinents
-[CONTRAINTES] → Ce à éviter, limites, style guide
-```
-
-## Techniques de prompting avancées
-
-### Few-shot (exemples dans le prompt) *(Brown et al., 2020)*
-```
-"Voici 2 exemples du ton que je veux :
-Exemple 1 : [texte de référence]
-Exemple 2 : [texte de référence]
-Maintenant écris [nouvelle tâche] avec ce même ton."
+[ROLE]        → "You are a [expert in...] who [context]"
+[CONTEXT]     → Audience, channel, objective, constraints
+[TASK]        → Precise action to perform
+[FORMAT]      → Expected structure, length, tone
+[EXAMPLES]    → Reference models if relevant
+[CONSTRAINTS] → What to avoid, limits, style guide
 ```
 
-### Chain of Thought pour le contenu *(Wei et al., 2022)*
+## Advanced prompting techniques
+
+### Few-shot (examples in the prompt) *(Brown et al., 2020)*
 ```
-"Avant d'écrire, réfléchis à :
-1. Quel est le problème principal du lecteur ?
-2. Quel est l'insight contre-intuitif ?
-3. Quelle preuve ou exemple rend ça crédible ?
-Ensuite écris le post LinkedIn de 10 lignes."
+"Here are 2 examples of the tone I want:
+Example 1: [reference text]
+Example 2: [reference text]
+Now write [new task] with that same tone."
+```
+
+### Chain of Thought for content *(Wei et al., 2022)*
+```
+"Before writing, think about:
+1. What is the reader's main problem?
+2. What is the counter-intuitive insight?
+3. What proof or example makes it credible?
+Then write the 10-line LinkedIn post."
 ```
 
 ### Persona Prompting
 ```
-"Tu es [David Ogilvy / Seth Godin / Ann Handley].
-Comment écrirais-tu une landing page pour [produit]
-à destination de [audience] ?"
+"You are [David Ogilvy / Seth Godin / Ann Handley].
+How would you write a landing page for [product]
+aimed at [audience]?"
 ```
 
-## Bibliothèque de méta-prompts réutilisables
+## Library of reusable meta-prompts
 
-### Amélioration d'un texte existant
+### Improving existing text
 ```
-"Améliore ce texte : [texte].
-Objectifs :
-- Plus percutant en gardant le même sens
-- Réduire à [X mots]
-- Renforcer le CTA final
-- Supprimer les redondances"
-```
-
-### Génération de variantes A/B
-```
-"Génère 3 variantes de [titre / objet / CTA]
-pour un test A/B.
-Chaque variante doit utiliser une formule différente :
-V1 : chiffre, V2 : question, V3 : bénéfice direct."
+"Improve this text: [text].
+Objectives:
+- Punchier while keeping the same meaning
+- Cut to [X words]
+- Strengthen the final CTA
+- Remove redundancies"
 ```
 
-### Déclinaison multi-canal
+### Generating A/B variants
 ```
-"Adapte ce contenu [source : article / brief] pour :
-1. Post LinkedIn (10 lignes, ton expert)
-2. Tweet / X (280 caractères, incisif)
-3. Email (150 mots, personnel)
-4. Résumé SEO meta description (155 caractères)"
+"Generate 3 variants of [headline / subject / CTA]
+for an A/B test.
+Each variant must use a different formula:
+V1: number, V2: question, V3: direct benefit."
 ```
 
-## Erreurs fréquentes de prompting rédaction
-| Erreur | Symptôme | Correction |
+### Multi-channel adaptation
+```
+"Adapt this content [source: article / brief] for:
+1. LinkedIn post (10 lines, expert tone)
+2. Tweet / X (280 characters, sharp)
+3. Email (150 words, personal)
+4. SEO meta description summary (155 characters)"
+```
+
+## Common writing-prompt mistakes
+| Mistake | Symptom | Fix |
 |---|---|---|
-| Prompt trop vague | Texte générique, sans personnalité | Préciser audience + ton + objectif |
-| Pas de contrainte de longueur | Texte trop long ou trop court | Toujours spécifier le nombre de mots |
-| Oublier le CTA | Texte sans appel à l'action | Inclure "terminer par un CTA [action]" |
-| Ignorer le canal | Ton inadapté (trop formel pour LinkedIn) | Préciser le canal et ses codes |
+| Prompt too vague | Generic text, no personality | Specify audience + tone + objective |
+| No length constraint | Text too long or too short | Always specify the word count |
+| Forgetting the CTA | Text with no call to action | Include "end with a CTA [action]" |
+| Ignoring the channel | Wrong tone (too formal for LinkedIn) | Specify the channel and its codes |
 
-## Livrables
-- Bibliothèque de prompts par type de contenu
-- Guide prompt engineering rédaction (1 page)
-- Templates réutilisables (Notion / fichier)
-- Formation "Prompter pour la rédaction" (1h)
+## Deliverables
+- Prompt library by content type
+- Writing prompt engineering guide (1 page)
+- Reusable templates (Notion / file)
+- "Prompting for writing" training (1h)
 
-## Format de sortie
-Précise : type de contenu · audience · canal · objectif · exemples de référence (style souhaité) · contraintes
+## Output format
+Specify: content type · audience · channel · objective · reference examples (desired style) · constraints
 
 ## Sources
-- **Anthropic** — *Prompt Engineering Guide* (docs.anthropic.com) — rôle, contexte, exemples, balises XML
+- **Anthropic** — *Prompt Engineering Guide* (docs.anthropic.com) — role, context, examples, XML tags
 - **Brown et al.** — *Language Models are Few-Shot Learners* (NeurIPS 2020, arXiv 2005.14165) — few-shot
 - **Wei et al.** — *Chain-of-Thought Prompting Elicits Reasoning in Large Language Models* (NeurIPS 2022, arXiv 2201.11903) — CoT
-- **Ann Handley** — *Everybody Writes* (Wiley, 2014, 2ᵉ éd. 2022) — qualité rédactionnelle
-- **David Ogilvy** — *Ogilvy on Advertising* (1983) — référence de persona copywriter
+- **Ann Handley** — *Everybody Writes* (Wiley, 2014, 2nd ed. 2022) — writing quality
+- **David Ogilvy** — *Ogilvy on Advertising* (1983) — copywriter persona reference
 
-## Voir aussi
-- [`../prompt_engineer/chain-of-thought.md`](../prompt_engineer/chain-of-thought.md) — CoT approfondi
-- [`../prompt_engineer/few-shot-learning.md`](../prompt_engineer/few-shot-learning.md) — few-shot approfondi
-- [`../prompt_engineer/system-prompt-design.md`](../prompt_engineer/system-prompt-design.md) — conception de system prompts
-- [copywriting-ia.md](copywriting-ia.md) — application au copy marketing
+## See also
+- [`../prompt_engineer/chain-of-thought.md`](../prompt_engineer/chain-of-thought.md) — CoT in depth
+- [`../prompt_engineer/few-shot-learning.md`](../prompt_engineer/few-shot-learning.md) — few-shot in depth
+- [`../prompt_engineer/system-prompt-design.md`](../prompt_engineer/system-prompt-design.md) — system prompt design
+- [copywriting-ia.md](copywriting-ia.md) — applied to marketing copy

@@ -1,177 +1,177 @@
-# Skill — Rédaction d'Emails Professionnels
-> Certifications : HubSpot Email Marketing · Google Digital Garage · Communication d'entreprise (ESSEC)
+# Skill — Professional Email Writing
+> Certifications: HubSpot Email Marketing · Google Digital Garage · Corporate Communication (ESSEC)
 
-## Objectif
-Rédiger des emails professionnels clairs, efficaces et adaptés au contexte — escalade, demande, validation, relance, annonce — pour maximiser le taux de réponse et la qualité de la communication.
+## Objective
+Write clear, effective, context-appropriate professional emails — escalation, request, approval, follow-up, announcement — to maximize the response rate and the quality of communication.
 
-## Anatomie d'un email professionnel efficace
+## Anatomy of an effective professional email
 
-### Les 6 composantes
+### The 6 components
 ```
-1. OBJET         → La décision de lire ou non (5-8 mots)
-2. SALUTATION    → Ton calibré à la relation
-3. CONTEXTE      → 1-2 phrases (pourquoi cet email maintenant ?)
-4. CORPS         → 1 message principal, 3 points max
-5. APPEL (CTA)   → Ce que vous attendez du destinataire
-6. SIGNATURE     → Nom, rôle, contact, disponibilité
+1. SUBJECT       → The decision to read or not (5-8 words)
+2. GREETING      → Tone calibrated to the relationship
+3. CONTEXT       → 1-2 sentences (why this email now?)
+4. BODY          → 1 main message, 3 points max
+5. CALL (CTA)    → What you expect from the recipient
+6. SIGNATURE     → Name, role, contact, availability
 ```
 
-## La règle des 3C : Clair, Court, Concret
+## The 3C rule: Clear, Concise, Concrete
 
-### Objet — la règle du titre journalistique
+### Subject — the journalistic-headline rule
 ```
-Objectif : Le lecteur doit comprendre le sujet ET l'urgence en < 5 sec
+Objective: The reader must grasp the topic AND the urgency in < 5 sec
 
-❌ "Re: Projet"
-❌ "Question importante"
+❌ "Re: Project"
+❌ "Important question"
 ❌ "FYI"
 
-✅ "[Décision requise] Budget Q3 — Réponse avant vendredi 16h"
-✅ "[Validation] Contrat Prestataire X — V3 finale"
-✅ "[Info] Livraison Sprint 7 reportée au 15/06"
-✅ "[Urgent] Incident prod — Action requise maintenant"
+✅ "[Decision required] Q3 budget — Reply by Friday 4pm"
+✅ "[Approval] Contractor X agreement — final V3"
+✅ "[Info] Sprint 7 delivery postponed to 15/06"
+✅ "[Urgent] Prod incident — Action required now"
 
-Préfixes recommandés :
-  [Décision requise] → Vous attendez une décision
-  [Pour info]        → Information uniquement, pas de réponse attendue
-  [Validation]       → Document joint à valider
-  [Urgent]           → Délai < 4h
-  [Relance]          → 2e contact sur un sujet ouvert
+Recommended prefixes:
+  [Decision required] → You expect a decision
+  [For info]          → Information only, no reply expected
+  [Approval]          → Attached document to approve
+  [Urgent]            → Deadline < 4h
+  [Follow-up]         → 2nd contact on an open topic
 ```
 
-## Templates par situation
+## Templates by situation
 
-### Email de demande / requête
+### Request email
 ```
-Objet : [Décision requise] [Sujet] — Réponse avant [Date/Heure]
+Subject: [Decision required] [Topic] — Reply by [Date/Time]
 
-Bonjour [Prénom],
+Hi [First name],
 
-[Contexte en 1 phrase : pourquoi cet email ?]
+[Context in 1 sentence: why this email?]
 
-Je sollicite [votre validation / votre retour / votre aide] sur :
-→ [Point précis 1]
-→ [Point précis 2 si nécessaire]
+I'm requesting [your approval / your feedback / your help] on:
+→ [Specific point 1]
+→ [Specific point 2 if needed]
 
-**Ce que j'attends de vous** : [Action précise] avant [date/heure].
+**What I expect from you**: [Specific action] by [date/time].
 
-[Document joint si applicable : "En pièce jointe : [nom du doc]"]
+[Attached document if applicable: "Attached: [doc name]"]
 
-Restant disponible pour en discuter,
+Happy to discuss,
 [Signature]
 ```
 
-### Email d'escalade
+### Escalation email
 ```
-Objet : [Escalade] [Sujet] — Blocage depuis [durée] — Décision requise
+Subject: [Escalation] [Topic] — Blocked for [duration] — Decision required
 
-Bonjour [Prénom],
+Hi [First name],
 
-Je remonte ce point à votre attention car [problème] bloque [impact concret] depuis [durée].
+I'm bringing this to your attention because [problem] has been blocking [concrete impact] for [duration].
 
-**Situation actuelle** : [Description factuelle, sans émotion]
-**Tentatives déjà effectuées** : [Ce qui a été fait]
-**Impact** : [Conséquences concrètes si non résolu]
+**Current situation**: [Factual description, no emotion]
+**Attempts already made**: [What was done]
+**Impact**: [Concrete consequences if unresolved]
 
-**Décision attendue** : [Option A] ou [Option B]
-→ Si aucune réponse avant [date], je prendrai [décision par défaut].
+**Decision expected**: [Option A] or [Option B]
+→ If no reply by [date], I will take [default decision].
 
 [Signature]
 ```
 
-### Email de relance
+### Follow-up email
 ```
-Objet : [Relance] [Objet initial] — En attente de votre retour
+Subject: [Follow-up] [Original subject] — Awaiting your reply
 
-Bonjour [Prénom],
+Hi [First name],
 
-Je me permets de revenir vers vous concernant [sujet de l'email initial du JJ/MM].
+I'm following up regarding [topic of the original email of DD/MM].
 
-[Résumé en 1 phrase de ce qui est attendu]
+[1-sentence summary of what's expected]
 
-Avez-vous eu la possibilité d'y répondre ? Je reste disponible si vous avez besoin d'informations complémentaires.
+Have you had a chance to respond? I'm available if you need any additional information.
 
 [Signature]
 
 ---
-[Email initial en citation]
+[Original email quoted]
 ```
 
-### Email d'annonce / communication
+### Announcement / communication email
 ```
-Objet : [Info] [Sujet] — [Date d'application si pertinente]
+Subject: [Info] [Topic] — [Effective date if relevant]
 
-Bonjour à tous / Bonjour [Prénom],
+Hi everyone / Hi [First name],
 
-Je vous informe de [annonce principale en 1 phrase].
+I'm letting you know about [main announcement in 1 sentence].
 
-**Contexte** : [Pourquoi ce changement / cette décision]
-**Ce qui change pour vous** : [Impact concret et pratique]
-**À partir du** : [Date]
+**Context**: [Why this change / this decision]
+**What changes for you**: [Concrete, practical impact]
+**Effective from**: [Date]
 
-Pour toute question : [contact ou canal]
+For any questions: [contact or channel]
 
 [Signature]
 ```
 
-## Règles de style professionnelles
+## Professional style rules
 
-### Ce qu'il faut faire
+### What to do
 ```
-✅ Un email = une demande (pas plusieurs)
-✅ Mettre en gras ce qui est le plus important
-✅ Utiliser des listes à puces pour les points multiples
-✅ Mettre le CTA (appel à l'action) à la fin, avant la signature
-✅ Préciser une deadline explicite ("avant vendredi 16h" > "dès que possible")
-✅ Niveau de langue adapté au destinataire et à la relation
-```
-
-### Ce qu'il faut éviter
-```
-❌ Emails > 200 mots sauf pour les annonces importantes
-❌ Mettre plus de 3 personnes en CC sans raison
-❌ Utiliser le CCI (BCC) sans raison légitime
-❌ Répondre à tous (Reply All) par réflexe
-❌ Envoyer des émotions négatives par email (préférer une réunion)
-❌ Relancer avant 48h ouvrées (sauf urgence)
-❌ Écrire en majuscules (perçu comme agressif)
+✅ One email = one request (not several)
+✅ Bold what's most important
+✅ Use bullet lists for multiple points
+✅ Put the CTA (call to action) at the end, before the signature
+✅ Give an explicit deadline ("by Friday 4pm" > "as soon as possible")
+✅ Register adapted to the recipient and the relationship
 ```
 
-## Etiquette email en entreprise
+### What to avoid
 ```
-DÉLAIS DE RÉPONSE :
-  Emails internes   → sous 4h (core hours)
-  Emails clients    → sous 24h ouvrées
-  Emails urgents    → sous 1h (marqués [Urgent])
-  Newsletters / Info → pas de réponse attendue
-
-CC vs TO :
-  TO  → Personne qui doit agir ou répondre
-  CC  → Personne qui doit être informée (pas de réponse attendue d'elle)
-  CCI → Discret, à utiliser avec parcimonie et éthique
-
-GESTION DES PIÈCES JOINTES :
-  → Nommage explicite : "Contrat_NomClient_v3_2026-05.pdf"
-  → Pas de PJ > 10 Mo (utiliser un lien de partage)
-  → Mentionner la PJ dans le corps de l'email
+❌ Emails > 200 words except for important announcements
+❌ Putting more than 3 people in CC without reason
+❌ Using BCC without a legitimate reason
+❌ Reply All by reflex
+❌ Sending negative emotions by email (prefer a meeting)
+❌ Following up before 48 business hours (unless urgent)
+❌ Writing in all caps (perceived as aggressive)
 ```
 
-## Livrables
-- Bibliothèque de templates emails par situation (demande, relance, escalade, annonce)
-- Guide de l'étiquette email de l'équipe
-- Charte de communication interne
+## Corporate email etiquette
+```
+RESPONSE TIMES:
+  Internal emails   → within 4h (core hours)
+  Client emails     → within 24 business hours
+  Urgent emails     → within 1h (marked [Urgent])
+  Newsletters / Info → no reply expected
 
-## Format de sortie
-Précise : type d'email (demande, relance, escalade, annonce) · destinataire et relation · contexte du sujet · ton souhaité (formel, neutre, chaleureux) · délai de réponse attendu
+CC vs TO:
+  TO  → Person who must act or reply
+  CC  → Person to be kept informed (no reply expected from them)
+  BCC → Discreet, use sparingly and ethically
+
+ATTACHMENT HANDLING:
+  → Explicit naming: "Contract_ClientName_v3_2026-05.pdf"
+  → No attachment > 10 MB (use a share link)
+  → Mention the attachment in the email body
+```
+
+## Deliverables
+- Email template library by situation (request, follow-up, escalation, announcement)
+- Team email etiquette guide
+- Internal communication charter
+
+## Output format
+Specify: email type (request, follow-up, escalation, announcement) · recipient and relationship · topic context · desired tone (formal, neutral, warm) · expected response time
 
 ## Sources
-- **Barbara Minto** — *The Minto Pyramid Principle* (Pearson, 1987) — message clé d'abord, applicable à l'objet et au corps
-- **Cal Newport** — *A World Without Email* (Portfolio, 2021) — hygiène et protocoles email
-- **The Radicati Group** — *Email Statistics Report* (édité annuellement) — volumétrie et usages email professionnels
-- **AIDA** (E. St. Elmo Lewis, 1898) — structure d'objet et de CTA persuasifs
+- **Barbara Minto** — *The Minto Pyramid Principle* (Pearson, 1987) — key message first, applicable to subject and body
+- **Cal Newport** — *A World Without Email* (Portfolio, 2021) — email hygiene and protocols
+- **The Radicati Group** — *Email Statistics Report* (published annually) — professional email volumes and usage
+- **AIDA** (E. St. Elmo Lewis, 1898) — persuasive subject and CTA structure
 
-## Voir aussi
-- [compte-rendu-pro.md](compte-rendu-pro.md) — diffusion d'un CR par email
-- [synthese-executive.md](synthese-executive.md) — version « 5 lignes » pour email exécutif
-- [newsletter-email.md](newsletter-email.md) — email marketing (≠ email professionnel transactionnel)
-- [redaction-rapport.md](redaction-rapport.md) — email d'accompagnement d'un rapport
+## See also
+- [compte-rendu-pro.md](compte-rendu-pro.md) — distributing minutes by email
+- [synthese-executive.md](synthese-executive.md) — "5-line" version for an executive email
+- [newsletter-email.md](newsletter-email.md) — email marketing (≠ transactional professional email)
+- [redaction-rapport.md](redaction-rapport.md) — cover email for a report

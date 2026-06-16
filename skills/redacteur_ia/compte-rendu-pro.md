@@ -1,176 +1,176 @@
-# Skill — Compte-Rendu de Réunion Professionnel
-> Certifications : HubSpot Content Marketing · Communication d'entreprise · Facilitation professionnelle
+# Skill — Professional Meeting Minutes
+> Certifications: HubSpot Content Marketing · Corporate Communication · Professional Facilitation
 
-## Objectif
-Rédiger des comptes-rendus de réunion clairs, structurés et actionnables qui servent de référence partagée et tracent les décisions et engagements pris.
+## Objective
+Write clear, structured, actionable meeting minutes that serve as a shared reference and record the decisions and commitments made.
 
-## Principes fondamentaux
+## Core principles
 
-### Ce qu'est un bon CR
+### What a good record looks like
 ```
-Un bon compte-rendu :
-  ✅ Reflète fidèlement les décisions (pas les débats)
-  ✅ Liste les actions avec responsable + deadline
-  ✅ Est envoyé dans les 24h après la réunion
-  ✅ Tient en 1 page pour une réunion standard
-  ✅ Peut être relu 6 mois plus tard et encore compris
+Good minutes:
+  ✅ Faithfully reflect the decisions (not the debates)
+  ✅ List the actions with owner + deadline
+  ✅ Are sent within 24h after the meeting
+  ✅ Fit on 1 page for a standard meeting
+  ✅ Can be re-read 6 months later and still understood
 
-Un mauvais compte-rendu :
-  ❌ Retranscription mot à mot des échanges
-  ❌ Aucune action identifiée
-  ❌ Envoyé 3 jours après
-  ❌ Long, dense, sans structure
-  ❌ Confond "évoqué" et "décidé"
+Bad minutes:
+  ❌ Word-for-word transcript of the exchanges
+  ❌ No action identified
+  ❌ Sent 3 days later
+  ❌ Long, dense, unstructured
+  ❌ Confuse "discussed" and "decided"
 ```
 
-## Structure standard — Template
+## Standard structure — template
 
-### Format court (réunion < 1h)
+### Short format (meeting < 1h)
 ```markdown
-# Compte-rendu — [Titre de la réunion]
-**Date** : [JJ/MM/AAAA] | **Heure** : [HH:MM–HH:MM]
-**Lieu / Outil** : [Salle / Teams / Zoom]
-**Animateur** : [Nom] | **Rédacteur** : [Nom]
-**Présents** : [Prénom NOM (Rôle)] — liste
-**Excusés** : [Prénom NOM]
-**Absents** : [Prénom NOM]
+# Minutes — [Meeting title]
+**Date**: [DD/MM/YYYY] | **Time**: [HH:MM–HH:MM]
+**Location / Tool**: [Room / Teams / Zoom]
+**Facilitator**: [Name] | **Note-taker**: [Name]
+**Present**: [First LAST (Role)] — list
+**Apologies**: [First LAST]
+**Absent**: [First LAST]
 
 ---
 
-## Ordre du jour traité
-1. [Point 1]
-2. [Point 2]
-3. [Point 3]
+## Agenda covered
+1. [Item 1]
+2. [Item 2]
+3. [Item 3]
 
 ---
 
-## Décisions prises
-| # | Décision | Validé par |
+## Decisions made
+| # | Decision | Approved by |
 |---|----------|-----------|
-| D1 | [Décision claire et factuelle] | [Nom] |
-| D2 | [Décision] | [Nom] |
+| D1 | [Clear, factual decision] | [Name] |
+| D2 | [Decision] | [Name] |
 
-## Actions à mener
-| # | Action | Responsable | Échéance | Statut |
+## Actions to take
+| # | Action | Owner | Deadline | Status |
 |---|--------|-------------|----------|--------|
-| A1 | [Action précise et vérifiable] | [Prénom] | [JJ/MM] | ⬜ |
-| A2 | [Action] | [Prénom] | [JJ/MM] | ⬜ |
+| A1 | [Precise, verifiable action] | [First name] | [DD/MM] | ⬜ |
+| A2 | [Action] | [First name] | [DD/MM] | ⬜ |
 
-## Points ouverts / Questions en suspens
-- [Question ou sujet non tranché — à traiter dans quelle réunion ?]
+## Open points / Pending questions
+- [Unresolved question or topic — to handle in which meeting?]
 
-## Prochaine réunion
-**Date** : [JJ/MM/AAAA] | **Heure** : [HH:MM]
-**Ordre du jour prévisionnel** :
-- Suivi des actions A1, A2
-- [Nouveau point]
+## Next meeting
+**Date**: [DD/MM/YYYY] | **Time**: [HH:MM]
+**Provisional agenda**:
+- Follow-up on actions A1, A2
+- [New item]
 ```
 
-### Format long (comité / CODIR / copil)
+### Long format (committee / exec committee / steering committee)
 ```markdown
-# Compte-rendu de [COPIL / CODIR / Comité projet]
-**[Même header que ci-dessus]**
+# Minutes of [Steering / Exec committee / Project committee]
+**[Same header as above]**
 
 ---
 
-## 1. Validation du CR précédent
-[Modifications apportées si contesté, ou "CR précédent validé sans modification"]
+## 1. Approval of previous minutes
+[Changes made if contested, or "Previous minutes approved without changes"]
 
-## 2. Suivi des actions précédentes
-| # | Action | Responsable | Statut | Commentaire |
+## 2. Follow-up on previous actions
+| # | Action | Owner | Status | Comment |
 |---|--------|-------------|--------|-------------|
-| A1 | [Action] | [Nom] | ✅ Fait | [Si pertinent] |
-| A2 | [Action] | [Nom] | 🔄 En cours | [Raison] |
-| A3 | [Action] | [Nom] | ❌ Reporté | [Nouvelle échéance] |
+| A1 | [Action] | [Name] | ✅ Done | [If relevant] |
+| A2 | [Action] | [Name] | 🔄 In progress | [Reason] |
+| A3 | [Action] | [Name] | ❌ Postponed | [New deadline] |
 
-## 3. Points traités
+## 3. Items covered
 
-### 3.1 [Titre du point 1]
-**Présenté par** : [Nom]
-**Synthèse** : [Résumé en 2-4 phrases — faits et contexte]
-**Éléments du débat** : [Points soulevés, objections, données citées]
-**Décision** : [Formulation claire — "Le comité a décidé de..."]
+### 3.1 [Item 1 title]
+**Presented by**: [Name]
+**Summary**: [2-4 sentence recap — facts and context]
+**Discussion points**: [Points raised, objections, data cited]
+**Decision**: [Clear wording — "The committee decided to..."]
 
-### 3.2 [Titre du point 2]
-[Même structure]
+### 3.2 [Item 2 title]
+[Same structure]
 
-## 4. Décisions du jour
-[Tableau récapitulatif de toutes les décisions — comme format court]
+## 4. Today's decisions
+[Summary table of all decisions — like the short format]
 
-## 5. Actions issues de la réunion
-[Tableau récapitulatif de toutes les actions — comme format court]
+## 5. Actions from the meeting
+[Summary table of all actions — like the short format]
 
-## 6. Points d'information
-- [Info 1 partagée mais sans décision requise]
+## 6. Information items
+- [Info 1 shared but no decision required]
 - [Info 2]
 
-## 7. Date du prochain comité
-[Date + lieu + ordre du jour prévisionnel]
+## 7. Date of next committee
+[Date + location + provisional agenda]
 ```
 
-## Prise de notes en réunion — Méthode Cornell adaptée *(Walter Pauk, 1962)*
+## Note-taking in meetings — adapted Cornell method *(Walter Pauk, 1962)*
 
-### Colonnes de prise de notes
+### Note-taking columns
 ```
 ┌─────────────────────────────────────────────────────┐
-│  NOTES BRUTES (pendant)  │  TAGS (pendant)           │
-│  Ce qui est dit          │  [D] Décision             │
-│  Questions posées        │  [A] Action               │
-│  Données citées          │  [?] Question ouverte     │
-│  Points de tension       │  [!] Point important      │
+│  RAW NOTES (during)      │  TAGS (during)           │
+│  What is said            │  [D] Decision            │
+│  Questions asked         │  [A] Action              │
+│  Data cited              │  [?] Open question       │
+│  Tension points          │  [!] Important point     │
 ├─────────────────────────────────────────────────────┤
-│  SYNTHÈSE (après) — Ce qu'il faut retenir            │
-│  Transformer les [D] en tableau décisions            │
-│  Transformer les [A] en tableau actions SMART        │
+│  SUMMARY (after) — What to remember                 │
+│  Turn the [D]s into a decisions table               │
+│  Turn the [A]s into a SMART actions table           │
 └─────────────────────────────────────────────────────┘
 ```
 
-## Formulations types pour CR
+## Standard phrasings for minutes
 
-### Décisions
+### Decisions
 ```
-"Le comité a validé..."
-"Il a été décidé de..."
-"La direction valide la proposition de..."
-"Après discussion, l'option [X] a été retenue car..."
-"La décision est reportée à [date] en attente de [information]"
+"The committee approved..."
+"It was decided to..."
+"Management approves the proposal to..."
+"After discussion, option [X] was chosen because..."
+"The decision is postponed to [date] pending [information]"
 ```
 
 ### Actions
 ```
-"[Prénom] prend en charge [action] avant le [date]."
-"[Prénom] et [Prénom] co-rédigent [livrable] pour le [date]."
-"[Prénom] revient avec [information] lors du prochain comité."
+"[First name] takes on [action] before [date]."
+"[First name] and [First name] co-write [deliverable] by [date]."
+"[First name] comes back with [information] at the next committee."
 ```
 
-### Points ouverts
+### Open points
 ```
-"[Question] reste en suspens — sera tranchée lors de [réunion / date]."
-"[Sujet] nécessite l'avis de [personne] — [Prénom] la sollicite."
+"[Question] remains pending — will be resolved at [meeting / date]."
+"[Topic] needs [person]'s input — [First name] will reach out."
 ```
 
-## Livrables
-- CR réunion (envoyé dans les 24h par email ou Confluence)
-- Tableau de suivi des actions (Excel / Notion / Jira)
-- Version archivée dans l'espace projet (Confluence / SharePoint)
+## Deliverables
+- Meeting minutes (sent within 24h by email or Confluence)
+- Action-tracking table (Excel / Notion / Jira)
+- Archived version in the project space (Confluence / SharePoint)
 
-## Format de sortie
-Précise : type de réunion (comité, one-on-one, réunion d'équipe, CODIR) · durée · nombre de participants · outil de partage du CR · délai d'envoi · niveau de détail attendu (synthèse ou verbatim)
+## Output format
+Specify: meeting type (committee, one-on-one, team meeting, exec committee) · duration · number of participants · minutes-sharing tool · sending deadline · expected level of detail (summary or verbatim)
 
 ## Anti-patterns
-- ❌ **Verbatim intégral** — retranscrire mot à mot les échanges → CR illisible, l'essentiel (décisions/actions) noyé.
-- ❌ **Aucune action traçable** — pas de responsable ni d'échéance → engagements oubliés, pas de suivi possible.
-- ❌ **Confondre « évoqué » et « décidé »** — flou sur le statut des points → contestations ultérieures.
-- ❌ **Envoi tardif** — CR envoyé plusieurs jours après → contexte perdu, actions démarrées en retard.
-- ❌ **CR fleuve** — pas de structure ni de hiérarchie → personne ne le lit. Viser 1 page pour une réunion standard.
+- ❌ **Full verbatim** — transcribing the exchanges word-for-word → unreadable minutes, the essentials (decisions/actions) drowned out.
+- ❌ **No trackable action** — no owner or deadline → forgotten commitments, no follow-up possible.
+- ❌ **Confusing "discussed" and "decided"** — vagueness on the status of items → later disputes.
+- ❌ **Late sending** — minutes sent several days later → context lost, actions started late.
+- ❌ **Endless minutes** — no structure or hierarchy → nobody reads them. Aim for 1 page for a standard meeting.
 
 ## Sources
-- **Walter Pauk** — *How to Study in College* (Cornell University, 1962) — méthode Cornell de prise de notes
-- **George T. Doran** — *There's a S.M.A.R.T. Way to Write Management's Goals and Objectives*, Management Review (novembre 1981) — actions SMART
-- **Patrick Lencioni** — *Death by Meeting* (Jossey-Bass, 2004) — efficacité et formats de réunion
+- **Walter Pauk** — *How to Study in College* (Cornell University, 1962) — Cornell note-taking method
+- **George T. Doran** — *There's a S.M.A.R.T. Way to Write Management's Goals and Objectives*, Management Review (November 1981) — SMART actions
+- **Patrick Lencioni** — *Death by Meeting* (Jossey-Bass, 2004) — meeting effectiveness and formats
 
-## Voir aussi
-- [redaction-rapport.md](redaction-rapport.md) — rapport structuré pour des décisions plus larges
-- [synthese-executive.md](synthese-executive.md) — synthèse de décisions pour décideurs
-- [note-cadrage.md](note-cadrage.md) — relevé de décisions de kickoff projet
-- [redaction-email-pro.md](redaction-email-pro.md) — diffusion du CR par email
+## See also
+- [redaction-rapport.md](redaction-rapport.md) — structured report for broader decisions
+- [synthese-executive.md](synthese-executive.md) — decision summary for decision-makers
+- [note-cadrage.md](note-cadrage.md) — decision log for a project kickoff
+- [redaction-email-pro.md](redaction-email-pro.md) — distributing the minutes by email

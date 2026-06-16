@@ -1,88 +1,88 @@
-# Skill — LinkedIn & Thought Leadership IA
-> Certifications : LinkedIn Marketing · HubSpot Content Marketing · Google Digital Marketing
+# Skill — LinkedIn & AI Thought Leadership
+> Certifications: LinkedIn Marketing · HubSpot Content Marketing · Google Digital Marketing
 
-## Objectif
-Développer une présence LinkedIn d'expert reconnu sur les sujets IA, générer de l'inbound et attirer des missions freelance ou des opportunités professionnelles.
+## Objective
+Build a recognized-expert LinkedIn presence on AI topics, generate inbound, and attract freelance engagements or professional opportunities.
 
-## Anatomie d'un post LinkedIn qui performe
+## Anatomy of a LinkedIn post that performs
 ```
-[Hook - ligne 1]      → La seule chose que les gens voient avant "voir plus"
-[Développement]       → 3-7 lignes courtes, aérées
-[Proof / Exemple]     → Ce qui rend crédible
-[Insight / Leçon]     → La valeur actionnable
-[CTA]                 → Question, invitation, ressource
-[Hashtags]            → 3-5 max, pertinents
+[Hook - line 1]       → The only thing people see before "see more"
+[Body]                → 3-7 short, airy lines
+[Proof / Example]     → What makes it credible
+[Insight / Lesson]    → The actionable value
+[CTA]                 → Question, invitation, resource
+[Hashtags]            → 3-5 max, relevant
 ```
 
-## Formules de hook LinkedIn qui déclenchent le clic
-| Formule | Exemple |
+## LinkedIn hook formulas that trigger the click
+| Formula | Example |
 |---|---|
-| Contre-intuitif | "L'IA ne va pas vous remplacer. Voici ce qui va." |
-| Chiffre fort | "J'ai testé 47 prompts Claude en 30 jours. Résultats :" |
-| Story | "En 2023, j'ai raté ma présentation CODIR. Voici ce que j'ai appris." |
-| Question | "Savez-vous combien vaut 1h de votre temps en tokens IA ?" |
-| Affirmation forte | "La roadmap IA de la plupart des entreprises est dans le mauvais sens." *(toute statistique en hook doit être sourcée — sinon rester qualitatif)* |
+| Counter-intuitive | "AI won't replace you. Here's what will." |
+| Strong number | "I tested 47 Claude prompts in 30 days. Results:" |
+| Story | "In 2023, I bombed my steering-committee presentation. Here's what I learned." |
+| Question | "Do you know what 1h of your time is worth in AI tokens?" |
+| Strong claim | "Most companies' AI roadmaps are pointed the wrong way." *(any statistic in a hook must be sourced — otherwise keep it qualitative)* |
 
-## Types de posts LinkedIn × objectifs
-| Type | Objectif | Format | Fréquence |
+## LinkedIn post types × objectives
+| Type | Objective | Format | Frequency |
 |---|---|---|---|
-| **Insight secteur** | Notoriété | Texte court (3-7 lignes) | 3x/semaine |
-| **Cas client (anonymisé)** | Crédibilité | Storytelling (10-15 lignes) | 1x/semaine |
-| **Tip / Outil IA** | Engagement | Texte + visuel / carrousel | 2x/semaine |
-| **Article long** | Autorité | Article natif LinkedIn | 1x/mois |
-| **Sondage** | Engagement | Question + 4 options | 1x/mois |
+| **Industry insight** | Awareness | Short text (3-7 lines) | 3x/week |
+| **Client case (anonymized)** | Credibility | Storytelling (10-15 lines) | 1x/week |
+| **Tip / AI tool** | Engagement | Text + visual / carousel | 2x/week |
+| **Long article** | Authority | Native LinkedIn article | 1x/month |
+| **Poll** | Engagement | Question + 4 options | 1x/month |
 
-## Prompt LinkedIn pour IA
+## LinkedIn prompt for AI
 ```
-"Écris un post LinkedIn pour un consultant IA freelance senior
-sur le sujet : [sujet].
-Audience : [DSI / DG / directeurs métier / POs].
-Objectif : [notoriété / leads / engagement].
-Hook : [formule choisie].
-Ton : [expert accessible / storytelling / data-driven].
-Longueur : [court 5 lignes / moyen 10 lignes / long 20 lignes].
-Inclure : [un insight actionnable + CTA + 3 hashtags]."
+"Write a LinkedIn post for a senior freelance AI consultant
+on the topic: [topic].
+Audience: [CIO / CEO / business directors / POs].
+Objective: [awareness / leads / engagement].
+Hook: [chosen formula].
+Tone: [accessible expert / storytelling / data-driven].
+Length: [short 5 lines / medium 10 lines / long 20 lines].
+Include: [one actionable insight + CTA + 3 hashtags]."
 ```
 
-## Profil LinkedIn optimisé — checklist
-- [ ] Titre : Rôle + spécialité + valeur (ex: "Consultant IA | PO Senior | Transformation Digitale")
-- [ ] Photo : professionnelle, fond neutre, sourire
-- [ ] Bannière : visuelle métier avec accroche
-- [ ] About : 3 paragraphes (qui, ce que j'apporte, call to action)
-- [ ] Expériences : résultats quantifiés (pas de liste de tâches)
-- [ ] Compétences : top 5 validées par le réseau
-- [ ] Recommandations : min 3 récentes
+## Optimized LinkedIn profile — checklist
+- [ ] Headline: Role + specialty + value (e.g., "AI Consultant | Senior PO | Digital Transformation")
+- [ ] Photo: professional, neutral background, smile
+- [ ] Banner: on-brand visual with a tagline
+- [ ] About: 3 paragraphs (who, what I bring, call to action)
+- [ ] Experience: quantified results (not a task list)
+- [ ] Skills: top 5 endorsed by the network
+- [ ] Recommendations: min 3 recent
 
-## KPIs LinkedIn à suivre
-- Impressions (portée des posts)
-- Taux d'engagement (likes + commentaires + partages / impressions)
-- Croissance abonnés / connexions qualifiées
-- Nombre d'inbound messages de prospects
+## LinkedIn KPIs to track
+- Impressions (post reach)
+- Engagement rate (likes + comments + shares / impressions)
+- Follower growth / qualified connections
+- Number of inbound prospect messages
 
-## Livrables
-- Calendrier éditorial LinkedIn 1 mois (12 posts)
-- Réécriture du profil LinkedIn complet
-- Bibliothèque de 20 hooks réutilisables
-- Rapport de performance mensuel
+## Deliverables
+- 1-month LinkedIn editorial calendar (12 posts)
+- Full LinkedIn profile rewrite
+- Library of 20 reusable hooks
+- Monthly performance report
 
-## Format de sortie
-Précise : sujet du post · audience · objectif · ton · longueur · call to action souhaité
+## Output format
+Specify: post topic · audience · objective · tone · length · desired call to action
 
 ## Anti-patterns
-- ❌ **Statistique-hook non sourcée** — ouvrir sur un chiffre inventé (« 95 % des… ») → décrédibilisation auprès d'une audience experte. Sourcer ou rester qualitatif.
-- ❌ **Broadcasting sans engagement** — publier sans répondre aux commentaires → l'algorithme ne pousse pas, pas de relation.
-- ❌ **Humble bragging permanent** — autopromotion systématique sans valeur actionnable → désabonnements.
-- ❌ **Hook déconnecté du contenu** — accroche racoleuse non tenue par le corps → perte de confiance.
-- ❌ **Régularité en dents de scie** — 10 posts puis silence d'un mois → perte de portée et de mémorisation.
+- ❌ **Unsourced statistic-hook** — opening on a made-up number ("95% of…") → loss of credibility with an expert audience. Source it or stay qualitative.
+- ❌ **Broadcasting without engagement** — posting without replying to comments → the algorithm doesn't push it, no relationship.
+- ❌ **Constant humble bragging** — systematic self-promotion with no actionable value → unfollows.
+- ❌ **Hook disconnected from content** — clickbait hook not backed up by the body → lost trust.
+- ❌ **Erratic consistency** — 10 posts then a month of silence → lost reach and recall.
 
 ## Sources
-- **Dorie Clark** — *Stand Out* (Portfolio, 2015) — construire une expertise reconnue
-- **Mark Schaefer** — *Known* (2017) — autorité et personal branding
-- **Robert Cialdini** — *Influence* (1984) — preuve sociale et autorité appliquées au contenu
-- **LinkedIn** — *Creator best practices* (documentation officielle) — formats et bonnes pratiques d'engagement
+- **Dorie Clark** — *Stand Out* (Portfolio, 2015) — building recognized expertise
+- **Mark Schaefer** — *Known* (2017) — authority and personal branding
+- **Robert Cialdini** — *Influence* (1984) — social proof and authority applied to content
+- **LinkedIn** — *Creator best practices* (official documentation) — formats and engagement best practices
 
-## Voir aussi
-- [content-strategy.md](content-strategy.md) — pilier « attirer » et calendrier éditorial
-- [storytelling-ia.md](storytelling-ia.md) — posts en storytelling (cas client anonymisé)
-- [copywriting-ia.md](copywriting-ia.md) — hooks et formules persuasives
-- [newsletter-email.md](newsletter-email.md) — convertir l'audience LinkedIn en abonnés
+## See also
+- [content-strategy.md](content-strategy.md) — "attract" pillar and editorial calendar
+- [storytelling-ia.md](storytelling-ia.md) — storytelling posts (anonymized client case)
+- [copywriting-ia.md](copywriting-ia.md) — hooks and persuasive formulas
+- [newsletter-email.md](newsletter-email.md) — convert your LinkedIn audience into subscribers

@@ -1,86 +1,86 @@
-# Skill — Stratégie de Contenu IA
-> Certifications : HubSpot Content Marketing · Google Digital Marketing · LinkedIn Marketing
+# Skill — AI Content Strategy
+> Certifications: HubSpot Content Marketing · Google Digital Marketing · LinkedIn Marketing
 
-## Objectif
-Définir et exécuter une stratégie de contenu data-driven, amplifiée par l'IA, pour générer de la visibilité, des leads et de l'autorité.
+## Objective
+Define and execute a data-driven content strategy, amplified by AI, to generate visibility, leads, and authority.
 
-## Modèle de stratégie de contenu
+## Content strategy model
 
-### Les 3 piliers
+### The 3 pillars
 ```
-ATTIRER    → Contenu SEO, social media, thought leadership
-CONVERTIR  → Landing pages, case studies, webinaires
-FIDÉLISER  → Newsletter, communauté, upsell content
+ATTRACT    → SEO content, social media, thought leadership
+CONVERT    → Landing pages, case studies, webinars
+RETAIN     → Newsletter, community, upsell content
 ```
 
 ### Content Pillar Strategy
 ```
-Pilier 1 (thème central)
-  └── Cluster 1.1 (article long)
-  └── Cluster 1.2 (article long)
-  └── Post LinkedIn
+Pillar 1 (central theme)
+  └── Cluster 1.1 (long-form article)
+  └── Cluster 1.2 (long-form article)
+  └── LinkedIn post
   └── Newsletter #1
-  └── Infographie
+  └── Infographic
 
-Pilier 2 (thème central)
+Pillar 2 (central theme)
   └── ...
 ```
 
-## Calendrier éditorial mensuel
-| Semaine | Format | Canal | Sujet | KPI |
+## Monthly editorial calendar
+| Week | Format | Channel | Topic | KPI |
 |---|---|---|---|---|
-| S1 | Article blog | Web / SEO | [Sujet pilier 1] | Trafic organique |
-| S1 | Post LinkedIn | LinkedIn | [Insight du secteur] | Impressions / Likes |
-| S2 | Newsletter | Email | [Synthèse + 3 ressources] | Taux ouverture |
-| S3 | Article blog | Web / SEO | [Sujet pilier 2] | Trafic organique |
-| S3 | Post LinkedIn | LinkedIn | [Cas client / Témoignage] | Partages |
-| S4 | Webinaire / Vidéo | YouTube / LinkedIn | [Thème expert] | Vues / inscrits |
+| W1 | Blog article | Web / SEO | [Pillar 1 topic] | Organic traffic |
+| W1 | LinkedIn post | LinkedIn | [Industry insight] | Impressions / Likes |
+| W2 | Newsletter | Email | [Summary + 3 resources] | Open rate |
+| W3 | Blog article | Web / SEO | [Pillar 2 topic] | Organic traffic |
+| W3 | LinkedIn post | LinkedIn | [Client case / Testimonial] | Shares |
+| W4 | Webinar / Video | YouTube / LinkedIn | [Expert theme] | Views / signups |
 
-## Workflow de production IA
+## AI production workflow
 ```
-1. Brief (humain)      → Sujet, audience, objectif, ton
-2. Recherche (IA)      → Mots-clés, SERP, tendances
-3. Plan (IA)           → Structure H1/H2/H3
-4. Rédaction (IA)      → Draft complet
-5. Review (humain)     → Vérification factuelle, ton, E-E-A-T
-6. Optimisation (IA)   → SEO, lisibilité, CTA
-7. Publication         → CMS, planification
-8. Distribution        → Social, email, réseaux
-9. Mesure              → Analytics, ajustements
+1. Brief (human)       → Topic, audience, objective, tone
+2. Research (AI)       → Keywords, SERP, trends
+3. Outline (AI)        → H1/H2/H3 structure
+4. Writing (AI)        → Full draft
+5. Review (human)      → Fact-check, tone, E-E-A-T
+6. Optimization (AI)   → SEO, readability, CTA
+7. Publishing          → CMS, scheduling
+8. Distribution        → Social, email, networks
+9. Measurement         → Analytics, adjustments
 ```
 
-## Métriques de succès
-| Phase | KPI | Outil |
+## Success metrics
+| Phase | KPI | Tool |
 |---|---|---|
-| Visibilité | Impressions, portée | GSC, LinkedIn Analytics |
-| Engagement | Clics, partages, commentaires | Analytics, social |
-| Conversion | Leads générés, taux conversion | HubSpot, GA4 |
-| Rétention | Taux désabonnement, NPS content | Mailchimp, survey |
+| Visibility | Impressions, reach | GSC, LinkedIn Analytics |
+| Engagement | Clicks, shares, comments | Analytics, social |
+| Conversion | Leads generated, conversion rate | HubSpot, GA4 |
+| Retention | Unsubscribe rate, content NPS | Mailchimp, survey |
 
-## Livrables
-- Stratégie de contenu 12 mois (document)
-- Calendrier éditorial (Notion / Airtable)
-- Templates de production par format
-- Tableau de bord de performance contenu
+## Deliverables
+- 12-month content strategy (document)
+- Editorial calendar (Notion / Airtable)
+- Production templates by format
+- Content performance dashboard
 
-## Format de sortie
-Précise : secteur · audience cible (persona) · objectif principal (notoriété / leads / autorité) · budget · canaux prioritaires · fréquence de publication
+## Output format
+Specify: industry · target audience (persona) · main objective (awareness / leads / authority) · budget · priority channels · publishing frequency
 
 ## Anti-patterns
-- ❌ **Produire sans stratégie** — publier au fil de l'eau sans piliers ni objectifs → contenu dispersé, pas de cumul d'autorité topique.
-- ❌ **Volume au détriment de la qualité** — viser le nombre de posts plutôt que l'E-E-A-T → dilution, déclassement SEO (Helpful Content).
-- ❌ **Pas de mesure** — produire sans suivre les KPI (trafic, leads, conversion) → impossible d'arbitrer ou d'optimiser.
-- ❌ **Ignorer la distribution** — tout miser sur la production, rien sur l'amplification → bon contenu, zéro audience.
-- ❌ **IA sans relecture humaine** — laisser l'IA produire et publier sans vérification factuelle → risque réputationnel.
+- ❌ **Producing without strategy** — publishing ad hoc with no pillars or objectives → scattered content, no topical authority buildup.
+- ❌ **Volume over quality** — chasing post count rather than E-E-A-T → dilution, SEO downgrade (Helpful Content).
+- ❌ **No measurement** — producing without tracking KPIs (traffic, leads, conversion) → impossible to prioritize or optimize.
+- ❌ **Ignoring distribution** — betting everything on production, nothing on amplification → good content, zero audience.
+- ❌ **AI with no human review** — letting AI produce and publish with no fact-checking → reputational risk.
 
 ## Sources
-- **Google** — *Helpful Content System* (2022+) & E-E-A-T (déc. 2022) — contenu « people-first »
+- **Google** — *Helpful Content System* (2022+) & E-E-A-T (Dec. 2022) — "people-first" content
 - **Robert Rose & Joe Pulizzi (Content Marketing Institute)** — *Killing Marketing* (McGraw-Hill, 2017) — content as a strategy
-- **April Dunford** — *Obviously Awesome* (2019) — positionnement au service du contenu
-- **HubSpot** — modèle *Pillar / Topic Cluster* — architecture de contenu
+- **April Dunford** — *Obviously Awesome* (2019) — positioning in service of content
+- **HubSpot** — *Pillar / Topic Cluster* model — content architecture
 
-## Voir aussi
-- [seo-content.md](seo-content.md) — exécution SEO des contenus piliers
-- [copywriting-ia.md](copywriting-ia.md) — rédaction persuasive des formats
-- [newsletter-email.md](newsletter-email.md) — pilier « fidéliser » et distribution email
-- [linkedin-thought-leadership.md](linkedin-thought-leadership.md) — pilier « attirer » sur les réseaux
+## See also
+- [seo-content.md](seo-content.md) — SEO execution of pillar content
+- [copywriting-ia.md](copywriting-ia.md) — persuasive writing of the formats
+- [newsletter-email.md](newsletter-email.md) — "retain" pillar and email distribution
+- [linkedin-thought-leadership.md](linkedin-thought-leadership.md) — "attract" pillar on social

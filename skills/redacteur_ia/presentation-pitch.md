@@ -1,155 +1,155 @@
-# Skill — Présentation & Pitch Professionnel
-> Certifications : Copyblogger Certified · LinkedIn Marketing Labs · Présentation TED-style · Google Slides Mastery
+# Skill — Professional Presentation & Pitch
+> Certifications: Copyblogger Certified · LinkedIn Marketing Labs · TED-style Presentation · Google Slides Mastery
 
-## Objectif
-Concevoir des présentations et pitchs professionnels qui convainquent, engagent et mémorisent — pour des CODIR, des clients, des investisseurs ou des équipes.
+## Objective
+Design professional presentations and pitches that convince, engage, and stick — for exec committees, clients, investors, or teams.
 
-## Types de présentations et leur logique
+## Presentation types and their logic
 
-### Le Pitch (5-10 min)
+### The Pitch (5-10 min)
 ```
-Structure classique "Elevator Pitch étendu" :
-  1. HOOK (30 sec)  → Fait surprenant, question, chiffre choc
-  2. PROBLÈME (1 min) → La douleur du client / l'opportunité marché
-  3. SOLUTION (2 min) → Votre réponse, ce qui vous différencie
-  4. PREUVE (1 min)  → Résultats, clients, traction, démo
-  5. APPEL (30 sec)  → Ce que vous demandez concrètement
+Classic "Extended Elevator Pitch" structure:
+  1. HOOK (30 sec)      → Surprising fact, question, shock number
+  2. PROBLEM (1 min)    → The client's pain / the market opportunity
+  3. SOLUTION (2 min)   → Your answer, what sets you apart
+  4. PROOF (1 min)      → Results, clients, traction, demo
+  5. CALL (30 sec)      → What you concretely ask for
 
-Usage : startup pitch, convaincre un CODIR, avant-vente
+Use: startup pitch, convincing an exec committee, pre-sales
 ```
 
-### La Présentation CODIR (15-20 min)
+### The Exec-committee presentation (15-20 min)
 ```
-Structure :
-  1. Contexte (2 min)     → Rappel bref du sujet
-  2. Constats (5 min)     → 3 points clés avec données
-  3. Options (3 min)      → 2-3 scénarios (pour/contre)
-  4. Recommandation (3 min) → Votre préconisation claire
-  5. Plan d'action (2 min) → Étapes, responsables, budget
+Structure:
+  1. Context (2 min)        → Brief reminder of the topic
+  2. Findings (5 min)       → 3 key points with data
+  3. Options (3 min)        → 2-3 scenarios (pros/cons)
+  4. Recommendation (3 min) → Your clear recommendation
+  5. Action plan (2 min)    → Steps, owners, budget
   6. Q&A (5 min)
 
-Règle d'or : La slide de recommandation = la plus importante.
-             La mettre en slide 3 ou 4, pas en fin.
+Rule of thumb: The recommendation slide = the most important one.
+               Put it on slide 3 or 4, not at the end.
 ```
 
-### Le Kickoff projet (30-45 min)
+### The Project kickoff (30-45 min)
 ```
-Structure :
-  1. Pourquoi ce projet (contexte et enjeux)
-  2. Ce que nous allons livrer (scope)
-  3. Comment nous allons travailler (organisation)
-  4. Le calendrier et les jalons
-  5. Les risques identifiés
-  6. Ce qu'on attend de chacun (DACI)
-  7. Questions et alignement
-```
-
-## Règles de design des slides
-
-### La règle 1-3-5
-```
-1 idée par slide (une seule)
-3 mots-clés ou 3 points max par slide
-5 secondes pour comprendre le message principal
-
-Test : Montrez la slide 5 secondes. Le message est-il mémorisé ?
+Structure:
+  1. Why this project (context and stakes)
+  2. What we will deliver (scope)
+  3. How we will work (organization)
+  4. The schedule and milestones
+  5. The identified risks
+  6. What's expected from everyone (DACI)
+  7. Questions and alignment
 ```
 
-### Hiérarchie visuelle
-```
-TITRE DE SLIDE   → Message principal (pas un label générique)
-                   ❌ "Résultats"
-                   ✅ "Le CA a progressé de 23% grâce au nouveau canal"
+## Slide design rules
 
-CORPS            → Preuve, données, illustration
-                   Max 3-4 éléments par slide
-
-BAS DE SLIDE     → Source, date, numéro de page
+### The 1-3-5 rule
 ```
+1 idea per slide (just one)
+3 keywords or 3 points max per slide
+5 seconds to grasp the main message
 
-### Palette de slides recommandées
-```
-SLIDE DE TITRE    → Titre accrocheur + sous-titre + date + logo
-SLIDE DE CONTEXTE → Background minimal, données clés
-SLIDE D'ÉTAT      → Status vert/orange/rouge (traffic light)
-SLIDE DE DONNÉES  → 1 graphique, titre = l'insight (pas le type de graphique)
-SLIDE DE TEXTE    → 3 bullets max, phrase complète courte
-SLIDE "BIG WORD"  → 1 chiffre géant, 1 phrase, fort impact émotionnel
-SLIDE DE RECOMMANDATION → Encadré "Notre recommandation" visible dès le premier regard
-SLIDE Q&A         → Simple, avec contact info
+Test: Show the slide for 5 seconds. Is the message remembered?
 ```
 
-## Storytelling en présentation
+### Visual hierarchy
+```
+SLIDE TITLE      → Main message (not a generic label)
+                   ❌ "Results"
+                   ✅ "Revenue grew 23% thanks to the new channel"
 
-### Structure narrative (pyramide de Freytag adaptée)
-```
-ACCROCHE    → Situation initiale (les gens s'y reconnaissent)
-TENSION     → Le problème qui crée le besoin d'agir
-MONTÉE      → Les options explorées, l'analyse
-CLIMAX      → La révélation : la bonne solution
-RÉSOLUTION  → Ce que cela change, le futur souhaitable
-APPEL       → Ce qu'on fait maintenant ensemble
-```
+BODY             → Proof, data, illustration
+                   Max 3-4 elements per slide
 
-### Techniques d'accroche
-```
-Le chiffre choc     : "30% des projets d'IA générative seront abandonnés après le POC d'ici fin 2025." (Gartner, 2024)
-La question directe : "Combien vous coûte vraiment ce processus manuel ?"
-L'histoire courte   : "Un client nous a appelés à 2h du matin..."
-La citation         : [Auteur] : "[Citation pertinente]"
-Le paradoxe         : "On investit plus en IA qu'en formation... et on échoue."
-La démonstration    : Montrer le problème en live (démo, simulation)
+SLIDE FOOTER     → Source, date, page number
 ```
 
-## Checklist avant présentation
+### Recommended slide palette
 ```
-CONTENU :
-  ☐ Message principal = une phrase mémorable ?
-  ☐ Chaque slide a un titre-message (pas un label)
-  ☐ Pas plus de 3 slides par minute de présentation
-  ☐ L'appel à l'action est clair et unique
-  ☐ Les données sont sourcées et datées
-
-DESIGN :
-  ☐ Cohérence visuelle (même police, même palette)
-  ☐ Contraste fort texte/fond
-  ☐ Taille de police min 24pt (lisible de loin)
-  ☐ Pas plus de 3 couleurs principales
-
-PRÉPARATION :
-  ☐ Répété à voix haute au moins 2 fois
-  ☐ Testé avec le bon équipement (ratio 16:9, vidéoprojecteur)
-  ☐ Version PDF de secours disponible
-  ☐ Notes de l'orateur rédigées pour les slides complexes
+TITLE SLIDE       → Catchy title + subtitle + date + logo
+CONTEXT SLIDE     → Minimal background, key data
+STATUS SLIDE      → Green/amber/red status (traffic light)
+DATA SLIDE        → 1 chart, title = the insight (not the chart type)
+TEXT SLIDE        → 3 bullets max, short complete sentence
+BIG WORD SLIDE    → 1 giant number, 1 sentence, strong emotional impact
+RECOMMENDATION SLIDE → "Our recommendation" box visible at first glance
+Q&A SLIDE         → Simple, with contact info
 ```
 
-## Livrables
-- Deck de présentation (PowerPoint / Google Slides)
-- Notes de l'orateur par slide
-- Version PDF standalone
-- Résumé exécutif associé (1 page)
+## Storytelling in a presentation
 
-## Format de sortie
-Précise : type de présentation (pitch, CODIR, kickoff, formation) · audience · durée allouée · objectif (convaincre, informer, décider) · données disponibles · charte graphique
+### Narrative structure (adapted Freytag pyramid)
+```
+HOOK        → Initial situation (people recognize themselves)
+TENSION     → The problem that creates the need to act
+RISING      → The options explored, the analysis
+CLIMAX      → The reveal: the right solution
+RESOLUTION  → What it changes, the desirable future
+CALL        → What we do now together
+```
+
+### Hook techniques
+```
+The shock number    : "30% of generative AI projects will be abandoned after the POC by end of 2025." (Gartner, 2024)
+The direct question : "What does this manual process really cost you?"
+The short story     : "A client called us at 2am..."
+The quote           : [Author]: "[Relevant quote]"
+The paradox         : "We invest more in AI than in training... and we fail."
+The demonstration   : Show the problem live (demo, simulation)
+```
+
+## Pre-presentation checklist
+```
+CONTENT:
+  ☐ Main message = a memorable sentence?
+  ☐ Each slide has a message-title (not a label)
+  ☐ No more than 3 slides per minute of presentation
+  ☐ The call to action is clear and single
+  ☐ The data is sourced and dated
+
+DESIGN:
+  ☐ Visual consistency (same font, same palette)
+  ☐ Strong text/background contrast
+  ☐ Min 24pt font size (readable from afar)
+  ☐ No more than 3 main colors
+
+PREPARATION:
+  ☐ Rehearsed aloud at least 2 times
+  ☐ Tested with the right equipment (16:9 ratio, projector)
+  ☐ Backup PDF version available
+  ☐ Speaker notes written for complex slides
+```
+
+## Deliverables
+- Presentation deck (PowerPoint / Google Slides)
+- Speaker notes per slide
+- Standalone PDF version
+- Associated executive summary (1 page)
+
+## Output format
+Specify: presentation type (pitch, exec committee, kickoff, training) · audience · allotted time · objective (convince, inform, decide) · available data · brand guidelines
 
 ## Anti-patterns
-- ❌ **Chiffre choc non sourcé** — utiliser une statistique d'accroche sans source vérifiable (ex. « 87 % des projets IA échouent ») → perte de crédibilité immédiate si challengé en CODIR. Toujours dater et attribuer (cf. Gartner, McKinsey).
-- ❌ **Slide-document** — slides denses lues à voix haute → l'audience lit au lieu d'écouter. La slide appuie le discours, elle ne le remplace pas.
-- ❌ **Titre-label** — « Résultats », « Contexte » au lieu du message (« Le CA a progressé de 23 % »). Le titre doit porter l'insight.
-- ❌ **Recommandation en fin de deck** — noyer la préconisation à la dernière slide → décideurs décrochés. La placer en slide 3-4 (principe Minto : réponse d'abord).
-- ❌ **Plus de 3 idées par slide** — viole la règle 1-3-5 → surcharge cognitive, message dilué.
-- ❌ **Pas de répétition à voix haute** — timing non maîtrisé, dépassement, transitions hésitantes.
+- ❌ **Unsourced shock number** — using a hook statistic with no verifiable source (e.g., "87% of AI projects fail") → immediate loss of credibility if challenged at the exec committee. Always date and attribute (cf. Gartner, McKinsey).
+- ❌ **Slide-as-document** — dense slides read aloud → the audience reads instead of listening. The slide supports the talk, it doesn't replace it.
+- ❌ **Label-title** — "Results", "Context" instead of the message ("Revenue grew 23%"). The title must carry the insight.
+- ❌ **Recommendation at the end of the deck** — burying the recommendation on the last slide → decision-makers checked out. Put it on slide 3-4 (Minto principle: answer first).
+- ❌ **More than 3 ideas per slide** — violates the 1-3-5 rule → cognitive overload, diluted message.
+- ❌ **No rehearsal aloud** — uncontrolled timing, overruns, hesitant transitions.
 
 ## Sources
-- **E. St. Elmo Lewis** — modèle AIDA / *elevator pitch* (1898) — structure d'accroche persuasive
-- **Gustav Freytag** — *Die Technik des Dramas* (1863) — pyramide narrative (exposition → tension → climax → résolution)
-- **Barbara Minto** — *The Minto Pyramid Principle* (Pearson, 1987) — réponse d'abord, structure SCQA pour la slide de recommandation
-- **Nancy Duarte** — *Resonate* (Wiley, 2010) & *slide:ology* (O'Reilly, 2008) — design narratif de présentations
-- **Edward Tufte** — *The Visual Display of Quantitative Information* (Graphics Press, 1983 ; 2ᵉ éd. 2001) — slides de données, data-ink ratio
-- **Gartner** — *Predicts 30% of Generative AI Projects Will Be Abandoned After Proof of Concept by End of 2025* (juillet 2024) — exemple de chiffre choc sourcé
+- **E. St. Elmo Lewis** — AIDA model / *elevator pitch* (1898) — persuasive hook structure
+- **Gustav Freytag** — *Die Technik des Dramas* (1863) — narrative pyramid (exposition → tension → climax → resolution)
+- **Barbara Minto** — *The Minto Pyramid Principle* (Pearson, 1987) — answer first, SCQA structure for the recommendation slide
+- **Nancy Duarte** — *Resonate* (Wiley, 2010) & *slide:ology* (O'Reilly, 2008) — narrative design of presentations
+- **Edward Tufte** — *The Visual Display of Quantitative Information* (Graphics Press, 1983; 2nd ed. 2001) — data slides, data-ink ratio
+- **Gartner** — *Predicts 30% of Generative AI Projects Will Be Abandoned After Proof of Concept by End of 2025* (July 2024) — example of a sourced shock number
 
-## Voir aussi
-- [synthese-executive.md](synthese-executive.md) — synthèse 1 page (pyramide Minto) en amont du deck CODIR
-- [storytelling-ia.md](storytelling-ia.md) — arc narratif et techniques d'accroche
-- [note-cadrage.md](note-cadrage.md) — structure de kickoff projet et gouvernance (DACI)
-- [`../ux_design/storytelling-stakeholders.md`](../ux_design/storytelling-stakeholders.md) — narration data-driven pour parties prenantes (Tufte)
+## See also
+- [synthese-executive.md](synthese-executive.md) — 1-page summary (Minto pyramid) upstream of the exec-committee deck
+- [storytelling-ia.md](storytelling-ia.md) — narrative arc and hook techniques
+- [note-cadrage.md](note-cadrage.md) — project kickoff structure and governance (DACI)
+- [`../ux_design/storytelling-stakeholders.md`](../ux_design/storytelling-stakeholders.md) — data-driven storytelling for stakeholders (Tufte)

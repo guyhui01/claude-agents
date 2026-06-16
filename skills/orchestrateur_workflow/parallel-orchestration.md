@@ -1,178 +1,178 @@
-# Skill — Orchestration Parallèle vs Séquentielle
-> Certifications : BPMN 2.0 OCM (OMG), AWS Certified Solutions Architect (Amazon), Google Cloud Professional Cloud Architect (Google), PMP (PMI)
+# Skill — Parallel vs. Sequential Orchestration
+> Certifications: BPMN 2.0 OCM (OMG), AWS Certified Solutions Architect (Amazon), Google Cloud Professional Cloud Architect (Google), PMP (PMI)
 
-## Objectif
-Décider et implémenter le mode d'exécution optimal — parallèle, séquentiel ou hybride — pour chaque étape d'un workflow agentique, afin de maximiser la qualité des outputs et minimiser le temps d'exécution.
+## Objective
+Decide and implement the optimal execution mode — parallel, sequential, or hybrid — for each step of an agentic workflow, to maximize output quality and minimize execution time.
 
-## Règle de décision — Parallèle vs Séquentiel
+## Decision rule — Parallel vs. Sequential
 
 ```
-SÉQUENTIEL si :
-  ✓ L'agent B a besoin de l'output de l'agent A pour travailler
-  ✓ Les périmètres se chevauchent (risque de contradictions)
-  ✓ Le volume de contexte est déjà élevé (éviter la surcharge)
+SEQUENTIAL if:
+  ✓ Agent B needs agent A's output to work
+  ✓ The scopes overlap (risk of contradictions)
+  ✓ The context volume is already high (avoid overload)
 
-PARALLÈLE si :
-  ✓ Les agents travaillent sur des périmètres distincts et indépendants
-  ✓ Les outputs n'ont pas de dépendance forte entre eux
-  ✓ Gain de temps significatif (>30% du workflow)
-  ✓ Les outputs seront agrégés en fin d'étape par l'orchestrateur
+PARALLEL if:
+  ✓ The agents work on distinct, independent scopes
+  ✓ The outputs have no hard dependency between them
+  ✓ Significant time saving (>30% of the workflow)
+  ✓ The outputs will be aggregated at the end of the step by the orchestrator
 ```
 
 ---
 
-## Patterns d'orchestration
+## Orchestration patterns
 
-### Pattern 1 — Séquentiel pur
+### Pattern 1 — Pure sequential
 ```
-A → B → C → D → [RÉSULTAT]
+A → B → C → D → [RESULT]
 
-Cas d'usage : Workflow Cadrage (chaque étape nourrit la suivante)
-Avantage   : Contexte cumulatif riche, qualité maximale
-Inconvénient : Plus lent
+Use case  : Scoping workflow (each step feeds the next)
+Pro       : Rich cumulative context, maximum quality
+Con       : Slower
 ```
 
-### Pattern 2 — Fork / Join (parallèle avec agrégation)
+### Pattern 2 — Fork / Join (parallel with aggregation)
 ```
          ┌── B ──┐
-A ──►────┤   C   ├────► [JOIN] → D → [RÉSULTAT]
+A ──►────┤   C   ├────► [JOIN] → D → [RESULT]
          └── D' ─┘
 
-Cas d'usage : UX + QA en parallèle après cadrage
-Avantage   : Gain de temps, périmètres indépendants
-Inconvénient : Agrégation des outputs à gérer
+Use case  : UX + QA in parallel after scoping
+Pro       : Time saving, independent scopes
+Con       : Output aggregation to manage
 ```
 
-### Pattern 3 — Pipeline hybride
+### Pattern 3 — Hybrid pipeline
 ```
 A → B ──►────┬── C ──┐
-             │   D   ├──► [JOIN] → E → [RÉSULTAT]
+             │   D   ├──► [JOIN] → E → [RESULT]
              └── E' ─┘
 
-Cas d'usage : Delivery SAFe (PO + DevOps + Sécu en parallèle)
-Avantage   : Équilibre qualité / vitesse
-Inconvénient : Coordination plus complexe
+Use case  : SAFe delivery (PO + DevOps + Security in parallel)
+Pro       : Quality / speed balance
+Con       : More complex coordination
 ```
 
 ### Pattern 4 — Scatter / Gather
 ```
-A → [SCATTER: même tâche sur N contextes]
-    ├── B(contexte 1)
-    ├── B(contexte 2)
-    └── B(contexte 3)
-         └──► [GATHER : synthèse] → [RÉSULTAT]
+A → [SCATTER: same task across N contexts]
+    ├── B(context 1)
+    ├── B(context 2)
+    └── B(context 3)
+         └──► [GATHER: synthesis] → [RESULT]
 
-Cas d'usage : Analyse multi-clients, multi-marchés, multi-equipes
-Avantage   : Parallélisation maximale
-Inconvénient : Synthèse finale complexe
+Use case  : Multi-client, multi-market, multi-team analysis
+Pro       : Maximum parallelization
+Con       : Complex final synthesis
 ```
 
 ---
 
-## Template YAML — Exécution parallèle
+## YAML template — Parallel execution
 
 ```yaml
 parallel_block:
   id: "PARALLEL-01"
-  workflow_id: "WF-002-DELIVERY-SAFE"
-  declencheur: "Output PO-SAFE validé (PI Objectives)"
+  workflow_id: "WF-002-SAFE-DELIVERY"
+  trigger: "PO-SAFE output validated (PI Objectives)"
   
   branches:
     - id: "branch_a"
       agent: "QA-AGILE"
-      input: "Features SAFe + critères d'acceptation"
-      output_attendu: "Plan de test Sprint + DoD"
-      duree_estimee: "15 min"
+      input: "SAFe Features + acceptance criteria"
+      expected_output: "Sprint test plan + DoD"
+      estimated_duration: "15 min"
       
     - id: "branch_b"
       agent: "SECURITE-IA"
-      input: "Architecture technique + données traitées"
-      output_attendu: "Audit OWASP + recommandations RGPD"
-      duree_estimee: "20 min"
+      input: "Technical architecture + processed data"
+      expected_output: "OWASP audit + GDPR recommendations"
+      estimated_duration: "20 min"
       
     - id: "branch_c"
       agent: "DEVOPS-CLOUD"
-      input: "Stack technique + exigences CI/CD"
-      output_attendu: "Pipeline CI/CD + environnements"
-      duree_estimee: "20 min"
+      input: "Tech stack + CI/CD requirements"
+      expected_output: "CI/CD pipeline + environments"
+      estimated_duration: "20 min"
   
   join:
-    condition: "Toutes les branches complétées"
-    agent_agregation: "CHEF-PROJET-IA"
-    output_final: "Plan de release consolidé"
+    condition: "All branches completed"
+    aggregation_agent: "CHEF-PROJET-IA"
+    final_output: "Consolidated release plan"
 ```
 
 ---
 
-## Prompt d'exécution parallèle — Template
+## Parallel execution prompt — Template
 
 ```
-EXÉCUTION PARALLÈLE — [NOM DU BLOC]
+PARALLEL EXECUTION — [BLOCK NAME]
 ────────────────────────────────────────────────────────
 
-CONTEXTE COMMUN (transmis à tous les agents) :
-[Contexte global du workflow + outputs étapes précédentes]
+SHARED CONTEXT (passed to all agents):
+[Workflow's overall context + previous steps' outputs]
 
-─── AGENT 1 : [NOM] ────────────────────────────────────
-Ton rôle : [mission spécifique]
-Input    : [données spécifiques à cet agent]
-Output   : [livrable attendu — format précis]
+─── AGENT 1 : [NAME] ────────────────────────────────────
+Your role : [specific mission]
+Input     : [data specific to this agent]
+Output    : [expected deliverable — precise format]
 
-─── AGENT 2 : [NOM] ────────────────────────────────────
-Ton rôle : [mission spécifique]
-Input    : [données spécifiques à cet agent]
-Output   : [livrable attendu — format précis]
+─── AGENT 2 : [NAME] ────────────────────────────────────
+Your role : [specific mission]
+Input     : [data specific to this agent]
+Output    : [expected deliverable — precise format]
 
-─── AGENT 3 : [NOM] ────────────────────────────────────
-Ton rôle : [mission spécifique]
-Input    : [données spécifiques à cet agent]
-Output   : [livrable attendu — format précis]
+─── AGENT 3 : [NAME] ────────────────────────────────────
+Your role : [specific mission]
+Input     : [data specific to this agent]
+Output    : [expected deliverable — precise format]
 
 ────────────────────────────────────────────────────────
-AGRÉGATION : [AGENT CHEF-PROJET-IA / ORCHESTRATEUR]
-Consolider les 3 outputs en [FORMAT FINAL].
+AGGREGATION : [AGENT CHEF-PROJET-IA / ORCHESTRATOR]
+Consolidate the 3 outputs into [FINAL FORMAT].
 ```
 
 ---
 
-## Règles d'agrégation post-parallèle
+## Post-parallel aggregation rules
 
 ```
-APRÈS UN FORK/JOIN :
-1. Collecter tous les outputs des branches
-2. Vérifier la cohérence inter-branches (pas de contradictions)
-3. Résoudre les conflits avant d'agréger
-4. Transmettre l'output agrégé à l'étape suivante
+AFTER A FORK/JOIN:
+1. Collect all the branches' outputs
+2. Check cross-branch consistency (no contradictions)
+3. Resolve conflicts before aggregating
+4. Pass the aggregated output to the next step
 
-RÉSOLUTION DE CONFLITS :
-  Priorité 1 : JURIDIQUE-IA / SECURITE-IA (non-négociable)
-  Priorité 2 : CHEF-PROJET-IA (contraintes projet)
-  Priorité 3 : PO (vision produit)
-  Priorité 4 : DEV / QA (faisabilité technique)
+CONFLICT RESOLUTION:
+  Priority 1 : JURIDIQUE-IA / SECURITE-IA (non-negotiable)
+  Priority 2 : CHEF-PROJET-IA (project constraints)
+  Priority 3 : PO (product vision)
+  Priority 4 : DEV / QA (technical feasibility)
 ```
 
-## Livrables
-- Schéma d'exécution (séquentiel / parallèle / hybride) documenté
-- Template YAML de bloc parallèle
-- Prompt d'exécution parallèle prêt à l'emploi
-- Plan d'agrégation des outputs
+## Deliverables
+- Documented execution scheme (sequential / parallel / hybrid)
+- YAML parallel-block template
+- Ready-to-use parallel execution prompt
+- Output aggregation plan
 
-## Format de sortie
-Précise : agents impliqués, dépendances identifiées, contrainte de temps, format des outputs à agréger.
+## Output format
+Specify: the agents involved, identified dependencies, time constraint, the format of the outputs to aggregate.
 
 ## Anti-patterns
-- ❌ **Paralléliser des étapes dépendantes** : résultats incohérents → vérifier l'indépendance (cf. `dependency-mapping.md`)
-- ❌ **« Gain > 30 % » présenté comme garanti** : le gain réel dépend du ratio d'étapes parallélisables → mesurer, ne pas promettre
-- ❌ **Pas de stratégie d'agrégation** des sorties parallèles : fusion ambiguë → règle d'agrégation + résolution de conflits
-- ❌ **Pas de gestion d'échec partiel** (un agent échoue) : tout le bloc tombe → `.filter(Boolean)` / dégradation gracieuse
-- ❌ **Sur-paralléliser** (trop d'agents simultanés) : coût/limites de débit → plafonner la concurrence
+- ❌ **Parallelizing dependent steps**: inconsistent results → check independence (see `dependency-mapping.md`)
+- ❌ **"Gain > 30%" presented as guaranteed**: the real gain depends on the ratio of parallelizable steps → measure, don't promise
+- ❌ **No aggregation strategy** for parallel outputs: ambiguous merge → aggregation rule + conflict resolution
+- ❌ **No partial-failure handling** (one agent fails): the whole block collapses → `.filter(Boolean)` / graceful degradation
+- ❌ **Over-parallelizing** (too many concurrent agents): cost/throughput limits → cap concurrency
 
 ## Sources
-- **Anthropic — Building Effective Agents** (anthropic.com/engineering, déc. 2024) — pattern **parallelization** (sectioning + voting)
-- **BPMN 2.0.2** — OMG (2013) : passerelles parallèles (fork/join)
+- **Anthropic — Building Effective Agents** (anthropic.com/engineering, Dec. 2024) — **parallelization** pattern (sectioning + voting)
+- **BPMN 2.0.2** — OMG (2013): parallel gateways (fork/join)
 
-## Voir aussi
-- [`dependency-mapping.md`](dependency-mapping.md) — identification des branches indépendantes
-- [`workflow-design.md`](workflow-design.md) — conception des forks/joins
-- [`output-validation.md`](output-validation.md) — validation des sorties agrégées
-- [`error-recovery.md`](error-recovery.md) — échec partiel d'une branche
+## See also
+- [`dependency-mapping.md`](dependency-mapping.md) — identifying independent branches
+- [`workflow-design.md`](workflow-design.md) — designing forks/joins
+- [`output-validation.md`](output-validation.md) — validating aggregated outputs
+- [`error-recovery.md`](error-recovery.md) — partial failure of a branch

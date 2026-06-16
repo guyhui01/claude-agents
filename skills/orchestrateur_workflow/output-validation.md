@@ -1,173 +1,173 @@
-# Skill — Validation et Contrôle Qualité des Outputs Inter-Agents
-> Certifications : PMP (PMI), PMI-ACP (PMI), ITIL 4 Foundation (Axelos), SAFe 6 Agilist (Scaled Agile)
+# Skill — Validation and Quality Control of Inter-Agent Outputs
+> Certifications: PMP (PMI), PMI-ACP (PMI), ITIL 4 Foundation (Axelos), SAFe 6 Agilist (Scaled Agile)
 
-## Objectif
-Évaluer la qualité et la conformité de chaque output produit par un agent avant de le transmettre à l'étape suivante — pour éviter la propagation d'erreurs dans le workflow et garantir des livrables finaux exploitables.
+## Objective
+Assess the quality and compliance of each output produced by an agent before passing it to the next step — to prevent error propagation in the workflow and ensure usable final deliverables.
 
-## Grille de validation universelle
+## Universal validation grid
 
 ```
-VALIDATION OUTPUT — [AGENT] — [ÉTAPE]
+OUTPUT VALIDATION — [AGENT] — [STEP]
 ─────────────────────────────────────────────────────────
-DIMENSION 1 — COMPLÉTUDE
-  ☐ Tous les éléments attendus sont présents
-  ☐ Le volume correspond aux critères (ex. 8 US, 5 risques)
-  ☐ Aucune section manquante
+DIMENSION 1 — COMPLETENESS
+  ☐ All expected elements are present
+  ☐ The volume matches the criteria (e.g. 8 US, 5 risks)
+  ☐ No missing section
 
 DIMENSION 2 — FORMAT
-  ☐ Le format demandé est respecté (Markdown / YAML / Tableau)
-  ☐ La structure est conforme au template
-  ☐ Le vocabulaire métier correct est utilisé
+  ☐ The requested format is respected (Markdown / YAML / Table)
+  ☐ The structure complies with the template
+  ☐ The correct business vocabulary is used
 
-DIMENSION 3 — QUALITÉ CONTENU
-  ☐ L'output répond à la mission définie pour l'étape
-  ☐ Pas de contradiction avec le contexte global du workflow
-  ☐ L'output est directement utilisable (prêt à copier-coller)
+DIMENSION 3 — CONTENT QUALITY
+  ☐ The output meets the mission defined for the step
+  ☐ No contradiction with the workflow's overall context
+  ☐ The output is directly usable (ready to copy-paste)
 
-DIMENSION 4 — COHÉRENCE INTER-ÉTAPES
-  ☐ L'output est cohérent avec les outputs des étapes précédentes
-  ☐ Les références croisées sont correctes (ex. IDs, noms, périmètre)
-  ☐ Pas de régression par rapport aux décisions prises
+DIMENSION 4 — CROSS-STEP CONSISTENCY
+  ☐ The output is consistent with the outputs of previous steps
+  ☐ Cross-references are correct (e.g. IDs, names, scope)
+  ☐ No regression against decisions already made
 
-SCORE : [X/12 critères remplis]
-STATUT : ✅ Validé / ⚠ À retravailler / ❌ Rejeté
+SCORE : [X/12 criteria met]
+STATUS : ✅ Validated / ⚠ To rework / ❌ Rejected
 ```
 
 ---
 
-## Critères de validation par agent
+## Validation criteria per agent
 
 ### PO-SCRUM — User Stories
 ```yaml
-criteres_validation_us:
-  - "Format INVEST respecté (Indépendante, Négociable, Valeur, Estimable, Small, Testable)"
-  - "Chaque US a un titre, une description 'En tant que...', un critère d'acceptation"
-  - "Critères d'acceptation au format Gherkin (Given / When / Then)"
-  - "Estimation en points ou T-shirt sizing présente"
-  - "Priorité définie (MoSCoW ou WSJF)"
-  - "US < 1 sprint (pas d'epic déguisée)"
+us_validation_criteria:
+  - "INVEST format respected (Independent, Negotiable, Valuable, Estimable, Small, Testable)"
+  - "Each US has a title, a 'As a...' description, an acceptance criterion"
+  - "Acceptance criteria in Gherkin format (Given / When / Then)"
+  - "Estimate in points or T-shirt sizing present"
+  - "Priority defined (MoSCoW or WSJF)"
+  - "US < 1 sprint (no disguised epic)"
 ```
 
 ### PO-SAFE — Features
 ```yaml
-criteres_validation_features:
-  - "Format SAFe : Titre + Benefit Hypothesis + Acceptance Criteria"
-  - "Benefit Hypothesis mesurable (KPI cible)"
-  - "Taille estimée en story points (8-13 US max par feature)"
-  - "Niveau ART précisé (Team / Program)"
-  - "Dépendances inter-équipes identifiées"
-  - "WSJF calculé"
+features_validation_criteria:
+  - "SAFe format: Title + Benefit Hypothesis + Acceptance Criteria"
+  - "Measurable Benefit Hypothesis (target KPI)"
+  - "Size estimated in story points (8-13 US max per feature)"
+  - "ART level specified (Team / Program)"
+  - "Cross-team dependencies identified"
+  - "WSJF calculated"
 ```
 
 ### AI-ARCHITECT — Architecture
 ```yaml
-criteres_validation_architecture:
-  - "Diagramme d'architecture présent (composants, flux, APIs)"
-  - "Choix technologiques justifiés"
-  - "Sécurité by design mentionnée (authentification, chiffrement)"
-  - "Scalabilité et performance adressées"
-  - "Contraintes RGPD / IA Act prises en compte"
-  - "Coût infrastructure estimé"
+architecture_validation_criteria:
+  - "Architecture diagram present (components, flows, APIs)"
+  - "Technology choices justified"
+  - "Security by design mentioned (authentication, encryption)"
+  - "Scalability and performance addressed"
+  - "GDPR / AI Act constraints taken into account"
+  - "Estimated infrastructure cost"
 ```
 
-### QA-AGILE — Plan de test
+### QA-AGILE — Test plan
 ```yaml
-criteres_validation_qa:
-  - "Cas de test couvrent tous les critères d'acceptation"
-  - "Tests de régression identifiés"
-  - "Environnements de test définis"
-  - "Niveaux de test précisés (unitaire / intégration / E2E)"
-  - "DoD définie et validée avec l'équipe"
-  - "Critères de go/no-go pour la mise en production"
+qa_validation_criteria:
+  - "Test cases cover all acceptance criteria"
+  - "Regression tests identified"
+  - "Test environments defined"
+  - "Test levels specified (unit / integration / E2E)"
+  - "DoD defined and validated with the team"
+  - "Go/no-go criteria for go-live"
 ```
 
 ### CHEF-PROJET-IA — Reporting
 ```yaml
-criteres_validation_reporting:
-  - "Format 1 page respecté"
-  - "RAG status (Rouge / Amber / Vert) pour chaque axe"
-  - "EVM calculé (si applicable)"
-  - "Risques top 3 avec mitigation"
-  - "Prochaines décisions à prendre identifiées"
-  - "Date de la prochaine revue précisée"
+reporting_validation_criteria:
+  - "1-page format respected"
+  - "RAG status (Red / Amber / Green) for each axis"
+  - "EVM calculated (if applicable)"
+  - "Top 3 risks with mitigation"
+  - "Next decisions to make identified"
+  - "Date of the next review specified"
 ```
 
 ---
 
-## Template de Validation Formelle
+## Formal Validation Template
 
 ```yaml
 validation:
   id: "VAL-WF001-STEP02"
   workflow_id: "WF-001"
-  etape: "STEP-02 — PO-SCRUM"
+  step: "STEP-02 — PO-SCRUM"
   agent: "PO-SCRUM"
   timestamp: "2026-05-22T10:30:00"
   
-  resultats:
-    complétude:
+  results:
+    completeness:
       score: 3/4
-      details: "7 US sur 8 attendues — 1 manquante"
+      details: "7 US out of 8 expected — 1 missing"
       
     format:
       score: 4/4
-      details: "Format INVEST respecté, Gherkin présent"
+      details: "INVEST format respected, Gherkin present"
       
-    qualite_contenu:
+    content_quality:
       score: 3/4
-      details: "Estimations absentes sur 2 US"
+      details: "Estimates missing on 2 US"
       
-    coherence:
+    consistency:
       score: 4/4
-      details: "Cohérent avec le cadrage BUSINESS-ANALYST"
+      details: "Consistent with the BUSINESS-ANALYST scoping"
   
-  score_global: "14/16"
-  statut: "à_retravailler"
+  overall_score: "14/16"
+  status: "to_rework"
   
-  actions_requises:
-    - "Compléter la 8ème User Story manquante"
-    - "Ajouter les estimations sur US-04 et US-07"
+  required_actions:
+    - "Complete the missing 8th User Story"
+    - "Add estimates on US-04 and US-07"
   
-  validé_par: "Orchestrateur"
-  validation_utilisateur_requise: false
+  validated_by: "Orchestrator"
+  user_validation_required: false
 ```
 
 ---
 
-## Seuils de décision
+## Decision thresholds
 
 ```
-SCORE   STATUT          ACTION
+SCORE   STATUS          ACTION
 ─────────────────────────────────────────────────────
-100%    ✅ Validé        Passer à l'étape suivante
-87-99%  ⚠ Mineur        Corriger en place, ne pas relancer
-75-86%  ⚠ Majeur        Relancer l'agent avec instructions précises
-< 75%   ❌ Rejeté        Relancer + enrichir le contexte (max 2 fois)
-2 échecs → Escalader à l'utilisateur
+100%    ✅ Validated     Move to the next step
+87-99%  ⚠ Minor         Fix in place, don't re-run
+75-86%  ⚠ Major         Re-run the agent with precise instructions
+< 75%   ❌ Rejected      Re-run + enrich the context (max 2 times)
+2 failures → Escalate to the user
 ```
 
-## Livrables
-- Grille de validation remplie pour chaque output
-- Score et statut documentés
-- Actions correctives documentées si besoin
-- Historique des validations du workflow
+## Deliverables
+- Validation grid filled in for each output
+- Documented score and status
+- Documented corrective actions if needed
+- History of the workflow's validations
 
-## Format de sortie
-Précise : agent évalué, étape du workflow, output à valider (coller le contenu), critères d'acceptation attendus.
+## Output format
+Specify: the agent assessed, the workflow step, the output to validate (paste the content), the expected acceptance criteria.
 
 ## Anti-patterns
-- ❌ **Validation subjective** (« ça semble bon ») sans critères objectifs : non reproductible → grille + seuils explicites
-- ❌ **Pas de gate bloquant** : un output invalide passe en aval → blocage tant que le seuil n'est pas atteint
-- ❌ **Valider le format sans le fond** : JSON valide mais contenu faux → contrôle sémantique (cf. règles métier)
-- ❌ **LLM-as-judge non calibré** : juge complaisant → critères précis + cas de référence (golden set)
-- ❌ **Pas de boucle de correction** : on rejette sans réinjecter → evaluator-optimizer (cf. `error-recovery.md`)
+- ❌ **Subjective validation** ("looks good") with no objective criteria: not reproducible → grid + explicit thresholds
+- ❌ **No blocking gate**: an invalid output flows downstream → block until the threshold is reached
+- ❌ **Validating format without substance**: valid JSON but wrong content → semantic check (see business rules)
+- ❌ **Uncalibrated LLM-as-judge**: lenient judge → precise criteria + reference cases (golden set)
+- ❌ **No correction loop**: rejecting without re-injecting → evaluator-optimizer (see `error-recovery.md`)
 
 ## Sources
-- **Anthropic — Building Effective Agents** (anthropic.com/engineering, déc. 2024) — pattern **evaluator-optimizer**
-- **INVEST** (Bill Wake, 2003) / **Gherkin** (Cucumber) — critères pour les outputs PO/QA · **DoD** (Scrum Guide 2020)
+- **Anthropic — Building Effective Agents** (anthropic.com/engineering, Dec. 2024) — **evaluator-optimizer** pattern
+- **INVEST** (Bill Wake, 2003) / **Gherkin** (Cucumber) — criteria for PO/QA outputs · **DoD** (Scrum Guide 2020)
 
-## Voir aussi
-- [`error-recovery.md`](error-recovery.md) — reprise sur output invalide
-- [`workflow-monitoring.md`](workflow-monitoring.md) — taux de rejet en métrique
-- [`prompt-engineering-orchestration.md`](prompt-engineering-orchestration.md) — prompt de validation structuré
-- [`../critique_conformite/gate-validation-livrable.md`](../critique_conformite/gate-validation-livrable.md) — gate DoD avant promotion
+## See also
+- [`error-recovery.md`](error-recovery.md) — recovery on invalid output
+- [`workflow-monitoring.md`](workflow-monitoring.md) — rejection rate as a metric
+- [`prompt-engineering-orchestration.md`](prompt-engineering-orchestration.md) — structured validation prompt
+- [`../critique_conformite/gate-validation-livrable.md`](../critique_conformite/gate-validation-livrable.md) — DoD gate before promotion

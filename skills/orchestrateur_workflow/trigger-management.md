@@ -1,191 +1,191 @@
-# Skill — Gestion des Déclencheurs et Conditions
-> Certifications : BPMN 2.0 OCM (OMG), AWS Certified Solutions Architect (Amazon), ITIL 4 Foundation (Axelos)
+# Skill — Trigger and Condition Management
+> Certifications: BPMN 2.0 OCM (OMG), AWS Certified Solutions Architect (Amazon), ITIL 4 Foundation (Axelos)
 
-## Objectif
-Définir et gérer les événements qui déclenchent un workflow ou une étape — conditions d'entrée, événements intermédiaires, conditions de sortie et règles de transition — pour une exécution fiable et prévisible.
+## Objective
+Define and manage the events that trigger a workflow or a step — entry conditions, intermediate events, exit conditions, and transition rules — for reliable and predictable execution.
 
-## Types de déclencheurs
+## Trigger types
 
 ```
-TYPE 1 — DÉCLENCHEUR MANUEL
-  L'utilisateur démarre explicitement le workflow
-  Exemple : "Lance le WF-001 avec ce brief client"
-  Usage   : Tous les workflows à la demande
+TYPE 1 — MANUAL TRIGGER
+  The user explicitly starts the workflow
+  Example : "Run WF-001 with this client brief"
+  Usage   : All on-demand workflows
 
-TYPE 2 — DÉCLENCHEUR PAR ÉVÉNEMENT
-  Un événement externe déclenche le workflow
-  Exemple : Nouveau ticket Jira créé → WF-002 démarre
-  Usage   : Intégration Jira, Slack, GitHub
+TYPE 2 — EVENT TRIGGER
+  An external event triggers the workflow
+  Example : New Jira ticket created → WF-002 starts
+  Usage   : Jira, Slack, GitHub integration
 
-TYPE 3 — DÉCLENCHEUR CONDITIONNEL (GATEWAY)
-  Une condition logique décide du chemin
-  Exemple : Si besoin UX = OUI → UX-DESIGNER, sinon → QA-AGILE
-  Usage   : Tous les gateways décisionnels dans les workflows
+TYPE 3 — CONDITIONAL TRIGGER (GATEWAY)
+  A logical condition decides the path
+  Example : If UX needed = YES → UX-DESIGNER, otherwise → QA-AGILE
+  Usage   : All decision gateways in workflows
 
-TYPE 4 — DÉCLENCHEUR TEMPOREL
-  Un calendrier ou délai déclenche le workflow
-  Exemple : Chaque lundi → workflow Veille & Growth
-  Usage   : Workflows récurrents (veille, reporting)
+TYPE 4 — TIME TRIGGER
+  A schedule or delay triggers the workflow
+  Example : Every Monday → Intelligence & Growth workflow
+  Usage   : Recurring workflows (intelligence, reporting)
 
-TYPE 5 — DÉCLENCHEUR ENCHAÎNÉ
-  L'output d'un workflow déclenche un autre workflow
-  Exemple : WF-001 complété → WF-002 démarre automatiquement
-  Usage   : Chaînes de workflows complexes
+TYPE 5 — CHAINED TRIGGER
+  A workflow's output triggers another workflow
+  Example : WF-001 completed → WF-002 starts automatically
+  Usage   : Complex workflow chains
 ```
 
 ---
 
-## Template — Définition d'un déclencheur
+## Template — Trigger definition
 
 ```yaml
 trigger:
   id: "TRG-WF001-START"
   workflow_id: "WF-001"
-  type: "manuel"
+  type: "manual"
   
-  condition_entree:
-    description: "Brief client disponible et validé"
-    criteres:
-      - "Objectif métier défini en 1-2 phrases"
-      - "Secteur client identifié"
-      - "Contraintes principales connues (délai, budget)"
-    si_non_rempli: "Demander les informations manquantes avant de démarrer"
+  entry_condition:
+    description: "Client brief available and validated"
+    criteria:
+      - "Business goal defined in 1-2 sentences"
+      - "Client industry identified"
+      - "Main constraints known (deadline, budget)"
+    if_not_met: "Ask for the missing information before starting"
   
-  parametres_requis:
-    - "contexte_client"
-    - "objectif_workflow"
-    - "methodologie"
-    - "contraintes"
+  required_parameters:
+    - "client_context"
+    - "workflow_goal"
+    - "methodology"
+    - "constraints"
   
-  message_activation: |
-    Workflow WF-001 — Cadrage Produit IA
-    Contexte reçu : [RÉSUMÉ DU BRIEF]
-    Démarrage dans 3... 2... 1...
-    Première étape : AGENT BUSINESS-ANALYST
+  activation_message: |
+    Workflow WF-001 — AI Product Scoping
+    Context received : [BRIEF SUMMARY]
+    Starting in 3... 2... 1...
+    First step : AGENT BUSINESS-ANALYST
 ```
 
 ---
 
-## Gateways décisionnels — Template
+## Decision gateways — Template
 
 ```yaml
 gateway:
   id: "GW-WF001-UX"
-  etape_precedente: "STEP-02 — PO-SCRUM"
-  question: "Le workflow nécessite-t-il une phase UX ?"
+  previous_step: "STEP-02 — PO-SCRUM"
+  question: "Does the workflow require a UX phase?"
   
   conditions:
-    - condition: "Produit grand public (B2C) OU interface utilisateur complexe"
-      action: "Déclencher STEP-2b — UX-DESIGNER en parallèle"
+    - condition: "Consumer product (B2C) OR complex user interface"
+      action: "Trigger STEP-2b — UX-DESIGNER in parallel"
       
-    - condition: "Produit B2B technique OU interface admin simple"
-      action: "Bypass UX-DESIGNER → Passer directement à STEP-03 QA-AGILE"
+    - condition: "Technical B2B product OR simple admin interface"
+      action: "Bypass UX-DESIGNER → Go directly to STEP-03 QA-AGILE"
   
-  inputs_pour_decision:
-    - "Type de produit (B2C / B2B / interne)"
-    - "Complexité de l'interface (simple / modérée / complexe)"
-    - "Budget et délai disponibles pour l'UX"
+  decision_inputs:
+    - "Product type (B2C / B2B / internal)"
+    - "Interface complexity (simple / moderate / complex)"
+    - "Budget and time available for UX"
   
-  decision_par_defaut: "Inclure UX-DESIGNER si doute"
+  default_decision: "Include UX-DESIGNER if in doubt"
 ```
 
 ---
 
-## Conditions de sortie par étape
+## Exit conditions per step
 
 ```yaml
-conditions_sortie:
-  - etape: "STEP-01 — BUSINESS-ANALYST"
-    sortie_ok:
-      - "Carte des besoins produite"
-      - "Parties prenantes identifiées"
-      - "Périmètre in/out scope défini"
-    sortie_ko:
-      - "Brief trop vague pour analyser"
-      - "Contradictions dans les exigences"
-    action_si_ko: "Poser 3 questions de clarification à l'utilisateur"
+exit_conditions:
+  - step: "STEP-01 — BUSINESS-ANALYST"
+    exit_ok:
+      - "Needs map produced"
+      - "Stakeholders identified"
+      - "In/out scope defined"
+    exit_ko:
+      - "Brief too vague to analyze"
+      - "Contradictions in the requirements"
+    action_if_ko: "Ask the user 3 clarifying questions"
   
-  - etape: "STEP-02 — PO-SCRUM"
-    sortie_ok:
-      - "≥ 8 User Stories rédigées au format INVEST"
-      - "Critères d'acceptation Gherkin sur toutes les US"
-      - "Priorité définie (MoSCoW)"
-    sortie_ko:
+  - step: "STEP-02 — PO-SCRUM"
+    exit_ok:
+      - "≥ 8 User Stories written in INVEST format"
+      - "Gherkin acceptance criteria on all US"
+      - "Priority defined (MoSCoW)"
+    exit_ko:
       - "< 5 User Stories"
-      - "Absence de critères d'acceptation"
-    action_si_ko: "Relancer avec contexte STEP-01 enrichi"
+      - "No acceptance criteria"
+    action_if_ko: "Re-run with enriched STEP-01 context"
 ```
 
 ---
 
-## Règles de transition inter-workflows
+## Inter-workflow transition rules
 
 ```yaml
-chaine_workflows:
+workflow_chain:
   - id: "CHAIN-001"
-    description: "Du cadrage à la delivery SAFe"
+    description: "From scoping to SAFe delivery"
     
-    etape_1:
-      workflow: "WF-001 — Cadrage Produit IA"
-      condition_fin: "Backlog ≥ 20 US validées"
+    step_1:
+      workflow: "WF-001 — AI Product Scoping"
+      end_condition: "Backlog ≥ 20 validated US"
       
     transition:
-      type: "automatique"
-      condition: "WF-001 statut = complété ET utilisateur valide passage"
-      contexte_transmis:
-        - "Backlog priorisé (toutes US)"
-        - "Critères d'acceptation"
-        - "Contraintes client"
+      type: "automatic"
+      condition: "WF-001 status = completed AND user validates the move"
+      passed_context:
+        - "Prioritized backlog (all US)"
+        - "Acceptance criteria"
+        - "Client constraints"
       
-    etape_2:
-      workflow: "WF-002 — Delivery Agile SAFe"
-      agent_entree: "PO-SAFE"
+    step_2:
+      workflow: "WF-002 — Agile SAFe Delivery"
+      entry_agent: "PO-SAFE"
       instruction: |
-        Le WF-001 a produit le backlog ci-joint.
-        Démarrer le PI Planning sur la base de ce backlog.
+        WF-001 produced the attached backlog.
+        Start the PI Planning based on this backlog.
 ```
 
 ---
 
-## Événements d'interruption
+## Interruption events
 
 ```
-PAUSE    : L'utilisateur interrompt le workflow temporairement
-           → Sauvegarder l'état complet (context packet + outputs)
-           → Reprendre à l'étape en cours
+PAUSE    : The user temporarily interrupts the workflow
+           → Save the full state (context packet + outputs)
+           → Resume at the current step
 
-ANNULATION : L'utilisateur annule le workflow
-           → Lister les outputs déjà produits
-           → Proposer de sauvegarder les livrables partiels
+CANCELLATION : The user cancels the workflow
+           → List the outputs already produced
+           → Offer to save the partial deliverables
 
-MODIFICATION SCOPE : Le périmètre change en cours de workflow
-           → Évaluer l'impact sur les étapes suivantes
-           → Invalider les outputs concernés
-           → Proposer un plan de reprise
+SCOPE CHANGE : The scope changes mid-workflow
+           → Assess the impact on the following steps
+           → Invalidate the affected outputs
+           → Propose a recovery plan
 ```
 
-## Livrables
-- Définition formalisée des déclencheurs (YAML)
-- Gateways décisionnels documentés
-- Conditions de sortie par étape
-- Règles de transition inter-workflows
+## Deliverables
+- Formalized trigger definitions (YAML)
+- Documented decision gateways
+- Exit conditions per step
+- Inter-workflow transition rules
 
-## Format de sortie
-Précise : workflow concerné, type de déclencheur, conditions d'entrée disponibles, contraintes de transition.
+## Output format
+Specify: the workflow at hand, the trigger type, available entry conditions, transition constraints.
 
 ## Anti-patterns
-- ❌ **Déclencheur sans condition de sortie** : workflow qui ne se termine jamais → conditions de fin explicites
-- ❌ **Webhook non vérifié** (signature absente) : déclenchement frauduleux → valider la signature du webhook
-- ❌ **Pas d'idempotence** sur événement rejoué : double exécution → clé d'idempotence
-- ❌ **Trigger temporel sans rattrapage** : exécution manquée perdue (cron raté) → stratégie de catch-up
-- ❌ **Chaînage de workflows sans garde anti-boucle** : récursion infinie → compteur de profondeur / garde
+- ❌ **Trigger with no exit condition**: a workflow that never ends → explicit end conditions
+- ❌ **Unverified webhook** (no signature): fraudulent trigger → validate the webhook signature
+- ❌ **No idempotency** on a replayed event: double execution → idempotency key
+- ❌ **Time trigger with no catch-up**: a missed run is lost (skipped cron) → catch-up strategy
+- ❌ **Workflow chaining with no anti-loop guard**: infinite recursion → depth counter / guard
 
 ## Sources
-- **BPMN 2.0.2** — OMG (2013) : événements de début/intermédiaires/de fin, déclencheurs (message/timer/signal)
-- Patterns **event-driven / webhook / cron** · sécurité webhook (signature HMAC)
+- **BPMN 2.0.2** — OMG (2013): start/intermediate/end events, triggers (message/timer/signal)
+- **event-driven / webhook / cron** patterns · webhook security (HMAC signature)
 
-## Voir aussi
-- [`workflow-design.md`](workflow-design.md) — événement déclencheur du workflow
-- [`dependency-mapping.md`](dependency-mapping.md) — conditions de passage entre étapes
-- [`error-recovery.md`](error-recovery.md) — événements d'interruption/erreur
-- [`workflow-automation.md`](workflow-automation.md) — déclencheurs en production (GitHub Actions, n8n)
+## See also
+- [`workflow-design.md`](workflow-design.md) — workflow trigger event
+- [`dependency-mapping.md`](dependency-mapping.md) — pass conditions between steps
+- [`error-recovery.md`](error-recovery.md) — interruption/error events
+- [`workflow-automation.md`](workflow-automation.md) — production triggers (GitHub Actions, n8n)

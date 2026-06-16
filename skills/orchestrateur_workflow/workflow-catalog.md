@@ -1,129 +1,129 @@
-# Skill — Gestion du Catalogue de Workflows
-> Certifications : TOGAF 10 (The Open Group), SAFe LPM (Scaled Agile), PMP (PMI), ITIL 4 Foundation (Axelos)
+# Skill — Workflow Catalog Management
+> Certifications: TOGAF 10 (The Open Group), SAFe LPM (Scaled Agile), PMP (PMI), ITIL 4 Foundation (Axelos)
 
-## Objectif
-Référencer, documenter et maintenir le catalogue des workflows agentiques disponibles — pour permettre la sélection rapide du bon workflow selon le contexte client et la réutilisation des patterns éprouvés.
+## Objective
+Reference, document, and maintain the catalog of available agentic workflows — to enable fast selection of the right workflow based on client context and the reuse of proven patterns.
 
-## Catalogue des Workflows — État actuel
+## Workflow catalog — Current state
 
-### WF-001 — Cadrage Produit IA
+### WF-001 — AI Product Scoping
 ```yaml
 id: "WF-001"
-nom: "Cadrage Produit IA"
-domaine: "Agile & Produit"
-duree_estimee: "45-90 min"
-modele_recommande: "Sonnet 4.6"
+name: "AI Product Scoping"
+domain: "Agile & Product"
+estimated_duration: "45-90 min"
+recommended_model: "Sonnet 4.6"
 certifications: ["PSPO1", "SAFe 6", "PMI-ACP"]
-contexte_usage: "Brief client → backlog priorisé + critères d'acceptation"
+usage_context: "Client brief → prioritized backlog + acceptance criteria"
 agents:
   - BUSINESS-ANALYST
   - PO-SCRUM
   - UX-DESIGNER
   - QA-AGILE
-livrables:
-  - "Carte des besoins métier"
-  - "Backlog initial (8-15 US)"
-  - "Critères d'acceptation (Gherkin)"
-  - "Wireframes clés (si besoin UX)"
-statut: "disponible"
+deliverables:
+  - "Business needs map"
+  - "Initial backlog (8-15 US)"
+  - "Acceptance criteria (Gherkin)"
+  - "Key wireframes (if UX needed)"
+status: "available"
 ```
 
-### WF-002 — Delivery Agile SAFe
+### WF-002 — Agile SAFe Delivery
 ```yaml
 id: "WF-002"
-nom: "Delivery Agile SAFe"
-domaine: "Agile & Produit"
-duree_estimee: "60-120 min"
-modele_recommande: "Sonnet 4.6"
+name: "Agile SAFe Delivery"
+domain: "Agile & Product"
+estimated_duration: "60-120 min"
+recommended_model: "Sonnet 4.6"
 certifications: ["SAFe6 POPM", "SAFe6 Agilist", "SAFe LPM"]
-contexte_usage: "PI Planning → sprint backlog → reporting avancement"
+usage_context: "PI Planning → sprint backlog → progress reporting"
 agents:
   - PO-SAFE
   - SCRUM-MASTER
   - QA-AGILE
   - CHEF-PROJET-IA
-livrables:
+deliverables:
   - "PI Objectives"
-  - "Program Backlog priorisé (WSJF)"
-  - "Plan de sprint"
-  - "Reporting CODIR"
-statut: "disponible"
+  - "Prioritized Program Backlog (WSJF)"
+  - "Sprint plan"
+  - "Executive-committee reporting"
+status: "available"
 ```
 
-### WF-003 — Lancement App IA
+### WF-003 — AI Application Launch
 ```yaml
 id: "WF-003"
-nom: "Lancement Application IA"
-domaine: "Dev & Technique"
-duree_estimee: "90-180 min"
-modele_recommande: "Sonnet 4.6"
+name: "AI Application Launch"
+domain: "Dev & Technical"
+estimated_duration: "90-180 min"
+recommended_model: "Sonnet 4.6"
 certifications: ["AWS SA", "TOGAF 10", "PMP"]
-contexte_usage: "Idée → architecture → code → déploiement → audit sécurité"
+usage_context: "Idea → architecture → code → deployment → security audit"
 agents:
   - AI-ARCHITECT
   - DEV-PYTHON-IA
   - DEVOPS-CLOUD
   - SECURITE-IA
-livrables:
-  - "Architecture système (diagramme)"
-  - "Code source documenté"
-  - "Pipeline CI/CD"
-  - "Rapport audit sécurité"
-statut: "disponible"
+deliverables:
+  - "System architecture (diagram)"
+  - "Documented source code"
+  - "CI/CD pipeline"
+  - "Security audit report"
+status: "available"
 ```
 
-### WF-004 — Mission Conseil IA
+### WF-004 — AI Consulting Engagement
 ```yaml
 id: "WF-004"
-nom: "Mission Conseil IA"
-domaine: "Management & Conseil"
-duree_estimee: "60-90 min"
-modele_recommande: "Sonnet 4.6"
+name: "AI Consulting Engagement"
+domain: "Management & Consulting"
+estimated_duration: "60-90 min"
+recommended_model: "Sonnet 4.6"
 certifications: ["PMP", "PROSCI", "CAP IABAC"]
-contexte_usage: "Audit maturité IA → stratégie → plan formation → livrables"
+usage_context: "AI maturity audit → strategy → training plan → deliverables"
 agents:
   - CONSULTANT-IA
   - CDO-DIRECTEUR-IA
   - FORMATEUR-IA
   - REDACTEUR-IA
-livrables:
-  - "Rapport d'audit maturité IA"
-  - "Roadmap stratégique IA (12-24 mois)"
-  - "Plan de formation équipes"
-  - "Synthèse executive (1 page)"
-statut: "disponible"
+deliverables:
+  - "AI maturity audit report"
+  - "Strategic AI roadmap (12-24 months)"
+  - "Team training plan"
+  - "Executive summary (1 page)"
+status: "available"
 ```
 
-### WF-005 — Veille & Growth
+### WF-005 — Intelligence & Growth
 ```yaml
 id: "WF-005"
-nom: "Veille Stratégique & Growth"
-domaine: "Management & Conseil"
-duree_estimee: "30-60 min"
-modele_recommande: "Sonnet 4.6"
+name: "Strategic Intelligence & Growth"
+domain: "Management & Consulting"
+estimated_duration: "30-60 min"
+recommended_model: "Sonnet 4.6"
 certifications: ["PMI-ACP", "SAFe LPM"]
-contexte_usage: "Veille IA/tech → contenu thought-leadership → vérification contractuelle"
+usage_context: "AI/tech intelligence → thought-leadership content → contractual review"
 agents:
   - GROWTH-IA
   - REDACTEUR-IA
   - JURIDIQUE-IA
-livrables:
-  - "Synthèse veille IA (hebdo / mensuelle)"
-  - "Articles / posts LinkedIn"
-  - "Vérification conformité contractuelle"
-statut: "disponible"
+deliverables:
+  - "AI intelligence digest (weekly / monthly)"
+  - "Articles / LinkedIn posts"
+  - "Contractual compliance review"
+status: "available"
 ```
 
-### WF-006 — Avant-vente / Proposition commerciale
+### WF-006 — Pre-sales / Commercial Proposal
 ```yaml
 id: "WF-006"
-nom: "Avant-vente / Proposition commerciale"
-domaine: "Management & Conseil"
-duree_estimee: "75-120 min"
-modele_recommande: "Opus 4.8"
-modele_raison: "Workflow stratégique à fort enjeu commercial (qualification GO/NO-GO, architecture cible, chiffrage J/H, pricing, ROI prospect) — Opus 4.8 recommandé pour clients CAC40/GAFA/licornes"
+name: "Pre-sales / Commercial Proposal"
+domain: "Management & Consulting"
+estimated_duration: "75-120 min"
+recommended_model: "Opus 4.8"
+model_rationale: "Strategic, high-commercial-stakes workflow (GO/NO-GO qualification, target architecture, person-day costing, pricing, prospect ROI) — Opus 4.8 recommended for CAC40/GAFA/unicorn clients"
 certifications: ["PMP", "CBAP", "TOGAF 10", "CFA", "CAP IABAC"]
-contexte_usage: "RFP reçu → qualification → cadrage → architecture → planning → chiffrage → proposition commerciale"
+usage_context: "RFP received → qualification → scoping → architecture → planning → costing → commercial proposal"
 agents:
   - CONSULTANT-IA
   - BUSINESS-ANALYST
@@ -131,49 +131,49 @@ agents:
   - CHEF-PROJET-IA
   - FINANCIAL-ANALYST
   - REDACTEUR-IA
-livrables:
-  - "Grille GO/NO-GO qualifiée"
-  - "Cadrage fonctionnel + cas d'usage"
-  - "Architecture cible (diagramme)"
-  - "Planning + lotissement J/H"
-  - "Chiffrage + pricing + ROI prospect"
-  - "Proposition technico-commerciale complète"
-statut: "disponible"
+deliverables:
+  - "Qualified GO/NO-GO grid"
+  - "Functional scoping + use cases"
+  - "Target architecture (diagram)"
+  - "Planning + person-day breakdown"
+  - "Costing + pricing + prospect ROI"
+  - "Complete technical-commercial proposal"
+status: "available"
 ```
 
-### WF-007 — Onboarding Mission Client J1-J5
+### WF-007 — Client Engagement Onboarding D1-D5
 ```yaml
 id: "WF-007"
-nom: "Onboarding Mission Client J1-J5"
-domaine: "Management & Conseil"
-duree_estimee: "45-75 min"
-modele_recommande: "Sonnet 4.6"
+name: "Client Engagement Onboarding D1-D5"
+domain: "Management & Consulting"
+estimated_duration: "45-75 min"
+recommended_model: "Sonnet 4.6"
 certifications: ["PMP", "CBAP", "PROSCI"]
-contexte_usage: "Mission signée → contexte client → plan de démarrage → livrables J1 → cadrage J5"
+usage_context: "Engagement signed → client context → kickoff plan → D1 deliverables → D5 scoping"
 agents:
   - CHEF-PROJET-IA
   - BUSINESS-ANALYST
   - CHANGE-MANAGER
   - REDACTEUR-IA
-livrables:
-  - "Plan de démarrage validé (J1-J5)"
-  - "Cartographie SI + processus client"
-  - "Kit J1 remis (fiche client, présentation, plan)"
-  - "Cadrage J5 complété"
-  - "Compte rendu J1"
-statut: "disponible"
+deliverables:
+  - "Validated kickoff plan (D1-D5)"
+  - "IS map + client processes"
+  - "D1 kit delivered (client sheet, deck, plan)"
+  - "D5 scoping completed"
+  - "D1 minutes"
+status: "available"
 ```
 
-### WF-008 — Audit conformité IA Act / RGPD
+### WF-008 — AI Act / GDPR Compliance Audit
 ```yaml
 id: "WF-008"
-nom: "Audit conformité IA Act / RGPD"
-domaine: "Conformité & Gouvernance"
-duree_estimee: "90-150 min"
-modele_recommande: "Opus 4.8"
-modele_raison: "Workflow réglementaire à très haut enjeu (qualification tier de risque AI Act, analyse RGPD multi-articles, threat modeling, gouvernance IA) — erreur de qualification = exposition à sanctions jusqu'à 7% CA mondial sous AI Act"
+name: "AI Act / GDPR Compliance Audit"
+domain: "Compliance & Governance"
+estimated_duration: "90-150 min"
+recommended_model: "Opus 4.8"
+model_rationale: "Very-high-stakes regulatory workflow (AI Act risk-tier qualification, multi-article GDPR analysis, threat modeling, AI governance) — a qualification error = exposure to penalties of up to 7% of global revenue under the AI Act"
 certifications: ["CIPP/E", "DPO", "ISO 42001", "ISO 27001", "CISSP", "CDMP", "TOGAF 10"]
-contexte_usage: "Système IA à auditer → cartographie obligations → revue architecture → sécurité → données → gouvernance → rapport + plan remédiation"
+usage_context: "AI system to audit → obligations mapping → architecture review → security → data → governance → report + remediation plan"
 agents:
   - JURIDIQUE-IA
   - AI-ARCHITECT
@@ -182,128 +182,128 @@ agents:
   - CDO-DIRECTEUR-IA
   - CHANGE-MANAGER
   - REDACTEUR-IA
-livrables:
-  - "Cartographie obligations AI Act / RGPD / NIS2"
-  - "Rapport audit conformité"
-  - "Cartographie des risques"
-  - "Plan de remédiation priorisé"
-  - "Gouvernance IA cible (comité éthique, instances)"
-statut: "disponible"
+deliverables:
+  - "AI Act / GDPR / NIS2 obligations mapping"
+  - "Compliance audit report"
+  - "Risk mapping"
+  - "Prioritized remediation plan"
+  - "Target AI governance (ethics committee, bodies)"
+status: "available"
 ```
 
-### WF-009 — Recrutement IT/IA
+### WF-009 — IT/AI Recruitment
 ```yaml
 id: "WF-009"
-nom: "Recrutement IT/IA"
-domaine: "RH & Talent"
-duree_estimee: "60-90 min"
-modele_recommande: "Sonnet 4.6"
+name: "IT/AI Recruitment"
+domain: "HR & Talent"
+estimated_duration: "60-90 min"
+recommended_model: "Sonnet 4.6"
 certifications: ["SHRM-CP", "CBAP", "PHR", "CIPD L5", "CAP IABAC"]
-contexte_usage: "Besoin identifié → fiche de poste → sourcing → évaluation → sélection → offre"
+usage_context: "Need identified → job description → sourcing → assessment → selection → offer"
 agents:
   - RH-IA
   - BUSINESS-ANALYST
   - CONSULTANT-IA
   - REDACTEUR-IA
-livrables:
-  - "Fiche de poste rédigée + checklist anti-biais"
-  - "Plan de sourcing multi-canal"
-  - "Grille d'évaluation technique + comportementale"
-  - "Scoring CV ATS + détection fraude"
-  - "Offre d'emploi émise + dossier recrutement"
-statut: "disponible"
+deliverables:
+  - "Job description written + anti-bias checklist"
+  - "Multichannel sourcing plan"
+  - "Technical + behavioral assessment grid"
+  - "ATS CV scoring + fraud detection"
+  - "Job offer issued + recruitment file"
+status: "available"
 ```
 
-### WF-010 — Post-mortem Projet / REX
+### WF-010 — Project Post-mortem / Lessons Learned
 ```yaml
 id: "WF-010"
-nom: "Post-mortem Projet / REX"
-domaine: "Management & Conseil"
-duree_estimee: "45-75 min"
-modele_recommande: "Sonnet 4.6"
+name: "Project Post-mortem / Lessons Learned"
+domain: "Management & Consulting"
+estimated_duration: "45-75 min"
+recommended_model: "Sonnet 4.6"
 certifications: ["PMP", "PRINCE2", "PROSCI", "ISTQB"]
-contexte_usage: "Projet clôturé ou incident majeur → collecte → analyse causale → rapport REX → plan d'amélioration"
+usage_context: "Project closed or major incident → collection → root-cause analysis → lessons-learned report → improvement plan"
 agents:
   - CHEF-PROJET-IA
   - QA-AGILE
   - CHANGE-MANAGER
   - REDACTEUR-IA
-livrables:
-  - "Timeline projet + faits collectés"
-  - "Analyse causale (5 Pourquoi / Ishikawa)"
-  - "Rapport REX complet"
-  - "Plan d'amélioration priorisé"
-  - "Mémo capitalisation des apprentissages"
-statut: "disponible"
+deliverables:
+  - "Project timeline + collected facts"
+  - "Root-cause analysis (5 Whys / Ishikawa)"
+  - "Complete lessons-learned report"
+  - "Prioritized improvement plan"
+  - "Knowledge-capture memo"
+status: "available"
 ```
 
 ---
 
-## Grille de sélection du workflow
+## Workflow selection grid
 
 ```
-ÉTAPE 1 — Quel est l'objectif principal ?
-  ○ Définir / cadrer un produit ou service       → WF-001
-  ○ Planifier / piloter une livraison Agile      → WF-002
-  ○ Construire / déployer une app IA             → WF-003
-  ○ Conseiller / transformer un client           → WF-004
-  ○ Communiquer / développer l'activité          → WF-005
-  ○ Répondre à un RFP / proposition commerciale  → WF-006
-  ○ Démarrer une mission client (J1-J5)          → WF-007
-  ○ Auditer conformité IA Act / RGPD             → WF-008
-  ○ Recruter un profil IT/IA                     → WF-009
-  ○ Post-mortem projet ou incident               → WF-010
+STEP 1 — What is the main objective?
+  ○ Define / scope a product or service          → WF-001
+  ○ Plan / steer an Agile delivery               → WF-002
+  ○ Build / deploy an AI app                     → WF-003
+  ○ Advise / transform a client                  → WF-004
+  ○ Communicate / grow the business              → WF-005
+  ○ Respond to an RFP / commercial proposal      → WF-006
+  ○ Start a client engagement (D1-D5)            → WF-007
+  ○ Audit AI Act / GDPR compliance               → WF-008
+  ○ Recruit an IT/AI profile                     → WF-009
+  ○ Project or incident post-mortem              → WF-010
 
-ÉTAPE 2 — Y a-t-il des contraintes spécifiques ?
-  ○ Contexte SAFe / multi-équipes                → WF-002 prioritaire
-  ○ Données personnelles / RGPD                  → Ajouter JURIDIQUE-IA ou WF-008
-  ○ Livraison court terme (< 1 semaine)          → Mode parallèle max
-  ○ Rapport CODIR requis                         → Ajouter CHEF-PROJET-IA
-  ○ Client CAC40 / GAFA / licorne                → Modèle Opus 4.8 recommandé
-  ○ Incident sécurité / faille LLM               → WF-010 + SECURITE-IA
+STEP 2 — Are there specific constraints?
+  ○ SAFe / multi-team context                    → WF-002 priority
+  ○ Personal data / GDPR                         → Add JURIDIQUE-IA or WF-008
+  ○ Short-term delivery (< 1 week)               → Max parallel mode
+  ○ Executive-committee report required          → Add CHEF-PROJET-IA
+  ○ CAC40 / GAFA / unicorn client                → Opus 4.8 model recommended
+  ○ Security incident / LLM vulnerability        → WF-010 + SECURITE-IA
 ```
 
 ---
 
-## Template de création d'un nouveau workflow
+## New-workflow creation template
 
 ```yaml
 id: "WF-00X"
-nom: "[NOM DU WORKFLOW]"
-domaine: "[Dev & Technique / Agile & Produit / Management & Conseil]"
-duree_estimee: "[X-Y min]"
-modele_recommande: "Sonnet 4.6"
+name: "[WORKFLOW NAME]"
+domain: "[Dev & Technical / Agile & Product / Management & Consulting]"
+estimated_duration: "[X-Y min]"
+recommended_model: "Sonnet 4.6"
 certifications: []
-contexte_usage: "[Déclencheur → résultat final en 1 ligne]"
+usage_context: "[Trigger → final result in 1 line]"
 agents: []
-livrables: []
-dependances_workflows: []  # Si ce workflow en enchaîne un autre
-statut: "brouillon"  # brouillon / disponible / archivé
-date_creation: "AAAA-MM-JJ"
+deliverables: []
+workflow_dependencies: []  # If this workflow chains another one
+status: "draft"  # draft / available / archived
+creation_date: "YYYY-MM-DD"
 version: "1.0"
 ```
 
-## Livrables
-- Fiche workflow complète (YAML)
-- Mise à jour du catalogue
-- Grille de sélection mise à jour
+## Deliverables
+- Complete workflow card (YAML)
+- Catalog update
+- Updated selection grid
 
-## Format de sortie
-Précise : objectif métier, agents à impliquer, contraintes de délai et contexte client.
+## Output format
+Specify: the business goal, the agents to involve, deadline constraints, and client context.
 
 ## Anti-patterns
-- ❌ **Workflow catalogué sans critères de sélection** : on ne sait pas quand l'utiliser → grille de sélection (questions)
-- ❌ **Modèle/certifications sur-spécifiés** par workflow : rigidité → recommander, ne pas imposer
-- ❌ **Pas de durée ni de ROI estimés** : impossible d'arbitrer → fourchette durée + valeur attendue
-- ❌ **Catalogue non maintenu** (workflows obsolètes) : confusion → revue périodique
-- ❌ **Dupliquer des workflows quasi-identiques** : maintenance → factoriser/paramétrer
+- ❌ **Cataloged workflow with no selection criteria**: you don't know when to use it → selection grid (questions)
+- ❌ **Over-specified model/certifications** per workflow: rigidity → recommend, don't impose
+- ❌ **No estimated duration or ROI**: impossible to arbitrate → duration range + expected value
+- ❌ **Unmaintained catalog** (obsolete workflows): confusion → periodic review
+- ❌ **Duplicating near-identical workflows**: maintenance → factor out/parameterize
 
 ## Sources
-- **Anthropic — Building Effective Agents** (anthropic.com/engineering, déc. 2024) — typologie des workflows agentiques
-- **TOGAF 10** (2022) · **SAFe LPM** (Scaled Agile) — gouvernance de portefeuille de workflows
+- **Anthropic — Building Effective Agents** (anthropic.com/engineering, Dec. 2024) — typology of agentic workflows
+- **TOGAF 10** (2022) · **SAFe LPM** (Scaled Agile) — workflow portfolio governance
 
-## Voir aussi
-- [`workflow-design.md`](workflow-design.md) — conception d'un nouveau workflow
-- [`agent-routing.md`](agent-routing.md) — sélection des agents par workflow
-- [`dependency-mapping.md`](dependency-mapping.md) — séquençage interne
-- [`workflow-monitoring.md`](workflow-monitoring.md) — KPIs du catalogue
+## See also
+- [`workflow-design.md`](workflow-design.md) — designing a new workflow
+- [`agent-routing.md`](agent-routing.md) — agent selection per workflow
+- [`dependency-mapping.md`](dependency-mapping.md) — internal sequencing
+- [`workflow-monitoring.md`](workflow-monitoring.md) — catalog KPIs

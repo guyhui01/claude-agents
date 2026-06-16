@@ -1,32 +1,32 @@
-# Skill — Automatisation de Workflows (GitHub Actions, n8n, Make)
-> Certifications : AWS Certified Solutions Architect (Amazon), Google Cloud Professional Cloud Architect (Google), Anthropic Claude Code in Action (2026), ITIL 4 Foundation (Axelos)
+# Skill — Workflow Automation (GitHub Actions, n8n, Make)
+> Certifications: AWS Certified Solutions Architect (Amazon), Google Cloud Professional Cloud Architect (Google), Anthropic Claude Code in Action (2026), ITIL 4 Foundation (Axelos)
 
-## Objectif
-Implémenter des déclencheurs techniques réels pour les workflows agentiques — automatisation via GitHub Actions, n8n, Make (ex-Integromat) et webhooks — pour exécuter les workflows sans intervention manuelle.
+## Objective
+Implement real technical triggers for agentic workflows — automation via GitHub Actions, n8n, Make (formerly Integromat), and webhooks — to run workflows with no manual intervention.
 
-## GitHub Actions — Déclencheur de workflow agentique
+## GitHub Actions — Agentic workflow trigger
 
 ```yaml
 # .github/workflows/run-agent-workflow.yml
 name: Run Agent Workflow
 
 on:
-  # Déclencheur manuel avec paramètres
+  # Manual trigger with parameters
   workflow_dispatch:
     inputs:
       workflow_id:
-        description: "ID du workflow (WF-001, WF-002...)"
+        description: "Workflow ID (WF-001, WF-002...)"
         required: true
         default: "WF-001"
       brief_client:
-        description: "Brief client ou contexte"
+        description: "Client brief or context"
         required: true
       methodologie:
-        description: "Méthodologie"
+        description: "Methodology"
         required: false
         default: "scrum"
 
-  # Déclencheur sur issue GitHub (nouveau brief = nouveau workflow)
+  # Trigger on a GitHub issue (new brief = new workflow)
   issues:
     types: [labeled]
 
@@ -75,11 +75,11 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `## Résultats du workflow agentique\n\n${report}`
+              body: `## Agentic workflow results\n\n${report}`
             });
 ```
 
-## Script d'exécution Node.js
+## Node.js execution script
 
 ```typescript
 // scripts/run-workflow.js
@@ -100,7 +100,7 @@ const WORKFLOWS: Record<string, WorkflowStep[]> = {
 
 async function main() {
   const workflow = WORKFLOWS[args.workflow];
-  if (!workflow) throw new Error(`Workflow inconnu : ${args.workflow}`);
+  if (!workflow) throw new Error(`Unknown workflow: ${args.workflow}`);
 
   mkdirSync("outputs", { recursive: true });
   const outputs = new Map<string, string>();
@@ -110,7 +110,7 @@ async function main() {
     const systemPrompt = readFileSync(step.agentFile, "utf8");
     const userMessage = buildMessage(step.agent, outputs);
 
-    console.log(`[ORCHESTRATEUR] → ${step.agent}`);
+    console.log(`[ORCHESTRATOR] → ${step.agent}`);
     const result = await client.messages.create({
       model: "claude-sonnet-4-6",
       max_tokens: 4096,
@@ -130,7 +130,7 @@ async function main() {
 main().catch(console.error);
 ```
 
-## n8n — Workflow visuel avec agents IA
+## n8n — Visual workflow with AI agents
 
 ```json
 {
@@ -157,11 +157,11 @@ main().catch(console.error);
         "body": {
           "model": "claude-sonnet-4-6",
           "max_tokens": 4096,
-          "system": "Tu es un Business Analyst expert...",
+          "system": "You are an expert Business Analyst...",
           "messages": [
             {
               "role": "user",
-              "content": "Analyse ce brief : {{ $json.brief }}"
+              "content": "Analyze this brief: {{ $json.brief }}"
             }
           ]
         }
@@ -174,11 +174,11 @@ main().catch(console.error);
         "body": {
           "model": "claude-sonnet-4-6",
           "max_tokens": 4096,
-          "system": "Tu es un Product Owner Scrum Expert...",
+          "system": "You are a Product Owner Scrum Expert...",
           "messages": [
             {
               "role": "user",
-              "content": "Rédige 8 US à partir de : {{ $node['Business Analyst'].json.content[0].text }}"
+              "content": "Write 8 US from: {{ $node['Business Analyst'].json.content[0].text }}"
             }
           ]
         }
@@ -200,39 +200,39 @@ main().catch(console.error);
 }
 ```
 
-## Make (ex-Integromat) — Scénario d'automatisation
+## Make (formerly Integromat) — Automation scenario
 
 ```
-SCÉNARIO MAKE — Déclencheur Jira → Workflow Agentique
+MAKE SCENARIO — Jira trigger → Agentic Workflow
 
 1. WATCH JIRA ISSUES
-   Déclencheur : Nouveau ticket avec label "agent-workflow"
+   Trigger: New ticket with the "agent-workflow" label
    ↓
 2. HTTP REQUEST — Anthropic API (Business Analyst)
    URL    : https://api.anthropic.com/v1/messages
-   Body   : { model, system: [agent BA], messages: [brief du ticket] }
+   Body   : { model, system: [BA agent], messages: [ticket brief] }
    ↓
 3. HTTP REQUEST — Anthropic API (PO Scrum)
-   Body   : { model, system: [agent PO], messages: [output étape 2] }
+   Body   : { model, system: [PO agent], messages: [step 2 output] }
    ↓
 4. CREATE JIRA SUBTASKS
-   Créer une sous-tâche Jira par User Story générée
+   Create one Jira subtask per generated User Story
    ↓
 5. POST SLACK MESSAGE
-   Notifier #product-team avec le résumé du workflow
+   Notify #product-team with the workflow summary
 ```
 
-## Webhook — Déclencheur externe universel
+## Webhook — Universal external trigger
 
 ```typescript
-// Serveur Express — Endpoint webhook pour déclencher un workflow
+// Express server — Webhook endpoint to trigger a workflow
 import express from "express";
 import crypto from "crypto";
 
 const app = express();
 app.use(express.json());
 
-// Vérification signature webhook (sécurité)
+// Webhook signature verification (security)
 function verifyWebhookSignature(payload: string, signature: string): boolean {
   const hmac = crypto.createHmac("sha256", process.env.WEBHOOK_SECRET!);
   const digest = "sha256=" + hmac.update(payload).digest("hex");
@@ -242,15 +242,15 @@ function verifyWebhookSignature(payload: string, signature: string): boolean {
 app.post("/webhook/workflow", async (req, res) => {
   const signature = req.headers["x-webhook-signature"] as string;
   if (!verifyWebhookSignature(JSON.stringify(req.body), signature)) {
-    return res.status(401).json({ error: "Signature invalide" });
+    return res.status(401).json({ error: "Invalid signature" });
   }
 
   const { workflowId, context, metadata } = req.body;
 
-  // Exécuter le workflow en arrière-plan
-  res.status(202).json({ message: "Workflow démarré", workflowId });
+  // Run the workflow in the background
+  res.status(202).json({ message: "Workflow started", workflowId });
 
-  // Lancer le workflow (async, ne bloque pas la réponse)
+  // Launch the workflow (async, does not block the response)
   runWorkflow(workflowId, context).then((outputs) => {
     notifyCompletion(metadata.callbackUrl, outputs);
   });
@@ -259,7 +259,7 @@ app.post("/webhook/workflow", async (req, res) => {
 app.listen(3000, () => console.log("Webhook server running on port 3000"));
 ```
 
-## Variables d'environnement — Template .env
+## Environment variables — .env template
 
 ```bash
 # Anthropic
@@ -268,7 +268,7 @@ ANTHROPIC_API_KEY=sk-ant-...
 # Webhooks
 WEBHOOK_SECRET=your-secret-key
 
-# Intégrations
+# Integrations
 NOTION_API_KEY=secret_...
 NOTION_DB_ID=...
 JIRA_API_TOKEN=...
@@ -282,30 +282,30 @@ MAX_TOKENS=4096
 LOG_LEVEL=info
 ```
 
-## Livrables
-- GitHub Actions workflow YAML opérationnel
-- Script d'exécution Node.js/TypeScript
-- Scénario n8n exportable (JSON)
-- Configuration Make (blueprint)
-- Serveur webhook Express sécurisé
-- Template .env documenté
+## Deliverables
+- Operational GitHub Actions workflow YAML
+- Node.js/TypeScript execution script
+- Exportable n8n scenario (JSON)
+- Make configuration (blueprint)
+- Secured Express webhook server
+- Documented .env template
 
-## Format de sortie
-Précise : outil d'automatisation cible (GitHub Actions / n8n / Make / webhook), déclencheur souhaité, intégrations requises (Jira, Notion, Slack), modèle Claude à utiliser.
+## Output format
+Specify: the target automation tool (GitHub Actions / n8n / Make / webhook), the desired trigger, the required integrations (Jira, Notion, Slack), the Claude model to use.
 
 ## Anti-patterns
-- ❌ **Secrets en clair** (clé API dans le YAML/code) : fuite → variables d'environnement / secrets du CI
-- ❌ **Webhook non sécurisé** (pas de vérification de signature) : déclenchement frauduleux → HMAC/secret
-- ❌ **Pas de retry ni d'idempotence** : double exécution ou perte → file de retry + clé d'idempotence
-- ❌ **SDK non épinglé** (`@anthropic-ai/sdk` sans version) : ruptures → version fixée
-- ❌ **Pas de monitoring** de l'automatisation : pannes silencieuses → alerting (cf. `workflow-monitoring.md`)
+- ❌ **Cleartext secrets** (API key in the YAML/code): leak → environment variables / CI secrets
+- ❌ **Unsecured webhook** (no signature verification): fraudulent trigger → HMAC/secret
+- ❌ **No retry or idempotency**: double execution or loss → retry queue + idempotency key
+- ❌ **Unpinned SDK** (`@anthropic-ai/sdk` with no version): breakage → fixed version
+- ❌ **No monitoring** of the automation: silent failures → alerting (see `workflow-monitoring.md`)
 
 ## Sources
 - **GitHub Actions** — docs.github.com/actions · **n8n** — docs.n8n.io · **Make** — make.com
-- **Anthropic SDK / Messages API** — docs.anthropic.com (en-tête `anthropic-version: 2023-06-01`, courant) · modèle `claude-sonnet-4-6` pour le runtime haut volume
+- **Anthropic SDK / Messages API** — docs.anthropic.com (header `anthropic-version: 2023-06-01`, current) · model `claude-sonnet-4-6` for high-volume runtime
 
-## Voir aussi
-- [`trigger-management.md`](trigger-management.md) — déclencheurs et événements
-- [`workflow-monitoring.md`](workflow-monitoring.md) — supervision de l'automatisation
+## See also
+- [`trigger-management.md`](trigger-management.md) — triggers and events
+- [`workflow-monitoring.md`](workflow-monitoring.md) — automation supervision
 - [`mcp-orchestration.md`](mcp-orchestration.md) — orchestration via MCP
-- [`claude-api-integration.md`](claude-api-integration.md) — intégration SDK Anthropic
+- [`claude-api-integration.md`](claude-api-integration.md) — Anthropic SDK integration

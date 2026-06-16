@@ -1,169 +1,169 @@
-# Skill — Gestion du Contexte et Transferts Inter-Agents
-> Certifications : Anthropic Claude Code in Action (2026), AWS Certified Solutions Architect (Amazon), Google Cloud Professional Cloud Architect (Google)
+# Skill — Context Management and Inter-Agent Handoffs
+> Certifications: Anthropic Claude Code in Action (2026), AWS Certified Solutions Architect (Amazon), Google Cloud Professional Cloud Architect (Google)
 
-## Objectif
-Garantir que chaque agent du workflow reçoit le contexte exact dont il a besoin — ni plus, ni moins — pour produire un output de qualité, sans perte d'information entre les étapes.
+## Objective
+Ensure that each agent in the workflow receives the exact context it needs — no more, no less — to produce a quality output, with no information loss between steps.
 
-## Principe — Context Handoff
+## Principle — Context Handoff
 
-Chaque transfert entre agents suit ce schéma :
+Each handoff between agents follows this pattern:
 
 ```
-AGENT A (producteur)
+AGENT A (producer)
     │
-    │  [OUTPUT A] = résultat structuré
-    │  [CONTEXT PACKET] = contexte à transmettre
+    │  [OUTPUT A] = structured result
+    │  [CONTEXT PACKET] = context to pass on
     ▼
-AGENT B (consommateur)
+AGENT B (consumer)
     │
-    │  Reçoit : [CONTEXT PACKET] + [OUTPUT A]
-    │  Produit : [OUTPUT B]
+    │  Receives: [CONTEXT PACKET] + [OUTPUT A]
+    │  Produces: [OUTPUT B]
     ▼
 AGENT C ...
 ```
 
 ---
 
-## Template — Context Packet Standard
+## Template — Standard Context Packet
 
 ```yaml
 context_packet:
-  workflow_id: "WF-001-CADRAGE-PRODUIT"
-  etape_courante: "STEP-02 — PO-SCRUM"
-  etape_precedente: "STEP-01 — BUSINESS-ANALYST"
+  workflow_id: "WF-001-AI-PRODUCT-SCOPING"
+  current_step: "STEP-02 — PO-SCRUM"
+  previous_step: "STEP-01 — BUSINESS-ANALYST"
 
-  contexte_global:
-    client: "[Nom / secteur / taille]"
-    objectif_workflow: "[Résultat final attendu]"
-    methodologie: "[Scrum / SAFe / Hybride]"
-    contraintes: "[RGPD, délai, budget]"
-    langue_livrables: "[FR / EN]"
+  global_context:
+    client: "[Name / industry / size]"
+    workflow_goal: "[Expected final result]"
+    methodology: "[Scrum / SAFe / Hybrid]"
+    constraints: "[GDPR, deadline, budget]"
+    deliverable_language: "[FR / EN]"
 
-  outputs_precedents:
-    - etape: "STEP-01"
+  previous_outputs:
+    - step: "STEP-01"
       agent: "BUSINESS-ANALYST"
-      livrable: |
-        [Coller ici le résultat de l'étape précédente]
-      statut: "validé"  # validé / à retravailler / partiel
+      deliverable: |
+        [Paste the result of the previous step here]
+      status: "validated"  # validated / to rework / partial
 
-  instructions_agent_courant:
-    role: "[Rôle spécifique attendu de l'agent pour cette étape]"
-    input_attendu: "[Ce que l'agent doit utiliser comme base]"
-    output_attendu: "[Ce que l'agent doit produire précisément]"
-    format_sortie: "[Tableau Jira / YAML / Markdown / JSON]"
-    contrainte_specifique: "[Ex. max 10 US / format SAFe / INVEST]"
+  current_agent_instructions:
+    role: "[Specific role expected from the agent at this step]"
+    expected_input: "[What the agent should use as a basis]"
+    expected_output: "[What the agent should produce precisely]"
+    output_format: "[Jira table / YAML / Markdown / JSON]"
+    specific_constraint: "[e.g. max 10 US / SAFe format / INVEST]"
 ```
 
 ---
 
-## Règles de transfert de contexte
+## Context handoff rules
 
-### Ce qui doit TOUJOURS être transmis
-- Objectif global du workflow
-- Identité du client et secteur
-- Contraintes non négociables (RGPD, délai critique, budget)
-- Outputs des étapes précédentes validés
-- Format de sortie attendu
+### What must ALWAYS be passed
+- Overall goal of the workflow
+- Client identity and industry
+- Non-negotiable constraints (GDPR, critical deadline, budget)
+- Validated outputs of previous steps
+- Expected output format
 
-### Ce qui doit être FILTRÉ (ne pas surcharger)
-- Échanges intermédiaires et versions brouillon
-- Contexte technique non pertinent pour l'agent suivant
-- Commentaires internes de l'orchestrateur
+### What must be FILTERED (don't overload)
+- Intermediate exchanges and draft versions
+- Technical context not relevant to the next agent
+- The orchestrator's internal comments
 
-### Règle de validation avant transfert
+### Validation rule before handoff
 ```
-CHECKLIST AVANT TRANSFERT
+CHECKLIST BEFORE HANDOFF
 ──────────────────────────────────────────
-☐ L'output de l'étape précédente est-il complet ?
-☐ L'output a-t-il été validé (par l'utilisateur ou un critère automatique) ?
-☐ Le context packet est-il renseigné ?
-☐ Les contraintes spécifiques de l'agent suivant sont-elles précisées ?
-☐ Le format de sortie attendu est-il défini ?
+☐ Is the previous step's output complete?
+☐ Has the output been validated (by the user or an automatic criterion)?
+☐ Is the context packet filled in?
+☐ Are the next agent's specific constraints specified?
+☐ Is the expected output format defined?
 ```
 
 ---
 
-## Prompt de transfert — Template prêt à l'emploi
+## Handoff prompt — Ready-to-use template
 
 ```
-Tu es [NOM AGENT].
-Lis attentivement le contexte ci-dessous avant d'agir.
+You are [AGENT NAME].
+Read the context below carefully before acting.
 
-## CONTEXTE GLOBAL DU WORKFLOW
-- Workflow : [NOM DU WORKFLOW]
-- Client : [SECTEUR / TAILLE]
-- Objectif final : [RÉSULTAT ATTENDU]
-- Méthodologie : [SCRUM / SAFE / HYBRIDE]
-- Contraintes : [RGPD / DÉLAI / BUDGET]
+## OVERALL WORKFLOW CONTEXT
+- Workflow: [WORKFLOW NAME]
+- Client: [INDUSTRY / SIZE]
+- Final goal: [EXPECTED RESULT]
+- Methodology: [SCRUM / SAFE / HYBRID]
+- Constraints: [GDPR / DEADLINE / BUDGET]
 
-## ÉTAPES PRÉCÉDENTES COMPLÉTÉES
-[AGENT X] a produit :
+## COMPLETED PREVIOUS STEPS
+[AGENT X] produced:
 ---
-[OUTPUT DE L'ÉTAPE PRÉCÉDENTE]
+[OUTPUT OF THE PREVIOUS STEP]
 ---
 
-## TA MISSION POUR CETTE ÉTAPE
-- Input : [CE QUE TU DOIS UTILISER]
-- Output attendu : [CE QUE TU DOIS PRODUIRE]
-- Format : [MARKDOWN / YAML / TABLEAU JIRA]
-- Contrainte spécifique : [EX. MAX 8 US / FORMAT INVEST]
+## YOUR MISSION FOR THIS STEP
+- Input: [WHAT YOU MUST USE]
+- Expected output: [WHAT YOU MUST PRODUCE]
+- Format: [MARKDOWN / YAML / JIRA TABLE]
+- Specific constraint: [e.g. MAX 8 US / INVEST FORMAT]
 
-Confirme que tu as bien compris le contexte, puis produis l'output demandé.
+Confirm that you understood the context, then produce the requested output.
 ```
 
 ---
 
-## Gestion de l'état du workflow (State Management)
+## Workflow state management
 
 ```yaml
 workflow_state:
   id: "WF-001"
-  statut: "en_cours"  # démarré / en_cours / en_attente / complété / en_erreur
-  etape_courante: 2
-  total_etapes: 5
+  status: "in_progress"  # started / in_progress / waiting / completed / error
+  current_step: 2
+  total_steps: 5
   
-  etapes:
+  steps:
     - id: 1
       agent: "BUSINESS-ANALYST"
-      statut: "complété"
-      output_valide: true
+      status: "completed"
+      output_valid: true
       timestamp: "2026-05-22T09:30:00"
     
     - id: 2
       agent: "PO-SCRUM"
-      statut: "en_cours"
-      output_valide: false
+      status: "in_progress"
+      output_valid: false
       timestamp: "2026-05-22T09:45:00"
     
     - id: 3
       agent: "UX-DESIGNER"
-      statut: "en_attente"
-      output_valide: null
+      status: "waiting"
+      output_valid: null
       timestamp: null
 ```
 
-## Livrables
-- Context Packet renseigné pour chaque transfert
-- État du workflow mis à jour à chaque étape
-- Historique des outputs validés
-- Prompts de transfert prêts à copier-coller
+## Deliverables
+- Context Packet filled in for each handoff
+- Workflow state updated at each step
+- History of validated outputs
+- Handoff prompts ready to copy-paste
 
-## Format de sortie
-Précise : étape en cours, agent producteur, agent consommateur, outputs à transmettre, format de sortie attendu.
+## Output format
+Specify: the current step, producer agent, consumer agent, outputs to pass on, expected output format.
 
 ## Anti-patterns
-- ❌ **Tout transmettre** sans filtrage : surcharge de contexte, coût et perte de focus → ne passer que l'utile (cf. règles de filtrage)
-- ❌ **Transmettre des brouillons non validés** : propagation d'erreurs en aval → checklist de validation avant transfert
-- ❌ **Pas de state management persisté** : reprise impossible après une erreur → état du workflow sauvegardé
-- ❌ **PII transmise sans filtrage** à l'agent suivant : risque RGPD → filtrage des données personnelles
-- ❌ **Contexte non structuré** (texte libre cumulé) : l'agent suivant ne sait pas quoi prioriser → context packet formaté
+- ❌ **Passing everything** with no filtering: context overload, cost, and loss of focus → pass only what's useful (see filtering rules)
+- ❌ **Passing unvalidated drafts**: downstream error propagation → validation checklist before handoff
+- ❌ **No persisted state management**: recovery impossible after an error → saved workflow state
+- ❌ **PII passed without filtering** to the next agent: GDPR risk → filter personal data
+- ❌ **Unstructured context** (accumulated free text): the next agent doesn't know what to prioritize → formatted context packet
 
 ## Sources
-- **Anthropic — Building Effective Agents** (anthropic.com/engineering, déc. 2024) — passage de contexte entre étapes
-- **Model Context Protocol** — modelcontextprotocol.io (transport et partage de contexte structuré)
+- **Anthropic — Building Effective Agents** (anthropic.com/engineering, Dec. 2024) — context passing between steps
+- **Model Context Protocol** — modelcontextprotocol.io (transport and sharing of structured context)
 
-## Voir aussi
-- [`workflow-design.md`](workflow-design.md) — séquençage des étapes alimentant le handoff
-- [`error-recovery.md`](error-recovery.md) — reprise sur état persisté
-- [`workflow-monitoring.md`](workflow-monitoring.md) — suivi de l'état du workflow
-- [`mcp-orchestration.md`](mcp-orchestration.md) — partage de contexte via MCP
+## See also
+- [`workflow-design.md`](workflow-design.md) — sequencing of the steps feeding the handoff
+- [`error-recovery.md`](error-recovery.md) — recovery from persisted state
+- [`workflow-monitoring.md`](workflow-monitoring.md) — workflow state tracking
+- [`mcp-orchestration.md`](mcp-orchestration.md) — context sharing via MCP

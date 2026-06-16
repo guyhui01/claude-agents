@@ -1,171 +1,171 @@
-# Skill — Gestion des Erreurs, Fallbacks et Reprises de Workflow
-> Certifications : ITIL 4 Foundation (Axelos), PMP (PMI), AWS Certified Solutions Architect (Amazon), PRINCE2 Practitioner (Axelos)
+# Skill — Error Handling, Fallbacks, and Workflow Recovery
+> Certifications: ITIL 4 Foundation (Axelos), PMP (PMI), AWS Certified Solutions Architect (Amazon), PRINCE2 Practitioner (Axelos)
 
-## Objectif
-Détecter, qualifier et traiter les erreurs survenant dans un workflow agentique — output insuffisant, agent bloqué, contexte manquant — et reprendre l'exécution sans perdre le travail accompli.
+## Objective
+Detect, qualify, and handle errors that occur in an agentic workflow — insufficient output, blocked agent, missing context — and resume execution without losing the work already done.
 
-## Taxonomie des erreurs
+## Error taxonomy
 
 ```
-TYPE 1 — ERREUR D'OUTPUT
-  L'agent a produit un résultat incomplet, hors format ou non conforme
-  → Action : reformuler le prompt et relancer l'étape
+TYPE 1 — OUTPUT ERROR
+  The agent produced an incomplete, off-format, or non-compliant result
+  → Action: rephrase the prompt and re-run the step
 
-TYPE 2 — ERREUR DE CONTEXTE
-  L'agent manque d'informations pour accomplir sa tâche
-  → Action : enrichir le context packet et relancer
+TYPE 2 — CONTEXT ERROR
+  The agent lacks information to complete its task
+  → Action: enrich the context packet and re-run
 
-TYPE 3 — ERREUR DE ROUTAGE
-  Le mauvais agent a été sélectionné pour la tâche
-  → Action : router vers l'agent correct sans perdre le contexte
+TYPE 3 — ROUTING ERROR
+  The wrong agent was selected for the task
+  → Action: route to the correct agent without losing the context
 
-TYPE 4 — ERREUR DE DÉPENDANCE
-  L'étape précédente n'est pas complétée ou validée
-  → Action : bloquer l'étape courante et résoudre la dépendance
+TYPE 4 — DEPENDENCY ERROR
+  The previous step is not completed or validated
+  → Action: block the current step and resolve the dependency
 
-TYPE 5 — ERREUR MÉTIER
-  L'output est techniquement correct mais ne correspond pas au besoin réel
-  → Action : clarifier le besoin avec l'utilisateur et repartir de l'étape concernée
+TYPE 5 — BUSINESS ERROR
+  The output is technically correct but doesn't match the real need
+  → Action: clarify the need with the user and restart from the step concerned
 ```
 
 ---
 
-## Matrice de traitement des erreurs
+## Error handling matrix
 
-| Type | Détection | Priorité | Action immédiate | Fallback |
+| Type | Detection | Priority | Immediate action | Fallback |
 |---|---|---|---|---|
-| Output incomplet | Critères de validation non remplis | Haute | Relancer avec prompt enrichi | Agent alternatif |
-| Contexte manquant | Agent signale manque d'info | Haute | Enrichir context packet | Poser 1 question à l'utilisateur |
-| Mauvais routage | Output hors périmètre agent | Moyenne | Router vers agent correct | Requalifier la demande |
-| Dépendance manquante | Étape précédente non validée | Critique | Bloquer et résoudre | Workflow séquentiel forcé |
-| Erreur métier | Utilisateur invalide le livrable | Haute | Clarifier le besoin | Reprendre depuis étape concernée |
+| Incomplete output | Validation criteria not met | High | Re-run with enriched prompt | Alternative agent |
+| Missing context | Agent reports missing info | High | Enrich context packet | Ask the user 1 question |
+| Wrong routing | Output outside agent's scope | Medium | Route to the correct agent | Requalify the request |
+| Missing dependency | Previous step not validated | Critical | Block and resolve | Forced sequential workflow |
+| Business error | User invalidates the deliverable | High | Clarify the need | Restart from the step concerned |
 
 ---
 
-## Template — Rapport d'erreur
+## Template — Error report
 
 ```yaml
-erreur:
+error:
   id: "ERR-WF001-STEP02-001"
   workflow_id: "WF-001"
-  etape: "STEP-02 — PO-SCRUM"
-  type: "output_incomplet"
+  step: "STEP-02 — PO-SCRUM"
+  type: "incomplete_output"
   timestamp: "2026-05-22T10:15:00"
   
   description: |
-    L'agent PO-SCRUM a produit 3 User Stories au lieu des 8 attendues.
-    Les critères d'acceptation sont absents sur 2 US.
+    The PO-SCRUM agent produced 3 User Stories instead of the 8 expected.
+    Acceptance criteria are missing on 2 US.
   
-  criteres_non_remplis:
-    - "Nombre d'US < 8"
-    - "Critères d'acceptation manquants sur US-02 et US-03"
+  unmet_criteria:
+    - "Number of US < 8"
+    - "Acceptance criteria missing on US-02 and US-03"
   
-  action_corrective:
-    type: "relancer_avec_prompt_enrichi"
+  corrective_action:
+    type: "rerun_with_enriched_prompt"
     instructions: |
-      Compléter les 5 US manquantes en respectant le format INVEST.
-      Ajouter les critères d'acceptation au format Gherkin sur toutes les US.
+      Complete the 5 missing US following the INVEST format.
+      Add acceptance criteria in Gherkin format on all US.
     agent: "PO-SCRUM"
     
   fallback:
-    condition: "Si l'agent échoue à nouveau après 2 tentatives"
-    action: "Escalader à l'utilisateur pour arbitrage"
+    condition: "If the agent fails again after 2 attempts"
+    action: "Escalate to the user for arbitration"
 ```
 
 ---
 
-## Stratégies de reprise
+## Recovery strategies
 
-### Reprise partielle (reprise à l'étape en erreur)
+### Partial recovery (resume at the failed step)
 ```
 WF : [STEP-01 ✓] → [STEP-02 ✗] → [STEP-03 ⏸] → [STEP-04 ⏸]
                          │
-                    REPRISE ICI
-                    (context conservé des étapes précédentes)
+                    RESUME HERE
+                    (context kept from previous steps)
 ```
 
-### Reprise complète (si contexte corrompu)
+### Full recovery (if context is corrupted)
 ```
-WF : [STEP-01 ✓] → [STEP-02 ✗] → RESET COMPLET
+WF : [STEP-01 ✓] → [STEP-02 ✗] → FULL RESET
                          │
-              Conserver uniquement :
-              - Contexte client global
-              - Contraintes non négociables
-              - Outputs validés des étapes avant STEP-02
+              Keep only:
+              - Overall client context
+              - Non-negotiable constraints
+              - Validated outputs of steps before STEP-02
 ```
 
-### Reprise avec agent alternatif
+### Recovery with an alternative agent
 ```
-STEP-02 : PO-SCRUM → ✗ (2 tentatives échouées)
+STEP-02 : PO-SCRUM → ✗ (2 failed attempts)
         ↓
-STEP-02 : BUSINESS-ANALYST → reformulation du besoin
+STEP-02 : BUSINESS-ANALYST → reframe the need
         ↓
-STEP-02 : PO-SCRUM → relance avec meilleur contexte
+STEP-02 : PO-SCRUM → re-run with better context
 ```
 
 ---
 
-## Checklist de validation d'un output
+## Output validation checklist
 
 ```
-VALIDATION OUTPUT — [NOM AGENT] — [ÉTAPE]
+OUTPUT VALIDATION — [AGENT NAME] — [STEP]
 ─────────────────────────────────────────────────
-☐ Le format demandé est respecté (YAML / Markdown / Tableau)
-☐ Le volume attendu est atteint (ex. 8 US / 5 risques / 3 wireframes)
-☐ Tous les champs obligatoires sont renseignés
-☐ Le vocabulaire métier correct est utilisé (SAFe / Scrum / PMI)
-☐ L'output est directement utilisable (prêt à copier dans Jira / Confluence)
-☐ Aucune contradiction avec le contexte global du workflow
-☐ L'utilisateur a validé (si étape critique)
+☐ The requested format is respected (YAML / Markdown / Table)
+☐ The expected volume is reached (e.g. 8 US / 5 risks / 3 wireframes)
+☐ All mandatory fields are filled in
+☐ The correct business vocabulary is used (SAFe / Scrum / PMI)
+☐ The output is directly usable (ready to paste into Jira / Confluence)
+☐ No contradiction with the workflow's overall context
+☐ The user has validated (if critical step)
 ```
 
 ---
 
-## Escalade à l'utilisateur
+## Escalation to the user
 
-Escalader systématiquement si :
-- 2 tentatives de correction échouées sur la même étape
-- Ambiguïté sur le besoin métier réel (non résolvable par l'agent)
-- Décision impactant le périmètre ou le budget du workflow
-- Output contradictoire avec les étapes précédentes validées
+Always escalate if:
+- 2 failed correction attempts on the same step
+- Ambiguity about the real business need (not resolvable by the agent)
+- A decision impacting the scope or budget of the workflow
+- An output contradicting validated previous steps
 
 ```
-MESSAGE D'ESCALADE
+ESCALATION MESSAGE
 ──────────────────────────────────────────────────────
-⚠ Blocage sur [ÉTAPE] — [NOM AGENT]
+⚠ Blocker on [STEP] — [AGENT NAME]
 
-Problème : [description en 1 phrase]
-Tentatives : 2 relances effectuées sans succès
-Besoin : [question précise à l'utilisateur]
+Problem: [description in 1 sentence]
+Attempts: 2 re-runs performed without success
+Need: [precise question to the user]
 
-Options proposées :
-  A. [Option 1 avec conséquences]
-  B. [Option 2 avec conséquences]
-  C. Modifier le périmètre du workflow
+Proposed options:
+  A. [Option 1 with consequences]
+  B. [Option 2 with consequences]
+  C. Change the workflow scope
 ```
 
-## Livrables
-- Rapport d'erreur structuré (YAML)
-- Plan de reprise documenté
-- Historique des tentatives de correction
-- Décision d'escalade si applicable
+## Deliverables
+- Structured error report (YAML)
+- Documented recovery plan
+- History of correction attempts
+- Escalation decision if applicable
 
-## Format de sortie
-Précise : étape en erreur, type d'erreur, outputs partiels déjà produits, contraintes de reprise.
+## Output format
+Specify: the failed step, error type, partial outputs already produced, recovery constraints.
 
 ## Anti-patterns
-- ❌ **Retry infini sans backoff ni plafond** : « thundering herd », coûts → backoff exponentiel + jitter + nombre d'essais borné
-- ❌ **Pas de taxonomie d'erreur** : traitement uniforme inadapté → distinguer transitoire / contenu / système / métier
-- ❌ **Échec silencieux** (erreur avalée) : workflow incohérent → log + statut `en_erreur` explicite
-- ❌ **Pas de point de reprise (checkpoint)** : tout rejouer depuis le début → reprise sur état persisté (cf. `context-handoff.md`)
-- ❌ **Aucune escalade humaine** sur erreur critique : boucle bloquée → seuil d'escalade défini
+- ❌ **Infinite retry with no backoff or cap**: "thundering herd," costs → exponential backoff + jitter + bounded attempt count
+- ❌ **No error taxonomy**: unsuitable uniform handling → distinguish transient / content / system / business
+- ❌ **Silent failure** (swallowed error): inconsistent workflow → log + explicit `error` status
+- ❌ **No checkpoint**: replay everything from the start → recovery from persisted state (see `context-handoff.md`)
+- ❌ **No human escalation** on critical error: stuck loop → defined escalation threshold
 
 ## Sources
-- **Anthropic — Building Effective Agents** (anthropic.com/engineering, déc. 2024) — pattern evaluator-optimizer (boucle de correction)
-- **ITIL 4** (Axelos) — gestion des incidents et reprise · patterns **retry / circuit breaker / dead-letter queue**
+- **Anthropic — Building Effective Agents** (anthropic.com/engineering, Dec. 2024) — evaluator-optimizer pattern (correction loop)
+- **ITIL 4** (Axelos) — incident management and recovery · **retry / circuit breaker / dead-letter queue** patterns
 
-## Voir aussi
-- [`context-handoff.md`](context-handoff.md) — reprise sur état du workflow persisté
-- [`output-validation.md`](output-validation.md) — détection d'output invalide déclenchant la reprise
-- [`workflow-monitoring.md`](workflow-monitoring.md) — alerting sur erreurs
-- [`trigger-management.md`](trigger-management.md) — événements d'interruption
+## See also
+- [`context-handoff.md`](context-handoff.md) — recovery from persisted workflow state
+- [`output-validation.md`](output-validation.md) — invalid-output detection triggering recovery
+- [`workflow-monitoring.md`](workflow-monitoring.md) — alerting on errors
+- [`trigger-management.md`](trigger-management.md) — interruption events

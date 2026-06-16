@@ -4,7 +4,7 @@
     "name": "claude-agents",
     "version": "v3.26.2"
   },
-  "generatedAt": "2026-06-15T19:06:09.844Z",
+  "generatedAt": "2026-06-16T13:29:57.454Z",
   "assets": [
     {
       "id": "AGENT-AI-ARCHITECT",
@@ -76,7 +76,7 @@
       "type": "agent",
       "path": "AGENT-FINANCIAL-ANALYST.md",
       "title": "Financial Analyst Expert",
-      "description": "Analyse financière — business case IA, ROI transformation digitale, budget projets, reporting CODIR, scoring investissements",
+      "description": "Financial analysis — AI business case, digital transformation ROI, project budgeting, executive-committee reporting, investment scoring",
       "catalogVersion": "v3.26.2",
       "source": {
         "file": "AGENT-FINANCIAL-ANALYST.md",

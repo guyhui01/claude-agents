@@ -1,111 +1,111 @@
-# Skill — Gestion Budgétaire des Projets IT/IA
-> Certifications : PMP (PMI), DSCG (France), CMA (IMA), PMI-PBA (PMI)
-> Agent : AGENT-FINANCIAL-ANALYST.md
-> Référentiels : **PMBOK 7** (PMI 2021 — *Cost Management*) · distinction **CAPEX/OPEX** (cadre comptable) · **EVM** (variance analysis) · réserve de contingence (PMI)
+# Skill — IT/AI Project Budget Management
+> Certifications: PMP (PMI), DSCG (France), CMA (IMA), PMI-PBA (PMI)
+> Agent: AGENT-FINANCIAL-ANALYST.md
+> Frameworks: **PMBOK 7** (PMI 2021 — *Cost Management*) · **CAPEX/OPEX** distinction (accounting framework) · **EVM** (variance analysis) · contingency reserve (PMI)
 
-## Objectif
-Construire, suivre et piloter le budget d'un projet IT/IA — décomposition CAPEX/OPEX, suivi de consommation, variance analysis, reporting mensuel — pour maintenir le projet dans l'enveloppe validée.
+## Objective
+Build, track, and steer the budget of an IT/AI project — CAPEX/OPEX breakdown, spend tracking, variance analysis, monthly reporting — to keep the project within the validated envelope.
 
-## Budget projet — Template WBS financier
+## Project budget — Financial WBS template
 
 ```yaml
-budget_projet:
-  nom: "Projet RH IA — Module Scoring"
-  version: "v1.2 — Validé Steering Committee"
-  date_validation: "2026-04-01"
-  sponsor: "DSI / DRH"
-  chef_projet: "Guy HUI-BON-HOA"
+project_budget:
+  name: "AI HR Project — Scoring Module"
+  version: "v1.2 — Validated by Steering Committee"
+  validation_date: "2026-04-01"
+  sponsor: "CIO / CHRO"
+  project_manager: "Guy HUI-BON-HOA"
   
-  enveloppe_totale: 300_000  # €
+  total_envelope: 300_000  # €
   
   capex:
-    developpement_interne:
-      jours_hommes: 150
-      tjm_moyen: 900
+    internal_development:
+      person_days: 150
+      avg_day_rate: 900
       total: 135_000
       
-    prestataires_externes:
-      integration_sirh: 45_000
-      expertise_ia: 30_000
+    external_vendors:
+      hris_integration: 45_000
+      ai_expertise: 30_000
       total: 75_000
       
-    licences_outils:
+    tool_licenses:
       anthropic_api: 12_000
-      infrastructure_cloud: 18_000
+      cloud_infrastructure: 18_000
       total: 30_000
       
     total_capex: 240_000
     
-  opex_annuel:
+  annual_opex:
     maintenance_evolution: 30_000
     infrastructure: 18_000
     support: 12_000
     total_opex: 60_000
 ```
 
-## Suivi budgétaire — Tableau de bord mensuel
+## Budget tracking — Monthly dashboard
 
-| Poste | Budget | Engagé | Consommé | Reste | % Conso | Statut |
+| Line item | Budget | Committed | Spent | Remaining | % Spent | Status |
 |---|---|---|---|---|---|---|
-| Dev interne | 135 000 | 135 000 | 94 500 | 40 500 | 70% | ✅ On track |
-| Prestataires | 75 000 | 75 000 | 60 000 | 15 000 | 80% | ⚠ Surveiller |
-| Licences | 30 000 | 30 000 | 21 000 | 9 000 | 70% | ✅ On track |
-| Réserve risques | 20 000 | 5 000 | 5 000 | 15 000 | 25% | ✅ |
-| **TOTAL** | **260 000** | **245 000** | **180 500** | **79 500** | **69%** | **✅** |
+| Internal dev | 135,000 | 135,000 | 94,500 | 40,500 | 70% | ✅ On track |
+| Vendors | 75,000 | 75,000 | 60,000 | 15,000 | 80% | ⚠ Watch |
+| Licenses | 30,000 | 30,000 | 21,000 | 9,000 | 70% | ✅ On track |
+| Risk reserve | 20,000 | 5,000 | 5,000 | 15,000 | 25% | ✅ |
+| **TOTAL** | **260,000** | **245,000** | **180,500** | **79,500** | **69%** | **✅** |
 
-## Variance Analysis — Template mensuel
+## Variance Analysis — Monthly template
 
 ```
-BUDGET REPORTING — [NOM PROJET] — [MOIS]
+BUDGET REPORTING — [PROJECT NAME] — [MONTH]
 ══════════════════════════════════════════════════════════
 
-SYNTHÈSE FINANCIÈRE
+FINANCIAL SUMMARY
 ─────────────────────────────────────────────────────────
-Budget total    : 260 000 €
-Engagé          : 245 000 € (94%)
-Consommé M5     : 180 500 € (69%)
-Prévision fin   : 255 000 € (−5 000 € vs budget)
+Total budget    : €260,000
+Committed       : €245,000 (94%)
+Spent M5        : €180,500 (69%)
+End forecast    : €255,000 (−€5,000 vs. budget)
 
-VARIANCES SIGNIFICATIVES
+SIGNIFICANT VARIANCES
 ─────────────────────────────────────────────────────────
-Prestataires    : +8 000 € vs plan
-  Cause    : Complexité intégration API SIRH > estimée
-  Action   : Négociation forfait fixe Sprint 3 (J+3)
-  Impact   : Budget absorbé dans réserve risques
+Vendors         : +€8,000 vs. plan
+  Cause   : HRIS API integration complexity > estimated
+  Action  : Fixed-price negotiation Sprint 3 (D+3)
+  Impact  : Budget absorbed by the risk reserve
 
-Dev interne     : −12 000 € vs plan (en avance)
-  Cause    : Réutilisation composants existants
-  Action   : Aucune — économie bienvenue
+Internal dev    : −€12,000 vs. plan (ahead)
+  Cause   : Reuse of existing components
+  Action  : None — welcome saving
 
-PRÉVISION FIN DE PROJET
+PROJECT-END FORECAST
 ─────────────────────────────────────────────────────────
-Scénario réaliste : 255 000 € (−5 000 € vs budget) ✅
-Scénario risque   : 270 000 € (+10 000 €) si tests > estimés
+Realistic scenario : €255,000 (−€5,000 vs. budget) ✅
+Risk scenario      : €270,000 (+€10,000) if testing > estimated
 ```
 
-## Livrables
-- Budget WBS financier complet (YAML / Excel)
-- Tableau de bord consommation mensuel
+## Deliverables
+- Complete financial WBS budget (YAML / Excel)
+- Monthly spend dashboard
 - Variance analysis
-- Rapport financier Steering Committee
+- Steering Committee financial report
 
-## Format de sortie
-Précise : postes budgétaires identifiés, montants engagés vs consommés, écarts constatés, date de clôture prévisionnelle.
+## Output format
+Specify: identified budget line items, committed vs. spent amounts, observed variances, forecast closing date.
 
 ## Anti-patterns
-- ❌ **Budget sans réserve de contingence** : aucune marge pour les risques identifiés
-- ❌ **Confondre engagé et consommé** : un poste engagé à 100% peut n'être consommé qu'à 60%
-- ❌ **Confondre CAPEX et OPEX** : impacte la fiscalité et l'amortissement
-- ❌ **Pas de variance analysis** : constater l'écart sans en expliquer la cause ni l'action
-- ❌ **Budget figé sans re-forecast** : ne pas réviser la prévision de fin en cours de projet
+- ❌ **Budget with no contingency reserve**: no margin for identified risks
+- ❌ **Confusing committed and spent**: a line committed at 100% may only be 60% spent
+- ❌ **Confusing CAPEX and OPEX**: affects taxation and amortization
+- ❌ **No variance analysis**: observing the variance without explaining its cause or action
+- ❌ **Frozen budget with no re-forecast**: not revising the end forecast mid-project
 
 ## Sources
-- **PMBOK 7** (PMI 2021) — *Cost Management* / planification budgétaire
-- **EVM** — *ANSI/EIA-748 rév. D* (SAE 2019) — variance analysis (cf. `reporting-financier.md`)
-- Cadre comptable **CAPEX/OPEX** (immobilisations vs charges)
+- **PMBOK 7** (PMI 2021) — *Cost Management* / budget planning
+- **EVM** — *ANSI/EIA-748 rev. D* (SAE 2019) — variance analysis (see `reporting-financier.md`)
+- **CAPEX/OPEX** accounting framework (fixed assets vs. expenses)
 
-## Voir aussi
-- [`reporting-financier.md`](reporting-financier.md) — EVM et reporting CODIR du budget
-- [`business-case-ia.md`](business-case-ia.md) — budget issu du business case
-- [`cost-benefit-analysis.md`](cost-benefit-analysis.md) — TCO alimentant le budget
-- [`../chef_projet_ia/evm-valeur-acquise.md`](../chef_projet_ia/evm-valeur-acquise.md) — pilotage valeur acquise
+## See also
+- [`reporting-financier.md`](reporting-financier.md) — EVM and executive-committee budget reporting
+- [`business-case-ia.md`](business-case-ia.md) — budget derived from the business case
+- [`cost-benefit-analysis.md`](cost-benefit-analysis.md) — TCO feeding the budget
+- [`../chef_projet_ia/evm-valeur-acquise.md`](../chef_projet_ia/evm-valeur-acquise.md) — earned value management

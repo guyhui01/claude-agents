@@ -1,146 +1,146 @@
-# Skill — Analyse Coût/Bénéfice et TCO
-> Certifications : CFA Level I (CFA Institute), CMA (IMA), PMI-PBA (PMI), FRM (GARP)
-> Agent : AGENT-FINANCIAL-ANALYST.md
-> Référentiels : **TCO** (Gartner) · **NPV/VAN & IRR/TRI** (Brealey, Myers & Allen — *Principles of Corporate Finance*) · **DCF** (flux actualisés) · comparaison Build/Buy/Cloud
+# Skill — Cost/Benefit Analysis and TCO
+> Certifications: CFA Level I (CFA Institute), CMA (IMA), PMI-PBA (PMI), FRM (GARP)
+> Agent: AGENT-FINANCIAL-ANALYST.md
+> Frameworks: **TCO** (Gartner) · **NPV & IRR** (Brealey, Myers & Allen — *Principles of Corporate Finance*) · **DCF** (discounted cash flows) · Build/Buy/Cloud comparison
 
-## Objectif
-Réaliser une analyse coût/bénéfice complète et calculer le TCO (Total Cost of Ownership) d'une solution IT/IA — comparaison build vs buy vs cloud, analyse sur 3-5 ans — pour guider les décisions d'investissement.
+## Objective
+Perform a complete cost/benefit analysis and calculate the TCO (Total Cost of Ownership) of an IT/AI solution — build vs. buy vs. cloud comparison, 3-5 year analysis — to guide investment decisions.
 
-## TCO — Build vs Buy vs Cloud
+## TCO — Build vs. Buy vs. Cloud
 
 ```yaml
 tco_comparison:
-  solution: "Plateforme IA RH"
-  horizon_ans: 3
+  solution: "AI HR Platform"
+  horizon_years: 3
   
   option_build:
-    description: "Développement sur mesure"
-    investissement_initial:
-      dev_equipe_interne: 200_000
+    description: "Custom development"
+    initial_investment:
+      internal_team_dev: 200_000
       architecture: 40_000
       total: 240_000
-    couts_annuels:
+    annual_costs:
       maintenance: 45_000
       infrastructure: 25_000
       evolution: 30_000
       total: 100_000
-    tco_3ans: 540_000
-    avantages: ["Contrôle total", "Différenciation", "Données en interne"]
-    risques: ["Délai > 12 mois", "Dépendance équipe", "Coût réel souvent × 1.5"]
+    tco_3yr: 540_000
+    advantages: ["Full control", "Differentiation", "Data in-house"]
+    risks: ["Lead time > 12 months", "Team dependency", "Real cost often × 1.5"]
     
   option_buy:
-    description: "Solution éditeur (SaaS)"
-    investissement_initial:
+    description: "Vendor solution (SaaS)"
+    initial_investment:
       implementation: 30_000
-      formation: 15_000
+      training: 15_000
       total: 45_000
-    couts_annuels:
-      licence: 80_000
+    annual_costs:
+      license: 80_000
       support: 12_000
       total: 92_000
-    tco_3ans: 321_000
-    avantages: ["Time-to-market 3 mois", "Mises à jour incluses", "Support éditeur"]
-    risques: ["Dépendance éditeur", "Moins de personnalisation", "Coût licence croissant"]
+    tco_3yr: 321_000
+    advantages: ["Time-to-market 3 months", "Updates included", "Vendor support"]
+    risks: ["Vendor lock-in", "Less customization", "Rising license cost"]
     
   option_cloud_native:
-    description: "API LLM (Anthropic/OpenAI) + dev léger"
-    investissement_initial:
-      dev_integration: 60_000
-      formation: 10_000
+    description: "LLM API (Anthropic/OpenAI) + light dev"
+    initial_investment:
+      integration_dev: 60_000
+      training: 10_000
       total: 70_000
-    couts_annuels:
+    annual_costs:
       api_usage: 36_000  # volume-based
       maintenance: 20_000
       total: 56_000
-    tco_3ans: 238_000
-    avantages: ["Flexibilité maximale", "Coût proportionnel à l'usage", "Innovation continue"]
-    risques: ["Dépendance provider IA", "Coûts variables", "RGPD à gérer"]
+    tco_3yr: 238_000
+    advantages: ["Maximum flexibility", "Usage-proportional cost", "Continuous innovation"]
+    risks: ["AI provider dependency", "Variable costs", "GDPR to manage"]
     
-  recommandation: "Option Cloud Native — TCO le plus faible + flexibilité"
+  recommendation: "Cloud Native option — lowest TCO + flexibility"
 ```
 
-## Analyse coût/bénéfice — NPV/VAN
+## Cost/benefit analysis — NPV
 
 ```python
-def calculer_van(
-    flux_nets_annuels: list,  # [an1, an2, an3, ...]
-    investissement_initial: float,
-    taux_actualisation: float = 0.10  # 10% standard
+def calculate_npv(
+    net_annual_flows: list,  # [year1, year2, year3, ...]
+    initial_investment: float,
+    discount_rate: float = 0.10  # 10% standard
 ) -> float:
     
-    van = -investissement_initial
-    for annee, flux in enumerate(flux_nets_annuels, 1):
-        van += flux / (1 + taux_actualisation) ** annee
-    return round(van)
+    npv = -initial_investment
+    for year, flow in enumerate(net_annual_flows, 1):
+        npv += flow / (1 + discount_rate) ** year
+    return round(npv)
 
-# EXEMPLE — Option Cloud Native
-flux = [520_000 - 56_000, 520_000 - 56_000, 520_000 - 56_000]  # bénéfices - OPEX
-van = calculer_van(flux, investissement_initial=70_000, taux_actualisation=0.10)
-# VAN = 975 000 € → Investissement très attractif
+# EXAMPLE — Cloud Native option
+flows = [520_000 - 56_000, 520_000 - 56_000, 520_000 - 56_000]  # benefits - OPEX
+npv = calculate_npv(flows, initial_investment=70_000, discount_rate=0.10)
+# NPV = €975,000 → Very attractive investment
 ```
 
-## TRI / IRR — taux de rentabilité interne
+## IRR — internal rate of return
 
-Le **TRI (Taux de Rentabilité Interne / IRR)** est le taux d'actualisation qui annule la VAN.
-Règle de décision : **investir si TRI > coût du capital (WACC)**.
+The **IRR (Internal Rate of Return)** is the discount rate that brings the NPV to zero.
+Decision rule: **invest if IRR > cost of capital (WACC)**.
 
 ```python
-# Sans dépendance : recherche par bisection. (En pratique : numpy_financial.irr)
-def calculer_tri(flux_nets_annuels: list, investissement_initial: float) -> float:
-    def van(taux):
-        v = -investissement_initial
-        for annee, flux in enumerate(flux_nets_annuels, 1):
-            v += flux / (1 + taux) ** annee
+# No dependency: bisection search. (In practice: numpy_financial.irr)
+def calculate_irr(net_annual_flows: list, initial_investment: float) -> float:
+    def npv(rate):
+        v = -initial_investment
+        for year, flow in enumerate(net_annual_flows, 1):
+            v += flow / (1 + rate) ** year
         return v
-    bas, haut = 0.0, 1.0          # 0% à 100%
+    low, high = 0.0, 1.0          # 0% to 100%
     for _ in range(100):          # bisection
-        mid = (bas + haut) / 2
-        if van(mid) > 0: bas = mid
-        else:            haut = mid
+        mid = (low + high) / 2
+        if npv(mid) > 0: low = mid
+        else:            high = mid
     return round(mid * 100, 1)
 
-# EXEMPLE — Option Cloud Native (flux ci-dessus)
-tri = calculer_tri(flux, investissement_initial=70_000)
-# TRI très élevé (flux annuels >> investissement) → bien au-dessus d'un WACC ~10%
+# EXAMPLE — Cloud Native option (flows above)
+irr = calculate_irr(flows, initial_investment=70_000)
+# Very high IRR (annual flows >> investment) → well above a ~10% WACC
 ```
-> Limite : le TRI suppose un réinvestissement des flux au taux du TRI (optimiste). Pour des flux non conventionnels (signes multiples), préférer la **VAN** ou le **TRI modifié (MIRR)**.
+> Limit: the IRR assumes flows are reinvested at the IRR rate (optimistic). For non-conventional flows (multiple sign changes), prefer the **NPV** or the **Modified IRR (MIRR)**.
 
-## Tableau comparatif de décision
+## Decision comparison table
 
-| Critère | Build | Buy | Cloud Native |
+| Criterion | Build | Buy | Cloud Native |
 |---|---|---|---|
-| TCO 3 ans | 540 000 € | 321 000 € | 238 000 € |
-| Time-to-market | 12-18 mois | 3-4 mois | 4-6 mois |
-| Flexibilité | ●●● | ●○○ | ●●● |
-| Risque technique | ●●● | ●○○ | ●●○ |
-| Conformité RGPD | ●●● | ●●○ | ●●○ |
-| **Score global** | **6/10** | **7/10** | **9/10** |
+| 3-year TCO | €540,000 | €321,000 | €238,000 |
+| Time-to-market | 12-18 months | 3-4 months | 4-6 months |
+| Flexibility | ●●● | ●○○ | ●●● |
+| Technical risk | ●●● | ●○○ | ●●○ |
+| GDPR compliance | ●●● | ●●○ | ●●○ |
+| **Overall score** | **6/10** | **7/10** | **9/10** |
 
-## Livrables
-- Analyse TCO sur 3-5 ans (3 options)
-- Calcul VAN / TRI par option
-- Tableau de décision multicritères
-- Recommandation documentée avec justification
+## Deliverables
+- TCO analysis over 3-5 years (3 options)
+- NPV / IRR calculation per option
+- Multi-criteria decision table
+- Documented recommendation with justification
 
-## Format de sortie
-Précise : options à comparer (build/buy/cloud), horizon d'analyse, taux d'actualisation, contraintes RGPD/sécurité.
+## Output format
+Specify: the options to compare (build/buy/cloud), the analysis horizon, the discount rate, GDPR/security constraints.
 
 ## Anti-patterns
-- ❌ **TCO sans coûts cachés** : oublier formation, conduite du changement, dette technique, sortie/réversibilité
-- ❌ **Comparer des options sur des horizons différents** : toujours le même horizon + même taux
-- ❌ **VAN sans justifier le taux d'actualisation** : le taux = coût du capital (WACC), à expliciter
-- ❌ **Ignorer le TRI / le coût du capital** : une VAN positive à 10% peut être négative à 15%
-- ❌ **« Build » sous-estimé** : le coût réel d'un développement interne est souvent × 1,5
-- ❌ **TCO = uniquement le prix de licence** : intégrer exploitation, support, montée de version
+- ❌ **TCO with no hidden costs**: forgetting training, change management, technical debt, exit/reversibility
+- ❌ **Comparing options over different horizons**: always the same horizon + same rate
+- ❌ **NPV with no justification for the discount rate**: the rate = cost of capital (WACC), to make explicit
+- ❌ **Ignoring the IRR / cost of capital**: an NPV positive at 10% may be negative at 15%
+- ❌ **Underestimated "Build"**: the real cost of internal development is often × 1.5
+- ❌ **TCO = license price only**: include operations, support, version upgrades
 
 ## Sources
-- **Gartner** — *Total Cost of Ownership (TCO)* — concept créé par Bill Kirwin (Gartner, 1987), méthodologie de référence du secteur
-- **Brealey R., Myers S., Allen F. & Edmans A.** — *Principles of Corporate Finance*, McGraw-Hill, 14e éd. (2022) — NPV, IRR, DCF
-- **WACC** — coût moyen pondéré du capital (taux d'actualisation)
+- **Gartner** — *Total Cost of Ownership (TCO)* — concept created by Bill Kirwin (Gartner, 1987), the industry's reference methodology
+- **Brealey R., Myers S., Allen F. & Edmans A.** — *Principles of Corporate Finance*, McGraw-Hill, 14th ed. (2022) — NPV, IRR, DCF
+- **WACC** — weighted average cost of capital (discount rate)
 
-## Voir aussi
-- [`business-case-ia.md`](business-case-ia.md) — business case mobilisant VAN/TRI
-- [`roi-transformation.md`](roi-transformation.md) — ROI et payback
-- [`budget-projet.md`](budget-projet.md) — TCO → budget opérationnel
-- [`../consultant_ia/cadrage-poc-ia.md`](../consultant_ia/cadrage-poc-ia.md) — décision build/buy/cloud en cadrage
-- [`../juridique_ia/contrats-ia.md`](../juridique_ia/contrats-ia.md) — réversibilité et coûts de sortie (SaaS)
+## See also
+- [`business-case-ia.md`](business-case-ia.md) — business case using NPV/IRR
+- [`roi-transformation.md`](roi-transformation.md) — ROI and payback
+- [`budget-projet.md`](budget-projet.md) — TCO → operational budget
+- [`../consultant_ia/cadrage-poc-ia.md`](../consultant_ia/cadrage-poc-ia.md) — build/buy/cloud decision in scoping
+- [`../juridique_ia/contrats-ia.md`](../juridique_ia/contrats-ia.md) — reversibility and exit costs (SaaS)

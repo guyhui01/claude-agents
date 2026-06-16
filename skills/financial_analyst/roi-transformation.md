@@ -1,155 +1,155 @@
-# Skill — Calcul ROI Transformation Digitale et IA
-> Certifications : CFA Level I (CFA Institute), CMA (IMA), SAFe LPM (Scaled Agile), PMP (PMI)
-> Agent : AGENT-FINANCIAL-ANALYST.md
-> Référentiels : **ROI · Payback** (Brealey, Myers & Allen) · **Forrester TEI** (Total Economic Impact — valorisation tangibles/intangibles) · **Time-to-Value** · couplage VAN (cf. cost-benefit-analysis)
+# Skill — Digital and AI Transformation ROI Calculation
+> Certifications: CFA Level I (CFA Institute), CMA (IMA), SAFe LPM (Scaled Agile), PMP (PMI)
+> Agent: AGENT-FINANCIAL-ANALYST.md
+> Frameworks: **ROI · Payback** (Brealey, Myers & Allen) · **Forrester TEI** (Total Economic Impact — tangible/intangible valuation) · **Time-to-Value** · NPV coupling (see cost-benefit-analysis)
 
-## Objectif
-Calculer et présenter le ROI d'une transformation digitale ou IA — méthodologie, quantification des gains tangibles et intangibles, Time-to-Value, comparaison de scénarios — pour arbitrer les investissements.
+## Objective
+Calculate and present the ROI of a digital or AI transformation — methodology, quantification of tangible and intangible gains, Time-to-Value, scenario comparison — to arbitrate investments.
 
-## Méthodologie ROI — Framework
+## ROI methodology — Framework
 
 ```
-ROI = (Bénéfices nets / Coûts totaux) × 100
+ROI = (Net benefits / Total costs) × 100
 
-Bénéfices nets = Bénéfices totaux − Coûts totaux
+Net benefits = Total benefits − Total costs
 
-TYPES DE BÉNÉFICES
+TYPES OF BENEFITS
 ────────────────────────────────────────────────────────────
-Tangibles (quantifiables)
-  ✓ Gains de productivité (temps × coût horaire)
-  ✓ Réduction coûts opérationnels
-  ✓ Réduction erreurs et reprises
-  ✓ Augmentation revenus (si applicable)
-  ✓ Réduction coûts de recrutement / turnover
+Tangible (quantifiable)
+  ✓ Productivity gains (time × hourly cost)
+  ✓ Operational cost reduction
+  ✓ Error and rework reduction
+  ✓ Revenue increase (if applicable)
+  ✓ Recruitment / turnover cost reduction
 
-Intangibles (à valoriser)
-  ✓ Satisfaction collaborateurs (CSAT → retention)
-  ✓ Amélioration image employeur
-  ✓ Conformité réglementaire (évitement d'amendes)
-  ✓ Avantage concurrentiel (time-to-market)
+Intangible (to value)
+  ✓ Employee satisfaction (CSAT → retention)
+  ✓ Improved employer brand
+  ✓ Regulatory compliance (fine avoidance)
+  ✓ Competitive advantage (time-to-market)
 ```
 
-## Calcul ROI — Template complet
+## ROI calculation — Complete template
 
 ```python
-# Calculateur ROI Transformation IA
-def calcul_roi(
-    effectif_concerne: int,
-    gain_temps_heures_semaine: float,
-    cout_horaire_moyen: float,
-    semaines_par_an: int = 46,
-    taux_adoption: float = 0.80,
+# AI Transformation ROI calculator
+def calculate_roi(
+    affected_headcount: int,
+    time_saved_hours_week: float,
+    avg_hourly_cost: float,
+    weeks_per_year: int = 46,
+    adoption_rate: float = 0.80,
     
-    cout_developpement: float = 0,
-    cout_infrastructure_annuel: float = 0,
-    cout_formation: float = 0,
-    cout_change_management: float = 0,
+    development_cost: float = 0,
+    annual_infrastructure_cost: float = 0,
+    training_cost: float = 0,
+    change_management_cost: float = 0,
     
-    horizons_ans: list = [1, 2, 3]
+    horizons_years: list = [1, 2, 3]
 ) -> dict:
     
-    # Gain annuel brut
-    gain_annuel_brut = (
-        effectif_concerne
-        * gain_temps_heures_semaine
-        * semaines_par_an
-        * cout_horaire_moyen
-        * taux_adoption
+    # Gross annual gain
+    gross_annual_gain = (
+        affected_headcount
+        * time_saved_hours_week
+        * weeks_per_year
+        * avg_hourly_cost
+        * adoption_rate
     )
     
-    # Coûts
-    investissement_initial = cout_developpement + cout_formation + cout_change_management
-    cout_annuel_recurrent = cout_infrastructure_annuel
+    # Costs
+    initial_investment = development_cost + training_cost + change_management_cost
+    annual_recurring_cost = annual_infrastructure_cost
     
-    resultats = {}
-    for n in horizons_ans:
-        cout_total = investissement_initial + (n * cout_annuel_recurrent)
-        benefice_total = n * gain_annuel_brut
-        roi = ((benefice_total - cout_total) / cout_total) * 100
-        resultats[f"an_{n}"] = {
-            "gain_brut": round(benefice_total),
-            "cout_total": round(cout_total),
+    results = {}
+    for n in horizons_years:
+        total_cost = initial_investment + (n * annual_recurring_cost)
+        total_benefit = n * gross_annual_gain
+        roi = ((total_benefit - total_cost) / total_cost) * 100
+        results[f"year_{n}"] = {
+            "gross_gain": round(total_benefit),
+            "total_cost": round(total_cost),
             "roi_pct": round(roi, 1),
-            "benefice_net": round(benefice_total - cout_total)
+            "net_benefit": round(total_benefit - total_cost)
         }
     
-    # Payback period (en mois)
-    payback_mois = round((investissement_initial / (gain_annuel_brut / 12)), 1)
-    resultats["payback_mois"] = payback_mois
+    # Payback period (in months)
+    payback_months = round((initial_investment / (gross_annual_gain / 12)), 1)
+    results["payback_months"] = payback_months
     
-    return resultats
+    return results
 
-# EXEMPLE — Solution RH IA (90 collaborateurs concernés)
-resultats = calcul_roi(
-    effectif_concerne=90,
-    gain_temps_heures_semaine=2.0,
-    cout_horaire_moyen=60,
-    taux_adoption=0.80,
-    cout_developpement=180_000,
-    cout_infrastructure_annuel=18_000,
-    cout_formation=15_000,
-    cout_change_management=20_000,
+# EXAMPLE — AI HR solution (90 affected employees)
+results = calculate_roi(
+    affected_headcount=90,
+    time_saved_hours_week=2.0,
+    avg_hourly_cost=60,
+    adoption_rate=0.80,
+    development_cost=180_000,
+    annual_infrastructure_cost=18_000,
+    training_cost=15_000,
+    change_management_cost=20_000,
 )
-# gain_annuel_brut = 90 × 2 × 46 × 60 × 0,80 = 397 440 €
-# investissement_initial = 215 000 € · récurrent = 18 000 €/an
-# Résultat : ROI An1=70.6%, An2=216.7%, An3=343.2% | Payback=6.5 mois
+# gross_annual_gain = 90 × 2 × 46 × 60 × 0.80 = €397,440
+# initial_investment = €215,000 · recurring = €18,000/year
+# Result: ROI Y1=70.6%, Y2=216.7%, Y3=343.2% | Payback=6.5 months
 ```
 
-## Valorisation des intangibles
+## Valuing intangibles
 
-| Intangible | Méthode de valorisation | Valeur estimée |
+| Intangible | Valuation method | Estimated value |
 |---|---|---|
-| Réduction turnover RH (+5% retention) | Coût remplacement × postes × taux réduction | 75 000 € / an |
-| Évitement amende IA Act (conformité) | Amende max × probabilité sans projet | 50 000 € (probabilité 10% × 500K€ max) |
-| Gain NPS employeur | Valeur recrutement accéléré | 30 000 € / an |
+| HR turnover reduction (+5% retention) | Replacement cost × positions × reduction rate | €75,000 / year |
+| AI Act fine avoidance (compliance) | Max fine × probability without project | €50,000 (10% probability × €500K max) |
+| Employer NPS gain | Accelerated recruitment value | €30,000 / year |
 
-## Template présentation ROI — CODIR
+## ROI presentation template — Executive committee
 
 ```
-ROI TRANSFORMATION RH IA — Synthèse Directoire
+AI HR TRANSFORMATION ROI — Management Board summary
 ═══════════════════════════════════════════════════════════
 
-INVESTISSEMENT : 233 000 €  (215K initial + 18K récurrent An1)
-ROI AN 1       : 71%   (gain net 164 000 €)
-ROI AN 3       : 343%  (gain net 923 000 €)
-PAYBACK        : 6,5 mois
+INVESTMENT  : €233,000  (215K initial + 18K recurring Y1)
+ROI YEAR 1  : 71%   (net gain €164,000)
+ROI YEAR 3  : 343%  (net gain €923,000)
+PAYBACK     : 6.5 months
 
-GAINS CLÉS
+KEY GAINS
 ─────────────────────────────────────────────────────────
-Productivité      : 90 collaborateurs × 2 h/semaine récupérées
-                    (≈ 397 K€/an, adoption 80%)
-Intangibles       : turnover -5% (75 K€/an), évitement amende
-                    IA Act (50 K€), NPS employeur (30 K€/an)
-Conformité        : AIPD validée CNIL — risque amende maîtrisé
+Productivity     : 90 employees × 2 h/week reclaimed
+                    (≈ €397K/year, 80% adoption)
+Intangibles      : turnover -5% (€75K/year), AI Act fine
+                    avoidance (€50K), employer NPS (€30K/year)
+Compliance       : DPIA validated by CNIL — fine risk under control
 
-RISQUE PRINCIPAL : Adoption 60% (vs 80%) → ROI An3 ~232% (toujours positif)
+MAIN RISK   : 60% adoption (vs. 80%) → Y3 ROI ~232% (still positive)
 ```
 
-## Livrables
-- Calcul ROI documenté (Python / Excel)
-- Scénarios optimiste / réaliste / pessimiste
-- Valorisation intangibles
-- Slide CODIR synthèse 1 page
+## Deliverables
+- Documented ROI calculation (Python / Excel)
+- Optimistic / realistic / pessimistic scenarios
+- Intangible valuation
+- 1-page executive-committee slide
 
-## Format de sortie
-Précise : effectif concerné, gains de temps estimés, coût horaire moyen, coûts projet, horizon d'analyse.
+## Output format
+Specify: the affected headcount, estimated time savings, average hourly cost, project costs, analysis horizon.
 
 ## Anti-patterns
-- ❌ **ROI brut non actualisé** présenté comme une VAN : sur 3 ans, actualiser (cf. `cost-benefit-analysis.md`)
-- ❌ **Ignorer le taux d'adoption** : un ROIcalculé à 100% d'adoption est irréaliste (pondérer)
-- ❌ **Intangibles non valorisés OU survalorisés** sans méthode (utiliser un cadre type Forrester TEI)
-- ❌ **Gains de productivité = 100% convertis en €** : le temps gagné n'est pas toujours réalloué
-- ❌ **Payback sans actualisation** pour les horizons longs (discounted payback)
-- ❌ **Présenter un seul chiffre de ROI** sans fourchette ni scénario pessimiste
+- ❌ **Raw undiscounted ROI** presented as an NPV: over 3 years, discount it (see `cost-benefit-analysis.md`)
+- ❌ **Ignoring the adoption rate**: an ROI calculated at 100% adoption is unrealistic (weight it)
+- ❌ **Intangibles unvalued OR overvalued** with no method (use a framework like Forrester TEI)
+- ❌ **Productivity gains = 100% converted to €**: reclaimed time is not always reallocated
+- ❌ **Payback with no discounting** for long horizons (discounted payback)
+- ❌ **Presenting a single ROI figure** with no range or pessimistic scenario
 
 ## Sources
-- **Brealey R., Myers S., Allen F. & Edmans A.** — *Principles of Corporate Finance*, McGraw-Hill, 14e éd. (2022) — ROI, Payback
-- **Forrester** — *Total Economic Impact™ (TEI)* — valorisation bénéfices + risques + flexibilité ; report fondateur Forrester (2008)
-- **WACC / discounted payback** — pour les horizons longs (couplage VAN)
+- **Brealey R., Myers S., Allen F. & Edmans A.** — *Principles of Corporate Finance*, McGraw-Hill, 14th ed. (2022) — ROI, Payback
+- **Forrester** — *Total Economic Impact™ (TEI)* — benefit + risk + flexibility valuation; founding Forrester report (2008)
+- **WACC / discounted payback** — for long horizons (NPV coupling)
 
-## Voir aussi
-- [`cost-benefit-analysis.md`](cost-benefit-analysis.md) — VAN/TRI (vue actualisée complémentaire du ROI)
-- [`business-case-ia.md`](business-case-ia.md) — ROI intégré au business case + scénarios
-- [`reporting-financier.md`](reporting-financier.md) — restitution CODIR
-- [`../consultant_ia/estimation-roi-rapide.md`](../consultant_ia/estimation-roi-rapide.md) — ROI rapide (cadrage)
-- [`../consultant_ia/transformation-digitale.md`](../consultant_ia/transformation-digitale.md) — transformation IA globale
+## See also
+- [`cost-benefit-analysis.md`](cost-benefit-analysis.md) — NPV/IRR (discounted view complementing ROI)
+- [`business-case-ia.md`](business-case-ia.md) — ROI embedded in the business case + scenarios
+- [`reporting-financier.md`](reporting-financier.md) — executive-committee reporting
+- [`../consultant_ia/estimation-roi-rapide.md`](../consultant_ia/estimation-roi-rapide.md) — quick ROI (scoping)
+- [`../consultant_ia/transformation-digitale.md`](../consultant_ia/transformation-digitale.md) — overall AI transformation

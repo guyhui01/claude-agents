@@ -1,24 +1,24 @@
 # Skill — Product Analytics
-> Certifications : Amplitude Analytics Certified (2026), Mixpanel Certified, Google Analytics 4 Certified, Product Analytics Professional (reforge.com)
+> Certifications: Amplitude Analytics Certified (2026), Mixpanel Certified, Google Analytics 4 Certified, Product Analytics Professional (reforge.com)
 
-## Objectif
-Instrumenter un produit pour comprendre le comportement utilisateur — définition d'un plan de tracking rigoureux, analyse des funnels de conversion, cohort analysis et courbes de rétention pour orienter les décisions produit.
+## Objective
+Instrument a product to understand user behavior — defining a rigorous tracking plan, conversion funnel analysis, cohort analysis, and retention curves to guide product decisions.
 
-## Plan de Tracking — Taxonomy des Événements
+## Tracking Plan — Event Taxonomy
 
-### Naming Convention & Schéma d'événements
+### Naming Convention & Event Schema
 
 ```typescript
-// event-tracking.ts — Taxonomy standardisée
-// Convention : [Noun]_[Verb] en snake_case
+// event-tracking.ts — Standardized taxonomy
+// Convention: [Noun]_[Verb] in snake_case
 
-// Objets (Nouns) : page, cta, feature, form, session, user, subscription
-// Actions (Verbs) : viewed, clicked, started, completed, failed, submitted
+// Objects (Nouns): page, cta, feature, form, session, user, subscription
+// Actions (Verbs): viewed, clicked, started, completed, failed, submitted
 
 interface TrackingEvent {
-  name: string                // Nom de l événement
-  properties: Record<string, unknown>  // Propriétés
-  user_id?: string            // ID utilisateur (si authentifié)
+  name: string                // Event name
+  properties: Record<string, unknown>  // Properties
+  user_id?: string            // User ID (if authenticated)
   anonymous_id: string        // Cookie / device ID
   timestamp: string           // ISO 8601
   context: {
@@ -31,7 +31,7 @@ interface TrackingEvent {
   }
 }
 
-// Types d événements par catégorie
+// Event types by category
 const EVENTS = {
   // Navigation
   PAGE_VIEWED:              "page_viewed",
@@ -41,10 +41,10 @@ const EVENTS = {
   SIGNUP_COMPLETED:         "signup_completed",
   PLAN_SELECTED:            "plan_selected",
 
-  // Activation (valeur reçue)
+  // Activation (value received)
   ONBOARDING_STEP_COMPLETED: "onboarding_step_completed",
   FIRST_PROJECT_CREATED:    "first_project_created",
-  AHA_MOMENT_REACHED:       "aha_moment_reached",    // Moment aha défini par product
+  AHA_MOMENT_REACHED:       "aha_moment_reached",    // Aha moment defined by product
 
   // Engagement features
   FEATURE_USED:             "feature_used",
@@ -52,14 +52,14 @@ const EVENTS = {
   REPORT_GENERATED:         "report_generated",
   COLLABORATION_INVITE_SENT: "collaboration_invite_sent",
 
-  // Monétisation
+  // Monetization
   UPGRADE_CLICKED:          "upgrade_clicked",
   SUBSCRIPTION_STARTED:     "subscription_started",
   SUBSCRIPTION_CANCELLED:   "subscription_cancelled",
   PAYMENT_FAILED:           "payment_failed",
 } as const
 
-// Wrapper analytics unifié (Amplitude + Mixpanel + Segment)
+// Unified analytics wrapper (Amplitude + Mixpanel + Segment)
 class Analytics {
   private amplitude: AmplitudeClient
   private mixpanel: MixpanelClient
@@ -85,12 +85,12 @@ class Analytics {
 }
 ```
 
-## Analyse des Funnels
+## Funnel Analysis
 
-### Funnel d'activation — SQL
+### Activation funnel — SQL
 
 ```sql
--- Funnel sign-up -> activation (Mixpanel/Amplitude/Snowflake)
+-- Sign-up -> activation funnel (Mixpanel/Amplitude/Snowflake)
 WITH funnel AS (
   SELECT
     user_id,
@@ -108,11 +108,11 @@ funnel_steps AS (
     COUNT(project_at)                                     AS created_project,
     COUNT(ai_query_at)                                    AS submitted_query,
     COUNT(aha_at)                                         AS reached_aha,
-    -- Taux par étape
+    -- Rate per step
     ROUND(100.0 * COUNT(project_at)  / COUNT(*), 1)      AS step1_cvr_pct,
     ROUND(100.0 * COUNT(ai_query_at) / COUNT(project_at), 1) AS step2_cvr_pct,
     ROUND(100.0 * COUNT(aha_at)      / COUNT(ai_query_at), 1) AS step3_cvr_pct,
-    -- Temps médian entre étapes
+    -- Median time between steps
     PERCENTILE_CONT(0.5) WITHIN GROUP (
       ORDER BY EXTRACT(EPOCH FROM project_at - signup_at) / 3600
     ) AS median_hours_to_project
@@ -121,7 +121,7 @@ funnel_steps AS (
 )
 SELECT * FROM funnel_steps;
 
--- Segmentation du funnel par source d acquisition
+-- Funnel segmentation by acquisition source
 SELECT
   u.acquisition_source,
   COUNT(DISTINCT f.user_id)                              AS signups,
@@ -133,9 +133,9 @@ GROUP BY u.acquisition_source
 ORDER BY overall_activation_rate DESC;
 ```
 
-## Cohort Analysis & Rétention
+## Cohort Analysis & Retention
 
-### Courbes de rétention — Python
+### Retention curves — Python
 
 ```python
 # retention_analysis.py
@@ -145,22 +145,22 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 def calculate_retention_cohorts(
-    events_df: pd.DataFrame,  # Colonnes: user_id, event_date, event_name
+    events_df: pd.DataFrame,  # Columns: user_id, event_date, event_name
     cohort_event: str = "signup_completed",
     retention_event: str = "feature_used",
-    periods: int = 12,        # Semaines ou mois
+    periods: int = 12,        # Weeks or months
     period_type: str = "week",
 ) -> pd.DataFrame:
-    """Calcule la matrice de rétention par cohorte."""
+    """Compute the retention matrix per cohort."""
 
-    # Cohorte = date de signup
+    # Cohort = signup date
     cohorts = (events_df[events_df["event_name"] == cohort_event]
                .groupby("user_id")["event_date"]
                .min()
                .reset_index()
                .rename(columns={"event_date": "cohort_date"}))
 
-    # Activité
+    # Activity
     activity = (events_df[events_df["event_name"] == retention_event]
                 .groupby("user_id")["event_date"]
                 .min()
@@ -168,7 +168,7 @@ def calculate_retention_cohorts(
 
     df = cohorts.merge(activity, on="user_id", how="left")
 
-    # Calcul de la période
+    # Period calculation
     if period_type == "week":
         df["cohort_period"] = df["cohort_date"].dt.to_period("W")
         df["period_number"] = ((df["event_date"] - df["cohort_date"])
@@ -178,7 +178,7 @@ def calculate_retention_cohorts(
         df["period_number"] = ((df["event_date"].dt.year - df["cohort_date"].dt.year) * 12
                                + df["event_date"].dt.month - df["cohort_date"].dt.month)
 
-    # Matrice de rétention
+    # Retention matrix
     cohort_counts = df.groupby(["cohort_period", "period_number"])["user_id"].nunique()
     cohort_sizes  = cohorts.groupby(cohorts["cohort_date"].dt.to_period(period_type[0].upper()))["user_id"].nunique()
 
@@ -188,7 +188,7 @@ def calculate_retention_cohorts(
     return retention_pct.fillna(0).round(1)
 
 
-def plot_retention_heatmap(retention_df: pd.DataFrame, title: str = "Rétention par cohorte"):
+def plot_retention_heatmap(retention_df: pd.DataFrame, title: str = "Cohort retention"):
     fig, ax = plt.subplots(figsize=(14, 8))
     sns.heatmap(
         retention_df,
@@ -196,21 +196,21 @@ def plot_retention_heatmap(retention_df: pd.DataFrame, title: str = "Rétention 
         cmap="YlGn",
         vmin=0, vmax=100,
         ax=ax,
-        cbar_kws={"label": "Taux de rétention (%)"},
+        cbar_kws={"label": "Retention rate (%)"},
     )
     ax.set_title(title, pad=20, fontsize=14)
-    ax.set_xlabel("Période après inscription")
-    ax.set_ylabel("Cohorte d inscription")
+    ax.set_xlabel("Period after signup")
+    ax.set_ylabel("Signup cohort")
     plt.tight_layout()
     return fig
 ```
 
-### KPIs Product Analytics — Dashboard
+### Product Analytics KPIs — Dashboard
 
 ```python
 # product_kpis.py
 def calculate_engagement_metrics(df: pd.DataFrame, date: str) -> dict:
-    """Calcule les KPIs produit clés."""
+    """Compute the key product KPIs."""
     today_users = df[df["event_date"] == date]["user_id"].nunique()
     week_users  = df[df["event_date"] >= (pd.Timestamp(date) - pd.Timedelta(days=7)).date()]["user_id"].nunique()
     month_users = df[df["event_date"] >= (pd.Timestamp(date) - pd.Timedelta(days=28)).date()]["user_id"].nunique()
@@ -220,37 +220,37 @@ def calculate_engagement_metrics(df: pd.DataFrame, date: str) -> dict:
         "WAU": week_users,
         "MAU": month_users,
         "DAU_MAU_ratio": round(today_users / month_users, 3) if month_users else 0,  # Stickiness
-        # Stickiness : 0.2+ = bon, 0.3+ = excellent
-        "stickiness_label": "Excellent" if today_users / max(month_users, 1) > 0.3 else "Bon" if today_users / max(month_users, 1) > 0.2 else "A améliorer",
+        # Stickiness: 0.2+ = good, 0.3+ = excellent
+        "stickiness_label": "Excellent" if today_users / max(month_users, 1) > 0.3 else "Good" if today_users / max(month_users, 1) > 0.2 else "Needs improvement",
     }
 ```
 
-## Livrables
-- Plan de tracking complet (Amplitude/Mixpanel) avec taxonomy documentée
-- Dashboard produit : DAU/WAU/MAU, funnel activation, rétention
-- Rapport de cohort analysis mensuel
-- Alertes automatiques sur métriques critiques (churn, activation rate)
-- Guide de self-serve analytics pour l'équipe produit
-- Benchmark secteur pour les KPIs clés
+## Deliverables
+- Complete tracking plan (Amplitude/Mixpanel) with documented taxonomy
+- Product dashboard: DAU/WAU/MAU, activation funnel, retention
+- Monthly cohort analysis report
+- Automatic alerts on critical metrics (churn, activation rate)
+- Self-serve analytics guide for the product team
+- Sector benchmark for key KPIs
 
-## Format de sortie
-Précise : type de produit (B2B SaaS/B2C/marketplace), stack analytics actuelle (GA4/Mixpanel/Amplitude/autre), warehouse disponible (Snowflake/BigQuery/Redshift), outil de BI (Looker/Metabase/Tableau), objectif principal (activation/retention/monetisation), accès aux événements existants ou setup from scratch.
+## Output format
+Specify: product type (B2B SaaS/B2C/marketplace), current analytics stack (GA4/Mixpanel/Amplitude/other), available warehouse (Snowflake/BigQuery/Redshift), BI tool (Looker/Metabase/Tableau), main objective (activation/retention/monetization), access to existing events or setup from scratch.
 
 ## Sources
-- **Dave McClure** — *Startup Metrics for Pirates (AARRR)*, 2007 (Ignite Seattle / 500 Startups) — funnel Acquisition→Activation→Rétention→Référence→Revenu
-- **Sean Ellis** (~2010) — *North Star Metric* / *One Metric That Matters* ; framework codifié par **Amplitude** (*The North Star Playbook*, 2017+)
-- **Amplitude / Mixpanel** — documentation officielle : plan de tracking (event taxonomy), funnels, cohortes, courbes de rétention
-- **Stickiness DAU/MAU** : ratio popularisé par Mixpanel/Amplitude — les seuils (≈0,2 « bon » / ≈0,3 « excellent ») sont des **ordres de grandeur** variables selon le type de produit, à valider par cohorte
+- **Dave McClure** — *Startup Metrics for Pirates (AARRR)*, 2007 (Ignite Seattle / 500 Startups) — Acquisition→Activation→Retention→Referral→Revenue funnel
+- **Sean Ellis** (~2010) — *North Star Metric* / *One Metric That Matters*; framework codified by **Amplitude** (*The North Star Playbook*, 2017+)
+- **Amplitude / Mixpanel** — official documentation: tracking plan (event taxonomy), funnels, cohorts, retention curves
+- **DAU/MAU Stickiness**: ratio popularized by Mixpanel/Amplitude — the thresholds (≈0.2 "good" / ≈0.3 "excellent") are **orders of magnitude** varying by product type, to validate per cohort
 
 ## Anti-patterns
-- **Vanity metrics** : suivre des totaux cumulés (inscrits, pages vues) au lieu de métriques actionnables par cohorte.
-- **Tracking sans plan** : event sprawl, nommage incohérent → données inexploitables (définir la taxonomy AVANT d'instrumenter).
-- **Pas de définition explicite de l'activation / « aha moment »** : funnel d'activation non mesurable.
-- **North Star = revenu** : choisir un indicateur retardé plutôt qu'un proxy avancé de la valeur client.
-- **Cohortes trop courtes** : conclure sur la rétention avant d'avoir le recul temporel suffisant.
+- **Vanity metrics**: tracking cumulative totals (signups, page views) instead of cohort-actionable metrics.
+- **Tracking with no plan**: event sprawl, inconsistent naming → unusable data (define the taxonomy BEFORE instrumenting).
+- **No explicit activation / "aha moment" definition**: an unmeasurable activation funnel.
+- **North Star = revenue**: choosing a lagging indicator rather than a leading proxy of customer value.
+- **Cohorts too short**: concluding on retention before having enough time perspective.
 
-## Voir aussi
-- [growth-frameworks.md](growth-frameworks.md) — AARRR, North Star et arbre de décomposition des métriques
-- [attribution-ltv-cac.md](attribution-ltv-cac.md) — du funnel à la valeur économique (LTV/CAC)
-- [experimentation-ab-testing.md](experimentation-ab-testing.md) — tester les leviers identifiés par l'analyse
-- [`../scrum/product-vision.md`](../scrum/product-vision.md) — relier North Star et vision produit (côté PO)
+## See also
+- [growth-frameworks.md](growth-frameworks.md) — AARRR, North Star, and the metrics decomposition tree
+- [attribution-ltv-cac.md](attribution-ltv-cac.md) — from funnel to economic value (LTV/CAC)
+- [experimentation-ab-testing.md](experimentation-ab-testing.md) — test the levers identified by the analysis
+- [`../scrum/product-vision.md`](../scrum/product-vision.md) — link North Star and product vision (PO side)

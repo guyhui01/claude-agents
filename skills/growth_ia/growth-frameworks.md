@@ -1,12 +1,12 @@
-# Skill — Frameworks Growth
-> Certifications : Reforge Growth Series (2026), Product-Led Growth Certified (ProductLed), CXL Growth Marketing, Pragmatic Marketing Certified
+# Skill — Growth Frameworks
+> Certifications: Reforge Growth Series (2026), Product-Led Growth Certified (ProductLed), CXL Growth Marketing, Pragmatic Marketing Certified
 
-## Objectif
-Diagnostiquer et accélérer la croissance d'un produit digital en appliquant les frameworks AARRR, HEART, North Star Metric, ICE Scoring et en distinguant les Growth Loops des Funnels traditionnels.
+## Objective
+Diagnose and accelerate the growth of a digital product by applying the AARRR, HEART, North Star Metric, and ICE Scoring frameworks, and distinguishing Growth Loops from traditional Funnels.
 
 ## AARRR — Pirate Metrics
 
-### Diagnostic AARRR Complet
+### Complete AARRR Diagnostic
 
 ```python
 # aarrr_diagnostic.py
@@ -15,20 +15,20 @@ from typing import Optional
 
 @dataclass
 class AARRRSnapshot:
-    """Instantané des métriques AARRR pour une période donnée."""
+    """Snapshot of AARRR metrics for a given period."""
     period: str
 
     # ACQUISITION
     new_visitors: int
     new_signups: int
-    cac: float                        # Cost d acquisition client
+    cac: float                        # Customer acquisition cost
 
     # ACTIVATION
-    activated_users: int              # Ont atteint le "aha moment"
+    activated_users: int              # Reached the "aha moment"
     time_to_activation_median_h: float
 
     # RETENTION
-    day_1_retention: float            # % revenu J+1
+    day_1_retention: float            # % returned D+1
     day_7_retention: float
     day_30_retention: float
     monthly_churn_rate: float
@@ -60,7 +60,7 @@ class AARRRSnapshot:
         return (self.new_mrr + self.expansion_mrr) / self.churned_mrr if self.churned_mrr else float("inf")
 
     def bottleneck(self) -> str:
-        """Identifie automatiquement le goulot d étranglement principal."""
+        """Automatically identifies the main bottleneck."""
         scores = {
             "ACQUISITION": self.signup_conversion_rate / 0.03,      # Bench: 3%
             "ACTIVATION":  self.activation_rate / 0.40,             # Bench: 40%
@@ -74,83 +74,83 @@ class AARRRSnapshot:
             f"## AARRR Report — {self.period}",
             f"",
             f"### ACQUISITION",
-            f"  Visiteurs : {self.new_visitors:,}",
-            f"  Signups : {self.new_signups:,} ({self.signup_conversion_rate*100:.1f}%)",
-            f"  CAC : {self.cac:.0f}€",
+            f"  Visitors: {self.new_visitors:,}",
+            f"  Signups: {self.new_signups:,} ({self.signup_conversion_rate*100:.1f}%)",
+            f"  CAC: {self.cac:.0f}€",
             f"",
             f"### ACTIVATION",
-            f"  Taux d activation : {self.activation_rate*100:.0f}%",
-            f"  Temps médian : {self.time_to_activation_median_h:.0f}h",
+            f"  Activation rate: {self.activation_rate*100:.0f}%",
+            f"  Median time: {self.time_to_activation_median_h:.0f}h",
             f"",
             f"### RETENTION",
             f"  D1: {self.day_1_retention*100:.0f}% | D7: {self.day_7_retention*100:.0f}% | D30: {self.day_30_retention*100:.0f}%",
-            f"  Churn mensuel : {self.monthly_churn_rate*100:.1f}%",
+            f"  Monthly churn: {self.monthly_churn_rate*100:.1f}%",
             f"",
             f"### REFERRAL",
-            f"  K-factor : {self.viral_coefficient_k:.2f}",
-            f"  Signups referral : {self.referral_signups:,}",
+            f"  K-factor: {self.viral_coefficient_k:.2f}",
+            f"  Referral signups: {self.referral_signups:,}",
             f"",
             f"### REVENUE",
-            f"  Net MRR growth : +{self.net_mrr_growth:,.0f}€",
-            f"  Quick Ratio : {self.quick_ratio:.1f}",
+            f"  Net MRR growth: +{self.net_mrr_growth:,.0f}€",
+            f"  Quick Ratio: {self.quick_ratio:.1f}",
             f"",
-            f"### GOULOT D ETRANGLEMENT : {self.bottleneck()}",
+            f"### BOTTLENECK: {self.bottleneck()}",
         ]
         return "\n".join(lines)
 ```
 
 ## North Star Metric
 
-### Définition et décomposition
+### Definition and decomposition
 
 ```
-NORTH STAR METRIC — GUIDE DE SÉLECTION
+NORTH STAR METRIC — SELECTION GUIDE
 ────────────────────────────────────────────────────────────
-Une bonne NSM doit :
-  ✓ Mesurer la VALEUR délivrée aux utilisateurs (pas les revenus)
-  ✓ Prédire la croissance long terme
-  ✓ Être comprise et influençable par toute l équipe
-  ✓ Être une seule métrique (pas 2 ou 3)
+A good NSM must:
+  ✓ Measure the VALUE delivered to users (not revenue)
+  ✓ Predict long-term growth
+  ✓ Be understood and influenceable by the whole team
+  ✓ Be a single metric (not 2 or 3)
 
-EXEMPLES PAR TYPE DE PRODUIT
-Produit                  North Star Metric
+EXAMPLES BY PRODUCT TYPE
+Product                  North Star Metric
 ─────────────────────────────────────────────────────────
-Slack                    Messages envoyés par équipe active
-Airbnb                   Nuits réservées
-Spotify                  Temps d écoute par utilisateur actif
-LinkedIn                 Connexions professionnelles utiles
-SaaS B2B MLOps           Modèles déployés en production/semaine
-SaaS B2B RH              Candidats qualifiés sourcés/semaine
-E-commerce               Commandes répétées (repeat purchase)
-Marketplace              Transactions complétées avec succès
+Slack                    Messages sent per active team
+Airbnb                   Nights booked
+Spotify                  Listening time per active user
+LinkedIn                 Useful professional connections
+B2B SaaS MLOps           Models deployed to production/week
+B2B SaaS HR              Qualified candidates sourced/week
+E-commerce               Repeat purchases
+Marketplace              Successfully completed transactions
 ```
 
 ```python
 # nsm_decomposition.py
 def decompose_nsm(nsm_name: str, nsm_value: float) -> dict:
     """
-    L arbre de la North Star Metric.
+    The North Star Metric tree.
     NSM = f(input metrics) = f(lever 1, lever 2, lever 3)
     """
-    # Exemple : NSM = "Modèles ML déployés en production par semaine"
+    # Example: NSM = "ML models deployed to production per week"
     return {
         "nsm": nsm_name,
         "current_value": nsm_value,
         "input_metrics": {
-            "breadth":  "Nombre d équipes actives (width)",       # Plus d utilisateurs
-            "depth":    "Modèles déployés par équipe active",      # Plus d usage
-            "frequency":"Fréquence de déploiement par modèle",    # Plus souvent
-            "efficiency":"% de déploiements réussis du premier coup", # Moins de friction
+            "breadth":  "Number of active teams (width)",        # More users
+            "depth":    "Models deployed per active team",        # More usage
+            "frequency":"Deployment frequency per model",        # More often
+            "efficiency":"% of deployments successful first time", # Less friction
         },
         "leading_indicators": [
-            "Nombre de notebooks créés cette semaine",
-            "Taux de complétion du pipeline d entraînement",
-            "Temps moyen de déploiement (en baisse = bon signe)",
+            "Number of notebooks created this week",
+            "Training pipeline completion rate",
+            "Average deployment time (decreasing = good sign)",
         ],
     }
 ```
 
-## ICE Scoring — Priorisation des Initiatives Growth
+## ICE Scoring — Prioritizing Growth Initiatives
 
 ```python
 # ice_scoring.py
@@ -160,12 +160,12 @@ from dataclasses import dataclass, field
 class GrowthInitiative:
     id: str
     title: str
-    hypothesis: str           # Si X alors Y parce que Z
-    # Scores ICE (1-10)
-    impact: int               # Impact sur la NSM si succès
-    confidence: int           # Niveau de confiance dans l hypothèse
-    ease: int                 # Facilité de mise en oeuvre (10 = très facile)
-    # Métadonnées
+    hypothesis: str           # If X then Y because Z
+    # ICE scores (1-10)
+    impact: int               # Impact on the NSM if successful
+    confidence: int           # Confidence level in the hypothesis
+    ease: int                 # Ease of implementation (10 = very easy)
+    # Metadata
     stage: str = "PROPOSED"   # PROPOSED / IN_TEST / WINNER / LOSER
     owner: str = ""
     effort_days: int = 0
@@ -177,7 +177,7 @@ class GrowthInitiative:
 
     @property
     def roi_estimate(self) -> float:
-        """ROI simplifié : ICE / effort."""
+        """Simplified ROI: ICE / effort."""
         return round(self.ice_score / self.effort_days, 2) if self.effort_days else 0
 
 
@@ -185,79 +185,79 @@ def prioritize_initiatives(initiatives: list[GrowthInitiative]) -> list[GrowthIn
     return sorted(initiatives, key=lambda x: x.ice_score, reverse=True)
 
 
-# Backlog Growth Q3
+# Q3 Growth backlog
 backlog = [
-    GrowthInitiative("G-01", "Onboarding tooltip contextuel",
-        "Si on guide les utilisateurs au bon moment, alors activation +15%",
+    GrowthInitiative("G-01", "Contextual onboarding tooltip",
+        "If we guide users at the right moment, then activation +15%",
         impact=7, confidence=8, ease=9, effort_days=3),
-    GrowthInitiative("G-02", "Referral program 2-sided",
-        "Si récompense pour parrain ET filleul, alors K-factor > 0.3",
+    GrowthInitiative("G-02", "2-sided referral program",
+        "If reward for referrer AND referee, then K-factor > 0.3",
         impact=9, confidence=5, ease=4, effort_days=15),
-    GrowthInitiative("G-03", "Email séquence réengagement D7",
-        "Si rappel J+7 avec cas d usage, alors churn early -10%",
+    GrowthInitiative("G-03", "D7 re-engagement email sequence",
+        "If D+7 reminder with use case, then early churn -10%",
         impact=6, confidence=8, ease=8, effort_days=2),
-    GrowthInitiative("G-04", "Intégration Slack native",
-        "Si Slack intégration, alors retention +20% pour équipes actives Slack",
+    GrowthInitiative("G-04", "Native Slack integration",
+        "If Slack integration, then retention +20% for Slack-active teams",
         impact=8, confidence=6, ease=3, effort_days=20),
 ]
 
 for rank, init in enumerate(prioritize_initiatives(backlog), 1):
-    print(f"{rank}. [{init.ice_score:4.1f}] {init.title} ({init.effort_days}j)")
-# 1. [5.0] Onboarding tooltip contextuel (3j)    -> (7*8*9)/100
-# 2. [3.8] Email séquence réengagement D7 (2j)    -> (6*8*8)/100
-# 3. [1.8] Referral program 2-sided (15j)         -> (9*5*4)/100
-# 4. [1.4] Intégration Slack native (20j)         -> (8*6*3)/100
+    print(f"{rank}. [{init.ice_score:4.1f}] {init.title} ({init.effort_days}d)")
+# 1. [5.0] Contextual onboarding tooltip (3d)     -> (7*8*9)/100
+# 2. [3.8] D7 re-engagement email sequence (2d)   -> (6*8*8)/100
+# 3. [1.8] 2-sided referral program (15d)         -> (9*5*4)/100
+# 4. [1.4] Native Slack integration (20d)         -> (8*6*3)/100
 ```
 
 ## Growth Loops vs Funnels
 
 ```
-FUNNEL TRADITIONNEL           GROWTH LOOP
+TRADITIONAL FUNNEL            GROWTH LOOP
 ──────────────────────────────────────────────────────────
-Linéaire et descend           Circulaire et auto-renforçant
-A → B → C → D (fin)          A → B → C → plus de A
+Linear and descending         Circular and self-reinforcing
+A → B → C → D (end)          A → B → C → more of A
 
-Exemple Funnel :              Exemple Loop (viral) :
-Impression                    Utilisateur utilise le produit
-  → Click                       → Crée du contenu/invite
-    → Signup                        → Nouveau utilisateur
-      → Achat (fin)                     → Utilise le produit (recommence)
+Funnel example:               Loop example (viral):
+Impression                    User uses the product
+  → Click                       → Creates content/invites
+    → Signup                        → New user
+      → Purchase (end)                  → Uses the product (restarts)
 
-TYPES DE GROWTH LOOPS
+TYPES OF GROWTH LOOPS
 ──────────────────────────────────────────────────────────
-Viral Loop      : Utilisation → Invitation → Nouveau user → Utilisation
-Content Loop    : Utilisation → UGC indexé SEO → Trafic → Signup
-Paid Loop       : Revenus → Budget pub → Acquisition → Revenus
-Product Loop    : Feature utilisée → Recommandation → Adoption → Revenue
+Viral Loop      : Usage → Invitation → New user → Usage
+Content Loop    : Usage → SEO-indexed UGC → Traffic → Signup
+Paid Loop       : Revenue → Ad budget → Acquisition → Revenue
+Product Loop    : Feature used → Recommendation → Adoption → Revenue
 ```
 
-## Livrables
-- Diagnostic AARRR complet avec identification du bottleneck
-- North Star Metric définie + arbre de décomposition
-- Backlog ICE-scoré des initiatives growth (top 20)
-- Identification des Growth Loops actifs et potentiels
-- HEART Framework appliqué (Happiness, Engagement, Adoption, Retention, Task Success)
-- Roadmap growth trimestrielle
+## Deliverables
+- Complete AARRR diagnostic with bottleneck identification
+- Defined North Star Metric + decomposition tree
+- ICE-scored backlog of growth initiatives (top 20)
+- Identification of active and potential Growth Loops
+- HEART Framework applied (Happiness, Engagement, Adoption, Retention, Task Success)
+- Quarterly growth roadmap
 
-## Format de sortie
-Précise : type de produit et modèle business (SaaS/marketplace/e-commerce/app), métriques disponibles, North Star actuelle (ou à définir), budget growth mensuel, équipe growth (size), principaux leviers actuels, objectif croissance (% ARR / nouveaux utilisateurs / etc.).
+## Output format
+Specify: product type and business model (SaaS/marketplace/e-commerce/app), available metrics, current North Star (or to define), monthly growth budget, growth team (size), main current levers, growth objective (% ARR / new users / etc.).
 
 ## Sources
 - **Dave McClure** — *Startup Metrics for Pirates (AARRR)*, 2007 (Ignite Seattle / 500 Startups)
-- **Sean Ellis** — *North Star Metric* (~2010) et *ICE Scoring* (GrowthHackers) ; à distinguer du **RICE** d'**Intercom** (Sean McBride, 2017) qui ajoute le Reach
+- **Sean Ellis** — *North Star Metric* (~2010) and *ICE Scoring* (GrowthHackers); to distinguish from **Intercom**'s **RICE** (Sean McBride, 2017) which adds Reach
 - **Kerry Rodden, Hilary Hutchinson, Xin Fu (Google)** — *Measuring the User Experience on a Large Scale: HEART* (CHI 2010)
-- **Reforge** — *Growth Loops* (Brian Balfour, Casey Winters, Kevin Kwok) ; *Racecar Growth Framework* (Dan Hockenmaier & Lenny Rachitsky)
-- **Quick Ratio (SaaS)** — popularisé par Social Capital (Mamoon Hamid, ~2015) ; les benchmarks (activation, rétention, K-factor, Quick Ratio > 4) sont des **ordres de grandeur** variables selon secteur/stade
+- **Reforge** — *Growth Loops* (Brian Balfour, Casey Winters, Kevin Kwok); *Racecar Growth Framework* (Dan Hockenmaier & Lenny Rachitsky)
+- **Quick Ratio (SaaS)** — popularized by Social Capital (Mamoon Hamid, ~2015); the benchmarks (activation, retention, K-factor, Quick Ratio > 4) are **orders of magnitude** varying by sector/stage
 
 ## Anti-patterns
-- **North Star = vanity metric** : choisir un indicateur qui ne capture pas la valeur client (ex. inscrits cumulés).
-- **AARRR sans bottleneck** : optimiser partout au lieu de concentrer l'effort sur l'étape qui fuit le plus.
-- **ICE pris comme vérité absolue** : les scores sont subjectifs → outil de discussion, pas de décision automatique.
-- **Funnel-only** : ignorer les growth loops (boucles auto-renforçantes) et raisonner uniquement en entonnoir linéaire.
-- **Copier les benchmarks d'un autre secteur/stade** sans les contextualiser.
+- **North Star = vanity metric**: choosing an indicator that doesn't capture customer value (e.g. cumulative signups).
+- **AARRR with no bottleneck**: optimizing everywhere instead of focusing effort on the leakiest stage.
+- **ICE taken as absolute truth**: scores are subjective → a discussion tool, not an automatic decision.
+- **Funnel-only**: ignoring growth loops (self-reinforcing loops) and reasoning solely in a linear funnel.
+- **Copying benchmarks from another sector/stage** without contextualizing them.
 
-## Voir aussi
-- [product-analytics.md](product-analytics.md) — instrumenter et mesurer AARRR / North Star
-- [experimentation-ab-testing.md](experimentation-ab-testing.md) — exécuter les expériences priorisées par ICE
-- [attribution-ltv-cac.md](attribution-ltv-cac.md) — relier la croissance à l'économie unitaire
-- [`../scrum/product-vision.md`](../scrum/product-vision.md) — North Star, OKR et vision produit (côté PO)
+## See also
+- [product-analytics.md](product-analytics.md) — instrument and measure AARRR / North Star
+- [experimentation-ab-testing.md](experimentation-ab-testing.md) — run the ICE-prioritized experiments
+- [attribution-ltv-cac.md](attribution-ltv-cac.md) — link growth to unit economics
+- [`../scrum/product-vision.md`](../scrum/product-vision.md) — North Star, OKRs, and product vision (PO side)

@@ -1,12 +1,12 @@
-# Skill — Acquisition SEO/SEM & Content Marketing IA
-> Certifications : Google Ads Certified (2026), SEMrush SEO Toolkit Certified, HubSpot Content Marketing, Google Analytics 4 Certified
+# Skill — SEO/SEM Acquisition & AI Content Marketing
+> Certifications: Google Ads Certified (2026), SEMrush SEO Toolkit Certified, HubSpot Content Marketing, Google Analytics 4 Certified
 
-## Objectif
-Combiner acquisition organique (SEO technique + contenu IA) et paid search (Google Ads, Meta Ads) pour maximiser le trafic qualifié et le ROAS, en exploitant les outils IA pour accélérer la production et l'optimisation.
+## Objective
+Combine organic acquisition (technical SEO + AI content) and paid search (Google Ads, Meta Ads) to maximize qualified traffic and ROAS, leveraging AI tools to accelerate production and optimization.
 
-## SEO Technique — Fondations
+## Technical SEO — Foundations
 
-### Audit SEO technique — Checklist Python
+### Technical SEO audit — Python checklist
 
 ```python
 # seo_audit.py
@@ -16,14 +16,14 @@ from urllib.parse import urljoin, urlparse
 import re
 
 class SEOAuditor:
-    """Audit SEO technique basique d un site."""
+    """Basic technical SEO audit of a site."""
 
     def __init__(self, base_url: str):
         self.base_url = base_url
         self.session = httpx.Client(follow_redirects=True, timeout=10)
 
     def check_core_web_vitals(self, url: str) -> dict:
-        """Appel PageSpeed Insights API."""
+        """PageSpeed Insights API call."""
         api_url = f"https://www.googleapis.com/pagespeedonline/v5/runPagespeed"
         params = {"url": url, "strategy": "mobile", "key": "YOUR_API_KEY"}
         resp = self.session.get(api_url, params=params)
@@ -41,7 +41,7 @@ class SEOAuditor:
         resp = self.session.get(url)
         soup = BeautifulSoup(resp.text, "html.parser")
 
-        # Extraction des éléments SEO on-page
+        # Extract on-page SEO elements
         title = soup.find("title")
         h1_tags = soup.find_all("h1")
         meta_desc = soup.find("meta", attrs={"name": "description"})
@@ -65,24 +65,24 @@ class SEOAuditor:
         }
 ```
 
-### Configuration technique SEO — Next.js
+### Technical SEO configuration — Next.js
 
 ```typescript
-// app/layout.tsx — SEO metadata systématique
+// app/layout.tsx — systematic SEO metadata
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://app.company.com"),
   title: {
-    template: "%s | Company IA",
-    default: "Company IA — Solution IA pour votre équipe",
+    template: "%s | Company AI",
+    default: "Company AI — AI solution for your team",
   },
-  description: "Description principale 150-160 caractères avec le mot-clé principal.",
+  description: "Main description, 150-160 characters with the primary keyword.",
   openGraph: {
     type: "website",
-    locale: "fr_FR",
+    locale: "en_US",
     url: "https://app.company.com",
-    siteName: "Company IA",
+    siteName: "Company AI",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: { card: "summary_large_image", site: "@companyia" },
@@ -94,47 +94,47 @@ export const metadata: Metadata = {
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "Titre de l article",
+  headline: "Article title",
   datePublished: "2026-05-19",
   dateModified: "2026-05-19",
   author: { "@type": "Person", name: "Guy Hui-Bon-Hoa" },
   publisher: {
     "@type": "Organization",
-    name: "Company IA",
+    name: "Company AI",
     logo: { "@type": "ImageObject", url: "https://app.company.com/logo.png" },
   },
 }
 ```
 
-## Content Marketing IA — Workflows
+## AI Content Marketing — Workflows
 
-### Calendrier éditorial IA-augmenté
+### AI-augmented editorial calendar
 
 ```yaml
 # editorial_calendar.yaml
 strategy:
   topical_clusters:
-    - pilier: "IA pour les équipes commerciales"
-      keyword_principal: "intelligence artificielle vente" (2 400 req/mois)
-      articles_satellites:
-        - "outil ia scoring leads" (880)
-        - "ia crm salesforce" (590)
-        - "chatbot commercial ia" (720)
-        - "automatisation prospection ia" (480)
+    - pillar: "AI for sales teams"
+      main_keyword: "artificial intelligence sales" (2,400 queries/month)
+      satellite_articles:
+        - "ai lead scoring tool" (880)
+        - "ai crm salesforce" (590)
+        - "ai sales chatbot" (720)
+        - "ai prospecting automation" (480)
 
   content_types:
-    guides_seo:      # Long-form, 2000+ mots, ciblage informationnel
-      frequence: 2/mois
-      temps_production: 4h (avec IA)
-    case_studies:    # Trust, ciblage transactionnel
-      frequence: 1/mois
-      temps_production: 6h
-    comparatifs:     # Intent achat, backlinks naturels
-      frequence: 1/mois
-      temps_production: 5h
+    seo_guides:      # Long-form, 2000+ words, informational targeting
+      frequency: 2/month
+      production_time: 4h (with AI)
+    case_studies:    # Trust, transactional targeting
+      frequency: 1/month
+      production_time: 6h
+    comparisons:     # Purchase intent, natural backlinks
+      frequency: 1/month
+      production_time: 5h
 ```
 
-### Prompt Engineering pour la production de contenu SEO
+### Prompt Engineering for SEO content production
 
 ```python
 # content_seo_prompt.py
@@ -148,25 +148,25 @@ def generate_seo_article(
 ) -> str:
     client = anthropic.Anthropic()
 
-    prompt = f"""Tu es un expert SEO et content marketing B2B SaaS.
+    prompt = f"""You are a B2B SaaS SEO and content marketing expert.
     
-Génère un article SEO optimisé sur : "{keyword}"
+Generate an SEO-optimized article about: "{keyword}"
 
-INTENT DE RECHERCHE : {search_intent}
-TITRES CONCURRENTS (à surpasser) :
+SEARCH INTENT: {search_intent}
+COMPETITOR TITLES (to outperform):
 {chr(10).join(f'- {t}' for t in competitor_titles)}
 
-EXIGENCES :
-- H1 incluant le mot-clé principal
-- Plan en 6-8 sections avec H2/H3 optimisés (variations sémantiques)
-- {word_count} mots minimum
-- Introduction avec accroche + annonce du plan
-- Inclusion de données chiffrées (statistiques 2025-2026)
-- CTA en fin d article
+REQUIREMENTS:
+- H1 including the primary keyword
+- 6-8 section outline with optimized H2/H3 (semantic variations)
+- {word_count} words minimum
+- Introduction with a hook + outline preview
+- Inclusion of quantified data (2025-2026 statistics)
+- CTA at the end of the article
 - FAQ schema.org (5 questions)
-- Méta-description 150-158 caractères
+- Meta description 150-158 characters
 
-Format : Markdown avec frontmatter YAML."""
+Format: Markdown with YAML frontmatter."""
 
     response = client.messages.create(
         model="claude-opus-4-8",
@@ -176,95 +176,95 @@ Format : Markdown avec frontmatter YAML."""
     return response.content[0].text
 ```
 
-## Google Ads — Structure de Campagne
+## Google Ads — Campaign Structure
 
-### Architecture de campagne Search
+### Search campaign architecture
 
 ```
-STRUCTURE GOOGLE ADS — SAAS IA
+GOOGLE ADS STRUCTURE — AI SAAS
 ─────────────────────────────────────────────────────────────
-Campagne 1 : Brand
-  └── Ad Group : [Brand Name]
-      Keywords : "company ia", "company ia scoring", +company +ia
-      Bid : CPC max (protéger la marque)
+Campaign 1: Brand
+  └── Ad Group: [Brand Name]
+      Keywords: "company ai", "company ai scoring", +company +ai
+      Bid: max CPC (protect the brand)
 
-Campagne 2 : Concurrents
-  └── Ad Group : [Concurrent 1], [Concurrent 2]
-      Keywords : "alternative [concurrent]", "[concurrent] prix"
-      Bid : Target CPA
+Campaign 2: Competitors
+  └── Ad Group: [Competitor 1], [Competitor 2]
+      Keywords: "alternative [competitor]", "[competitor] price"
+      Bid: Target CPA
 
-Campagne 3 : Solution (intention achat)
-  └── Ad Group : Scoring leads IA
-      Keywords : "outil scoring leads ia", "logiciel scoring commercial"
-      Landing page : /scoring-leads
-  └── Ad Group : Chatbot commercial
-      Keywords : "chatbot ia commercial", "assistant ia vente"
-      Landing page : /chatbot-commercial
+Campaign 3: Solution (purchase intent)
+  └── Ad Group: AI lead scoring
+      Keywords: "ai lead scoring tool", "sales scoring software"
+      Landing page: /lead-scoring
+  └── Ad Group: Sales chatbot
+      Keywords: "ai sales chatbot", "ai sales assistant"
+      Landing page: /sales-chatbot
 
-Campagne 4 : Informationnel (TOFU — nurturing)
-  └── Ad Group : Comment IA vente
-      Keywords : "comment ia améliore ventes", "ia augmentation taux conversion"
-      Landing page : /guide-ia-vente (lead magnet)
+Campaign 4: Informational (TOFU — nurturing)
+  └── Ad Group: How AI sales
+      Keywords: "how ai improves sales", "ai conversion rate increase"
+      Landing page: /ai-sales-guide (lead magnet)
 ```
 
-### Bidding Strategy & ROAS cible
+### Bidding Strategy & target ROAS
 
 ```python
 # google_ads_optimizer.py
 def calculate_target_cpa(
     ltv: float,
-    close_rate: float,       # Taux SQL -> client
-    sqls_to_trial_rate: float,  # Taux trial -> SQL
+    close_rate: float,       # SQL -> customer rate
+    sqls_to_trial_rate: float,  # trial -> SQL rate
     trial_conversion_rate: float,
     payback_months: int = 12,
 ) -> dict:
-    """Calcule le CPA cible pour Google Ads."""
-    revenue_per_customer = ltv * (payback_months / 24)  # Récupérer sur 12 mois
+    """Calculate the target CPA for Google Ads."""
+    revenue_per_customer = ltv * (payback_months / 24)  # Recover over 12 months
     revenue_per_sql = revenue_per_customer * close_rate
     revenue_per_trial = revenue_per_sql * sqls_to_trial_rate
-    target_cpa_trial = revenue_per_trial * trial_conversion_rate * 0.3  # Marge 70%
+    target_cpa_trial = revenue_per_trial * trial_conversion_rate * 0.3  # 70% margin
 
     return {
         "target_cpa_trial": round(target_cpa_trial, 2),
         "target_cpa_sql": round(revenue_per_sql * 0.25, 2),
-        "max_cpc_estimate": round(target_cpa_trial / 10, 2),  # 1/10 du CPA cible
+        "max_cpc_estimate": round(target_cpa_trial / 10, 2),  # 1/10 of the target CPA
     }
 
-# Exemple SaaS B2B
+# B2B SaaS example
 result = calculate_target_cpa(
     ltv=12_000, close_rate=0.25, sqls_to_trial_rate=0.4,
     trial_conversion_rate=0.30, payback_months=12
 )
-# target_cpa_trial: 54.0€, target_cpa_sql: 375.0€, max_cpc_estimate: 5.4€
+# target_cpa_trial: €54.0, target_cpa_sql: €375.0, max_cpc_estimate: €5.4
 ```
 
-## Livrables
-- Audit SEO technique complet (Core Web Vitals, on-page, structure)
-- Stratégie de contenu avec topical clusters et calendrier éditorial
-- Templates de prompts IA pour production de contenu SEO
-- Structure de campagne Google Ads + Meta Ads
-- Dashboard GA4 + Search Console + Ads (KPIs consolidés)
-- Rapport mensuel SEO/SEM (trafic, conversions, ROAS)
+## Deliverables
+- Complete technical SEO audit (Core Web Vitals, on-page, structure)
+- Content strategy with topical clusters and editorial calendar
+- AI prompt templates for SEO content production
+- Google Ads + Meta Ads campaign structure
+- GA4 + Search Console + Ads dashboard (consolidated KPIs)
+- Monthly SEO/SEM report (traffic, conversions, ROAS)
 
-## Format de sortie
-Précise : secteur (B2B/B2C), ICP (persona cible), budget publicité mensuel, mots-clés prioritaires, objectif (trafic / leads / ROAS), marché géographique, stack analytics (GA4/Mixpanel/autre), délai pour premiers résultats.
+## Output format
+Specify: sector (B2B/B2C), ICP (target persona), monthly ad budget, priority keywords, objective (traffic / leads / ROAS), geographic market, analytics stack (GA4/Mixpanel/other), timeline for first results.
 
 ## Sources
-- **Google Search Central** — documentation officielle SEO (Core Web Vitals, données structurées Schema.org, indexation)
-- **Google** — *Search Quality Rater Guidelines* + E-E-A-T (le 2ᵉ « E », Experience, ajouté en décembre 2022)
-- **HubSpot** — *Pillar–Cluster model* (topic clusters, 2017) — architecture de contenu par silos thématiques
-- **Semrush / Ahrefs** — documentation officielle — volumes de recherche et difficulté mots-clés (les volumes cités sont illustratifs, à re-sourcer par outil)
-- **Google Ads Help** — Smart Bidding (tCPA/tROAS) ; le CPA cible se dérive de la LTV et du payback (cf. [attribution-ltv-cac.md](attribution-ltv-cac.md))
+- **Google Search Central** — official SEO documentation (Core Web Vitals, Schema.org structured data, indexing)
+- **Google** — *Search Quality Rater Guidelines* + E-E-A-T (the 2nd "E," Experience, added in December 2022)
+- **HubSpot** — *Pillar–Cluster model* (topic clusters, 2017) — content architecture by thematic silos
+- **Semrush / Ahrefs** — official documentation — search volumes and keyword difficulty (the volumes cited are illustrative, to be re-sourced per tool)
+- **Google Ads Help** — Smart Bidding (tCPA/tROAS); the target CPA is derived from LTV and payback (see [attribution-ltv-cac.md](attribution-ltv-cac.md))
 
 ## Anti-patterns
-- **Bourrage de mots-clés** (keyword stuffing) au lieu d'un contenu utile « people-first » — pénalisé par le Helpful Content System.
-- **Publier du contenu IA non relu** : risque factuel, absence d'expérience réelle (E-E-A-T), duplication — toujours faire relire/enrichir par un humain.
-- **Fixer les enchères sans modèle de payback** : un CPA décorrélé de la LTV/marge brûle le budget (cf. exemple CPA du skill).
-- **Cannibalisation** : plusieurs pages ciblant la même intention se concurrencent dans la SERP.
-- **Ignorer les Core Web Vitals / l'intention de recherche** au profit du seul volume.
+- **Keyword stuffing** instead of useful "people-first" content — penalized by the Helpful Content System.
+- **Publishing unreviewed AI content**: factual risk, no real experience (E-E-A-T), duplication — always have a human review/enrich it.
+- **Setting bids with no payback model**: a CPA decoupled from LTV/margin burns the budget (see the skill's CPA example).
+- **Cannibalization**: several pages targeting the same intent compete in the SERP.
+- **Ignoring Core Web Vitals / search intent** in favor of volume alone.
 
-## Voir aussi
-- [attribution-ltv-cac.md](attribution-ltv-cac.md) — dériver le CPA/CAC cible de la LTV et du payback
-- [product-analytics.md](product-analytics.md) — mesurer la conversion acquisition → activation
-- [`../redacteur_ia/seo-content.md`](../redacteur_ia/seo-content.md) — production éditoriale SEO (E-E-A-T, structure)
-- [`../redacteur_ia/copywriting-ia.md`](../redacteur_ia/copywriting-ia.md) — rédaction persuasive des annonces et landing pages
+## See also
+- [attribution-ltv-cac.md](attribution-ltv-cac.md) — derive the target CPA/CAC from LTV and payback
+- [product-analytics.md](product-analytics.md) — measure acquisition → activation conversion
+- [`../redacteur_ia/seo-content.md`](../redacteur_ia/seo-content.md) — SEO editorial production (E-E-A-T, structure)
+- [`../redacteur_ia/copywriting-ia.md`](../redacteur_ia/copywriting-ia.md) — persuasive ad and landing-page copywriting

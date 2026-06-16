@@ -1,197 +1,197 @@
-# Skill — Évaluation de la Formation IA
+# Skill — AI Training Evaluation
 
-> Certifications : Kirkpatrick Certified Evaluator 2026, ATD CPTD (Talent Development), Qualiopi Évaluation, Data Analytics for L&D (LinkedIn Learning Certificate)
+> Certifications: Kirkpatrick Certified Evaluator 2026, ATD CPTD (Talent Development), Qualiopi Evaluation, Data Analytics for L&D (LinkedIn Learning Certificate)
 
-## Objectif
+## Objective
 
-Concevoir et déployer un dispositif d'évaluation complet des formations Data-IA couvrant les 4 niveaux du modèle Kirkpatrick, le design des assessments et le calcul du ROI de la formation.
+Design and roll out a complete evaluation scheme for Data-AI training, covering the 4 levels of the Kirkpatrick model, assessment design, and training ROI calculation.
 
-## Modèle Kirkpatrick — Les 4 niveaux
+## Kirkpatrick model — the 4 levels
 
-### Vue d'ensemble et méthodes
+### Overview and methods
 
-| Niveau | Nom | Question clé | Méthodes | Timing |
+| Level | Name | Key question | Methods | Timing |
 |--------|-----|-------------|---------|--------|
-| **L1 — Réaction** | Satisfaction | "La formation a-t-elle plu ?" | Questionnaire à chaud, NPS | Fin de session |
-| **L2 — Apprentissage** | Connaissance | "Ont-ils appris ?" | Quiz, simulation, évaluation de compétences | Pendant + fin |
-| **L3 — Comportement** | Transfert | "Appliquent-ils ?" | Observations, 360°, manager feedback | J+30, J+60 |
-| **L4 — Résultats** | Impact | "Quelle valeur générée ?" | KPIs business, ROI | T+3 mois, T+6 mois |
+| **L1 — Reaction** | Satisfaction | "Did they enjoy the training?" | Hot survey, NPS | End of session |
+| **L2 — Learning** | Knowledge | "Did they learn?" | Quiz, simulation, skills assessment | During + end |
+| **L3 — Behavior** | Transfer | "Are they applying it?" | Observations, 360°, manager feedback | D+30, D+60 |
+| **L4 — Results** | Impact | "What value was generated?" | Business KPIs, ROI | M+3 months, M+6 months |
 
-### Principe des Niveaux Ciblés
-
-```
-Règle 80-20 de Kirkpatrick :
-  80% des formations → évaluer L1 + L2
-  15% des formations → évaluer L1 + L2 + L3
-   5% des formations → évaluer L1 + L2 + L3 + L4
-
-Recommandation pour formations IA stratégiques :
-→ Programme "Prompt Engineering managers" → L1+L2+L3
-→ Transformation data-driven CODIR → L1+L2+L3+L4
-→ Sensibilisation IA générale → L1+L2 suffisant
-```
-
-## Niveau 1 — Évaluation de la réaction
-
-### Questionnaire de satisfaction (format NPS + Likert)
+### Targeted-levels principle
 
 ```
-ÉVALUATION DE FORMATION — À compléter avant de partir
-Formation : ______________________ Date : ___________
+Kirkpatrick's 80-20 rule:
+  80% of trainings → evaluate L1 + L2
+  15% of trainings → evaluate L1 + L2 + L3
+   5% of trainings → evaluate L1 + L2 + L3 + L4
 
-1. Sur une échelle de 0 à 10, dans quelle mesure 
-   recommanderiez-vous cette formation à un collègue ?
+Recommendation for strategic AI trainings:
+→ "Prompt Engineering for managers" program → L1+L2+L3
+→ Data-driven transformation, exec committee → L1+L2+L3+L4
+→ General AI awareness → L1+L2 is enough
+```
+
+## Level 1 — Reaction evaluation
+
+### Satisfaction questionnaire (NPS + Likert format)
+
+```
+TRAINING EVALUATION — Complete before you leave
+Training: ______________________ Date: ___________
+
+1. On a scale of 0 to 10, how likely are you
+   to recommend this training to a colleague?
    [ 0 ] [ 1 ] [ 2 ] [ 3 ] [ 4 ] [ 5 ] [ 6 ] [ 7 ] [ 8 ] [ 9 ] [ 10 ]
 
-2. Évaluez les éléments suivants (1=Insuffisant, 5=Excellent) :
-   Contenu de la formation         : [ 1 ] [ 2 ] [ 3 ] [ 4 ] [ 5 ]
-   Qualité des exercices pratiques : [ 1 ] [ 2 ] [ 3 ] [ 4 ] [ 5 ]
-   Compétence du formateur         : [ 1 ] [ 2 ] [ 3 ] [ 4 ] [ 5 ]
-   Applicabilité dans mon travail  : [ 1 ] [ 2 ] [ 3 ] [ 4 ] [ 5 ]
-   Rythme et organisation          : [ 1 ] [ 2 ] [ 3 ] [ 4 ] [ 5 ]
+2. Rate the following (1=Poor, 5=Excellent):
+   Training content               : [ 1 ] [ 2 ] [ 3 ] [ 4 ] [ 5 ]
+   Quality of hands-on exercises  : [ 1 ] [ 2 ] [ 3 ] [ 4 ] [ 5 ]
+   Trainer's competence           : [ 1 ] [ 2 ] [ 3 ] [ 4 ] [ 5 ]
+   Applicability to my work       : [ 1 ] [ 2 ] [ 3 ] [ 4 ] [ 5 ]
+   Pace and organization          : [ 1 ] [ 2 ] [ 3 ] [ 4 ] [ 5 ]
 
-3. Qu'avez-vous appris de plus utile ?
+3. What was the most useful thing you learned?
    ___________________________________________________
 
-4. Que manquait-il / améliorer ?
+4. What was missing / could be improved?
    ___________________________________________________
 
-5. Première action que vous allez mettre en oeuvre dès demain :
+5. First action you'll put into practice tomorrow:
    ___________________________________________________
 ```
 
-**Interprétation NPS formation :**
-- Score ≥ 50 : Excellent
-- 30-50 : Bon
-- 10-29 : À améliorer
-- < 10 : Revoir le dispositif
+**Training NPS interpretation:**
+- Score ≥ 50: Excellent
+- 30-50: Good
+- 10-29: Needs improvement
+- < 10: Rethink the program
 
-## Niveau 2 — Évaluation de l'apprentissage
+## Level 2 — Learning evaluation
 
-### Design d'assessments par type de compétence IA
+### Assessment design by AI skill type
 
-| Compétence | Type d'évaluation | Exemple de critères |
+| Skill | Assessment type | Example criteria |
 |-----------|------------------|---------------------|
-| Connaissances conceptuelles | QCM, vrai/faux | > 70% de réponses correctes |
-| Rédaction de prompts | Grille de notation | Structure RTCT complète, clarté, résultat |
-| Analyse de réponses IA | Étude de cas | Identification d'hallucinations, biais |
-| Éthique et risques IA | Scenario judgment | Décision éthique justifiée |
-| Création d'un agent IA | Projet pratique | Agent fonctionnel + documentation |
+| Conceptual knowledge | MCQ, true/false | > 70% correct answers |
+| Prompt writing | Scoring rubric | Full RTCT structure, clarity, result |
+| AI response analysis | Case study | Identifying hallucinations, bias |
+| AI ethics and risks | Scenario judgment | Justified ethical decision |
+| Building an AI agent | Practical project | Working agent + documentation |
 
-### Grille d'évaluation d'un prompt (Bloom L3-L4)
+### Prompt scoring rubric (Bloom L3-L4)
 
 ```
-GRILLE D'ÉVALUATION — MODULE PROMPT ENGINEERING
+SCORING RUBRIC — PROMPT ENGINEERING MODULE
 
-Critère 1 : Clarté de la tâche demandée           /5
-Critère 2 : Contexte fourni (rôle, situation)     /5
-Critère 3 : Contraintes explicites (format, longueur) /5
-Critère 4 : Pertinence du résultat obtenu         /5
-Critère 5 : Capacité à itérer / améliorer         /5
-TOTAL                                             /25
+Criterion 1: Clarity of the requested task         /5
+Criterion 2: Context provided (role, situation)    /5
+Criterion 3: Explicit constraints (format, length) /5
+Criterion 4: Relevance of the result obtained      /5
+Criterion 5: Ability to iterate / improve          /5
+TOTAL                                              /25
 
-Seuil de validation : 17/25 (68%)
-Feedback personnalisé fourni sous 48h
+Passing threshold: 17/25 (68%)
+Personalized feedback provided within 48h
 ```
 
-## Niveau 3 — Évaluation du transfert comportemental
+## Level 3 — Behavioral transfer evaluation
 
-### Plan de suivi à J+30 / J+60
+### Follow-up plan at D+30 / D+60
 
 ```yaml
-Évaluation_L3_Prompt_Engineering:
+L3_Evaluation_Prompt_Engineering:
 
-  J+14_check_in:
-    méthode: "Email de suivi automatique (3 questions)"
+  D+14_check_in:
+    method: "Automated follow-up email (3 questions)"
     questions:
-      - "Avez-vous utilisé les techniques vues en formation ? (O/N)"
-      - "Combien de fois cette semaine ?"
-      - "Principal obstacle à l'application ?"
-    responsable: "Formateur + RH"
+      - "Have you used the techniques from the training? (Y/N)"
+      - "How many times this week?"
+      - "Main barrier to applying them?"
+    owner: "Trainer + HR"
 
-  J+30_manager_feedback:
-    méthode: "Questionnaire manager (5 min)"
+  D+30_manager_feedback:
+    method: "Manager questionnaire (5 min)"
     questions:
-      - "Avez-vous observé un changement de comportement ?"
-      - "Votre collaborateur utilise-t-il des outils IA ?"
-      - "Exemple concret observé ?"
-    responsable: "Manager N+1"
+      - "Have you observed a behavior change?"
+      - "Is your team member using AI tools?"
+      - "A concrete example observed?"
+    owner: "Line manager (N+1)"
 
-  J+60_observation:
-    méthode: "Revue de librairie de prompts créée"
-    critères: ["Nb prompts créés", "Qualité", "Réutilisation équipe"]
-    responsable: "Formateur + manager"
+  D+60_observation:
+    method: "Review of the prompt library created"
+    criteria: ["# prompts created", "Quality", "Team reuse"]
+    owner: "Trainer + manager"
 
-Taux_transfert_cible: 60% des apprenants appliquent J+30
+Target_transfer_rate: 60% of learners applying at D+30
 ```
 
-## Niveau 4 — ROI de la formation
+## Level 4 — Training ROI
 
-### Formule de calcul ROI (Philips)
+### ROI calculation formula (Phillips)
 
 ```
-ROI (%) = [(Bénéfice net de la formation) / (Coût total)] × 100
+ROI (%) = [(Net training benefit) / (Total cost)] × 100
 
-Exemple — Formation Prompt Engineering (50 participants managers) :
+Example — Prompt Engineering training (50 manager participants):
 
-COÛTS TOTAUX :
-  Conception & développement           :  25 000 €
-  Animation (2 jours × 5 sessions)     :  20 000 €
-  LMS + licences outils                :   5 000 €
-  Temps apprenants (2 jours × 50 × 450€):  45 000 €
-  TOTAL COÛTS                          :  95 000 €
+TOTAL COSTS:
+  Design & development                   : €25,000
+  Facilitation (2 days × 5 sessions)     : €20,000
+  LMS + tool licenses                    :  €5,000
+  Learner time (2 days × 50 × €450)      : €45,000
+  TOTAL COSTS                            : €95,000
 
-BÉNÉFICES ANNUELS ESTIMÉS (productivité projetée sur 45 semaines) :
-  Gain productivité (1h/semaine × 50 pers × 45 sem × 55 €) : 123 750 €
-  Réduction sous-traitance contenu IA                      :  30 000 €
-  Accélération 3 projets IA (time-to-value)                :  50 000 €
-  TOTAL BÉNÉFICES                                          : 203 750 €
+ESTIMATED ANNUAL BENEFITS (productivity projected over 45 weeks):
+  Productivity gain (1h/week × 50 people × 45 wks × €55) : €123,750
+  Reduced AI-content outsourcing                         :  €30,000
+  Faster time-to-value on 3 AI projects                  :  €50,000
+  TOTAL BENEFITS                                         : €203,750
 
-ROI = [(203 750 - 95 000) / 95 000] × 100 = 114%
+ROI = [(203,750 - 95,000) / 95,000] × 100 = 114%
 
-Interprétation : Pour 1 € investi, 2,14 € de valeur générée sur 12 mois
-Payback : ≈ 5,6 mois (95 000 € ÷ 203 750 € de bénéfices annuels × 12)
+Interpretation: For €1 invested, €2.14 of value generated over 12 months
+Payback: ≈ 5.6 months (€95,000 ÷ €203,750 annual benefits × 12)
 ```
 
-## Tableau de bord L&D pour formations IA
+## L&D dashboard for AI trainings
 
-| KPI | Calcul | Cible | Fréquence |
+| KPI | Calculation | Target | Frequency |
 |-----|--------|-------|-----------|
-| NPS formation | Promoteurs - Détracteurs | > 40 | Par session |
-| Score quiz moyen | Moy. résultats évaluations | > 75% | Par session |
-| Taux de complétion | % modules complétés | > 85% | Hebdomadaire |
-| Taux de transfert L3 | % appliquant à J+30 | > 60% | Par cohorte |
-| ROI formation | Bénéfice net / Coût | > 100% | Semestriel |
-| Time-to-competency | Délai acquisition compétence | Benchmark | Par parcours |
+| Training NPS | Promoters - Detractors | > 40 | Per session |
+| Average quiz score | Avg. of assessment results | > 75% | Per session |
+| Completion rate | % of modules completed | > 85% | Weekly |
+| L3 transfer rate | % applying at D+30 | > 60% | Per cohort |
+| Training ROI | Net benefit / Cost | > 100% | Half-yearly |
+| Time-to-competency | Time to acquire skill | Benchmark | Per track |
 
-## Livrables
+## Deliverables
 
-- Plan d'évaluation Kirkpatrick complet (L1 à L4)
-- Questionnaire de satisfaction (L1) + guide d'analyse
-- Assessments pédagogiques (L2) avec grilles de notation
-- Plan de suivi comportemental (L3) avec templates
-- Rapport ROI de la formation (L4) avec modèle de calcul
-- Tableau de bord L&D mensuel (Power BI / Google Data Studio)
+- Complete Kirkpatrick evaluation plan (L1 to L4)
+- Satisfaction questionnaire (L1) + analysis guide
+- Learning assessments (L2) with scoring rubrics
+- Behavioral follow-up plan (L3) with templates
+- Training ROI report (L4) with calculation model
+- Monthly L&D dashboard (Power BI / Google Data Studio)
 
-## Format de sortie
+## Output format
 
-Précise : **nom et thème de la formation**, **public** (profil, nb apprenants), **niveaux Kirkpatrick à évaluer** (L1 à L4), **KPIs business** disponibles pour L4, **outils de collecte** (SurveyMonkey / Typeform / LMS natif), **délai de suivi** post-formation, **sponsor RH ou manager** impliqué dans L3.
+Specify: **training name and topic**, **audience** (profile, number of learners), **Kirkpatrick levels to evaluate** (L1 to L4), **business KPIs** available for L4, **collection tools** (SurveyMonkey / Typeform / native LMS), **follow-up window** after training, **HR or manager sponsor** involved in L3.
 
 ## Sources
-- **Donald Kirkpatrick** — *Evaluating Training Programs* (articles 1959 ; livre 1994) ; *New World Kirkpatrick Model* (Jim & Wendy Kirkpatrick, 2016)
-- **Jack J. Phillips** — *Return on Investment in Training and Performance Improvement Programs* (1997) — niveau 5 ROI + principe d'isolation des effets
+- **Donald Kirkpatrick** — *Evaluating Training Programs* (articles 1959; book 1994); *New World Kirkpatrick Model* (Jim & Wendy Kirkpatrick, 2016)
+- **Jack J. Phillips** — *Return on Investment in Training and Performance Improvement Programs* (1997) — level 5 ROI + effect-isolation principle
 - **Fred Reichheld** — *The One Number You Need to Grow* (HBR, 2003) — Net Promoter Score
-- **Robert Brinkerhoff** — *The Success Case Method* (2003) — évaluation du transfert
+- **Robert Brinkerhoff** — *The Success Case Method* (2003) — transfer evaluation
 
 ## Anti-patterns
-- S'arrêter au L1 (« smiley sheets ») et en conclure à l'efficacité
-- Annoncer un ROI sans isoler l'effet formation des autres facteurs (Phillips)
-- Confondre bénéfices annualisés et bénéfices observés à court terme (cf. calcul de payback)
-- Présenter le NPS comme une mesure d'apprentissage (c'est de la satisfaction, L1)
-- Fixer des cibles (> 75 %, > 85 %) sans baseline mesurée
+- Stopping at L1 ("smiley sheets") and concluding effectiveness
+- Claiming a ROI without isolating the training effect from other factors (Phillips)
+- Confusing annualized benefits with short-term observed benefits (cf. payback calculation)
+- Presenting NPS as a learning measure (it's satisfaction, L1)
+- Setting targets (> 75%, > 85%) with no measured baseline
 
-## Voir aussi
-- [analyse-besoins-formation.md](analyse-besoins-formation.md) — objectifs L3/L4 définis dès l'amont
-- [conception-parcours.md](conception-parcours.md) — objectifs Bloom évaluables
-- [data-literacy.md](data-literacy.md) — KPIs de montée en compétence
-- [`../business_analyst/reporting-moa.md`](../business_analyst/reporting-moa.md) — reporting d'impact côté MOA
+## See also
+- [analyse-besoins-formation.md](analyse-besoins-formation.md) — L3/L4 objectives defined upfront
+- [conception-parcours.md](conception-parcours.md) — assessable Bloom objectives
+- [data-literacy.md](data-literacy.md) — upskilling KPIs
+- [`../business_analyst/reporting-moa.md`](../business_analyst/reporting-moa.md) — impact reporting on the business-analysis side

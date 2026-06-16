@@ -1,200 +1,200 @@
-# Skill — Animation de Formation IA
+# Skill — AI Training Facilitation
 
-> Certifications : Formateur Professionnel d'Adultes (RNCP Niveau 5) 2026, Facilitateur Liberating Structures Practitioner, Certification Pédagogie Active HEC, IAF Certified Professional Facilitator
+> Certifications: Professional Adult Trainer (RNCP Level 5) 2026, Liberating Structures Practitioner Facilitator, HEC Active Pedagogy Certification, IAF Certified Professional Facilitator
 
-## Objectif
+## Objective
 
-Animer des formations Data-IA engageantes en maîtrisant les techniques de pédagogie active, storytelling, jeux pédagogiques, facilitation hybride et Liberating Structures.
+Facilitate engaging Data-AI training by mastering active pedagogy, storytelling, learning games, hybrid facilitation, and Liberating Structures.
 
-## Les piliers de l'animation Formation IA
+## The pillars of AI training facilitation
 
-### Modèle 70-20-10 appliqué à une session
+### The 70-20-10 model applied to a session
 
 ```
-70% — FAIRE (pratique, expérimentation)
-    → Exercices prompts en temps réel
-    → Études de cas sur données réelles
-    → Projets fil rouge
+70% — DOING (practice, experimentation)
+    → Real-time prompt exercises
+    → Case studies on real data
+    → Capstone projects
 
-20% — APPRENDRE DES AUTRES (social learning)
+20% — LEARNING FROM OTHERS (social learning)
     → Peer teaching
-    → Reviews croisées de prompts
-    → Partages d'expériences terrain
+    → Cross prompt reviews
+    → Sharing field experiences
 
-10% — APPRENDRE DE LA THÉORIE
-    → Exposés magistraux courts (< 10 min)
-    → Vidéos de référence
-    → Fiches mémo
+10% — LEARNING FROM THEORY
+    → Short lectures (< 10 min)
+    → Reference videos
+    → Cheat sheets
 ```
 
-## Techniques d'animation actives
+## Active facilitation techniques
 
-### 1. Storytelling pédagogique
+### 1. Instructional storytelling
 
-#### Structure narrative pour expliquer l'IA
+#### Narrative structure to explain AI
 
 ```
-STRUCTURE "Before/After/Bridge" :
+"Before/After/Bridge" STRUCTURE:
 
-BEFORE — La situation actuelle (douleur)
-"Vous recevez 200 emails par semaine. Trier, classer, 
-répondre vous prend 3h/jour."
+BEFORE — The current situation (pain)
+"You get 200 emails a week. Sorting, filing, and
+replying takes you 3h/day."
 
-AFTER — La transformation possible
-"Avec un agent IA bien configuré, cette tâche prend 20 min."
+AFTER — The possible transformation
+"With a well-configured AI agent, this task takes 20 min."
 
-BRIDGE — Comment y arriver (votre formation)
-"C'est exactement ce que nous allons construire ensemble
-aujourd'hui — et vous repartirez avec votre propre assistant."
+BRIDGE — How to get there (your training)
+"That's exactly what we'll build together
+today — and you'll leave with your own assistant."
 ```
 
-#### Cas d'usage narratif par secteur
+#### Narrative use case by sector
 
-| Secteur | Personnage | Problème | Solution IA | Twist pédagogique |
+| Sector | Character | Problem | AI solution | Teaching twist |
 |---------|-----------|---------|-------------|-------------------|
-| RH | Sophie, RRH | 500 CV à trier | Screening IA | Biais algo → éthique |
-| Finance | Marc, CFO | Reporting mensuel 2 jours | IA générative + données | Hallucination → vérification |
-| Marketing | Léa, Content Manager | 100 posts/mois | IA rédaction | Authenticité de la voix |
-| Industrie | Ahmed, Responsable Prod | Pannes imprévues | Predictive maintenance | Données manquantes → data quality |
+| HR | Sophie, HRBP | 500 resumes to screen | AI screening | Algo bias → ethics |
+| Finance | Marc, CFO | Monthly reporting, 2 days | Generative AI + data | Hallucination → verification |
+| Marketing | Léa, Content Manager | 100 posts/month | AI writing | Authenticity of voice |
+| Industry | Ahmed, Production Lead | Unplanned downtime | Predictive maintenance | Missing data → data quality |
 
-### 2. Jeux pédagogiques
+### 2. Learning games
 
-#### "Prompt Duel" — Jeu de compétition
-
-```
-RÈGLES DU PROMPT DUEL (15 min)
-
-Objectif pédagogique : Comparer qualité de prompts
-Niveau Bloom ciblé : Analyser (niveau 4)
-
-Déroulé :
-1. Formateur donne une tâche business (ex: "résumer un contrat")
-2. Équipe A écrit un prompt "naïf" (spontané)
-3. Équipe B écrit un prompt "structuré" (avec techniques vues)
-4. Les deux prompts sont soumis à Claude/ChatGPT en live
-5. Classe vote sur la meilleure réponse et analyse pourquoi
-6. Débriefing : quelles techniques ont fait la différence ?
-
-Variante : "Prompt Battle" — chaque apprenant améliore
-le prompt du voisin en 2 minutes
-```
-
-#### "IA ou Humain ?" — Jeu d'éthique et détection
+#### "Prompt Duel" — competition game
 
 ```
-RÈGLES (20 min)
+PROMPT DUEL RULES (15 min)
 
-Objectif : Développer l'esprit critique face aux contenus IA
-Format : Quiz interactif Kahoot / Mentimeter
+Learning objective: Compare prompt quality
+Target Bloom level: Analyze (level 4)
 
-Principe :
-→ 10 extraits texte/image sont présentés
-→ Apprenants votent : IA générée ou Humain ?
-→ Révélation + discussion sur les indices
+Flow:
+1. Trainer gives a business task (e.g., "summarize a contract")
+2. Team A writes a "naive" prompt (spontaneous)
+3. Team B writes a "structured" prompt (using the techniques covered)
+4. Both prompts are submitted to Claude/ChatGPT live
+5. The class votes on the best answer and analyzes why
+6. Debrief: which techniques made the difference?
 
-Enseignements :
-→ Risques de désinformation
-→ Importance de la vérification des sources
-→ Cas d'usage de détection IA (Originality.ai, ZeroGPT)
+Variant: "Prompt Battle" — each learner improves
+their neighbor's prompt in 2 minutes
 ```
 
-### 3. Liberating Structures appliquées à l'IA
+#### "AI or Human?" — ethics and detection game
 
-| Structure | Durée | Usage en formation IA |
+```
+RULES (20 min)
+
+Objective: Build critical thinking toward AI content
+Format: Interactive Kahoot / Mentimeter quiz
+
+Principle:
+→ 10 text/image excerpts are shown
+→ Learners vote: AI-generated or Human?
+→ Reveal + discussion of the cues
+
+Takeaways:
+→ Misinformation risks
+→ Importance of source verification
+→ AI-detection use cases (Originality.ai, ZeroGPT)
+```
+
+### 3. Liberating Structures applied to AI
+
+| Structure | Duration | Use in AI training |
 |-----------|-------|----------------------|
-| **1-2-4-All** | 15 min | Générer des cas d'usage IA par équipe |
-| **TRIZ** | 30 min | Identifier obstacles à l'adoption IA |
-| **Troika Consulting** | 45 min | Résoudre un problème de mise en oeuvre IA |
-| **Mad Tea** | 20 min | Partage d'expériences prompts entre apprenants |
-| **What, So What, Now What** | 20 min | Débrief d'un exercice IA |
-| **Open Space** | 90 min | Hackathon d'idées use cases IA |
+| **1-2-4-All** | 15 min | Generate AI use cases per team |
+| **TRIZ** | 30 min | Identify barriers to AI adoption |
+| **Troika Consulting** | 45 min | Solve an AI implementation problem |
+| **Mad Tea** | 20 min | Share prompt experiences among learners |
+| **What, So What, Now What** | 20 min | Debrief an AI exercise |
+| **Open Space** | 90 min | AI use-case ideation hackathon |
 
-#### Protocole "1-2-4-All" pour les cas d'usage IA
-
-```
-Question posée : "Quel est LE cas d'usage IA qui transformerait
-le plus votre travail quotidien ?"
-
-Étape 1 (1 min) : Réflexion individuelle silencieuse
-Étape 2 (2 min) : Échange en binôme — choisir 1 idée commune
-Étape 3 (4 min) : Fusion en groupe de 4 — convergence
-Étape 4 (5 min) : Partage en plénière (1 idée par groupe)
-→ Résultat : 10 cas d'usage validés collectivement en 12 min
-```
-
-## Facilitation hybride (Présentiel + Distanciel)
-
-### Configuration technique recommandée
+#### "1-2-4-All" protocol for AI use cases
 
 ```
-Salle hybride idéale :
+Question asked: "What is THE AI use case that would transform
+your daily work the most?"
+
+Step 1 (1 min): Silent individual reflection
+Step 2 (2 min): Pair exchange — pick 1 shared idea
+Step 3 (4 min): Merge into groups of 4 — converge
+Step 4 (5 min): Plenary share (1 idea per group)
+→ Result: 10 use cases validated collectively in 12 min
+```
+
+## Hybrid facilitation (in-person + remote)
+
+### Recommended technical setup
+
+```
+Ideal hybrid room:
 ┌─────────────────────────────────────┐
-│  [Caméra grand angle] ← Participants│
-│                         distanciels │
+│  [Wide-angle camera] ← Remote       │
+│                        participants │
 │                                     │
-│  [Écran principal]                  │
-│  ↑ contenu + webcam distanciels     │
+│  [Main screen]                      │
+│  ↑ content + remote webcam          │
 │                                     │
-│  [Tableau blanc interactif]         │
-│  Miro / Mural partagé               │
+│  [Interactive whiteboard]           │
+│  Shared Miro / Mural                │
 └─────────────────────────────────────┘
 
-Outils : Zoom/Teams + Miro + Mentimeter + Klaxoon
-Règle d'or : 1 facilitateur présentiel + 1 co-host distanciel
+Tools: Zoom/Teams + Miro + Mentimeter + Klaxoon
+Rule of thumb: 1 in-person facilitator + 1 remote co-host
 ```
 
-### Protocole "Equal Voice" hybride
+### Hybrid "Equal Voice" protocol
 
 ```
-Principe : les participants distanciels sont PRIORITAIRES
-en matière de prise de parole
+Principle: remote participants get PRIORITY
+when it comes to speaking
 
-Séquence de facilitation :
-1. Tour de table distanciel d'abord (30 sec/personne)
-2. Sondage Mentimeter synchrone (présentiel + distanciel)
-3. Breakout rooms mixtes (1 distanciel + 2 présentiel / salle)
-4. Synthèse sur Miro visible par tous
+Facilitation sequence:
+1. Remote round-robin first (30 sec/person)
+2. Synchronous Mentimeter poll (in-person + remote)
+3. Mixed breakout rooms (1 remote + 2 in-person / room)
+4. Summary on Miro visible to all
 ```
 
-## Gestion des situations délicates
+## Handling tricky situations
 
-| Situation | Réponse du formateur |
+| Situation | Trainer's response |
 |-----------|---------------------|
-| Apprenant expert qui monopolise | "Merci [Prénom], vous serez notre référent — et les autres ?" |
-| Résistance à l'IA ("ça va supprimer nos emplois") | Technique TRIZ : "Et si l'IA était un collaborateur ?" |
-| Problème technique en live | Script de secours préparé + capture d'écran du résultat |
-| Apprenant bloqué sur un prompt | Peer coaching : "Demandez à votre voisin sa technique" |
-| Groupe très hétérogène | Niveaux différenciés : exercices A (base) et B (avancé) |
+| Expert learner who dominates | "Thanks [First name], you'll be our go-to — now, what about the others?" |
+| Resistance to AI ("it will cut our jobs") | TRIZ technique: "What if AI were a teammate?" |
+| Live technical issue | Prepared fallback script + screenshot of the result |
+| Learner stuck on a prompt | Peer coaching: "Ask your neighbor for their technique" |
+| Very mixed-level group | Differentiated levels: exercises A (basics) and B (advanced) |
 
-## Livrables
+## Deliverables
 
-- Guide d'animation jour J (timing minute par minute)
-- Kit facilitateur (fiches jeux pédagogiques, consignes, débriefs)
-- Slides d'animation (format pédagogique — peu de texte, visuels forts)
-- Exercices pratiques avec corrigés commentés
-- Protocoles Liberating Structures adaptés au thème
-- Checklist facilitation hybride (technique + pédagogique)
+- Day-of facilitation guide (minute-by-minute timing)
+- Facilitator kit (learning-game sheets, instructions, debriefs)
+- Facilitation slides (instructional format — little text, strong visuals)
+- Hands-on exercises with annotated answer keys
+- Liberating Structures protocols tailored to the topic
+- Hybrid facilitation checklist (technical + instructional)
 
-## Format de sortie
+## Output format
 
-Précise : **thème et durée de la session**, **effectif et profil des apprenants**, **format** (présentiel / distanciel / hybride), **niveau IA des participants** (débutant / intermédiaire / expert), **objectifs comportementaux** visés, **contraintes techniques** (outils disponibles), **nombre de formateurs** disponibles.
+Specify: **session topic and duration**, **headcount and learner profile**, **format** (in-person / remote / hybrid), **participants' AI level** (beginner / intermediate / expert), **target behavioral objectives**, **technical constraints** (available tools), **number of trainers** available.
 
 ## Sources
-- **Morgan McCall, Michael Lombardo & Robert Eichinger (CCL)** — modèle **70-20-10** (années 1980 ; *Career Architect*, 1996) — cadre **indicatif et empirique**, non un ratio mesuré
+- **Morgan McCall, Michael Lombardo & Robert Eichinger (CCL)** — the **70-20-10** model (1980s; *Career Architect*, 1996) — an **indicative, empirical** framework, not a measured ratio
 - **Henri Lipmanowicz & Keith McCandless** — *The Surprising Power of Liberating Structures* (2014)
-- **Malcolm Knowles** — andragogie (*The Modern Practice of Adult Education*, 1970/1980) — postures de l'apprenant adulte
-- **Sharon Bowman** — *Training from the Back of the Room!* (2009) — pédagogie active
+- **Malcolm Knowles** — andragogy (*The Modern Practice of Adult Education*, 1970/1980) — adult-learner stances
+- **Sharon Bowman** — *Training from the Back of the Room!* (2009) — active pedagogy
 
 ## Anti-patterns
-- Exposés magistraux > 10 min d'affilée → décrochage attentionnel
-- Présenter le 70-20-10 comme un ratio scientifiquement mesuré
-- Jeux pédagogiques « gadgets » sans objectif d'apprentissage (Bloom) explicite
-- Hybride mal géré : participants distants sans dispositif d'Equal Voice
-- Laisser le biais HiPPO monopoliser la parole
-- **Véhiculer des neuromythes** (styles VAK, pyramide de l'apprentissage) pour justifier un format
+- Lectures > 10 min in a row → attention drop-off
+- Presenting 70-20-10 as a scientifically measured ratio
+- "Gimmicky" learning games with no explicit learning objective (Bloom)
+- Poorly run hybrid: remote participants with no Equal Voice mechanism
+- Letting the HiPPO bias dominate the conversation
+- **Spreading neuromyths** (VAK styles, learning pyramid) to justify a format
 
-## Voir aussi
-- [conception-parcours.md](conception-parcours.md) — objectifs Bloom des activités animées
-- [formation-ia-sensibilisation.md](formation-ia-sensibilisation.md) — ateliers de sensibilisation
+## See also
+- [conception-parcours.md](conception-parcours.md) — Bloom objectives of the facilitated activities
+- [formation-ia-sensibilisation.md](formation-ia-sensibilisation.md) — awareness workshops
 - [`../ux_design/facilitation-ateliers.md`](../ux_design/facilitation-ateliers.md) — Design Sprint & co-design
-- [`../business_analyst/animation-atelier-metier.md`](../business_analyst/animation-atelier-metier.md) — ateliers métier/MOA
+- [`../business_analyst/animation-atelier-metier.md`](../business_analyst/animation-atelier-metier.md) — business/MOA workshops

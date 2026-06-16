@@ -1,86 +1,86 @@
-# Skills — Formateur IA & Learning Designer
+# Skills — AI Trainer & Learning Designer
 
-> Dossier rattaché à `AGENT-FORMATEUR-IA.md`
-> Référentiels : ATD APTD / CPTD · Training Industry CPTM · ICF CCP · Interaction Design Foundation · Google Educator · CAP IABAC · Qualiopi · DeepLearning.AI · Anthropic Claude Code in Action
+> Folder attached to `AGENT-FORMATEUR-IA.md`
+> Frameworks: ATD APTD / CPTD · Training Industry CPTM · ICF CCP · Interaction Design Foundation · Google Educator · CAP IABAC · Qualiopi · DeepLearning.AI · Anthropic Claude Code in Action
 
 ---
 
-## Index des skills (11)
+## Skill index (11)
 
-### Conception pédagogique
-| Skill | Quand l'invoquer | Certification |
+### Instructional design
+| Skill | When to invoke | Certification |
 |---|---|---|
 | [`analyse-besoins-formation.md`](analyse-besoins-formation.md) | TNA (Training Needs Analysis) | CPTD · CPTM |
-| [`conception-parcours.md`](conception-parcours.md) | Concevoir un parcours pédagogique (Bloom, 70-20-10) | CPTD · APTD · IDF |
-| [`conception-parcours-certifiant-ia.md`](conception-parcours-certifiant-ia.md) | Concevoir un parcours certifiant IA (plan 8 semaines) | CPTD · CPTM · CAP IABAC · Anthropic |
+| [`conception-parcours.md`](conception-parcours.md) | Design a learning path (Bloom, 70-20-10) | CPTD · APTD · IDF |
+| [`conception-parcours-certifiant-ia.md`](conception-parcours-certifiant-ia.md) | Design an AI certification track (8-week plan) | CPTD · CPTM · CAP IABAC · Anthropic |
 
-### Animation & Modes de formation
-| Skill | Quand l'invoquer | Certification |
+### Facilitation & training modes
+| Skill | When to invoke | Certification |
 |---|---|---|
-| [`animation-formation.md`](animation-formation.md) | Préparer et animer une session de formation | CPTD · CCP · Google Educator |
-| [`elearning-rapid-learning.md`](elearning-rapid-learning.md) | Créer un module e-learning (Articulate Storyline, Rise 360, Adobe Captivate) | CPTD · Coursera Instructor |
+| [`animation-formation.md`](animation-formation.md) | Prepare and facilitate a training session | CPTD · CCP · Google Educator |
+| [`elearning-rapid-learning.md`](elearning-rapid-learning.md) | Create an e-learning module (Articulate Storyline, Rise 360, Adobe Captivate) | CPTD · Coursera Instructor |
 
-### Évaluation
-| Skill | Quand l'invoquer | Certification |
+### Evaluation
+| Skill | When to invoke | Certification |
 |---|---|---|
-| [`evaluation-formation.md`](evaluation-formation.md) | Évaluer l'efficacité d'une formation (Kirkpatrick L1-L4) | CPTD · CPTM |
+| [`evaluation-formation.md`](evaluation-formation.md) | Evaluate training effectiveness (Kirkpatrick L1-L4) | CPTD · CPTM |
 
-### Formations IA spécifiques
-| Skill | Quand l'invoquer | Certification |
+### AI-specific training
+| Skill | When to invoke | Certification |
 |---|---|---|
-| [`formation-ia-sensibilisation.md`](formation-ia-sensibilisation.md) | Sensibiliser des équipes à l'IA (non-techniques) | CAP IABAC · DeepLearning.AI · Anthropic |
-| [`prompt-engineering-formation.md`](prompt-engineering-formation.md) | Former au prompt engineering (Claude, ChatGPT, Gemini) | Anthropic · CAP IABAC |
-| [`data-literacy.md`](data-literacy.md) | Développer la Data Literacy des équipes | CPTD · CAP IABAC · DeepLearning.AI |
-| [`formation-agents-ia.md`](formation-agents-ia.md) | Former aux agents IA et architectures agentic (MCP/A2A, LangGraph, CrewAI) | Anthropic · CAP IABAC · AWS AIF-C01 |
-| [`formation-claude-code.md`](formation-claude-code.md) | Former à Claude Code et outils LLM pro | Anthropic Claude Code in Action · Code 101 · 101 |
+| [`formation-ia-sensibilisation.md`](formation-ia-sensibilisation.md) | Raise team AI awareness (non-technical) | CAP IABAC · DeepLearning.AI · Anthropic |
+| [`prompt-engineering-formation.md`](prompt-engineering-formation.md) | Train on prompt engineering (Claude, ChatGPT, Gemini) | Anthropic · CAP IABAC |
+| [`data-literacy.md`](data-literacy.md) | Build team data literacy | CPTD · CAP IABAC · DeepLearning.AI |
+| [`formation-agents-ia.md`](formation-agents-ia.md) | Train on AI agents and agentic architectures (MCP/A2A, LangGraph, CrewAI) | Anthropic · CAP IABAC · AWS AIF-C01 |
+| [`formation-claude-code.md`](formation-claude-code.md) | Train on Claude Code and professional LLM tools | Anthropic Claude Code in Action · Code 101 · 101 |
 
 ---
 
-## Choisir le bon skill — Arbre de décision
+## Choosing the right skill — decision tree
 
 ```
-Tu veux ...
+You want to ...
 
-  ... CONCEVOIR UN PROGRAMME DE FORMATION ?
-    → analyse-besoins-formation.md (TNA en amont)
+  ... DESIGN A TRAINING PROGRAM?
+    → analyse-besoins-formation.md (TNA upfront)
     → conception-parcours.md (Bloom + 70-20-10)
-    → conception-parcours-certifiant-ia.md (parcours certifiant complet)
+    → conception-parcours-certifiant-ia.md (full certification track)
 
-  ... PRODUIRE LE CONTENU ?
-    → animation-formation.md (animation présentiel/distanciel)
-    → elearning-rapid-learning.md (modules asynchrones)
+  ... PRODUCE THE CONTENT?
+    → animation-formation.md (in-person/remote facilitation)
+    → elearning-rapid-learning.md (asynchronous modules)
 
-  ... ÉVALUER L'IMPACT ?
+  ... MEASURE IMPACT?
     → evaluation-formation.md (Kirkpatrick L1-L4)
 
-  ... ENSEIGNER L'IA ?
-    → formation-ia-sensibilisation.md (managers, métiers)
+  ... TEACH AI?
+    → formation-ia-sensibilisation.md (managers, business teams)
     → prompt-engineering-formation.md (Claude / ChatGPT / Gemini)
-    → data-literacy.md (compétences data transversales)
+    → data-literacy.md (cross-functional data skills)
     → formation-agents-ia.md (agentic architectures)
-    → formation-claude-code.md (outils LLM pro Anthropic)
+    → formation-claude-code.md (professional Anthropic LLM tools)
 ```
 
 ---
 
-## Frontières avec les autres agents
+## Boundaries with other agents
 
-| Sujet voisin | Agent concerné | Frontière |
+| Adjacent topic | Agent involved | Boundary |
 |---|---|---|
-| Implémentation technique IA | `AGENT-DEV-PYTHON-IA.md`, `AGENT-MLOPS-ENGINEER.md` | FORMATEUR enseigne ; agents techniques implémentent |
-| Conseil stratégique IA | `AGENT-CONSULTANT-IA.md` | FORMATEUR = ingénierie pédagogique ; CONSULTANT = stratégie |
-| Recrutement & GEPP | `AGENT-RH-IA.md` | FORMATEUR = ingénierie pédagogique ; RH-IA = cartographie compétences |
-| Conduite du changement | `AGENT-CHANGE-MANAGER.md` | FORMATEUR = formation ; CHANGE = adoption transverse |
+| Technical AI implementation | `AGENT-DEV-PYTHON-IA.md`, `AGENT-MLOPS-ENGINEER.md` | TRAINER teaches; technical agents implement |
+| Strategic AI advisory | `AGENT-CONSULTANT-IA.md` | TRAINER = instructional design; CONSULTANT = strategy |
+| Recruitment & workforce planning | `AGENT-RH-IA.md` | TRAINER = instructional design; RH-IA = skills mapping |
+| Change management | `AGENT-CHANGE-MANAGER.md` | TRAINER = training; CHANGE = cross-functional adoption |
 
 ---
 
-## Référentiels et standards utilisés
+## Frameworks and standards used
 
-- **ATD APTD / CPTD** (le CPLP a été renommé CPTD en 2020) : https://www.td.org/certification
-- **Training Industry CPTM** : https://www.trainingindustry.com/cptm/
-- **Bloom's Taxonomy** (révisée 2001)
+- **ATD APTD / CPTD** (CPLP was renamed CPTD in 2020): https://www.td.org/certification
+- **Training Industry CPTM**: https://www.trainingindustry.com/cptm/
+- **Bloom's Taxonomy** (revised 2001)
 - **70-20-10 Model** (Center for Creative Leadership)
-- **Kirkpatrick L1-L4** : https://www.kirkpatrickpartners.com/
-- **Qualiopi** : référentiel français qualité OF
-- **CAP IABAC** : certification IA
+- **Kirkpatrick L1-L4**: https://www.kirkpatrickpartners.com/
+- **Qualiopi**: French quality framework for training organizations
+- **CAP IABAC**: AI certification
 - **DeepLearning.AI AI For Everyone**

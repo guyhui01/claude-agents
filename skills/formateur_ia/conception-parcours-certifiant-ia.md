@@ -1,178 +1,178 @@
-# Skill — Conception d'un Parcours Certifiant IA
+# Skill — AI Certification Track Design
 
-> Certifications : CPTD · CPTM · CAP IABAC · Anthropic Claude Code in Action (2026) · DeepLearning.AI AI For Everyone · SAFe6 Agilist
+> Certifications: CPTD · CPTM · CAP IABAC · Anthropic Claude Code in Action (2026) · DeepLearning.AI AI For Everyone · SAFe6 Agilist
 
-## Objectif
+## Objective
 
-Concevoir, structurer et déployer un parcours de certification IA pour des équipes ou des individus : sélection de la certification adaptée au profil, construction du plan de préparation, ressources d'entraînement, jalons d'évaluation et accompagnement jusqu'à l'examen.
+Design, structure, and roll out an AI certification track for teams or individuals: select the certification that fits the profile, build the preparation plan, training resources, assessment milestones, and support all the way to the exam.
 
-## Catalogue des certifications IA 2026
+## 2026 AI certification catalog
 
-### Certifications Anthropic
+### Anthropic certifications
 
 ```
-CERTIFICATION                  NIVEAU    DURÉE PREP    CIBLE
+CERTIFICATION                  LEVEL     PREP TIME     TARGET
 ─────────────────────────────  ────────  ────────────  ─────────────────────────
-Claude 101                     Débutant  2-4h          Tous utilisateurs Claude
-Claude Code 101                Interméd. 4-8h          Développeurs, PO
-Claude Code in Action          Expert    20-40h        Architectes IA, dev senior
+Claude 101                     Beginner  2-4h          All Claude users
+Claude Code 101                Interm.   4-8h          Developers, PO
+Claude Code in Action          Expert    20-40h        AI architects, senior dev
 ```
 
-### Certifications IA généralistes
+### General-purpose AI certifications
 
 ```
-CERTIFICATION                  NIVEAU    DURÉE PREP    CIBLE
+CERTIFICATION                  LEVEL     PREP TIME     TARGET
 ─────────────────────────────  ────────  ────────────  ─────────────────────────
-CAP IABAC                      Interméd. 20-30h        Consultants, PM, PO
-AI Fundamentals (Google)       Débutant  4-8h          Tous métiers
-AI Essentials (Google)         Débutant  2-4h          Tous métiers
-AI For Everyone (DeepLearning) Débutant  6h MOOC       Non-techniques
-AWS AI Practitioner (AIF-C01)  Interméd. 30-40h        IT / Architectes
-Azure AI-102                   Expert    40-60h        Architectes Azure IA
+CAP IABAC                      Interm.   20-30h        Consultants, PM, PO
+AI Fundamentals (Google)       Beginner  4-8h          All roles
+AI Essentials (Google)         Beginner  2-4h          All roles
+AI For Everyone (DeepLearning) Beginner  6h MOOC       Non-technical
+AWS AI Practitioner (AIF-C01)  Interm.   30-40h        IT / Architects
+Azure AI-102                   Expert    40-60h        Azure AI architects
 ```
 
-### Certifications IA spécialisées
+### Specialized AI certifications
 
 ```
-CERTIFICATION                  NIVEAU    DURÉE PREP    CIBLE
+CERTIFICATION                  LEVEL     PREP TIME     TARGET
 ─────────────────────────────  ────────  ────────────  ─────────────────────────
-ISTQB® AI Testing              Interméd. 20-30h        QA / Testeurs
+ISTQB® AI Testing              Interm.   20-30h        QA / Testers
 SAFe AI / SAFe POPM            Expert    20-40h        PO / PM SAFe
 CDMP (Data Management)         Expert    60-80h        Data Scientists
-MLOps (DataTalks)              Interméd. 40-60h        MLOps Engineers
-Prompt Engineering (Anthropic) Interméd. 10-20h        PO, consultants, dev
+MLOps (DataTalks)              Interm.   40-60h        MLOps Engineers
+Prompt Engineering (Anthropic) Interm.   10-20h        PO, consultants, dev
 ```
 
-## Processus de conception du parcours
+## Track design process
 
-### ÉTAPE 1 — Analyse des besoins et sélection de la certification
+### STEP 1 — Needs analysis and certification selection
 
 ```yaml
-analyse:
-  questions_cles:
-    - "Quel est l'objectif professionnel ? (promotion, montée en compétences, crédibilité client)"
-    - "Quel est le niveau IA actuel ? (auto-évaluation 1-5)"
-    - "Combien de temps disponible par semaine ? (heures/semaine)"
-    - "Quelle est la deadline souhaitée ?"
-    - "Y a-t-il un budget formation ? (certification payante ou gratuite)"
-  
-  matrice_selection:
-    non_technique_peu_de_temps: "Claude 101 → AI Essentials Google → CAP IABAC"
+analysis:
+  key_questions:
+    - "What is the professional goal? (promotion, upskilling, client credibility)"
+    - "What is the current AI level? (self-assessment 1-5)"
+    - "How much time is available per week? (hours/week)"
+    - "What is the desired deadline?"
+    - "Is there a training budget? (paid or free certification)"
+
+  selection_matrix:
+    non_technical_limited_time: "Claude 101 → AI Essentials Google → CAP IABAC"
     po_pm_agile: "Claude Code 101 → CAP IABAC → SAFe POPM"
     dev_cloud: "Claude Code in Action → AWS AIF-C01 → Azure AI-102"
-    qa_testeur: "ISTQB AI Testing → Claude Code 101"
+    qa_tester: "ISTQB AI Testing → Claude Code 101"
     data_scientist: "CDMP → AWS MLS-C01 → MLOps DataTalks"
-    consultant_ia: "CAP IABAC → Claude Code in Action → Anthropic Prompt Eng."
+    ai_consultant: "CAP IABAC → Claude Code in Action → Anthropic Prompt Eng."
 ```
 
-### ÉTAPE 2 — Plan de préparation personnalisé
+### STEP 2 — Personalized preparation plan
 
 ```
-MODÈLE DE PLAN 8 SEMAINES (CAP IABAC — exemple)
+8-WEEK PLAN TEMPLATE (CAP IABAC — example)
 ────────────────────────────────────────────────────────────────
-S1 : Fondamentaux IA (ML, DL, GenAI) — 4h/sem → ressources DeepLearning.AI
-S2 : LLMs et prompt engineering — 4h/sem → docs Anthropic + exercices
-S3 : Cas d'usage métier et ROI IA — 4h/sem → articles + mise en pratique
-S4 : Gouvernance, éthique, AI Act — 3h/sem → IABAC study guide
-S5 : MLOps et déploiement (bases) — 4h/sem → cours DataTalks
-S6 : Révisions générales + QCM entraînement — 5h/sem → banque de questions
-S7 : Mock exam × 2 + correction — 6h/sem → simulation examen
-S8 : Révision ciblée des lacunes + examen — selon résultats S7
+W1: AI fundamentals (ML, DL, GenAI) — 4h/wk → DeepLearning.AI resources
+W2: LLMs and prompt engineering — 4h/wk → Anthropic docs + exercises
+W3: Business use cases and AI ROI — 4h/wk → articles + hands-on practice
+W4: Governance, ethics, AI Act — 3h/wk → IABAC study guide
+W5: MLOps and deployment (basics) — 4h/wk → DataTalks course
+W6: General review + practice MCQs — 5h/wk → question bank
+W7: Mock exam × 2 + review — 6h/wk → exam simulation
+W8: Targeted review of gaps + exam — based on W7 results
 ────────────────────────────────────────────────────────────────
 ```
 
-### ÉTAPE 3 — Ressources d'apprentissage par certification
+### STEP 3 — Learning resources by certification
 
 ```
-RESSOURCE TYPE         SOURCES RECOMMANDÉES 2026
+RESOURCE TYPE          RECOMMENDED SOURCES 2026
 ─────────────────────  ──────────────────────────────────────────────────────
-Cours en ligne         DeepLearning.AI, Coursera, Udemy, LinkedIn Learning
-Docs officiels         docs.anthropic.com, cloud.google.com/ai, learn.microsoft.com
-Livres de référence    "Designing Machine Learning Systems" (Chip Huyen)
+Online courses         DeepLearning.AI, Coursera, Udemy, LinkedIn Learning
+Official docs          docs.anthropic.com, cloud.google.com/ai, learn.microsoft.com
+Reference books        "Designing Machine Learning Systems" (Chip Huyen)
                        "Building LLMs for Production" (Packt)
-Communautés            Anthropic Discord, Hugging Face forums, Reddit r/MachineLearning
-Banques de questions   ExamTopics, Whizlabs, tutoriaux YouTube certification
-Pratique hands-on      Claude.ai, Google AI Studio, AWS SageMaker Studio Lab (gratuit)
+Communities            Anthropic Discord, Hugging Face forums, Reddit r/MachineLearning
+Question banks         ExamTopics, Whizlabs, YouTube certification tutorials
+Hands-on practice      Claude.ai, Google AI Studio, AWS SageMaker Studio Lab (free)
 ```
 
-### ÉTAPE 4 — Jalons et évaluation
+### STEP 4 — Milestones and assessment
 
 ```yaml
-jalons:
-  - semaine: 2
-    evaluation: "Quiz de mi-parcours (QCM 20 questions) — objectif > 70%"
-    action_si_echec: "Renforcement des fondamentaux, bibliographie ciblée"
-  
-  - semaine: 5
-    evaluation: "Mock exam partiel (50% du périmètre) — objectif > 75%"
-    action_si_echec: "Tutoring individuel 2h, reformulation des concepts lacunaires"
-  
-  - semaine: 7
-    evaluation: "Mock exam complet (2h, conditions réelles) — objectif > 80%"
-    action_si_echec: "Repousser examen de 2 semaines + plan de rattrapage ciblé"
-  
-  - semaine_8_plus:
-    action: "Passage examen officiel"
-    suivi_post: "Débriefing résultat, partage badge LinkedIn, plan de montée en compétences suivant"
+milestones:
+  - week: 2
+    assessment: "Mid-track quiz (20-question MCQ) — target > 70%"
+    action_if_fail: "Reinforce fundamentals, targeted reading list"
+
+  - week: 5
+    assessment: "Partial mock exam (50% of the scope) — target > 75%"
+    action_if_fail: "2h one-on-one tutoring, rephrase weak concepts"
+
+  - week: 7
+    assessment: "Full mock exam (2h, real conditions) — target > 80%"
+    action_if_fail: "Push exam back 2 weeks + targeted catch-up plan"
+
+  - week_8_plus:
+    action: "Sit the official exam"
+    post_followup: "Result debrief, LinkedIn badge sharing, next upskilling plan"
 ```
 
-## Déploiement à l'échelle d'une équipe
+## Team-scale rollout
 
-### Plan de certification collectif (exemple : équipe 10 PO/PM IA)
+### Group certification plan (example: team of 10 AI PO/PM)
 
 ```
-PHASE 1 — DIAGNOSTIC (semaine 1)
-→ Auto-évaluation IA niveau 1-5 par personne
-→ Entretien 30 min / personne : objectifs, disponibilité, contraintes
-→ Restitution : matrice profils × certifications recommandées
+PHASE 1 — DIAGNOSTIC (week 1)
+→ AI self-assessment level 1-5 per person
+→ 30-min interview / person: goals, availability, constraints
+→ Readout: profiles × recommended certifications matrix
 
-PHASE 2 — PRÉPARATION GROUPÉE (semaines 2-6)
-→ Sessions hebdomadaires 1h30 en groupe (présentiel ou visio)
-→ Études de cas métier spécifiques à l'entreprise
-→ Pair learning : chaque apprenant avancé buddy d'un débutant
-→ Slack ou Teams dédié : partage ressources, questions, encouragements
+PHASE 2 — GROUP PREPARATION (weeks 2-6)
+→ Weekly 1h30 group sessions (in-person or video)
+→ Business case studies specific to the company
+→ Pair learning: each advanced learner buddies a beginner
+→ Dedicated Slack or Teams: resource sharing, questions, encouragement
 
-PHASE 3 — EXAMEN ET CÉLÉBRATION (semaines 7-8)
-→ Mock exam collectif J-14
-→ Passage examen en condition (fenêtre 2 semaines)
-→ Célébration des certifications obtenues (CODIR, news interne)
-→ Plan de montée en compétences suivant
+PHASE 3 — EXAM AND CELEBRATION (weeks 7-8)
+→ Group mock exam D-14
+→ Sit the exam under real conditions (2-week window)
+→ Celebrate the certifications earned (steering committee, internal news)
+→ Next upskilling plan
 
-MÉTRIQUES DE SUIVI
-→ Taux de certification (objectif > 80% de l'équipe)
-→ Score moyen à l'examen
-→ NPS de la formation (satisfaction)
-→ Mise en pratique 30 jours après (manager feedback)
+TRACKING METRICS
+→ Certification rate (target > 80% of the team)
+→ Average exam score
+→ Training NPS (satisfaction)
+→ Application 30 days later (manager feedback)
 ```
 
-## Livrables
+## Deliverables
 
-- Plan de préparation personnalisé (PDF 2-4 pages) par apprenant
-- Calendrier de formation avec jalons (format Gantt ou Notion)
-- Bibliothèque de ressources classées par certification
-- Banque de 50+ questions d'entraînement par certification
-- Tableau de bord de suivi collectif (Notion, Confluence ou Google Sheets)
-- Kit de communication RH : email annonce, badge LinkedIn, modèle CV
+- Personalized preparation plan (2-4 page PDF) per learner
+- Training calendar with milestones (Gantt or Notion format)
+- Resource library sorted by certification
+- Bank of 50+ practice questions per certification
+- Group tracking dashboard (Notion, Confluence, or Google Sheets)
+- HR communication kit: announcement email, LinkedIn badge, resume template
 
-## Format de sortie
+## Output format
 
-Précise : **certification(s) ciblée(s)**, **profil(s) des apprenants**, **délai souhaité**, **budget disponible** (certification payante ou non), **mode** (individuel / collectif), **accompagnement attendu** (plan seul / coaching / animation).
+Specify: **target certification(s)**, **learner profile(s)**, **desired timeline**, **available budget** (paid certification or not), **mode** (individual / group), **expected support** (plan only / coaching / facilitation).
 
 ## Sources
-- **ATD** — *Talent Development Body of Knowledge (TDBoK)* — ingénierie des dispositifs certifiants
-- **Donald Kirkpatrick** — *Evaluating Training Programs* (1994) — alignement objectifs ↔ évaluation
-- **Anthropic** — parcours de certification Claude (Claude 101, Claude Code 101, Claude Code in Action) — [anthropic.skilljar.com](https://anthropic.skilljar.com/)
-- Référentiels officiels des certifications citées : AWS *AI Practitioner* (AIF-C01), Microsoft *AI-102*, *CAP IABAC*, *ISTQB AI Testing*, *SAFe*
+- **ATD** — *Talent Development Body of Knowledge (TDBoK)* — engineering of certification programs
+- **Donald Kirkpatrick** — *Evaluating Training Programs* (1994) — aligning objectives ↔ assessment
+- **Anthropic** — Claude certification tracks (Claude 101, Claude Code 101, Claude Code in Action) — [anthropic.skilljar.com](https://anthropic.skilljar.com/)
+- Official frameworks of the cited certifications: AWS *AI Practitioner* (AIF-C01), Microsoft *AI-102*, *CAP IABAC*, *ISTQB AI Testing*, *SAFe*
 
 ## Anti-patterns
-- Choisir la certification « à la mode » sans matrice profil × objectif professionnel
-- Plan de préparation sans mock exam ni jalons d'évaluation intermédiaires
-- Promettre un taux de réussite sans diagnostic du niveau initial
-- Certifier pour le badge sans transfert opérationnel (Kirkpatrick L3)
-- Banque de questions non alignée sur le référentiel officiel de l'examen
+- Picking the "trendy" certification without a profile × professional-goal matrix
+- Preparation plan with no mock exam and no intermediate assessment milestones
+- Promising a pass rate without diagnosing the starting level
+- Certifying for the badge with no operational transfer (Kirkpatrick L3)
+- Question bank not aligned with the exam's official framework
 
-## Voir aussi
-- [prompt-engineering-formation.md](prompt-engineering-formation.md) — préparer la compétence prompt
-- [formation-claude-code.md](formation-claude-code.md) — préparer les certifs Claude Code
-- [formation-agents-ia.md](formation-agents-ia.md) — préparer les compétences agents
-- [evaluation-formation.md](evaluation-formation.md) — mesurer transfert et ROI du parcours certifiant
+## See also
+- [prompt-engineering-formation.md](prompt-engineering-formation.md) — build the prompting skill
+- [formation-claude-code.md](formation-claude-code.md) — prepare for the Claude Code certifications
+- [formation-agents-ia.md](formation-agents-ia.md) — build agent skills
+- [evaluation-formation.md](evaluation-formation.md) — measure transfer and ROI of the certification track

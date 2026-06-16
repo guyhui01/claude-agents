@@ -1,185 +1,185 @@
-# Skill — Formation IA pour Tous (Sensibilisation)
+# Skill — AI for Everyone (Awareness)
 
-> Certifications : Anthropic Prompt Engineering Certification 2026, AI For Everyone (DeepLearning.AI), Formateur Professionnel d'Adultes (RNCP5), Google AI Essentials Certificate
+> Certifications: Anthropic Prompt Engineering Certification 2026, AI For Everyone (DeepLearning.AI), Professional Adult Trainer (RNCP5), Google AI Essentials Certificate
 
-## Objectif
+## Objective
 
-Concevoir et animer un module de sensibilisation à l'IA générative pour des publics non-techniques, avec des contenus clés accessibles, des ateliers de découverte et des cas pratiques par métier.
+Design and deliver a generative-AI awareness module for non-technical audiences, with accessible key content, discovery workshops, and hands-on cases by job.
 
-## Architecture du module "IA pour Tous"
+## "AI for Everyone" module architecture
 
-### Parcours type (demi-journée de 3h30)
+### Typical track (3h30 half-day)
 
 ```
-DURÉE    SÉQUENCE                              FORMAT
+TIME     SEQUENCE                              FORMAT
 ──────   ──────────────────────────────────   ──────────────
-0:00     Accueil + Ice-breaker "IA ou Pas IA" Jeu collectif
-0:15     Comprendre l'IA générative (essentiels) Mini-conférence
-0:35     Démo live : Claude / ChatGPT en action Démonstration
-0:55     Atelier 1 : Mon premier prompt         TP individuel
-1:25     PAUSE
-1:35     Éthique, risques et limites de l'IA   Discussion guidée
-2:05     Atelier 2 : IA dans mon métier        TP par groupe métier
-2:50     Synthèse + Plan d'action personnel    Travail individuel
-3:15     Q&A + Évaluation L1                   Plénière
-3:30     FIN
+0:00     Welcome + ice-breaker "AI or Not AI"  Group game
+0:15     Understanding generative AI (essentials) Mini-lecture
+0:35     Live demo: Claude / ChatGPT in action Demonstration
+0:55     Workshop 1: My first prompt           Individual lab
+1:25     BREAK
+1:35     AI ethics, risks, and limits          Guided discussion
+2:05     Workshop 2: AI in my job              Lab by job group
+2:50     Wrap-up + personal action plan        Individual work
+3:15     Q&A + L1 evaluation                   Plenary
+3:30     END
 ```
 
-## Contenus clés — "Ce que tout collaborateur doit savoir sur l'IA"
+## Key content — "What every employee should know about AI"
 
-### Module A — Démystifier l'IA
+### Module A — Demystifying AI
 
-#### Les 5 points essentiels (format "5 choses à savoir")
-
-```
-1. L'IA générative est un PRÉDICTEUR DE TEXTE sophistiqué
-   → Elle prédit le prochain token, pas "ce qui est vrai"
-   → Conséquence : hallucinations possibles → toujours vérifier
-
-2. L'IA ne "comprend" pas : elle RECONNAÎT DES PATTERNS
-   → Formée sur des milliards de textes humains
-   → Très forte sur les tâches fréquentes, limitée sur le rare
-
-3. La qualité de la RÉPONSE = qualité de la QUESTION
-   → C'est la promesse du prompt engineering
-   → Quelques minutes investies dans la formulation améliorent nettement la pertinence de la réponse
-
-4. L'IA est un ASSISTANT, pas un ORACLE
-   → Vérifier les faits, les chiffres, les sources
-   → L'IA n'a pas de jugement éthique inhérent
-
-5. VOS DONNÉES sont précieuses — NE PAS PARTAGER
-   → Données clients, financières, RH = hors des LLM publics
-   → Utiliser les versions entreprise sécurisées
-```
-
-### Module B — Ateliers par métier
-
-#### Atelier "RH & Recrutement" (45 min)
+#### The 5 essentials (format "5 things to know")
 
 ```
-EXERCICE 1 — Rédiger une fiche de poste améliorée
-Prompt fourni :
-"Améliore cette fiche de poste pour la rendre plus attractive
-pour les candidats de la génération Z, tout en restant factuelle.
-Insiste sur la culture d'entreprise et la flexibilité.
-Fiche actuelle : [coller le texte]"
+1. Generative AI is a sophisticated TEXT PREDICTOR
+   → It predicts the next token, not "what is true"
+   → Consequence: hallucinations are possible → always verify
 
-EXERCICE 2 — Préparer des questions d'entretien ciblées
-"Tu es expert RH. Génère 10 questions d'entretien comportemental
-pour un poste de [titre] axées sur [2-3 compétences clés].
-Format : question + comportement recherché."
+2. AI does not "understand": it RECOGNIZES PATTERNS
+   → Trained on billions of human texts
+   → Very strong on frequent tasks, limited on rare ones
 
-DÉBRIEF : Quels risques éthiques dans l'IA pour le recrutement ?
-→ Biais algorithmiques, données sensibles, transparence candidats
+3. The quality of the ANSWER = quality of the QUESTION
+   → That's the promise of prompt engineering
+   → A few minutes spent on the wording markedly improve the relevance of the answer
+
+4. AI is an ASSISTANT, not an ORACLE
+   → Verify facts, figures, and sources
+   → AI has no inherent ethical judgment
+
+5. YOUR DATA is valuable — DO NOT SHARE
+   → Client, financial, HR data = off public LLMs
+   → Use the secured enterprise versions
 ```
 
-#### Atelier "Finance & Contrôle de gestion" (45 min)
+### Module B — Workshops by job
+
+#### "HR & Recruitment" workshop (45 min)
 
 ```
-EXERCICE 1 — Synthétiser un rapport financier
-"Résume ce rapport de 30 pages en 5 points clés pour une
-présentation CODIR de 5 minutes. Public : Direction générale,
-non-spécialiste finance. Insiste sur les écarts vs budget."
-[Fournir un extrait anonymisé de rapport]
+EXERCISE 1 — Write an improved job description
+Prompt provided:
+"Improve this job description to make it more appealing
+to Gen Z candidates, while staying factual.
+Emphasize company culture and flexibility.
+Current description: [paste the text]"
 
-EXERCICE 2 — Rédiger un commentaire de variance
-"Explique simplement en 3-4 phrases pourquoi les charges
-de personnel ont augmenté de 8% au T3, en partant de ces
-données : [tableau fourni]"
+EXERCISE 2 — Prepare targeted interview questions
+"You are an HR expert. Generate 10 behavioral interview questions
+for a [title] role focused on [2-3 key skills].
+Format: question + behavior sought."
 
-DÉBRIEF : Hallucinations sur les chiffres — comment vérifier ?
+DEBRIEF: What ethical risks in AI for recruitment?
+→ Algorithmic bias, sensitive data, candidate transparency
 ```
 
-#### Atelier "Marketing & Communication" (45 min)
+#### "Finance & Management Control" workshop (45 min)
 
 ```
-EXERCICE 1 — Adapter un message à 3 audiences
-"Rédige le même message sur notre nouveau service [X] pour :
-1. Un post LinkedIn professionnel (250 mots, ton expert)
-2. Un email client grand compte (formel, ROI-oriented)
-3. Un tweet (280 caractères max, accrocheur)"
+EXERCISE 1 — Summarize a financial report
+"Summarize this 30-page report into 5 key points for a
+5-minute exec-committee presentation. Audience: senior management,
+non-finance specialists. Emphasize variances vs budget."
+[Provide an anonymized report excerpt]
 
-EXERCICE 2 — Brainstorming d'idées de contenu
-"Génère 20 idées de contenu pour notre blog sur [thème].
-Public : [description]. Objectif : [trafic / leads / notoriété].
-Classe les idées par type : tutoriel / opinion / actualité / cas client"
+EXERCISE 2 — Write a variance commentary
+"Explain simply in 3-4 sentences why personnel
+costs rose 8% in Q3, starting from this
+data: [table provided]"
 
-DÉBRIEF : Authenticité de la voix de marque avec l'IA — comment la préserver ?
+DEBRIEF: Hallucinations on the figures — how to verify?
 ```
 
-#### Atelier "Management & Leadership" (45 min)
+#### "Marketing & Communication" workshop (45 min)
 
 ```
-EXERCICE 1 — Préparer un feedback constructif
-"Aide-moi à formuler un feedback constructif pour un
-collaborateur qui rend des livrables en retard mais de
-bonne qualité. Méthode SBI (Situation-Behavior-Impact).
-Contexte : [décrire la situation]"
+EXERCISE 1 — Adapt a message to 3 audiences
+"Write the same message about our new [X] service for:
+1. A professional LinkedIn post (250 words, expert tone)
+2. A key-account client email (formal, ROI-oriented)
+3. A tweet (280 characters max, catchy)"
 
-EXERCICE 2 — Synthétiser une réunion et en extraire les actions
-"Voici le compte-rendu brut de notre réunion de 2h.
-Extrais : 1) Les 5 décisions prises, 2) Les actions avec
-responsables et délais, 3) Les sujets à reporter."
+EXERCISE 2 — Content idea brainstorming
+"Generate 20 content ideas for our blog on [topic].
+Audience: [description]. Goal: [traffic / leads / awareness].
+Sort the ideas by type: tutorial / opinion / news / client case"
 
-DÉBRIEF : L'IA peut-elle remplacer un manager ? Débat 10 min.
+DEBRIEF: Authenticity of the brand voice with AI — how to preserve it?
 ```
 
-## Guide éthique IA — Format mémo pratique
+#### "Management & Leadership" workshop (45 min)
+
+```
+EXERCISE 1 — Prepare constructive feedback
+"Help me phrase constructive feedback for a
+team member who delivers late but high-
+quality work. SBI method (Situation-Behavior-Impact).
+Context: [describe the situation]"
+
+EXERCISE 2 — Summarize a meeting and extract the actions
+"Here are the raw minutes of our 2h meeting.
+Extract: 1) The 5 decisions made, 2) The actions with
+owners and deadlines, 3) The topics to postpone."
+
+DEBRIEF: Can AI replace a manager? 10-min debate.
+```
+
+## AI ethics guide — practical cheat-sheet format
 
 ```
 ┌────────────────────────────────────────────────┐
-│  MON GUIDE IA RESPONSABLE AU TRAVAIL           │
+│  MY RESPONSIBLE AI GUIDE AT WORK               │
 ├────────────────────────────────────────────────┤
-│  ✓ JE PEUX utiliser l'IA pour :               │
-│    → Rédiger, reformuler, résumer              │
-│    → Chercher des idées, brainstormer          │
-│    → Coder, analyser des données publiques     │
+│  ✓ I CAN use AI to:                            │
+│    → Write, rephrase, summarize                │
+│    → Find ideas, brainstorm                    │
+│    → Code, analyze public data                 │
 │                                                │
-│  ✗ JE NE DOIS PAS partager :                  │
-│    → Données clients (RGPD)                    │
-│    → Informations financières confidentielles  │
-│    → Données RH et salaires                    │
-│    → Stratégie et roadmap produit              │
+│  ✗ I MUST NOT share:                           │
+│    → Client data (GDPR)                        │
+│    → Confidential financial information        │
+│    → HR data and salaries                      │
+│    → Product strategy and roadmap              │
 │                                                │
-│  ⚠ JE VÉRIFIE TOUJOURS :                      │
-│    → Les chiffres et statistiques              │
-│    → Les citations et sources                  │
-│    → Les informations récentes (> 2024)        │
+│  ⚠ I ALWAYS VERIFY:                            │
+│    → Figures and statistics                    │
+│    → Quotes and sources                        │
+│    → Recent information (> 2024)               │
 │                                                │
-│  Outils approuvés : [à personnaliser]          │
-│  Contact sécurité IA : [email DPO]             │
+│  Approved tools: [to customize]                │
+│  AI security contact: [DPO email]              │
 └────────────────────────────────────────────────┘
 ```
 
-## Livrables
+## Deliverables
 
-- Module complet "IA pour Tous" (slides animateur + participant)
-- Guide des ateliers par métier (5 déclinaisons : RH / Finance / Marketing / Management / Opérations)
-- Mémo "Mon guide IA responsable" (A5 recto-verso, personnalisable)
-- E-learning version autonome (Rise 360, 1h30)
-- Questionnaire d'évaluation L1 + quiz de connaissances L2
-- Kit de communication (email d'invitation, teaser, relance)
+- Complete "AI for Everyone" module (facilitator + participant slides)
+- Workshop guide by job (5 variants: HR / Finance / Marketing / Management / Operations)
+- "My responsible AI guide" cheat sheet (double-sided A5, customizable)
+- Standalone e-learning version (Rise 360, 1h30)
+- L1 evaluation questionnaire + L2 knowledge quiz
+- Communication kit (invitation email, teaser, reminder)
 
-## Format de sortie
+## Output format
 
-Précise : **secteur d'activité**, **métiers représentés dans la session**, **durée disponible** (1h30 / demi-journée / journée), **format** (présentiel / distanciel / e-learning), **niveau IA des participants** (estimer 1-5), **outils IA approuvés** dans l'organisation, **contraintes RGPD / sécurité** à mentionner.
+Specify: **industry**, **jobs represented in the session**, **available duration** (1h30 / half-day / full day), **format** (in-person / remote / e-learning), **participants' AI level** (estimate 1-5), **approved AI tools** in the organization, **GDPR / security constraints** to mention.
 
 ## Sources
-- **Malcolm Knowles** — andragogie (1970/1980) — apprentissage adulte par l'expérience
-- **Richard Mayer** — *Multimedia Learning* (2001) — supports accessibles
-- **CNIL** — guides *IA & RGPD* — usage responsable des données
-- **Anthropic / OpenAI** — guides d'usage responsable des LLM
+- **Malcolm Knowles** — andragogy (1970/1980) — experiential adult learning
+- **Richard Mayer** — *Multimedia Learning* (2001) — accessible materials
+- **CNIL** — *AI & GDPR* guides — responsible data use
+- **Anthropic / OpenAI** — responsible LLM usage guides
 
 ## Anti-patterns
-- Survendre l'IA avec des chiffres « magiques » non sourcés
-- Sensibilisation 100 % théorique, sans manipulation réelle d'un LLM
-- Ignorer le volet données / RGPD et éthique
-- Mêmes exemples pour tous les métiers (pas d'ancrage par fonction)
-- Anthropomorphisme : « l'IA comprend / pense / sait »
+- Overselling AI with unsourced "magic" numbers
+- 100% theoretical awareness, with no real hands-on LLM use
+- Ignoring the data / GDPR and ethics dimension
+- Same examples for every job (no anchoring by function)
+- Anthropomorphism: "AI understands / thinks / knows"
 
-## Voir aussi
-- [formation-claude-code.md](formation-claude-code.md) — suite outillée pour profils tech
-- [prompt-engineering-formation.md](prompt-engineering-formation.md) — approfondir la formulation
-- [evaluation-formation.md](evaluation-formation.md) — quiz L1/L2 de sensibilisation
-- [`../redacteur_ia/storytelling-ia.md`](../redacteur_ia/storytelling-ia.md) — ancrer le propos par le récit
+## See also
+- [formation-claude-code.md](formation-claude-code.md) — tooled follow-up for tech profiles
+- [prompt-engineering-formation.md](prompt-engineering-formation.md) — go deeper on wording
+- [evaluation-formation.md](evaluation-formation.md) — L1/L2 awareness quizzes
+- [`../redacteur_ia/storytelling-ia.md`](../redacteur_ia/storytelling-ia.md) — anchor the message through storytelling

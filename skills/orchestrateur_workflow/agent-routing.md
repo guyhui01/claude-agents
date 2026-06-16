@@ -1,120 +1,120 @@
-# Skill — Sélection et Routage vers les Agents Spécialisés
-> Certifications : TOGAF 10 (The Open Group), PMI-ACP (PMI), Anthropic Claude Code in Action (2026), Claude Code 101 (2026)
+# Skill — Selecting and Routing to Specialized Agents
+> Certifications: TOGAF 10 (The Open Group), PMI-ACP (PMI), Anthropic Claude Code in Action (2026), Claude Code 101 (2026)
 
-## Objectif
-Identifier et sélectionner dynamiquement le ou les agents les plus adaptés à une demande — en fonction du contexte, de la tâche, du domaine métier et des contraintes — pour garantir la meilleure qualité de réponse possible.
+## Objective
+Dynamically identify and select the agent(s) best suited to a request — based on context, task, business domain, and constraints — to ensure the highest possible answer quality.
 
-## Matrice de Routage — Catalogue complet
+## Routing matrix — Full catalog
 
-### Routage par type de demande
+### Routing by request type
 
-| Type de demande | Agent prioritaire | Agent secondaire | Condition |
+| Request type | Primary agent | Secondary agent | Condition |
 |---|---|---|---|
-| Analyser un besoin métier | BUSINESS-ANALYST | CONSULTANT-IA | Si contexte stratégique |
-| Rédiger des User Stories | PO-SCRUM | PO-SAFE | Si contexte SAFe / multi-équipes |
-| PI Planning / WSJF | PO-SAFE | SCRUM-MASTER | Si niveau ART |
-| Architecture système IA | AI-ARCHITECT | DEV-PYTHON-IA | Si besoin code immédiat |
-| Développement Python / ML | DEV-PYTHON-IA | MLOPS-ENGINEER | Si besoin pipeline ML |
-| Développement TypeScript | DEV-TYPESCRIPT-IA | DEV-PYTHON-IA | Si besoin API back |
-| Site CMS / Drupal | DEV-DRUPAL-PHP | — | Domaine CMS uniquement |
-| Pipeline data / ETL | DATA-ENGINEER | MLOPS-ENGINEER | Si besoin modèle |
-| Modèle ML / statistiques | DATA-SCIENTIST | DATA-ENGINEER | Si besoin données d'abord |
-| CI/CD / Infrastructure | DEVOPS-CLOUD | AI-ARCHITECT | Si design avant déploiement |
-| Audit sécurité | SECURITE-IA | JURIDIQUE-IA | Si besoin conformité RGPD |
-| Tests fonctionnels Agile | QA-AGILE | SCRUM-MASTER | Si blocage sprint |
-| Tests formels / recette | QA-CYCLEV | QA-AGILE | Si contexte Cycle V |
-| UX / Parcours utilisateur | UX-DESIGNER | BUSINESS-ANALYST | Si besoin cadrage avant |
-| Facilitation Scrum | SCRUM-MASTER | PO-SCRUM | Si blocage backlog |
-| Planification projet | CHEF-PROJET-IA | PO-SAFE | Si hybride Agile/Waterfall |
-| Stratégie IA / Audit | CONSULTANT-IA | CDO-DIRECTEUR-IA | Si niveau CODIR |
-| Gouvernance data / CDO | CDO-DIRECTEUR-IA | CONSULTANT-IA | Si plan data long terme |
-| Formation équipes IA | FORMATEUR-IA | CONSULTANT-IA | Si besoin audit avant |
-| Growth / Acquisition | GROWTH-IA | REDACTEUR-IA | Si besoin contenu |
-| Rédaction livrables | REDACTEUR-IA | CHEF-PROJET-IA | Si rapport projet |
-| Conformité RGPD / IA Act | JURIDIQUE-IA | SECURITE-IA | Si audit technique aussi |
+| Analyze a business need | BUSINESS-ANALYST | CONSULTANT-IA | If strategic context |
+| Write User Stories | PO-SCRUM | PO-SAFE | If SAFe / multi-team context |
+| PI Planning / WSJF | PO-SAFE | SCRUM-MASTER | If ART level |
+| AI system architecture | AI-ARCHITECT | DEV-PYTHON-IA | If immediate code needed |
+| Python / ML development | DEV-PYTHON-IA | MLOPS-ENGINEER | If ML pipeline needed |
+| TypeScript development | DEV-TYPESCRIPT-IA | DEV-PYTHON-IA | If backend API needed |
+| CMS / Drupal site | DEV-DRUPAL-PHP | — | CMS domain only |
+| Data pipeline / ETL | DATA-ENGINEER | MLOPS-ENGINEER | If model needed |
+| ML model / statistics | DATA-SCIENTIST | DATA-ENGINEER | If data needed first |
+| CI/CD / Infrastructure | DEVOPS-CLOUD | AI-ARCHITECT | If design before deployment |
+| Security audit | SECURITE-IA | JURIDIQUE-IA | If GDPR compliance needed |
+| Agile functional testing | QA-AGILE | SCRUM-MASTER | If sprint blocker |
+| Formal testing / UAT | QA-CYCLEV | QA-AGILE | If V-Model context |
+| UX / User journey | UX-DESIGNER | BUSINESS-ANALYST | If scoping needed first |
+| Scrum facilitation | SCRUM-MASTER | PO-SCRUM | If backlog blocker |
+| Project planning | CHEF-PROJET-IA | PO-SAFE | If hybrid Agile/Waterfall |
+| AI strategy / Audit | CONSULTANT-IA | CDO-DIRECTEUR-IA | If executive-committee level |
+| Data governance / CDO | CDO-DIRECTEUR-IA | CONSULTANT-IA | If long-term data plan |
+| AI team training | FORMATEUR-IA | CONSULTANT-IA | If audit needed first |
+| Growth / Acquisition | GROWTH-IA | REDACTEUR-IA | If content needed |
+| Writing deliverables | REDACTEUR-IA | CHEF-PROJET-IA | If project report |
+| GDPR / AI Act compliance | JURIDIQUE-IA | SECURITE-IA | If technical audit too |
 
 ---
 
-## Algorithme de Sélection
+## Selection algorithm
 
 ```
-ÉTAPE 1 — Identifier le domaine primaire
+STEP 1 — Identify the primary domain
 ─────────────────────────────────────────
-? Est-ce une tâche : technique / produit / management ?
+? Is it a task: technical / product / management?
 
-  TECHNIQUE  → Groupe Dev & Technique (9 agents)
-  PRODUIT    → Groupe Agile & Produit (7 agents)
-  MANAGEMENT → Groupe Management & Conseil (7 agents)
+  TECHNICAL  → Dev & Technical group (9 agents)
+  PRODUCT    → Agile & Product group (7 agents)
+  MANAGEMENT → Management & Consulting group (7 agents)
 
-ÉTAPE 2 — Affiner par spécialité
+STEP 2 — Refine by specialty
 ─────────────────────────────────────────
-? Quelle est la granularité de la tâche ?
+? What is the granularity of the task?
 
   CODE         → DEV-PYTHON / DEV-TYPESCRIPT / DEV-DRUPAL
   ARCHITECTURE → AI-ARCHITECT / DATA-ENGINEER / MLOPS
-  BACKLOG      → PO-SCRUM (équipe) / PO-SAFE (ART)
-  TESTS        → QA-AGILE (sprint) / QA-CYCLEV (recette)
-  CONSEIL      → CONSULTANT-IA / CDO / CHEF-PROJET-IA
+  BACKLOG      → PO-SCRUM (team) / PO-SAFE (ART)
+  TESTS        → QA-AGILE (sprint) / QA-CYCLEV (UAT)
+  CONSULTING   → CONSULTANT-IA / CDO / CHEF-PROJET-IA
 
-ÉTAPE 3 — Vérifier les conditions de routage
+STEP 3 — Check routing conditions
 ─────────────────────────────────────────
-? Y a-t-il des contraintes spécifiques ?
+? Are there specific constraints?
 
-  SAFe / multi-équipes → TOUJOURS PO-SAFE avant PO-SCRUM
-  RGPD / IA Act        → TOUJOURS JURIDIQUE-IA en parallèle
-  CAC40 / CODIR        → TOUJOURS CHEF-PROJET-IA pour le reporting
-  IA générative        → TOUJOURS AI-ARCHITECT pour le design
+  SAFe / multi-team        → ALWAYS PO-SAFE before PO-SCRUM
+  GDPR / AI Act            → ALWAYS JURIDIQUE-IA in parallel
+  CAC40 / executive comm.  → ALWAYS CHEF-PROJET-IA for reporting
+  Generative AI            → ALWAYS AI-ARCHITECT for the design
 ```
 
 ---
 
-## Template de Prompt de Routage
+## Routing prompt template
 
 ```
-CONTEXTE : [description de la situation en 2-3 lignes]
-TÂCHE    : [ce que l'utilisateur veut accomplir]
-DOMAINE  : [technique / produit / management]
-CONTRAINTES : [délai, budget, méthodo, réglementaire]
+CONTEXT : [description of the situation in 2-3 lines]
+TASK    : [what the user wants to accomplish]
+DOMAIN  : [technical / product / management]
+CONSTRAINTS : [deadline, budget, methodology, regulatory]
 
-→ AGENT SÉLECTIONNÉ : [nom de l'agent]
-→ RAISON            : [pourquoi cet agent et pas un autre]
-→ AGENTS EN PARALLÈLE (si besoin) : [liste]
-→ AGENTS SUIVANTS   : [étape d'après dans le workflow]
+→ SELECTED AGENT    : [agent name]
+→ REASON            : [why this agent and not another]
+→ PARALLEL AGENTS (if needed) : [list]
+→ NEXT AGENTS       : [next step in the workflow]
 ```
 
 ---
 
-## Règles de routage prioritaires
+## Priority routing rules
 
-1. **Ne jamais router vers 2 agents avec le même périmètre** sans condition explicite
-2. **PO-SCRUM et PO-SAFE ne sont pas interchangeables** — vérifier le niveau (équipe vs ART)
-3. **QA-AGILE et QA-CYCLEV ne sont pas interchangeables** — vérifier la méthode projet
-4. **JURIDIQUE-IA systématique** si données personnelles ou IA Act concerné
-5. **CHEF-PROJET-IA systématique** si livrable CODIR ou steering committee impliqué
+1. **Never route to 2 agents with the same scope** without an explicit condition
+2. **PO-SCRUM and PO-SAFE are not interchangeable** — check the level (team vs. ART)
+3. **QA-AGILE and QA-CYCLEV are not interchangeable** — check the project method
+4. **JURIDIQUE-IA is systematic** if personal data or the AI Act is involved
+5. **CHEF-PROJET-IA is systematic** if an executive-committee or steering-committee deliverable is involved
 
-## Livrables
-- Matrice de routage complétée pour le workflow concerné
-- Justification du choix de chaque agent
-- Liste des agents en parallèle identifiés
-- Ordre de séquençage validé
+## Deliverables
+- Completed routing matrix for the workflow at hand
+- Justification for each agent choice
+- List of identified parallel agents
+- Validated sequencing order
 
-## Format de sortie
-Précise : description de la demande, contraintes méthodologiques, type de client (CAC40 / PME / startup), livrables attendus, délai.
+## Output format
+Specify: a description of the request, methodological constraints, client type (CAC40 / SME / startup), expected deliverables, deadline.
 
 ## Anti-patterns
-- ❌ **Router vers 2 agents au même périmètre** sans condition explicite : doublons et conflits → règle de désambiguïsation
-- ❌ **Confondre PO-SCRUM/PO-SAFE** ou **QA-AGILE/QA-CYCLEV** : livrables inadaptés → vérifier niveau (équipe/ART) et méthode (Agile/cycle V)
-- ❌ **Pas de fallback de routage** si aucun agent ne matche : demande perdue → agent par défaut + escalade
-- ❌ **Oublier JURIDIQUE-IA** sur données personnelles / AI Act : risque conformité → routage systématique (règle 4)
-- ❌ **Routing statique** (pas de re-routing sur échec d'un agent) : blocage → boucle de re-routage bornée
-- ❌ **Routeur trop coûteux** (Opus pour une simple classification) : un routeur léger suffit → Sonnet/Haiku pour le routage
+- ❌ **Routing to 2 agents with the same scope** without an explicit condition: duplicates and conflicts → disambiguation rule
+- ❌ **Confusing PO-SCRUM/PO-SAFE** or **QA-AGILE/QA-CYCLEV**: unsuitable deliverables → check the level (team/ART) and method (Agile/V-Model)
+- ❌ **No routing fallback** when no agent matches: lost request → default agent + escalation
+- ❌ **Forgetting JURIDIQUE-IA** on personal data / AI Act: compliance risk → systematic routing (rule 4)
+- ❌ **Static routing** (no re-routing on agent failure): blocker → bounded re-routing loop
+- ❌ **Overly expensive router** (Opus for simple classification): a lightweight router is enough → Sonnet/Haiku for routing
 
 ## Sources
-- **Anthropic — Building Effective Agents** (anthropic.com/engineering, déc. 2024) : pattern **routing** (classification → agent spécialisé)
-- **TOGAF 10** (The Open Group, 2022) — gouvernance des responsabilités
+- **Anthropic — Building Effective Agents** (anthropic.com/engineering, Dec. 2024): **routing** pattern (classification → specialized agent)
+- **TOGAF 10** (The Open Group, 2022) — responsibility governance
 
-## Voir aussi
-- [`workflow-design.md`](workflow-design.md) — gateways décisionnels du workflow
-- [`dependency-mapping.md`](dependency-mapping.md) — ordre d'exécution des agents routés
-- [`parallel-orchestration.md`](parallel-orchestration.md) — agents en parallèle
-- [`prompt-engineering-orchestration.md`](prompt-engineering-orchestration.md) — prompt de routage structuré
+## See also
+- [`workflow-design.md`](workflow-design.md) — workflow decision gateways
+- [`dependency-mapping.md`](dependency-mapping.md) — execution order of routed agents
+- [`parallel-orchestration.md`](parallel-orchestration.md) — agents in parallel
+- [`prompt-engineering-orchestration.md`](prompt-engineering-orchestration.md) — structured routing prompt

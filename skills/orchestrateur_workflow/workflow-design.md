@@ -1,130 +1,130 @@
-# Skill — Conception de Workflows Agentiques
-> Certifications : TOGAF 10 (The Open Group), BPMN 2.0 OCM (OMG), PMP (PMI), Anthropic Claude Code in Action (2026)
+# Skill — Agentic Workflow Design
+> Certifications: TOGAF 10 (The Open Group), BPMN 2.0 OCM (OMG), PMP (PMI), Anthropic Claude Code in Action (2026)
 
-## Objectif
-Concevoir un workflow agentique structuré et documenté — agents identifiés, étapes séquencées, inputs/outputs formalisés, gateways décisionnels explicites — pour garantir une exécution reproductible et maintenable.
+## Objective
+Design a structured, documented agentic workflow — identified agents, sequenced steps, formalized inputs/outputs, explicit decision gateways — to ensure reproducible and maintainable execution.
 
-## Architecture d'un Workflow Agentique — Template
+## Agentic Workflow architecture — Template
 
-### 1. Fiche d'identité du Workflow
-
-```
-NOM DU WORKFLOW : [ex. Cadrage Produit IA]
-OBJECTIF MÉTIER : [résultat attendu en 1 phrase]
-DÉCLENCHEUR     : [événement qui lance le workflow — ex. brief client reçu]
-RÉSULTAT FINAL  : [livrable ou état cible — ex. backlog priorisé + critères d'acceptation]
-DURÉE ESTIMÉE   : [ex. 45 min / 2h / async]
-MODÈLE LLM      : [ex. Claude Sonnet 4.6 (étapes) / Opus 4.8 pour l'orchestrateur]
-```
-
-### 2. Cartographie BPMN — Structure type
+### 1. Workflow identity card
 
 ```
-[ÉVÉNEMENT DÉCLENCHEUR]
-        │
-        ▼
-[GATEWAY — Contexte client connu ?]
-    ├── OUI ──▶ [AGENT BUSINESS-ANALYST : analyse métier]
-    └── NON ──▶ [INPUT : collecte contexte] ──▶ [AGENT BUSINESS-ANALYST]
-        │
-        ▼
-[AGENT PO-SCRUM : rédaction User Stories]
-        │
-        ▼
-[GATEWAY — Besoin UX ?]
-    ├── OUI ──▶ [AGENT UX-DESIGNER : wireframes]
-    └── NON ──▶ [bypass]
-        │
-        ▼
-[AGENT QA-AGILE : critères d'acceptation]
-        │
-        ▼
-[ÉVÉNEMENT DE FIN — Livrable produit]
+WORKFLOW NAME   : [e.g. AI Product Scoping]
+BUSINESS GOAL   : [expected result in 1 sentence]
+TRIGGER         : [event that starts the workflow — e.g. client brief received]
+FINAL RESULT    : [deliverable or target state — e.g. prioritized backlog + acceptance criteria]
+ESTIMATED TIME  : [e.g. 45 min / 2h / async]
+LLM MODEL       : [e.g. Claude Sonnet 4.6 (steps) / Opus 4.8 for the orchestrator]
 ```
 
-### 3. Fiche étape — Template par agent
+### 2. BPMN mapping — Standard structure
+
+```
+[TRIGGER EVENT]
+        │
+        ▼
+[GATEWAY — Client context known?]
+    ├── YES ──▶ [AGENT BUSINESS-ANALYST: business analysis]
+    └── NO  ──▶ [INPUT: collect context] ──▶ [AGENT BUSINESS-ANALYST]
+        │
+        ▼
+[AGENT PO-SCRUM: write User Stories]
+        │
+        ▼
+[GATEWAY — UX needed?]
+    ├── YES ──▶ [AGENT UX-DESIGNER: wireframes]
+    └── NO  ──▶ [bypass]
+        │
+        ▼
+[AGENT QA-AGILE: acceptance criteria]
+        │
+        ▼
+[END EVENT — Product deliverable]
+```
+
+### 3. Step card — Per-agent template
 
 ```yaml
-etape:
+step:
   id: "STEP-01"
   agent: "AGENT-BUSINESS-ANALYST"
-  role: "Analyse métier et identification des besoins"
+  role: "Business analysis and needs identification"
   input:
-    - "Brief client (texte libre ou template)"
-    - "Contexte secteur : [secteur]"
-    - "Contraintes : [budget, délai, réglementaire]"
-  output_attendu:
-    - "Carte des besoins métier (job-to-be-done)"
-    - "Liste des parties prenantes"
-    - "Périmètre fonctionnel (in scope / out of scope)"
-  condition_passage: "Output validé par l'utilisateur (OUI/NON)"
-  si_echec: "Relancer STEP-01 avec contexte enrichi"
-  duree_estimee: "10 min"
-  execution: "séquentielle"
+    - "Client brief (free text or template)"
+    - "Industry context: [industry]"
+    - "Constraints: [budget, deadline, regulatory]"
+  expected_output:
+    - "Business needs map (job-to-be-done)"
+    - "Stakeholder list"
+    - "Functional scope (in scope / out of scope)"
+  pass_condition: "Output validated by the user (YES/NO)"
+  on_failure: "Re-run STEP-01 with enriched context"
+  estimated_duration: "10 min"
+  execution: "sequential"
 ```
 
-### 4. Diagramme de flux simplifié
+### 4. Simplified flow diagram
 
 ```
-LÉGENDE BPMN SIMPLIFIÉ
+SIMPLIFIED BPMN LEGEND
 ──────────────────────────────────────────────
-( ) = Événement (cercle)
-[ ] = Tâche agent (rectangle)
-<>  = Gateway décisionnel (losange)
-──► = Flux séquentiel
-═══► = Flux conditionnel
-|||  = Parallélisme (fork/join)
+( ) = Event (circle)
+[ ] = Agent task (rectangle)
+<>  = Decision gateway (diamond)
+──► = Sequential flow
+═══► = Conditional flow
+|||  = Parallelism (fork/join)
 ```
 
-### 5. Paramètres contextuels à injecter
+### 5. Contextual parameters to inject
 
 ```
-CONTEXTE CLIENT (à renseigner au démarrage)
+CLIENT CONTEXT (to fill in at startup)
 ────────────────────────────────────────────
-Secteur         : [ex. Banque / Assurance / Retail / Industrie]
-Taille équipe   : [ex. 1 ART / 3 squads / projet solo]
-Méthodologie    : [Scrum / SAFe / Kanban / Waterfall / Hybride]
-Contraintes     : [RGPD, IA Act, gel budgétaire, date jalon]
-Stack technique : [ex. AWS, Azure, Salesforce, SAP]
-Langue livrables: [Français / Anglais / Bilingue]
+Industry        : [e.g. Banking / Insurance / Retail / Industry]
+Team size       : [e.g. 1 ART / 3 squads / solo project]
+Methodology     : [Scrum / SAFe / Kanban / Waterfall / Hybrid]
+Constraints     : [GDPR, AI Act, budget freeze, milestone date]
+Tech stack      : [e.g. AWS, Azure, Salesforce, SAP]
+Deliverable lang: [French / English / Bilingual]
 ```
 
-## Bonnes pratiques de conception
+## Design best practices
 
-- **1 agent = 1 responsabilité** : ne pas surcharger un agent avec plusieurs rôles
-- **Gateways explicites** : toujours définir la condition de passage avant la suite
-- **Outputs mesurables** : chaque étape produit un livrable concret et vérifiable
-- **Fallback systématique** : prévoir une alternative si l'agent ne produit pas le résultat attendu
-- **Contexte cumulatif** : chaque agent reçoit le contexte de toutes les étapes précédentes
-- **Couche méthodologique fixe** : respecter le cadre certifié (SAFe, Scrum, PMI)
-- **Couche contextuelle variable** : adapter les paramètres au client sans modifier le squelette
+- **1 agent = 1 responsibility**: don't overload an agent with multiple roles
+- **Explicit gateways**: always define the pass condition before moving on
+- **Measurable outputs**: each step produces a concrete, verifiable deliverable
+- **Systematic fallback**: plan an alternative if the agent doesn't produce the expected result
+- **Cumulative context**: each agent receives the context of all preceding steps
+- **Fixed methodological layer**: respect the certified framework (SAFe, Scrum, PMI)
+- **Variable contextual layer**: adapt parameters to the client without changing the skeleton
 
-## Livrables
-- Fiche d'identité du workflow (1 page)
-- Diagramme BPMN annoté (mermaid ou ASCII)
-- Fiches étapes YAML pour chaque agent
-- Paramètres contextuels documentés
-- Critères de succès du workflow global
+## Deliverables
+- Workflow identity card (1 page)
+- Annotated BPMN diagram (mermaid or ASCII)
+- YAML step cards for each agent
+- Documented contextual parameters
+- Success criteria for the overall workflow
 
-## Format de sortie
-Précise : objectif métier du workflow, agents du catalogue à impliquer, contraintes de séquençage, paramètres contextuels client, format des livrables attendus.
+## Output format
+Specify: the workflow's business goal, the catalog agents to involve, sequencing constraints, client contextual parameters, and the expected deliverable format.
 
 ## Anti-patterns
-- ❌ **Agent surchargé** (plusieurs rôles) : non testable, non réutilisable → 1 agent = 1 responsabilité
-- ❌ **Gateways implicites** (condition de passage non définie) : blocages et branches ambiguës → condition explicite avant chaque suite
-- ❌ **Outputs non mesurables** : impossible de valider une étape → livrable concret + critère de succès
-- ❌ **Pas de fallback** sur échec d'étape : workflow bloqué → `si_echec` systématique
-- ❌ **Workflow monolithique** (un méga-prompt) au lieu de décomposer : pattern orchestrator-workers (Anthropic) → étapes spécialisées
-- ❌ **Contexte non cumulatif / non filtré** : perte d'info ou surcharge → handoff structuré (cf. `context-handoff.md`)
+- ❌ **Overloaded agent** (multiple roles): not testable, not reusable → 1 agent = 1 responsibility
+- ❌ **Implicit gateways** (undefined pass condition): blockers and ambiguous branches → explicit condition before each continuation
+- ❌ **Non-measurable outputs**: impossible to validate a step → concrete deliverable + success criterion
+- ❌ **No fallback** on step failure: stalled workflow → systematic `on_failure`
+- ❌ **Monolithic workflow** (one mega-prompt) instead of decomposing: orchestrator-workers pattern (Anthropic) → specialized steps
+- ❌ **Non-cumulative / unfiltered context**: information loss or overload → structured handoff (see `context-handoff.md`)
 
 ## Sources
-- **Anthropic — Building Effective Agents** (anthropic.com/engineering, déc. 2024) : patterns prompt-chaining / routing / parallelization / orchestrator-workers / evaluator-optimizer
-- **BPMN 2.0.2** — OMG (2013) — modélisation des workflows — omg.org/spec/BPMN
-- **TOGAF 10** (The Open Group, 2022) — cadre d'architecture
+- **Anthropic — Building Effective Agents** (anthropic.com/engineering, Dec. 2024): prompt-chaining / routing / parallelization / orchestrator-workers / evaluator-optimizer patterns
+- **BPMN 2.0.2** — OMG (2013) — workflow modeling — omg.org/spec/BPMN
+- **TOGAF 10** (The Open Group, 2022) — architecture framework
 
-## Voir aussi
-- [`agent-routing.md`](agent-routing.md) — gateways et sélection d'agent
-- [`dependency-mapping.md`](dependency-mapping.md) — séquençage et dépendances
-- [`context-handoff.md`](context-handoff.md) — transmission de contexte entre étapes
-- [`parallel-orchestration.md`](parallel-orchestration.md) — fork/join et agrégation
-- [`workflow-catalog.md`](workflow-catalog.md) — catalogue des workflows types
+## See also
+- [`agent-routing.md`](agent-routing.md) — gateways and agent selection
+- [`dependency-mapping.md`](dependency-mapping.md) — sequencing and dependencies
+- [`context-handoff.md`](context-handoff.md) — context handoff between steps
+- [`parallel-orchestration.md`](parallel-orchestration.md) — fork/join and aggregation
+- [`workflow-catalog.md`](workflow-catalog.md) — catalog of standard workflows

@@ -1,10 +1,10 @@
-# Skill — Intégration Anthropic SDK et Prompt Chaining
-> Certifications : Anthropic Claude Code in Action (2026), Claude Code 101 (2026), AWS Certified Solutions Architect (Amazon)
+# Skill — Anthropic SDK Integration and Prompt Chaining
+> Certifications: Anthropic Claude Code in Action (2026), Claude Code 101 (2026), AWS Certified Solutions Architect (Amazon)
 
-## Objectif
-Implémenter techniquement l'orchestration d'agents via l'Anthropic SDK — appels API chaînés, tool use, prompt caching, streaming, gestion des tokens — pour construire des workflows agentiques performants et économiques.
+## Objective
+Technically implement agent orchestration via the Anthropic SDK — chained API calls, tool use, prompt caching, streaming, token management — to build performant and cost-efficient agentic workflows.
 
-## Setup Anthropic SDK
+## Anthropic SDK setup
 
 ```typescript
 // TypeScript — Installation
@@ -23,7 +23,7 @@ import anthropic
 client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 ```
 
-## Appel agent simple — Template
+## Simple agent call — Template
 
 ```typescript
 async function callAgent(
@@ -45,12 +45,12 @@ async function callAgent(
 // Usage
 const output = await callAgent(
   "PO-SCRUM",
-  "Tu es un Product Owner Scrum Expert certifié PSPO1...",
-  `Rédige 8 User Stories à partir de ce brief : ${brief}`
+  "You are a PSPO1-certified Product Owner Scrum Expert...",
+  `Write 8 User Stories from this brief: ${brief}`
 );
 ```
 
-## Prompt Chaining — Orchestration séquentielle
+## Prompt Chaining — Sequential orchestration
 
 ```typescript
 interface ChainStep {
@@ -67,48 +67,48 @@ async function runSequentialChain(
   outputs.set("initial_context", initialContext);
 
   for (const step of steps) {
-    console.log(`[ORCHESTRATEUR] → ${step.agent}`);
+    console.log(`[ORCHESTRATOR] → ${step.agent}`);
 
     const userMessage = step.buildUserMessage(outputs);
     const result = await callAgent(step.agent, step.systemPrompt, userMessage);
     outputs.set(step.agent, result);
 
-    console.log(`[${step.agent}] ✅ Output produit (${result.length} chars)`);
+    console.log(`[${step.agent}] ✅ Output produced (${result.length} chars)`);
   }
 
   return outputs;
 }
 
-// Exemple WF-001 Cadrage Produit IA
+// Example WF-001 AI Product Scoping
 const wf001Steps: ChainStep[] = [
   {
     agent: "BUSINESS-ANALYST",
-    systemPrompt: "Tu es un Business Analyst expert...",
+    systemPrompt: "You are an expert Business Analyst...",
     buildUserMessage: (outputs) =>
-      `Analyse ce brief client : ${outputs.get("initial_context")}`,
+      `Analyze this client brief: ${outputs.get("initial_context")}`,
   },
   {
     agent: "PO-SCRUM",
-    systemPrompt: "Tu es un Product Owner Scrum Expert certifié PSPO1...",
+    systemPrompt: "You are a PSPO1-certified Product Owner Scrum Expert...",
     buildUserMessage: (outputs) =>
-      `Rédige 8 US à partir de cette analyse : ${outputs.get("BUSINESS-ANALYST")}`,
+      `Write 8 US from this analysis: ${outputs.get("BUSINESS-ANALYST")}`,
   },
   {
     agent: "QA-AGILE",
-    systemPrompt: "Tu es un QA Expert certifié ISTQB...",
+    systemPrompt: "You are an ISTQB-certified QA Expert...",
     buildUserMessage: (outputs) =>
-      `Rédige les critères d'acceptation pour ces US : ${outputs.get("PO-SCRUM")}`,
+      `Write the acceptance criteria for these US: ${outputs.get("PO-SCRUM")}`,
   },
 ];
 
-const results = await runSequentialChain(wf001Steps, briefClient);
+const results = await runSequentialChain(wf001Steps, clientBrief);
 ```
 
-## Prompt Caching — Optimisation coûts
+## Prompt Caching — Cost optimization
 
 ```typescript
-// Le system prompt de l'agent est mis en cache (TTL 5 min)
-// Économie : jusqu'à 90% sur les tokens d'entrée répétés
+// The agent's system prompt is cached (5 min TTL)
+// Saving: up to 90% on repeated input tokens
 
 const response = await client.messages.create({
   model: "claude-sonnet-4-6",
@@ -116,25 +116,25 @@ const response = await client.messages.create({
   system: [
     {
       type: "text",
-      text: longAgentSystemPrompt, // > 1024 tokens pour activer le cache
-      cache_control: { type: "ephemeral" }, // Cache activé
+      text: longAgentSystemPrompt, // > 1024 tokens to enable the cache
+      cache_control: { type: "ephemeral" }, // Cache enabled
     },
   ],
   messages: [{ role: "user", content: userMessage }],
 });
 
-// Vérifier le cache hit dans les métriques
+// Check the cache hit in the metrics
 console.log("Cache read tokens:", response.usage.cache_read_input_tokens);
 console.log("Cache write tokens:", response.usage.cache_creation_input_tokens);
 ```
 
-## Tool Use — Agent avec outils
+## Tool Use — Agent with tools
 
 ```typescript
 const tools: Anthropic.Tool[] = [
   {
     name: "save_user_story",
-    description: "Sauvegarde une User Story structurée",
+    description: "Saves a structured User Story",
     input_schema: {
       type: "object" as const,
       properties: {
@@ -155,7 +155,7 @@ async function callAgentWithTools(systemPrompt: string, userMessage: string) {
     { role: "user", content: userMessage },
   ];
 
-  // Boucle agentic — continue jusqu'à stop_reason = "end_turn"
+  // Agentic loop — continue until stop_reason = "end_turn"
   while (true) {
     const response = await client.messages.create({
       model: "claude-sonnet-4-6",
@@ -191,7 +191,7 @@ async function callAgentWithTools(systemPrompt: string, userMessage: string) {
 }
 ```
 
-## Streaming — Feedback temps réel
+## Streaming — Real-time feedback
 
 ```typescript
 async function streamAgent(systemPrompt: string, userMessage: string) {
@@ -211,29 +211,29 @@ async function streamAgent(systemPrompt: string, userMessage: string) {
       process.stdout.write(chunk.delta.text);
     }
   }
-  console.log("\n[AGENT] ✅ Terminé");
+  console.log("\n[AGENT] ✅ Done");
 
   return await stream.finalMessage();
 }
 ```
 
-## Gestion des tokens et limites
+## Token management and limits
 
 ```typescript
-// Calculer les tokens avant envoi (estimation)
+// Estimate tokens before sending (estimate)
 function estimateTokens(text: string): number {
-  return Math.ceil(text.length / 4); // ~4 chars par token
+  return Math.ceil(text.length / 4); // ~4 chars per token
 }
 
-// Garde-fous pour les workflows longs
+// Guardrails for long workflows
 // Claude Sonnet 4.6 / Opus 4.8 = 200K context window (2026)
-// Pour le contexte étendu (si activé), augmenter à 1M tokens
+// For extended context (if enabled), increase to 1M tokens
 const MAX_CONTEXT_TOKENS = 200_000;
-const SAFETY_MARGIN_TOKENS = 8_192; // Marge de sécurité pour réponse + tools
+const SAFETY_MARGIN_TOKENS = 8_192; // Safety margin for response + tools
 
-// Anthropic BatchAPI : pour workflows asynchrones non-interactifs
-// → coûts -50% via batch processing (jusqu'à 24h délai)
-// → idéal pour : audits de masse, génération offline, evaluation suites
+// Anthropic Batch API: for asynchronous non-interactive workflows
+// → -50% cost via batch processing (up to 24h delay)
+// → ideal for: bulk audits, offline generation, evaluation suites
 // → docs.anthropic.com/claude/docs/batch-api
 
 function buildSafeContextPacket(
@@ -245,7 +245,7 @@ function buildSafeContextPacket(
   const messageTokens = estimateTokens(currentMessage);
   let availableTokens = MAX_CONTEXT_TOKENS - systemTokens - messageTokens - SAFETY_MARGIN_TOKENS;
 
-  // Tronquer les outputs précédents si nécessaire (les plus anciens en premier)
+  // Truncate previous outputs if needed (oldest first)
   const truncatedOutputs: string[] = [];
   for (const output of previousOutputs.reverse()) {
     const outputTokens = estimateTokens(output);
@@ -261,30 +261,30 @@ function buildSafeContextPacket(
 }
 ```
 
-## Livrables
-- Setup SDK TypeScript / Python
-- Prompt chaining séquentiel opérationnel
-- Prompt caching activé (économie coûts)
-- Tool use avec boucle agentic
-- Streaming pour feedback temps réel
-- Gestion des limites de tokens
+## Deliverables
+- TypeScript / Python SDK setup
+- Operational sequential prompt chaining
+- Prompt caching enabled (cost saving)
+- Tool use with an agentic loop
+- Streaming for real-time feedback
+- Token-limit management
 
-## Format de sortie
-Précise : langage (TypeScript / Python), modèle cible, nombre d'agents à chaîner, besoin de tool use ou streaming.
+## Output format
+Specify: the language (TypeScript / Python), the target model, the number of agents to chain, the need for tool use or streaming.
 
 ## Anti-patterns
-- ❌ **Clé API exposée côté client** : fuite → appels server-side uniquement
-- ❌ **Modèle codé en dur** dispersé : maintenance → centraliser l'ID (Opus 4.8 raisonnement / Sonnet 4.6 runtime)
-- ❌ **Pas de retry/backoff** sur `RateLimitError` : échecs en pic → backoff exponentiel + jitter
-- ❌ **Ignorer le prompt caching** sur gros system prompts (> 1024 tokens) : surcoût → `cache_control` ephemeral
-- ❌ **Estimer les tokens à la louche sans marge** : dépassement de fenêtre → marge de sécurité (8K) + comptage réel
+- ❌ **API key exposed client-side**: leak → server-side calls only
+- ❌ **Hardcoded model** scattered around: maintenance → centralize the ID (Opus 4.8 for reasoning / Sonnet 4.6 for runtime)
+- ❌ **No retry/backoff** on `RateLimitError`: failures at peak → exponential backoff + jitter
+- ❌ **Ignoring prompt caching** on large system prompts (> 1024 tokens): extra cost → ephemeral `cache_control`
+- ❌ **Estimating tokens loosely with no margin**: window overflow → safety margin (8K) + real counting
 
 ## Sources
-- **Anthropic API** — docs.anthropic.com (Messages, **prompt caching** lecture ≈0,1× input, **Batch API** −50%, tool use, streaming) · en-tête `anthropic-version: 2023-06-01` (courant)
-- Modèles : **`claude-opus-4-8`** (raisonnement) · **`claude-sonnet-4-6`** (runtime, 200K contexte)
+- **Anthropic API** — docs.anthropic.com (Messages, **prompt caching** read ≈0.1× input, **Batch API** −50%, tool use, streaming) · header `anthropic-version: 2023-06-01` (current)
+- Models: **`claude-opus-4-8`** (reasoning) · **`claude-sonnet-4-6`** (runtime, 200K context)
 
-## Voir aussi
-- [`langgraph-crewai-patterns.md`](langgraph-crewai-patterns.md) — patterns d'orchestration sur ce SDK
-- [`mcp-orchestration.md`](mcp-orchestration.md) — exposer/consommer des agents via MCP
-- [`workflow-automation.md`](workflow-automation.md) — intégration en production
-- [`../prompt_engineer/prompt-optimization.md`](../prompt_engineer/prompt-optimization.md) — caching, batch, sélection de modèle
+## See also
+- [`langgraph-crewai-patterns.md`](langgraph-crewai-patterns.md) — orchestration patterns on this SDK
+- [`mcp-orchestration.md`](mcp-orchestration.md) — expose/consume agents via MCP
+- [`workflow-automation.md`](workflow-automation.md) — production integration
+- [`../prompt_engineer/prompt-optimization.md`](../prompt_engineer/prompt-optimization.md) — caching, batch, model selection

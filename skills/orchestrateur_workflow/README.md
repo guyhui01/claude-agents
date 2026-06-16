@@ -1,95 +1,95 @@
-# Skills — Orchestrateur de Workflows Agentiques
+# Skills — Agentic Workflow Orchestrator
 
-> Dossier rattaché à `AGENT-ORCHESTRATEUR-WORKFLOW.md`
-> Référentiels : PMP · PMI-ACP · TOGAF 10 · BPMN 2.0 OCM · SAFe 6 Agilist · SAFe LPM · ITIL 4 · AWS SAA · GCP Cloud Architect · Anthropic Claude Code in Action
-
----
-
-## Index des skills (15)
-
-### Conception & Design
-| Skill | Quand l'invoquer | Référence |
-|---|---|---|
-| [`workflow-design.md`](workflow-design.md) | Concevoir un workflow agentique (BPMN, diagrammes de flux) | BPMN 2.0 OCM · TOGAF 10 |
-| [`agent-routing.md`](agent-routing.md) | Sélectionner et router dynamiquement vers les agents du catalogue | TOGAF 10 · PMP |
-| [`dependency-mapping.md`](dependency-mapping.md) | Cartographier les dépendances et ordres d'exécution | PMP · BPMN 2.0 |
-| [`workflow-catalog.md`](workflow-catalog.md) | Gérer le catalogue de workflows (taxonomie, versioning) | PMP · TOGAF 10 |
-
-### Exécution & Coordination
-| Skill | Quand l'invoquer | Référence |
-|---|---|---|
-| [`context-handoff.md`](context-handoff.md) | Gérer le transfert de contexte inter-agents (state management) | TOGAF 10 · Anthropic |
-| [`parallel-orchestration.md`](parallel-orchestration.md) | Orchestration parallèle vs séquentielle (dépendances métier) | PMP · BPMN 2.0 |
-| [`trigger-management.md`](trigger-management.md) | Gérer les triggers (événements, webhooks, schedule) | ITIL 4 · BPMN 2.0 |
-| [`workflow-automation.md`](workflow-automation.md) | Automatiser les workflows (n8n, Make, Zapier, custom) | ITIL 4 · AWS SAA |
-
-### Qualité & Robustesse
-| Skill | Quand l'invoquer | Référence |
-|---|---|---|
-| [`output-validation.md`](output-validation.md) | Valider les outputs à chaque étape (critères qualité) | ISTQB Exit Criteria · PMP |
-| [`error-recovery.md`](error-recovery.md) | Gestion des erreurs, fallbacks, reprises | ITIL 4 · PMP |
-| [`workflow-monitoring.md`](workflow-monitoring.md) | Monitoring et métriques d'exécution | ITIL 4 · SRE |
-
-### Intégration techniques
-| Skill | Quand l'invoquer | Référence |
-|---|---|---|
-| [`claude-api-integration.md`](claude-api-integration.md) | Intégrer Claude API (Anthropic SDK) dans le workflow | Anthropic Claude Code in Action |
-| [`prompt-engineering-orchestration.md`](prompt-engineering-orchestration.md) | Concevoir les prompts d'orchestration inter-agents | Anthropic · TOGAF 10 |
-| [`mcp-orchestration.md`](mcp-orchestration.md) | Utiliser MCP (Model Context Protocol) pour l'orchestration | Anthropic |
-| [`langgraph-crewai-patterns.md`](langgraph-crewai-patterns.md) | Patterns multi-agents (LangGraph, CrewAI, AutoGen) | Anthropic · DeepLearning.AI |
+> Folder attached to `AGENT-ORCHESTRATEUR-WORKFLOW.md`
+> Frameworks: PMP · PMI-ACP · TOGAF 10 · BPMN 2.0 OCM · SAFe 6 Agilist · SAFe LPM · ITIL 4 · AWS SAA · GCP Cloud Architect · Anthropic Claude Code in Action
 
 ---
 
-## Choisir le bon skill — Arbre de décision
+## Skill index (15)
+
+### Design & Architecture
+| Skill | When to invoke | Reference |
+|---|---|---|
+| [`workflow-design.md`](workflow-design.md) | Design an agentic workflow (BPMN, flow diagrams) | BPMN 2.0 OCM · TOGAF 10 |
+| [`agent-routing.md`](agent-routing.md) | Select and dynamically route to the catalog's agents | TOGAF 10 · PMP |
+| [`dependency-mapping.md`](dependency-mapping.md) | Map dependencies and execution order | PMP · BPMN 2.0 |
+| [`workflow-catalog.md`](workflow-catalog.md) | Manage the workflow catalog (taxonomy, versioning) | PMP · TOGAF 10 |
+
+### Execution & Coordination
+| Skill | When to invoke | Reference |
+|---|---|---|
+| [`context-handoff.md`](context-handoff.md) | Manage inter-agent context handoff (state management) | TOGAF 10 · Anthropic |
+| [`parallel-orchestration.md`](parallel-orchestration.md) | Parallel vs. sequential orchestration (business dependencies) | PMP · BPMN 2.0 |
+| [`trigger-management.md`](trigger-management.md) | Manage triggers (events, webhooks, schedule) | ITIL 4 · BPMN 2.0 |
+| [`workflow-automation.md`](workflow-automation.md) | Automate workflows (n8n, Make, Zapier, custom) | ITIL 4 · AWS SAA |
+
+### Quality & Robustness
+| Skill | When to invoke | Reference |
+|---|---|---|
+| [`output-validation.md`](output-validation.md) | Validate outputs at each step (quality criteria) | ISTQB Exit Criteria · PMP |
+| [`error-recovery.md`](error-recovery.md) | Error handling, fallbacks, recovery | ITIL 4 · PMP |
+| [`workflow-monitoring.md`](workflow-monitoring.md) | Monitoring and execution metrics | ITIL 4 · SRE |
+
+### Technical integration
+| Skill | When to invoke | Reference |
+|---|---|---|
+| [`claude-api-integration.md`](claude-api-integration.md) | Integrate the Claude API (Anthropic SDK) into the workflow | Anthropic Claude Code in Action |
+| [`prompt-engineering-orchestration.md`](prompt-engineering-orchestration.md) | Design inter-agent orchestration prompts | Anthropic · TOGAF 10 |
+| [`mcp-orchestration.md`](mcp-orchestration.md) | Use MCP (Model Context Protocol) for orchestration | Anthropic |
+| [`langgraph-crewai-patterns.md`](langgraph-crewai-patterns.md) | Multi-agent patterns (LangGraph, CrewAI, AutoGen) | Anthropic · DeepLearning.AI |
+
+---
+
+## Choosing the right skill — Decision tree
 
 ```
-Tu veux ...
+You want to ...
 
-  ... CONCEVOIR UN NOUVEAU WORKFLOW ?
-    → workflow-design.md (BPMN + diagramme)
-    → agent-routing.md (quels agents appeler)
-    → dependency-mapping.md (séquentiel vs parallèle)
-    → workflow-catalog.md (intégration au catalogue)
+  ... DESIGN A NEW WORKFLOW?
+    → workflow-design.md (BPMN + diagram)
+    → agent-routing.md (which agents to call)
+    → dependency-mapping.md (sequential vs. parallel)
+    → workflow-catalog.md (catalog integration)
 
-  ... GÉRER L'EXÉCUTION ?
-    → context-handoff.md (state inter-agents)
-    → parallel-orchestration.md (parallélisme)
-    → trigger-management.md (cron, événements)
+  ... MANAGE EXECUTION?
+    → context-handoff.md (inter-agent state)
+    → parallel-orchestration.md (parallelism)
+    → trigger-management.md (cron, events)
     → workflow-automation.md (n8n / Make / custom)
 
-  ... SÉCURISER LA QUALITÉ ?
-    → output-validation.md (gates qualité)
-    → error-recovery.md (fallback + reprise)
-    → workflow-monitoring.md (métriques SRE)
+  ... SECURE QUALITY?
+    → output-validation.md (quality gates)
+    → error-recovery.md (fallback + recovery)
+    → workflow-monitoring.md (SRE metrics)
 
-  ... INTÉGRER L'IA TECHNIQUEMENT ?
+  ... INTEGRATE AI TECHNICALLY?
     → claude-api-integration.md (Anthropic SDK)
-    → prompt-engineering-orchestration.md (prompts d'orchestration)
+    → prompt-engineering-orchestration.md (orchestration prompts)
     → mcp-orchestration.md (Model Context Protocol)
-    → langgraph-crewai-patterns.md (frameworks agentic)
+    → langgraph-crewai-patterns.md (agentic frameworks)
 ```
 
 ---
 
-## Frontières avec les autres agents
+## Boundaries with other agents
 
-| Sujet voisin | Agent concerné | Frontière |
+| Adjacent topic | Agent concerned | Boundary |
 |---|---|---|
-| Rédaction de User Stories | `AGENT-PO-SCRUM.md` | ORCHESTRATEUR = workflows ; PO = backlog produit |
-| Architecture technique IA (RAG, agents) | `AGENT-AI-ARCHITECT.md` | ORCHESTRATEUR = exécution ; AI-ARCHITECT = architecture |
-| Développement code (Python, TypeScript) | `AGENT-DEV-PYTHON-IA.md`, `AGENT-DEV-TYPESCRIPT-IA.md` | ORCHESTRATEUR = orchestration ; DEV = implémentation |
-| Stratégie data-IA | `AGENT-CDO-DIRECTEUR-IA.md` | ORCHESTRATEUR = workflows opérationnels ; CDO = stratégie |
-| Gestion des risques projet | `AGENT-CHEF-PROJET-IA.md` | ORCHESTRATEUR = workflows agentiques ; CHEF-PROJET = projet global |
+| Writing User Stories | `AGENT-PO-SCRUM.md` | ORCHESTRATEUR = workflows; PO = product backlog |
+| AI technical architecture (RAG, agents) | `AGENT-AI-ARCHITECT.md` | ORCHESTRATEUR = execution; AI-ARCHITECT = architecture |
+| Code development (Python, TypeScript) | `AGENT-DEV-PYTHON-IA.md`, `AGENT-DEV-TYPESCRIPT-IA.md` | ORCHESTRATEUR = orchestration; DEV = implementation |
+| Data-AI strategy | `AGENT-CDO-DIRECTEUR-IA.md` | ORCHESTRATEUR = operational workflows; CDO = strategy |
+| Project risk management | `AGENT-CHEF-PROJET-IA.md` | ORCHESTRATEUR = agentic workflows; CHEF-PROJET = overall project |
 
 ---
 
-## Référentiels et standards utilisés
+## Frameworks and standards used
 
-- **BPMN 2.0** : https://www.omg.org/spec/BPMN/2.0/
-- **MCP (Model Context Protocol)** : https://modelcontextprotocol.io/
-- **LangGraph** : https://langchain-ai.github.io/langgraph/
-- **CrewAI** : https://docs.crewai.com/
-- **AutoGen** (Microsoft) : https://microsoft.github.io/autogen/
-- **TOGAF 10 ADM** : pour design architectural
-- **ITIL 4** : pour gestion incidents et changements
-- **DORA Metrics** : pour monitoring SRE des workflows
+- **BPMN 2.0**: https://www.omg.org/spec/BPMN/2.0/
+- **MCP (Model Context Protocol)**: https://modelcontextprotocol.io/
+- **LangGraph**: https://langchain-ai.github.io/langgraph/
+- **CrewAI**: https://docs.crewai.com/
+- **AutoGen** (Microsoft): https://microsoft.github.io/autogen/
+- **TOGAF 10 ADM**: for architectural design
+- **ITIL 4**: for incident and change management
+- **DORA Metrics**: for SRE monitoring of workflows

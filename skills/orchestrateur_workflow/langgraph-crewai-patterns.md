@@ -1,25 +1,25 @@
-# Skill — Patterns LangGraph, CrewAI et AutoGen pour Claude
-> Certifications : Anthropic Claude Code in Action (2026), AWS Certified Solutions Architect (Amazon), Google Cloud Professional Cloud Architect (Google)
+# Skill — LangGraph, CrewAI, and AutoGen Patterns for Claude
+> Certifications: Anthropic Claude Code in Action (2026), AWS Certified Solutions Architect (Amazon), Google Cloud Professional Cloud Architect (Google)
 
-## Objectif
-Traduire les patterns d'orchestration multi-agents des frameworks populaires (LangGraph, CrewAI, AutoGen) en implémentations natives Claude — pour tirer parti des meilleures architectures sans dépendance à des frameworks tiers.
+## Objective
+Translate the multi-agent orchestration patterns of popular frameworks (LangGraph, CrewAI, AutoGen) into native Claude implementations — to leverage the best architectures without depending on third-party frameworks.
 
-## Comparatif des frameworks
+## Framework comparison
 
 ```
-FRAMEWORK    PARADIGME          POINTS FORTS           MAPPING CLAUDE
+FRAMEWORK    PARADIGM           STRENGTHS              CLAUDE MAPPING
 ──────────────────────────────────────────────────────────────────────────
-LangGraph    Graph de flux      État partagé, cycles   Prompt chaining + state dict
-CrewAI       Équipe de rôles    Collaboration agents   System prompts spécialisés
+LangGraph    Flow graph         Shared state, cycles   Prompt chaining + state dict
+CrewAI       Team of roles      Agent collaboration    Specialized system prompts
 AutoGen      Conversation       Multi-turn, code exec  Message history + tool use
-LlamaIndex   RAG + agents       Indexation, retrieval  RAG natif Anthropic
+LlamaIndex   RAG + agents       Indexing, retrieval    Native Anthropic RAG
 ```
 
-## Pattern LangGraph — Graph de flux d'agents
+## LangGraph pattern — Agent flow graph
 
-### Concept original (Python LangGraph)
+### Original concept (Python LangGraph)
 ```python
-# LangGraph original
+# Original LangGraph
 from langgraph.graph import StateGraph, END
 
 workflow = StateGraph(AgentState)
@@ -29,10 +29,10 @@ workflow.add_edge("analyst", "po_scrum")
 workflow.add_edge("po_scrum", END)
 ```
 
-### Équivalent natif Claude
+### Native Claude equivalent
 
 ```typescript
-// Implémentation native — State Graph avec Claude
+// Native implementation — State Graph with Claude
 interface WorkflowState {
   context: string;
   currentNode: string;
@@ -42,7 +42,7 @@ interface WorkflowState {
 }
 
 type NodeFunction = (state: WorkflowState) => Promise<WorkflowState>;
-type EdgeCondition = (state: WorkflowState) => string; // retourne le nom du prochain nœud
+type EdgeCondition = (state: WorkflowState) => string; // returns the name of the next node
 
 class ClaudeStateGraph {
   private nodes = new Map<string, NodeFunction>();
@@ -63,7 +63,7 @@ class ClaudeStateGraph {
 
     while (state.status === "running" && state.currentNode !== "END") {
       const nodeFn = this.nodes.get(state.currentNode);
-      if (!nodeFn) throw new Error(`Node inconnu : ${state.currentNode}`);
+      if (!nodeFn) throw new Error(`Unknown node: ${state.currentNode}`);
 
       console.log(`[GRAPH] → ${state.currentNode}`);
       state = await nodeFn(state);
@@ -82,7 +82,7 @@ class ClaudeStateGraph {
   }
 }
 
-// Usage — WF-001 Cadrage Produit IA
+// Usage — WF-001 AI Product Scoping
 const graph = new ClaudeStateGraph()
   .addNode("analyst", async (state) => {
     const output = await callClaude(BA_SYSTEM_PROMPT, state.context);
@@ -96,22 +96,22 @@ const graph = new ClaudeStateGraph()
   .addEdge("po_scrum", "END");
 ```
 
-## Pattern CrewAI — Équipe de rôles collaboratifs
+## CrewAI pattern — Team of collaborative roles
 
-### Concept original (Python CrewAI)
+### Original concept (Python CrewAI)
 ```python
-# CrewAI original
+# Original CrewAI
 from crewai import Agent, Task, Crew
 
-analyst = Agent(role="Business Analyst", goal="Analyser le brief")
-po = Agent(role="Product Owner", goal="Rédiger les US")
+analyst = Agent(role="Business Analyst", goal="Analyze the brief")
+po = Agent(role="Product Owner", goal="Write the US")
 crew = Crew(agents=[analyst, po], tasks=[task1, task2], verbose=True)
 ```
 
-### Équivalent natif Claude
+### Native Claude equivalent
 
 ```typescript
-// Implémentation native — Crew pattern avec Claude
+// Native implementation — Crew pattern with Claude
 interface AgentConfig {
   name: string;
   role: string;
@@ -139,20 +139,20 @@ class ClaudeCrew {
 
   async runTask(task: Task, previousOutputs: Record<string, string>): Promise<string> {
     const agent = this.agents.get(task.assignedAgent);
-    if (!agent) throw new Error(`Agent inconnu : ${task.assignedAgent}`);
+    if (!agent) throw new Error(`Unknown agent: ${task.assignedAgent}`);
 
     const contextFromDeps = task.dependsOn
       ?.map((dep) => `[${dep}] : ${previousOutputs[dep]}`)
       .join("\n\n") ?? "";
 
     const userMessage = `
-## Ta mission
+## Your mission
 ${task.description}
 
-## Contexte des étapes précédentes
-${contextFromDeps || "Aucune étape précédente."}
+## Context from previous steps
+${contextFromDeps || "No previous step."}
 
-## Output attendu
+## Expected output
 ${task.expectedOutput}
     `.trim();
 
@@ -181,22 +181,22 @@ ${task.expectedOutput}
 
 // Usage
 const crew = new ClaudeCrew([
-  { name: "BUSINESS-ANALYST", role: "Business Analyst", goal: "Analyser le brief", systemPrompt: BA_PROMPT },
-  { name: "PO-SCRUM", role: "Product Owner", goal: "Rédiger les US", systemPrompt: PO_PROMPT },
+  { name: "BUSINESS-ANALYST", role: "Business Analyst", goal: "Analyze the brief", systemPrompt: BA_PROMPT },
+  { name: "PO-SCRUM", role: "Product Owner", goal: "Write the US", systemPrompt: PO_PROMPT },
 ]);
 
 const results = await crew.kickoff([
-  { id: "analyse", description: "Analyse le brief", assignedAgent: "BUSINESS-ANALYST", expectedOutput: "Carte des besoins" },
-  { id: "user_stories", description: "Rédige 8 US", assignedAgent: "PO-SCRUM", expectedOutput: "8 US format INVEST", dependsOn: ["analyse"] },
+  { id: "analyse", description: "Analyze the brief", assignedAgent: "BUSINESS-ANALYST", expectedOutput: "Needs map" },
+  { id: "user_stories", description: "Write 8 US", assignedAgent: "PO-SCRUM", expectedOutput: "8 US in INVEST format", dependsOn: ["analyse"] },
 ]);
 ```
 
-## Pattern AutoGen — Conversation multi-agents
+## AutoGen pattern — Multi-agent conversation
 
-### Équivalent natif Claude
+### Native Claude equivalent
 
 ```typescript
-// Implémentation native — Multi-turn conversation entre agents
+// Native implementation — Multi-turn conversation between agents
 interface ConversationMessage {
   agent: string;
   content: string;
@@ -208,13 +208,13 @@ class ClaudeMultiAgentConversation {
   private client = new Anthropic();
 
   async addMessage(agentName: string, systemPrompt: string, trigger: string): Promise<string> {
-    // Construire le contexte de conversation pour cet agent
+    // Build the conversation context for this agent
     const conversationContext = this.history
       .map((m) => `[${m.agent}] : ${m.content}`)
       .join("\n\n");
 
     const userMessage = conversationContext
-      ? `Voici la conversation jusqu'ici :\n${conversationContext}\n\nTon tour : ${trigger}`
+      ? `Here is the conversation so far:\n${conversationContext}\n\nYour turn: ${trigger}`
       : trigger;
 
     const response = await this.client.messages.create({
@@ -235,53 +235,53 @@ class ClaudeMultiAgentConversation {
   }
 }
 
-// Usage — Revue collaborative PO + QA
+// Usage — Collaborative PO + QA review
 const convo = new ClaudeMultiAgentConversation();
-await convo.addMessage("PO-SCRUM", PO_PROMPT, `Rédige l'US pour : ${feature}`);
-await convo.addMessage("QA-AGILE", QA_PROMPT, "Critique cette US et propose des améliorations.");
-await convo.addMessage("PO-SCRUM", PO_PROMPT, "Intègre les retours QA et produis la version finale.");
+await convo.addMessage("PO-SCRUM", PO_PROMPT, `Write the US for: ${feature}`);
+await convo.addMessage("QA-AGILE", QA_PROMPT, "Critique this US and suggest improvements.");
+await convo.addMessage("PO-SCRUM", PO_PROMPT, "Incorporate the QA feedback and produce the final version.");
 ```
 
-## Quand utiliser quel pattern
+## When to use which pattern
 
 ```
-PATTERN            QUAND L'UTILISER
+PATTERN            WHEN TO USE IT
 ──────────────────────────────────────────────────────────────────
-State Graph        Workflows avec conditions et boucles
-                   Ex : validation → correction → revalidation
+State Graph        Workflows with conditions and loops
+                   E.g.: validation → correction → revalidation
 
-Crew / Équipe      Tâches séquentielles avec rôles distincts
-                   Ex : BA → PO → QA → Chef de Projet
+Crew / Team        Sequential tasks with distinct roles
+                   E.g.: BA → PO → QA → Project Manager
 
-Conversation       Collaboration itérative entre 2-3 agents
-                   Ex : PO + QA qui se challengent mutuellement
+Conversation       Iterative collaboration between 2-3 agents
+                   E.g.: PO + QA challenging each other
 
-Scatter/Gather     Même tâche sur N contextes en parallèle
-                   Ex : analyser 5 user stories simultanément
+Scatter/Gather     Same task across N contexts in parallel
+                   E.g.: analyze 5 user stories simultaneously
 ```
 
-## Livrables
-- Implémentation State Graph native Claude (TypeScript)
-- Implémentation Crew pattern native Claude
-- Implémentation multi-turn conversation
-- Guide de sélection du pattern selon le cas d'usage
+## Deliverables
+- Native Claude State Graph implementation (TypeScript)
+- Native Claude Crew pattern implementation
+- Multi-turn conversation implementation
+- Pattern-selection guide by use case
 
-## Format de sortie
-Précise : pattern souhaité (graph / crew / conversation), agents impliqués, conditions de branchement (si graph), langage (TypeScript / Python).
+## Output format
+Specify: the desired pattern (graph / crew / conversation), the agents involved, branching conditions (if graph), the language (TypeScript / Python).
 
 ## Anti-patterns
-- ❌ **Frameworks cités sans version** (LangGraph/CrewAI/AutoGen/LlamaIndex) : ruptures d'API → épingler les versions
-- ❌ **Code « pédagogique » pris pour de la prod** : ces patterns natifs Claude contiennent des stubs → noter le périmètre (fait dans le skill ✓)
-- ❌ **Réécrire from scratch ce que le framework fournit** : maintenance inutile → choisir framework vs natif selon le besoin
-- ❌ **Vendor lock-in non anticipé** : migration coûteuse → abstraire la couche d'orchestration
-- ❌ **Multiplier les frameworks** dans un même projet : complexité → un seul par cas d'usage
+- ❌ **Frameworks cited without a version** (LangGraph/CrewAI/AutoGen/LlamaIndex): API breakage → pin the versions
+- ❌ **"Educational" code mistaken for production**: these native Claude patterns contain stubs → note the scope (done in the skill ✓)
+- ❌ **Rewriting from scratch what the framework provides**: needless maintenance → choose framework vs. native per need
+- ❌ **Unanticipated vendor lock-in**: costly migration → abstract the orchestration layer
+- ❌ **Multiplying frameworks** in the same project: complexity → one per use case
 
 ## Sources
 - **LangGraph** — langchain-ai.github.io/langgraph · **CrewAI** — docs.crewai.com · **AutoGen** (Microsoft) — microsoft.github.io/autogen · **LlamaIndex** — docs.llamaindex.ai
-- **Anthropic — Building Effective Agents** (anthropic.com/engineering, déc. 2024) — patterns natifs (souvent suffisants vs framework) · SDK `@anthropic-ai/sdk`
+- **Anthropic — Building Effective Agents** (anthropic.com/engineering, Dec. 2024) — native patterns (often enough vs. a framework) · SDK `@anthropic-ai/sdk`
 
-## Voir aussi
-- [`claude-api-integration.md`](claude-api-integration.md) — implémentation SDK Anthropic complète
-- [`mcp-orchestration.md`](mcp-orchestration.md) — orchestration multi-agents via MCP
-- [`workflow-design.md`](workflow-design.md) — choix du pattern d'orchestration
-- [`parallel-orchestration.md`](parallel-orchestration.md) — exécution parallèle des agents
+## See also
+- [`claude-api-integration.md`](claude-api-integration.md) — complete Anthropic SDK implementation
+- [`mcp-orchestration.md`](mcp-orchestration.md) — multi-agent orchestration via MCP
+- [`workflow-design.md`](workflow-design.md) — choosing the orchestration pattern
+- [`parallel-orchestration.md`](parallel-orchestration.md) — parallel agent execution

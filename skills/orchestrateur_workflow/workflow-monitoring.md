@@ -1,203 +1,203 @@
-# Skill — Monitoring, Métriques et Reporting d'Exécution
-> Certifications : ITIL 4 Foundation (Axelos), PMP (PMI), AWS Certified Solutions Architect (Amazon), Google Cloud Professional Cloud Architect (Google)
+# Skill — Monitoring, Metrics, and Execution Reporting
+> Certifications: ITIL 4 Foundation (Axelos), PMP (PMI), AWS Certified Solutions Architect (Amazon), Google Cloud Professional Cloud Architect (Google)
 
-## Objectif
-Suivre en temps réel l'exécution d'un workflow agentique — statut des étapes, qualité des outputs, performance des agents — et produire un reporting synthétique pour permettre une prise de décision rapide.
+## Objective
+Track the execution of an agentic workflow in real time — step status, output quality, agent performance — and produce concise reporting to enable fast decision-making.
 
-## Dashboard de monitoring — Template
+## Monitoring dashboard — Template
 
 ```
-WORKFLOW : [NOM] — ID : [WF-00X]
-DATE     : [DATE] — DURÉE : [X min]
-STATUT   : 🟢 En cours / 🟡 En attente / 🔴 En erreur / ✅ Complété
+WORKFLOW : [NAME] — ID : [WF-00X]
+DATE     : [DATE] — DURATION : [X min]
+STATUS   : 🟢 In progress / 🟡 Waiting / 🔴 Error / ✅ Completed
 ─────────────────────────────────────────────────────────────────
 
-PROGRESSION
+PROGRESS
 ───────────────────────────────────────────────
-STEP-01 [BUSINESS-ANALYST]   ✅ Complété     8 min
-STEP-02 [PO-SCRUM]           ✅ Complété    12 min
-STEP-03 [UX-DESIGNER]        🔄 En cours    -- min  (ETA: 15 min)
-STEP-04 [QA-AGILE]           ⏸ En attente   -- min
-STEP-05 [CHEF-PROJET-IA]     ⏸ En attente   -- min
+STEP-01 [BUSINESS-ANALYST]   ✅ Completed    8 min
+STEP-02 [PO-SCRUM]           ✅ Completed   12 min
+STEP-03 [UX-DESIGNER]        🔄 In progress -- min  (ETA: 15 min)
+STEP-04 [QA-AGILE]           ⏸ Waiting      -- min
+STEP-05 [CHEF-PROJET-IA]     ⏸ Waiting      -- min
 
-AVANCEMENT GLOBAL : 2/5 étapes complétées (40%)
+OVERALL PROGRESS : 2/5 steps completed (40%)
 
-QUALITÉ OUTPUTS
+OUTPUT QUALITY
 ───────────────────────────────────────────────
-STEP-01 : 16/16 ✅  STEP-02 : 14/16 ⚠ (estimations manquantes)
+STEP-01 : 16/16 ✅  STEP-02 : 14/16 ⚠ (missing estimates)
 
-ALERTES
+ALERTS
 ───────────────────────────────────────────────
-⚠ STEP-02 : 2 US sans estimation — correction en cours
+⚠ STEP-02 : 2 US without estimate — correction in progress
 ```
 
 ---
 
-## Métriques de performance
+## Performance metrics
 
 ```yaml
-metriques_workflow:
+workflow_metrics:
   id: "WF-001"
-  date_debut: "2026-05-22T09:30:00"
-  date_fin: "2026-05-22T10:45:00"
+  start_date: "2026-05-22T09:30:00"
+  end_date: "2026-05-22T10:45:00"
   
-  performance_globale:
-    duree_totale_min: 75
-    duree_estimee_min: 90
-    ecart_planning: "-20%"
-    taux_completion: "100%"
-    score_qualite_global: "91%"
+  overall_performance:
+    total_duration_min: 75
+    estimated_duration_min: 90
+    schedule_variance: "-20%"
+    completion_rate: "100%"
+    overall_quality_score: "91%"
   
-  performance_par_etape:
-    - etape: "STEP-01 — BUSINESS-ANALYST"
-      duree_min: 8
-      score_qualite: "100%"
-      tentatives: 1
-      statut: "complété"
+  performance_per_step:
+    - step: "STEP-01 — BUSINESS-ANALYST"
+      duration_min: 8
+      quality_score: "100%"
+      attempts: 1
+      status: "completed"
       
-    - etape: "STEP-02 — PO-SCRUM"
-      duree_min: 18
-      score_qualite: "88%"
-      tentatives: 2
-      statut: "complété"
-      note: "Relance nécessaire pour ajouter estimations"
+    - step: "STEP-02 — PO-SCRUM"
+      duration_min: 18
+      quality_score: "88%"
+      attempts: 2
+      status: "completed"
+      note: "Re-run needed to add estimates"
       
-    - etape: "STEP-03 — UX-DESIGNER"
-      duree_min: 22
-      score_qualite: "100%"
-      tentatives: 1
-      statut: "complété"
+    - step: "STEP-03 — UX-DESIGNER"
+      duration_min: 22
+      quality_score: "100%"
+      attempts: 1
+      status: "completed"
       
-  erreurs:
+  errors:
     total: 1
-    resolues: 1
-    escaladees: 0
+    resolved: 1
+    escalated: 0
     
-  livrables_produits:
-    - "Carte des besoins métier (8 éléments)"
-    - "10 User Stories format INVEST"
-    - "Wireframes 3 écrans clés"
-    - "Plan de test (15 cas)"
-    - "Reporting CODIR 1 page"
+  deliverables_produced:
+    - "Business needs map (8 items)"
+    - "10 User Stories in INVEST format"
+    - "Wireframes for 3 key screens"
+    - "Test plan (15 cases)"
+    - "1-page executive-committee reporting"
 ```
 
 ---
 
-## Rapport d'exécution — Format 1 page
+## Execution report — 1-page format
 
 ```
-RAPPORT D'EXÉCUTION — WORKFLOW [NOM]
-Date : [DATE] | Durée : [X min] | Modèle : Claude Sonnet 4.6
+EXECUTION REPORT — WORKFLOW [NAME]
+Date : [DATE] | Duration : [X min] | Model : Claude Sonnet 4.6
 ══════════════════════════════════════════════════════════════
 
-RÉSULTAT  : ✅ Complété avec succès
-QUALITÉ   : 91% (score global)
-PLANNING  : -15 min vs estimation (meilleure perf)
+RESULT    : ✅ Completed successfully
+QUALITY   : 91% (overall score)
+SCHEDULE  : -15 min vs. estimate (better performance)
 
-LIVRABLES PRODUITS
+DELIVERABLES PRODUCED
 ─────────────────────────────────────
-✅ Carte des besoins métier
-✅ 10 User Stories (format INVEST)
-✅ Critères d'acceptation (Gherkin)
-✅ Wireframes 3 écrans clés
-✅ Plan de test (15 cas)
-✅ Reporting CODIR 1 page
+✅ Business needs map
+✅ 10 User Stories (INVEST format)
+✅ Acceptance criteria (Gherkin)
+✅ Wireframes for 3 key screens
+✅ Test plan (15 cases)
+✅ 1-page executive-committee reporting
 
-AGENTS UTILISÉS
+AGENTS USED
 ─────────────────────────────────────
-BUSINESS-ANALYST  : 1 tentative — 100% qualité
-PO-SCRUM          : 2 tentatives — 88% qualité
-UX-DESIGNER       : 1 tentative — 100% qualité
-QA-AGILE          : 1 tentative — 96% qualité
-CHEF-PROJET-IA    : 1 tentative — 100% qualité
+BUSINESS-ANALYST  : 1 attempt — 100% quality
+PO-SCRUM          : 2 attempts — 88% quality
+UX-DESIGNER       : 1 attempt — 100% quality
+QA-AGILE          : 1 attempt — 96% quality
+CHEF-PROJET-IA    : 1 attempt — 100% quality
 
 INCIDENTS
 ─────────────────────────────────────
-⚠ 1 incident mineur : PO-SCRUM — estimations manquantes
-  Résolution : relance avec instructions précises (2 min)
+⚠ 1 minor incident : PO-SCRUM — missing estimates
+  Resolution : re-run with precise instructions (2 min)
 
-RECOMMANDATIONS
+RECOMMENDATIONS
 ─────────────────────────────────────
-→ Ajouter dans le template PO-SCRUM : rappel estimations obligatoires
-→ Prochaine exécution estimée : 60 min (pattern appris)
+→ Add to the PO-SCRUM template : reminder that estimates are mandatory
+→ Next execution estimated : 60 min (learned pattern)
 ```
 
 ---
 
-## KPIs de suivi du catalogue de workflows
+## Workflow catalog tracking KPIs
 
 ```yaml
-kpis_catalogue:
-  periode: "2026-05 (mensuel)"
+catalog_kpis:
+  period: "2026-05 (monthly)"
   
-  workflows_executes:
+  workflows_executed:
     WF-001: 8 executions
     WF-002: 3 executions
     WF-003: 2 executions
     WF-004: 5 executions
     WF-005: 12 executions
   
-  qualite_moyenne:
+  average_quality:
     WF-001: "93%"
     WF-002: "89%"
     WF-003: "95%"
     WF-004: "91%"
     WF-005: "97%"
   
-  agents_les_plus_utilises:
-    1: "REDACTEUR-IA (18 appels)"
-    2: "BUSINESS-ANALYST (15 appels)"
-    3: "PO-SCRUM (13 appels)"
-    4: "CHEF-PROJET-IA (11 appels)"
-    5: "QA-AGILE (9 appels)"
+  most_used_agents:
+    1: "REDACTEUR-IA (18 calls)"
+    2: "BUSINESS-ANALYST (15 calls)"
+    3: "PO-SCRUM (13 calls)"
+    4: "CHEF-PROJET-IA (11 calls)"
+    5: "QA-AGILE (9 calls)"
   
-  taux_erreur_par_agent:
+  error_rate_per_agent:
     PO-SCRUM: "15%"
     DEV-PYTHON-IA: "8%"
     CONSULTANT-IA: "5%"
     REDACTEUR-IA: "2%"
   
-  ameliorations_identifiees:
-    - "PO-SCRUM : ajouter rappel estimations dans template"
-    - "DEV-PYTHON-IA : enrichir contexte architecture en amont"
+  identified_improvements:
+    - "PO-SCRUM : add an estimates reminder in the template"
+    - "DEV-PYTHON-IA : enrich the architecture context upstream"
 ```
 
 ---
 
-## Alertes et notifications
+## Alerts and notifications
 
 ```
-NIVEAUX D'ALERTE
+ALERT LEVELS
 ──────────────────────────────────────────────────────────────
-🟢 INFO    : Étape complétée avec succès
-🟡 WARNING : Output à retravailler (score 75-99%)
-🔴 ERROR   : Output rejeté ou agent bloqué (score < 75%)
-🚨 CRITICAL: Workflow bloqué, escalade utilisateur requise
+🟢 INFO    : Step completed successfully
+🟡 WARNING : Output to rework (score 75-99%)
+🔴 ERROR   : Output rejected or agent blocked (score < 75%)
+🚨 CRITICAL: Workflow blocked, user escalation required
 ```
 
-## Livrables
-- Dashboard de monitoring en temps réel
-- Rapport d'exécution post-workflow (1 page)
-- Métriques de performance YAML
-- KPIs mensuels du catalogue
-- Recommandations d'amélioration
+## Deliverables
+- Real-time monitoring dashboard
+- Post-workflow execution report (1 page)
+- YAML performance metrics
+- Monthly catalog KPIs
+- Improvement recommendations
 
-## Format de sortie
-Précise : workflow concerné, étapes à monitorer, métriques prioritaires, format de reporting souhaité.
+## Output format
+Specify: the workflow at hand, the steps to monitor, the priority metrics, the desired reporting format.
 
 ## Anti-patterns
-- ❌ **Monitorer sans seuils d'alerte** : tableau de bord contemplatif → seuil + alerte + destinataire par métrique
-- ❌ **Vanity metrics** (nb d'exécutions seul) sans coût/tokens ni taux d'échec → suivre coût, latence, taux d'erreur, qualité
-- ❌ **Pas de traçabilité par exécution** (trace_id) : debug impossible → tracing de bout en bout
-- ❌ **Pas de SLO défini** : pas de cible → SLO latence/coût/qualité
-- ❌ **Dashboard sans action** : métriques non reliées à une décision → chaque KPI → action
+- ❌ **Monitoring with no alert thresholds**: a contemplative dashboard → threshold + alert + recipient per metric
+- ❌ **Vanity metrics** (execution count alone) with no cost/tokens or failure rate → track cost, latency, error rate, quality
+- ❌ **No per-execution traceability** (trace_id): debugging impossible → end-to-end tracing
+- ❌ **No defined SLO**: no target → latency/cost/quality SLO
+- ❌ **Dashboard with no action**: metrics not tied to a decision → each KPI → action
 
 ## Sources
-- **Observability LLM** : Langfuse · LangSmith · Helicone (tracing, coût, evals) — langfuse.com / smith.langchain.com
-- **OpenTelemetry** (traces/metrics/logs) — opentelemetry.io · principes SRE (SLO/SLI)
+- **LLM observability**: Langfuse · LangSmith · Helicone (tracing, cost, evals) — langfuse.com / smith.langchain.com
+- **OpenTelemetry** (traces/metrics/logs) — opentelemetry.io · SRE principles (SLO/SLI)
 
-## Voir aussi
-- [`error-recovery.md`](error-recovery.md) — alerting sur erreurs
-- [`output-validation.md`](output-validation.md) — taux de rejet comme métrique qualité
-- [`workflow-automation.md`](workflow-automation.md) — monitoring en production
-- [`../prompt_engineer/evals-llm-observability.md`](../prompt_engineer/evals-llm-observability.md) — evals + observabilité LLM
+## See also
+- [`error-recovery.md`](error-recovery.md) — alerting on errors
+- [`output-validation.md`](output-validation.md) — rejection rate as a quality metric
+- [`workflow-automation.md`](workflow-automation.md) — monitoring in production
+- [`../prompt_engineer/evals-llm-observability.md`](../prompt_engineer/evals-llm-observability.md) — evals + LLM observability

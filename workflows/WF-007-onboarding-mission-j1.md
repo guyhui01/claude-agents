@@ -1,117 +1,117 @@
-# WF-007 — Onboarding Mission Client J1-J5
+# WF-007 — Client Engagement Onboarding D1-D5
 
-> Mission signée → contexte client → plan de démarrage → livrables J1 → cadrage J5
-> Certifications mobilisées : PMP · CBAP · PROSCI · Anthropic Claude Code in Action
+> Engagement signed → client context → kickoff plan → D1 deliverables → D5 scoping
+> Certifications mobilized: PMP · CBAP · PROSCI · Anthropic Claude Code in Action
 
 ---
 
-## Carte d'identité
+## Identity card
 
 ```yaml
 id: "WF-007"
 nom: "Onboarding Mission Client J1-J5"
-domaine: "Management & Conseil"
-declencheur: "Démarrage d'une nouvelle mission chez un client (J1 = premier jour)"
-resultat_final: "Plan de démarrage validé + kit J1 remis + cadrage J5 complété + relations clés établies"
+domaine: "Management & Consulting"
+declencheur: "Start of a new engagement at a client (D1 = first day)"
+resultat_final: "Validated kickoff plan + D1 kit delivered + D5 scoping completed + key relationships established"
 duree_estimee: "45-75 min"
 modele_recommande: "claude-sonnet-4-6"
-modele_raison: "Workflow structuré et opérationnel : production de livrables documentaires (plan, kit J1, fiche client). Sonnet 4.6 suffit pour la génération et la mise en forme de ces contenus standards."
-modele_alternatif: "claude-opus-4-8"  # si la mission est particulièrement complexe (transformation, contexte politique tendu)
+modele_raison: "Structured, operational workflow: production of documentary deliverables (plan, D1 kit, client sheet). Sonnet 4.6 is enough to generate and format these standard contents."
+modele_alternatif: "claude-opus-4-8"  # if the engagement is particularly complex (transformation, politically tense context)
 agents_core:
-  - CHEF-PROJET-IA      # plan de démarrage, planning J1-J5, gestion des parties prenantes
-  - BUSINESS-ANALYST    # cartographie du SI et des processus client, analyse de l'existant
-  - CHANGE-MANAGER      # stratégie d'intégration, relations équipes, gestion des attentes
-  - REDACTEUR-IA        # kit de démarrage, fiche client, compte rendu J1
+  - CHEF-PROJET-IA      # kickoff plan, D1-D5 schedule, stakeholder management
+  - BUSINESS-ANALYST    # client IS and process mapping, as-is analysis
+  - CHANGE-MANAGER      # integration strategy, team relationships, expectation management
+  - REDACTEUR-IA        # kickoff kit, client sheet, D1 report
 agents_optionnels:
-  - CONSULTANT-IA       # si volet diagnostic maturité IA dès J1
-  - JURIDIQUE-IA        # si NDA, clauses contractuelles à réviser dès le démarrage
+  - CONSULTANT-IA       # if an AI maturity diagnostic angle from D1
+  - JURIDIQUE-IA        # if NDA, contractual clauses to review at kickoff
 statut: "disponible"
 version: "1.0"
 ```
 
 ---
 
-## Agents mobilisés
+## Agents mobilized
 
-| Étape | Agent | Rôle dans le workflow | Output |
+| Step | Agent | Role in the workflow | Output |
 |---|---|---|---|
-| 1 | CHEF-PROJET-IA | Plan de démarrage J1-J5, parties prenantes | Plan de démarrage + RACI provisoire |
-| 2 | BUSINESS-ANALYST | Cartographie contexte client et SI existant | Fiche contexte client + schéma SI |
-| 3 | CHANGE-MANAGER | Stratégie d'intégration et premières relations | Plan d'engagement parties prenantes |
-| 4 | REDACTEUR-IA | Kit J1 + compte rendu J1 + livrables écrits | Kit de démarrage + CR J1 |
-| opt | CONSULTANT-IA | Diagnostic maturité IA express (si applicable) | Grille maturité IA client |
-| opt | JURIDIQUE-IA | Révision NDA et clauses contractuelles | Note juridique démarrage |
+| 1 | CHEF-PROJET-IA | D1-D5 kickoff plan, stakeholders | Kickoff plan + provisional RACI |
+| 2 | BUSINESS-ANALYST | Client context and existing-IS mapping | Client context sheet + IS diagram |
+| 3 | CHANGE-MANAGER | Integration strategy and first relationships | Stakeholder engagement plan |
+| 4 | REDACTEUR-IA | D1 kit + D1 report + written deliverables | Kickoff kit + D1 report |
+| opt | CONSULTANT-IA | Express AI maturity diagnostic (if applicable) | Client AI maturity grid |
+| opt | JURIDIQUE-IA | NDA and contractual-clause review | Kickoff legal note |
 
 ---
 
-## Paramètres contextuels
+## Contextual parameters
 
 ```
-CONTEXTE MISSION (à renseigner avant le démarrage)
+ENGAGEMENT CONTEXT (to fill in before starting)
 ──────────────────────────────────────────────────────
-Client              : [Nom / Secteur / Taille]
-Type de mission     : [Cadrage / Build / TMA / Conseil / Formation / Audit]
-Durée mission       : [Courte < 3 mois / Moyenne 3-12 mois / Longue > 12 mois]
-Interlocuteurs J1   : [Sponsors / Manager direct / Équipe / DRH]
-Lieu de mission     : [Sur site / Distanciel / Hybride]
-Accès J1            : [Badge, PC, VPN, outils, comptes — à valider]
-Enjeux identifiés   : [Business / Technique / Organisationnel / Politique]
-Sensibilités        : [Contexte social, restructuration, post-incident, etc.]
-Livrables attendus  : [Plan démarrage / Kit J1 / Fiche client / CR J1]
+Client              : [Name / Sector / Size]
+Engagement type     : [Scoping / Build / AMS / Consulting / Training / Audit]
+Engagement duration : [Short < 3 months / Medium 3-12 months / Long > 12 months]
+D1 stakeholders     : [Sponsors / Direct manager / Team / CHRO]
+Engagement location : [On-site / Remote / Hybrid]
+D1 access           : [Badge, PC, VPN, tools, accounts — to validate]
+Identified stakes   : [Business / Technical / Organizational / Political]
+Sensitivities       : [Social context, restructuring, post-incident, etc.]
+Expected deliverables: [Kickoff plan / D1 kit / Client sheet / D1 report]
 ```
 
 ---
 
-## Diagramme de flux BPMN
+## BPMN flow diagram
 
 ```
-(DÉBUT — Mission signée / J1 imminent)
+(START — Engagement signed / D1 imminent)
         │
         ▼
 [STEP-01 — CHEF-PROJET-IA]
-  Plan de démarrage J1-J5,
-  cartographie parties prenantes,
-  RACI provisoire,
-  checklist logistique J1
+  D1-D5 kickoff plan,
+  stakeholder mapping,
+  provisional RACI,
+  D1 logistics checklist
         │
         ▼
 ═══════════════════════════════════
-  FORK PARALLÈLE
+  PARALLEL FORK
 ═══════════════════════════════════
   ├── [STEP-02 — BUSINESS-ANALYST]
-  │    Analyse du contexte client :
-  │    cartographie SI, processus,
-  │    enjeux métier, organisation
+  │    Client context analysis:
+  │    IS mapping, processes,
+  │    business stakes, organization
   │
   └── [STEP-03 — CHANGE-MANAGER]
-       Stratégie d'intégration :
-       identification des alliés,
-       gestion des attentes,
-       plan d'engagement J1-J30
+       Integration strategy:
+       allies identification,
+       expectation management,
+       D1-D30 engagement plan
 ═══════════════════════════════════
   JOIN
 ═══════════════════════════════════
         │
         ▼
-<GATEWAY — Diagnostic maturité IA requis dès J1 ?>
-  ├── OUI ──▶ [STEP-04 — CONSULTANT-IA]
-  │            Grille maturité IA express
-  └── NON ──▶ (bypass)
+<GATEWAY — AI maturity diagnostic required from D1?>
+  ├── YES ──▶ [STEP-04 — CONSULTANT-IA]
+  │            Express AI maturity grid
+  └── NO ───▶ (bypass)
         │
         ▼
 [STEP-05 — REDACTEUR-IA]
-  Kit de démarrage complet,
-  compte rendu J1,
-  fiche client synthétique,
-  email de confirmation J1
+  Complete kickoff kit,
+  D1 report,
+  concise client sheet,
+  D1 confirmation email
         │
         ▼
-(FIN — Kit J1 remis / mission lancée)
+(END — D1 kit delivered / engagement launched)
 ```
 
 ---
 
-## Étapes détaillées
+## Detailed steps
 
 ### STEP-01 — CHEF-PROJET-IA
 
@@ -119,19 +119,19 @@ Livrables attendus  : [Plan démarrage / Kit J1 / Fiche client / CR J1]
 etape:
   id: "STEP-01"
   agent: "AGENT-CHEF-PROJET-IA"
-  role: "Plan de démarrage et préparation logistique"
+  role: "Kickoff plan and logistics preparation"
   input:
-    - "Contrat / bon de commande signé"
-    - "Brief mission (périmètre, durée, livrables)"
-    - "Interlocuteurs connus (noms, rôles)"
+    - "Signed contract / purchase order"
+    - "Engagement brief (scope, duration, deliverables)"
+    - "Known stakeholders (names, roles)"
   output_attendu:
-    - "Plan de démarrage J1-J5 (activités par demi-journée)"
-    - "Cartographie parties prenantes (RACI provisoire)"
-    - "Checklist logistique J1 (accès, outils, réunions)"
-    - "Questions à poser impérativement en J1"
-    - "Risques de démarrage identifiés (politique, technique, RH)"
+    - "D1-D5 kickoff plan (activities per half-day)"
+    - "Stakeholder mapping (provisional RACI)"
+    - "D1 logistics checklist (access, tools, meetings)"
+    - "Questions that must be asked on D1"
+    - "Identified kickoff risks (political, technical, HR)"
   duree_estimee: "15 min"
-  execution: "séquentielle — ouvre le workflow"
+  execution: "sequential — opens the workflow"
 ```
 
 ### STEP-02 — BUSINESS-ANALYST
@@ -140,19 +140,19 @@ etape:
 etape:
   id: "STEP-02"
   agent: "AGENT-BUSINESS-ANALYST"
-  role: "Analyse du contexte client et cartographie de l'existant"
+  role: "Client context analysis and as-is mapping"
   input:
-    - "Documentation disponible (cahier des charges, org chart, schémas SI)"
-    - "Informations publiques sur le client (site, LinkedIn, presse)"
-    - "Brief mission (STEP-01)"
+    - "Available documentation (requirements, org chart, IS diagrams)"
+    - "Public information on the client (website, LinkedIn, press)"
+    - "Engagement brief (STEP-01)"
   output_attendu:
-    - "Fiche contexte client (secteur, enjeux, culture, concurrents)"
-    - "Schéma organisationnel (métier + IT)"
-    - "Cartographie SI simplifiée (systèmes en place)"
-    - "Glossaire métier client (termes et acronymes clés)"
-    - "Zones d'ombre à clarifier en J1"
+    - "Client context sheet (sector, stakes, culture, competitors)"
+    - "Organizational chart (business + IT)"
+    - "Simplified IS mapping (systems in place)"
+    - "Client business glossary (key terms and acronyms)"
+    - "Grey areas to clarify on D1"
   duree_estimee: "15 min"
-  execution: "parallèle avec STEP-03"
+  execution: "parallel with STEP-03"
 ```
 
 ### STEP-03 — CHANGE-MANAGER
@@ -161,37 +161,37 @@ etape:
 etape:
   id: "STEP-03"
   agent: "AGENT-CHANGE-MANAGER"
-  role: "Stratégie d'intégration et plan d'engagement"
+  role: "Integration strategy and engagement plan"
   input:
-    - "Parties prenantes identifiées (STEP-01)"
-    - "Contexte mission et sensibilités (STEP-01)"
-    - "Culture client estimée"
+    - "Identified stakeholders (STEP-01)"
+    - "Engagement context and sensitivities (STEP-01)"
+    - "Estimated client culture"
   output_attendu:
-    - "Carte des alliés, neutres et résistants potentiels"
-    - "Plan d'engagement J1-J30 (qui voir, quand, pourquoi)"
-    - "Posture recommandée en J1 (observateur / acteur / expert)"
-    - "Points de vigilance interpersonnels"
-    - "Quick wins relationnels identifiés"
+    - "Map of allies, neutrals, and potential resisters"
+    - "D1-D30 engagement plan (who to see, when, why)"
+    - "Recommended D1 posture (observer / actor / expert)"
+    - "Interpersonal points of attention"
+    - "Identified relational quick wins"
   duree_estimee: "10 min"
-  execution: "parallèle avec STEP-02"
+  execution: "parallel with STEP-02"
 ```
 
-### STEP-04 — CONSULTANT-IA (optionnel)
+### STEP-04 — CONSULTANT-IA (optional)
 
 ```yaml
 etape:
   id: "STEP-04"
   agent: "AGENT-CONSULTANT-IA"
-  role: "Diagnostic maturité IA express"
+  role: "Express AI maturity diagnostic"
   input:
-    - "Contexte client et SI (STEP-02)"
-    - "Enjeux business identifiés"
+    - "Client context and IS (STEP-02)"
+    - "Identified business stakes"
   output_attendu:
-    - "Grille maturité IA express (6 dimensions, notation rapide)"
-    - "Top 3 opportunités IA immédiates"
-    - "Questions à poser au client pour affiner dès J1"
+    - "Express AI maturity grid (6 dimensions, quick rating)"
+    - "Top 3 immediate AI opportunities"
+    - "Questions to ask the client to refine from D1"
   duree_estimee: "10 min"
-  execution: "conditionnelle — si mission IA"
+  execution: "conditional — if AI engagement"
 ```
 
 ### STEP-05 — REDACTEUR-IA
@@ -200,51 +200,51 @@ etape:
 etape:
   id: "STEP-05"
   agent: "AGENT-REDACTEUR-IA"
-  role: "Production du kit de démarrage J1"
+  role: "Production of the D1 kickoff kit"
   input:
-    - "Tous les outputs STEP-01 à STEP-04"
-    - "Charte documentaire client (si disponible)"
+    - "All outputs STEP-01 to STEP-04"
+    - "Client documentation guidelines (if available)"
   output_attendu:
-    - "Kit J1 : plan démarrage + fiche client + questions clés"
-    - "Email de présentation J1 (à envoyer au manager J-1)"
-    - "Template de compte rendu J1 (à compléter le soir)"
-    - "Note de cadrage J5 (bilan premiers jours + ajustements)"
+    - "D1 kit: kickoff plan + client sheet + key questions"
+    - "D1 introduction email (to send to the manager on D-1)"
+    - "D1 report template (to complete that evening)"
+    - "D5 scoping note (first-days review + adjustments)"
   duree_estimee: "15 min"
-  execution: "séquentielle — clôture le workflow"
+  execution: "sequential — closes the workflow"
 ```
 
 ---
 
-## Livrables finaux
+## Final deliverables
 
 ```
-CHECKLIST WF-007
+WF-007 CHECKLIST
 ──────────────────────────────────────────────────────
-□ Plan de démarrage J1-J5 (activités par demi-journée)
-□ Cartographie parties prenantes + RACI provisoire
-□ Fiche contexte client (secteur, org, SI, glossaire)
-□ Carte des alliés + plan d'engagement J1-J30
-□ [optionnel] Grille maturité IA express + top 3 opportunités
-□ Email de présentation J1
-□ Checklist logistique J1 (accès, outils, réunions)
-□ Template CR J1 (à compléter le soir du J1)
-□ Note de cadrage J5
+□ D1-D5 kickoff plan (activities per half-day)
+□ Stakeholder mapping + provisional RACI
+□ Client context sheet (sector, org, IS, glossary)
+□ Allies map + D1-D30 engagement plan
+□ [optional] Express AI maturity grid + top 3 opportunities
+□ D1 introduction email
+□ D1 logistics checklist (access, tools, meetings)
+□ D1 report template (to complete on the evening of D1)
+□ D5 scoping note
 ```
 
 ---
 
-## Commande de démarrage rapide
+## Quick-start command
 
 ```
-Lis le fichier AGENT-ORCHESTRATEUR-WORKFLOW.md et adopte le rôle d'orchestrateur.
-Confirme que tu es prêt, puis charge le workflow WF-007 depuis workflows/WF-007-onboarding-mission-j1.md.
+Read the file AGENT-ORCHESTRATEUR-WORKFLOW.md and take on the orchestrator role.
+Confirm you are ready, then load workflow WF-007 from workflows/WF-007-onboarding-mission-j1.md.
 
-Contexte mission :
-- Client : [à renseigner]
-- Type de mission : [à renseigner]
-- Durée : [à renseigner]
-- Interlocuteurs J1 : [à renseigner]
-- Sensibilités particulières : [à renseigner]
+Engagement context:
+- Client: [to fill in]
+- Engagement type: [to fill in]
+- Duration: [to fill in]
+- D1 stakeholders: [to fill in]
+- Specific sensitivities: [to fill in]
 
-Lance STEP-01 avec AGENT-CHEF-PROJET-IA.
+Launch STEP-01 with AGENT-CHEF-PROJET-IA.
 ```

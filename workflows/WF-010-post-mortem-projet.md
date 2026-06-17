@@ -1,120 +1,120 @@
-# WF-010 — Post-mortem Projet / REX
+# WF-010 — Project Post-mortem / Lessons Learned
 
-> Projet clôturé (ou incident majeur) → collecte → analyse → rapport REX → plan d'amélioration
-> Certifications mobilisées : PMP · PRINCE2 · PROSCI · ISTQB · Anthropic Claude Code in Action
+> Project closed (or major incident) → collection → analysis → lessons-learned report → improvement plan
+> Certifications mobilized: PMP · PRINCE2 · PROSCI · ISTQB · Anthropic Claude Code in Action
 
 ---
 
-## Carte d'identité
+## Identity card
 
 ```yaml
 id: "WF-010"
 nom: "Post-mortem Projet / REX"
-domaine: "Management & Conseil"
-declencheur: "Clôture de projet, fin de PI, ou incident majeur en production"
-resultat_final: "Rapport REX complet + plan d'amélioration priorisé + capitalisation des apprentissages"
+domaine: "Management & Consulting"
+declencheur: "Project closeout, end of PI, or major production incident"
+resultat_final: "Complete lessons-learned report + prioritized improvement plan + learning capitalization"
 duree_estimee: "45-75 min"
 modele_recommande: "claude-sonnet-4-6"
-modele_raison: "Workflow documentaire et analytique : collecte de faits, analyse causale, rédaction rapport. Sonnet 4.6 produit des REX de qualité professionnelle."
-modele_alternatif: "claude-opus-4-8"  # si post-mortem à fort enjeu (incident critique, litige, COMEX)
+modele_raison: "Documentary and analytical workflow: fact collection, root-cause analysis, report writing. Sonnet 4.6 produces professional-quality lessons-learned reports."
+modele_alternatif: "claude-opus-4-8"  # if a high-stakes post-mortem (critical incident, dispute, executive board)
 agents_core:
-  - CHEF-PROJET-IA    # facilitation REX, timeline, analyse causale, plan d'amélioration
-  - QA-AGILE          # analyse qualité livrables, couverture tests, dettes techniques
-  - CHANGE-MANAGER    # bilan humain, dynamique équipe, gestion des résistances
-  - REDACTEUR-IA      # rapport REX final, synthèse executive, mémo capitalisation
+  - CHEF-PROJET-IA    # lessons-learned facilitation, timeline, root-cause analysis, improvement plan
+  - QA-AGILE          # deliverables quality analysis, test coverage, technical debt
+  - CHANGE-MANAGER    # human review, team dynamics, resistance management
+  - REDACTEUR-IA      # final lessons-learned report, executive summary, capitalization memo
 agents_optionnels:
-  - CONSULTANT-IA     # si REX avec enjeux stratégiques ou client CAC40
-  - SECURITE-IA       # si incident de sécurité ou faille LLM à analyser
-  - DATA-SCIENTIST    # si projet ML/IA avec dérives modèle ou métriques à analyser
+  - CONSULTANT-IA     # if lessons learned with strategic stakes or CAC40 client
+  - SECURITE-IA       # if a security incident or LLM flaw to analyze
+  - DATA-SCIENTIST    # if ML/AI project with model drift or metrics to analyze
 statut: "disponible"
 version: "1.0"
 ```
 
 ---
 
-## Agents mobilisés
+## Agents mobilized
 
-| Étape | Agent | Rôle dans le workflow | Output |
+| Step | Agent | Role in the workflow | Output |
 |---|---|---|---|
-| 1 | CHEF-PROJET-IA | Facilitation REX, timeline, analyse des causes | Timeline + 5 Whys + plan amélioration |
-| 2 | QA-AGILE | Bilan qualité livrables et processus tests | Rapport qualité + dettes techniques |
-| 3 | CHANGE-MANAGER | Bilan humain, équipe, adoption, résistances | Bilan RH + recommandations équipe |
-| 4 | REDACTEUR-IA | Rapport REX final + mémo capitalisation | Rapport REX + executive summary |
-| opt | CONSULTANT-IA | Volet stratégique et impact business | Analyse ROI réel vs prévu |
-| opt | SECURITE-IA | Analyse incidents sécurité IA | Rapport sécurité + correctifs |
+| 1 | CHEF-PROJET-IA | Lessons-learned facilitation, timeline, root-cause analysis | Timeline + 5 Whys + improvement plan |
+| 2 | QA-AGILE | Deliverables and test-process quality review | Quality report + technical debt |
+| 3 | CHANGE-MANAGER | Human review, team, adoption, resistance | HR review + team recommendations |
+| 4 | REDACTEUR-IA | Final lessons-learned report + capitalization memo | Lessons-learned report + executive summary |
+| opt | CONSULTANT-IA | Strategic angle and business impact | Actual vs forecast ROI analysis |
+| opt | SECURITE-IA | AI security incident analysis | Security report + fixes |
 
 ---
 
-## Paramètres contextuels
+## Contextual parameters
 
 ```
-CONTEXTE POST-MORTEM (à renseigner avant le démarrage)
+POST-MORTEM CONTEXT (to fill in before starting)
 ──────────────────────────────────────────────────────
-Projet / Incident    : [Nom + dates début/fin]
-Type de clôture      : [Succès / Échec partiel / Incident / Fin de PI SAFe]
-Durée projet         : [< 3 mois / 3-12 mois / > 12 mois]
-Équipe impliquée     : [Taille / Répartition / Distanciel ou présentiel]
-Enjeux client        : [Budget non respecté / Délai / Qualité / Périmètre]
-Données disponibles  : [KPIs, métriques, CR réunions, incidents logués]
-Audience du rapport  : [Interne équipe / COPIL / CODIR / Client / Public]
-Format attendu       : [Rapport détaillé / Synthèse 1 page / Présentation]
-Sensibilités RH      : [Tensions d'équipe à gérer / Contexte social]
+Project / Incident   : [Name + start/end dates]
+Closeout type        : [Success / Partial failure / Incident / End of SAFe PI]
+Project duration     : [< 3 months / 3-12 months / > 12 months]
+Team involved        : [Size / Distribution / Remote or on-site]
+Client stakes        : [Budget overrun / Deadline / Quality / Scope]
+Available data       : [KPIs, metrics, meeting minutes, logged incidents]
+Report audience      : [Internal team / Steering committee / Executive committee / Client / Public]
+Expected format      : [Detailed report / 1-page summary / Presentation]
+HR sensitivities     : [Team tensions to manage / Social context]
 ```
 
 ---
 
-## Diagramme de flux BPMN
+## BPMN flow diagram
 
 ```
-(DÉBUT — Clôture projet / fin PI / incident majeur)
+(START — Project closeout / end of PI / major incident)
         │
         ▼
 [STEP-01 — CHEF-PROJET-IA]
-  Construction de la timeline projet,
-  analyse causale (5 Whys, Ishikawa),
-  identification des écarts planifié vs réel
+  Building the project timeline,
+  root-cause analysis (5 Whys, Ishikawa),
+  identifying planned vs actual gaps
         │
         ▼
 ═══════════════════════════════════
-  FORK PARALLÈLE
+  PARALLEL FORK
 ═══════════════════════════════════
   ├── [STEP-02 — QA-AGILE]
-  │    Bilan qualité livrables :
-  │    couverture tests, bugs,
-  │    dette technique, DoD
+  │    Deliverables quality review:
+  │    test coverage, bugs,
+  │    technical debt, DoD
   │
   ├── [STEP-03 — CHANGE-MANAGER]
-  │    Bilan humain :
-  │    dynamique d'équipe, adoption,
-  │    résistances, points de friction
+  │    Human review:
+  │    team dynamics, adoption,
+  │    resistance, friction points
   │
-  └── [STEP-04 — CONSULTANT-IA] (optionnel)
-       ROI réel vs objectifs,
-       impact business mesuré
+  └── [STEP-04 — CONSULTANT-IA] (optional)
+       Actual ROI vs objectives,
+       measured business impact
 ═══════════════════════════════════
   JOIN
 ═══════════════════════════════════
         │
         ▼
-<GATEWAY — Incident sécurité IA impliqué ?>
-  ├── OUI ──▶ [STEP-05 — SECURITE-IA]
-  │            Analyse incident + correctifs
-  └── NON ──▶ (bypass)
+<GATEWAY — AI security incident involved?>
+  ├── YES ──▶ [STEP-05 — SECURITE-IA]
+  │            Incident analysis + fixes
+  └── NO ───▶ (bypass)
         │
         ▼
 [STEP-06 — REDACTEUR-IA]
-  Rapport REX complet,
-  synthèse executive 1 page,
-  mémo capitalisation (best practices + pièges),
-  plan d'amélioration formalisé
+  Complete lessons-learned report,
+  1-page executive summary,
+  capitalization memo (best practices + pitfalls),
+  formalized improvement plan
         │
         ▼
-(FIN — REX validé et archivé)
+(END — Lessons learned validated and archived)
 ```
 
 ---
 
-## Étapes détaillées
+## Detailed steps
 
 ### STEP-01 — CHEF-PROJET-IA
 
@@ -122,19 +122,19 @@ Sensibilités RH      : [Tensions d'équipe à gérer / Contexte social]
 etape:
   id: "STEP-01"
   agent: "AGENT-CHEF-PROJET-IA"
-  role: "Facilitation REX et analyse causale"
+  role: "Lessons-learned facilitation and root-cause analysis"
   input:
-    - "Données projet : planning initial vs réel, budget, périmètre"
-    - "KPIs et métriques de livraison"
-    - "Incidents et risques matérialisés"
+    - "Project data: initial vs actual schedule, budget, scope"
+    - "Delivery KPIs and metrics"
+    - "Materialized incidents and risks"
   output_attendu:
-    - "Timeline projet annotée (jalons clés, dérapages, corrections)"
-    - "Écarts planifié vs réel (délai, budget, périmètre, qualité)"
-    - "Analyse causale racine : 5 Whys sur les 3 principaux problèmes"
-    - "Ce qui a bien fonctionné (à reproduire)"
-    - "Plan d'amélioration priorisé (5-10 actions concrètes)"
+    - "Annotated project timeline (key milestones, slippages, corrections)"
+    - "Planned vs actual gaps (schedule, budget, scope, quality)"
+    - "Root-cause analysis: 5 Whys on the 3 main problems"
+    - "What worked well (to replicate)"
+    - "Prioritized improvement plan (5-10 concrete actions)"
   duree_estimee: "20 min"
-  execution: "séquentielle — ouvre le workflow"
+  execution: "sequential — opens the workflow"
 ```
 
 ### STEP-02 — QA-AGILE
@@ -143,19 +143,19 @@ etape:
 etape:
   id: "STEP-02"
   agent: "AGENT-QA-AGILE"
-  role: "Bilan qualité livrables et processus tests"
+  role: "Deliverables and test-process quality review"
   input:
-    - "Métriques qualité : bugs, couverture tests, non-conformités"
-    - "Résultats recette client et UAT"
-    - "Dette technique estimée"
+    - "Quality metrics: bugs, test coverage, non-conformities"
+    - "Client UAT results"
+    - "Estimated technical debt"
   output_attendu:
-    - "Bilan qualité livrables (fonctionnel vs. technique)"
-    - "Analyse de la couverture tests (unitaires, intégration, E2E)"
-    - "Top 5 bugs critiques et leur origine"
-    - "Estimation dette technique laissée"
-    - "Recommandations processus QA pour le prochain projet"
+    - "Deliverables quality review (functional vs. technical)"
+    - "Test coverage analysis (unit, integration, E2E)"
+    - "Top 5 critical bugs and their origin"
+    - "Estimate of technical debt left behind"
+    - "QA process recommendations for the next project"
   duree_estimee: "15 min"
-  execution: "parallèle avec STEP-03 et STEP-04"
+  execution: "parallel with STEP-03 and STEP-04"
 ```
 
 ### STEP-03 — CHANGE-MANAGER
@@ -164,19 +164,19 @@ etape:
 etape:
   id: "STEP-03"
   agent: "AGENT-CHANGE-MANAGER"
-  role: "Bilan humain et dynamique d'équipe"
+  role: "Human review and team dynamics"
   input:
-    - "Composition et évolution de l'équipe sur la durée du projet"
-    - "Points de friction et conflits observés"
-    - "Niveau d'adoption par les utilisateurs finaux"
+    - "Team composition and evolution over the project duration"
+    - "Observed friction points and conflicts"
+    - "End-user adoption level"
   output_attendu:
-    - "Bilan dynamique d'équipe (cohésion, communication, leadership)"
-    - "Analyse adoption utilisateurs (taux, résistances, champions)"
-    - "Points de friction inter-équipes ou avec le client"
-    - "Recommandations RH et organisationnelles"
-    - "Reconnaissance des contributions individuelles (format template)"
+    - "Team dynamics review (cohesion, communication, leadership)"
+    - "User adoption analysis (rate, resistance, champions)"
+    - "Friction points between teams or with the client"
+    - "HR and organizational recommendations"
+    - "Recognition of individual contributions (template format)"
   duree_estimee: "15 min"
-  execution: "parallèle avec STEP-02 et STEP-04"
+  execution: "parallel with STEP-02 and STEP-04"
 ```
 
 ### STEP-06 — REDACTEUR-IA
@@ -185,55 +185,55 @@ etape:
 etape:
   id: "STEP-06"
   agent: "AGENT-REDACTEUR-IA"
-  role: "Rapport REX final et capitalisation"
+  role: "Final lessons-learned report and capitalization"
   input:
-    - "Tous les outputs STEP-01 à STEP-05"
-    - "Audience du rapport (équipe / COPIL / client / public)"
-    - "Format attendu"
+    - "All outputs STEP-01 to STEP-05"
+    - "Report audience (team / steering committee / client / public)"
+    - "Expected format"
   output_attendu:
-    - "Rapport REX complet (10-20 pages) : timeline, analyse, bilan, plan"
-    - "Synthèse executive 1 page (faits + leçons + actions)"
-    - "Mémo capitalisation : top 5 best practices + top 5 pièges à éviter"
-    - "Présentation COPIL/CODIR (10 slides) si requise"
-    - "Archives documentaires : tout archivé dans le référentiel projet"
+    - "Complete lessons-learned report (10-20 pages): timeline, analysis, review, plan"
+    - "1-page executive summary (facts + lessons + actions)"
+    - "Capitalization memo: top 5 best practices + top 5 pitfalls to avoid"
+    - "Steering-committee/executive-committee presentation (10 slides) if required"
+    - "Documentary archives: everything archived in the project repository"
   duree_estimee: "15 min"
-  execution: "séquentielle — clôture le workflow"
+  execution: "sequential — closes the workflow"
 ```
 
 ---
 
-## Livrables finaux
+## Final deliverables
 
 ```
-CHECKLIST WF-010
+WF-010 CHECKLIST
 ──────────────────────────────────────────────────────
-□ Timeline projet annotée + écarts planifié vs réel
-□ Analyse causale racine (5 Whys × 3 problèmes)
-□ Ce qui a bien fonctionné (à reproduire)
-□ Bilan qualité livrables + dette technique
-□ Bilan humain (équipe, adoption, frictions)
-□ [optionnel] ROI réel vs objectifs
-□ [optionnel] Rapport incident sécurité IA
-□ Plan d'amélioration priorisé (5-10 actions)
-□ Rapport REX complet (10-20 pages)
-□ Synthèse executive 1 page
-□ Mémo capitalisation best practices / pièges
-□ Présentation COPIL/CODIR si requise
+□ Annotated project timeline + planned vs actual gaps
+□ Root-cause analysis (5 Whys × 3 problems)
+□ What worked well (to replicate)
+□ Deliverables quality review + technical debt
+□ Human review (team, adoption, friction)
+□ [optional] Actual vs objectives ROI
+□ [optional] AI security incident report
+□ Prioritized improvement plan (5-10 actions)
+□ Complete lessons-learned report (10-20 pages)
+□ 1-page executive summary
+□ Capitalization memo best practices / pitfalls
+□ Steering-committee/executive-committee presentation if required
 ```
 
 ---
 
-## Commande de démarrage rapide
+## Quick-start command
 
 ```
-Lis le fichier AGENT-ORCHESTRATEUR-WORKFLOW.md et adopte le rôle d'orchestrateur.
-Confirme que tu es prêt, puis charge le workflow WF-010 depuis workflows/WF-010-post-mortem-projet.md.
+Read the file AGENT-ORCHESTRATEUR-WORKFLOW.md and take on the orchestrator role.
+Confirm you are ready, then load workflow WF-010 from workflows/WF-010-post-mortem-projet.md.
 
-Contexte post-mortem :
-- Projet / Incident : [à renseigner]
-- Type de clôture : [Succès / Échec partiel / Incident / Fin PI]
-- Audience rapport : [Équipe / COPIL / Client]
-- Données disponibles : [KPIs, métriques, incidents]
+Post-mortem context:
+- Project / Incident: [to fill in]
+- Closeout type: [Success / Partial failure / Incident / End of PI]
+- Report audience: [Team / Steering committee / Client]
+- Available data: [KPIs, metrics, incidents]
 
-Lance STEP-01 avec AGENT-CHEF-PROJET-IA.
+Launch STEP-01 with AGENT-CHEF-PROJET-IA.
 ```

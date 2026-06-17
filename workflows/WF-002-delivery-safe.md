@@ -1,120 +1,120 @@
 # WF-002 — Delivery Agile SAFe
 
-> PI Planning → sprint backlog → reporting avancement CODIR  
-> Certifications mobilisées : SAFe 6 · SAFe RTE · SAFe POPM 6 · SAFe LPM · PSM I · PMP
+> PI Planning → sprint backlog → executive-committee progress reporting  
+> Certifications mobilized: SAFe 6 · SAFe RTE · SAFe POPM 6 · SAFe LPM · PSM I · PMP
 
 ---
 
-## Carte d'identité
+## Identity card
 
 ```yaml
 id: "WF-002"
 nom: "Delivery Agile SAFe"
-domaine: "Agile & Produit"
-declencheur: "Lancement d'un PI Planning ou démarrage d'un sprint ART"
-resultat_final: "PI Objectives validés + Program Backlog WSJF + Plan sprint + Reporting CODIR"
+domaine: "Agile & Product"
+declencheur: "Launch of a PI Planning or start of an ART sprint"
+resultat_final: "Validated PI Objectives + WSJF Program Backlog + Sprint plan + Executive-committee reporting"
 duree_estimee: "60-120 min"
 modele_recommande: "claude-opus-4-8"
-modele_raison: "Workflow dense : 6 agents, orchestration ART multi-équipes, WSJF, PI Planning, dépendances croisées et reporting CODIR. Opus 4.8 est nécessaire pour la profondeur de raisonnement SAFe et la cohérence des outputs sur l'ensemble de la chaîne."
-modele_alternatif: "claude-sonnet-4-6"  # acceptable pour des contextes ART simples (1-2 équipes, PI connu)
+modele_raison: "Dense workflow: 6 agents, multi-team ART orchestration, WSJF, PI Planning, cross dependencies, and executive-committee reporting. Opus 4.8 is required for the depth of SAFe reasoning and the consistency of outputs across the whole chain."
+modele_alternatif: "claude-sonnet-4-6"  # acceptable for simple ART contexts (1-2 teams, known PI)
 agents_core:
-  - PRODUCT-MANAGER-SAFE  # vision Programme, roadmap ART
-  - RELEASE-TRAIN-ENGINEER # facilitation PI Planning, coordination ART
-  - PO-SAFE               # features, WSJF, PI Objectives équipe
-  - SCRUM-MASTER          # plan de sprint, coaching
-  - QA-AGILE              # tests d'acceptation sprint
-  - CHEF-PROJET-IA        # reporting CODIR, EVM
+  - PRODUCT-MANAGER-SAFE  # Program vision, ART roadmap
+  - RELEASE-TRAIN-ENGINEER # PI Planning facilitation, ART coordination
+  - PO-SAFE               # features, WSJF, team PI Objectives
+  - SCRUM-MASTER          # sprint plan, coaching
+  - QA-AGILE              # sprint acceptance tests
+  - CHEF-PROJET-IA        # executive-committee reporting, EVM
 agents_optionnels:
-  - CHANGE-MANAGER        # si déploiement avec fort changement organisationnel
-  - BUSINESS-ANALYST      # si features nécessitent un recadrage métier
+  - CHANGE-MANAGER        # if deployment involves strong organizational change
+  - BUSINESS-ANALYST      # if features require business reframing
 statut: "disponible"
 version: "1.1"
 ```
 
 ---
 
-## Agents mobilisés
+## Agents mobilized
 
-| Étape | Agent | Rôle dans le workflow | Output |
+| Step | Agent | Role in the workflow | Output |
 |---|---|---|---|
-| 1 | PRODUCT-MANAGER-SAFE | Vision Programme, priorisation features ART | Vision board, roadmap PI |
-| 2 | RELEASE-TRAIN-ENGINEER | Facilitation PI Planning, dépendances inter-équipes | Program Board, ROAM |
-| 3 | PO-SAFE | PI Objectives équipe, WSJF, features sprint | PI Objectives + backlog sprint |
-| 4 | SCRUM-MASTER | Plan de sprint, identification impediments | Sprint plan validé |
-| 5 | QA-AGILE | Critères d'acceptation, plan de tests sprint | Test plan sprint |
-| 6 | CHEF-PROJET-IA | Reporting CODIR, EVM, tableau de bord | Dashboard + note CODIR |
-| opt | CHANGE-MANAGER | Accompagnement adoption SAFe | Plan résistances |
+| 1 | PRODUCT-MANAGER-SAFE | Program vision, ART feature prioritization | Vision board, PI roadmap |
+| 2 | RELEASE-TRAIN-ENGINEER | PI Planning facilitation, inter-team dependencies | Program Board, ROAM |
+| 3 | PO-SAFE | Team PI Objectives, WSJF, sprint features | PI Objectives + sprint backlog |
+| 4 | SCRUM-MASTER | Sprint plan, impediment identification | Validated sprint plan |
+| 5 | QA-AGILE | Acceptance criteria, sprint test plan | Sprint test plan |
+| 6 | CHEF-PROJET-IA | Executive-committee reporting, EVM, dashboard | Dashboard + executive-committee note |
+| opt | CHANGE-MANAGER | SAFe adoption support | Resistance plan |
 
 ---
 
-## Paramètres contextuels
+## Contextual parameters
 
 ```
-CONTEXTE ART (à renseigner avant le démarrage)
+ART CONTEXT (to fill in before starting)
 ──────────────────────────────────────────────────
-Nom ART            : [ex. ART Digital Banking]
-Nombre d'équipes   : [ex. 3 squads / 5 équipes Scrum]
-Durée PI           : [ex. 10 semaines / 4 sprints de 2 semaines]
-Numéro PI actuel   : [ex. PI-07]
-Capacité ART       : [ex. 120 story points / PI]
-Dépendances        : [autres ART, systèmes externes, fournisseurs]
-Contraintes        : [gel code, compliance date, dépendance release]
-Langue livrables   : [Français / Anglais / Bilingue]
+ART name           : [e.g. Digital Banking ART]
+Number of teams    : [e.g. 3 squads / 5 Scrum teams]
+PI duration        : [e.g. 10 weeks / 4 sprints of 2 weeks]
+Current PI number  : [e.g. PI-07]
+ART capacity       : [e.g. 120 story points / PI]
+Dependencies       : [other ARTs, external systems, vendors]
+Constraints        : [code freeze, compliance date, release dependency]
+Deliverables language : [French / English / Bilingual]
 ```
 
 ---
 
-## Diagramme de flux BPMN
+## BPMN flow diagram
 
 ```
-(DÉBUT — PI Planning ou sprint à planifier)
+(START — PI Planning or sprint to plan)
         │
         ▼
 [STEP-01 — PRODUCT-MANAGER-SAFE]
-  Vision Programme, roadmap PI,
-  features priorisées (WSJF)
+  Program vision, PI roadmap,
+  prioritized features (WSJF)
         │
         ▼
 [STEP-02 — RELEASE-TRAIN-ENGINEER]
-  Facilitation PI Planning,
-  Program Board, dépendances,
+  PI Planning facilitation,
+  Program Board, dependencies,
   ROAM risks
         │
         ▼
-[STEP-03 — PO-SAFE]  ◄── Parallel possible avec step 02 pour chaque équipe
-  PI Objectives par équipe,
-  WSJF features, backlog sprint 1
+[STEP-03 — PO-SAFE]  ◄── Parallel possible with step 02 for each team
+  Team PI Objectives,
+  WSJF features, sprint 1 backlog
         │
         ▼
 [STEP-04 — SCRUM-MASTER]
   Sprint planning,
-  identification impediments,
-  capacité équipe
+  impediment identification,
+  team capacity
         │
         ▼
 [STEP-05 — QA-AGILE]
-  Critères d'acceptation,
-  plan de tests sprint
+  Acceptance criteria,
+  sprint test plan
         │
         ▼
 [STEP-06 — CHEF-PROJET-IA]
-  Reporting CODIR,
+  Executive-committee reporting,
   EVM (CPI/SPI),
-  dashboard PI
+  PI dashboard
         │
         ▼
-<GATEWAY — Changement organisationnel majeur ?>
-  ├── OUI ──▶ [STEP-07 — CHANGE-MANAGER]
-  │            ADKAR, résistances SAFe
-  └── NON ──▶ (bypass)
+<GATEWAY — Major organizational change?>
+  ├── YES ──▶ [STEP-07 — CHANGE-MANAGER]
+  │            ADKAR, SAFe resistances
+  └── NO ───▶ (bypass)
         │
         ▼
-(FIN — PI lancé, sprint planifié, CODIR informé)
+(END — PI launched, sprint planned, executive committee informed)
 ```
 
 ---
 
-## Étapes détaillées
+## Detailed steps
 
 ### STEP-01 — PRODUCT-MANAGER-SAFE
 
@@ -122,20 +122,20 @@ Langue livrables   : [Français / Anglais / Bilingue]
 etape:
   id: "STEP-01"
   agent: "AGENT-PRODUCT-MANAGER-SAFE"
-  role: "Vision et priorisation Programme pour le PI"
+  role: "Program vision and prioritization for the PI"
   input:
-    - "Roadmap produit Programme actuelle"
-    - "Feedback clients et métriques PI précédent"
-    - "Contraintes budget et capacité ART"
-    - "Objectifs stratégiques portefeuille"
+    - "Current Program product roadmap"
+    - "Customer feedback and previous-PI metrics"
+    - "Budget and ART capacity constraints"
+    - "Strategic portfolio objectives"
   output_attendu:
-    - "Vision board PI (en 1 page)"
-    - "Top 10 features priorisées WSJF"
-    - "Lean Business Case pour features majeures"
-    - "Communication vision Business Owners"
-  condition_passage: "Vision validée par les Business Owners"
+    - "PI Vision board (1 page)"
+    - "Top 10 WSJF-prioritized features"
+    - "Lean Business Case for major features"
+    - "Vision communication to Business Owners"
+  condition_passage: "Vision validated by the Business Owners"
   duree_estimee: "15 min"
-  execution: "séquentielle — démarre le workflow"
+  execution: "sequential — starts the workflow"
 ```
 
 ### STEP-02 — RELEASE-TRAIN-ENGINEER
@@ -144,22 +144,22 @@ etape:
 etape:
   id: "STEP-02"
   agent: "AGENT-RELEASE-TRAIN-ENGINEER"
-  role: "Facilitation PI Planning et Program Board"
+  role: "PI Planning facilitation and Program Board"
   input:
-    - "Vision et features priorisées (STEP-01)"
-    - "Capacités des équipes Scrum"
-    - "Dépendances techniques inter-équipes"
-    - "Enablers architecturaux disponibles"
+    - "Vision and prioritized features (STEP-01)"
+    - "Scrum team capacities"
+    - "Inter-team technical dependencies"
+    - "Available architectural enablers"
   output_attendu:
-    - "Program Board avec dépendances visuelles"
+    - "Program Board with visual dependencies"
     - "ROAM risks (Resolved/Owned/Accepted/Mitigated)"
-    - "Agenda PI Planning (2 jours type)"
-    - "Liste des impediments ART à lever"
-    - "Vote de confiance (cible > 3.5/5)"
-  condition_passage: "Vote de confiance atteint"
-  si_echec: "Itération de re-planification si vote < 3/5"
+    - "PI Planning agenda (typical 2-day)"
+    - "List of ART impediments to remove"
+    - "Confidence vote (target > 3.5/5)"
+  condition_passage: "Confidence vote reached"
+  si_echec: "Re-planning iteration if vote < 3/5"
   duree_estimee: "20 min"
-  execution: "séquentielle après STEP-01"
+  execution: "sequential after STEP-01"
 ```
 
 ### STEP-03 — PO-SAFE
@@ -168,18 +168,18 @@ etape:
 etape:
   id: "STEP-03"
   agent: "AGENT-PO-SAFE"
-  role: "PI Objectives et backlog sprint équipe"
+  role: "Team PI Objectives and sprint backlog"
   input:
-    - "Features allouées à l'équipe (STEP-02)"
-    - "Capacité sprint en story points"
-    - "Dépendances identifiées sur Program Board"
+    - "Features allocated to the team (STEP-02)"
+    - "Sprint capacity in story points"
+    - "Dependencies identified on the Program Board"
   output_attendu:
-    - "PI Objectives équipe (3-5 objectifs SMART)"
-    - "Backlog sprint 1 : 5-10 US priorisées"
-    - "Critères WSJF par feature"
-    - "Risques équipe déclarés (ROAM)"
+    - "Team PI Objectives (3-5 SMART objectives)"
+    - "Sprint 1 backlog: 5-10 prioritized US"
+    - "WSJF criteria per feature"
+    - "Declared team risks (ROAM)"
   duree_estimee: "15 min"
-  execution: "peut être parallélisée par équipe"
+  execution: "can be parallelized per team"
 ```
 
 ### STEP-04 — SCRUM-MASTER
@@ -188,19 +188,19 @@ etape:
 etape:
   id: "STEP-04"
   agent: "AGENT-SCRUM-MASTER"
-  role: "Sprint planning et capacité équipe"
+  role: "Sprint planning and team capacity"
   input:
-    - "PI Objectives et backlog sprint (STEP-03)"
-    - "Vélocité historique de l'équipe"
-    - "Disponibilités et congés sprint"
+    - "PI Objectives and sprint backlog (STEP-03)"
+    - "Team's historical velocity"
+    - "Sprint availability and time off"
   output_attendu:
-    - "Sprint Goal unique par équipe (1 objectif cohérent)"
-    - "Sprint plan validé — forecast des Developers (US engagées + story points)"
-    - "Sprint Backlog auto-organisé par les Developers (allocation ajustée au Daily ; le SM facilite, n'assigne pas — Scrum Guide 2020)"
-    - "Impediments sprint 1 listés"
-    - "Définition of Done rappelée"
+    - "Single Sprint Goal per team (1 coherent objective)"
+    - "Validated sprint plan — Developers' forecast (committed US + story points)"
+    - "Sprint Backlog self-organized by the Developers (allocation adjusted at the Daily; the SM facilitates, does not assign — Scrum Guide 2020)"
+    - "Sprint 1 impediments listed"
+    - "Definition of Done restated"
   duree_estimee: "10 min"
-  execution: "séquentielle après STEP-03"
+  execution: "sequential after STEP-03"
 ```
 
 ### STEP-05 — QA-AGILE
@@ -209,17 +209,17 @@ etape:
 etape:
   id: "STEP-05"
   agent: "AGENT-QA-AGILE"
-  role: "Plan de tests et critères d'acceptation sprint"
+  role: "Sprint test plan and acceptance criteria"
   input:
-    - "US engagées dans le sprint (STEP-04)"
-    - "Critères d'acceptance fonctionnels disponibles"
-    - "Environnements de test disponibles"
+    - "US committed in the sprint (STEP-04)"
+    - "Available functional acceptance criteria"
+    - "Available test environments"
   output_attendu:
-    - "Scénarios Gherkin pour les US critiques"
-    - "Plan de test sprint (nominal + erreur + limite)"
-    - "Stratégie de régression (automation vs manuel)"
+    - "Gherkin scenarios for the critical US"
+    - "Sprint test plan (nominal + error + boundary)"
+    - "Regression strategy (automation vs manual)"
   duree_estimee: "10 min"
-  execution: "parallèle possible avec STEP-04"
+  execution: "parallel possible with STEP-04"
 ```
 
 ### STEP-06 — CHEF-PROJET-IA
@@ -228,52 +228,52 @@ etape:
 etape:
   id: "STEP-06"
   agent: "AGENT-CHEF-PROJET-IA"
-  role: "Tableau de bord PI et reporting CODIR"
+  role: "PI dashboard and executive-committee reporting"
   input:
     - "PI Objectives (STEP-03) + Program Board (STEP-02)"
-    - "Budget PI alloué et consommé"
-    - "Métriques PI précédent (PI Predictability)"
+    - "PI budget allocated and consumed"
+    - "Previous-PI metrics (PI Predictability)"
   output_attendu:
-    - "Dashboard PI : objectifs / capacité / avancement / risques"
-    - "Note CODIR (1 page) : état PI, risques, décisions requises"
-    - "EVM sprint (CPI, SPI si applicable)"
-    - "RAG status par feature critique"
+    - "PI dashboard: objectives / capacity / progress / risks"
+    - "Executive-committee note (1 page): PI status, risks, required decisions"
+    - "Sprint EVM (CPI, SPI if applicable)"
+    - "RAG status per critical feature"
   duree_estimee: "10 min"
-  execution: "séquentielle — clôture le workflow"
+  execution: "sequential — closes the workflow"
 ```
 
 ---
 
-## Livrables finaux
+## Final deliverables
 
 ```
-CHECKLIST WF-002
+WF-002 CHECKLIST
 ──────────────────────────────────────────────────────
-□ Vision board PI (1 page)
-□ Top 10 features priorisées WSJF + Lean Business Case
-□ Program Board avec dépendances visuelles
-□ ROAM risks documentés
-□ PI Objectives par équipe (SMART)
-□ Backlog sprint 1 engagé + story points
-□ Plan de sprint validé (capacité, répartition)
-□ Scénarios Gherkin US critiques
-□ Dashboard PI : budget / avancement / risques
-□ Note CODIR (1 page)
+□ PI Vision board (1 page)
+□ Top 10 WSJF-prioritized features + Lean Business Case
+□ Program Board with visual dependencies
+□ ROAM risks documented
+□ Team PI Objectives (SMART)
+□ Sprint 1 backlog committed + story points
+□ Validated sprint plan (capacity, allocation)
+□ Gherkin scenarios for critical US
+□ PI dashboard: budget / progress / risks
+□ Executive-committee note (1 page)
 ```
 
 ---
 
-## Commande de démarrage rapide
+## Quick-start command
 
 ```
-Lis le fichier AGENT-ORCHESTRATEUR-WORKFLOW.md et adopte le rôle d'orchestrateur.
-Confirme que tu es prêt, puis charge le workflow WF-002 depuis workflows/WF-002-delivery-safe.md.
+Read the file AGENT-ORCHESTRATEUR-WORKFLOW.md and take on the orchestrator role.
+Confirm you are ready, then load workflow WF-002 from workflows/WF-002-delivery-safe.md.
 
-Contexte ART :
-- Nom ART : [à renseigner]
-- Nombre d'équipes : [à renseigner]
-- Durée PI : [à renseigner]
-- Contraintes : [à renseigner]
+ART context:
+- ART name: [to fill in]
+- Number of teams: [to fill in]
+- PI duration: [to fill in]
+- Constraints: [to fill in]
 
-Lance STEP-01 avec AGENT-PRODUCT-MANAGER-SAFE.
+Launch STEP-01 with AGENT-PRODUCT-MANAGER-SAFE.
 ```

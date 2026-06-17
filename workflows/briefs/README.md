@@ -1,7 +1,7 @@
-# Briefs — Inputs de lancement de workflows
+# Briefs — Workflow launch inputs
 
-> Ce dossier contient les briefs clients rédigés par Guy pour lancer les workflows en mode live.
-> Un brief = l'input d'un workflow, sans output documenté.
+> This folder holds the client briefs written by Guy to launch the workflows in live mode.
+> A brief = the input of a workflow, with no documented output.
 
 ---
 
@@ -11,48 +11,48 @@
 briefs/ → [run workflow] → outputs/ → [curation] → use_cases/
 ```
 
-## Gouvernance
+## Governance
 
-| Dossier | Contenu | Modifiable |
+| Folder | Content | Editable |
 |---------|---------|------------|
-| `briefs/` | Input pur — prêt à lancer | ❌ Jamais après commit |
-| `outputs/` | Résultat brut du run | ✅ Enrichissement possible |
-| `use_cases/` | Output curatés qualité showcase | ✅ Curation |
+| `briefs/` | Pure input — ready to launch | ❌ Never after commit |
+| `outputs/` | Raw run result | ✅ Enrichment possible |
+| `use_cases/` | Showcase-quality curated outputs | ✅ Curation |
 
-**Règle** : brief immuable après commit. Si correction nécessaire → nouveau fichier versionné (`-v2.md`).
+**Rule**: a brief is immutable after commit. If a correction is needed → new versioned file (`-v2.md`).
 
 ---
 
-## Convention de nommage
+## Naming convention
 
 ```
-WF-{ID}-brief-{secteur}-{contexte}.md
+WF-{ID}-brief-{sector}-{context}.md
 ```
 
-Exemples :
+Examples:
 - `WF-002-brief-assurance-pi01.md`
 - `WF-003-brief-fintech-lancement-app.md`
 - `WF-006-brief-retail-avant-vente.md`
 
 ---
 
-## Structure d'un brief
+## Structure of a brief
 
 ```
-# Brief — WF-{ID} — {Titre contexte}
+# Brief — WF-{ID} — {Context title}
 
-## Commande de lancement
-[Commande complète à coller dans Claude Code]
+## Launch command
+[Complete command to paste into Claude Code]
 
-## Contexte client
-[Paramètres renseignés]
+## Client context
+[Filled-in parameters]
 
-## Objectif du test
-[Ce qu'on veut valider ou explorer]
+## Test objective
+[What we want to validate or explore]
 
-## Statut
-- [ ] Brief rédigé
-- [ ] Workflow exécuté
-- [ ] Output évalué
-- [ ] Promu en use case ? [oui/non]
+## Status
+- [ ] Brief written
+- [ ] Workflow executed
+- [ ] Output evaluated
+- [ ] Promoted to a use case? [yes/no]
 ```

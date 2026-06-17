@@ -1,72 +1,72 @@
 # Brief — WF-002 — Delivery SAFe PI-01 · Prévalistest Assurances
 
-> Workflow : `WF-002-delivery-safe.md`
-> Secteur : Assurance · Client fictif : Prévalistest Assurances
-> Continuité de : `workflows/use_cases/WF-001-uc01-sinistres-assurance-ia.md`
+> Workflow: `WF-002-delivery-safe.md`
+> Sector: Insurance · Fictional client: Prévalistest Assurances
+> Continues from: `workflows/use_cases/WF-001-uc01-sinistres-assurance-ia.md`
 
 ---
 
-## Commande de lancement
+## Launch command
 
 ```
-Lis le fichier AGENT-ORCHESTRATEUR-WORKFLOW.md et adopte le rôle d'orchestrateur.
-Confirme que tu es prêt, puis charge le workflow WF-002 depuis workflows/WF-002-delivery-safe.md.
+Read the file AGENT-ORCHESTRATEUR-WORKFLOW.md and take on the orchestrator role.
+Confirm you are ready, then load workflow WF-002 from workflows/WF-002-delivery-safe.md.
 
-CONTEXTE ART
+ART CONTEXT
 ──────────────────────────────────────────────────
-Nom ART            : ART Sinistres IA — Prévalistest Assurances
-Secteur            : Assurance IARD (Auto, Habitation)
-Nombre d'équipes   : 2 squads Scrum
-                     - Squad Alpha : Déclaration IA & UX (3 dev · 1 PO · 1 SM)
-                     - Squad Beta  : Conformité & Back-office (2 dev · 1 PO partagé · 1 SM)
-Durée PI           : 10 semaines — 4 sprints de 2 semaines + IP Sprint
-Numéro PI actuel   : PI-01
-Capacité ART       : ~80 story points / PI (40 SP/squad)
-Vélocité historique: Pas d'historique — PI-01 (première livraison)
+ART name           : AI Claims ART — Prévalistest Assurances
+Sector             : P&C insurance (Auto, Home)
+Number of teams    : 2 Scrum squads
+                     - Squad Alpha: AI Claim Filing & UX (3 dev · 1 PO · 1 SM)
+                     - Squad Beta : Compliance & Back-office (2 dev · 1 shared PO · 1 SM)
+PI duration        : 10 weeks — 4 sprints of 2 weeks + IP Sprint
+Current PI number  : PI-01
+ART capacity       : ~80 story points / PI (40 SP/squad)
+Historical velocity: No history — PI-01 (first delivery)
 
-Features à planifier (issues du cadrage WF-001) :
-  - FEAT-A : Parcours déclaration guidée IA (EP-01 — WSJF 2,0 — 13 SP)
-  - FEAT-B : Upload et gestion documentaire (EP-02 — WSJF 3,2 — 5 SP)
-  - FEAT-C : Notification statut dossier (EP-03 — WSJF 3,3 — 5 SP)
-  - FEAT-D : Consentement RGPD + log AI Act (EP-04 — WSJF 6,8 — 8 SP)
-  - FEAT-E : Intégration SI legacy AS/400 (Enabler — architecture)
+Features to plan (from the WF-001 scoping):
+  - FEAT-A : Guided AI claim-filing journey (EP-01 — WSJF 2.0 — 13 SP)
+  - FEAT-B : Document upload and management (EP-02 — WSJF 3.2 — 5 SP)
+  - FEAT-C : Case status notification (EP-03 — WSJF 3.3 — 5 SP)
+  - FEAT-D : GDPR consent + AI Act log (EP-04 — WSJF 6.8 — 8 SP)
+  - FEAT-E : Legacy AS/400 IS integration (Enabler — architecture)
 
-Dépendances        : - API REST SI legacy AS/400 (à confirmer avec équipe IT legacy)
-                     - Prestataire NLP (moteur questions adaptatives) — contrat à signer
-                     - DPO Prévalistest (validation consentement RGPD avant sprint 1)
+Dependencies       : - Legacy AS/400 IS REST API (to confirm with the legacy IT team)
+                     - NLP vendor (adaptive-question engine) — contract to sign
+                     - Prévalistest DPO (GDPR consent validation before sprint 1)
 
-Contraintes        : - AI Act Article 6 : consentement + logs IA obligatoires dès le MVP
-                     - Livraison MVP : fin Sprint 3 (semaine 6)
-                     - Budget PI-01 : 150 k€ (équipe + infra cloud)
-                     - Gel de code interdit avant System Demo Sprint 2
+Constraints        : - AI Act Article 6: consent + AI logs mandatory from the MVP
+                     - MVP delivery: end of Sprint 3 (week 6)
+                     - PI-01 budget: €150k (team + cloud infra)
+                     - Code freeze prohibited before the Sprint 2 System Demo
 
-Langue livrables   : Français
+Deliverables language : French
 
-Lance STEP-01 avec AGENT-PRODUCT-MANAGER-SAFE.
+Launch STEP-01 with AGENT-PRODUCT-MANAGER-SAFE.
 ```
 
 ---
 
-## Contexte client
+## Client context
 
-Suite directe du cadrage WF-001. Prévalistest Assurances a validé le backlog initial (10 US · 4 Épics · WSJF calculé). L'équipe passe en mode delivery SAFe pour le PI-01 avec 2 squads. L'enjeu principal est de livrer la conformité AI Act (FEAT-D, WSJF #1) dès Sprint 1 et le parcours déclaration IA (FEAT-A) pour le MVP Sprint 3.
-
----
-
-## Objectif du test
-
-Valider que WF-002 produit :
-- Un PI Planning cohérent avec les features issues de WF-001
-- Un Program Board avec dépendances AS/400 et NLP visibles
-- Des PI Objectives SMART par squad
-- Un reporting CODIR adapté au contexte mutuelle régionale
-- La gestion du risque ROAM sur la dépendance SI legacy
+A direct follow-up to the WF-001 scoping. Prévalistest Assurances has validated the initial backlog (10 US · 4 Epics · WSJF computed). The team moves into SAFe delivery mode for PI-01 with 2 squads. The main stake is to deliver AI Act compliance (FEAT-D, WSJF #1) as early as Sprint 1 and the AI claim-filing journey (FEAT-A) for the Sprint 3 MVP.
 
 ---
 
-## Statut
+## Test objective
 
-- [x] Brief rédigé
-- [ ] Workflow exécuté
-- [ ] Output évalué
-- [ ] Promu en use case ? [oui/non]
+Validate that WF-002 produces:
+- A PI Planning consistent with the features from WF-001
+- A Program Board with visible AS/400 and NLP dependencies
+- SMART PI Objectives per squad
+- Executive-committee reporting suited to the regional-mutual context
+- ROAM risk management on the legacy-IS dependency
+
+---
+
+## Status
+
+- [x] Brief written
+- [ ] Workflow executed
+- [ ] Output evaluated
+- [ ] Promoted to a use case? [yes/no]

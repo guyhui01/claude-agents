@@ -1,139 +1,139 @@
-# WF-009 — Recrutement IT/IA
+# WF-009 — IT/AI Recruitment
 
-> Besoin identifié → fiche de poste → sourcing → évaluation → sélection → offre
-> Certifications mobilisées : SHRM-CP · CBAP · PHR · CIPD L5 · CAP IABAC · Anthropic
+> Identified need → job description → sourcing → assessment → selection → offer
+> Certifications mobilized: SHRM-CP · CBAP · PHR · CIPD L5 · CAP IABAC · Anthropic
 
 ---
 
-## Carte d'identité
+## Identity card
 
 ```yaml
 id: "WF-009"
 nom: "Recrutement IT/IA"
-domaine: "RH & Talent"
-declencheur: "Besoin de recrutement IT/IA identifié (CDI, CDD, freelance, stage)"
-resultat_final: "Candidat sélectionné + offre émise + dossier recrutement complet"
+domaine: "HR & Talent"
+declencheur: "Identified IT/AI recruitment need (permanent, fixed-term, freelance, internship)"
+resultat_final: "Selected candidate + offer issued + complete recruitment file"
 duree_estimee: "60-90 min"
 modele_recommande: "claude-sonnet-4-6"
-modele_raison: "Workflow opérationnel RH : rédaction d'offres, grilles d'évaluation, scoring de CVs. Sonnet 4.6 assure une qualité suffisante pour ces livrables standards."
-modele_alternatif: "claude-opus-4-8"  # si recrutement de profils très séniors (CDO, AI Architect, CISO) ou contexte politique tendu
+modele_raison: "Operational HR workflow: offer writing, assessment grids, CV scoring. Sonnet 4.6 ensures sufficient quality for these standard deliverables."
+modele_alternatif: "claude-opus-4-8"  # if recruiting very senior profiles (CDO, AI Architect, CISO) or a politically tense context
 agents_core:
-  - RH-IA               # sourcing, évaluation profils, scoring ATS, anti-fraude
-  - BUSINESS-ANALYST    # analyse besoin métier, profil fonctionnel, exigences MOA
-  - CONSULTANT-IA       # validation profil technique IA, grille d'évaluation tech
-  - REDACTEUR-IA        # rédaction offre d'emploi, brief cabinet, email candidats
+  - RH-IA               # sourcing, profile assessment, ATS scoring, anti-fraud
+  - BUSINESS-ANALYST    # business-need analysis, functional profile, MOA requirements
+  - CONSULTANT-IA       # AI technical profile validation, tech assessment grid
+  - REDACTEUR-IA        # job-ad writing, agency brief, candidate emails
 agents_optionnels:
-  - CHEF-PROJET-IA      # si recrutement d'un chef de projet ou intégration dans un programme
-  - CHANGE-MANAGER      # si recrutement avec enjeux d'équipe ou de transformation
-  - FINANCIAL-ANALYST   # si calcul TCO embauche vs prestation vs freelance
+  - CHEF-PROJET-IA      # if recruiting a project manager or integration into a program
+  - CHANGE-MANAGER      # if recruitment with team or transformation stakes
+  - FINANCIAL-ANALYST   # if hire TCO vs services vs freelance calculation
 statut: "disponible"
 version: "1.0"
 ```
 
 ---
 
-## Agents mobilisés
+## Agents mobilized
 
-| Étape | Agent | Rôle dans le workflow | Output |
+| Step | Agent | Role in the workflow | Output |
 |---|---|---|---|
-| 1 | BUSINESS-ANALYST | Analyse du besoin métier et profil fonctionnel | Fiche de besoin + critères must/nice |
-| 2 | CONSULTANT-IA | Grille d'évaluation technique IA + validation niveau | Grille technique + questions d'entretien |
-| 3 | RH-IA | Sourcing, scoring CVs, anti-fraude, ATS | Shortlist candidats scorés |
-| 4 | REDACTEUR-IA | Rédaction offre d'emploi + communications | Offre publiable + emails candidats |
-| opt | FINANCIAL-ANALYST | TCO embauche vs freelance vs prestation | Business case recrutement |
-| opt | CHANGE-MANAGER | Plan d'intégration candidat sélectionné | Onboarding plan J1-J30 |
+| 1 | BUSINESS-ANALYST | Business-need analysis and functional profile | Need sheet + must/nice criteria |
+| 2 | CONSULTANT-IA | AI technical assessment grid + level validation | Technical grid + interview questions |
+| 3 | RH-IA | Sourcing, CV scoring, anti-fraud, ATS | Scored candidate shortlist |
+| 4 | REDACTEUR-IA | Job-ad writing + communications | Publishable ad + candidate emails |
+| opt | FINANCIAL-ANALYST | Hire TCO vs freelance vs services | Recruitment business case |
+| opt | CHANGE-MANAGER | Onboarding plan for the selected candidate | Onboarding plan D1-D30 |
 
 ---
 
-## Paramètres contextuels
+## Contextual parameters
 
 ```
-CONTEXTE RECRUTEMENT (à renseigner avant le démarrage)
+RECRUITMENT CONTEXT (to fill in before starting)
 ──────────────────────────────────────────────────────
-Poste recherché     : [Titre / Niveau (junior, senior, lead, director)]
-Type de contrat     : [CDI / CDD / Freelance / Stage / Alternance]
-Urgence             : [Immédiate / 1 mois / 3 mois]
-Localisation        : [Ville / Remote / Hybride]
-Compétences must    : [Technologies et compétences non-négociables]
-Compétences nice    : [Compétences souhaitées mais non bloquantes]
-Budget salaire / TJM: [Fourchette ou "à définir"]
-Contexte équipe     : [Taille équipe, stack technique, culture]
-Modalités évaluation: [Entretien tech / Test code / Cas pratique / Référence]
-Anti-fraude requis  : [Vérification diplômes, LinkedIn, références — oui/non]
+Role sought         : [Title / Level (junior, senior, lead, director)]
+Contract type       : [Permanent / Fixed-term / Freelance / Internship / Apprenticeship]
+Urgency             : [Immediate / 1 month / 3 months]
+Location            : [City / Remote / Hybrid]
+Must-have skills    : [Non-negotiable technologies and skills]
+Nice-to-have skills : [Desired but non-blocking skills]
+Salary / day rate   : [Range or "to be defined"]
+Team context        : [Team size, tech stack, culture]
+Assessment methods  : [Tech interview / Code test / Practical case / Reference]
+Anti-fraud required : [Verify diplomas, LinkedIn, references — yes/no]
 ```
 
 ---
 
-## Diagramme de flux BPMN
+## BPMN flow diagram
 
 ```
-(DÉBUT — Besoin de recrutement IT/IA validé)
+(START — IT/AI recruitment need validated)
         │
         ▼
 [STEP-01 — BUSINESS-ANALYST]
-  Analyse du besoin métier,
-  profil fonctionnel et exigences,
-  critères Must / Should / Nice
+  Business-need analysis,
+  functional profile and requirements,
+  Must / Should / Nice criteria
         │
         ▼
 ═══════════════════════════════════
-  FORK PARALLÈLE
+  PARALLEL FORK
 ═══════════════════════════════════
   ├── [STEP-02A — CONSULTANT-IA]
-  │    Grille d'évaluation technique,
-  │    questions entretien tech IA,
-  │    niveau de séniorité calibré
+  │    Technical assessment grid,
+  │    AI tech interview questions,
+  │    calibrated seniority level
   │
-  └── [STEP-02B — FINANCIAL-ANALYST] (optionnel)
-       TCO embauche vs freelance vs ESN,
-       business case recrutement
+  └── [STEP-02B — FINANCIAL-ANALYST] (optional)
+       Hire TCO vs freelance vs IT services firm,
+       recruitment business case
 ═══════════════════════════════════
   JOIN
 ═══════════════════════════════════
         │
         ▼
 [STEP-03 — REDACTEUR-IA]
-  Rédaction offre d'emploi publiable,
-  brief cabinet de recrutement,
-  message outreach LinkedIn
+  Writing of the publishable job ad,
+  recruitment-agency brief,
+  LinkedIn outreach message
         │
         ▼
 [STEP-04 — RH-IA]
-  Sourcing actif (LinkedIn, GitHub, Malt),
-  scoring des CVs reçus (grille ATS),
-  détection fraude CV / faux profils,
-  shortlist 3-5 candidats qualifiés
+  Active sourcing (LinkedIn, GitHub, Malt),
+  scoring of the CVs received (ATS grid),
+  CV fraud / fake-profile detection,
+  shortlist of 3-5 qualified candidates
         │
         ▼
-<GATEWAY — Shortlist validée ?>
-  ├── NON ──▶ Retour STEP-03 (ajuster offre) ou STEP-04 (sourcing élargi)
-  └── OUI ──▶ poursuite
+<GATEWAY — Shortlist validated?>
+  ├── NO ───▶ Back to STEP-03 (adjust the ad) or STEP-04 (broaden sourcing)
+  └── YES ──▶ continue
         │
         ▼
 [STEP-05 — RH-IA + CONSULTANT-IA]
-  Conduite des entretiens de sélection :
-  entretien RH (fit culture, motivations),
-  entretien technique (grille STEP-02A),
-  vérification références (background check)
+  Conducting the selection interviews:
+  HR interview (culture fit, motivations),
+  technical interview (STEP-02A grid),
+  reference checks (background check)
         │
         ▼
-<GATEWAY — Candidat(s) retenu(s) ?>
-  ├── NON ──▶ Retour sourcing ou re-brief poste
-  └── OUI ──▶ poursuite
+<GATEWAY — Candidate(s) selected?>
+  ├── NO ───▶ Back to sourcing or re-brief the role
+  └── YES ──▶ continue
         │
         ▼
 [STEP-06 — RH-IA + REDACTEUR-IA]
-  Émission offre au candidat retenu,
-  négociation si nécessaire,
-  dossier administratif recrutement
+  Issuing the offer to the selected candidate,
+  negotiation if needed,
+  administrative recruitment file
         │
         ▼
-(FIN — Offre acceptée / dossier complet)
+(END — Offer accepted / file complete)
 ```
 
 ---
 
-## Étapes détaillées
+## Detailed steps
 
 ### STEP-01 — BUSINESS-ANALYST
 
@@ -141,18 +141,18 @@ Anti-fraude requis  : [Vérification diplômes, LinkedIn, références — oui/n
 etape:
   id: "STEP-01"
   agent: "AGENT-BUSINESS-ANALYST"
-  role: "Analyse du besoin et profil fonctionnel"
+  role: "Need analysis and functional profile"
   input:
-    - "Demande de recrutement (manager, DRH)"
-    - "Contexte projet / équipe / stack"
-    - "Contraintes budget et délai"
+    - "Recruitment request (manager, CHRO)"
+    - "Project / team / stack context"
+    - "Budget and timeline constraints"
   output_attendu:
-    - "Fiche de besoin structurée (contexte, mission, livrables attendus)"
-    - "Grille MoSCoW compétences (Must / Should / Could / Won't)"
-    - "Profil de personnalité / culture fit recherché"
-    - "Environnement de travail et conditions (remote, outils, rituels)"
+    - "Structured need sheet (context, mission, expected deliverables)"
+    - "MoSCoW skills grid (Must / Should / Could / Won't)"
+    - "Sought personality profile / culture fit"
+    - "Work environment and conditions (remote, tools, rituals)"
   duree_estimee: "15 min"
-  execution: "séquentielle — ouvre le workflow"
+  execution: "sequential — opens the workflow"
 ```
 
 ### STEP-02A — CONSULTANT-IA
@@ -161,17 +161,17 @@ etape:
 etape:
   id: "STEP-02A"
   agent: "AGENT-CONSULTANT-IA"
-  role: "Grille technique IA et calibrage niveau"
+  role: "AI technical grid and level calibration"
   input:
-    - "Fiche de besoin et compétences must/nice (STEP-01)"
-    - "Stack technologique ciblée"
+    - "Need sheet and must/nice skills (STEP-01)"
+    - "Targeted technology stack"
   output_attendu:
-    - "Grille d'évaluation technique (6-10 critères, notation 1-5)"
-    - "10-15 questions d'entretien tech calibrées (junior/senior/lead)"
-    - "Exercice pratique / mini-cas technique (optionnel)"
-    - "Benchmark de niveau sur le marché (référence 2026)"
+    - "Technical assessment grid (6-10 criteria, 1-5 rating)"
+    - "10-15 calibrated tech interview questions (junior/senior/lead)"
+    - "Practical exercise / mini technical case (optional)"
+    - "Market-level benchmark (2026 reference)"
   duree_estimee: "15 min"
-  execution: "parallèle avec STEP-02B si activé"
+  execution: "parallel with STEP-02B if enabled"
 ```
 
 ### STEP-03 — REDACTEUR-IA
@@ -180,18 +180,18 @@ etape:
 etape:
   id: "STEP-03"
   agent: "AGENT-REDACTEUR-IA"
-  role: "Production des supports de recrutement"
+  role: "Production of the recruitment materials"
   input:
-    - "Fiche de besoin (STEP-01)"
-    - "Grille technique (STEP-02A)"
-    - "Contexte client et culture d'entreprise"
+    - "Need sheet (STEP-01)"
+    - "Technical grid (STEP-02A)"
+    - "Client context and company culture"
   output_attendu:
-    - "Offre d'emploi publiable (attractive, inclusive, complète)"
-    - "Brief cabinet de recrutement (si externalisé)"
-    - "Message outreach LinkedIn InMail (objet + corps)"
-    - "Email de réponse candidature reçue (template)"
+    - "Publishable job ad (attractive, inclusive, complete)"
+    - "Recruitment-agency brief (if outsourced)"
+    - "LinkedIn InMail outreach message (subject + body)"
+    - "Application-received reply email (template)"
   duree_estimee: "10 min"
-  execution: "séquentielle après JOIN STEP-02"
+  execution: "sequential after STEP-02 JOIN"
 ```
 
 ### STEP-04 — RH-IA
@@ -200,18 +200,18 @@ etape:
 etape:
   id: "STEP-04"
   agent: "AGENT-RH-IA"
-  role: "Sourcing, scoring et détection fraude"
+  role: "Sourcing, scoring and fraud detection"
   input:
-    - "Offre publiée + brief poste (STEP-01 + STEP-03)"
-    - "CVs reçus et profils sourcés"
-    - "Grille de scoring ATS"
+    - "Published ad + role brief (STEP-01 + STEP-03)"
+    - "CVs received and sourced profiles"
+    - "ATS scoring grid"
   output_attendu:
-    - "CVs scorés selon grille MoSCoW (Must validés / manquants)"
-    - "Rapport détection fraude (CV gonflé, faux profil LinkedIn)"
-    - "Shortlist 3-5 candidats avec justification"
-    - "Tableau comparatif candidats (compétences × critères)"
+    - "CVs scored against the MoSCoW grid (Must met / missing)"
+    - "Fraud-detection report (inflated CV, fake LinkedIn profile)"
+    - "Shortlist of 3-5 candidates with justification"
+    - "Candidate comparison table (skills × criteria)"
   duree_estimee: "20 min"
-  execution: "séquentielle après STEP-03"
+  execution: "sequential after STEP-03"
 ```
 
 ### STEP-05 — RH-IA + CONSULTANT-IA
@@ -220,17 +220,17 @@ etape:
 etape:
   id: "STEP-05"
   agent: "AGENT-RH-IA + AGENT-CONSULTANT-IA"
-  role: "Évaluation des candidats shortlistés"
+  role: "Assessment of the shortlisted candidates"
   input:
-    - "Shortlist candidats (STEP-04)"
-    - "Grille d'évaluation technique (STEP-02A)"
+    - "Candidate shortlist (STEP-04)"
+    - "Technical assessment grid (STEP-02A)"
   output_attendu:
-    - "Compte rendu entretien RH (fit culture, motivations, rémunération)"
-    - "Grille technique remplie par candidat"
-    - "Résultat vérification références (2-3 références minimum)"
-    - "Recommandation finale : candidat retenu + arguments"
+    - "HR interview report (culture fit, motivations, compensation)"
+    - "Technical grid filled in per candidate"
+    - "Reference-check result (2-3 references minimum)"
+    - "Final recommendation: selected candidate + arguments"
   duree_estimee: "15 min"
-  execution: "séquentielle après STEP-04"
+  execution: "sequential after STEP-04"
 ```
 
 ### STEP-06 — RH-IA + REDACTEUR-IA
@@ -239,53 +239,53 @@ etape:
 etape:
   id: "STEP-06"
   agent: "AGENT-RH-IA + AGENT-REDACTEUR-IA"
-  role: "Émission de l'offre et clôture du recrutement"
+  role: "Issuing the offer and closing the recruitment"
   input:
-    - "Candidat retenu + conditions négociées"
-    - "Dossier complet candidat"
+    - "Selected candidate + negotiated terms"
+    - "Complete candidate file"
   output_attendu:
-    - "Lettre d'offre / promesse d'embauche"
-    - "Email de retour aux candidats non retenus (bienveillant)"
-    - "Dossier administratif complet (DPAE, contrat, accès IT)"
-    - "Fiche onboarding J1 (handoff vers WF-007 si applicable)"
+    - "Offer letter / employment promise"
+    - "Reply email to unsuccessful candidates (considerate)"
+    - "Complete administrative file (pre-hire declaration, contract, IT access)"
+    - "D1 onboarding sheet (handoff to WF-007 if applicable)"
   duree_estimee: "10 min"
-  execution: "séquentielle — clôture le workflow"
+  execution: "sequential — closes the workflow"
 ```
 
 ---
 
-## Livrables finaux
+## Final deliverables
 
 ```
-CHECKLIST WF-009
+WF-009 CHECKLIST
 ──────────────────────────────────────────────────────
-□ Fiche de besoin structurée (MoSCoW compétences)
-□ Grille d'évaluation technique IA calibrée
-□ [optionnel] Business case TCO embauche vs freelance
-□ Offre d'emploi publiable + brief cabinet
-□ Shortlist candidats scorés + rapport anti-fraude
-□ Grilles entretien remplies par candidat
-□ Rapport vérification références
-□ Recommandation finale avec justification
-□ Lettre d'offre / promesse d'embauche
-□ Emails retour candidats non retenus
-□ Fiche onboarding J1 (lien WF-007)
+□ Structured need sheet (MoSCoW skills)
+□ Calibrated AI technical assessment grid
+□ [optional] Hire-vs-freelance TCO business case
+□ Publishable job ad + agency brief
+□ Scored candidate shortlist + anti-fraud report
+□ Interview grids filled in per candidate
+□ Reference-check report
+□ Final recommendation with justification
+□ Offer letter / employment promise
+□ Reply emails to unsuccessful candidates
+□ D1 onboarding sheet (link to WF-007)
 ```
 
 ---
 
-## Commande de démarrage rapide
+## Quick-start command
 
 ```
-Lis le fichier AGENT-ORCHESTRATEUR-WORKFLOW.md et adopte le rôle d'orchestrateur.
-Confirme que tu es prêt, puis charge le workflow WF-009 depuis workflows/WF-009-recrutement-it-ia.md.
+Read the file AGENT-ORCHESTRATEUR-WORKFLOW.md and take on the orchestrator role.
+Confirm you are ready, then load workflow WF-009 from workflows/WF-009-recrutement-it-ia.md.
 
-Contexte recrutement :
-- Poste recherché : [à renseigner]
-- Type de contrat : [CDI / Freelance / Stage]
-- Compétences must : [à renseigner]
-- Budget : [à renseigner]
-- Urgence : [à renseigner]
+Recruitment context:
+- Role sought: [to fill in]
+- Contract type: [Permanent / Freelance / Internship]
+- Must-have skills: [to fill in]
+- Budget: [to fill in]
+- Urgency: [to fill in]
 
-Lance STEP-01 avec AGENT-BUSINESS-ANALYST.
+Launch STEP-01 with AGENT-BUSINESS-ANALYST.
 ```

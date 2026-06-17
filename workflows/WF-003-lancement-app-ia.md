@@ -1,149 +1,149 @@
-# WF-003 — Lancement Application IA
+# WF-003 — AI Application Launch
 
-> Idée validée → architecture → code → déploiement → audit sécurité  
-> Certifications mobilisées : Anthropic Claude Code in Action · TOGAF 10 · AWS SA · CKA · CISSP · CFA
+> Validated idea → architecture → code → deployment → security audit  
+> Certifications mobilized: Anthropic Claude Code in Action · TOGAF 10 · AWS SA · CKA · CISSP · CFA
 
 ---
 
-## Carte d'identité
+## Identity card
 
 ```yaml
 id: "WF-003"
 nom: "Lancement Application IA"
-domaine: "Dev & Technique"
-declencheur: "Business case validé, go-ahead pour développement d'une app IA"
-resultat_final: "Application IA déployée, pipeline CI/CD opérationnel, audit sécurité passé"
+domaine: "Dev & Engineering"
+declencheur: "Validated business case, go-ahead to develop an AI app"
+resultat_final: "AI application deployed, operational CI/CD pipeline, security audit passed"
 duree_estimee: "90-180 min"
 modele_recommande: "claude-opus-4-8"
-modele_raison: "Workflow le plus dense du catalogue : 6 agents couvrant business case, architecture, code, CI/CD et audit sécurité sur 90-180 min. Requiert un raisonnement architectural profond et une cohérence technique bout en bout. Opus 4.8 obligatoire."
-modele_alternatif: "claude-sonnet-4-6"  # uniquement pour des apps très simples sans RAG ni agents (CRUD basique)
+modele_raison: "The densest workflow in the catalog: 6 agents covering business case, architecture, code, CI/CD, and security audit over 90-180 min. Requires deep architectural reasoning and end-to-end technical consistency. Opus 4.8 mandatory."
+modele_alternatif: "claude-sonnet-4-6"  # only for very simple apps with no RAG or agents (basic CRUD)
 agents_core:
-  - FINANCIAL-ANALYST    # business case et ROI avant développement
-  - PROMPT-ENGINEER      # conception des prompts LLM de l'application
-  - AI-ARCHITECT         # architecture système IA (RAG, agents, MCP)
-  - DEV-PYTHON-IA        # développement backend / ML (ou DEV-TYPESCRIPT-IA)
-  - QA-AGILE             # tests fonctionnels & BDD avant déploiement
-  - DEVOPS-CLOUD         # pipeline CI/CD, infrastructure cloud
-  - SECURITE-IA          # audit sécurité, OWASP LLM Top 10
+  - FINANCIAL-ANALYST    # business case and ROI before development
+  - PROMPT-ENGINEER      # design of the application's LLM prompts
+  - AI-ARCHITECT         # AI system architecture (RAG, agents, MCP)
+  - DEV-PYTHON-IA        # backend / ML development (or DEV-TYPESCRIPT-IA)
+  - QA-AGILE             # functional & BDD tests before deployment
+  - DEVOPS-CLOUD         # CI/CD pipeline, cloud infrastructure
+  - SECURITE-IA          # security audit, OWASP LLM Top 10
 agents_optionnels:
-  - DEV-TYPESCRIPT-IA    # si frontend React / Next.js ou API TypeScript
-  - MLOPS-ENGINEER       # si pipeline ML avec monitoring de modèle
-  - JURIDIQUE-IA         # si données personnelles ou usage IA à risque
-  - DATA-ENGINEER        # si ingestion données volumineuses requise
-  - PO-SCRUM             # si pilotage backlog application en cours de dev
+  - DEV-TYPESCRIPT-IA    # if React / Next.js frontend or TypeScript API
+  - MLOPS-ENGINEER       # if ML pipeline with model monitoring
+  - JURIDIQUE-IA         # if personal data or risky AI use
+  - DATA-ENGINEER        # if large-scale data ingestion is required
+  - PO-SCRUM             # if application backlog steering during dev
 statut: "disponible"
 version: "1.2"
 ```
 
 ---
 
-## Agents mobilisés
+## Agents mobilized
 
-| Étape | Agent | Rôle dans le workflow | Output |
+| Step | Agent | Role in the workflow | Output |
 |---|---|---|---|
-| 0 | FINANCIAL-ANALYST | Validation business case et ROI avant dev | Go/No-Go financier |
-| 1 | PROMPT-ENGINEER | Conception system prompts et chaînes LLM | Prompts validés, stratégie tokens |
-| 2 | AI-ARCHITECT | Architecture système IA, choix stack | ADR, diagramme architecture |
-| 3 | DEV-PYTHON-IA | Développement backend, intégrations API | Code source, tests unitaires |
-| 4 | QA-AGILE | Tests fonctionnels BDD + scénarios évaluation LLM | Plan de tests + scénarios Gherkin + evals LLM |
-| 5 | DEVOPS-CLOUD | Pipeline CI/CD, infra cloud, containers | Déploiement, pipeline GitHub Actions |
-| 6 | SECURITE-IA | Audit OWASP LLM, pen test, rapport sécurité | Rapport sécurité, remédiation |
-| opt | DEV-TYPESCRIPT-IA | Frontend Next.js / API TypeScript | UI déployée sur Vercel |
-| opt | MLOPS-ENGINEER | Monitoring modèle, MLflow, drift detection | Observabilité ML |
+| 0 | FINANCIAL-ANALYST | Business case and ROI validation before dev | Financial Go/No-Go |
+| 1 | PROMPT-ENGINEER | Design of system prompts and LLM chains | Validated prompts, token strategy |
+| 2 | AI-ARCHITECT | AI system architecture, stack choice | ADR, architecture diagram |
+| 3 | DEV-PYTHON-IA | Backend development, API integrations | Source code, unit tests |
+| 4 | QA-AGILE | BDD functional tests + LLM evaluation scenarios | Test plan + Gherkin scenarios + LLM evals |
+| 5 | DEVOPS-CLOUD | CI/CD pipeline, cloud infra, containers | Deployment, GitHub Actions pipeline |
+| 6 | SECURITE-IA | OWASP LLM audit, pen test, security report | Security report, remediation |
+| opt | DEV-TYPESCRIPT-IA | Next.js frontend / TypeScript API | UI deployed on Vercel |
+| opt | MLOPS-ENGINEER | Model monitoring, MLflow, drift detection | ML observability |
 
 ---
 
-## Paramètres contextuels
+## Contextual parameters
 
 ```
-CONTEXTE TECHNIQUE (à renseigner avant le démarrage)
+TECHNICAL CONTEXT (to fill in before starting)
 ──────────────────────────────────────────────────────
-Type d'app IA      : [Chatbot RAG / Agent autonome / App génération / Classification]
+AI app type        : [RAG chatbot / Autonomous agent / Generation app / Classification]
 Cloud provider     : [AWS / GCP / Azure / On-premise / Vercel]
-LLM cible          : [Claude Sonnet 4.6 / Claude Opus 4.8 / Mistral Large 2 / Llama 3.1 local / Modèle on-premise]
-Stack tech         : [Python FastAPI / Next.js / LangChain / n8n / autre]
-Base de données    : [PostgreSQL / MongoDB / Pinecone / Qdrant / autre]
-Contraintes RGPD   : [Données personnelles : OUI/NON — Localisation données : EU/US]
-Budget mensuel API : [ex. 200€/mois LLM]
-SLA cible          : [ex. 99.9% / < 2s latence]
+Target LLM         : [Claude Sonnet 4.6 / Claude Opus 4.8 / Mistral Large 2 / Llama 3.1 local / On-premise model]
+Tech stack         : [Python FastAPI / Next.js / LangChain / n8n / other]
+Database           : [PostgreSQL / MongoDB / Pinecone / Qdrant / other]
+GDPR constraints   : [Personal data: YES/NO — Data location: EU/US]
+Monthly API budget : [e.g. €200/month LLM]
+Target SLA         : [e.g. 99.9% / < 2s latency]
 ```
 
 ---
 
-## Diagramme de flux BPMN
+## BPMN flow diagram
 
 ```
-(DÉBUT — Brief technique + business case préliminaire)
+(START — Technical brief + preliminary business case)
         │
         ▼
 [STEP-00 — FINANCIAL-ANALYST]
-  Validation business case,
-  TCO, ROI, go/no-go financier
+  Business case validation,
+  TCO, ROI, financial go/no-go
         │
         ▼
-<GATEWAY — Go financier validé ?>
-  ├── NON ──▶ (FIN — Projet non lancé, recommandations alternatives)
-  └── OUI ──▶
+<GATEWAY — Financial go validated?>
+  ├── NO ───▶ (END — Project not launched, alternative recommendations)
+  └── YES ──▶
         │
         ▼
 [STEP-01 — PROMPT-ENGINEER]
-  Conception system prompts,
-  stratégie few-shot / RAG,
-  test prompts baseline
+  System prompt design,
+  few-shot / RAG strategy,
+  baseline prompt testing
         │
         ▼
 [STEP-02 — AI-ARCHITECT]
-  Architecture système IA,
-  choix stack et modèle LLM,
-  ADR et diagramme
+  AI system architecture,
+  stack and LLM model choice,
+  ADR and diagram
         │
         ▼
 ═══════════════════════════
-  FORK PARALLÈLE
+  PARALLEL FORK
 ═══════════════════════════
   ├── [STEP-03A — DEV-PYTHON-IA]
-  │    Backend, API, intégrations
+  │    Backend, API, integrations
   │
-  └── [STEP-03B — DEV-TYPESCRIPT-IA] (optionnel)
-       Frontend Next.js, UI
+  └── [STEP-03B — DEV-TYPESCRIPT-IA] (optional)
+       Next.js frontend, UI
 ═══════════════════════════
   JOIN
 ═══════════════════════════
         │
         ▼
 [STEP-04 — QA-AGILE]
-  Plan de tests fonctionnels,
-  scénarios Gherkin BDD,
-  evals LLM (golden dataset)
+  Functional test plan,
+  Gherkin BDD scenarios,
+  LLM evals (golden dataset)
         │
         ▼
-<GATEWAY — Tests fonctionnels OK ?>
-  ├── NON ──▶ (Correction bugs → retour STEP-03)
-  └── OUI ──▶
+<GATEWAY — Functional tests OK?>
+  ├── NO ───▶ (Bug fixing → back to STEP-03)
+  └── YES ──▶
         │
         ▼
 [STEP-05 — DEVOPS-CLOUD]
-  Pipeline CI/CD,
-  containerisation,
-  déploiement cloud
+  CI/CD pipeline,
+  containerization,
+  cloud deployment
         │
         ▼
 [STEP-06 — SECURITE-IA]
-  Audit OWASP LLM Top 10,
-  pen test, rapport sécurité
+  OWASP LLM Top 10 audit,
+  pen test, security report
         │
         ▼
-<GATEWAY — Audit sécurité passé ?>
-  ├── NON ──▶ (Remédiation → retour STEP-03, STEP-04 ou STEP-05)
-  └── OUI ──▶
+<GATEWAY — Security audit passed?>
+  ├── NO ───▶ (Remediation → back to STEP-03, STEP-04 or STEP-05)
+  └── YES ──▶
         │
         ▼
-(FIN — App IA déployée, sécurisée, documentée)
+(END — AI app deployed, secured, documented)
 ```
 
 ---
 
-## Étapes détaillées
+## Detailed steps
 
 ### STEP-00 — FINANCIAL-ANALYST
 
@@ -151,21 +151,21 @@ SLA cible          : [ex. 99.9% / < 2s latence]
 etape:
   id: "STEP-00"
   agent: "AGENT-FINANCIAL-ANALYST"
-  role: "Validation du business case avant développement"
+  role: "Business case validation before development"
   input:
-    - "Brief projet : objectif, périmètre, cible utilisateur"
-    - "Estimation coûts développement (jours / ressources)"
-    - "Coûts opérationnels estimés (API LLM, cloud, maintenance)"
-    - "Gains attendus : productivité, CA, réduction coûts"
+    - "Project brief: objective, scope, target user"
+    - "Development cost estimate (days / resources)"
+    - "Estimated operating costs (LLM API, cloud, maintenance)"
+    - "Expected gains: productivity, revenue, cost reduction"
   output_attendu:
-    - "Business case 1-page : coûts / bénéfices / ROI / payback"
-    - "TCO 3 ans (infra + API + ressources humaines)"
-    - "Analyse de sensibilité (scénarios optimiste / réaliste / pessimiste)"
-    - "Décision Go / No-Go avec justification"
-  condition_passage: "Go validé avant lancement du développement"
-  si_echec: "Présenter alternatives ou scope réduit (MVP)"
+    - "1-page business case: costs / benefits / ROI / payback"
+    - "3-year TCO (infra + API + human resources)"
+    - "Sensitivity analysis (optimistic / realistic / pessimistic scenarios)"
+    - "Go / No-Go decision with justification"
+  condition_passage: "Go validated before launching development"
+  si_echec: "Present alternatives or a reduced scope (MVP)"
   duree_estimee: "15 min"
-  execution: "séquentielle — ouvre le workflow"
+  execution: "sequential — opens the workflow"
 ```
 
 ### STEP-01 — PROMPT-ENGINEER
@@ -174,20 +174,20 @@ etape:
 etape:
   id: "STEP-01"
   agent: "AGENT-PROMPT-ENGINEER"
-  role: "Conception des prompts LLM de l'application"
+  role: "Design of the application's LLM prompts"
   input:
-    - "Cas d'usage principaux de l'app"
-    - "LLM cible (Claude Sonnet 4.6 / Opus 4.8 / Mistral Large 2 / modèle local)"
-    - "Contraintes : ton, longueur réponse, langue, sécurité"
-    - "Architecture envisagée (RAG / agents / chaîne simple)"
+    - "Main use cases of the app"
+    - "Target LLM (Claude Sonnet 4.6 / Opus 4.8 / Mistral Large 2 / local model)"
+    - "Constraints: tone, response length, language, security"
+    - "Envisaged architecture (RAG / agents / simple chain)"
   output_attendu:
-    - "System prompt principal (production-ready)"
-    - "Stratégie few-shot ou CoT si applicable"
-    - "Prompts RAG (retrieval + grounding)"
-    - "Estimation coût tokens / requête + optimisation cache"
-    - "Baseline de test (5 cas nominaux + 3 cas limites)"
+    - "Main system prompt (production-ready)"
+    - "Few-shot or CoT strategy if applicable"
+    - "RAG prompts (retrieval + grounding)"
+    - "Token cost / request estimate + cache optimization"
+    - "Test baseline (5 nominal cases + 3 boundary cases)"
   duree_estimee: "15-20 min"
-  execution: "séquentielle après STEP-00"
+  execution: "sequential after STEP-00"
 ```
 
 ### STEP-02 — AI-ARCHITECT
@@ -196,21 +196,21 @@ etape:
 etape:
   id: "STEP-02"
   agent: "AGENT-AI-ARCHITECT"
-  role: "Architecture système IA et choix de stack"
+  role: "AI system architecture and stack choice"
   input:
-    - "Prompts et stratégie LLM (STEP-01)"
-    - "Contraintes cloud, RGPD, budget infra"
-    - "SLA, volumes, contraintes de latence"
-    - "Systèmes existants à intégrer"
+    - "Prompts and LLM strategy (STEP-01)"
+    - "Cloud, GDPR, infra-budget constraints"
+    - "SLA, volumes, latency constraints"
+    - "Existing systems to integrate"
   output_attendu:
-    - "Diagramme d'architecture (C4 Level 2)"
-    - "ADR (Architecture Decision Records) principaux"
-    - "Choix stack : LLM / Vector DB / API / Frontend"
-    - "Plan d'intégration avec SI existants"
-    - "Checklist de risques architecturaux"
-  condition_passage: "Architecture validée avant développement"
+    - "Architecture diagram (C4 Level 2)"
+    - "Main ADR (Architecture Decision Records)"
+    - "Stack choice: LLM / Vector DB / API / Frontend"
+    - "Integration plan with existing IS"
+    - "Architectural-risk checklist"
+  condition_passage: "Architecture validated before development"
   duree_estimee: "20 min"
-  execution: "séquentielle après STEP-01"
+  execution: "sequential after STEP-01"
 ```
 
 ### STEP-03 — DEV-PYTHON-IA
@@ -219,18 +219,18 @@ etape:
 etape:
   id: "STEP-03"
   agent: "AGENT-DEV-PYTHON-IA"
-  role: "Développement backend et intégrations API"
+  role: "Backend development and API integrations"
   input:
-    - "Architecture validée (STEP-02)"
-    - "Prompts production (STEP-01)"
-    - "Spécifications API (endpoints, auth, rate limits)"
+    - "Validated architecture (STEP-02)"
+    - "Production prompts (STEP-01)"
+    - "API specifications (endpoints, auth, rate limits)"
   output_attendu:
-    - "Code Python structuré (FastAPI / LangChain / SDK Anthropic)"
-    - "Tests unitaires (coverage > 80%)"
-    - "README technique d'installation"
-    - "Variables d'environnement documentées (.env.example)"
+    - "Structured Python code (FastAPI / LangChain / Anthropic SDK)"
+    - "Unit tests (coverage > 80%)"
+    - "Technical installation README"
+    - "Documented environment variables (.env.example)"
   duree_estimee: "30-60 min"
-  execution: "parallèle possible avec DEV-TYPESCRIPT-IA"
+  execution: "parallel possible with DEV-TYPESCRIPT-IA"
 ```
 
 ### STEP-04 — QA-AGILE
@@ -239,21 +239,21 @@ etape:
 etape:
   id: "STEP-04"
   agent: "AGENT-QA-AGILE"
-  role: "Tests fonctionnels & evals LLM avant déploiement"
+  role: "Functional tests & LLM evals before deployment"
   input:
-    - "Code source développé (STEP-03)"
-    - "Cas d'usage principaux (STEP-01)"
-    - "System prompts production (STEP-01)"
+    - "Developed source code (STEP-03)"
+    - "Main use cases (STEP-01)"
+    - "Production system prompts (STEP-01)"
   output_attendu:
-    - "Scénarios Gherkin BDD pour cas nominaux + limites + erreurs"
-    - "Plan de tests fonctionnels (manuel + automatisé)"
-    - "Evals LLM : golden dataset 20-50 cas + métriques (faithfulness, relevancy)"
-    - "Tests d'acceptation des prompts (réussite ≥ 90% sur baseline)"
-    - "Rapport qualité fonctionnelle"
-  condition_passage: "Tests passants ≥ 90% + 0 bug Critical sur cas nominaux"
-  si_echec: "Retour STEP-03 (correction code) ou STEP-01 (ajustement prompts)"
+    - "Gherkin BDD scenarios for nominal + boundary + error cases"
+    - "Functional test plan (manual + automated)"
+    - "LLM evals: golden dataset 20-50 cases + metrics (faithfulness, relevancy)"
+    - "Prompt acceptance tests (success ≥ 90% on baseline)"
+    - "Functional quality report"
+  condition_passage: "Tests passing ≥ 90% + 0 Critical bug on nominal cases"
+  si_echec: "Back to STEP-03 (code fix) or STEP-01 (prompt adjustment)"
   duree_estimee: "15-25 min"
-  execution: "séquentielle après STEP-03"
+  execution: "sequential after STEP-03"
 ```
 
 ### STEP-05 — DEVOPS-CLOUD
@@ -262,19 +262,19 @@ etape:
 etape:
   id: "STEP-05"
   agent: "AGENT-DEVOPS-CLOUD"
-  role: "Pipeline CI/CD et déploiement cloud"
+  role: "CI/CD pipeline and cloud deployment"
   input:
-    - "Code source développé et testé (STEP-03 + STEP-04)"
-    - "Architecture cible (STEP-02)"
-    - "SLA et contraintes de déploiement"
+    - "Developed and tested source code (STEP-03 + STEP-04)"
+    - "Target architecture (STEP-02)"
+    - "SLA and deployment constraints"
   output_attendu:
-    - "Dockerfile et docker-compose"
-    - "Pipeline GitHub Actions (build + test + deploy)"
-    - "Infrastructure as Code (Terraform ou CDK)"
-    - "Monitoring et alertes (CloudWatch / Datadog)"
-    - "Runbook déploiement et rollback"
+    - "Dockerfile and docker-compose"
+    - "GitHub Actions pipeline (build + test + deploy)"
+    - "Infrastructure as Code (Terraform or CDK)"
+    - "Monitoring and alerting (CloudWatch / Datadog)"
+    - "Deployment and rollback runbook"
   duree_estimee: "20-30 min"
-  execution: "séquentielle après STEP-04"
+  execution: "sequential after STEP-04"
 ```
 
 ### STEP-06 — SECURITE-IA
@@ -283,56 +283,56 @@ etape:
 etape:
   id: "STEP-06"
   agent: "AGENT-SECURITE-IA"
-  role: "Audit sécurité OWASP LLM et rapport"
+  role: "OWASP LLM security audit and report"
   input:
-    - "Code source et architecture déployée"
-    - "Prompts système (pour audit injection)"
-    - "Flux de données et droits d'accès"
+    - "Source code and deployed architecture"
+    - "System prompts (for injection audit)"
+    - "Data flows and access rights"
   output_attendu:
-    - "Rapport audit OWASP LLM Top 10 (LLM01-LLM10)"
-    - "Vulnérabilités identifiées (Critical / High / Medium / Low)"
-    - "Plan de remédiation priorisé"
-    - "Checklist sécurité go-live"
-  condition_passage: "0 vulnérabilité Critical, < 2 High non résiduelles"
-  si_echec: "Bloquer le déploiement production, corriger et re-tester"
+    - "OWASP LLM Top 10 audit report (LLM01-LLM10)"
+    - "Identified vulnerabilities (Critical / High / Medium / Low)"
+    - "Prioritized remediation plan"
+    - "Go-live security checklist"
+  condition_passage: "0 Critical vulnerability, < 2 non-residual High"
+  si_echec: "Block the production deployment, fix and re-test"
   duree_estimee: "15 min"
-  execution: "séquentielle — clôture avant mise en production"
+  execution: "sequential — closes before going to production"
 ```
 
 ---
 
-## Livrables finaux
+## Final deliverables
 
 ```
-CHECKLIST WF-003
+WF-003 CHECKLIST
 ──────────────────────────────────────────────────────
-□ Business case validé : ROI / TCO / Go-No-Go
-□ System prompt production-ready + baseline de test
-□ Architecture C4 Level 2 + ADR
-□ Code source documenté (Python et/ou TypeScript)
-□ Tests unitaires (coverage > 80%)
-□ Scénarios Gherkin BDD + plan de tests fonctionnels
-□ Evals LLM : golden dataset + métriques (faithfulness, relevancy)
+□ Validated business case: ROI / TCO / Go-No-Go
+□ Production-ready system prompt + test baseline
+□ C4 Level 2 architecture + ADR
+□ Documented source code (Python and/or TypeScript)
+□ Unit tests (coverage > 80%)
+□ Gherkin BDD scenarios + functional test plan
+□ LLM evals: golden dataset + metrics (faithfulness, relevancy)
 □ Dockerfile + docker-compose
-□ Pipeline CI/CD GitHub Actions opérationnel
-□ Infrastructure as Code déployée
-□ Rapport audit sécurité OWASP LLM
-□ Runbook déploiement et rollback
+□ Operational GitHub Actions CI/CD pipeline
+□ Infrastructure as Code deployed
+□ OWASP LLM security audit report
+□ Deployment and rollback runbook
 ```
 
 ---
 
-## Commande de démarrage rapide
+## Quick-start command
 
 ```
-Lis le fichier AGENT-ORCHESTRATEUR-WORKFLOW.md et adopte le rôle d'orchestrateur.
-Confirme que tu es prêt, puis charge le workflow WF-003 depuis workflows/WF-003-lancement-app-ia.md.
+Read the file AGENT-ORCHESTRATEUR-WORKFLOW.md and take on the orchestrator role.
+Confirm you are ready, then load workflow WF-003 from workflows/WF-003-lancement-app-ia.md.
 
-Contexte technique :
-- Type d'app IA : [à renseigner]
-- Cloud provider : [à renseigner]
-- LLM cible : [à renseigner]
-- Contraintes RGPD : [à renseigner]
+Technical context:
+- AI app type: [to fill in]
+- Cloud provider: [to fill in]
+- Target LLM: [to fill in]
+- GDPR constraints: [to fill in]
 
-Lance STEP-00 avec AGENT-FINANCIAL-ANALYST pour valider le business case.
+Launch STEP-00 with AGENT-FINANCIAL-ANALYST to validate the business case.
 ```

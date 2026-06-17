@@ -1,12 +1,12 @@
-# Skill — Culture d'Expérimentation & A/B Testing
-> Certifications : Optimizely Certified Partner (2026), LaunchDarkly Certified, Google Analytics 4 Certified, Lean Experimentation (EXIN)
+# Skill — Experimentation Culture & A/B Testing
+> Certifications: Optimizely Certified Partner (2026), LaunchDarkly Certified, Google Analytics 4 Certified, Lean Experimentation (EXIN)
 
-## Objectif
-Mettre en place une culture d'expérimentation data-driven — design rigoureux des tests, calcul statistique correct de la taille d'échantillon, analyse des résultats et infrastructure feature flags pour un déploiement progressif.
+## Objective
+Establish a data-driven experimentation culture — rigorous test design, correct statistical sample-size calculation, results analysis, and feature-flag infrastructure for progressive rollout.
 
-## Design d'Expériences
+## Experiment Design
 
-### Calcul de la Taille d'Échantillon
+### Sample Size Calculation
 
 ```python
 # sample_size_calculator.py
@@ -15,15 +15,15 @@ from scipy import stats
 from scipy.stats import norm
 
 def calculate_sample_size(
-    baseline_rate: float,    # Taux de conversion actuel (ex: 0.05 = 5%)
-    minimum_effect: float,   # Effet minimum détectable (ex: 0.01 = +1pp absolu)
-    alpha: float = 0.05,     # Risque alpha (faux positif) — 5%
-    power: float = 0.80,     # Puissance statistique (1-beta) — 80%
-    test_type: str = "two_sided",  # two_sided ou one_sided
+    baseline_rate: float,    # Current conversion rate (e.g. 0.05 = 5%)
+    minimum_effect: float,   # Minimum detectable effect (e.g. 0.01 = +1pp absolute)
+    alpha: float = 0.05,     # Alpha risk (false positive) — 5%
+    power: float = 0.80,     # Statistical power (1-beta) — 80%
+    test_type: str = "two_sided",  # two_sided or one_sided
 ) -> dict:
     """
-    Calcule la taille d échantillon pour un test A/B.
-    Méthode : test de proportion de Pearson.
+    Compute the sample size for an A/B test.
+    Method: Pearson proportion test.
     """
     z_alpha = norm.ppf(1 - alpha / (2 if test_type == "two_sided" else 1))
     z_beta  = norm.ppf(power)
@@ -38,7 +38,7 @@ def calculate_sample_size(
 
     n_per_variant = int(np.ceil(n))
 
-    # Durée estimée
+    # Estimated duration
     return {
         "n_per_variant": n_per_variant,
         "n_total": n_per_variant * 2,
@@ -54,38 +54,38 @@ def calculate_sample_size(
 def estimate_test_duration(
     n_per_variant: int,
     daily_visitors: int,
-    traffic_split: float = 0.5,  # 50% dans le test
+    traffic_split: float = 0.5,  # 50% in the test
 ) -> dict:
-    """Estime la durée nécessaire du test."""
-    daily_in_test = daily_visitors * traffic_split / 2  # Par variante
+    """Estimate the test duration needed."""
+    daily_in_test = daily_visitors * traffic_split / 2  # Per variant
     days_needed = np.ceil(n_per_variant / daily_in_test)
     weeks_needed = days_needed / 7
 
     return {
         "days_needed": int(days_needed),
         "weeks_needed": round(weeks_needed, 1),
-        "min_duration_weeks": max(2, int(np.ceil(weeks_needed))),  # Min 2 semaines
-        "warning": "Trop long (>8 semaines) — augmenter le MDE" if weeks_needed > 8 else None,
+        "min_duration_weeks": max(2, int(np.ceil(weeks_needed))),  # Min 2 weeks
+        "warning": "Too long (>8 weeks) — increase the MDE" if weeks_needed > 8 else None,
     }
 
 
-# Exemple concret : tester un nouveau CTA
+# Concrete example: test a new CTA
 result = calculate_sample_size(
-    baseline_rate=0.035,  # 3.5% de conversion actuel
-    minimum_effect=0.007,  # Détecter +0.7pp (soit +20% relatif)
+    baseline_rate=0.035,  # 3.5% current conversion
+    minimum_effect=0.007,  # Detect +0.7pp (i.e. +20% relative)
     alpha=0.05,
     power=0.80,
 )
-print(f"Taille par variante : {result['n_per_variant']:,}")  # 11 858 par variante
+print(f"Per-variant size: {result['n_per_variant']:,}")  # 11,858 per variant
 duration = estimate_test_duration(result["n_per_variant"], daily_visitors=800)
-print(f"Durée estimée : {duration['weeks_needed']} semaines")  # 8.6 semaines
-print(duration["warning"])  # "Trop long (>8 semaines) — augmenter le MDE"
-# Leçon : détecter +20 % relatif sur une base de 3,5 % avec 800 visiteurs/j
-# demande ~9 semaines → le garde-fou se déclenche. Préférer augmenter le MDE
-# visé (cible plus ambitieuse) ou le trafic alloué plutôt que d'étirer la durée.
+print(f"Estimated duration: {duration['weeks_needed']} weeks")  # 8.6 weeks
+print(duration["warning"])  # "Too long (>8 weeks) — increase the MDE"
+# Lesson: detecting +20% relative on a 3.5% base with 800 visitors/day
+# takes ~9 weeks → the guardrail triggers. Prefer increasing the targeted
+# MDE (more ambitious target) or the allocated traffic rather than stretching duration.
 ```
 
-### Analyse des Résultats
+### Results Analysis
 
 ```python
 # ab_test_analysis.py
@@ -114,14 +114,14 @@ class ABTestResult:
         return (self.variant_rate - self.control_rate) / self.control_rate
 
     def analyze(self, alpha: float = 0.05) -> dict:
-        # Test du chi-2 de Pearson
+        # Pearson chi-square test
         contingency = [
             [self.control_conversions, self.control_visitors - self.control_conversions],
             [self.variant_conversions, self.variant_visitors - self.variant_conversions],
         ]
         chi2, p_value, _, _ = chi2_contingency(contingency, correction=False)
 
-        # Intervalle de confiance sur la différence
+        # Confidence interval on the difference
         diff = self.variant_rate - self.control_rate
         se = np.sqrt(
             self.control_rate * (1 - self.control_rate) / self.control_visitors +
@@ -143,12 +143,12 @@ class ABTestResult:
             "p_value": round(p_value, 4),
             "significant": is_significant,
             "winner": winner,
-            "recommendation": f"Déployer VARIANT" if winner == "VARIANT" else "Garder CONTROL",
+            "recommendation": f"Deploy VARIANT" if winner == "VARIANT" else "Keep CONTROL",
         }
 
 
-# Exemple
-test = ABTestResult("CTA rouge vs vert", 3200, 112, 3150, 142)
+# Example
+test = ABTestResult("Red vs. green CTA", 3200, 112, 3150, 142)
 result = test.analyze()
 for k, v in result.items():
     print(f"{k:25s}: {v}")
@@ -159,20 +159,20 @@ for k, v in result.items():
 
 ## Feature Flags — LaunchDarkly / OpenFeature
 
-### Configuration Feature Flags (OpenFeature + Flagd)
+### Feature Flag configuration (OpenFeature + Flagd)
 
 ```typescript
 // feature-flags.ts — OpenFeature SDK
 import { OpenFeature, InMemoryProvider } from "@openfeature/server-sdk"
 
-// Initialisation avec provider (LaunchDarkly, Flagd, ConfigCat...)
+// Initialization with provider (LaunchDarkly, Flagd, ConfigCat...)
 await OpenFeature.setProviderAndWait(
   new LaunchDarklyProvider(process.env.LD_SDK_KEY!)
 )
 
 const client = OpenFeature.getClient()
 
-// Évaluation d un flag avec contexte utilisateur
+// Evaluating a flag with user context
 const context = {
   targetingKey: user.id,
   email: user.email,
@@ -181,92 +181,92 @@ const context = {
   percentile: user.abTestBucket,  // 0-100
 }
 
-// Flag boolean simple
+// Simple boolean flag
 const showNewCheckout = await client.getBooleanValue(
   "new-checkout-flow", false, context
 )
 
-// Flag avec variante (multivarié)
+// Flag with variant (multivariate)
 const ctaVariant = await client.getStringValue(
   "cta-button-test", "control", context
 )
-// Valeurs possibles : "control" | "red-button" | "bigger-text" | "urgency-copy"
+// Possible values: "control" | "red-button" | "bigger-text" | "urgency-copy"
 
-// Flag numérique (prix, limites)
+// Numeric flag (price, limits)
 const discountPct = await client.getNumberValue(
   "welcome-discount-pct", 0, context
 )
 ```
 
-## Bonnes Pratiques d'Expérimentation
+## Experimentation Best Practices
 
-### Checklist avant lancement d'un test
+### Pre-launch test checklist
 
 ```yaml
 pre_launch_checklist:
-  statistique:
-    - Taille d échantillon calculée (>80% puissance)
-    - Durée minimale 2 semaines (cycles hebdomadaires)
-    - Métrique primaire unique définie AVANT le test
-    - Maximum 3 métriques secondaires
-    - Pas de peeking (regarder les résultats avant la fin)
+  statistical:
+    - Sample size calculated (>80% power)
+    - Minimum 2-week duration (weekly cycles)
+    - Single primary metric defined BEFORE the test
+    - Maximum 3 secondary metrics
+    - No peeking (looking at results before the end)
 
-  technique:
-    - Test de fumée (smoke test) sur la variante
-    - QA sur les principaux navigateurs/devices
-    - AA test préalable (vérifier l égalité des groupes)
-    - Logging des events dans analytics
+  technical:
+    - Smoke test on the variant
+    - QA on the main browsers/devices
+    - Prior AA test (check group equality)
+    - Event logging in analytics
 
-  organisationnel:
-    - Hypothèse documentée (si X alors Y parce que Z)
-    - Pas d autres changements simultanés sur la même page
-    - Calendrier clair (date début et fin)
-    - Personne responsable de l analyse
+  organizational:
+    - Documented hypothesis (if X then Y because Z)
+    - No other simultaneous changes on the same page
+    - Clear schedule (start and end date)
+    - Person responsible for the analysis
 
 common_mistakes:
-  - "Arrêter le test dès qu on voit une significativité" → peeking bias
-  - "Tester 10 variantes à la fois" → correction de Bonferroni nécessaire
-  - "Changer la métrique primaire après analyse" → HARKing (Hypothesizing After Results Known)
-  - "Ignorer la significativité pratique" → lif de +0.1% statistiquement sig mais sans intérêt business
-  - "Sous-estimer l effet de nouveauté" → durée trop courte
+  - "Stopping the test as soon as significance appears" → peeking bias
+  - "Testing 10 variants at once" → Bonferroni correction needed
+  - "Changing the primary metric after analysis" → HARKing (Hypothesizing After Results Known)
+  - "Ignoring practical significance" → a +0.1% lift statistically sig but of no business interest
+  - "Underestimating the novelty effect" → too short a duration
 ```
 
-| Plateforme | Idéale pour | Complexité setup | Coût |
+| Platform | Ideal for | Setup complexity | Cost |
 |-----------|------------|-----------------|------|
-| Optimizely | Sites web + apps, A/B complex | Moyenne | Elevé |
-| LaunchDarkly | Feature flags, devs, microservices | Faible | Moyen |
-| AB Tasty | Sites web, non-technique | Faible | Moyen |
-| VWO | E-commerce, heatmaps | Faible | Moyen |
-| Statsig | Apps + backend, stats avancées | Moyenne | Gratuit/Payant |
-| Flagsmith | Open source, self-hosted | Elevée | Gratuit |
+| Optimizely | Websites + apps, complex A/B | Medium | High |
+| LaunchDarkly | Feature flags, devs, microservices | Low | Medium |
+| AB Tasty | Websites, non-technical | Low | Medium |
+| VWO | E-commerce, heatmaps | Low | Medium |
+| Statsig | Apps + backend, advanced stats | Medium | Free/Paid |
+| Flagsmith | Open source, self-hosted | High | Free |
 
-## Livrables
-- Plan d'expérimentation trimestriel (roadmap des tests priorisés)
-- Calculateur de taille d'échantillon et durée de test
-- Template d'analyse de résultats avec tests statistiques
-- Configuration feature flags (LaunchDarkly / Flagd)
-- Repository des expériences passées (hypothèse, résultat, apprentissage)
-- Formation équipe (éviter les biais courants)
+## Deliverables
+- Quarterly experimentation plan (prioritized test roadmap)
+- Sample-size and test-duration calculator
+- Results-analysis template with statistical tests
+- Feature-flag configuration (LaunchDarkly / Flagd)
+- Repository of past experiments (hypothesis, result, learning)
+- Team training (avoiding common biases)
 
-## Format de sortie
-Précise : métrique primaire à améliorer (conversion, retention, NPS), trafic mensuel disponible, plateforme d'expérimentation actuelle, capacités statistiques de l'équipe, budget pour outils, objectif (quick wins ou expérimentation à long terme).
+## Output format
+Specify: the primary metric to improve (conversion, retention, NPS), available monthly traffic, current experimentation platform, the team's statistical capabilities, tooling budget, objective (quick wins or long-term experimentation).
 
 ## Sources
-- **Ronald A. Fisher** — *The Design of Experiments* (1935) — fondements du test d'hypothèse et de la randomisation
-- **Neyman & Pearson** (1933) — cadre erreurs de type I (α) / type II (β) et puissance
-- **Carlo Bonferroni** (1936) — correction des comparaisons multiples
-- **Kohavi, Tang & Xu** — *Trustworthy Online Controlled Experiments* (Cambridge, 2020) — référence A/B testing à grande échelle (peeking, SRM, novelty effect)
-- **Documentation officielle** : Optimizely, Statsig, LaunchDarkly / OpenFeature (feature flags), GA4 (expérimentations)
+- **Ronald A. Fisher** — *The Design of Experiments* (1935) — foundations of hypothesis testing and randomization
+- **Neyman & Pearson** (1933) — type I (α) / type II (β) error framework and power
+- **Carlo Bonferroni** (1936) — multiple-comparison correction
+- **Kohavi, Tang & Xu** — *Trustworthy Online Controlled Experiments* (Cambridge, 2020) — reference for large-scale A/B testing (peeking, SRM, novelty effect)
+- **Official documentation**: Optimizely, Statsig, LaunchDarkly / OpenFeature (feature flags), GA4 (experiments)
 
 ## Anti-patterns
-- **Peeking / optional stopping** : arrêter le test à la 1ʳᵉ significativité observée gonfle le taux de faux positifs.
-- **HARKing** : redéfinir la métrique primaire ou l'hypothèse après avoir vu les données.
-- **Comparaisons multiples non corrigées** : tester N variantes/métriques sans Bonferroni (ou équivalent).
-- **Sample Ratio Mismatch (SRM)** : répartition réelle ≠ 50/50 → biais d'assignation, test invalide.
-- **Confondre significativité statistique et pratique** : un lift de +0,1 % « significatif » sans valeur business.
-- **Sous-dimensionner / ignorer le novelty effect** : durée trop courte (cf. garde-fou >8 semaines du calculateur).
+- **Peeking / optional stopping**: stopping the test at the 1st observed significance inflates the false-positive rate.
+- **HARKing**: redefining the primary metric or hypothesis after seeing the data.
+- **Uncorrected multiple comparisons**: testing N variants/metrics without Bonferroni (or equivalent).
+- **Sample Ratio Mismatch (SRM)**: actual split ≠ 50/50 → assignment bias, invalid test.
+- **Confusing statistical and practical significance**: a "significant" +0.1% lift with no business value.
+- **Under-sizing / ignoring the novelty effect**: too short a duration (see the calculator's >8-week guardrail).
 
-## Voir aussi
-- [product-analytics.md](product-analytics.md) — définir les métriques et le funnel à tester
-- [growth-frameworks.md](growth-frameworks.md) — prioriser les expériences (ICE) et relier à la North Star
-- [`../data_scientist/experimentation-ab-ds.md`](../data_scientist/experimentation-ab-ds.md) — expérimentation côté data science (puissance, tests avancés)
+## See also
+- [product-analytics.md](product-analytics.md) — define the metrics and funnel to test
+- [growth-frameworks.md](growth-frameworks.md) — prioritize experiments (ICE) and link to the North Star
+- [`../data_scientist/experimentation-ab-ds.md`](../data_scientist/experimentation-ab-ds.md) — data-science-side experimentation (power, advanced tests)

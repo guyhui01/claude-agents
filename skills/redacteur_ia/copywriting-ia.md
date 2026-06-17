@@ -1,79 +1,79 @@
-# Skill — Copywriting IA & Rédaction Persuasive
-> Certifications : Copyblogger Content Marketing · HubSpot Content Marketing
+# Skill — AI Copywriting & Persuasive Writing
+> Certifications: Copyblogger Content Marketing · HubSpot Content Marketing
 
-## Objectif
-Produire des textes marketing percutants optimisés pour la conversion, en exploitant les capacités de l'IA générative.
+## Objective
+Produce punchy marketing copy optimized for conversion, leveraging the capabilities of generative AI.
 
-## Frameworks copywriting essentiels
-> Leviers de persuasion sous-jacents : les **6 principes d'influence de Cialdini (1984)** — réciprocité, engagement/cohérence, preuve sociale, autorité, sympathie, rareté. Mobilisez-les dans le « Désir » (AIDA) ou l'« Agitate » (PAS).
+## Essential copywriting frameworks
+> Underlying persuasion levers: **Cialdini's 6 principles of influence (1984)** — reciprocity, commitment/consistency, social proof, authority, liking, scarcity. Use them in "Desire" (AIDA) or "Agitate" (PAS).
 
 ### AIDA *(E. St. Elmo Lewis, 1898)*
 ```
-Attention → Accrocher (titre, hook)
-Intérêt   → Engager (problème, contexte)
-Désir     → Séduire (bénéfices, preuve sociale)
-Action    → Convertir (CTA clair et urgent)
+Attention → Hook (headline, hook)
+Interest  → Engage (problem, context)
+Desire    → Entice (benefits, social proof)
+Action    → Convert (clear, urgent CTA)
 ```
 
 ### PAS (Pain-Agitate-Solve)
 ```
-Pain    → Nommer le problème précisément
-Agitate → Amplifier la douleur (conséquences)
-Solve   → Présenter la solution comme évidence
+Pain    → Name the problem precisely
+Agitate → Amplify the pain (consequences)
+Solve   → Present the solution as obvious
 ```
 
 ### FAB (Features-Advantages-Benefits)
 ```
-Feature    → Ce que c'est (caractéristique)
-Advantage  → Ce que ça fait (avantage)
-Benefit    → Ce que ça apporte (bénéfice client)
+Feature    → What it is (the feature)
+Advantage  → What it does (the advantage)
+Benefit    → What it brings (customer benefit)
 ```
 
-## Prompt engineering pour le copywriting IA
+## Prompt engineering for AI copywriting
 ```
-"Tu es un copywriter expert en [secteur].
-Écris un [type de texte] pour [audience cible]
-qui veut [désir] mais craint [objection principale].
-Utilise le framework [AIDA / PAS / FAB].
-Ton : [professionnel / conversationnel / urgent].
-Longueur : [X mots].
-Inclure un CTA : [action attendue]."
+"You are an expert copywriter in [industry].
+Write a [content type] for [target audience]
+who wants [desire] but fears [main objection].
+Use the [AIDA / PAS / FAB] framework.
+Tone: [professional / conversational / urgent].
+Length: [X words].
+Include a CTA: [expected action]."
 ```
 
-## Types de copy et leurs contraintes
-| Type | Longueur | Ton | KPI |
+## Copy types and their constraints
+| Type | Length | Tone | KPI |
 |---|---|---|---|
-| Headline / Titre | 6-10 mots | Accrocheur | CTR |
-| Landing page | 300-800 mots | Persuasif | Taux conversion |
-| Email marketing | 150-300 mots | Personnel | Taux ouverture / clic |
-| Ad Facebook/Google | 30-90 mots | Direct | CPC / ROAS |
-| Fiche produit | 100-300 mots | Descriptif + bénéfices | Taux ajout panier |
+| Headline | 6-10 words | Catchy | CTR |
+| Landing page | 300-800 words | Persuasive | Conversion rate |
+| Email marketing | 150-300 words | Personal | Open / click rate |
+| Facebook/Google ad | 30-90 words | Direct | CPC / ROAS |
+| Product page | 100-300 words | Descriptive + benefits | Add-to-cart rate |
 
-## Livrables
-- Textes optimisés A/B testables
-- Déclinaisons par canal (web, email, social, pub)
-- Swipe file de références secteur
-- Rapport de performance copy (après tests)
+## Deliverables
+- A/B-testable optimized copy
+- Variants by channel (web, email, social, ads)
+- Swipe file of industry references
+- Copy performance report (after tests)
 
-## Format de sortie
-Précise : produit/service · audience · canal · objectif (notoriété, conversion, rétention) · ton · contrainte de longueur
+## Output format
+Specify: product/service · audience · channel · objective (awareness, conversion, retention) · tone · length constraint
 
 ## Anti-patterns
-- ❌ **Caractéristiques sans bénéfices** — lister des features (FAB sans le « B ») → le lecteur ne se projette pas. Toujours traduire en bénéfice client.
-- ❌ **Survente / promesses non tenues** — superlatifs et garanties exagérées → méfiance, retours, atteinte à la marque.
-- ❌ **CTA multiples ou flous** — « En savoir plus » + « Contactez-nous » + « S'inscrire » → paralysie du choix. Un objectif = un CTA.
-- ❌ **Copier le copy sans test** — réutiliser un swipe file sans A/B testing → pas d'optimisation, biais de survivance.
-- ❌ **Leviers Cialdini factices** — fausse rareté (« plus que 2 places ! »), faux avis → manipulation, risque légal (pratiques commerciales trompeuses).
+- ❌ **Features without benefits** — listing features (FAB minus the "B") → the reader can't picture themselves. Always translate into a customer benefit.
+- ❌ **Overselling / broken promises** — superlatives and exaggerated guarantees → distrust, returns, brand damage.
+- ❌ **Multiple or vague CTAs** — "Learn more" + "Contact us" + "Sign up" → choice paralysis. One objective = one CTA.
+- ❌ **Copying copy without testing** — reusing a swipe file with no A/B testing → no optimization, survivorship bias.
+- ❌ **Fake Cialdini levers** — false scarcity ("only 2 spots left!"), fake reviews → manipulation, legal risk (deceptive commercial practices).
 
 ## Sources
-- **E. St. Elmo Lewis** — modèle AIDA (1898) — Attention/Intérêt/Désir/Action
-- **David Ogilvy** — *Ogilvy on Advertising* (Crown, 1983) & *Confessions of an Advertising Man* (1963) — principes du copywriting direct
-- **Robert Cialdini** — *Influence: The Psychology of Persuasion* (Harper Business, 1984) — 6 principes de persuasion
-- **Eugene Schwartz** — *Breakthrough Advertising* (1966) — niveaux de conscience du marché
-- **Joseph Sugarman** — *The Adweek Copywriting Handbook* (2006) — glissement psychologique, headlines
+- **E. St. Elmo Lewis** — AIDA model (1898) — Attention/Interest/Desire/Action
+- **David Ogilvy** — *Ogilvy on Advertising* (Crown, 1983) & *Confessions of an Advertising Man* (1963) — principles of direct copywriting
+- **Robert Cialdini** — *Influence: The Psychology of Persuasion* (Harper Business, 1984) — 6 principles of persuasion
+- **Eugene Schwartz** — *Breakthrough Advertising* (1966) — levels of market awareness
+- **Joseph Sugarman** — *The Adweek Copywriting Handbook* (2006) — psychological slippery slide, headlines
 
-## Voir aussi
-- [seo-content.md](seo-content.md) — optimisation du copy pour le référencement
-- [newsletter-email.md](newsletter-email.md) — application au copy email
-- [content-strategy.md](content-strategy.md) — copy au service de la stratégie de contenu
-- [storytelling-ia.md](storytelling-ia.md) — narration persuasive (≠ argumentaire direct)
+## See also
+- [seo-content.md](seo-content.md) — optimizing copy for search ranking
+- [newsletter-email.md](newsletter-email.md) — applied to email copy
+- [content-strategy.md](content-strategy.md) — copy in service of content strategy
+- [storytelling-ia.md](storytelling-ia.md) — persuasive narrative (≠ direct pitch)

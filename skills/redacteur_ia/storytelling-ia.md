@@ -1,100 +1,100 @@
-# Skill — Storytelling & Narration IA
-> Certifications : Copyblogger Content Marketing · HubSpot Content Marketing
+# Skill — AI Storytelling & Narrative
+> Certifications: Copyblogger Content Marketing · HubSpot Content Marketing
 
-## Objectif
-Construire des récits captivants qui donnent vie aux données, aux cas clients et aux transformations pour convaincre et inspirer.
+## Objective
+Build captivating narratives that bring data, client cases, and transformations to life to convince and inspire.
 
-## Les structures narratives fondamentales
+## Fundamental narrative structures
 
-### Le Voyage du Héros (Joseph Campbell, *The Hero with a Thousand Faces*, 1949)
+### The Hero's Journey (Joseph Campbell, *The Hero with a Thousand Faces*, 1949)
 ```
-1. Monde ordinaire   → Situation initiale du personnage
-2. Appel à l'aventure → Le problème / défi
-3. Refus de l'appel  → Les doutes, obstacles
-4. Mentor            → La solution / l'aide (votre produit/service)
-5. Épreuves          → Les difficultés surmontées
-6. Transformation    → Le résultat obtenu
-7. Retour victorieux → La vie après la transformation
-```
-
-### La Structure en 3 Actes (business)
-```
-Acte 1 — Avant : Contexte + problème douloureux
-Acte 2 — Pendant : Le chemin parcouru, les défis
-Acte 3 — Après : Les résultats, la transformation
+1. Ordinary world    → The character's initial situation
+2. Call to adventure → The problem / challenge
+3. Refusal of call   → Doubts, obstacles
+4. Mentor            → The solution / help (your product/service)
+5. Trials            → The difficulties overcome
+6. Transformation    → The result achieved
+7. Victorious return → Life after the transformation
 ```
 
-### Le Format "Star-Story-Solution"
+### The 3-act structure (business)
 ```
-Star     → Le personnage (client, équipe, entreprise)
-Story    → Le défi rencontré (avec détails concrets)
-Solution → Comment le problème a été résolu + résultats
-```
-
-## Storytelling IA appliqué — cas d'usage
-
-### Cas client / Témoignage
-```
-"[Client] est [description + contexte].
-Ils faisaient face à [problème précis et douloureux].
-En [durée], grâce à [solution], ils ont [résultat quantifié].
-[Citation du client si possible]"
+Act 1 — Before: Context + painful problem
+Act 2 — During: The journey traveled, the challenges
+Act 3 — After: The results, the transformation
 ```
 
-### Présentation d'une initiative IA
+### The "Star-Story-Solution" format
 ```
-"Il y a [X mois], notre équipe [situation initiale].
-Le problème : [pain point coûteux].
-Nous avons décidé de [initiative IA].
-Les résultats : [métriques avant / après]."
-```
-
-## Prompt storytelling IA
-```
-"Écris un [cas client / post / présentation] en utilisant
-la structure [Héros / 3 actes / Star-Story-Solution].
-Personnage principal : [client / équipe / directeur].
-Problème : [pain point précis].
-Solution : [ce qui a été mis en place].
-Résultats : [métriques, bénéfices].
-Ton : [inspirant / factuel / émotionnel].
-Longueur : [X mots]."
+Star     → The character (client, team, company)
+Story    → The challenge faced (with concrete details)
+Solution → How the problem was solved + results
 ```
 
-## Éléments qui rendent une histoire mémorable
-| Élément | Description | Exemple |
+## Applied AI storytelling — use cases
+
+### Client case / Testimonial
+```
+"[Client] is [description + context].
+They faced [a precise, painful problem].
+In [duration], thanks to [solution], they [quantified result].
+[Client quote if possible]"
+```
+
+### Presenting an AI initiative
+```
+"[X months] ago, our team [initial situation].
+The problem: [costly pain point].
+We decided to [AI initiative].
+The results: [before / after metrics]."
+```
+
+## AI storytelling prompt
+```
+"Write a [client case / post / presentation] using
+the [Hero / 3-act / Star-Story-Solution] structure.
+Main character: [client / team / director].
+Problem: [precise pain point].
+Solution: [what was put in place].
+Results: [metrics, benefits].
+Tone: [inspiring / factual / emotional].
+Length: [X words]."
+```
+
+## Elements that make a story memorable
+| Element | Description | Example |
 |---|---|---|
-| **Détail sensoriel** | Ancre dans le réel | "Le lundi matin, 200 emails à traiter" |
-| **Chiffre précis** | Crédibilité | "47% de réduction" > "forte réduction" |
-| **Tension** | Maintient l'attention | "Mais en semaine 3, tout s'est arrêté." |
-| **Transformation** | Donne du sens | "Aujourd'hui, l'équipe gère 3x plus de clients" |
-| **Citation** | Authenticité | "[Citation directe du client]" |
+| **Sensory detail** | Anchors in reality | "Monday morning, 200 emails to handle" |
+| **Precise number** | Credibility | "47% reduction" > "big reduction" |
+| **Tension** | Holds attention | "But in week 3, everything stopped." |
+| **Transformation** | Gives meaning | "Today, the team handles 3x more clients" |
+| **Quote** | Authenticity | "[Direct client quote]" |
 
-## Livrables
-- Cas client structuré (format web + PDF)
-- Pitch deck narratif (10 slides, arc storytelling)
-- Post LinkedIn storytelling (15-20 lignes)
-- Script vidéo / témoignage (2-3 minutes)
+## Deliverables
+- Structured client case (web + PDF format)
+- Narrative pitch deck (10 slides, storytelling arc)
+- LinkedIn storytelling post (15-20 lines)
+- Video / testimonial script (2-3 minutes)
 
-## Format de sortie
-Précise : type de support · personnage principal · problème · solution · résultats · audience · ton · longueur
+## Output format
+Specify: medium type · main character · problem · solution · results · audience · tone · length
 
 ## Anti-patterns
-- ❌ **Héros = l'entreprise** — se mettre en personnage principal au lieu du client → le lecteur ne se projette pas. Le client est le héros, vous êtes le mentor.
-- ❌ **Chiffres inventés pour l'effet** — « 47 % de réduction » sans donnée réelle → mensonge dès qu'on creuse. Tout chiffre de cas client doit être réel et anonymisé.
-- ❌ **Histoire sans tension** — récit linéaire sans obstacle → ennuyeux, non mémorable. La tension maintient l'attention.
-- ❌ **Storytelling au lieu de preuve** — narration qui masque l'absence de résultats → décrédibilisation auprès d'un public exigeant.
-- ❌ **Détails non pertinents** — surcharge descriptive qui dilue le message → garder ce qui sert l'arc et la transformation.
+- ❌ **Hero = the company** — casting yourself as the main character instead of the client → the reader can't picture themselves. The client is the hero, you are the mentor.
+- ❌ **Numbers invented for effect** — "47% reduction" with no real data → a lie as soon as anyone digs. Every client-case number must be real and anonymized.
+- ❌ **Story with no tension** — a linear narrative with no obstacle → boring, unmemorable. Tension holds attention.
+- ❌ **Storytelling instead of proof** — a narrative that masks the absence of results → loss of credibility with a demanding audience.
+- ❌ **Irrelevant details** — descriptive overload that dilutes the message → keep what serves the arc and the transformation.
 
 ## Sources
-- **Joseph Campbell** — *The Hero with a Thousand Faces* (1949, rév. 1968) — monomythe / voyage du héros
-- **Donald Miller** — *Building a StoryBrand* (HarperCollins, 2017) — le client héros, la marque guide
-- **Nancy Duarte** — *Resonate* (Wiley, 2010) — structure narrative des présentations
-- **Edward Tufte** — *The Visual Display of Quantitative Information* (1983, 2ᵉ éd. 2001) — donner vie aux données sans les trahir
-- **Chip & Dan Heath** — *Made to Stick* (Random House, 2007) — principe SUCCES de mémorabilité
+- **Joseph Campbell** — *The Hero with a Thousand Faces* (1949, rev. 1968) — monomyth / hero's journey
+- **Donald Miller** — *Building a StoryBrand* (HarperCollins, 2017) — the client as hero, the brand as guide
+- **Nancy Duarte** — *Resonate* (Wiley, 2010) — narrative structure of presentations
+- **Edward Tufte** — *The Visual Display of Quantitative Information* (1983, 2nd ed. 2001) — bringing data to life without betraying it
+- **Chip & Dan Heath** — *Made to Stick* (Random House, 2007) — SUCCESs principle of memorability
 
-## Voir aussi
-- [presentation-pitch.md](presentation-pitch.md) — arc narratif appliqué au deck
-- [copywriting-ia.md](copywriting-ia.md) — persuasion et preuve sociale
-- [linkedin-thought-leadership.md](linkedin-thought-leadership.md) — posts en storytelling
-- [`../ux_design/storytelling-stakeholders.md`](../ux_design/storytelling-stakeholders.md) — narration data-driven (Tufte)
+## See also
+- [presentation-pitch.md](presentation-pitch.md) — narrative arc applied to the deck
+- [copywriting-ia.md](copywriting-ia.md) — persuasion and social proof
+- [linkedin-thought-leadership.md](linkedin-thought-leadership.md) — storytelling posts
+- [`../ux_design/storytelling-stakeholders.md`](../ux_design/storytelling-stakeholders.md) — data-driven storytelling (Tufte)

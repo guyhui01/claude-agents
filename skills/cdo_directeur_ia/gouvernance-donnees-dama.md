@@ -1,18 +1,18 @@
-# Skill — Gouvernance des Données (DAMA DMBOK v2)
+# Skill — Data Governance (DAMA DMBOK v2)
 
-> Certifications : CDMP Associate/Practitioner (DAMA International) 2026, Data Governance Professional (DGSP), ISO/IEC 38505 Data Governance
+> Certifications: CDMP Associate/Practitioner (DAMA International) 2026, Data Governance Professional (DGSP), ISO/IEC 38505 Data Governance
 
-## Objectif
+## Objective
 
-Concevoir et déployer un programme de gouvernance des données aligné sur le référentiel DAMA DMBOK v2, en couvrant les 11 disciplines, le modèle de stewardship et l'évaluation de maturité.
+Design and roll out a data governance program aligned with the DAMA DMBOK v2 framework, covering the 11 disciplines, the stewardship model, and maturity assessment.
 
-## Les 11 disciplines DAMA DMBOK v2
+## The 11 DAMA DMBOK v2 disciplines
 
-### Roue DAMA — Vue d'ensemble
+### DAMA wheel — Overview
 
 ```
                     [Data Governance]
-                         (Centre)
+                        (Center)
     ┌─────────────────────┼─────────────────────┐
     │                     │                     │
 [Data Architecture]  [Data Modeling]  [Data Storage & Ops]
@@ -21,110 +21,110 @@ Concevoir et déployer un programme de gouvernance des données aligné sur le r
 [Metadata Management]  [Data Quality]
 ```
 
-### Tableau des disciplines par priorité de déploiement
+### Disciplines table by deployment priority
 
-| Priorité | Discipline | Livrables clés | Outils 2026 |
+| Priority | Discipline | Key deliverables | 2026 tools |
 |----------|-----------|----------------|-------------|
-| 1 | Data Governance | Charte, RACI, politiques | Collibra, Atlan |
+| 1 | Data Governance | Charter, RACI, policies | Collibra, Atlan |
 | 2 | Data Quality | DQ Rules, scorecards | Great Expectations, Soda |
-| 3 | Metadata Management | Data Catalogue | DataHub, Alation |
+| 3 | Metadata Management | Data Catalog | DataHub, Alation |
 | 4 | Reference & Master Data | MDM Hub, Golden Record | Informatica MDM, Reltio |
 | 5 | Data Security | Classification, masking | Privacera, Immuta |
-| 6 | Data Architecture | Blueprints, modèles logiques | dbt, Erwin |
+| 6 | Data Architecture | Blueprints, logical models | dbt, Erwin |
 
-## Modèle opérationnel de gouvernance
+## Governance operating model
 
-### Structure de stewardship
+### Stewardship structure
 
 ```yaml
-Niveaux_de_gouvernance:
-  Stratégique:
-    instance: "Data Governance Council (DGC)"
-    membres: ["CDO", "DSI", "DG", "DPO", "Directeurs Métiers"]
-    fréquence: "Trimestrielle"
-    missions: ["Politique globale", "Arbitrages", "Budget"]
+Governance_levels:
+  Strategic:
+    body: "Data Governance Council (DGC)"
+    members: ["CDO", "CIO", "CEO", "DPO", "Business Heads"]
+    frequency: "Quarterly"
+    missions: ["Global policy", "Trade-offs", "Budget"]
 
-  Tactique:
-    instance: "Data Stewardship Committee"
-    membres: ["Data Stewards par domaine", "Data Architects", "Data Quality Manager"]
-    fréquence: "Mensuelle"
-    missions: ["Standards", "Résolution conflits", "KPIs qualité"]
+  Tactical:
+    body: "Data Stewardship Committee"
+    members: ["Data Stewards by domain", "Data Architects", "Data Quality Manager"]
+    frequency: "Monthly"
+    missions: ["Standards", "Conflict resolution", "Quality KPIs"]
 
-  Opérationnel:
-    instance: "Data Stewards réseau"
-    membres: ["1 Data Steward par domaine métier"]
-    fréquence: "Continue"
-    missions: ["Validation données", "Définition métier", "Incidents qualité"]
+  Operational:
+    body: "Data Stewards network"
+    members: ["1 Data Steward per business domain"]
+    frequency: "Continuous"
+    missions: ["Data validation", "Business definition", "Quality incidents"]
 ```
 
-### RACI type pour la gouvernance des données
+### Typical RACI for data governance
 
-| Activité | CDO | Data Steward | Data Owner | Data Engineer | DPO |
+| Activity | CDO | Data Steward | Data Owner | Data Engineer | DPO |
 |----------|-----|-------------|------------|---------------|-----|
-| Définir politique données | A | C | C | I | C |
-| Valider définitions métier | I | R | A | I | I |
-| Gérer incidents qualité | I | R | A | R | I |
-| Classifier données sensibles | C | R | I | I | A |
-| Publier dans le catalogue | I | R | C | R | I |
+| Define data policy | A | C | C | I | C |
+| Validate business definitions | I | R | A | I | I |
+| Manage quality incidents | I | R | A | R | I |
+| Classify sensitive data | C | R | I | I | A |
+| Publish to the catalog | I | R | C | R | I |
 
 **R=Responsible, A=Accountable, C=Consulted, I=Informed**
 
-### Modèle de maturité DMM (CMMI for Data Management)
+### DMM maturity model (CMMI for Data Management)
 
-| Niveau | Score | Description | Indicateurs |
+| Level | Score | Description | Indicators |
 |--------|-------|-------------|-------------|
-| 1 — Initial | 0-1 | Ad hoc, réactif | Pas de politiques formelles |
-| 2 — Géré | 1-2 | Pratiques locales | Quelques stewards nommés |
-| 3 — Défini | 2-3 | Processus standardisés | Catalogue peuplé, DQ mesurée |
-| 4 — Mesuré | 3-4 | Indicateurs pilotés | SLA données, tableau de bord |
-| 5 — Optimisé | 4-5 | Amélioration continue | IA au service de la gouvernance |
+| 1 — Initial | 0-1 | Ad hoc, reactive | No formal policies |
+| 2 — Managed | 1-2 | Local practices | A few stewards appointed |
+| 3 — Defined | 2-3 | Standardized processes | Catalog populated, DQ measured |
+| 4 — Measured | 3-4 | Metrics-driven | Data SLAs, dashboard |
+| 5 — Optimized | 4-5 | Continuous improvement | AI serving governance |
 
-## Mise en oeuvre : plan de déploiement 12 mois
+## Implementation: 12-month deployment plan
 
 ```
-Mois 1-3   : Diagnostic DMM + design organisationnel
-Mois 4-6   : Nommer Data Owners/Stewards + charte de gouvernance
-Mois 7-9   : Déployer data catalogue + premières DQ rules
-Mois 10-12 : MDM pilote (domaine client) + tableau de bord gouvernance
+Months 1-3   : DMM diagnostic + organizational design
+Months 4-6   : Appoint Data Owners/Stewards + governance charter
+Months 7-9   : Deploy data catalog + first DQ rules
+Months 10-12 : Pilot MDM (customer domain) + governance dashboard
 ```
 
-### Politique de qualité des données — exemple
+### Data quality policy — example
 
 ```python
-# Great Expectations — exemple de suite de règles DQ
+# Great Expectations — example DQ rule suite
 import great_expectations as gx
 
 context = gx.get_context()
-suite = context.add_expectation_suite("clients_golden_record")
+suite = context.add_expectation_suite("customers_golden_record")
 
-# Complétude
+# Completeness
 suite.add_expectation(gx.expectations.ExpectColumnValuesToNotBeNull(
-    column="client_id", meta={"criticite": "BLOQUANTE"}))
+    column="customer_id", meta={"criticality": "BLOCKING"}))
 
-# Unicité
+# Uniqueness
 suite.add_expectation(gx.expectations.ExpectColumnValuesToBeUnique(
-    column="siret", meta={"criticite": "BLOQUANTE"}))
+    column="siret", meta={"criticality": "BLOCKING"}))
 
 # Format
 suite.add_expectation(gx.expectations.ExpectColumnValuesToMatchRegex(
     column="email", regex=r"^[\w.-]+@[\w.-]+\.\w{2,}$"))
 
-# Fraîcheur
+# Freshness
 suite.add_expectation(gx.expectations.ExpectColumnValuesToBeBetween(
-    column="date_maj", min_value="2024-01-01",
-    meta={"criticite": "MAJEURE"}))
+    column="last_update", min_value="2024-01-01",
+    meta={"criticality": "MAJOR"}))
 ```
 
-## Livrables
+## Deliverables
 
-- Charte de gouvernance des données (politique + principes)
-- Organigramme de gouvernance avec fiches de rôle Data Owner / Steward
-- Cartographie des domaines data avec responsables
-- Glossaire métier (data catalogue peuplé — 100 termes minimum)
-- Framework de qualité des données (dimensions, règles, SLA)
-- Tableau de bord de gouvernance (métriques DAMA par discipline)
-- Plan de déploiement 12 mois avec jalons et ressources
+- Data governance charter (policy + principles)
+- Governance org chart with Data Owner / Steward role sheets
+- Data-domain mapping with owners
+- Business glossary (populated data catalog — 100 terms minimum)
+- Data quality framework (dimensions, rules, SLAs)
+- Governance dashboard (DAMA metrics per discipline)
+- 12-month deployment plan with milestones and resources
 
-## Format de sortie
+## Output format
 
-Précise : **périmètre organisationnel** (tous domaines ou domaine pilote), **secteur** (réglementations applicables : RGPD, secteur financier, santé), **outils data existants** (catalogue, MDM, qualité), **nombre de domaines métier**, **niveau de maturité actuel** (1-5 DMM), **budget alloué à la gouvernance**.
+Specify: **organizational scope** (all domains or a pilot domain), **sector** (applicable regulations: GDPR, financial sector, health), **existing data tools** (catalog, MDM, quality), **number of business domains**, **current maturity level** (1-5 DMM), **budget allocated to governance**.

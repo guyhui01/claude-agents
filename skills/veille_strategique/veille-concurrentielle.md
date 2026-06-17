@@ -1,96 +1,96 @@
-# Skill — Veille Concurrentielle et Analyse de Marché
-> Certifications : SIC (SCIP — Strategic Consortium of Intelligence Professionals), PMI-PBA (PMI)
+# Skill — Competitive Intelligence and Market Analysis
+> Certifications: SIC (SCIP — Strategic Consortium of Intelligence Professionals), PMI-PBA (PMI)
 
-## Objectif
-Analyser le positionnement concurrentiel sur le marché du conseil IA et de la transformation digitale — acteurs, offres, tarifs, différenciation — pour affiner le positionnement de Guy HUI-BON-HOA et identifier les opportunités de missions.
+## Objective
+Analyze competitive positioning in the AI consulting and digital transformation market — players, offerings, pricing, differentiation — to sharpen Guy HUI-BON-HOA's positioning and identify engagement opportunities.
 
-## Carte des acteurs — Conseil IA France
+## Player map — AI consulting France
 
 ```
-TIER 1 — Grands Cabinets (> 10 000 consultants)
+TIER 1 — Large Firms (> 10,000 consultants)
 ─────────────────────────────────────────────────
-Accenture AI         : Practice IA mature, offre GenAI forte
-McKinsey QuantumBlack: Haut de gamme, CAC40
-Capgemini Invent     : Fort positionnement IA appliquée
-IBM Consulting       : WatsonX, IA industrielle
+Accenture AI         : Mature AI practice, strong GenAI offering
+McKinsey QuantumBlack: High-end, CAC40
+Capgemini Invent     : Strong applied-AI positioning
+IBM Consulting       : WatsonX, industrial AI
 
-TIER 2 — Cabinets Mid-Market
+TIER 2 — Mid-Market Firms
 ─────────────────────────────────────────────────
-Wavestone            : Transformation digitale, IA gouvernance
-Sopra Steria         : IA applicative, secteur public
-Devoteam             : Cloud + IA, certifications Google/MS
+Wavestone            : Digital transformation, AI governance
+Sopra Steria         : Applied AI, public sector
+Devoteam             : Cloud + AI, Google/MS certifications
 
-TIER 3 — Indépendants / Boutiques IA (OPPORTUNITÉ)
+TIER 3 — Independents / AI Boutiques (OPPORTUNITY)
 ─────────────────────────────────────────────────
-Freelances spécialisés IA
-ESN en portage (Malt, Comet)
-Boutiques GenAI < 50 personnes
+AI-specialized freelancers
+IT services firms via umbrella (Malt, Comet)
+GenAI boutiques < 50 people
 ```
 
-## Analyse des 5 forces de Porter — Marché conseil IA
+## Porter's 5 forces analysis — AI consulting market
 
 ```
-RIVALITÉ INTERNE       : forte (grands cabinets + ESN + freelances spécialisés)
-NOUVEAUX ENTRANTS      : élevés (barrière à l'entrée faible côté freelance GenAI)
-POUVOIR CLIENTS        : fort (grands comptes négocient TJM, exigent références)
-POUVOIR FOURNISSEURS   : modéré (dépendance aux éditeurs LLM : Anthropic/OpenAI/Google)
-PRODUITS SUBSTITUTS    : montants (plateformes no-code, agents IA internalisés)
-→ Implication : se différencier par l'expertise rare (PO + IA + Change) et les références.
+INTERNAL RIVALRY       : strong (large firms + IT services firms + specialized freelancers)
+NEW ENTRANTS           : high (low entry barrier on the GenAI freelance side)
+CUSTOMER POWER         : strong (large accounts negotiate day rates, require references)
+SUPPLIER POWER         : moderate (dependence on LLM vendors: Anthropic/OpenAI/Google)
+SUBSTITUTE PRODUCTS    : rising (no-code platforms, in-housed AI agents)
+→ Implication: differentiate through rare expertise (PO + AI + Change) and references.
 ```
-> Cadre : **Porter, « How Competitive Forces Shape Strategy », HBR 1979**. Compléter au besoin par **SWOT** (forces/faiblesses internes × opportunités/menaces externes) et **PESTEL** (macro-environnement, cf. `analyse-tendances.md`).
+> Framework: **Porter, "How Competitive Forces Shape Strategy," HBR 1979**. Complement as needed with **SWOT** (internal strengths/weaknesses × external opportunities/threats) and **PESTEL** (macro-environment, see `analyse-tendances.md`).
 
-## Benchmark offres — Template
+## Offering benchmark — Template
 
-> ⚠️ **Fourchettes TJM indicatives** (ordres de grandeur, marché FR conseil IA) — **à actualiser** via baromètres Free-Work / Malt / Numeum avant tout usage commercial.
+> ⚠️ **Indicative day-rate ranges** (orders of magnitude, FR AI consulting market) — **to refresh** via Free-Work / Malt / Numeum barometers before any commercial use.
 
-| Acteur | Offre principale | Cible | TJM / Pricing | Différenciation | Menace |
+| Player | Main offering | Target | Day rate / Pricing | Differentiation | Threat |
 |---|---|---|---|---|---|
-| Grand cabinet (Tier 1) | GenAI@Scale | Grands comptes | TJM premium (haut de fourchette) | Industrialisation | Forte |
-| Cabinet mid-market (Tier 2) | IA Gouvernance | Banque, Assurance | TJM intermédiaire | RGPD, risques | Moyenne |
-| Freelance senior | IA agile, POC | PME / Scale-up | TJM marché | Flexibilité | Faible |
-| **Profil PO IA indépendant** | PO IA + Change IA | Grands comptes | TJM marché+ | **Certifié Anthropic + SAFe** | — |
+| Large firm (Tier 1) | GenAI@Scale | Large accounts | Premium day rate (top of range) | Industrialization | Strong |
+| Mid-market firm (Tier 2) | AI Governance | Banking, Insurance | Mid day rate | GDPR, risks | Medium |
+| Senior freelancer | Agile AI, POC | SME / Scale-up | Market day rate | Flexibility | Low |
+| **Independent AI PO profile** | AI PO + AI Change | Large accounts | Market+ day rate | **Anthropic + SAFe certified** | — |
 
-## Analyse différenciation — Matrice
+## Differentiation analysis — Matrix
 
 ```
-AVANTAGES CONCURRENTIELS GUY HUI-BON-HOA
+GUY HUI-BON-HOA'S COMPETITIVE ADVANTAGES
 ────────────────────────────────────────────────────────────
-✅ Triple expertise rare : PO Agile + IA générative + Change
-✅ Certifié Anthropic Claude Code in Action 2026
-✅ Certifié SAFe 6 — adapté aux contextes ART CAC40
-✅ 20 ans expérience CAC40 (telecom, luxe, finance, hôtellerie)
-✅ Vibe-coding et workflow IA : démo live possible
+✅ Rare triple expertise: Agile PO + generative AI + Change
+✅ Anthropic Claude Code in Action 2026 certified
+✅ SAFe 6 certified — suited to CAC40 ART contexts
+✅ 20 years of CAC40 experience (telecom, luxury, finance, hospitality)
+✅ Vibe-coding and AI workflow: live demo possible
 
-⚠ Points d'amélioration
-→ Visibilité LinkedIn insuffisante vs grands cabinets
-→ Pas encore de cas client IA documenté publiquement
-→ Positionnement "niche" à mieux valoriser
+⚠ Areas for improvement
+→ Insufficient LinkedIn visibility vs. large firms
+→ No publicly documented AI client case yet
+→ "Niche" positioning to better promote
 ```
 
-## Livrables
-- Carte des acteurs du marché conseil IA
-- Benchmark offres concurrentes
-- Analyse différenciation personnelle
-- Recommandations positionnement
+## Deliverables
+- Player map of the AI consulting market
+- Competitor offering benchmark
+- Personal differentiation analysis
+- Positioning recommendations
 
-## Format de sortie
-Précise : marché à analyser (conseil IA / transformation digitale / CMS / autre), segment cible (grands comptes / PME / public), critères de différenciation prioritaires.
+## Output format
+Specify: the market to analyze (AI consulting / digital transformation / CMS / other), the target segment (large accounts / SME / public), the priority differentiation criteria.
 
 ## Anti-patterns
-- ❌ **TJM / parts de marché chiffrés sans source ni date** — toujours fourchettes indicatives + baromètre cité.
-- ❌ **Carte des acteurs sans grille d'analyse** : lister les concurrents sans Porter/SWOT ne produit aucune décision.
-- ❌ **Biais de confirmation** : ne retenir que les signaux qui valident son positionnement.
-- ❌ **Veille concurrentielle = espionnage** : rester sur des sources ouvertes et éthiques (déontologie SCIP).
+- ❌ **Day rates / market shares quantified with no source or date** — always indicative ranges + cited barometer.
+- ❌ **Player map with no analysis grid**: listing competitors without Porter/SWOT produces no decision.
+- ❌ **Confirmation bias**: keeping only the signals that validate one's positioning.
+- ❌ **Competitive intelligence = espionage**: stay on open and ethical sources (SCIP code of ethics).
 
-## Voir aussi
-- [`analyse-tendances.md`](analyse-tendances.md) — PESTEL, volet macro
-- [`detection-signaux-faibles.md`](detection-signaux-faibles.md) — opportunités émergentes
-- `AGENT-CONSULTANT-IA.md` (`benchmark-solutions-ia`) — comparatif fournisseurs en mission
-- `AGENT-GROWTH-IA.md` — exécution acquisition (frontière : VEILLE = signal, GROWTH = action)
-- `AGENT-FINANCIAL-ANALYST.md` — analyse TCO/ROI (frontière : VEILLE = benchmark fonctionnel)
+## See also
+- [`analyse-tendances.md`](analyse-tendances.md) — PESTEL, macro aspect
+- [`detection-signaux-faibles.md`](detection-signaux-faibles.md) — emerging opportunities
+- `AGENT-CONSULTANT-IA.md` (`benchmark-solutions-ia`) — vendor comparison during an engagement
+- `AGENT-GROWTH-IA.md` — acquisition execution (boundary: VEILLE = signal, GROWTH = action)
+- `AGENT-FINANCIAL-ANALYST.md` — TCO/ROI analysis (boundary: VEILLE = functional benchmark)
 
 ## Sources
-- **Porter** : M. Porter, *How Competitive Forces Shape Strategy*, Harvard Business Review vol. 57 (mars-avril 1979) — prix McKinsey 1979
-- **SWOT** : analyse forces/faiblesses × opportunités/menaces (origine SRI/Stanford, années 1960-70)
-- **SCIP** — Strategic Consortium of Intelligence Professionals · scip.org (déontologie de l'intelligence économique)
-- **Baromètres TJM FR** : Free-Work, Malt, Numeum (à consulter pour chiffrage à jour)
+- **Porter**: M. Porter, *How Competitive Forces Shape Strategy*, Harvard Business Review vol. 57 (March-April 1979) — 1979 McKinsey Award
+- **SWOT**: internal strengths/weaknesses × opportunities/threats analysis (SRI/Stanford origin, 1960s-70s)
+- **SCIP** — Strategic Consortium of Intelligence Professionals · scip.org (competitive intelligence code of ethics)
+- **FR day-rate barometers**: Free-Work, Malt, Numeum (to consult for up-to-date pricing)

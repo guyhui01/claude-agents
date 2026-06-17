@@ -1,101 +1,101 @@
-# Skill — Documentation Technique IA
-> Certifications : Anthropic Claude Code in Action · Google Digital Marketing
+# Skill — AI Technical Documentation
+> Certifications: Anthropic Claude Code in Action · Google Digital Marketing
 
-## Objectif
-Produire une documentation technique claire, maintenable et accessible pour les développeurs, les utilisateurs et les équipes produit.
+## Objective
+Produce clear, maintainable, accessible technical documentation for developers, users, and product teams.
 
-## Types de documentation technique
-| Type | Audience | Objectif | Format |
+## Types of technical documentation
+| Type | Audience | Objective | Format |
 |---|---|---|---|
-| **README** | Développeurs | Installation + usage rapide | Markdown |
-| **API Docs** | Développeurs | Référence technique | OpenAPI / Swagger |
-| **User Guide** | Utilisateurs finaux | Utilisation pas à pas | Web / PDF |
-| **Architecture Doc** | Tech leads | Comprendre le système | C4 / diagrams |
-| **Runbook** | Ops / DevOps | Procédures opérationnelles | Markdown / Wiki |
-| **Release Notes** | Tous | Nouveautés par version | Markdown |
+| **README** | Developers | Installation + quick usage | Markdown |
+| **API Docs** | Developers | Technical reference | OpenAPI / Swagger |
+| **User Guide** | End users | Step-by-step usage | Web / PDF |
+| **Architecture Doc** | Tech leads | Understand the system | C4 / diagrams |
+| **Runbook** | Ops / DevOps | Operational procedures | Markdown / Wiki |
+| **Release Notes** | Everyone | What's new per version | Markdown |
 
-## Template README idéal
+## Ideal README template
 ```markdown
-# [Nom du projet]
-> [Description courte — 1 ligne]
+# [Project name]
+> [Short description — 1 line]
 
-## ✨ Fonctionnalités principales
+## ✨ Key features
 - Feature 1
 - Feature 2
 
-## 🚀 Installation rapide
+## 🚀 Quick install
 ```bash
-npm install nom-du-paquet
+npm install package-name
 ```
 
 ## 📖 Usage
 ```python
 from module import Class
-# exemple minimal fonctionnel
+# minimal working example
 ```
 
-## 📋 Prérequis
+## 📋 Prerequisites
 - Python 3.10+
 - Node.js 18+
 
 ## 🗺️ Roadmap
-- [ ] Feature à venir
+- [ ] Upcoming feature
 
-## 🤝 Contribuer
-[lien vers CONTRIBUTING.md]
+## 🤝 Contributing
+[link to CONTRIBUTING.md]
 
-## 📄 Licence
-[Licence du projet — ex. MIT, Apache-2.0, PolyForm-Noncommercial-1.0.0]
+## 📄 License
+[Project license — e.g. MIT, Apache-2.0, PolyForm-Noncommercial-1.0.0]
 ```
 
-## Prompt documentation technique IA
+## AI technical documentation prompt
 ```
-"Génère la documentation [type : README / API / guide utilisateur]
-pour [description du projet / composant / API].
-Audience : [développeurs juniors / seniors / utilisateurs finaux].
-Inclure :
-  - Description et objectif
-  - Prérequis et installation
-  - Exemples de code fonctionnels
-  - Cas d'usage fréquents
-  - Erreurs courantes et solutions
-Ton : [technique précis / accessible / pédagogique].
-Format : Markdown."
+"Generate the [type: README / API / user guide] documentation
+for [project / component / API description].
+Audience: [junior / senior developers / end users].
+Include:
+  - Description and objective
+  - Prerequisites and installation
+  - Working code examples
+  - Frequent use cases
+  - Common errors and solutions
+Tone: [precise technical / accessible / educational].
+Format: Markdown."
 ```
 
-## Bonnes pratiques documentation
-- **Docs as Code** : versionner la doc avec le code (même repo)
-- **Exemples > descriptions** : un exemple vaut 10 lignes d'explication
-- **Tests de la doc** : les exemples de code doivent tourner
-- **Docs vivantes** : mettre à jour à chaque release (CI/CD)
-- **Accessibilité** : structure H1/H2/H3 claire, alt text sur les images
+## Documentation best practices
+- **Docs as Code**: version the docs with the code (same repo)
+- **Examples > descriptions**: one example is worth 10 lines of explanation
+- **Docs testing**: code examples must run
+- **Living docs**: update on every release (CI/CD)
+- **Accessibility**: clear H1/H2/H3 structure, alt text on images
 
-## Livrables
-- README.md complet et structuré
-- Guide utilisateur (5-20 pages selon complexité)
-- Référence API (OpenAPI 3.0)
-- Changelog et release notes format standard
-- Runbook opérationnel (procédures de déploiement / incident)
+## Deliverables
+- Complete, structured README.md
+- User guide (5-20 pages depending on complexity)
+- API reference (OpenAPI 3.0)
+- Changelog and release notes in standard format
+- Operational runbook (deployment / incident procedures)
 
-## Format de sortie
-Précise : type de doc · projet/composant décrit · audience · niveau de détail · format de rendu (Markdown, HTML, PDF) · langage de code utilisé
+## Output format
+Specify: doc type · project/component described · audience · level of detail · output format (Markdown, HTML, PDF) · code language used
 
 ## Anti-patterns
-- ❌ **Doc désynchronisée du code** — documentation non versionnée avec le code → obsolète dès la release suivante. Appliquer *Docs as Code*.
-- ❌ **Descriptions sans exemples** — expliquer sans montrer → l'utilisateur ne sait pas démarrer. Un exemple exécutable vaut 10 lignes de prose.
-- ❌ **Exemples non testés** — snippets qui ne compilent pas → perte de confiance immédiate. Tester la doc en CI.
-- ❌ **Tout dans un seul README** — mélanger README, API, runbook, guide → illisible. Séparer par type et audience.
-- ❌ **Jargon non défini** — acronymes et termes maison non explicités → barrière pour les nouveaux arrivants.
+- ❌ **Docs out of sync with code** — documentation not versioned with the code → obsolete by the next release. Apply *Docs as Code*.
+- ❌ **Descriptions without examples** — explaining without showing → the user can't get started. A runnable example is worth 10 lines of prose.
+- ❌ **Untested examples** — snippets that don't compile → immediate loss of trust. Test the docs in CI.
+- ❌ **Everything in one README** — mixing README, API, runbook, guide → unreadable. Separate by type and audience.
+- ❌ **Undefined jargon** — acronyms and in-house terms not explained → a barrier for newcomers.
 
 ## Sources
-- **OpenAPI Initiative** — *OpenAPI Specification 3.x* (Linux Foundation) — référence API
-- **Simon Brown** — *The C4 Model for visualising software architecture* (c4model.com) — diagrammes d'architecture
-- **Write the Docs** — *Docs as Code* — documentation versionnée avec le code
-- **Daniele Procida** — *Diátaxis framework* (tutorials / how-to / reference / explanation) — typologie de la documentation
-- **WCAG 2.2** — W3C (octobre 2023) — accessibilité des contenus (structure, alt text)
+- **OpenAPI Initiative** — *OpenAPI Specification 3.x* (Linux Foundation) — API reference
+- **Simon Brown** — *The C4 Model for visualising software architecture* (c4model.com) — architecture diagrams
+- **Write the Docs** — *Docs as Code* — documentation versioned with the code
+- **Daniele Procida** — *Diátaxis framework* (tutorials / how-to / reference / explanation) — documentation typology
+- **WCAG 2.2** — W3C (October 2023) — content accessibility (structure, alt text)
 
-## Voir aussi
-- [redaction-rapport.md](redaction-rapport.md) — rédaction structurée hors contexte code
-- [ux-writing.md](ux-writing.md) — microcopy et messages d'erreur côté interface
-- [`../dev_typescript_ia/README.md`](../dev_typescript_ia/README.md) — skills développeur (consommateurs de la doc)
-- [`../prompt_engineer/system-prompt-design.md`](../prompt_engineer/system-prompt-design.md) — documentation de prompts/agents
+## See also
+- [redaction-rapport.md](redaction-rapport.md) — structured writing outside a code context
+- [ux-writing.md](ux-writing.md) — microcopy and error messages on the interface side
+- [`../dev_typescript_ia/README.md`](../dev_typescript_ia/README.md) — developer skills (consumers of the docs)
+- [`../prompt_engineer/system-prompt-design.md`](../prompt_engineer/system-prompt-design.md) — prompt/agent documentation

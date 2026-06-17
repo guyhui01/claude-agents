@@ -1,143 +1,143 @@
-# Skill — Contrats IA (développement, SaaS, DPA, clauses PI)
+# Skill — AI Contracts (development, SaaS, DPA, IP clauses)
 
-> Certifications : CIPP/E · LegalTech AI Certificate · DPO Certifié CNIL
-> Agent : AGENT-JURIDIQUE-IA.md
-> Référentiels : **RGPD UE 2016/679** (art. 28, 32) · **Directive (UE) 2016/943** (secret d'affaires) · **Code de la propriété intellectuelle** (art. L.111-1, L.112-1, L.122-6) · **AI Act UE 2024/1689** · clauses TDM (Directive 2019/790)
+> Certifications: CIPP/E · LegalTech AI Certificate · Certified DPO CNIL
+> Agent: AGENT-JURIDIQUE-IA.md
+> Frameworks: **GDPR EU 2016/679** (art. 28, 32) · **Directive (EU) 2016/943** (trade secrets) · **French IP Code (CPI)** (art. L.111-1, L.112-1, L.122-6) · **AI Act EU 2024/1689** · TDM clauses (Directive 2019/790)
 
-## Objectif
+## Objective
 
-Rédiger et négocier les **contrats liés aux projets IA** (développement, SaaS, licensing de modèles) et leurs clauses sensibles : propriété intellectuelle, DPA RGPD, anti-usage pour l'entraînement, indemnisation, SLA, réversibilité.
+Draft and negotiate the **contracts tied to AI projects** (development, SaaS, model licensing) and their sensitive clauses: intellectual property, GDPR DPA, anti-training use, indemnification, SLA, reversibility.
 
-> **Périmètre & frontière** : ce skill traite la **mécanique contractuelle**. Pour la **doctrine PI et la jurisprudence vérifiée** (outputs IA, TDM, affaires NYT/Andersen/Getty/Like Company/Thaler), voir [`propriete-intellectuelle-ia.md`](propriete-intellectuelle-ia.md) — source de vérité du domaine, à ne pas dupliquer ici.
+> **Scope & boundary**: this skill covers the **contractual mechanics**. For the **IP doctrine and verified case law** (AI outputs, TDM, NYT/Andersen/Getty/Like Company/Thaler cases), see [`propriete-intellectuelle-ia.md`](propriete-intellectuelle-ia.md) — the domain's source of truth, not to be duplicated here.
 
-## Cadre référentiels mobilisés
+## Frameworks mobilized
 
-| Sujet | Référentiel |
+| Topic | Framework |
 |---|---|
-| Sous-traitance de données | **RGPD art. 28** (DPA) + **art. 32** (sécurité) |
-| Protection du modèle | **Directive (UE) 2016/943** (secret d'affaires, art. 2) |
-| PI / droit d'auteur FR | **CPI** art. L.111-1, L.112-1, L.122-6 (logiciel) |
-| Conformité IA | **AI Act 2024/1689** (clause de conformité fournisseur) |
-| Données d'entraînement | **Directive (UE) 2019/790** art. 4 (TDM + opt-out) |
+| Data processing | **GDPR art. 28** (DPA) + **art. 32** (security) |
+| Model protection | **Directive (EU) 2016/943** (trade secrets, art. 2) |
+| IP / FR copyright | **CPI** art. L.111-1, L.112-1, L.122-6 (software) |
+| AI compliance | **AI Act 2024/1689** (provider compliance clause) |
+| Training data | **Directive (EU) 2019/790** art. 4 (TDM + opt-out) |
 
-## Types de contrats IA
+## Types of AI contracts
 
-### Contrat de développement IA
+### AI development contract
 ```
-Clauses essentielles :
-  1. Périmètre et livrables
-     → Spécifications fonctionnelles précises (lever l'ambiguïté sur "l'IA")
-     → Métriques de performance (accuracy, latence, disponibilité) + critères de recette
-  2. Propriété intellectuelle (cf. propriete-intellectuelle-ia.md pour la doctrine)
-     → Modèle entraîné : cession vs. licence ; poids (weights) ; datasets ; code source
-     → Clause d'améliorations futures
-  3. Données et RGPD
-     → Qualification des parties (responsable / sous-traitant) ; DPA (art. 28) obligatoire
-     → Localisation des données (UE) ; rétention et suppression
-  4. Garanties et responsabilités
-     → Garantie de conformité AI Act ; clause biais/discrimination
-     → Limitation de responsabilité sur les décisions IA ; indemnisation PI (infra)
-  5. Maintenance et évolution
-     → MCO (niveau de service) ; surveillance du model drift (qui surveille/corrige ?)
-     → Dépendance aux modèles fondateurs (ex. évolution d'une API tierce)
-```
-
-### Contrat SaaS IA (côté client) — points de vigilance
-```
-  ✓ DPA conforme RGPD (art. 28) + sous-processeurs listés
-  ✓ Localisation des données (UE si RGPD strict ; régions cloud documentées)
-  ✓ Portabilité et réversibilité à la résiliation
-  ✓ Droit d'audit et de contrôle
-  ✓ SLA de disponibilité chiffré (99,9% ≠ 99,5% — calcul du downtime annuel)
-  ✓ Politique de rétention / suppression
-  ✓ Modifications unilatérales des CGU (clause de notification + droit de sortie)
-  ✓ Usage des données client pour l'entraînement du modèle fournisseur → INTERDIT par défaut (clause infra)
-  ✓ Conformité AI Act du fournisseur (rôle, documentation)
+Essential clauses:
+  1. Scope and deliverables
+     → Precise functional specifications (resolve the ambiguity around "AI")
+     → Performance metrics (accuracy, latency, availability) + acceptance criteria
+  2. Intellectual property (see propriete-intellectuelle-ia.md for the doctrine)
+     → Trained model: assignment vs. license; weights; datasets; source code
+     → Future-improvements clause
+  3. Data and GDPR
+     → Party qualification (controller / processor); DPA (art. 28) mandatory
+     → Data location (EU); retention and deletion
+  4. Warranties and liability
+     → AI Act compliance warranty; bias/discrimination clause
+     → Liability limitation on AI decisions; IP indemnification (below)
+  5. Maintenance and evolution
+     → Ongoing maintenance (service level); model-drift monitoring (who monitors/fixes?)
+     → Dependency on foundation models (e.g. a third-party API evolving)
 ```
 
-## Propriété des modèles IA (résumé — détail dans `propriete-intellectuelle-ia.md`)
+### AI SaaS contract (client side) — points of vigilance
+```
+  ✓ GDPR-compliant DPA (art. 28) + listed sub-processors
+  ✓ Data location (EU if strict GDPR; documented cloud regions)
+  ✓ Portability and reversibility on termination
+  ✓ Audit and control right
+  ✓ Quantified availability SLA (99.9% ≠ 99.5% — annual downtime calculation)
+  ✓ Retention / deletion policy
+  ✓ Unilateral ToS changes (notification clause + exit right)
+  ✓ Use of client data to train the provider's model → PROHIBITED by default (clause below)
+  ✓ Provider's AI Act compliance (role, documentation)
+```
 
-| Élément | Protection privilégiée |
+## Ownership of AI models (summary — detail in `propriete-intellectuelle-ia.md`)
+
+| Element | Preferred protection |
 |---|---|
-| Code d'entraînement | Droit d'auteur logiciel (CPI art. L.122-6) |
-| **Poids du modèle** | **Secret d'affaires** (Directive 2016/943, art. 2 — 3 conditions cumulatives) ⭐ |
-| Datasets propriétaires | Droit *sui generis* bases de données (Dir. 96/9) + secret d'affaires |
-| Marque (nom du modèle) | Marque UE (Règl. 2017/1001) |
+| Training code | Software copyright (CPI art. L.122-6) |
+| **Model weights** | **Trade secret** (Directive 2016/943, art. 2 — 3 cumulative conditions) ⭐ |
+| Proprietary datasets | *Sui generis* database right (Dir. 96/9) + trade secret |
+| Trademark (model name) | EU trademark (Reg. 2017/1001) |
 
-**Outputs des LLM (droit d'auteur)** — position synthétique (détail + jurisprudence vérifiée → `propriete-intellectuelle-ia.md`) :
-- Un output **purement IA** n'est en principe pas protégeable (absence d'auteur humain — USCO 2023/2025, critère CJEU *Infopaq* C-5/08).
-- Un apport **créatif humain substantiel** peut ouvrir la protection (au cas par cas).
-- Litiges en cours sur l'entraînement (fair use US / TDM UE) : NYT v. OpenAI, Andersen, Getty UK, Like Company v. Google (CJUE C-250/25) → **veille active** indispensable.
+**LLM outputs (copyright)** — synthetic position (detail + verified case law → `propriete-intellectuelle-ia.md`):
+- A **purely AI** output is in principle not protectable (no human author — USCO 2023/2025, CJEU *Infopaq* C-5/08 criterion).
+- A **substantial human creative** contribution may open protection (case by case).
+- Pending litigation on training (US fair use / EU TDM): NYT v. OpenAI, Andersen, Getty UK, Like Company v. Google (CJEU C-250/25) → **active monitoring** is essential.
 
-> ⚠️ Ne pas affirmer une « position CJUE/EUIPO » figée : au-delà de l'arrêt *Infopaq*, il n'existe pas encore d'arrêt CJUE tranchant les outputs GenAI (Like Company C-250/25 en cours, audience 10 mars 2026). Toute clause s'appuie sur l'état du droit **daté** et la veille.
+> ⚠️ Do not assert a frozen "CJEU/EUIPO position": beyond *Infopaq*, there is not yet a CJEU ruling settling GenAI outputs (Like Company C-250/25 pending, hearing March 10, 2026). Any clause relies on the **dated** state of the law and on monitoring.
 
-## DPA (Data Processing Agreement) — clauses clés (RGPD art. 28)
+## DPA (Data Processing Agreement) — key clauses (GDPR art. 28)
 ```
-Clauses minimales (art. 28.3) :
-  1. Objet, durée, nature et finalité du traitement
-  2. Type de données + catégories de personnes
-  3. Obligations et droits du responsable de traitement
-  4. Sous-traitants ultérieurs (liste + autorisation préalable)
-  5. Transferts hors UE (clauses contractuelles types — CCT/SCC)
-  6. Mesures de sécurité (art. 32)
-  7. Assistance aux droits des personnes + notification de violation
-  8. Suppression / restitution en fin de contrat + droit d'audit
-```
-
-## Clauses stratégiques (templates)
-
-### Clause anti-usage pour l'entraînement
-```
-Le FOURNISSEUR s'interdit d'utiliser les données du CLIENT (inputs, outputs,
-conversations, prompts, logs) pour entraîner, fine-tuner ou améliorer tout
-modèle ou service, sauf accord écrit préalable. Interdiction étendue aux
-sous-traitants. Engagement de durée illimitée (post-contractuel inclus).
+Minimum clauses (art. 28.3):
+  1. Subject matter, duration, nature and purpose of the processing
+  2. Type of data + categories of individuals
+  3. Obligations and rights of the controller
+  4. Sub-processors (list + prior authorization)
+  5. Transfers outside the EU (standard contractual clauses — SCC)
+  6. Security measures (art. 32)
+  7. Assistance with individuals' rights + breach notification
+  8. Deletion / return at contract end + audit right
 ```
 
-### Clause d'indemnisation PI
+## Strategic clauses (templates)
+
+### Anti-training-use clause
 ```
-Le FOURNISSEUR garantit le CLIENT contre toute revendication de tiers relative
-à une violation de droits PI par l'usage conforme du Service (outputs inclus).
-Plafond à négocier (ex. 12-24 mois de fees). Exclusions : usage non conforme,
-fine-tuning non autorisé, outputs substantiellement modifiés par le CLIENT.
-→ Comparer les offres marché (Adobe Firefly, OpenAI Copyright Shield, Anthropic,
-  Microsoft Customer Copyright Commitment) — conditions et plafonds variables,
-  à vérifier dans les CGU à jour (cf. table DD dans propriete-intellectuelle-ia.md).
+The PROVIDER shall refrain from using the CLIENT's data (inputs, outputs,
+conversations, prompts, logs) to train, fine-tune, or improve any model
+or service, save prior written agreement. The prohibition extends to
+sub-processors. Commitment of unlimited duration (post-contractual included).
+```
+
+### IP indemnification clause
+```
+The PROVIDER indemnifies the CLIENT against any third-party claim relating
+to an IP infringement arising from compliant use of the Service (outputs included).
+Cap to be negotiated (e.g. 12-24 months of fees). Exclusions: non-compliant use,
+unauthorized fine-tuning, outputs substantially modified by the CLIENT.
+→ Compare market offers (Adobe Firefly, OpenAI Copyright Shield, Anthropic,
+  Microsoft Customer Copyright Commitment) — terms and caps vary,
+  to be checked in the current ToS (see DD table in propriete-intellectuelle-ia.md).
 ```
 
 ## Anti-patterns
 
-- ❌ **Clauses génériques fournisseur LLM** : pas de négociation anti-entraînement ni d'indemnisation PI = risque maximal
-- ❌ **Pas de DPA** alors qu'il y a sous-traitance de données personnelles (violation RGPD art. 28)
-- ❌ **SLA sans calcul du downtime** : « 99,9% » et « 99,5% » = ~8,8 h vs ~43,8 h d'indisponibilité/an
-- ❌ **Affirmer une jurisprudence figée non sourcée** (ex. « position CJUE/EUIPO 2025 ») : citer l'état daté + renvoyer à la veille
-- ❌ **Ignorer les modifications unilatérales de CGU** : prévoir notification + droit de sortie
-- ❌ **Confondre cession et licence** de la PI du modèle / des poids
-- ❌ **Oublier la clause de réversibilité** (export données + portabilité) à la résiliation
-- ❌ **Protéger les poids par brevet en UE** sans « effet technique » : préférer le secret d'affaires
+- ❌ **Generic LLM-provider clauses**: no anti-training negotiation or IP indemnification = maximum risk
+- ❌ **No DPA** when there is personal-data processing (GDPR art. 28 violation)
+- ❌ **SLA without downtime calculation**: "99.9%" and "99.5%" = ~8.8 h vs ~43.8 h of downtime/year
+- ❌ **Asserting frozen, unsourced case law** (e.g. "2025 CJEU/EUIPO position"): cite the dated state + refer to monitoring
+- ❌ **Ignoring unilateral ToS changes**: provide for notification + exit right
+- ❌ **Confusing assignment and license** of the model's / weights' IP
+- ❌ **Forgetting the reversibility clause** (data export + portability) on termination
+- ❌ **Protecting the weights by patent in the EU** with no "technical effect": prefer the trade secret
 
-## Livrables
-- Template contrat de développement IA (annoté)
-- Checklist due diligence SaaS IA
-- Template DPA conforme RGPD (art. 28)
-- Clause de conformité AI Act pour contrats fournisseurs
-- Clauses PI types (cession, anti-usage entraînement, indemnisation) — cohérentes avec `propriete-intellectuelle-ia.md`
+## Deliverables
+- AI development contract template (annotated)
+- AI SaaS due-diligence checklist
+- GDPR-compliant DPA template (art. 28)
+- AI Act compliance clause for provider contracts
+- Standard IP clauses (assignment, anti-training-use, indemnification) — consistent with `propriete-intellectuelle-ia.md`
 
-## Format de sortie
-Précise : type de contrat · parties (client/prestataire/SaaS) · données traitées · pays d'opération · enjeux PI prioritaires · délai de négociation.
+## Output format
+Specify: contract type · parties (client/provider/SaaS) · data processed · countries of operation · priority IP stakes · negotiation timeframe.
 
 ## Sources
-- **RGPD** — Règlement (UE) 2016/679, art. 28 (sous-traitance/DPA), art. 32 (sécurité) — eur-lex.europa.eu
-- **Directive (UE) 2016/943** du 8 juin 2016 — protection du secret d'affaires (art. 2, 3 conditions)
-- **Code de la propriété intellectuelle** (FR) — art. L.111-1, L.112-1, L.122-6 (logiciels), L.341-1 (bases de données sui generis)
-- **Directive (UE) 2019/790** (DSM) — art. 4 TDM commercial + opt-out
-- **AI Act** — Règlement (UE) 2024/1689 (clause de conformité fournisseur, art. 50/53)
-- **Règlement (UE) 2017/1001** — marque de l'Union européenne
-- Jurisprudence et doctrine PI détaillées → [`propriete-intellectuelle-ia.md`](propriete-intellectuelle-ia.md) (sources vérifiées)
+- **GDPR** — Regulation (EU) 2016/679, art. 28 (processing/DPA), art. 32 (security) — eur-lex.europa.eu
+- **Directive (EU) 2016/943** of June 8, 2016 — trade-secret protection (art. 2, 3 conditions)
+- **French Intellectual Property Code** — art. L.111-1, L.112-1, L.122-6 (software), L.341-1 (sui generis databases)
+- **Directive (EU) 2019/790** (DSM) — art. 4 commercial TDM + opt-out
+- **AI Act** — Regulation (EU) 2024/1689 (provider compliance clause, art. 50/53)
+- **Regulation (EU) 2017/1001** — European Union trademark
+- Detailed IP case law and doctrine → [`propriete-intellectuelle-ia.md`](propriete-intellectuelle-ia.md) (verified sources)
 
-## Voir aussi
-- [`propriete-intellectuelle-ia.md`](propriete-intellectuelle-ia.md) — **doctrine PI & jurisprudence IA** (source de vérité, complément indispensable)
-- [`rgpd-ia.md`](rgpd-ia.md) — RGPD appliqué à l'IA (bases légales, droits des personnes)
-- [`ai-act-conformite.md`](ai-act-conformite.md) — obligations AI Act à refléter dans les clauses
-- [`dpia-systemes-ia.md`](dpia-systemes-ia.md) — DPIA (déclenchée par certains traitements contractualisés)
-- [`../consultant_ia/benchmark-solutions-ia.md`](../consultant_ia/benchmark-solutions-ia.md) — due diligence fournisseurs LLM (TCO, clauses)
+## See also
+- [`propriete-intellectuelle-ia.md`](propriete-intellectuelle-ia.md) — **IP doctrine & AI case law** (source of truth, essential complement)
+- [`rgpd-ia.md`](rgpd-ia.md) — GDPR applied to AI (legal bases, individuals' rights)
+- [`ai-act-conformite.md`](ai-act-conformite.md) — AI Act obligations to reflect in the clauses
+- [`dpia-systemes-ia.md`](dpia-systemes-ia.md) — DPIA (triggered by certain contracted processing)
+- [`../consultant_ia/benchmark-solutions-ia.md`](../consultant_ia/benchmark-solutions-ia.md) — LLM-provider due diligence (TCO, clauses)

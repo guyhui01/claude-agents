@@ -1,127 +1,127 @@
-# Skill — Politique IA d'Entreprise & Charte d'Utilisation
+# Skill — Enterprise AI Policy & Use Charter
 
-> Certifications : AI Act Compliance Expert · CIPP/E · CAP IABAC
-> Agent : AGENT-JURIDIQUE-IA.md
-> Référentiels : **AI Act UE 2024/1689** (art. 4 AI literacy, art. 5 interdits, art. 50 transparence) · **RGPD UE 2016/679** · **OECD AI Principles** · **NIST AI RMF 1.0** · Code du travail (consultation CSE)
+> Certifications: AI Act Compliance Expert · CIPP/E · CAP IABAC
+> Agent: AGENT-JURIDIQUE-IA.md
+> Frameworks: **AI Act EU 2024/1689** (art. 4 AI literacy, art. 5 prohibited, art. 50 transparency) · **GDPR EU 2016/679** · **OECD AI Principles** · **NIST AI RMF 1.0** · French Labor Code (Works Council consultation)
 
-## Objectif
+## Objective
 
-Rédiger la **politique IA** et la **charte d'utilisation de l'IA générative** d'une organisation : encadrer les usages, fixer les cas autorisés/interdits, définir les rôles et le processus de validation — en conformité AI Act + RGPD.
+Draft an organization's **AI policy** and **generative-AI use charter**: frame the uses, set permitted/prohibited cases, define roles and the validation process — in compliance with the AI Act + GDPR.
 
-## Cadre référentiels mobilisés
+## Frameworks mobilized
 
-| Sujet | Référentiel |
+| Topic | Framework |
 |---|---|
-| Cas interdits | **AI Act art. 5** (pratiques à risque inacceptable) |
-| Formation / AI literacy | **AI Act art. 4** (obligation depuis le 2 fév. 2025) |
-| Transparence (deepfakes, chatbots) | **AI Act art. 50** |
-| Données personnelles | **RGPD 2016/679** |
-| Valeurs / principes | **OECD AI Principles** · **NIST AI RMF** (GOVERN) |
-| Surveillance des salariés | **Code du travail** + consultation **CSE** (information-consultation) |
+| Prohibited cases | **AI Act art. 5** (unacceptable-risk practices) |
+| Training / AI literacy | **AI Act art. 4** (obligation since Feb. 2, 2025) |
+| Transparency (deepfakes, chatbots) | **AI Act art. 50** |
+| Personal data | **GDPR 2016/679** |
+| Values / principles | **OECD AI Principles** · **NIST AI RMF** (GOVERN) |
+| Employee monitoring | **French Labor Code** + **Works Council** consultation (information-consultation) |
 
-## Politique IA d'Entreprise — structure
+## Enterprise AI Policy — structure
 
 ```markdown
-# Politique d'Intelligence Artificielle — [Organisation]
-Version : 1.0 | Date : [Date] | Approuvé par : [CODIR / DG]
+# Artificial Intelligence Policy — [Organization]
+Version: 1.0 | Date: [Date] | Approved by: [Executive committee / CEO]
 
-## 1. Objet et périmètre
-Cadre d'utilisation, de développement et de déploiement des systèmes IA.
+## 1. Purpose and scope
+Framework for the use, development, and deployment of AI systems.
 
-## 2. Nos valeurs IA (alignées OECD AI Principles)
-- Transparente · Équitable · Responsable (humain garant) · Conforme (AI Act, RGPD)
-- Durable (empreinte environnementale mesurée)
+## 2. Our AI values (aligned with the OECD AI Principles)
+- Transparent · Fair · Accountable (human as guarantor) · Compliant (AI Act, GDPR)
+- Sustainable (measured environmental footprint)
 
-## 3. Cas d'usage autorisés
-✅ Automatisation de tâches répétitives (validation manager)
-✅ Assistance à la rédaction (revue humaine obligatoire)
-✅ Analyse de données (contrôle qualité)
-✅ Support client assisté (escalade humaine possible)
-✅ Personnalisation (avec base légale RGPD)
+## 3. Permitted use cases
+✅ Automation of repetitive tasks (manager validation)
+✅ Writing assistance (mandatory human review)
+✅ Data analysis (quality control)
+✅ Assisted customer support (human escalation possible)
+✅ Personalization (with a GDPR legal basis)
 
-## 4. Cas d'usage INTERDITS
-❌ Pratiques interdites par l'AI Act (art. 5 : notation sociale,
-   manipulation, reconnaissance d'émotions au travail/en éducation…)
-❌ Surveillance des salariés sans base légale ni consultation CSE
-❌ Décision RH entièrement automatisée (RGPD art. 22)
-❌ Deepfakes non marqués (AI Act art. 50)
-❌ Données personnelles/confidentielles dans des LLM publics non approuvés
+## 4. PROHIBITED use cases
+❌ Practices prohibited by the AI Act (art. 5: social scoring,
+   manipulation, emotion recognition at work/in education…)
+❌ Employee monitoring with no legal basis or Works Council consultation
+❌ Fully automated HR decision (GDPR art. 22)
+❌ Unmarked deepfakes (AI Act art. 50)
+❌ Personal/confidential data in unapproved public LLMs
 
-## 5. Processus de validation des projets IA
-1. Évaluation éthique (EIA) → 2. DPIA si données personnelles (RGPD art. 35)
-→ 3. Revue de conformité AI Act → 4. Validation Comité IA → 5. Revue sécurité (RSSI)
+## 5. AI project validation process
+1. Ethical assessment (EIA) → 2. DPIA if personal data (GDPR art. 35)
+→ 3. AI Act compliance review → 4. AI Committee validation → 5. Security review (CISO)
 
-## 6. Rôles et responsabilités (RACI)
-| Rôle | Responsabilité |
-| CDO/Dir. IA | Stratégie et conformité globale |
-| DPO | Conformité RGPD | RSSI | Sécurité des systèmes IA |
-| Managers | Validation des usages | Employés | Respect de la politique |
+## 6. Roles and responsibilities (RACI)
+| Role | Responsibility |
+| CDO/Head of AI | Strategy and overall compliance |
+| DPO | GDPR compliance | CISO | AI systems security |
+| Managers | Use validation | Employees | Compliance with the policy |
 
-## 7. Formation obligatoire (AI Act art. 4 — AI literacy)
-- "IA & RGPD : les essentiels" (2h) → tous
-- "Prompt Engineering responsable" (1h) → utilisateurs GenAI
-- "AI Act & conformité" (3h) → équipes data/IA/juridique
+## 7. Mandatory training (AI Act art. 4 — AI literacy)
+- "AI & GDPR: the essentials" (2h) → everyone
+- "Responsible Prompt Engineering" (1h) → GenAI users
+- "AI Act & compliance" (3h) → data/AI/legal teams
 
-## 8. Signalement et incidents
-Adresse dédiée + dispositif d'alerte (cohérent avec la procédure
-lanceurs d'alerte / loi Sapin 2).
+## 8. Reporting and incidents
+Dedicated address + alert mechanism (consistent with the
+whistleblower procedure / French Sapin 2 law).
 
-## 9. Révision
-Annuelle, ou à toute évolution réglementaire majeure (AI Act, guidance CNIL).
+## 9. Review
+Annual, or on any major regulatory change (AI Act, CNIL guidance).
 ```
 
-## Charte d'utilisation de l'IA Générative (employés)
+## Generative-AI Use Charter (employees)
 ```markdown
-# Charte IA Générative — l'essentiel
-✅ JE PEUX utiliser les outils IA approuvés (liste intranet)
-⚠️ JE DOIS relire et valider les outputs (je reste responsable)
-❌ JE NE DOIS PAS coller de données clients/confidentielles dans un LLM non approuvé
-⚠️ JE DOIS signaler tout output problématique (biais, erreur, contenu inapproprié)
-⚠️ JE DOIS mentionner "assisté par IA" sur les livrables clients quand requis
-   (cohérence AI Act art. 50 + déontologie)
-✅ JE PEUX proposer de nouveaux cas d'usage via le portail IA
+# GenAI Charter — the essentials
+✅ I MAY use approved AI tools (intranet list)
+⚠️ I MUST review and validate the outputs (I remain accountable)
+❌ I MUST NOT paste client/confidential data into an unapproved LLM
+⚠️ I MUST report any problematic output (bias, error, inappropriate content)
+⚠️ I MUST mention "AI-assisted" on client deliverables when required
+   (consistent with AI Act art. 50 + professional ethics)
+✅ I MAY propose new use cases via the AI portal
 ```
 
-## Exemple sectoriel — ETI industrielle (déploiement GenAI interne)
+## Sector example — industrial mid-market company (internal GenAI rollout)
 
-| Élément | Choix de politique |
+| Element | Policy choice |
 |---|---|
-| Outils approuvés | Copilot M365 + Claude (via API entreprise), ChatGPT public interdit pour données internes |
-| Cas interdit clé | Tri RH 100% auto (art. 22) + surveillance production salariés sans CSE (art. 5 émotions) |
-| AI literacy | Module 2h obligatoire (art. 4) déployé avant ouverture des accès |
-| Gouvernance | Comité IA trimestriel, gate de validation des nouveaux cas d'usage |
-| Transparence | Mention "assisté par IA" sur documents clients ; chatbot support signalé (art. 50) |
+| Approved tools | Copilot M365 + Claude (via enterprise API), public ChatGPT prohibited for internal data |
+| Key prohibited case | 100% automated HR screening (art. 22) + employee production monitoring without Works Council (art. 5 emotions) |
+| AI literacy | Mandatory 2h module (art. 4) rolled out before access is opened |
+| Governance | Quarterly AI Committee, validation gate for new use cases |
+| Transparency | "AI-assisted" mention on client documents; support chatbot flagged (art. 50) |
 
 ## Anti-patterns
 
-- ❌ **Politique sans gate de validation** : des principes affichés mais aucun contrôle réel des projets
-- ❌ **Citer « risque inacceptable » sans l'art. 5** : ancrer les interdits sur le texte
-- ❌ **Surveillance des salariés sans CSE** : risque prud'homal + sanction CNIL
-- ❌ **Oublier l'AI literacy (art. 4)** : obligation effective depuis le 2 fév. 2025
-- ❌ **Charte « copier-coller » non adaptée** au secteur (santé/finance/RH ont des contraintes propres)
-- ❌ **Interdire sans fournir d'alternative approuvée** : pousse au shadow AI
-- ❌ **Politique non révisée** alors que la réglementation évolue vite (AI Act, guidance CNIL)
+- ❌ **Policy with no validation gate**: principles displayed but no real control over projects
+- ❌ **Citing "unacceptable risk" without art. 5**: anchor the prohibitions on the text
+- ❌ **Employee monitoring without the Works Council**: labor-court risk + CNIL penalty
+- ❌ **Forgetting AI literacy (art. 4)**: an effective obligation since Feb. 2, 2025
+- ❌ **A "copy-paste" charter not tailored** to the sector (health/finance/HR have their own constraints)
+- ❌ **Prohibiting without providing an approved alternative**: drives shadow AI
+- ❌ **Unrevised policy** while regulation evolves fast (AI Act, CNIL guidance)
 
-## Livrables
-- Politique IA complète (document officiel approuvé CODIR)
-- Charte d'utilisation IA (1 page, format affichette)
-- FAQ employés « IA au travail »
-- Processus de validation des projets IA (workflow + gate Comité IA)
-- Formation de sensibilisation (slides + quiz, AI literacy art. 4)
+## Deliverables
+- Complete AI policy (official document approved by the executive committee)
+- AI use charter (1 page, poster format)
+- Employee FAQ "AI at work"
+- AI project validation process (workflow + AI Committee gate)
+- Awareness training (slides + quiz, AI literacy art. 4)
 
-## Format de sortie
-Précise : taille et secteur de l'organisation · outils IA déjà utilisés · incidents passés · niveau d'exposition externe (clients, partenaires) · présence d'un CSE · validation juridique requise.
+## Output format
+Specify: organization size and industry · AI tools already in use · past incidents · level of external exposure (clients, partners) · presence of a Works Council · required legal validation.
 
 ## Sources
-- **AI Act** — Règlement (UE) 2024/1689 (art. 4 AI literacy, art. 5 interdits, art. 50 transparence) — eur-lex.europa.eu
-- **RGPD** — Règlement (UE) 2016/679 (art. 22 décision automatisée)
-- **OECD AI Principles** (2019, maj 2024) — oecd.ai · **NIST AI RMF 1.0** (GOVERN) — nist.gov
-- **Code du travail** — information-consultation du CSE (surveillance / nouveaux outils) · **Loi Sapin 2** (dispositif d'alerte)
-- **CNIL** — guides IA au travail (2024-2025)
+- **AI Act** — Regulation (EU) 2024/1689 (art. 4 AI literacy, art. 5 prohibited, art. 50 transparency) — eur-lex.europa.eu
+- **GDPR** — Regulation (EU) 2016/679 (art. 22 automated decision-making)
+- **OECD AI Principles** (2019, upd. 2024) — oecd.ai · **NIST AI RMF 1.0** (GOVERN) — nist.gov
+- **French Labor Code** — Works Council information-consultation (monitoring / new tools) · **Sapin 2 law** (alert mechanism)
+- **CNIL** — AI-at-work guides (2024-2025)
 
-## Voir aussi
-- [`gouvernance-ethique-ia.md`](gouvernance-ethique-ia.md) — comité IA, EIA, valeurs (amont de la politique)
-- [`ai-act-conformite.md`](ai-act-conformite.md) — cas interdits (art. 5) et obligations
-- [`rgpd-ia.md`](rgpd-ia.md) — base légale des usages traitant des données personnelles
-- [`contrats-ia.md`](contrats-ia.md) — encadrement contractuel des outils IA approuvés
-- [`../formateur_ia/`](../formateur_ia/) — conception des formations AI literacy (art. 4)
+## See also
+- [`gouvernance-ethique-ia.md`](gouvernance-ethique-ia.md) — AI committee, EIA, values (upstream of the policy)
+- [`ai-act-conformite.md`](ai-act-conformite.md) — prohibited cases (art. 5) and obligations
+- [`rgpd-ia.md`](rgpd-ia.md) — legal basis for uses processing personal data
+- [`contrats-ia.md`](contrats-ia.md) — contractual framing of approved AI tools
+- [`../formateur_ia/`](../formateur_ia/) — design of AI literacy training (art. 4)

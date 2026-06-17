@@ -1,64 +1,64 @@
-# Skills — CDO / Directeur IA & Data
+# Skills — CDO / Chief AI Officer & Data
 
-> Dossier rattaché à `AGENT-CDO-DIRECTEUR-IA.md`
-> Référentiels : CDMP (DAMA International) · CAP IABAC · TOGAF 10 · MIT Sloan AI Strategy · AI+ Executive · PROSCI · ISO/IEC 42001:2023
+> Folder attached to `AGENT-CDO-DIRECTEUR-IA.md`
+> Frameworks: CDMP (DAMA International) · CAP IABAC · TOGAF 10 · MIT Sloan AI Strategy · AI+ Executive · PROSCI · ISO/IEC 42001:2023
 
 ---
 
-## Index des skills (8)
+## Skill index (8)
 
-| # | Skill | Quand l'invoquer | Certification |
+| # | Skill | When to invoke | Certification |
 |---|---|---|---|
-| 1 | [`strategie-data-ia.md`](strategie-data-ia.md) | Définir la stratégie data-IA de l'entreprise (3-5 ans) | CAP IABAC · MIT Sloan · TOGAF 10 |
-| 2 | [`gouvernance-donnees-dama.md`](gouvernance-donnees-dama.md) | Mettre en place la gouvernance des données (DAMA DMBOK v2) | CDMP · TOGAF 10 |
-| 3 | [`centre-excellence-ia.md`](centre-excellence-ia.md) | Structurer un Centre d'Excellence IA (CoE) | CAP IABAC · MIT Sloan · PROSCI |
-| 4 | [`data-mesh.md`](data-mesh.md) | Architecturer un Data Mesh (fédération des données) | CDMP · TOGAF 10 · Google GCDL |
-| 5 | [`budget-investissement-ia.md`](budget-investissement-ia.md) | Construire le budget et business case IA (capex/opex) | CAP IABAC · PMI-ACP · MIT Sloan |
-| 6 | [`pilotage-transformation.md`](pilotage-transformation.md) | Piloter la transformation data-driven | PROSCI · PMI-ACP · CAP IABAC |
-| 7 | [`talent-recrutement-ia.md`](talent-recrutement-ia.md) | Recruter et fidéliser les talents data-IA | MIT Sloan · PROSCI |
-| 8 | [`okr-kpi-data.md`](okr-kpi-data.md) | Définir les OKRs et KPIs data-IA | CAP IABAC · CDMP · PMI-ACP |
+| 1 | [`strategie-data-ia.md`](strategie-data-ia.md) | Define the company's data-AI strategy (3-5 years) | CAP IABAC · MIT Sloan · TOGAF 10 |
+| 2 | [`gouvernance-donnees-dama.md`](gouvernance-donnees-dama.md) | Set up data governance (DAMA DMBOK v2) | CDMP · TOGAF 10 |
+| 3 | [`centre-excellence-ia.md`](centre-excellence-ia.md) | Structure an AI Center of Excellence (CoE) | CAP IABAC · MIT Sloan · PROSCI |
+| 4 | [`data-mesh.md`](data-mesh.md) | Architect a Data Mesh (data federation) | CDMP · TOGAF 10 · Google GCDL |
+| 5 | [`budget-investissement-ia.md`](budget-investissement-ia.md) | Build the AI budget and business case (capex/opex) | CAP IABAC · PMI-ACP · MIT Sloan |
+| 6 | [`pilotage-transformation.md`](pilotage-transformation.md) | Steer the data-driven transformation | PROSCI · PMI-ACP · CAP IABAC |
+| 7 | [`talent-recrutement-ia.md`](talent-recrutement-ia.md) | Recruit and retain data-AI talent | MIT Sloan · PROSCI |
+| 8 | [`okr-kpi-data.md`](okr-kpi-data.md) | Define data-AI OKRs and KPIs | CAP IABAC · CDMP · PMI-ACP |
 
 ---
 
-## Choisir le bon skill — Arbre de décision
+## Choosing the right skill — Decision tree
 
 ```
-Tu veux ...
+You want to ...
 
-  ... DÉFINIR LA STRATÉGIE C-LEVEL ?
-    → strategie-data-ia.md (vision 3-5 ans)
+  ... DEFINE THE C-LEVEL STRATEGY?
+    → strategie-data-ia.md (3-5 year vision)
     → budget-investissement-ia.md (business case + capex/opex)
-    → okr-kpi-data.md (mesure stratégique)
+    → okr-kpi-data.md (strategic measurement)
 
-  ... STRUCTURER L'ORGANISATION DATA-IA ?
+  ... STRUCTURE THE DATA-AI ORGANIZATION?
     → centre-excellence-ia.md (CoE)
-    → talent-recrutement-ia.md (recrutement + rétention)
+    → talent-recrutement-ia.md (recruitment + retention)
     → pilotage-transformation.md (cultural shift)
 
-  ... GOUVERNER LA DATA ?
+  ... GOVERN THE DATA?
     → gouvernance-donnees-dama.md (DAMA DMBOK)
-    → data-mesh.md (architecture fédérée)
+    → data-mesh.md (federated architecture)
 ```
 
 ---
 
-## Frontières avec les autres agents
+## Boundaries with other agents
 
-| Sujet voisin | Agent concerné | Frontière |
+| Adjacent topic | Agent concerned | Boundary |
 |---|---|---|
-| Conformité réglementaire détaillée (AI Act, RGPD) | `AGENT-JURIDIQUE-IA.md` | CDO = stratégie ; JURIDIQUE = obligations légales |
-| Implémentation technique IA | `AGENT-AI-ARCHITECT.md`, `AGENT-DEV-PYTHON-IA.md`, `AGENT-MLOPS-ENGINEER.md` | CDO = pilotage ; agents techniques = exécution |
-| Gestion de projet opérationnelle | `AGENT-CHEF-PROJET-IA.md` | CDO = portefeuille ; CHEF-PROJET = projet |
-| Conduite du changement organisationnel | `AGENT-CHANGE-MANAGER.md` | CDO = stratégie de transformation ; CHANGE = adoption tactique |
-| Stratégie consulting projet par projet | `AGENT-CONSULTANT-IA.md` | CDO = role interne ; CONSULTANT = mission externe |
+| Detailed regulatory compliance (AI Act, GDPR) | `AGENT-JURIDIQUE-IA.md` | CDO = strategy; JURIDIQUE = legal obligations |
+| Technical AI implementation | `AGENT-AI-ARCHITECT.md`, `AGENT-DEV-PYTHON-IA.md`, `AGENT-MLOPS-ENGINEER.md` | CDO = steering; technical agents = execution |
+| Operational project management | `AGENT-CHEF-PROJET-IA.md` | CDO = portfolio; CHEF-PROJET = project |
+| Organizational change management | `AGENT-CHANGE-MANAGER.md` | CDO = transformation strategy; CHANGE = tactical adoption |
+| Project-by-project consulting strategy | `AGENT-CONSULTANT-IA.md` | CDO = internal role; CONSULTANT = external engagement |
 
 ---
 
-## Référentiels et standards utilisés
+## Frameworks and standards used
 
-- **DAMA DMBOK v2** : https://www.dama.org/cpages/body-of-knowledge
-- **TOGAF 10** : architecture d'entreprise
+- **DAMA DMBOK v2**: https://www.dama.org/cpages/body-of-knowledge
+- **TOGAF 10**: enterprise architecture
 - **MIT Sloan AI for Business Leaders**
-- **Data Mesh** (Zhamak Dehghani) : https://www.datamesh-architecture.com/
-- **PROSCI ADKAR** : conduite du changement
-- **ISO/IEC 42001:2023** : AI Management System
+- **Data Mesh** (Zhamak Dehghani): https://www.datamesh-architecture.com/
+- **PROSCI ADKAR**: change management
+- **ISO/IEC 42001:2023**: AI Management System

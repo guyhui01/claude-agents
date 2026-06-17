@@ -1,12 +1,12 @@
 # Skill — Lifecycle Marketing & Marketing Automation
-> Certifications : HubSpot Marketing Automation Certified (2026), Braze Certified Practitioner, Klaviyo Partner, Customer Success Alliance
+> Certifications: HubSpot Marketing Automation Certified (2026), Braze Certified Practitioner, Klaviyo Partner, Customer Success Alliance
 
-## Objectif
-Concevoir des parcours lifecycle complets — segmentation RFM, séquences email d'onboarding/activation/réengagement, scoring de leads et mesure du NPS — pour maximiser l'activation, la rétention et la valeur client.
+## Objective
+Design complete lifecycle journeys — RFM segmentation, onboarding/activation/re-engagement email sequences, lead scoring, and NPS measurement — to maximize activation, retention, and customer value.
 
-## Segmentation RFM
+## RFM Segmentation
 
-### Modèle RFM — Calcul et Segmentation
+### RFM Model — Calculation and Segmentation
 
 ```python
 # rfm_segmentation.py
@@ -15,16 +15,16 @@ import numpy as np
 from datetime import datetime
 
 def calculate_rfm(
-    orders_df: pd.DataFrame,     # Colonnes: customer_id, order_date, order_value
+    orders_df: pd.DataFrame,     # Columns: customer_id, order_date, order_value
     analysis_date: datetime = None,
     quantiles: int = 5,
 ) -> pd.DataFrame:
     """
-    Calcule les scores RFM et segmente les clients.
+    Compute RFM scores and segment customers.
 
-    R (Recency)   : Nombre de jours depuis le dernier achat (plus bas = mieux)
-    F (Frequency) : Nombre de commandes sur la période
-    M (Monetary)  : Valeur totale dépensée
+    R (Recency)   : Number of days since the last purchase (lower = better)
+    F (Frequency) : Number of orders over the period
+    M (Monetary)  : Total amount spent
     """
     if analysis_date is None:
         analysis_date = datetime.now()
@@ -35,8 +35,8 @@ def calculate_rfm(
         monetary = ("order_value", "sum"),
     ).reset_index()
 
-    # Scoring 1-5 par quintile
-    # Recency : inversé (petit = meilleur = score 5)
+    # Scoring 1-5 per quintile
+    # Recency: inverted (small = best = score 5)
     rfm["r_score"] = pd.qcut(rfm["recency"],  q=quantiles, labels=range(5, 0, -1)).astype(int)
     rfm["f_score"] = pd.qcut(rfm["frequency"], q=quantiles, labels=range(1, 6)).astype(int)
     rfm["m_score"] = pd.qcut(rfm["monetary"],  q=quantiles, labels=range(1, 6)).astype(int)
@@ -60,20 +60,20 @@ def calculate_rfm(
 
 def rfm_action_map() -> dict:
     return {
-        "Champions":          "Récompenser, ambassadeurs, upsell premium",
-        "Loyal Customers":    "Programme fidélité, early access nouveautés",
-        "New Customers":      "Onboarding accéléré, first purchase follow-up",
-        "Potential Loyalists":"Email nurturing, incitation 2ème achat",
-        "At Risk":            "Campagne réengagement, offre personnalisée",
-        "Cant Lose Them":     "Win-back urgent, appel commercial direct",
-        "Lost":               "Email de breakup + dernier effort, ou suppression",
-        "Hibernating":        "Newsletter légère, promo ponctuelle",
+        "Champions":          "Reward, advocates, premium upsell",
+        "Loyal Customers":    "Loyalty program, early access to new features",
+        "New Customers":      "Accelerated onboarding, first purchase follow-up",
+        "Potential Loyalists":"Email nurturing, 2nd purchase incentive",
+        "At Risk":            "Re-engagement campaign, personalized offer",
+        "Cant Lose Them":     "Urgent win-back, direct sales call",
+        "Lost":               "Breakup email + last effort, or removal",
+        "Hibernating":        "Light newsletter, occasional promo",
     }
 ```
 
-## Séquences Email — Automation
+## Email Sequences — Automation
 
-### Onboarding Email (SaaS B2B) — YAML workflow
+### Onboarding Email (B2B SaaS) — YAML workflow
 
 ```yaml
 # onboarding_sequence.yaml
@@ -84,52 +84,52 @@ delay_default: 24h
 emails:
   - id: welcome
     delay: 0h
-    subject: "Bienvenue sur [Produit] — voici comment démarrer"
+    subject: "Welcome to [Product] — here's how to get started"
     goal_check: none
     content: |
-      - Lien vers le tableau de bord
-      - 3 actions pour obtenir votre première valeur
-      - Lien vers la vidéo de démarrage (2 min)
-      - Calendly du Customer Success si plan Pro+
+      - Link to the dashboard
+      - 3 actions to get your first value
+      - Link to the getting-started video (2 min)
+      - Customer Success Calendly if Pro+ plan
 
   - id: activation_nudge
     delay: 24h
     send_if: aha_moment NOT reached
-    subject: "Avez-vous essayé [feature clé] ?"
+    subject: "Have you tried [key feature]?"
     content: |
-      - Focus sur 1 seule fonctionnalité (feature clé)
-      - Capture d écran animée (GIF)
-      - CTA : "Essayer maintenant"
+      - Focus on a single feature (key feature)
+      - Animated screenshot (GIF)
+      - CTA: "Try it now"
 
   - id: social_proof
     delay: 72h
     send_if: aha_moment NOT reached
-    subject: "Comment [Client similaire] a obtenu [résultat] en 1 semaine"
+    subject: "How [Similar client] achieved [result] in 1 week"
     content: |
-      - Témoignage client du même secteur
-      - Résultat concret chiffré
-      - CTA : "Reproduire ce résultat"
+      - Customer testimonial from the same sector
+      - Concrete quantified result
+      - CTA: "Reproduce this result"
 
   - id: urgency_trial
     delay: 5d
     send_if: aha_moment NOT reached AND trial_ends_in < 14d
-    subject: "Il vous reste [X] jours d essai — ne perdez pas vos données"
+    subject: "You have [X] trial days left — don't lose your data"
     content: |
-      - Compte à rebours visuel
-      - Récapitulatif de ce qu ils ont configuré
-      - CTA upgrade avec remise early-bird
+      - Visual countdown
+      - Summary of what they've configured
+      - Upgrade CTA with early-bird discount
 
   - id: trial_ending
     delay: trial_end - 3d
     send_if: not converted
-    subject: "Votre essai se termine dans 3 jours"
+    subject: "Your trial ends in 3 days"
     content: |
-      - Ce qu ils perdent à la fin de l essai
-      - Options de plan (avec Freemium si disponible)
-      - FAQ sur la conversion
+      - What they lose at the end of the trial
+      - Plan options (with Freemium if available)
+      - Conversion FAQ
 ```
 
-### Séquence de Réengagement
+### Re-engagement Sequence
 
 ```python
 # reengagement_automation.py
@@ -141,7 +141,7 @@ def generate_personalized_reengagement(
     last_features_used: list[str],
     days_inactive: int,
 ) -> str:
-    """Génère un email de réengagement personnalisé avec IA."""
+    """Generate a personalized re-engagement email with AI."""
     client = anthropic.Anthropic()
 
     response = client.messages.create(
@@ -149,16 +149,16 @@ def generate_personalized_reengagement(
         max_tokens=500,
         messages=[{
             "role": "user",
-            "content": f"""Génère un email de réengagement court (150 mots max) pour:
-- Prénom: {user['first_name']}
-- Secteur: {user['industry']}
-- Dernières features utilisées: {', '.join(last_features_used)}
-- Inactif depuis: {days_inactive} jours
-- Plan actuel: {user['plan']}
+            "content": f"""Generate a short re-engagement email (150 words max) for:
+- First name: {user['first_name']}
+- Sector: {user['industry']}
+- Last features used: {', '.join(last_features_used)}
+- Inactive for: {days_inactive} days
+- Current plan: {user['plan']}
 
-Ton : amical, direct, centré sur la valeur. Pas de ton culpabilisant.
-Inclure : 1 insight sur leur secteur + 1 CTA clair.
-Format : Objet + Corps email + CTA (bouton)"""
+Tone: friendly, direct, value-centered. No guilt-tripping tone.
+Include: 1 insight about their sector + 1 clear CTA.
+Format: Subject + Email body + CTA (button)"""
         }]
     )
     return response.content[0].text
@@ -166,7 +166,7 @@ Format : Objet + Corps email + CTA (bouton)"""
 
 ## Lead Scoring
 
-### Modèle de Scoring Hybride
+### Hybrid Scoring Model
 
 ```python
 # lead_scoring.py
@@ -174,12 +174,12 @@ from dataclasses import dataclass
 
 @dataclass
 class Lead:
-    # Démographique (Fit Score)
+    # Demographic (Fit Score)
     company_size: int
     industry: str
     role: str
     country: str
-    # Comportemental (Engagement Score)
+    # Behavioral (Engagement Score)
     pages_visited: int
     content_downloads: int
     email_opens: int
@@ -208,16 +208,16 @@ def calculate_lead_score(lead: Lead) -> dict:
     breakdown = []
 
     if lead.company_size >= 500:
-        score += 20; breakdown.append("Entreprise 500+ (+20)")
+        score += 20; breakdown.append("Company 500+ (+20)")
     elif lead.company_size >= 100:
-        score += 15; breakdown.append("Entreprise 100-500 (+15)")
+        score += 15; breakdown.append("Company 100-500 (+15)")
 
     if lead.pricing_page_visited:
-        score += 15; breakdown.append("Page pricing visitée (+15)")
+        score += 15; breakdown.append("Pricing page visited (+15)")
     if lead.demo_requested:
-        score += 25; breakdown.append("Démo demandée (+25)")
+        score += 25; breakdown.append("Demo requested (+25)")
     if lead.trial_started:
-        score += 20; breakdown.append("Essai démarré (+20)")
+        score += 20; breakdown.append("Trial started (+20)")
     score += min(lead.email_clicks * 2, 10)
 
     grade = "A" if score >= 70 else "B" if score >= 50 else "C" if score >= 30 else "D"
@@ -230,36 +230,36 @@ def calculate_lead_score(lead: Lead) -> dict:
         "is_mql": mql,
         "is_sql": sql,
         "breakdown": breakdown,
-        "recommended_action": "Passer au commercial" if sql else "Nurturing automation" if mql else "Content marketing",
+        "recommended_action": "Hand off to sales" if sql else "Nurturing automation" if mql else "Content marketing",
     }
 ```
 
-## Livrables
-- Modèle RFM avec segmentation et plan d'action par segment
-- Séquences email complètes (onboarding, activation, réengagement)
-- Modèle de lead scoring (fit + behavioral) calibré sur les données
-- Dashboard lifecycle (activation rate, rétention, LTV par cohorte)
-- Configuration Braze/Klaviyo/HubSpot avec flows automatisés
-- Rapport NPS trimestriel avec analyse verbatim
+## Deliverables
+- RFM model with segmentation and an action plan per segment
+- Complete email sequences (onboarding, activation, re-engagement)
+- Lead scoring model (fit + behavioral) calibrated on the data
+- Lifecycle dashboard (activation rate, retention, LTV per cohort)
+- Braze/Klaviyo/HubSpot configuration with automated flows
+- Quarterly NPS report with verbatim analysis
 
-## Format de sortie
-Précise : type de business (B2B SaaS/B2C/e-commerce), outil automation (HubSpot/Braze/Klaviyo/Mailchimp), CRM utilisé (Salesforce/HubSpot), données disponibles (historique achats, events produit), objectif principal (activation/retention/churn), volume de contacts, segment(s) prioritaire(s).
+## Output format
+Specify: business type (B2B SaaS/B2C/e-commerce), automation tool (HubSpot/Braze/Klaviyo/Mailchimp), CRM used (Salesforce/HubSpot), available data (purchase history, product events), main objective (activation/retention/churn), contact volume, priority segment(s).
 
 ## Sources
-- **RFM** — modèle historique du marketing direct ; formalisé par **Arthur Hughes**, *Strategic Database Marketing* (1994) et **Bult & Wansbeek** (*Marketing Science*, 1995)
-- **Fred Reichheld** — *The One Number You Need to Grow* (Harvard Business Review, déc. 2003) — Net Promoter Score (NPS)
-- **MQL / SQL** — modèle de qualification popularisé par SiriusDecisions / Forrester (Demand Waterfall) — les seuils de points sont à **calibrer** sur les données de conversion réelles
-- **HubSpot** — *Lifecycle stages* & *Flywheel* — documentation officielle onboarding / nurturing / rétention
+- **RFM** — historical direct-marketing model; formalized by **Arthur Hughes**, *Strategic Database Marketing* (1994) and **Bult & Wansbeek** (*Marketing Science*, 1995)
+- **Fred Reichheld** — *The One Number You Need to Grow* (Harvard Business Review, Dec. 2003) — Net Promoter Score (NPS)
+- **MQL / SQL** — qualification model popularized by SiriusDecisions / Forrester (Demand Waterfall) — the point thresholds must be **calibrated** on real conversion data
+- **HubSpot** — *Lifecycle stages* & *Flywheel* — official documentation on onboarding / nurturing / retention
 
 ## Anti-patterns
-- **Email fatigue** : envoyer sans frequency cap ni gestion de pression marketing → désabonnements et spam complaints.
-- **Lead scoring non calibré** : poids fixés à l'intuition, jamais re-pondérés sur les taux de conversion observés.
-- **Segmenter sans action** : produire des segments RFM sans plan d'activation différencié par segment.
-- **NPS sans verbatim** : suivre le score sans analyser les commentaires → aucune action corrective.
-- **Onboarding générique** : même séquence pour tous, sans déclencheur lié à l'« aha moment ».
+- **Email fatigue**: sending with no frequency cap or marketing-pressure management → unsubscribes and spam complaints.
+- **Uncalibrated lead scoring**: weights set by intuition, never re-weighted on observed conversion rates.
+- **Segmenting without action**: producing RFM segments with no differentiated activation plan per segment.
+- **NPS with no verbatim**: tracking the score without analyzing comments → no corrective action.
+- **Generic onboarding**: the same sequence for everyone, with no trigger tied to the "aha moment."
 
-## Voir aussi
-- [ia-personalisation.md](ia-personalisation.md) — personnaliser messages et scoring par ML
-- [attribution-ltv-cac.md](attribution-ltv-cac.md) — LTV par cohorte et impact rétention sur la valeur
-- [automation-growth.md](automation-growth.md) — automatiser les séquences lifecycle
-- [`../redacteur_ia/newsletter-email.md`](../redacteur_ia/newsletter-email.md) — rédaction des emails (objets, CTA, délivrabilité)
+## See also
+- [ia-personalisation.md](ia-personalisation.md) — personalize messages and scoring with ML
+- [attribution-ltv-cac.md](attribution-ltv-cac.md) — LTV per cohort and retention's impact on value
+- [automation-growth.md](automation-growth.md) — automate lifecycle sequences
+- [`../redacteur_ia/newsletter-email.md`](../redacteur_ia/newsletter-email.md) — email writing (subjects, CTAs, deliverability)

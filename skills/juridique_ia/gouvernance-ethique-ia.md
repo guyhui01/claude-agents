@@ -1,104 +1,104 @@
-# Skill — Gouvernance Éthique de l'IA
+# Skill — AI Ethics Governance
 
-> Certifications : AI Act Compliance Expert · CAP IABAC · DPO Certifié CNIL
-> Agent : AGENT-JURIDIQUE-IA.md
-> Référentiels : **OECD AI Principles** (2019, maj 2024) · **UNESCO Reco Éthique de l'IA** (2021) · **EU HLEG Ethics Guidelines for Trustworthy AI** (2019) + **ALTAI** (2020) · **NIST AI RMF 1.0** (2023) + GenAI Profile (2024) · **ISO/IEC 42001:2023** (AIMS) · ISO/IEC 23894:2023 · ISO/IEC 24028:2020 · AI Act UE 2024/1689
+> Certifications: AI Act Compliance Expert · CAP IABAC · Certified DPO CNIL
+> Agent: AGENT-JURIDIQUE-IA.md
+> Frameworks: **OECD AI Principles** (2019, upd. 2024) · **UNESCO Recommendation on the Ethics of AI** (2021) · **EU HLEG Ethics Guidelines for Trustworthy AI** (2019) + **ALTAI** (2020) · **NIST AI RMF 1.0** (2023) + GenAI Profile (2024) · **ISO/IEC 42001:2023** (AIMS) · ISO/IEC 23894:2023 · ISO/IEC 24028:2020 · AI Act EU 2024/1689
 
-## Objectif
+## Objective
 
-Mettre en place un **cadre de gouvernance éthique de l'IA** aligné sur les valeurs de l'organisation, les exigences de l'**AI Act** (art. 50 transparence, art. 14 supervision humaine) et les **référentiels internationaux reconnus** (OECD, UNESCO, EU HLEG, NIST). Produire les livrables opérables : politique IA, comité de gouvernance, évaluation d'impact éthique, Model Cards.
+Set up an **AI ethics governance framework** aligned with the organization's values, the **AI Act** requirements (art. 50 transparency, art. 14 human oversight), and the **recognized international frameworks** (OECD, UNESCO, EU HLEG, NIST). Produce the operable deliverables: AI policy, governance committee, ethical impact assessment, Model Cards.
 
-## Cadre référentiels mobilisés
+## Frameworks mobilized
 
-| Référentiel | Statut | Apport pour la gouvernance |
+| Framework | Status | Contribution to governance |
 |---|---|---|
-| **OECD AI Principles** (2019, maj 2024) | 1er standard intergouvernemental | 5 principes valeurs + intégration GenAI 2024 (sûreté, PI, intégrité de l'information) |
-| **UNESCO Recommendation on the Ethics of AI** (2021) | 194 États membres | 4 valeurs fondatrices + **Ethical Impact Assessment (EIA)** + Policy Action Areas |
-| **EU HLEG — Ethics Guidelines for Trustworthy AI** (2019) | Soft law UE, socle de l'AI Act | 4 impératifs → **7 exigences clés** + liste d'évaluation **ALTAI** (2020) |
-| **NIST AI RMF 1.0** (2023) | Cadre de référence US | 4 fonctions **GOVERN / MAP / MEASURE / MANAGE** (Govern transverse) + GenAI Profile (2024) |
-| **ISO/IEC 42001:2023** | Norme certifiable (AIMS) | Système de management de l'IA auditable (PDCA) |
-| **AI Act UE 2024/1689** | Règlement contraignant | Obligations légales (art. 5 interdits, art. 6+Annexe III haut risque, art. 50 transparence) |
+| **OECD AI Principles** (2019, upd. 2024) | 1st intergovernmental standard | 5 value principles + GenAI 2024 integration (safety, IP, information integrity) |
+| **UNESCO Recommendation on the Ethics of AI** (2021) | 194 member states | 4 founding values + **Ethical Impact Assessment (EIA)** + Policy Action Areas |
+| **EU HLEG — Ethics Guidelines for Trustworthy AI** (2019) | EU soft law, basis of the AI Act | 4 imperatives → **7 key requirements** + **ALTAI** assessment list (2020) |
+| **NIST AI RMF 1.0** (2023) | US reference framework | 4 functions **GOVERN / MAP / MEASURE / MANAGE** (Govern cross-cutting) + GenAI Profile (2024) |
+| **ISO/IEC 42001:2023** | Certifiable standard (AIMS) | Auditable AI management system (PDCA) |
+| **AI Act EU 2024/1689** | Binding regulation | Legal obligations (art. 5 prohibited, art. 6+Annex III high-risk, art. 50 transparency) |
 
-## Les 7 principes éthiques — ancrage référentiel
+## The 7 ethical principles — framework anchoring
 
-Les principes ci-dessous **convergent** entre OECD, UNESCO et EU HLEG. Chaque principe est rattaché à sa source officielle (pas un « consensus » générique).
+The principles below **converge** across OECD, UNESCO, and EU HLEG. Each principle is tied to its official source (not a generic "consensus").
 
-| # | Principe | Source officielle |
+| # | Principle | Official source |
 |---|---|---|
-| 1 | **Transparence & Explicabilité** — décisions IA compréhensibles par les personnes affectées | OECD principe 3 · HLEG exigence 4 · AI Act art. 50 |
-| 2 | **Équité & Non-discrimination** — pas de discrimination sur critères protégés | OECD principe 2 · HLEG exigence 5 · UNESCO (diversité & inclusion) |
-| 3 | **Robustesse & Sécurité** — fiabilité, résistance aux attaques | OECD principe 4 · HLEG exigence 2 · NIST MANAGE |
-| 4 | **Vie privée & Gouvernance des données** — minimisation, droits des personnes | HLEG exigence 3 · RGPD · ISO/IEC 27701 |
-| 5 | **Responsabilité & Imputabilité** — un humain responsable des décisions | OECD principe 5 · HLEG exigence 7 · NIST GOVERN |
-| 6 | **Supervision & agentivité humaines** — l'humain garde le contrôle | HLEG exigence 1 · AI Act art. 14 · UNESCO (human oversight) |
-| 7 | **Bien-être sociétal & durabilité environnementale** — impact société + empreinte carbone | OECD principe 1 · HLEG exigence 6 · UNESCO (environnement & écosystèmes) |
+| 1 | **Transparency & Explainability** — AI decisions understandable by affected individuals | OECD principle 3 · HLEG requirement 4 · AI Act art. 50 |
+| 2 | **Fairness & Non-discrimination** — no discrimination on protected criteria | OECD principle 2 · HLEG requirement 5 · UNESCO (diversity & inclusion) |
+| 3 | **Robustness & Safety** — reliability, resistance to attacks | OECD principle 4 · HLEG requirement 2 · NIST MANAGE |
+| 4 | **Privacy & Data Governance** — minimization, individuals' rights | HLEG requirement 3 · GDPR · ISO/IEC 27701 |
+| 5 | **Responsibility & Accountability** — a human accountable for the decisions | OECD principle 5 · HLEG requirement 7 · NIST GOVERN |
+| 6 | **Human oversight & agency** — the human stays in control | HLEG requirement 1 · AI Act art. 14 · UNESCO (human oversight) |
+| 7 | **Societal well-being & environmental sustainability** — societal impact + carbon footprint | OECD principle 1 · HLEG requirement 6 · UNESCO (environment & ecosystems) |
 
-> **Convergence des cadres** : OECD = 5 principes valeurs · EU HLEG = 7 exigences (issues de 4 impératifs : autonomie humaine, prévention du dommage, équité, explicabilité) · UNESCO = 4 valeurs fondatrices (droits humains & dignité · sociétés justes · diversité & inclusion · environnement) · NIST = 4 fonctions opérationnelles. La grille à 7 principes ci-dessus en est la synthèse opérable.
+> **Convergence of frameworks**: OECD = 5 value principles · EU HLEG = 7 requirements (from 4 imperatives: human autonomy, prevention of harm, fairness, explicability) · UNESCO = 4 founding values (human rights & dignity · just societies · diversity & inclusion · environment) · NIST = 4 operational functions. The 7-principle grid above is their operable synthesis.
 
-## Structure de gouvernance IA (ancrage NIST GOVERN + ISO/IEC 42001)
+## AI governance structure (anchored in NIST GOVERN + ISO/IEC 42001)
 
-La fonction **GOVERN** du NIST AI RMF (transverse aux 3 autres) et le système de management **ISO/IEC 42001:2023** fondent le comité ci-dessous.
+The NIST AI RMF **GOVERN** function (cross-cutting to the other 3) and the **ISO/IEC 42001:2023** management system ground the committee below.
 
-### Comité IA (AI Board)
+### AI Committee (AI Board)
 ```
-Composition recommandée :
-  → Président : CDO ou Directeur IA
+Recommended composition:
+  → Chair: CDO or Head of AI
   → DPO (Data Protection Officer)
-  → RSSI (Sécurité)
-  → Responsable Juridique / Conformité
-  → Représentants métiers (2-3 directions concernées)
+  → CISO (Security)
+  → Head of Legal / Compliance
+  → Business representatives (2-3 concerned departments)
   → Data Scientist lead
-  → Représentant des utilisateurs / employés
+  → User / employee representative
 
-Missions :
-  → Valider les cas d'usage IA avant déploiement (gate GOVERN)
-  → Approuver les DPIA (RGPD art. 35) et audits de conformité AI Act
-  → Arbitrer les dilemmes éthiques (référence : 7 principes ci-dessus)
-  → Suivre les incidents IA et actions correctives (NIST MANAGE)
-  → Rapport annuel au CODIR / Conseil d'Administration (ISO 42001 revue de direction)
+Missions:
+  → Approve AI use cases before deployment (GOVERN gate)
+  → Approve DPIAs (GDPR art. 35) and AI Act compliance audits
+  → Arbitrate ethical dilemmas (reference: the 7 principles above)
+  → Track AI incidents and corrective actions (NIST MANAGE)
+  → Annual report to the executive committee / Board of Directors (ISO 42001 management review)
 
-Cadence : revue mensuelle (1h) + comité extraordinaire si incident.
-(Fréquence à calibrer selon le volume de cas d'usage — convention organisationnelle, non normative.)
+Cadence: monthly review (1h) + extraordinary committee in case of an incident.
+(Frequency to calibrate against the volume of use cases — organizational convention, not normative.)
 ```
 
-### Politique IA de l'organisation
+### Organization's AI policy
 ```
-Structure recommandée :
-  1. Valeurs et principes IA (alignés OECD / UNESCO / HLEG)
-  2. Cas d'usage autorisés / interdits (cf. AI Act art. 5 pour les interdits)
-  3. Processus de validation des projets IA (gate comité)
-  4. Rôles et responsabilités (RACI)
-  5. Formation obligatoire des utilisateurs (AI Act art. 4 — AI literacy)
-  6. Procédure de signalement des incidents / dérives
-  7. Revue et mise à jour (annuelle ou changement significatif)
+Recommended structure:
+  1. AI values and principles (aligned OECD / UNESCO / HLEG)
+  2. Permitted / prohibited use cases (see AI Act art. 5 for the prohibited ones)
+  3. AI project validation process (committee gate)
+  4. Roles and responsibilities (RACI)
+  5. Mandatory user training (AI Act art. 4 — AI literacy)
+  6. Incident / drift reporting procedure
+  7. Review and update (annual or significant change)
 ```
 
-## Évaluation d'impact éthique (Ethical Impact Assessment)
+## Ethical Impact Assessment
 
-Ancrée sur l'**EIA UNESCO (2021)** et la liste d'évaluation **ALTAI** du HLEG (2020). Complémentaire — pas substituable — à la DPIA RGPD (art. 35) et à l'évaluation de conformité AI Act.
+Anchored in the **UNESCO EIA (2021)** and the HLEG **ALTAI** assessment list (2020). Complementary — not a substitute — to the GDPR DPIA (art. 35) and the AI Act conformity assessment.
 
-### Grille d'évaluation (score /100)
-| Dimension | Poids | Question clé | Ancrage |
+### Assessment grid (score /100)
+| Dimension | Weight | Key question | Anchoring |
 |---|---|---|---|
-| Transparence | 20% | L'utilisateur sait-il qu'il interagit avec une IA ? | HLEG #4 · AI Act art. 50 |
-| Équité | 20% | Les biais ont-ils été testés et mitigés ? | HLEG #5 |
-| Supervision humaine | 20% | Un humain peut-il contrôler / corriger ? | HLEG #1 · AI Act art. 14 |
-| Vie privée | 20% | DPIA réalisée ? Données minimisées ? | HLEG #3 · RGPD art. 35 |
-| Imputabilité | 20% | Qui est responsable en cas d'erreur ? | HLEG #7 · NIST GOVERN |
+| Transparency | 20% | Does the user know they are interacting with an AI? | HLEG #4 · AI Act art. 50 |
+| Fairness | 20% | Have biases been tested and mitigated? | HLEG #5 |
+| Human oversight | 20% | Can a human control / correct? | HLEG #1 · AI Act art. 14 |
+| Privacy | 20% | DPIA carried out? Data minimized? | HLEG #3 · GDPR art. 35 |
+| Accountability | 20% | Who is accountable in case of error? | HLEG #7 · NIST GOVERN |
 
 ```
-Score ≥ 80 : Déploiement autorisé
-Score 60-79 : Déploiement avec mesures complémentaires
-Score < 60 : Révision du projet requise
+Score ≥ 80: Deployment authorized
+Score 60-79: Deployment with additional measures
+Score < 60: Project revision required
 ```
-> Les seuils ci-dessus sont une **convention de pilotage interne** (à valider par le comité IA), non une norme réglementaire — à documenter dans la politique IA.
+> The thresholds above are an **internal management convention** (to be validated by the AI committee), not a regulatory standard — to be documented in the AI policy.
 
-## Model Cards & rapports de transparence
+## Model Cards & transparency reports
 
-Format **Model Cards** de référence : Mitchell et al., *Model Cards for Model Reporting* (FAT\* 2019). Couplé aux *Datasheets for Datasets* (Gebru et al., 2021) pour la documentation des données.
+Reference **Model Cards** format: Mitchell et al., *Model Cards for Model Reporting* (FAT\* 2019). Coupled with *Datasheets for Datasets* (Gebru et al., 2021) for data documentation.
 
 ```yaml
-# Model Card — d'après Mitchell et al. (2019)
+# Model Card — after Mitchell et al. (2019)
 model_name: Churn Predictor v2.1
 model_type: XGBoost Classifier
 training_date: 2026-03-15
@@ -110,65 +110,65 @@ intended_use:
   - out_of_scope: Individual employee evaluation, credit scoring
 performance:
   overall_auc: 0.923
-  by_group:                       # évaluation de l'équité par sous-groupe
+  by_group:                       # fairness evaluation by subgroup
     age_18_35: 0.901
     age_35_55: 0.934
     age_55_plus: 0.908
-  fairness_metric: equalized_odds gap = 3.3%   # seuil cible défini et justifié par l'organisation
+  fairness_metric: equalized_odds gap = 3.3%   # target threshold defined and justified by the organization
 limitations: Model may underperform for customers with <6 months history
 ethical_considerations: Campaigns must include opt-out. No automated action > €500.
 contact: data-ethics@organisation.example
 ```
-> **Métriques d'équité** : choisir et documenter la métrique (parité démographique, *equalized odds*, *equal opportunity*) et son seuil cible — il n'existe pas de seuil universel unique ; le seuil doit être justifié au regard du contexte et du risque (cf. UNESCO EIA).
+> **Fairness metrics**: choose and document the metric (demographic parity, *equalized odds*, *equal opportunity*) and its target threshold — there is no single universal threshold; the threshold must be justified against the context and the risk (see UNESCO EIA).
 
-## Exemple sectoriel — assurance (scoring de sinistralité, AI Act haut risque)
+## Sector example — insurance (claims scoring, AI Act high-risk)
 
-**Contexte anonymisé** : assureur européen mid-market, modèle de scoring de sinistralité auto (segmentation tarifaire). Usage potentiellement **haut risque** (impact sur l'accès à un service essentiel).
+**Anonymized context**: European mid-market insurer, auto claims-scoring model (pricing segmentation). Use potentially **high-risk** (impact on access to an essential service).
 
-- **Cadrage comité IA** : classification AI Act → revue art. 6 + Annexe III ; DPIA RGPD art. 35 déclenchée.
-- **EIA** : score initial 64/100 → **équité 12/20** (écart de performance entre tranches d'âge non testé), **transparence 12/20** (pas d'information assuré). Déploiement **conditionnel**.
-- **Mesures correctives** : test d'équité par sous-groupe (Model Card), notice de transparence assuré (AI Act art. 50), supervision humaine sur tout refus (art. 14), opt-out réclamation.
-- **Réévaluation** : EIA 84/100 → déploiement autorisé, revue comité à 6 mois.
+- **AI committee scoping**: AI Act classification → art. 6 + Annex III review; GDPR DPIA art. 35 triggered.
+- **EIA**: initial score 64/100 → **fairness 12/20** (performance gap across age brackets not tested), **transparency 12/20** (no information to the insured). **Conditional** deployment.
+- **Corrective measures**: subgroup fairness test (Model Card), transparency notice to the insured (AI Act art. 50), human oversight on any refusal (art. 14), complaint opt-out.
+- **Reassessment**: EIA 84/100 → deployment authorized, committee review at 6 months.
 
 ## Anti-patterns
 
-- ❌ **« Éthique-washing »** : charte de principes affichée sans gate de validation ni mesure (principes non opérables)
-- ❌ **Confondre éthique et conformité légale** : passer l'AI Act ≠ être éthique (l'EIA va au-delà du minimum légal)
-- ❌ **Comité IA sans pouvoir de blocage** : avis consultatif seulement → les projets passent quand même
-- ❌ **Seuils d'équité/score arbitraires non documentés** : annoncer « gap < 5% » sans définir la métrique ni justifier le seuil
-- ❌ **Model Card absente ou non maintenue** : modèle déployé sans documentation des limites et des biais
-- ❌ **Supervision humaine cosmétique** (*rubber-stamping*) : l'humain valide sans pouvoir réel de contester (viole AI Act art. 14)
-- ❌ **Principes éthiques non sourcés** : invoquer un « consensus international » sans référentiel (OECD/UNESCO/HLEG)
-- ❌ **Oublier la durabilité** : ne pas mesurer l'empreinte carbone d'entraînement/inférence (OECD principe 1, UNESCO environnement)
+- ❌ **"Ethics-washing"**: a principles charter displayed with no validation gate or measure (non-operable principles)
+- ❌ **Confusing ethics and legal compliance**: passing the AI Act ≠ being ethical (the EIA goes beyond the legal minimum)
+- ❌ **AI committee with no blocking power**: advisory opinion only → projects go through anyway
+- ❌ **Arbitrary, undocumented fairness/score thresholds**: announcing "gap < 5%" without defining the metric or justifying the threshold
+- ❌ **Missing or unmaintained Model Card**: model deployed without documentation of its limits and biases
+- ❌ **Cosmetic human oversight** (*rubber-stamping*): the human approves with no real power to contest (violates AI Act art. 14)
+- ❌ **Unsourced ethical principles**: invoking an "international consensus" with no framework (OECD/UNESCO/HLEG)
+- ❌ **Forgetting sustainability**: not measuring the training/inference carbon footprint (OECD principle 1, UNESCO environment)
 
-## Livrables
+## Deliverables
 
-- **Politique IA de l'organisation** (document officiel, alignée OECD/UNESCO/HLEG)
-- **Charte d'utilisation de l'IA** (pour les employés)
-- **Grille d'évaluation éthique (EIA)** (template, ancrée UNESCO + ALTAI)
-- **Model Cards** (par modèle, format Mitchell et al. 2019) + Datasheets datasets
-- **Rapport annuel de gouvernance IA** (revue de direction ISO 42001)
-- **Formation « Éthique IA »** (2h, tous niveaux — AI Act art. 4 AI literacy)
+- **Organization's AI policy** (official document, aligned OECD/UNESCO/HLEG)
+- **AI use charter** (for employees)
+- **Ethical assessment grid (EIA)** (template, anchored in UNESCO + ALTAI)
+- **Model Cards** (per model, Mitchell et al. 2019 format) + dataset Datasheets
+- **Annual AI governance report** (ISO 42001 management review)
+- **"AI Ethics" training** (2h, all levels — AI Act art. 4 AI literacy)
 
-## Format de sortie
+## Output format
 
-Précise : taille et secteur de l'organisation · maturité éthique actuelle (NIST GOVERN) · incidents IA passés · contraintes sectorielles (santé, finance, RH, assurance) · classification AI Act des cas d'usage · audience (CODIR, équipes, utilisateurs).
+Specify: organization size and industry · current ethics maturity (NIST GOVERN) · past AI incidents · sector constraints (health, finance, HR, insurance) · AI Act classification of the use cases · audience (executive committee, teams, users).
 
 ## Sources
 
-- **OECD** — *Recommendation of the Council on Artificial Intelligence* / AI Principles (OECD/LEGAL/0449, 2019, mise à jour 2024) — oecd.ai/en/ai-principles
-- **UNESCO** — *Recommendation on the Ethics of Artificial Intelligence* (adoptée nov. 2021, 194 États membres) — unesco.org/en/artificial-intelligence/recommendation-ethics
-- **EU High-Level Expert Group on AI** — *Ethics Guidelines for Trustworthy AI* (8 avril 2019) + *Assessment List for Trustworthy AI (ALTAI)* (2020) — digital-strategy.ec.europa.eu
-- **NIST** — *AI Risk Management Framework 1.0* (NIST AI 100-1, janv. 2023) + *Generative AI Profile* (NIST AI 600-1, juil. 2024) — nist.gov/itl/ai-risk-management-framework
+- **OECD** — *Recommendation of the Council on Artificial Intelligence* / AI Principles (OECD/LEGAL/0449, 2019, updated 2024) — oecd.ai/en/ai-principles
+- **UNESCO** — *Recommendation on the Ethics of Artificial Intelligence* (adopted Nov. 2021, 194 member states) — unesco.org/en/artificial-intelligence/recommendation-ethics
+- **EU High-Level Expert Group on AI** — *Ethics Guidelines for Trustworthy AI* (April 8, 2019) + *Assessment List for Trustworthy AI (ALTAI)* (2020) — digital-strategy.ec.europa.eu
+- **NIST** — *AI Risk Management Framework 1.0* (NIST AI 100-1, Jan. 2023) + *Generative AI Profile* (NIST AI 600-1, July 2024) — nist.gov/itl/ai-risk-management-framework
 - **ISO/IEC 42001:2023** (AI Management System) · **ISO/IEC 23894:2023** (AI risk management) · **ISO/IEC 24028:2020** (trustworthiness in AI) — iso.org
 - **Mitchell M. et al.** — *Model Cards for Model Reporting* (ACM FAT\* 2019) · **Gebru T. et al.** — *Datasheets for Datasets* (Comm. ACM 2021)
-- **AI Act** — Règlement UE 2024/1689 (art. 4 AI literacy, art. 5 interdits, art. 6 + Annexe III haut risque, art. 14 supervision humaine, art. 50 transparence)
+- **AI Act** — Regulation EU 2024/1689 (art. 4 AI literacy, art. 5 prohibited, art. 6 + Annex III high-risk, art. 14 human oversight, art. 50 transparency)
 
-## Voir aussi
+## See also
 
-- [`ai-act-conformite.md`](ai-act-conformite.md) — classification des risques AI Act, obligations par niveau
-- [`dpia-systemes-ia.md`](dpia-systemes-ia.md) — DPIA RGPD art. 35 (complémentaire à l'EIA éthique)
-- [`audit-conformite-ia.md`](audit-conformite-ia.md) — audit de conformité (vérifie l'application de cette gouvernance)
-- [`politique-ia-entreprise.md`](politique-ia-entreprise.md) — politique IA et charte GenAI (livrable de cette gouvernance)
-- [`propriete-intellectuelle-ia.md`](propriete-intellectuelle-ia.md) — PI & IA (dimension juridique complémentaire)
-- [`../data_scientist/ethique-ia-biais.md`](../data_scientist/ethique-ia-biais.md) — mesure technique des biais (couplage data science)
+- [`ai-act-conformite.md`](ai-act-conformite.md) — AI Act risk classification, obligations by tier
+- [`dpia-systemes-ia.md`](dpia-systemes-ia.md) — GDPR DPIA art. 35 (complementary to the ethics EIA)
+- [`audit-conformite-ia.md`](audit-conformite-ia.md) — compliance audit (checks the application of this governance)
+- [`politique-ia-entreprise.md`](politique-ia-entreprise.md) — AI policy and GenAI charter (deliverable of this governance)
+- [`propriete-intellectuelle-ia.md`](propriete-intellectuelle-ia.md) — IP & AI (complementary legal dimension)
+- [`../data_scientist/ethique-ia-biais.md`](../data_scientist/ethique-ia-biais.md) — technical bias measurement (data-science coupling)

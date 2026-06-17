@@ -1,97 +1,97 @@
-# Skill — Présentation C-level & Comité de Direction
-> Certifications : PROSCI · CAP IABAC
+# Skill — C-level & Executive Committee Presentation
+> Certifications: PROSCI · CAP IABAC
 
-## Objectif
-Préparer et délivrer des présentations **percutantes et orientées décision** pour les décideurs (DG, DSI, CDO, CODIR, COMEX) : aller droit à la recommandation, l'étayer par des preuves chiffrées, anticiper les objections et obtenir un arbitrage. Un dirigeant accorde quelques minutes d'attention : la structure doit livrer la conclusion **avant** la démonstration.
+## Objective
+Prepare and deliver **punchy, decision-oriented presentations** for decision-makers (CEO, CIO, CDO, executive committee, COMEX): go straight to the recommendation, back it with quantified evidence, anticipate objections, and obtain a decision. An executive gives a few minutes of attention: the structure must deliver the conclusion **before** the demonstration.
 
-## Cadre méthodologique
-- **Minto Pyramid Principle** (Barbara Minto, *The Pyramid Principle: Logic in Writing and Thinking*, 1987) — structurer toute communication en pyramide : **une idée maîtresse en haut**, soutenue par des groupes d'arguments mutuellement exclusifs et collectivement exhaustifs (MECE). Top-down : la réponse d'abord, les détails ensuite.
-- **SCQA** (Situation – Complication – Question – Answer, Minto) — accroche logique d'introduction :
-  - *Situation* : fait connu et accepté par l'auditoire.
-  - *Complication* : ce qui a changé / le problème qui appelle une action.
-  - *Question* : la question qui en découle dans la tête du décideur.
-  - *Answer* : votre recommandation = sommet de la pyramide.
-- **BLUF** (Bottom Line Up Front) — énoncer la conclusion et la décision demandée dès la 1ʳᵉ slide.
-- **Storytelling with Data** (Cole Nussbaumer Knaflic, Wiley, 2015) — data-viz au service du message : 1 message par graphique, désencombrer (*declutter*), diriger l'attention (couleur/contraste), éviter camemberts et axes trompeurs.
-- **Nancy Duarte** (*slide:ology*, *Resonate*) — narration par contraste *what is / what could be* ; le public est le héros, le présentateur est le mentor.
+## Methodological framework
+- **Minto Pyramid Principle** (Barbara Minto, *The Pyramid Principle: Logic in Writing and Thinking*, 1987) — structure all communication as a pyramid: **one governing idea at the top**, supported by mutually exclusive and collectively exhaustive (MECE) argument groups. Top-down: the answer first, the details after.
+- **SCQA** (Situation – Complication – Question – Answer, Minto) — logical introduction hook:
+  - *Situation*: fact known and accepted by the audience.
+  - *Complication*: what has changed / the problem calling for action.
+  - *Question*: the question that follows in the decision-maker's mind.
+  - *Answer*: your recommendation = top of the pyramid.
+- **BLUF** (Bottom Line Up Front) — state the conclusion and the requested decision on the very 1st slide.
+- **Storytelling with Data** (Cole Nussbaumer Knaflic, Wiley, 2015) — data-viz in service of the message: 1 message per chart, declutter, direct attention (color/contrast), avoid pie charts and misleading axes.
+- **Nancy Duarte** (*slide:ology*, *Resonate*) — narration by *what is / what could be* contrast; the audience is the hero, the presenter is the mentor.
 
-## Règles d'or pour une présentation C-level
-1. **1 slide = 1 idée** — pas de surcharge.
-2. **Commencer par la conclusion** (BLUF) — les dirigeants n'attendent pas la fin.
-3. **Quantifier tout** — « −30 % de coûts » > « amélioration significative » ; chaque chiffre tracé jusqu'à son hypothèse.
-4. **Anticiper les 3 questions** qu'ils poseront forcément (coût, risque, alternative).
-5. **Demander une décision** — chaque présentation se termine par un « Que validez-vous ? » explicite.
+## Golden rules for a C-level presentation
+1. **1 slide = 1 idea** — no overload.
+2. **Start with the conclusion** (BLUF) — executives won't wait for the end.
+3. **Quantify everything** — "−30% costs" > "significant improvement"; each figure traced to its assumption.
+4. **Anticipate the 3 questions** they will inevitably ask (cost, risk, alternative).
+5. **Ask for a decision** — every presentation ends with an explicit "What do you approve?"
 
-## Structure Pyramid appliquée (Minto / SCQA)
+## Pyramid structure applied (Minto / SCQA)
 ```
-Situation    → Contexte actuel accepté (1 slide)
-Complication → Problème ou opportunité qui force la décision (1 slide)
-Question     → La question implicite du décideur (intégrée)
-Answer       → Notre recommandation (1 slide) ← sommet de la pyramide
-Arguments    → Preuves MECE et détails (3-5 slides)
-Call to action → Décision demandée + prochaines étapes (1 slide)
-```
-
-## Template CODIR IA (10 slides max)
-```
-1.  Titre + date + participants
-2.  Synthèse exécutive / BLUF (3 bullets : contexte, recommandation, ROI + décision demandée)
-3.  Contexte : pourquoi l'IA maintenant ?
-4.  État des lieux : où en sommes-nous ? (maturité, contraintes)
-5.  Les 3 opportunités prioritaires
-6.  Notre recommandation (option choisie + pourquoi vs alternatives)
-7.  Feuille de route macro (18 mois) + jalons conformité AI Act
-8.  Investissement et ROI attendu (VAN / payback, scénarios)
-9.  Risques et mitigation
-10. Décision demandée + prochaines étapes
+Situation    → Accepted current context (1 slide)
+Complication → Problem or opportunity forcing the decision (1 slide)
+Question     → The decision-maker's implicit question (built in)
+Answer       → Our recommendation (1 slide) ← top of the pyramid
+Arguments    → MECE evidence and details (3-5 slides)
+Call to action → Requested decision + next steps (1 slide)
 ```
 
-## Adapter au profil du décideur
-| Profil | Langage | Focus | Peur principale |
+## AI executive-committee template (10 slides max)
+```
+1.  Title + date + attendees
+2.  Executive summary / BLUF (3 bullets: context, recommendation, ROI + requested decision)
+3.  Context: why AI now?
+4.  Current state: where do we stand? (maturity, constraints)
+5.  The 3 priority opportunities
+6.  Our recommendation (chosen option + why vs alternatives)
+7.  Macro roadmap (18 months) + AI Act compliance milestones
+8.  Investment and expected ROI (NPV / payback, scenarios)
+9.  Risks and mitigation
+10. Requested decision + next steps
+```
+
+## Tailor to the decision-maker's profile
+| Profile | Language | Focus | Main fear |
 |---|---|---|---|
-| **DG** | Business, impact | ROI, avantage concurrentiel | Risque image |
-| **DSI** | Technique, intégration | Architecture, sécurité | Dette technique |
-| **CDO** | Data, IA | Maturité, gouvernance | Qualité des données |
-| **DRH** | People, change | Adoption, formation | Résistance des équipes |
-| **DAF** | Coûts, ROI | TCO, business case | Dépassement budget |
+| **CEO** | Business, impact | ROI, competitive advantage | Reputational risk |
+| **CIO** | Technical, integration | Architecture, security | Technical debt |
+| **CDO** | Data, AI | Maturity, governance | Data quality |
+| **CHRO** | People, change | Adoption, training | Team resistance |
+| **CFO** | Costs, ROI | TCO, business case | Budget overrun |
 
-## Exemple — Présentation CODIR, secteur assurance / mutuelle (anonymisé)
-**Contexte** : mutuelle santé (~3 200 collaborateurs). Sujet : recommander le lancement d'un assistant IA d'aide à la gestion des sinistres. Durée allouée : 20 min, décision = validation budget Phase 1.
-- **Slide 2 (BLUF)** : « Nous recommandons d'investir 0,6 M€ sur 12 mois dans un assistant IA de gestion des sinistres — payback estimé 16 mois, sous réserve de conformité AI Act. Décision demandée : validation du budget Phase 1. »
-- **SCQA** : *Situation* — délais de traitement des sinistres en hausse ; *Complication* — volume +18 %, satisfaction adhérents en baisse ; *Question* — comment absorber sans surcoût RH ? ; *Answer* — assistant IA sur les sinistres simples.
-- **Anticipation des 3 questions** : « Et la conformité AI Act / données de santé ? », « Que deviennent les gestionnaires ? », « Pourquoi pas une solution du marché ? » → réponses préparées en Q&A.
+## Example — Executive-committee presentation, insurance / mutual sector (anonymized)
+**Context**: health mutual (~3,200 employees). Topic: recommend launching an AI assistant to support claims handling. Time allotted: 20 min, decision = Phase 1 budget approval.
+- **Slide 2 (BLUF)**: "We recommend investing €0.6M over 12 months in an AI claims-handling assistant — estimated payback 16 months, subject to AI Act compliance. Requested decision: approval of the Phase 1 budget."
+- **SCQA**: *Situation* — claims-handling times rising; *Complication* — volume +18%, member satisfaction declining; *Question* — how to absorb it without extra HR cost? ; *Answer* — AI assistant on simple claims.
+- **Anticipation of the 3 questions**: "What about AI Act compliance / health data?", "What happens to the handlers?", "Why not a market solution?" → answers prepared in Q&A.
 
-> Chiffres **illustratifs** : à recalibrer sur le business case réel.
+> **Illustrative** figures: to be recalibrated on the real business case.
 
 ## Anti-patterns
-- **Effet « tunnel » / suspense** : garder la conclusion pour la fin → le décideur décroche.
-- **Slides surchargées de texte** : on lit au lieu d'écouter ; le présentateur devient inutile.
-- **Graphiques décoratifs ou trompeurs** : camemberts à 8 parts, axes tronqués (cf. Knaflic) → perte de crédibilité.
-- **Jargon technique devant un DG/DAF** : adapter le langage au profil (tableau ci-dessus).
-- **Aucune décision demandée** : présentation « pour information » qui ne fait rien avancer.
-- **Chiffres non traçables** : un ROI sans hypothèse documentée se fait démolir en séance.
-- **Pas de plan B** : ne pas avoir anticipé l'alternative (build vs buy, ne rien faire).
+- **"Tunnel" / suspense effect**: keeping the conclusion for the end → the decision-maker disengages.
+- **Text-overloaded slides**: people read instead of listening; the presenter becomes useless.
+- **Decorative or misleading charts**: 8-slice pie charts, truncated axes (see Knaflic) → loss of credibility.
+- **Technical jargon in front of a CEO/CFO**: tailor the language to the profile (table above).
+- **No requested decision**: a "for information" presentation that moves nothing forward.
+- **Untraceable figures**: an ROI with no documented assumption gets demolished in the room.
+- **No plan B**: not having anticipated the alternative (build vs buy, do nothing).
 
-## Livrables
-- Deck (PowerPoint / Google Slides), 10 slides max, structure pyramidale
-- Notes de présentation (1 page par slide)
-- One-pager synthèse / BLUF (pour les absents)
-- Q&A anticipé (10 questions / réponses, dont les 3 inévitables)
+## Deliverables
+- Deck (PowerPoint / Google Slides), 10 slides max, pyramid structure
+- Presentation notes (1 page per slide)
+- One-pager summary / BLUF (for those absent)
+- Anticipated Q&A (10 questions / answers, including the 3 inevitable ones)
 
-## Format de sortie
-Précise : public cible (DG, DSI, CODIR…) · sujet · durée allouée · **décision attendue** · niveau de formalisme.
+## Output format
+Specify: target audience (CEO, CIO, executive committee…) · topic · time allotted · **expected decision** · level of formality.
 
 ## Sources
-- **Minto B.** — *The Pyramid Principle: Logic in Writing and Thinking* (1987) — structure pyramidale MECE + SCQA
+- **Minto B.** — *The Pyramid Principle: Logic in Writing and Thinking* (1987) — MECE pyramid structure + SCQA
 - **Nussbaumer Knaflic C.** — *Storytelling with Data: A Data Visualization Guide for Business Professionals*, Wiley (2015)
-- **Duarte N.** — *slide:ology* et *Resonate* — narration et conception de présentations
-- **Concept BLUF** (Bottom Line Up Front) — pratique de communication exécutive (origine communication militaire US)
+- **Duarte N.** — *slide:ology* and *Resonate* — narration and presentation design
+- **BLUF concept** (Bottom Line Up Front) — executive communication practice (origin: US military communication)
 
-## Voir aussi
-- [estimation-roi-rapide.md](estimation-roi-rapide.md) — chiffrage du ROI présenté en CODIR
-- [feuille-route-ia.md](feuille-route-ia.md) — roadmap macro de la slide 7
-- [proposition-commerciale.md](proposition-commerciale.md) — synthèse exécutive d'une offre (même logique pyramidale)
-- [diagnostic-maturite-ia.md](diagnostic-maturite-ia.md) — état des lieux de la slide 4
-- [`../chef_projet_ia/reporting-codir.md`](../chef_projet_ia/reporting-codir.md) — reporting récurrent au CODIR (pilotage)
-- [`../redacteur_ia/storytelling-ia.md`](../redacteur_ia/storytelling-ia.md) — storytelling et narration
-- [`../ux_design/storytelling-stakeholders.md`](../ux_design/storytelling-stakeholders.md) — pitch et storytelling parties prenantes
+## See also
+- [estimation-roi-rapide.md](estimation-roi-rapide.md) — costing of the ROI presented to the executive committee
+- [feuille-route-ia.md](feuille-route-ia.md) — macro roadmap of slide 7
+- [proposition-commerciale.md](proposition-commerciale.md) — executive summary of an offer (same pyramid logic)
+- [diagnostic-maturite-ia.md](diagnostic-maturite-ia.md) — current state of slide 4
+- [`../chef_projet_ia/reporting-codir.md`](../chef_projet_ia/reporting-codir.md) — recurring executive-committee reporting (delivery tracking)
+- [`../redacteur_ia/storytelling-ia.md`](../redacteur_ia/storytelling-ia.md) — storytelling and narration
+- [`../ux_design/storytelling-stakeholders.md`](../ux_design/storytelling-stakeholders.md) — stakeholder pitch and storytelling

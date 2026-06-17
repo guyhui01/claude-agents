@@ -1,150 +1,150 @@
-# Skill — Formation à Claude Code et aux Outils LLM Professionnels
+# Skill — Training on Claude Code and Professional LLM Tools
 
-> Certifications : Anthropic Claude Code in Action (2026), Anthropic Claude Code 101 (2026), Anthropic Claude 101 (2026), Google AI Essentials Certificate
+> Certifications: Anthropic Claude Code in Action (2026), Anthropic Claude Code 101 (2026), Anthropic Claude 101 (2026), Google AI Essentials Certificate
 
-## Objectif
+## Objective
 
-Concevoir et animer des formations à Claude Code et aux outils LLM professionnels (API Anthropic, Claude.ai Teams, intégrations IDE) — pour des profils dev, PO, chef de projet IA et consultants souhaitant maîtriser l'écosystème Anthropic en contexte professionnel.
+Design and deliver training on Claude Code and professional LLM tools (Anthropic API, Claude.ai Teams, IDE integrations) — for dev, PO, AI project manager, and consultant profiles who want to master the Anthropic ecosystem in a professional context.
 
-## Programme
+## Program
 
-### Module A — Claude Code Fondamentaux (demi-journée — tous niveaux tech)
+### Module A — Claude Code Fundamentals (half-day — all tech levels)
 
 ```
-SÉQUENCE                                      DURÉE    FORMAT
+SEQUENCE                                      TIME     FORMAT
 ──────────────────────────────────────────   ──────   ──────────────────
-Installation et configuration Claude Code     20 min   Hands-on guidé
-Interface CLI : commandes essentielles        20 min   Démo + exercice
-Travailler avec un codebase existant          30 min   TP sur dépôt réel
-CLAUDE.md : instructions et conventions       20 min   Édition guidée
-Mémoire auto : MEMORY.md et persistance       20 min   Explication + démo
-MCP servers : connecter ses outils (Jira…)   30 min   Config guidée
-Hooks et automations avancées                20 min   Exemples pratiques
-Q&A + ressources pour continuer              20 min   Plénière
+Install and configure Claude Code             20 min   Guided hands-on
+CLI interface: essential commands             20 min   Demo + exercise
+Working with an existing codebase             30 min   Lab on a real repo
+CLAUDE.md: instructions and conventions       20 min   Guided editing
+Auto memory: MEMORY.md and persistence        20 min   Explanation + demo
+MCP servers: connect your tools (Jira…)       30 min   Guided config
+Hooks and advanced automations                20 min   Practical examples
+Q&A + resources to keep going                 20 min   Plenary
 ```
 
-### Module B — API Anthropic et Anthropic SDK (demi-journée — profils dev)
+### Module B — Anthropic API and Anthropic SDK (half-day — dev profiles)
 
 ```
-SÉQUENCE                                      DURÉE    FORMAT
+SEQUENCE                                      TIME     FORMAT
 ──────────────────────────────────────────   ──────   ──────────────────
-Architecture de l'API : models, messages      20 min   Slides + code
-Messages API : rôles, content blocks          20 min   Démo Python/TS
-Prompt caching : économies et stratégie       30 min   Cas concret + mesure
-Tool use / function calling                   30 min   TP : agent avec outils
-Thinking et extended thinking                 20 min   Démonstration
-Batch API : traitement en masse               20 min   Exemple + chiffres
-Streaming : UX temps réel                    20 min   Code + démo
-Évaluation coûts et monitoring              20 min   Dashboard + calcul
+API architecture: models, messages            20 min   Slides + code
+Messages API: roles, content blocks            20 min   Python/TS demo
+Prompt caching: savings and strategy           30 min   Concrete case + measurement
+Tool use / function calling                    30 min   Lab: agent with tools
+Thinking and extended thinking                 20 min   Demonstration
+Batch API: bulk processing                     20 min   Example + figures
+Streaming: real-time UX                        20 min   Code + demo
+Cost evaluation and monitoring                 20 min   Dashboard + calculation
 ```
 
-### Module C — Workflows IA avec Claude (journée — profils PO/PM/Consultants)
+### Module C — AI Workflows with Claude (full day — PO/PM/Consultant profiles)
 
 ```
-SÉQUENCE                                      DURÉE    FORMAT
+SEQUENCE                                      TIME     FORMAT
 ──────────────────────────────────────────   ──────   ──────────────────
-Matin :
-  Claude.ai Teams vs API : quand utiliser quoi ?  30 min  Comparatif décisionnel
-  Projets Claude : organisation et contexte        30 min  Démo + config
-  Prompting professionnel (system prompts métier)  60 min  Atelier par métier
+Morning:
+  Claude.ai Teams vs API: when to use which?     30 min  Decision comparison
+  Claude Projects: organization and context      30 min  Demo + config
+  Professional prompting (business system prompts) 60 min  Workshop by role
 
-Après-midi :
-  Workflows agentiques : orchestrer des agents    60 min  Atelier WF
-  Intégrations : Claude + Jira/Confluence/GitHub  45 min  Config + démo MCP
-  Gouvernance IA : usage sécurisé en entreprise   30 min  RGPD + AI Act basics
-  Construire sa bibliothèque de prompts           45 min  TP individuel
+Afternoon:
+  Agentic workflows: orchestrating agents        60 min  WF workshop
+  Integrations: Claude + Jira/Confluence/GitHub  45 min  Config + MCP demo
+  AI governance: secure enterprise usage         30 min  GDPR + AI Act basics
+  Build your prompt library                      45 min  Individual lab
 ```
 
-## Contenus pédagogiques clés
+## Key teaching content
 
-### Comparatif Claude.ai vs API Anthropic
+### Claude.ai vs Anthropic API comparison
 
 ```
-CRITÈRE          CLAUDE.AI TEAMS           API ANTHROPIC
+CRITERION        CLAUDE.AI TEAMS           API ANTHROPIC
 ──────────────   ───────────────────────   ───────────────────────────────
-Cible            Utilisateurs métier        Développeurs, intégrateurs
-Accès            Interface web/app          Code (Python, TS, curl)
-Personnalisation Projets + instructions     System prompts complets
-Coût             Abonnement fixe/user       Pay-per-token (variable)
-Intégrations     MCP (Claude.ai Pro+)       SDK full + webhooks
-Contrôle         Limité (pas de logique)    Total (orchestration complète)
-Données          Géré par Anthropic         Configurable (no-logging opt)
+Target           Business users            Developers, integrators
+Access           Web/app interface         Code (Python, TS, curl)
+Customization    Projects + instructions   Full system prompts
+Cost             Fixed subscription/user   Pay-per-token (variable)
+Integrations     MCP (Claude.ai Pro+)      Full SDK + webhooks
+Control          Limited (no logic)        Full (complete orchestration)
+Data             Managed by Anthropic      Configurable (no-logging opt)
 ```
 
-### Guide de démarrage Claude Code (format mémo)
+### Claude Code quick-start guide (cheat-sheet format)
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│  CLAUDE CODE — COMMANDES ESSENTIELLES               │
+│  CLAUDE CODE — ESSENTIAL COMMANDS                   │
 ├─────────────────────────────────────────────────────┤
-│  /help           → Aide générale                    │
-│  /model          → Changer de modèle                │
-│  /config         → Configuration session            │
-│  /clear          → Vider le contexte                │
-│  /memory         → Voir les mémoires actives        │
-│  ! <commande>    → Exécuter un shell                │
+│  /help           → General help                     │
+│  /model          → Switch model                     │
+│  /config         → Session configuration            │
+│  /clear          → Clear the context                │
+│  /memory         → View active memories             │
+│  ! <command>     → Run a shell command              │
 ├─────────────────────────────────────────────────────┤
-│  FICHIERS CLÉS                                      │
-│  ~/.claude/CLAUDE.md     → Instructions globales    │
-│  <projet>/CLAUDE.md      → Instructions projet      │
-│  memory/MEMORY.md        → Index des mémoires       │
+│  KEY FILES                                          │
+│  ~/.claude/CLAUDE.md     → Global instructions      │
+│  <project>/CLAUDE.md     → Project instructions     │
+│  memory/MEMORY.md        → Memory index             │
 ├─────────────────────────────────────────────────────┤
-│  MODÈLES DISPONIBLES                                │
-│  claude-opus-4-8    → Raisonnement complexe         │
-│  claude-sonnet-4-6  → Tâches courantes              │
-│  claude-haiku-4-5   → Scripts simples               │
+│  AVAILABLE MODELS                                   │
+│  claude-opus-4-8    → Complex reasoning             │
+│  claude-sonnet-4-6  → Everyday tasks                │
+│  claude-haiku-4-5   → Simple scripts                │
 └─────────────────────────────────────────────────────┘
 ```
 
-### Sécurité et bonnes pratiques entreprise
+### Security and enterprise best practices
 
 ```
-✅ PEUT ÊTRE PARTAGÉ AVEC CLAUDE CODE
-  → Code source interne (avec permission SI)
-  → Documentation technique
-  → Templates de documents
-  → Données anonymisées
+✅ CAN BE SHARED WITH CLAUDE CODE
+  → Internal source code (with IT permission)
+  → Technical documentation
+  → Document templates
+  → Anonymized data
 
-⚠ À VÉRIFIER AVEC LE DPO / RSSI
-  → Données clients nommées
-  → Données RH
-  → Propriété intellectuelle sensible
-  → Code de systèmes critiques
+⚠ CHECK WITH THE DPO / CISO
+  → Named client data
+  → HR data
+  → Sensitive intellectual property
+  → Critical-systems code
 
-❌ NE PAS PARTAGER
-  → Credentials / clés API
-  → Mots de passe
-  → Données de santé
-  → Informations financières confidentielles
+❌ DO NOT SHARE
+  → Credentials / API keys
+  → Passwords
+  → Health data
+  → Confidential financial information
 ```
 
-## Livrables de formation
+## Training deliverables
 
-- Guide mémo "Claude Code en 1 page" (plastifié, format A4)
-- Cheat sheet API Anthropic Python/TypeScript
-- Template CLAUDE.md starter (adaptable par équipe)
-- TP hands-on annotés : 5 exercices progressifs
-- Guide "Gouvernance IA — Usage sécurisé de Claude en entreprise"
+- "Claude Code on 1 page" cheat sheet (laminated, A4)
+- Anthropic API cheat sheet, Python/TypeScript
+- Starter CLAUDE.md template (adaptable per team)
+- Annotated hands-on labs: 5 progressive exercises
+- "AI Governance — Secure enterprise use of Claude" guide
 
-## Format de sortie
+## Output format
 
-Précise : **profil** (dev / PO / consultant / mixte), **module souhaité** (A / B / C / sur-mesure), **durée** (demi-journée / journée), **contexte** (formation initiale / montée en compétences / certification), **outils intégrés** à démontrer (Jira, Confluence, GitHub, autres).
+Specify: **profile** (dev / PO / consultant / mixed), **desired module** (A / B / C / custom), **duration** (half-day / full day), **context** (initial training / upskilling / certification), **integrated tools** to demo (Jira, Confluence, GitHub, others).
 
 ## Sources
-- **Anthropic** — documentation *Claude Code* (CLAUDE.md, MCP, hooks) & *Messages API* — [docs.anthropic.com](https://docs.anthropic.com/)
+- **Anthropic** — *Claude Code* documentation (CLAUDE.md, MCP, hooks) & *Messages API* — [docs.anthropic.com](https://docs.anthropic.com/)
 - **Anthropic** — *Prompt Engineering Guide*
 - **Anthropic** — *Model Context Protocol (MCP)* (2024)
-- Modèles à jour : **Claude Opus 4.8 / Sonnet 4.6 / Haiku 4.5** (politique de tiers)
+- Up-to-date models: **Claude Opus 4.8 / Sonnet 4.6 / Haiku 4.5** (tier policy)
 
 ## Anti-patterns
-- Former à l'outil sans cadrage de gouvernance et de sécurité des données
-- Démonstrations sur des données clients réelles (RGPD) en session
-- Citer des versions de modèles obsolètes
-- TP sans codebase réelle → compétence non transférable
-- Confondre Claude.ai Teams et API/SDK selon le besoin
+- Training on the tool with no data-governance and security framing
+- Demos on real client data (GDPR) during the session
+- Citing outdated model versions
+- Labs with no real codebase → non-transferable skill
+- Confusing Claude.ai Teams and API/SDK for the need at hand
 
-## Voir aussi
-- [prompt-engineering-formation.md](prompt-engineering-formation.md) — compétence prompt en amont
-- [formation-agents-ia.md](formation-agents-ia.md) — aller vers les agents
-- [formation-ia-sensibilisation.md](formation-ia-sensibilisation.md) — prérequis non-tech
-- [`../prompt_engineer/prompt-optimization.md`](../prompt_engineer/prompt-optimization.md) — optimisation des prompts
+## See also
+- [prompt-engineering-formation.md](prompt-engineering-formation.md) — upstream prompting skill
+- [formation-agents-ia.md](formation-agents-ia.md) — move toward agents
+- [formation-ia-sensibilisation.md](formation-ia-sensibilisation.md) — non-tech prerequisite
+- [`../prompt_engineer/prompt-optimization.md`](../prompt_engineer/prompt-optimization.md) — prompt optimization

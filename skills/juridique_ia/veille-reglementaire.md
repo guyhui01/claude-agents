@@ -1,74 +1,74 @@
-# Skill — Veille Réglementaire IA
-> Certifications : CIPP/E · AI Act Compliance Expert · DPO Certifié CNIL
+# Skill — AI Regulatory Monitoring
+> Certifications: CIPP/E · AI Act Compliance Expert · Certified DPO CNIL
 
-## Objectif
-Maintenir une veille réglementaire IA de haut niveau pour anticiper les évolutions législatives et conseiller les organisations sur leurs obligations.
+## Objective
+Maintain high-level AI regulatory monitoring to anticipate legislative developments and advise organizations on their obligations.
 
-## Sources de veille réglementaire 2026
+## Regulatory monitoring sources 2026
 
-### Europe (prioritaire)
-| Source | Fréquence | Contenu |
+### Europe (priority)
+| Source | Frequency | Content |
 |---|---|---|
-| EUR-Lex (eur-lex.europa.eu) | Quotidien | Textes officiels EU |
-| EU AI Office (digital-strategy.ec.europa.eu) | Hebdomadaire | AI Act guidance, codes de pratique |
-| CNIL (cnil.fr) | Hebdomadaire | RGPD, IA, recommandations France |
-| EDPB (edpb.europa.eu) | Mensuel | Guidelines européennes RGPD |
-| ENISA (enisa.europa.eu) | Mensuel | Cybersécurité + IA |
-| Parlement Européen (europarl.europa.eu) | Mensuel | Futurs textes en discussion |
+| EUR-Lex (eur-lex.europa.eu) | Daily | Official EU texts |
+| EU AI Office (digital-strategy.ec.europa.eu) | Weekly | AI Act guidance, codes of practice |
+| CNIL (cnil.fr) | Weekly | GDPR, AI, France recommendations |
+| EDPB (edpb.europa.eu) | Monthly | European GDPR guidelines |
+| ENISA (enisa.europa.eu) | Monthly | Cybersecurity + AI |
+| European Parliament (europarl.europa.eu) | Monthly | Upcoming texts under discussion |
 
 ### International
-| Source | Contenu |
+| Source | Content |
 |---|---|
-| NIST AI RMF 1.0 (nist.gov, 2023) | Framework risques IA (USA) |
-| OECD AI Policy Observatory | Politiques IA par pays |
-| ISO/IEC JTC 1/SC 42 | Standards techniques IA (ISO 42001) |
-| IEEE Standards (standards.ieee.org) | Éthique et sécurité IA |
+| NIST AI RMF 1.0 (nist.gov, 2023) | AI risk framework (USA) |
+| OECD AI Policy Observatory | AI policies by country |
+| ISO/IEC JTC 1/SC 42 | AI technical standards (ISO 42001) |
+| IEEE Standards (standards.ieee.org) | AI ethics and safety |
 
-### Jurisprudence et décisions
-| Source | Contenu |
+### Case law and decisions
+| Source | Content |
 |---|---|
-| CJUE (curia.europa.eu) | Arrêts sur RGPD et données |
-| CNIL Délibérations | Sanctions, mises en demeure |
-| ICO (ico.org.uk) | Autorité UK post-Brexit |
-| DSB (Autriche), BfDI (Allemagne) | Décisions nationales importantes |
+| CJEU (curia.europa.eu) | Rulings on GDPR and data |
+| CNIL Decisions | Penalties, formal notices |
+| ICO (ico.org.uk) | UK authority post-Brexit |
+| DSB (Austria), BfDI (Germany) | Important national decisions |
 
-## Calendrier réglementaire IA 2026
+## AI regulatory calendar 2026
 ```
-Janvier 2026  : Premières décisions EU AI Office (GPAI)
-Mars 2026     : Publication codes de pratique IA finaux
-Juin 2026     : Premières notations d'organismes notifiés AI Act
-Août 2026     : Application complète AI Act (risque élevé)
-Fin 2026      : Révision ePrivacy Regulation (tracking IA)
-2027          : AI Liability Directive (responsabilité civile IA)
+January 2026  : First EU AI Office decisions (GPAI)
+March 2026    : Publication of final AI codes of practice
+June 2026     : First notified-body assessments under the AI Act
+August 2026   : Full application of the AI Act (high-risk)
+End of 2026   : Revision of the ePrivacy Regulation (AI tracking)
+2027          : AI Liability Directive (AI civil liability)
 ```
 
-## Template Note de Veille Réglementaire (mensuel)
+## Regulatory Monitoring Note Template (monthly)
 ```markdown
-## Veille Réglementaire IA — [Mois 2026]
+## AI Regulatory Monitoring — [Month 2026]
 
-### Textes publiés / en vigueur
-- [Règlement / Décision] : [résumé impact pratique]
-  → Action requise : [oui/non] | Délai : [date]
+### Texts published / in force
+- [Regulation / Decision]: [summary of practical impact]
+  → Action required: [yes/no] | Deadline: [date]
 
-### Positions des autorités
-- CNIL : [décision / recommandation + impact]
-- EU AI Office : [guidance + impact]
+### Authorities' positions
+- CNIL: [decision / recommendation + impact]
+- EU AI Office: [guidance + impact]
 
-### Jurisprudence notable
-- [Affaire] : [enjeu + décision + enseignement pratique]
+### Notable case law
+- [Case]: [stake + ruling + practical lesson]
 
-### À surveiller (prochains mois)
-- [Texte en discussion] : [impact potentiel]
+### To watch (coming months)
+- [Text under discussion]: [potential impact]
 
-### Recommandations pour nos clients
-- [Secteur] : [action concrète recommandée]
+### Recommendations for our clients
+- [Sector]: [concrete recommended action]
 ```
 
-## Livrables
-- Newsletter réglementaire mensuelle (1-2 pages)
-- Tableau de bord de conformité (AI Act + RGPD)
-- Alertes flash sur décisions critiques (< 24h)
-- Rapport de conformité annuel
+## Deliverables
+- Monthly regulatory newsletter (1-2 pages)
+- Compliance dashboard (AI Act + GDPR)
+- Flash alerts on critical decisions (< 24h)
+- Annual compliance report
 
-## Format de sortie
-Précise : secteur client · périmètre géographique · textes prioritaires · format de diffusion (newsletter, rapport, présentation) · audience (DPO, RSSI, CODIR, équipes)
+## Output format
+Specify: client sector · geographic scope · priority texts · distribution format (newsletter, report, presentation) · audience (DPO, CISO, executive committee, teams)

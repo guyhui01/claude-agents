@@ -1,162 +1,162 @@
-# Skill — Analyse des Besoins de Formation (TNA)
+# Skill — Training Needs Analysis (TNA)
 
-> Certifications : ATD CPTD (Certified Professional in Talent Development) 2026, Qualiopi Référentiel Qualité Formation, CNAM Ingénierie de Formation, HEC Executive Education Design
+> Certifications: ATD CPTD (Certified Professional in Talent Development) 2026, Qualiopi French Training Quality Framework, CNAM Training Engineering, HEC Executive Education Design
 
-## Objectif
+## Objective
 
-Conduire une Training Needs Analysis (TNA) rigoureuse pour identifier les écarts de compétences IA, concevoir les personas apprenants et prioriser les actions de formation Data-IA.
+Run a rigorous Training Needs Analysis (TNA) to identify AI skill gaps, design learner personas, and prioritize Data-AI training actions.
 
-## Méthode TNA — 5 étapes
+## TNA method — 5 steps
 
-### Vue d'ensemble du processus
+### Process overview
 
 ```
-Étape 1          Étape 2          Étape 3          Étape 4          Étape 5
-Contexte    →    Collecte    →    Analyse     →    Personas    →    Plan
-stratégique      données          écarts           apprenants       formation
-(1 semaine)      (2 semaines)     (1 semaine)      (1 semaine)      (1 semaine)
+Step 1           Step 2           Step 3           Step 4           Step 5
+Strategic   →    Data        →    Gap         →    Learner     →    Training
+context          collection       analysis         personas         plan
+(1 week)         (2 weeks)        (1 week)         (1 week)         (1 week)
 ```
 
-### Étape 1 — Alignement stratégique
+### Step 1 — Strategic alignment
 
 ```yaml
-Questions_à_poser_aux_sponsors:
-  - "Quels sont les objectifs business liés à la formation IA ?"
-  - "Quelles décisions ou comportements doivent changer ?"
-  - "Quelle est la population cible (nb, fonctions, niveaux) ?"
-  - "Quel est le budget et l'horizon temporel ?"
-  - "Comment le succès sera-t-il mesuré (Kirkpatrick L3-L4) ?"
+Questions_to_ask_sponsors:
+  - "What business objectives are tied to the AI training?"
+  - "Which decisions or behaviors need to change?"
+  - "What is the target population (count, roles, levels)?"
+  - "What is the budget and the time horizon?"
+  - "How will success be measured (Kirkpatrick L3-L4)?"
 
-Sources_d_information:
-  - Stratégie Data-IA de l'entreprise
-  - GPEC / GEPP existante
-  - Entretiens CODIR (30 min × 3-5 décideurs)
-  - Résultats évaluations de performance N-1
+Information_sources:
+  - Company Data-AI strategy
+  - Existing workforce planning (GPEC / GEPP)
+  - Steering-committee interviews (30 min × 3-5 decision-makers)
+  - Prior-year performance-review results
 ```
 
-### Étape 2 — Collecte de données
+### Step 2 — Data collection
 
-#### Méthodes d'enquête
+#### Survey methods
 
-| Méthode | Public | Nb | Durée | Livrable |
+| Method | Audience | Count | Duration | Deliverable |
 |---------|--------|-----|-------|---------|
-| Entretiens semi-directifs | Managers + experts | 10-15 | 45 min | Verbatims codés |
-| Questionnaire en ligne | Collaborateurs | 50-500 | 15 min | Données quantitatives |
-| Focus groups | Équipes représentatives | 3-5 groupes × 8 | 90 min | Insights qualitatifs |
-| Observation terrain | Utilisateurs clés | 5-10 | 2h | Comportements réels |
-| Analyse documentaire | RH + managers | — | — | GPEC, fiches de poste |
+| Semi-structured interviews | Managers + experts | 10-15 | 45 min | Coded verbatims |
+| Online questionnaire | Employees | 50-500 | 15 min | Quantitative data |
+| Focus groups | Representative teams | 3-5 groups × 8 | 90 min | Qualitative insights |
+| Field observation | Key users | 5-10 | 2h | Real behaviors |
+| Document review | HR + managers | — | — | Workforce plans, job descriptions |
 
-#### Template questionnaire TNA IA (extrait)
+#### AI TNA questionnaire template (excerpt)
 
 ```
-QUESTIONNAIRE — BESOINS DE FORMATION IA 2026
-(Format Likert 1-5 + questions ouvertes)
+QUESTIONNAIRE — AI TRAINING NEEDS 2026
+(Likert 1-5 format + open-ended questions)
 
-SECTION A — Auto-évaluation compétences IA actuelles
-Q1. Je sais expliquer ce qu'est un modèle de langage (LLM) à un collègue.
-    [ ] 1-Pas du tout  [ ] 2  [ ] 3  [ ] 4  [ ] 5-Totalement
+SECTION A — Self-assessment of current AI skills
+Q1. I can explain what a language model (LLM) is to a colleague.
+    [ ] 1-Not at all  [ ] 2  [ ] 3  [ ] 4  [ ] 5-Completely
 
-Q2. J'utilise des outils IA génératifs (ChatGPT, Claude, Copilot) dans mon travail.
-    [ ] Jamais  [ ] Rarement  [ ] Parfois  [ ] Souvent  [ ] Quotidiennement
+Q2. I use generative AI tools (ChatGPT, Claude, Copilot) in my work.
+    [ ] Never  [ ] Rarely  [ ] Sometimes  [ ] Often  [ ] Daily
 
-Q3. Je suis capable d'évaluer la fiabilité d'une réponse générée par une IA.
-    [ ] 1-Pas du tout  [ ] 2  [ ] 3  [ ] 4  [ ] 5-Totalement
+Q3. I am able to assess the reliability of an AI-generated answer.
+    [ ] 1-Not at all  [ ] 2  [ ] 3  [ ] 4  [ ] 5-Completely
 
-SECTION B — Besoins perçus
-Q4. Pour quelles tâches professionnelles souhaiteriez-vous être formé(e) à l'IA ?
-    (texte libre — 3 réponses max)
+SECTION B — Perceived needs
+Q4. For which work tasks would you like AI training?
+    (free text — 3 answers max)
 
-Q5. Quel format de formation vous convient le mieux ?
-    [ ] Présentiel (journée)  [ ] E-learning (30 min/module)
-    [ ] Blended  [ ] Coaching individuel  [ ] Ateliers pratiques
+Q5. Which training format suits you best?
+    [ ] In-person (full day)  [ ] E-learning (30 min/module)
+    [ ] Blended  [ ] One-on-one coaching  [ ] Hands-on workshops
 
-SECTION C — Freins et facteurs de succès
-Q6. Quel est votre principal frein à l'adoption de l'IA ? (1 réponse)
-    [ ] Manque de temps  [ ] Peur de se tromper  [ ] Pas de cas d'usage clair
-    [ ] Questions éthiques  [ ] Compétences techniques insuffisantes
+SECTION C — Barriers and success factors
+Q6. What is your main barrier to AI adoption? (1 answer)
+    [ ] Lack of time  [ ] Fear of making mistakes  [ ] No clear use case
+    [ ] Ethical concerns  [ ] Insufficient technical skills
 ```
 
-### Étape 3 — Analyse des écarts (Gap Analysis)
+### Step 3 — Gap analysis
 
-#### Modèle de gap analysis par famille de compétences IA
+#### Gap-analysis model by AI skill family
 
-| Domaine | Niveau requis (cible) | Niveau actuel (médiane) | Écart | Priorité |
+| Domain | Required level (target) | Current level (median) | Gap | Priority |
 |---------|----------------------|------------------------|-------|---------|
-| Comprendre l'IA (fondamentaux) | 3/5 | 1.8/5 | -1.2 | HAUTE |
-| Prompt Engineering | 3/5 | 1.2/5 | -1.8 | CRITIQUE |
-| Éthique IA & biais | 3/5 | 1.5/5 | -1.5 | HAUTE |
-| Analyse de données (Excel/BI) | 4/5 | 2.8/5 | -1.2 | MOYENNE |
-| Gestion de projets data | 3/5 | 2.2/5 | -0.8 | BASSE |
+| Understanding AI (fundamentals) | 3/5 | 1.8/5 | -1.2 | HIGH |
+| Prompt Engineering | 3/5 | 1.2/5 | -1.8 | CRITICAL |
+| AI ethics & bias | 3/5 | 1.5/5 | -1.5 | HIGH |
+| Data analysis (Excel/BI) | 4/5 | 2.8/5 | -1.2 | MEDIUM |
+| Data project management | 3/5 | 2.2/5 | -0.8 | LOW |
 
-### Étape 4 — Personas apprenants
+### Step 4 — Learner personas
 
 ```yaml
 Persona_1:
-  nom: "Marie, Directrice Marketing 45 ans"
-  contexte: "Pilote une équipe de 8, budget 5M€/an"
-  niveau_IA: "Curieuse mais débutante — utilise ChatGPT personnellement"
-  besoins: ["Cas d'usage IA marketing concrets", "ROI rapide", "Déléguer à l'équipe"]
-  freins: ["Pas assez de temps", "Peur de l'hallucination"]
-  format_idéal: "Demi-journée présentiel + toolkit pratique"
-  KPI_succès: "Lancer 2 initiatives IA dans son équipe sous 3 mois"
+  name: "Marie, Marketing Director, 45"
+  context: "Leads a team of 8, €5M/year budget"
+  AI_level: "Curious but beginner — uses ChatGPT personally"
+  needs: ["Concrete AI marketing use cases", "Fast ROI", "Delegating to the team"]
+  barriers: ["Not enough time", "Fear of hallucination"]
+  ideal_format: "Half-day in-person + practical toolkit"
+  success_KPI: "Launch 2 AI initiatives in her team within 3 months"
 
 Persona_2:
-  nom: "Thomas, Data Analyst 28 ans"
-  contexte: "Expert Excel/SQL, explore Python depuis 6 mois"
-  niveau_IA: "Intermédiaire — utilise GitHub Copilot + ChatGPT API"
-  besoins: ["MLOps foundations", "Prompt engineering avancé", "LangChain"]
-  freins: ["Syndrome imposteur vis-à-vis des Data Scientists"]
-  format_idéal: "Parcours e-learning 4 semaines + projet fil rouge"
-  KPI_succès: "Déployer un pipeline RAG en autonomie"
+  name: "Thomas, Data Analyst, 28"
+  context: "Excel/SQL expert, exploring Python for 6 months"
+  AI_level: "Intermediate — uses GitHub Copilot + ChatGPT API"
+  needs: ["MLOps foundations", "Advanced prompt engineering", "LangChain"]
+  barriers: ["Impostor syndrome toward Data Scientists"]
+  ideal_format: "4-week e-learning track + capstone project"
+  success_KPI: "Deploy a RAG pipeline independently"
 
 Persona_3:
-  nom: "Rémi, Directeur Financier 52 ans"
-  contexte: "Décideur, peu technique, sceptique mais curieux"
-  niveau_IA: "Débutant — n'utilise pas d'IA pro"
-  besoins: ["Vocabulaire IA pour dialoguer avec la DSI", "ROI et risques"]
-  freins: ["Manque de confiance dans les données IA"]
-  format_idéal: "Executive briefing 3h + memo personnalisé"
-  KPI_succès: "Valider budget IA au prochain CODIR"
+  name: "Rémi, CFO, 52"
+  context: "Decision-maker, not very technical, skeptical but curious"
+  AI_level: "Beginner — does not use AI at work"
+  needs: ["AI vocabulary to talk with IT", "ROI and risks"]
+  barriers: ["Lack of trust in AI data"]
+  ideal_format: "3h executive briefing + tailored memo"
+  success_KPI: "Approve the AI budget at the next steering committee"
 ```
 
-### Étape 5 — Plan de formation priorisé
+### Step 5 — Prioritized training plan
 
-| Formation | Public | Urgence | Format | Durée | Budget estimé |
+| Training | Audience | Urgency | Format | Duration | Estimated budget |
 |-----------|--------|---------|--------|-------|---------------|
-| IA pour tous (sensibilisation) | Tous collaborateurs | CRITIQUE | E-learning | 3h | 30 k€ |
-| Prompt Engineering pratique | Managers + fonctionnels | HAUTE | Présentiel | 1 jour | 50 k€ |
-| Data Literacy niveau 1 | Toutes équipes | HAUTE | Blended | 5h | 40 k€ |
-| IA pour développeurs | Tech team | MOYENNE | Bootcamp | 3 jours | 25 k€ |
-| AI Leadership | CODIR + Directeurs | HAUTE | Executive | 3h | 15 k€ |
+| AI for everyone (awareness) | All employees | CRITICAL | E-learning | 3h | €30k |
+| Hands-on Prompt Engineering | Managers + business roles | HIGH | In-person | 1 day | €50k |
+| Data Literacy level 1 | All teams | HIGH | Blended | 5h | €40k |
+| AI for developers | Tech team | MEDIUM | Bootcamp | 3 days | €25k |
+| AI Leadership | Steering committee + Directors | HIGH | Executive | 3h | €15k |
 
-## Livrables
+## Deliverables
 
-- Rapport TNA complet (contexte, méthode, résultats, recommandations)
-- Questionnaire TNA adapté au contexte (Google Forms / Typeform)
-- Carte des écarts de compétences (heat map par population)
-- Fiches personas apprenants (3-5 personas détaillés)
-- Plan de formation priorisé avec budget et planning
-- Présentation de restitution sponsor (15 slides)
+- Full TNA report (context, method, results, recommendations)
+- Context-tailored TNA questionnaire (Google Forms / Typeform)
+- Skill-gap map (heat map by population)
+- Learner persona sheets (3-5 detailed personas)
+- Prioritized training plan with budget and schedule
+- Sponsor readout deck (15 slides)
 
-## Format de sortie
+## Output format
 
-Précise : **secteur et taille de l'organisation**, **population cible** (nb, fonctions, niveaux hiérarchiques), **objectifs business** de la formation, **contraintes** (budget, délai, présentiel/distanciel), **outils IA actuellement utilisés** dans l'organisation, **TNA déjà réalisée ou à initier**.
+Specify: **sector and organization size**, **target population** (count, roles, hierarchical levels), **business objectives** of the training, **constraints** (budget, deadline, in-person/remote), **AI tools currently used** in the organization, **TNA already run or to be initiated**.
 
 ## Sources
 - **Allison Rossett** — *Training Needs Assessment* (Educational Technology Publications, 1987)
-- **Roger Kaufman** — *Needs Assessment* / Organizational Elements Model — alignement besoin ↔ résultats
-- **Donald Kirkpatrick & James Kirkpatrick** — *Evaluating Training Programs* (1994 ; New World Model, 2016) — niveaux L3/L4 visés dès l'analyse
-- **France compétences** — Qualiopi / Référentiel National Qualité — exigence d'analyse du besoin
+- **Roger Kaufman** — *Needs Assessment* / Organizational Elements Model — aligning need ↔ results
+- **Donald Kirkpatrick & James Kirkpatrick** — *Evaluating Training Programs* (1994; New World Model, 2016) — L3/L4 levels targeted from the analysis stage
+- **France compétences** — Qualiopi / National Quality Framework — needs-analysis requirement
 
 ## Anti-patterns
-- Partir de la solution (« il faut une formation IA ») avant de mesurer l'écart de compétences réel
-- TNA fondée uniquement sur le déclaratif du sponsor, sans données terrain
-- Personas inventés, non issus des entretiens / sondages / observations
-- Confondre besoin de formation et problème d'organisation ou d'outillage
-- Aucun lien entre les écarts identifiés et les objectifs business (L3/L4)
+- Starting from the solution ("we need AI training") before measuring the real skill gap
+- TNA based solely on the sponsor's statements, with no field data
+- Made-up personas, not derived from interviews / surveys / observations
+- Confusing a training need with an organizational or tooling problem
+- No link between identified gaps and business objectives (L3/L4)
 
-## Voir aussi
-- [conception-parcours.md](conception-parcours.md) — concevoir le parcours répondant aux écarts
-- [evaluation-formation.md](evaluation-formation.md) — boucler la TNA par la mesure d'impact
-- [data-literacy.md](data-literacy.md) — cas d'usage data/IA par niveau
-- [`../business_analyst/elicitation-besoins.md`](../business_analyst/elicitation-besoins.md) — techniques d'élicitation côté MOA
+## See also
+- [conception-parcours.md](conception-parcours.md) — design the learning path that addresses the gaps
+- [evaluation-formation.md](evaluation-formation.md) — close the TNA loop with impact measurement
+- [data-literacy.md](data-literacy.md) — data/AI use cases by level
+- [`../business_analyst/elicitation-besoins.md`](../business_analyst/elicitation-besoins.md) — elicitation techniques on the business-analysis side

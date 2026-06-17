@@ -1,13 +1,13 @@
-# Skill — Veille IA et LLM
-> Certifications : Anthropic Claude Code in Action (2026), SIC (SCIP — Strategic Consortium of Intelligence Professionals)
+# Skill — AI and LLM Intelligence
+> Certifications: Anthropic Claude Code in Action (2026), SIC (SCIP — Strategic Consortium of Intelligence Professionals)
 
-## Objectif
-Surveiller en continu l'écosystème IA et LLM — nouveaux modèles, outils, frameworks, tendances des labs (Anthropic, OpenAI, Google, Meta) — pour anticiper les évolutions et alimenter les décisions stratégiques et commerciales.
+## Objective
+Continuously monitor the AI and LLM ecosystem — new models, tools, frameworks, lab trends (Anthropic, OpenAI, Google, Meta) — to anticipate developments and feed strategic and commercial decisions.
 
-## Sources de veille IA — Catalogue
+## AI intelligence sources — Catalog
 
 ```
-SOURCES PRIMAIRES (annonces officielles)
+PRIMARY SOURCES (official announcements)
 ────────────────────────────────────────────────────────────
 Anthropic  : anthropic.com/news · X @AnthropicAI
 OpenAI     : openai.com/blog · X @OpenAI
@@ -15,100 +15,100 @@ Google AI  : blog.google/technology/ai · X @GoogleDeepMind
 Meta AI    : ai.meta.com/blog
 Mistral AI : mistral.ai/news
 
-SOURCES SECONDAIRES (analyses et synthèses)
+SECONDARY SOURCES (analyses and digests)
 ────────────────────────────────────────────────────────────
-The Batch (deeplearning.ai)    : Newsletter hebdo Andrew Ng
-AI Breakfast (Ben's Bites)     : Newsletter quotidienne
-Import AI (Jack Clark)         : Analyse technique profonde
-Stratechery                    : Analyse stratégique et business
-The Information                : Enquêtes exclusives tech
+The Batch (deeplearning.ai)    : Andrew Ng weekly newsletter
+AI Breakfast (Ben's Bites)     : Daily newsletter
+Import AI (Jack Clark)         : Deep technical analysis
+Stratechery                    : Strategic and business analysis
+The Information                : Exclusive tech investigations
 
-SOURCES TECHNIQUES
+TECHNICAL SOURCES
 ────────────────────────────────────────────────────────────
-ArXiv cs.AI/cs.CL              : Papers de recherche
-Papers With Code               : Benchmarks et SOTA
-Hugging Face Hub               : Modèles open source
-GitHub Trending (AI)           : Frameworks émergents
-LMArena / Chatbot Arena        : Classement par votes (leaderboard vivant)
-⚠ Open LLM Leaderboard (HF)    : ARCHIVÉ depuis juin 2024 — historique seul
+ArXiv cs.AI/cs.CL              : Research papers
+Papers With Code               : Benchmarks and SOTA
+Hugging Face Hub               : Open source models
+GitHub Trending (AI)           : Emerging frameworks
+LMArena / Chatbot Arena        : Vote-based ranking (live leaderboard)
+⚠ Open LLM Leaderboard (HF)    : ARCHIVED since June 2024 — history only
 
-COMMUNAUTÉS
+COMMUNITIES
 ────────────────────────────────────────────────────────────
 Reddit r/MachineLearning
-Twitter/X : Listes IA (LeCun, Karpathy, Altman, Pichai)
+Twitter/X : AI lists (LeCun, Karpathy, Altman, Pichai)
 LinkedIn : #GenAI #LLM #ArtificialIntelligence
 ```
 
-## Tableau de veille LLM — Template mensuel
+## LLM intelligence table — Monthly template
 
-> ⚠️ **Renseigner à chaque édition** avec la version courante de chaque éditeur et sa **date de sortie réelle** (ne pas étiqueter un modèle ancien à la date de veille). Croiser avec les leaderboards vivants (LMArena). Raisonner par **tier** : *frontier* (raisonnement/agents), *standard* (haut volume/vision), *éco/open* (coût, local).
+> ⚠️ **Fill in at each edition** with each vendor's current version and its **actual release date** (don't label an older model with the intelligence date). Cross-check against live leaderboards (LMArena). Reason by **tier**: *frontier* (reasoning/agents), *standard* (high-volume/vision), *eco/open* (cost, local).
 
-| Modèle | Éditeur | Sortie | Contexte | Tier | Pertinence |
+| Model | Vendor | Release | Context | Tier | Relevance |
 |---|---|---|---|---|---|
-| Claude Opus 4.8 | Anthropic | [AAAA-MM] | [doc] | frontier | ⭐⭐⭐ |
-| Claude Sonnet 4.6 | Anthropic | [AAAA-MM] | [doc] | standard | ⭐⭐⭐ |
-| [version courante] | OpenAI | [AAAA-MM] | [doc] | … | … |
-| [version courante] | Google | [AAAA-MM] | [doc] | … | … |
-| [version open] | Meta / Mistral | [AAAA-MM] | [doc] | éco/open | … |
+| Claude Opus 4.8 | Anthropic | [YYYY-MM] | [doc] | frontier | ⭐⭐⭐ |
+| Claude Sonnet 4.6 | Anthropic | [YYYY-MM] | [doc] | standard | ⭐⭐⭐ |
+| [current version] | OpenAI | [YYYY-MM] | [doc] | … | … |
+| [current version] | Google | [YYYY-MM] | [doc] | … | … |
+| [open version] | Meta / Mistral | [YYYY-MM] | [doc] | eco/open | … |
 
-> *Ancrage Anthropic au moment de rédaction (à actualiser)* : Opus 4.8 · Sonnet 4.6 · Haiku 4.5.
+> *Anthropic anchor at the time of writing (to refresh)*: Opus 4.8 · Sonnet 4.6 · Haiku 4.5.
 
-## Synthèse mensuelle IA — Template
+## Monthly AI digest — Template
 
 ```markdown
-# VEILLE IA — [MOIS ANNÉE]
-Préparée par : Guy HUI-BON-HOA | Source : Anthropic, OpenAI, ArXiv
+# AI INTELLIGENCE — [MONTH YEAR]
+Prepared by: Guy HUI-BON-HOA | Source: Anthropic, OpenAI, ArXiv
 
-## 🔥 LES 3 FAITS MARQUANTS DU MOIS
-1. **[FAIT 1]** — [Description courte + lien]
-   → Impact pour nos projets : [implication concrète]
+## 🔥 THE 3 KEY FACTS OF THE MONTH
+1. **[FACT 1]** — [Short description + link]
+   → Impact for our projects: [concrete implication]
 
-2. **[FAIT 2]** — [Description courte]
-   → Impact : [implication]
+2. **[FACT 2]** — [Short description]
+   → Impact: [implication]
 
-3. **[FAIT 3]** — [Description courte]
-   → Impact : [implication]
+3. **[FACT 3]** — [Short description]
+   → Impact: [implication]
 
-## 📊 ÉVOLUTION DES BENCHMARKS LLM
-| Modèle | MMLU | HumanEval | Tendance |
+## 📊 LLM BENCHMARK EVOLUTION
+| Model | MMLU | HumanEval | Trend |
 |---|---|---|---|
-| [Modèle A] | [score] | [score] | ↑ |
+| [Model A] | [score] | [score] | ↑ |
 
-## 💡 TENDANCES À SURVEILLER
-- [Tendance 1 : ex. Montée des agents IA multi-modaux]
-- [Tendance 2 : ex. Réglementation IA Act — calendrier]
+## 💡 TRENDS TO WATCH
+- [Trend 1: e.g. Rise of multimodal AI agents]
+- [Trend 2: e.g. AI Act regulation — timeline]
 
-## 🚀 OPPORTUNITÉS IDENTIFIÉES
-- [Opportunité pour les missions de Guy]
+## 🚀 IDENTIFIED OPPORTUNITIES
+- [Opportunity for Guy's engagements]
 
-## ⚠ RISQUES / SIGNAUX D'ALERTE
-- [Risque business ou technique]
+## ⚠ RISKS / WARNING SIGNALS
+- [Business or technical risk]
 ```
 
-## Livrables
-- Synthèse mensuelle IA (Markdown / LinkedIn post)
-- Tableau comparatif LLM mis à jour
-- Alertes sur les évolutions critiques
-- Recommandations actionnables pour les projets en cours
+## Deliverables
+- Monthly AI digest (Markdown / LinkedIn post)
+- Updated LLM comparison table
+- Alerts on critical developments
+- Actionable recommendations for ongoing projects
 
-## Format de sortie
-Précise : périmètre de veille (modèles / outils / réglementation), fréquence souhaitée, format de diffusion (note interne / LinkedIn / newsletter).
+## Output format
+Specify: the intelligence scope (models / tools / regulation), the desired frequency, the distribution format (internal note / LinkedIn / newsletter).
 
 ## Anti-patterns
-- ❌ **Table de modèles figée** avec dates/contextes datés du jour de veille → obsolète en semaines ; renseigner depuis la doc éditeur.
-- ❌ **Scores de benchmark recopiés sans date ni source** (cf. Open LLM Leaderboard archivé) — toujours dater et lier.
-- ❌ **Veille = collecte sans tri** : sans hiérarchisation (faits / tendances / signaux faibles), le flux noie le signal.
-- ❌ **Synthèse sans recommandation** : chaque veille se clôt par 2-3 actions concrètes.
+- ❌ **Frozen model table** with dates/contexts stamped on the intelligence day → obsolete in weeks; fill in from the vendor docs.
+- ❌ **Benchmark scores copied with no date or source** (cf. the archived Open LLM Leaderboard) — always date and link them.
+- ❌ **Intelligence = collection without triage**: with no hierarchy (facts / trends / weak signals), the stream drowns the signal.
+- ❌ **Digest with no recommendation**: each intelligence piece closes with 2-3 concrete actions.
 
-## Voir aussi
-- [`benchmark-outils-ia.md`](benchmark-outils-ia.md) — évaluation comparative outillée
-- [`analyse-tendances.md`](analyse-tendances.md) — mise en perspective macro (Hype Cycle)
-- [`synthese-periodique.md`](synthese-periodique.md) — format de diffusion
-- `AGENT-PROMPT-ENGINEER.md` — exploitation des nouveautés modèles
-- `AGENT-JURIDIQUE-IA.md` (`veille-reglementaire`) — volet AI Act / RGPD
+## See also
+- [`benchmark-outils-ia.md`](benchmark-outils-ia.md) — tooled comparative evaluation
+- [`analyse-tendances.md`](analyse-tendances.md) — macro perspective (Hype Cycle)
+- [`synthese-periodique.md`](synthese-periodique.md) — distribution format
+- `AGENT-PROMPT-ENGINEER.md` — leveraging model updates
+- `AGENT-JURIDIQUE-IA.md` (`veille-reglementaire`) — AI Act / GDPR aspect
 
 ## Sources
-- **Sources primaires labs** : anthropic.com/news · openai.com/blog · blog.google/technology/ai · ai.meta.com/blog · mistral.ai/news
-- **Leaderboards** : LMArena / Chatbot Arena · Papers With Code · Artificial Analysis · *Open LLM Leaderboard (HF) — archivé juin 2024*
-- **Analyses** : The Batch (deeplearning.ai) · Import AI (Jack Clark) · Stratechery
-- **Recherche** : ArXiv cs.AI / cs.CL · Hugging Face Hub
+- **Primary lab sources**: anthropic.com/news · openai.com/blog · blog.google/technology/ai · ai.meta.com/blog · mistral.ai/news
+- **Leaderboards**: LMArena / Chatbot Arena · Papers With Code · Artificial Analysis · *Open LLM Leaderboard (HF) — archived June 2024*
+- **Analyses**: The Batch (deeplearning.ai) · Import AI (Jack Clark) · Stratechery
+- **Research**: ArXiv cs.AI / cs.CL · Hugging Face Hub

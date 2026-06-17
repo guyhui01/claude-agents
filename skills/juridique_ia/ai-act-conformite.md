@@ -1,163 +1,163 @@
-# Skill — AI Act : Conformité et Obligations
+# Skill — AI Act: Compliance and Obligations
 
-> Certifications : AI Act Compliance Expert (EIPA) · CIPP/E · DPO Certifié CNIL
-> Agent : AGENT-JURIDIQUE-IA.md
-> Référentiels : **Règlement (UE) 2024/1689 (AI Act)** — art. 5, 6, 50, 51, 53, 55 + Annexe III · **ISO/IEC 42001:2023** (AIMS) · **NIST AI RMF 1.0** (2023) · couplage RGPD UE 2016/679
+> Certifications: AI Act Compliance Expert (EIPA) · CIPP/E · Certified DPO CNIL
+> Agent: AGENT-JURIDIQUE-IA.md
+> Frameworks: **Regulation (EU) 2024/1689 (AI Act)** — art. 5, 6, 50, 51, 53, 55 + Annex III · **ISO/IEC 42001:2023** (AIMS) · **NIST AI RMF 1.0** (2023) · GDPR EU 2016/679 coupling
 
-## Objectif
+## Objective
 
-Évaluer et mettre en conformité les systèmes IA avec le **Règlement (UE) 2024/1689** (« AI Act »), entré en vigueur le **1ᵉʳ août 2024**. Classer le système selon les 4 niveaux de risque, identifier les obligations par rôle (fournisseur/déployeur), produire le plan de mise en conformité aux bonnes échéances.
+Assess and bring AI systems into compliance with **Regulation (EU) 2024/1689** ("AI Act"), which entered into force on **August 1, 2024**. Classify the system across the 4 risk tiers, identify obligations by role (provider/deployer), and produce the compliance plan against the right deadlines.
 
-## Cadre référentiels mobilisés
+## Frameworks mobilized
 
-| Référentiel | Apport |
+| Framework | Contribution |
 |---|---|
-| **AI Act (UE) 2024/1689** | Obligations contraignantes : art. 5 (interdits), art. 6 + Annexe III (haut risque), art. 50 (transparence), art. 51-55 (GPAI / risque systémique) |
-| **ISO/IEC 42001:2023** | Système de management de l'IA (AIMS) auditable — preuve de gouvernance |
-| **NIST AI RMF 1.0** (2023) | Cadre de gestion des risques (GOVERN/MAP/MEASURE/MANAGE) — opérationnalise art. 9 (gestion des risques) |
-| **RGPD UE 2016/679** | Couplage données personnelles (DPIA art. 35 ↔ AI Act haut risque) |
+| **AI Act (EU) 2024/1689** | Binding obligations: art. 5 (prohibited), art. 6 + Annex III (high-risk), art. 50 (transparency), art. 51-55 (GPAI / systemic risk) |
+| **ISO/IEC 42001:2023** | Auditable AI Management System (AIMS) — evidence of governance |
+| **NIST AI RMF 1.0** (2023) | Risk management framework (GOVERN/MAP/MEASURE/MANAGE) — operationalizes art. 9 (risk management) |
+| **GDPR EU 2016/679** | Personal-data coupling (DPIA art. 35 ↔ AI Act high-risk) |
 
-## Calendrier d'application AI Act (dates officielles)
-
-```
-1 août 2024   : Entrée en vigueur du règlement
-2 fév. 2025   : Interdiction des pratiques à risque inacceptable (art. 5)
-                + obligations AI literacy (art. 4)
-                ⚠ sanctions déjà applicables : jusqu'à 35 M€ ou 7% du CA mondial
-2 août 2025   : Obligations GPAI (art. 53-55) + règles de gouvernance
-                (GPAI Code of Practice publié le 10 juil. 2025)
-2 août 2026   : Application générale — systèmes à HAUT RISQUE (art. 6 + Annexe III)
-2 août 2027   : Systèmes haut risque embarqués dans produits réglementés (Annexe I)
-```
-
-## Classification des risques IA
-
-### 1. Risque Inacceptable — INTERDIT (art. 5)
-```
-→ Notation sociale (social scoring) par les autorités publiques
-→ Manipulation subliminale exploitant les vulnérabilités
-→ Identification biométrique à distance en temps réel dans l'espace public (sauf exceptions limitées)
-→ Police prédictive fondée sur le seul profilage
-→ Reconnaissance des émotions sur le lieu de travail / en éducation
-→ Scraping non ciblé d'images faciales pour bases de reconnaissance
-```
-> Sanction : jusqu'à **35 M€ ou 7% du CA mondial** (art. 99), applicable depuis le 2 fév. 2025.
-
-### 2. Risque Élevé — OBLIGATIONS STRICTES (art. 6 + Annexe III)
-```
-Domaines Annexe III :
-  ✦ Recrutement et gestion RH
-  ✦ Crédit et assurance (scoring, éligibilité)
-  ✦ Éducation (évaluation, admission)
-  ✦ Services publics essentiels (eau, énergie, prestations sociales)
-  ✦ Application de la loi, migration, justice
-  ✦ Biométrie · infrastructure critique
-  (+ Annexe I : dispositifs médicaux et produits réglementés)
-
-Obligations fournisseur (art. 8-17) :
-  1. Système de gestion des risques (art. 9 — cf. NIST AI RMF)
-  2. Gouvernance des données d'entraînement, qualité, biais (art. 10)
-  3. Documentation technique (art. 11 + Annexe IV)
-  4. Tenue de logs / traçabilité (art. 12 — conservation appropriée)
-  5. Transparence et information du déployeur (art. 13)
-  6. Supervision humaine (art. 14)
-  7. Exactitude, robustesse, cybersécurité (art. 15)
-  8. Enregistrement base de données UE (art. 49) + déclaration de conformité (art. 47) + marquage CE
-```
-
-### 3. Risque Limité — TRANSPARENCE (art. 50)
-```
-→ Chatbots : informer l'utilisateur qu'il interagit avec une IA
-→ Contenus génératifs / deepfakes : marquage "généré ou manipulé par IA" (lisible machine)
-→ Reconnaissance d'émotions / catégorisation biométrique : information des personnes
-```
-
-### 4. Risque Minimal — VOLONTAIRE
-```
-→ Filtres anti-spam · IA des jeux vidéo · recommandations non critiques
-→ Codes de conduite volontaires encouragés (art. 95)
-```
-
-## Modèles d'usage général (GPAI) — art. 51 à 55
+## AI Act application timeline (official dates)
 
 ```
-GPAI standard (art. 53) :
-  → Documentation technique + résumé des données d'entraînement (template AI Office)
-  → Politique de respect du droit d'auteur UE (opt-out art. 4 Directive 2019/790)
-
-GPAI à RISQUE SYSTÉMIQUE (art. 51) :
-  → Présomption automatique si entraînement > 10^25 FLOP (terme officiel : "systemic risk")
-  → Obligations renforcées (art. 55) : évaluations adverses (red-teaming),
-    atténuation des risques systémiques, signalement incidents à l'AI Office, cybersécurité
+Aug 1, 2024   : Regulation enters into force
+Feb 2, 2025   : Ban on unacceptable-risk practices (art. 5)
+                + AI literacy obligations (art. 4)
+                ⚠ penalties already applicable: up to €35M or 7% of worldwide turnover
+Aug 2, 2025   : GPAI obligations (art. 53-55) + governance rules
+                (GPAI Code of Practice published July 10, 2025)
+Aug 2, 2026   : General application — HIGH-RISK systems (art. 6 + Annex III)
+Aug 2, 2027   : High-risk systems embedded in regulated products (Annex I)
 ```
 
-## Grille d'évaluation AI Act
+## AI risk classification
+
+### 1. Unacceptable Risk — PROHIBITED (art. 5)
+```
+→ Social scoring by public authorities
+→ Subliminal manipulation exploiting vulnerabilities
+→ Real-time remote biometric identification in public spaces (save limited exceptions)
+→ Predictive policing based on profiling alone
+→ Emotion recognition in the workplace / in education
+→ Untargeted scraping of facial images for recognition databases
+```
+> Penalty: up to **€35M or 7% of worldwide turnover** (art. 99), applicable since Feb 2, 2025.
+
+### 2. High Risk — STRICT OBLIGATIONS (art. 6 + Annex III)
+```
+Annex III domains:
+  ✦ Recruitment and HR management
+  ✦ Credit and insurance (scoring, eligibility)
+  ✦ Education (assessment, admission)
+  ✦ Essential public services (water, energy, social benefits)
+  ✦ Law enforcement, migration, justice
+  ✦ Biometrics · critical infrastructure
+  (+ Annex I: medical devices and regulated products)
+
+Provider obligations (art. 8-17):
+  1. Risk management system (art. 9 — see NIST AI RMF)
+  2. Training-data governance, quality, bias (art. 10)
+  3. Technical documentation (art. 11 + Annex IV)
+  4. Logging / traceability (art. 12 — appropriate retention)
+  5. Transparency and information to the deployer (art. 13)
+  6. Human oversight (art. 14)
+  7. Accuracy, robustness, cybersecurity (art. 15)
+  8. EU database registration (art. 49) + declaration of conformity (art. 47) + CE marking
+```
+
+### 3. Limited Risk — TRANSPARENCY (art. 50)
+```
+→ Chatbots: inform the user they are interacting with an AI
+→ Generative content / deepfakes: "AI-generated or manipulated" marking (machine-readable)
+→ Emotion recognition / biometric categorization: inform the individuals
+```
+
+### 4. Minimal Risk — VOLUNTARY
+```
+→ Spam filters · video-game AI · non-critical recommendations
+→ Voluntary codes of conduct encouraged (art. 95)
+```
+
+## General-purpose models (GPAI) — art. 51 to 55
 
 ```
-1. Est-ce un "système d'IA" au sens de l'art. 3(1) ?
+Standard GPAI (art. 53):
+  → Technical documentation + training-data summary (AI Office template)
+  → EU copyright compliance policy (opt-out art. 4 Directive 2019/790)
+
+GPAI with SYSTEMIC RISK (art. 51):
+  → Automatic presumption if training > 10^25 FLOP (official term: "systemic risk")
+  → Reinforced obligations (art. 55): adversarial evaluations (red-teaming),
+    systemic-risk mitigation, incident reporting to the AI Office, cybersecurity
+```
+
+## AI Act assessment grid
+
+```
+1. Is it an "AI system" within the meaning of art. 3(1)?
    → "machine-based system... operating with varying levels of autonomy,
       that may exhibit adaptiveness... infers from input how to generate outputs"
 
-2. Est-il INTERDIT ? → vérifier l'art. 5 (risque inacceptable)
+2. Is it PROHIBITED? → check art. 5 (unacceptable risk)
 
-3. Est-il à HAUT RISQUE ? → vérifier l'art. 6 + Annexe III (+ Annexe I produits)
+3. Is it HIGH-RISK? → check art. 6 + Annex III (+ Annex I products)
 
-4. Est-ce un modèle GPAI ? → art. 53 ; risque systémique si > 10^25 FLOP (art. 51)
+4. Is it a GPAI model? → art. 53; systemic risk if > 10^25 FLOP (art. 51)
 
-5. Quel est mon rôle ?
-   → Fournisseur (provider) : obligations maximales
-   → Déployeur (deployer) : information, supervision humaine, usage conforme
-   → Importateur / distributeur : vérification de conformité
+5. What is my role?
+   → Provider: maximum obligations
+   → Deployer: information, human oversight, compliant use
+   → Importer / distributor: conformity verification
 ```
 
-## Documentation obligatoire (haut risque)
-- Système de management des risques IA (art. 9 — référentiel **ISO/IEC 42001:2023** + **NIST AI RMF**)
-- Documentation technique (art. 11 + Annexe IV)
-- Déclaration de conformité UE (art. 47) + marquage CE
-- Enregistrement base de données UE (art. 49)
-- Procédure de supervision humaine (art. 14) + plan de tests/validation (art. 15)
+## Mandatory documentation (high-risk)
+- AI risk management system (art. 9 — frameworks **ISO/IEC 42001:2023** + **NIST AI RMF**)
+- Technical documentation (art. 11 + Annex IV)
+- EU declaration of conformity (art. 47) + CE marking
+- EU database registration (art. 49)
+- Human-oversight procedure (art. 14) + testing/validation plan (art. 15)
 
-## Exemple — classification d'un système de scoring crédit
+## Example — classifying a credit-scoring system
 ```
-Système : modèle de scoring d'octroi de crédit (banque de détail)
-→ Art. 6 + Annexe III (point 5b "creditworthiness") = HAUT RISQUE
-→ Rôle banque : déployeur (si modèle tiers) OU fournisseur (si développé en interne)
-→ Obligations : gestion des risques (art. 9), gouvernance données + test de biais (art. 10),
-   supervision humaine sur les refus (art. 14), information de la personne (art. 13 + RGPD art. 22)
-→ Échéance : conformité au 2 août 2026
-→ Couplage RGPD : DPIA art. 35 obligatoire
+System: credit-granting scoring model (retail banking)
+→ Art. 6 + Annex III (point 5b "creditworthiness") = HIGH-RISK
+→ Bank's role: deployer (if third-party model) OR provider (if developed in-house)
+→ Obligations: risk management (art. 9), data governance + bias testing (art. 10),
+   human oversight on refusals (art. 14), information to the individual (art. 13 + GDPR art. 22)
+→ Deadline: compliance by August 2, 2026
+→ GDPR coupling: DPIA art. 35 mandatory
 ```
 
 ## Anti-patterns
 
-- ❌ **Confondre « Annexe I » et « art. 5 »** : les pratiques interdites sont à l'**art. 5**, pas dans une annexe
-- ❌ **« AI Act = checklist annexe »** : c'est un règlement contraignant avec sanctions (35 M€ / 7%)
-- ❌ **Oublier le rôle de déployeur** : croire que seules les obligations « fournisseur » comptent
-- ❌ **« Pas concerné car GPAI »** : un GPAI > 10²⁵ FLOP déclenche le régime risque systémique (art. 51)
-- ❌ **Confondre transparence (art. 50) et haut risque (art. 6)** : un chatbot peut être « limité » sans être « haut risque »
-- ❌ **Traiter l'AI Act sans le RGPD** : un système haut risque RH/crédit déclenche aussi une DPIA (art. 35)
-- ❌ **Citer des dates ou seuils non sourcés** : toujours s'appuyer sur le texte officiel / l'AI Office
+- ❌ **Confusing "Annex I" and "art. 5"**: prohibited practices are in **art. 5**, not in an annex
+- ❌ **"AI Act = annex checklist"**: it is a binding regulation with penalties (€35M / 7%)
+- ❌ **Forgetting the deployer role**: believing only "provider" obligations matter
+- ❌ **"Not concerned because GPAI"**: a GPAI > 10²⁵ FLOP triggers the systemic-risk regime (art. 51)
+- ❌ **Confusing transparency (art. 50) and high-risk (art. 6)**: a chatbot can be "limited" without being "high-risk"
+- ❌ **Handling the AI Act without GDPR**: a high-risk HR/credit system also triggers a DPIA (art. 35)
+- ❌ **Citing unsourced dates or thresholds**: always rely on the official text / the AI Office
 
-## Livrables
-- Audit de conformité AI Act (classification + plan priorisé)
-- Fiche de classification du système (niveau de risque + articles applicables)
-- Plan de mise en conformité daté (échéances 2025/2026/2027)
-- Documentation technique requise (Annexe IV)
-- Formation « AI Act » (art. 4 AI literacy)
+## Deliverables
+- AI Act compliance audit (classification + prioritized plan)
+- System classification sheet (risk tier + applicable articles)
+- Dated compliance plan (2025/2026/2027 deadlines)
+- Required technical documentation (Annex IV)
+- "AI Act" training (art. 4 AI literacy)
 
-## Format de sortie
-Précise : description du système IA · secteur d'usage · rôle (fournisseur/déployeur/importateur) · données traitées · niveau de supervision humaine actuel · délai de mise en conformité visé.
+## Output format
+Specify: AI system description · industry of use · role (provider/deployer/importer) · data processed · current level of human oversight · targeted compliance deadline.
 
 ## Sources
-- **Règlement (UE) 2024/1689 (AI Act)** — JO L du 12 juillet 2024 — eur-lex.europa.eu (art. 5 interdits, art. 6 + Annexe III haut risque, art. 9-17 obligations, art. 50 transparence, art. 51-55 GPAI/risque systémique, art. 99 sanctions)
-- **Calendrier d'application** : entrée en vigueur 1 août 2024 · interdits + AI literacy 2 fév. 2025 · GPAI + gouvernance 2 août 2025 · haut risque 2 août 2026 · produits Annexe I 2 août 2027 — digital-strategy.ec.europa.eu
-- **GPAI Code of Practice** — Commission européenne, publié le 10 juillet 2025
+- **Regulation (EU) 2024/1689 (AI Act)** — OJ L of July 12, 2024 — eur-lex.europa.eu (art. 5 prohibited, art. 6 + Annex III high-risk, art. 9-17 obligations, art. 50 transparency, art. 51-55 GPAI/systemic risk, art. 99 penalties)
+- **Application timeline**: entry into force Aug 1, 2024 · prohibited + AI literacy Feb 2, 2025 · GPAI + governance Aug 2, 2025 · high-risk Aug 2, 2026 · Annex I products Aug 2, 2027 — digital-strategy.ec.europa.eu
+- **GPAI Code of Practice** — European Commission, published July 10, 2025
 - **ISO/IEC 42001:2023** (AI Management System) — iso.org
-- **NIST AI RMF 1.0** (NIST AI 100-1, janv. 2023) — nist.gov
+- **NIST AI RMF 1.0** (NIST AI 100-1, Jan. 2023) — nist.gov
 
-## Voir aussi
-- [`audit-conformite-ia.md`](audit-conformite-ia.md) — auditer l'application opérationnelle de l'AI Act
-- [`dpia-systemes-ia.md`](dpia-systemes-ia.md) — DPIA RGPD art. 35 (couplage haut risque)
-- [`gouvernance-ethique-ia.md`](gouvernance-ethique-ia.md) — comité IA, EIA, gouvernance (NIST GOVERN)
-- [`propriete-intellectuelle-ia.md`](propriete-intellectuelle-ia.md) — art. 53 GPAI + opt-out TDM (Directive 2019/790)
-- [`politique-ia-entreprise.md`](politique-ia-entreprise.md) — politique IA et cas d'usage autorisés/interdits
+## See also
+- [`audit-conformite-ia.md`](audit-conformite-ia.md) — audit the operational application of the AI Act
+- [`dpia-systemes-ia.md`](dpia-systemes-ia.md) — GDPR DPIA art. 35 (high-risk coupling)
+- [`gouvernance-ethique-ia.md`](gouvernance-ethique-ia.md) — AI committee, EIA, governance (NIST GOVERN)
+- [`propriete-intellectuelle-ia.md`](propriete-intellectuelle-ia.md) — art. 53 GPAI + TDM opt-out (Directive 2019/790)
+- [`politique-ia-entreprise.md`](politique-ia-entreprise.md) — AI policy and permitted/prohibited use cases

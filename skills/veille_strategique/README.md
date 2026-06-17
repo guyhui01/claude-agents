@@ -1,78 +1,78 @@
-# Skills — Veille Stratégique & Intelligence Économique
+# Skills — Strategic Intelligence & Competitive Intelligence
 
-> Dossier rattaché à `AGENT-VEILLE-STRATEGIQUE.md`
-> Référentiels : SCIP / SIC (Strategic Consortium of Intelligence Professionals) · PMI-PBA · SAFe LPM · Google Analytics · HubSpot Content · Anthropic Claude Code in Action
-> Cadres méthodologiques : Porter Five Forces (1979) · Ansoff weak signals (1975) · Gartner Hype Cycle (1995) · McKinsey Three Horizons (1999) · Wardley Maps (2005) · PESTEL · SWOT · Pyramide de Minto (1987)
+> Folder attached to `AGENT-VEILLE-STRATEGIQUE.md`
+> Frameworks: SCIP / SIC (Strategic Consortium of Intelligence Professionals) · PMI-PBA · SAFe LPM · Google Analytics · HubSpot Content · Anthropic Claude Code in Action
+> Methodological frameworks: Porter Five Forces (1979) · Ansoff weak signals (1975) · Gartner Hype Cycle (1995) · McKinsey Three Horizons (1999) · Wardley Maps (2005) · PESTEL · SWOT · Minto Pyramid (1987)
 
 ---
 
-## Index des skills (6)
+## Skill index (6)
 
-| # | Skill | Quand l'invoquer | Certification |
+| # | Skill | When to invoke | Certification |
 |---|---|---|---|
-| 1 | [`veille-ia-llm.md`](veille-ia-llm.md) | Surveiller l'écosystème IA et LLM (Anthropic, OpenAI, Google) | Anthropic · SIC (SCIP) |
-| 2 | [`veille-concurrentielle.md`](veille-concurrentielle.md) | Analyser la concurrence et le marché (positionnement, offres, tarifs) | SIC (SCIP) · PMI-PBA |
-| 3 | [`analyse-tendances.md`](analyse-tendances.md) | Analyser tendances tech et sectorielles (IA Act, usages grands comptes) | SIC (SCIP) · SAFe LPM |
-| 4 | [`synthese-periodique.md`](synthese-periodique.md) | Produire une synthèse périodique de veille (hebdomadaire/mensuelle) | SIC (SCIP) · HubSpot · Google Analytics |
-| 5 | [`benchmark-outils-ia.md`](benchmark-outils-ia.md) | Benchmarker des outils IA (LLM, agents, no-code, automation) | Anthropic · SIC (SCIP) · PMI-PBA |
-| 6 | [`detection-signaux-faibles.md`](detection-signaux-faibles.md) | Détecter signaux faibles et opportunités business | SIC (SCIP) · SAFe LPM |
+| 1 | [`veille-ia-llm.md`](veille-ia-llm.md) | Monitor the AI and LLM ecosystem (Anthropic, OpenAI, Google) | Anthropic · SIC (SCIP) |
+| 2 | [`veille-concurrentielle.md`](veille-concurrentielle.md) | Analyze competition and the market (positioning, offerings, pricing) | SIC (SCIP) · PMI-PBA |
+| 3 | [`analyse-tendances.md`](analyse-tendances.md) | Analyze tech and sector trends (AI Act, enterprise usage) | SIC (SCIP) · SAFe LPM |
+| 4 | [`synthese-periodique.md`](synthese-periodique.md) | Produce a periodic intelligence digest (weekly/monthly) | SIC (SCIP) · HubSpot · Google Analytics |
+| 5 | [`benchmark-outils-ia.md`](benchmark-outils-ia.md) | Benchmark AI tools (LLM, agents, no-code, automation) | Anthropic · SIC (SCIP) · PMI-PBA |
+| 6 | [`detection-signaux-faibles.md`](detection-signaux-faibles.md) | Detect weak signals and business opportunities | SIC (SCIP) · SAFe LPM |
 
 ---
 
-## Choisir le bon skill — Arbre de décision
+## Choosing the right skill — Decision tree
 
 ```
-Tu veux ...
+You want to ...
 
-  ... SUIVRE L'ÉCOSYSTÈME IA ?
-    → veille-ia-llm.md (modèles, frameworks, providers)
-    → benchmark-outils-ia.md (comparatif outils)
+  ... TRACK THE AI ECOSYSTEM?
+    → veille-ia-llm.md (models, frameworks, providers)
+    → benchmark-outils-ia.md (tool comparison)
 
-  ... CONNAÎTRE LA CONCURRENCE & LE MARCHÉ ?
-    → veille-concurrentielle.md (positionnement, tarifs)
-    → analyse-tendances.md (tech + sectoriel + réglementation)
+  ... KNOW THE COMPETITION & THE MARKET?
+    → veille-concurrentielle.md (positioning, pricing)
+    → analyse-tendances.md (tech + sector + regulation)
 
-  ... DÉTECTER LES OPPORTUNITÉS ?
-    → detection-signaux-faibles.md (signaux faibles → offres business)
+  ... DETECT OPPORTUNITIES?
+    → detection-signaux-faibles.md (weak signals → business offers)
 
-  ... DIFFUSER LA VEILLE ?
-    → synthese-periodique.md (hebdomadaire / mensuelle, prête à publier)
+  ... DISTRIBUTE THE INTELLIGENCE?
+    → synthese-periodique.md (weekly / monthly, ready to publish)
 ```
 
 ---
 
-## Règles d'or appliquées
+## Golden rules applied
 
-1. **Toujours sourcer** : date, source primaire, fiabilité de l'information
-2. **Distinguer 3 niveaux** : faits vérifiés · tendances émergentes · signaux faibles
-3. **Produire de l'actionnable** : chaque synthèse se termine par 2-3 recommandations concrètes
-4. **Cycle court** : la veille IA tourne en semaines, pas en mois — actualiser ≥ 1×/semaine
+1. **Always cite sources**: date, primary source, information reliability
+2. **Distinguish 3 levels**: verified facts · emerging trends · weak signals
+3. **Produce actionable output**: each digest ends with 2-3 concrete recommendations
+4. **Short cycle**: AI intelligence moves in weeks, not months — refresh ≥ 1×/week
 
 ---
 
-## Frontières avec les autres agents
+## Boundaries with other agents
 
-| Sujet voisin | Agent concerné | Frontière |
+| Adjacent topic | Agent concerned | Boundary |
 |---|---|---|
-| Rédaction des contenus diffusables (newsletters, posts) | `AGENT-REDACTEUR-IA.md` | VEILLE produit la matière ; REDACTEUR met en forme pour diffusion |
-| Stratégie IA d'entreprise | `AGENT-CDO-DIRECTEUR-IA.md` | VEILLE = signal ; CDO = stratégie pérenne |
-| Analyse financière (TCO, ROI sur outils) | `AGENT-FINANCIAL-ANALYST.md` | VEILLE = benchmark fonctionnel ; FINANCIAL = analyse financière |
-| Growth & acquisition (canaux, attribution) | `AGENT-GROWTH-IA.md` | VEILLE = signaux marché ; GROWTH = exécution acquisition |
-| Conseil stratégique projet | `AGENT-CONSULTANT-IA.md` | VEILLE = continue ; CONSULTANT = mission ponctuelle |
-| Veille **réglementaire** IA (AI Act, RGPD) | `AGENT-JURIDIQUE-IA.md` skill `veille-reglementaire.md` | VEILLE = marché ; JURIDIQUE = réglementation |
+| Writing distributable content (newsletters, posts) | `AGENT-REDACTEUR-IA.md` | VEILLE produces the raw material; REDACTEUR formats it for distribution |
+| Enterprise AI strategy | `AGENT-CDO-DIRECTEUR-IA.md` | VEILLE = signal; CDO = lasting strategy |
+| Financial analysis (TCO, ROI on tools) | `AGENT-FINANCIAL-ANALYST.md` | VEILLE = functional benchmark; FINANCIAL = financial analysis |
+| Growth & acquisition (channels, attribution) | `AGENT-GROWTH-IA.md` | VEILLE = market signals; GROWTH = acquisition execution |
+| Strategic project consulting | `AGENT-CONSULTANT-IA.md` | VEILLE = continuous; CONSULTANT = one-off engagement |
+| AI **regulatory** intelligence (AI Act, GDPR) | `AGENT-JURIDIQUE-IA.md` skill `veille-reglementaire.md` | VEILLE = market; JURIDIQUE = regulation |
 
 ---
 
-## Référentiels et standards utilisés
+## Frameworks and standards used
 
-- **SCIP** (Strategic Consortium of Intelligence Professionals) : https://www.scip.org/ — certification SIC
-- **Méthode PESTEL** : Politique / Économique / Social / Tech / Environnemental / Légal
-- **Analyse SWOT** : Strengths / Weaknesses / Opportunities / Threats
-- **Porter — 5 forces** (HBR 1979) : analyse concurrentielle
-- **Ansoff — weak signals** (*California Mgmt Review* 1975) : détection précoce
-- **Gartner Hype Cycle** (1995) · **McKinsey Three Horizons** (1999) : maturité & horizons d'adoption
-- **Wardley Mapping** (Simon Wardley, 2005, CC BY-SA) : cartographie stratégique
-- **Pyramide de Minto** (1987) : structuration des synthèses
-- **Anthropic / OpenAI / Google AI Blog** : sources primaires
-- **LMArena / Papers with Code / Artificial Analysis** : benchmarks LLM vivants
-- ⚠️ **HuggingFace Open LLM Leaderboard** : **archivé depuis juin 2024** (historique uniquement — ne plus utiliser comme source vive)
+- **SCIP** (Strategic Consortium of Intelligence Professionals): https://www.scip.org/ — SIC certification
+- **PESTEL method**: Political / Economic / Social / Technological / Environmental / Legal
+- **SWOT analysis**: Strengths / Weaknesses / Opportunities / Threats
+- **Porter — 5 forces** (HBR 1979): competitive analysis
+- **Ansoff — weak signals** (*California Mgmt Review* 1975): early detection
+- **Gartner Hype Cycle** (1995) · **McKinsey Three Horizons** (1999): maturity & adoption horizons
+- **Wardley Mapping** (Simon Wardley, 2005, CC BY-SA): strategic mapping
+- **Minto Pyramid** (1987): structuring digests
+- **Anthropic / OpenAI / Google AI Blog**: primary sources
+- **LMArena / Papers with Code / Artificial Analysis**: live LLM benchmarks
+- ⚠️ **HuggingFace Open LLM Leaderboard**: **archived since June 2024** (history only — no longer use as a live source)

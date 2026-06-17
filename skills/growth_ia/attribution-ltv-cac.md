@@ -1,12 +1,12 @@
-# Skill — Attribution Marketing, LTV/CAC & ROI
-> Certifications : Google Analytics 4 Certified (2026), Meta Blueprint Certified, Northbeam Partner, Triple Whale Certified, Marketing Science Professional (Meta)
+# Skill — Marketing Attribution, LTV/CAC & ROI
+> Certifications: Google Analytics 4 Certified (2026), Meta Blueprint Certified, Northbeam Partner, Triple Whale Certified, Marketing Science Professional (Meta)
 
-## Objectif
-Modéliser l'attribution marketing en multi-touch, calculer précisément LTV, CAC et Payback Period, et optimiser le budget marketing pour maximiser le ROI à long terme.
+## Objective
+Model marketing attribution in multi-touch, precisely calculate LTV, CAC, and Payback Period, and optimize the marketing budget to maximize long-term ROI.
 
-## Modèles d'Attribution
+## Attribution Models
 
-### Attribution Multi-Touch — Implémentation
+### Multi-Touch Attribution — Implementation
 
 ```python
 # attribution_models.py
@@ -22,9 +22,9 @@ def apply_attribution_model(
     decay_half_life_days: float = 7.0,
 ) -> pd.DataFrame:
     """
-    Calcule le crédit de conversion par canal selon le modèle choisi.
+    Compute the conversion credit per channel according to the chosen model.
 
-    touchpoints_df colonnes : conversion_id | channel | timestamp | is_conversion
+    touchpoints_df columns: conversion_id | channel | timestamp | is_conversion
     """
     results = []
 
@@ -50,7 +50,7 @@ def apply_attribution_model(
             credits = [w / total for w in weights]
 
         elif model == "data_driven":
-            # Shapley value simplifiée (coalition games)
+            # Simplified Shapley value (coalition games)
             credits = _shapley_attribution(touchpoints["channel"].tolist())
 
         for tp, credit in zip(touchpoints.itertuples(), credits):
@@ -69,7 +69,7 @@ def apply_attribution_model(
 
 
 def compare_attribution_models(touchpoints_df: pd.DataFrame) -> pd.DataFrame:
-    """Compare tous les modèles d attribution côte à côte."""
+    """Compare all attribution models side by side."""
     models = ["last_touch", "first_touch", "linear", "time_decay"]
     results = []
     for model in models:
@@ -83,7 +83,7 @@ def compare_attribution_models(touchpoints_df: pd.DataFrame) -> pd.DataFrame:
 
 ## LTV / CAC / Payback Period
 
-### Calcul LTV Multi-Modèles
+### Multi-Model LTV Calculation
 
 ```python
 # ltv_cac_calculator.py
@@ -92,11 +92,11 @@ import numpy as np
 
 @dataclass
 class SaaSMetrics:
-    arpa: float           # Average Revenue Per Account (mensuel)
-    gross_margin: float   # ex: 0.75 pour 75%
-    monthly_churn: float  # ex: 0.02 pour 2%/mois
-    expansion_rate: float # ex: 0.01 pour 1% expansion MRR/mois
-    cac: float            # Coût d acquisition client
+    arpa: float           # Average Revenue Per Account (monthly)
+    gross_margin: float   # e.g. 0.75 for 75%
+    monthly_churn: float  # e.g. 0.02 for 2%/month
+    expansion_rate: float # e.g. 0.01 for 1% MRR expansion/month
+    cac: float            # Customer acquisition cost
 
     @property
     def net_revenue_retention(self) -> float:
@@ -105,7 +105,7 @@ class SaaSMetrics:
 
     @property
     def avg_customer_lifetime_months(self) -> float:
-        """Durée de vie moyenne = 1 / taux de churn."""
+        """Average lifetime = 1 / churn rate."""
         return 1 / self.monthly_churn
 
     def ltv_simple(self) -> float:
@@ -113,34 +113,34 @@ class SaaSMetrics:
         return (self.arpa * self.gross_margin) / self.monthly_churn
 
     def ltv_discounted(self, annual_discount_rate: float = 0.10) -> float:
-        """LTV avec actualisation (Net Present Value)."""
+        """LTV with discounting (Net Present Value)."""
         monthly_discount = (1 + annual_discount_rate) ** (1/12) - 1
-        # Formule de Gordon (rente perpétuelle décroissante)
+        # Gordon formula (declining perpetuity)
         return (self.arpa * self.gross_margin) / (self.monthly_churn + monthly_discount)
 
     def ltv_with_expansion(self) -> float:
-        """LTV avec expansion MRR pris en compte."""
-        # Modèle géométrique avec expansion
+        """LTV accounting for MRR expansion."""
+        # Geometric model with expansion
         effective_churn = self.monthly_churn - self.expansion_rate
         if effective_churn <= 0:
-            effective_churn = 0.005  # Churn effectif minimum
+            effective_churn = 0.005  # Minimum effective churn
         return (self.arpa * self.gross_margin) / effective_churn
 
     def ltv_cac_ratio(self) -> float:
         return self.ltv_simple() / self.cac
 
     def payback_period_months(self) -> float:
-        """Mois nécessaires pour récupérer le CAC."""
+        """Months needed to recover the CAC."""
         monthly_gp = self.arpa * self.gross_margin
         return self.cac / monthly_gp
 
     def cac_assessment(self) -> str:
         ratio = self.ltv_cac_ratio()
         payback = self.payback_period_months()
-        if ratio < 1:    return "CRITIQUE — LTV < CAC (business non viable)"
-        elif ratio < 3:  return "FAIBLE — LTV:CAC < 3x (optimiser d urgence)"
-        elif ratio < 5:  return "BON — LTV:CAC dans la norme SaaS"
-        else:            return "EXCELLENT — LTV:CAC > 5x (accélérer acquisition)"
+        if ratio < 1:    return "CRITICAL — LTV < CAC (business not viable)"
+        elif ratio < 3:  return "LOW — LTV:CAC < 3x (optimize urgently)"
+        elif ratio < 5:  return "GOOD — LTV:CAC within SaaS norm"
+        else:            return "EXCELLENT — LTV:CAC > 5x (accelerate acquisition)"
 
     def full_report(self) -> dict:
         return {
@@ -150,14 +150,14 @@ class SaaSMetrics:
             "ltv_npv":             f"{self.ltv_discounted():,.0f}€",
             "cac":                 f"{self.cac:,.0f}€",
             "ltv_cac_ratio":       f"{self.ltv_cac_ratio():.1f}x",
-            "payback_months":      f"{self.payback_period_months():.1f} mois",
-            "avg_lifetime_months": f"{self.avg_customer_lifetime_months:.0f} mois",
+            "payback_months":      f"{self.payback_period_months():.1f} months",
+            "avg_lifetime_months": f"{self.avg_customer_lifetime_months:.0f} months",
             "nrr":                 f"{self.net_revenue_retention*100:.1f}%",
             "assessment":          self.cac_assessment(),
         }
 
 
-# Exemple SaaS B2B
+# B2B SaaS example
 company = SaaSMetrics(
     arpa=350, gross_margin=0.78, monthly_churn=0.018,
     expansion_rate=0.012, cac=1_800
@@ -167,20 +167,20 @@ for k, v in company.full_report().items():
 
 # ltv_simple                    : 15,167€
 # ltv_cac_ratio                 : 8.4x   (EXCELLENT)
-# payback_months                : 6.6 mois
+# payback_months                : 6.6 months
 ```
 
-### Benchmarks LTV/CAC par segment
+### LTV/CAC benchmarks per segment
 
-| Segment | LTV:CAC cible | Payback cible | NRR cible |
+| Segment | Target LTV:CAC | Target Payback | Target NRR |
 |---------|--------------|---------------|----------|
-| SaaS B2B SMB | 3x — 5x | < 18 mois | > 100% |
-| SaaS B2B Mid-Market | 4x — 8x | < 12 mois | > 110% |
-| SaaS B2B Enterprise | 5x — 10x | < 24 mois | > 120% |
-| E-commerce | 2x — 4x | < 6 mois | N/A |
-| Marketplace | 3x — 6x | < 12 mois | N/A |
+| B2B SaaS SMB | 3x — 5x | < 18 months | > 100% |
+| B2B SaaS Mid-Market | 4x — 8x | < 12 months | > 110% |
+| B2B SaaS Enterprise | 5x — 10x | < 24 months | > 120% |
+| E-commerce | 2x — 4x | < 6 months | N/A |
+| Marketplace | 3x — 6x | < 12 months | N/A |
 
-### Budget Allocation — Optimisation du CAC par canal
+### Budget Allocation — CAC optimization per channel
 
 ```python
 # channel_optimization.py
@@ -191,14 +191,14 @@ def optimize_channel_mix(
     total_budget: float,
     ltv_cac_target: float = 3.0,
 ) -> pd.DataFrame:
-    """Réallocation budgétaire basée sur le LTV:CAC par canal."""
+    """Budget reallocation based on LTV:CAC per channel."""
     df = pd.DataFrame(channels_data)
     df["cac"] = df["spend"] / df["customers"]
     df["ltv_cac"] = df["ltv_avg"] / df["cac"]
     df["roi"] = (df["ltv_avg"] - df["cac"]) / df["cac"]
     df["above_target"] = df["ltv_cac"] >= ltv_cac_target
 
-    # Budget suggéré : proportionnel au LTV:CAC ratio
+    # Suggested budget: proportional to the LTV:CAC ratio
     df["budget_weight"] = df["ltv_cac"].clip(lower=0)
     df["suggested_budget"] = (df["budget_weight"] / df["budget_weight"].sum()) * total_budget
 
@@ -207,33 +207,33 @@ def optimize_channel_mix(
     ].round(0)
 ```
 
-## Livrables
-- Modèle d'attribution multi-touch (Python/dbt/Looker) avec comparaison des modèles
-- Dashboard LTV/CAC/Payback par segment et par canal d'acquisition
-- Recommandations de réallocation budgétaire (données vs intuition)
-- Rapport de cohort LTV (comment évolue la LTV des cohortes dans le temps)
-- Framework de CAC max par canal (pour définir les bids Ads)
-- Rapport mensuel ROAS et attribution
+## Deliverables
+- Multi-touch attribution model (Python/dbt/Looker) with model comparison
+- LTV/CAC/Payback dashboard per segment and per acquisition channel
+- Budget reallocation recommendations (data vs. intuition)
+- LTV cohort report (how cohort LTV evolves over time)
+- Max-CAC-per-channel framework (to set Ads bids)
+- Monthly ROAS and attribution report
 
-## Format de sortie
-Précise : type de business (SaaS/e-commerce/marketplace), données disponibles (CRM, analytics, ad platforms), modèle d'attribution actuel, canaux d'acquisition actifs et spend mensuel, outils analytiques (dbt/Snowflake/BigQuery), objectif LTV:CAC cible, fréquence d'achat moyenne.
+## Output format
+Specify: business type (SaaS/e-commerce/marketplace), available data (CRM, analytics, ad platforms), current attribution model, active acquisition channels and monthly spend, analytics tools (dbt/Snowflake/BigQuery), target LTV:CAC objective, average purchase frequency.
 
 ## Sources
-- **David Skok (Matrix Partners)** — *SaaS Metrics 2.0* (~2010) — règle **LTV:CAC ≈ 3:1** et **payback < 12 mois**, établie pour des SaaS **matures en régime stable** (à contextualiser par stade : seed ≠ scale)
-- **Bessemer Venture Partners** — *State of the Cloud* / *Good-Better-Best* — benchmarks LTV/CAC, NRR, payback par segment (les fourchettes du tableau du skill sont indicatives)
-- **Lloyd Shapley** (1953, Nobel 2012) — valeurs de Shapley, fondement de l'attribution **data-driven**
-- **Google Analytics 4** : attribution **data-driven (Shapley) par défaut** ; les modèles à règles **first-click, linear, time-decay, position-based ont été dépréciés en 2023** (restent data-driven + last-click)
-- **Net Revenue Retention (NRR)** — métrique SaaS standard (expansion − churn) ; cibles >100 % / >110 % / >120 % selon segment
+- **David Skok (Matrix Partners)** — *SaaS Metrics 2.0* (~2010) — the **LTV:CAC ≈ 3:1** rule and **payback < 12 months**, established for **mature, steady-state SaaS** (to contextualize by stage: seed ≠ scale)
+- **Bessemer Venture Partners** — *State of the Cloud* / *Good-Better-Best* — LTV/CAC, NRR, payback benchmarks per segment (the skill's table ranges are indicative)
+- **Lloyd Shapley** (1953, Nobel 2012) — Shapley values, the foundation of **data-driven** attribution
+- **Google Analytics 4**: **data-driven (Shapley) attribution by default**; rules-based models **first-click, linear, time-decay, position-based were deprecated in 2023** (data-driven + last-click remain)
+- **Net Revenue Retention (NRR)** — standard SaaS metric (expansion − churn); targets >100% / >110% / >120% by segment
 
 ## Anti-patterns
-- **Last-touch par défaut** sur des cycles d'achat longs : sur-crédite le dernier canal (souvent le brand/direct) et tue l'investissement haut de funnel.
-- **LTV sur churn instable / cohortes jeunes** : extrapoler une LTV alors que le churn n'est pas stabilisé.
-- **Appliquer le 3:1 hors contexte** : un ratio « trop bon » (>5:1) peut signaler un sous-investissement en acquisition, pas une réussite.
-- **Ignorer le payback (trésorerie)** : un bon ratio LTV/CAC avec un payback à 24 mois peut asphyxier le cash.
-- **Confondre revenu et marge brute** : la LTV se calcule sur la marge brute, pas sur le chiffre d'affaires.
+- **Last-touch by default** on long buying cycles: over-credits the last channel (often brand/direct) and kills top-of-funnel investment.
+- **LTV on unstable churn / young cohorts**: extrapolating an LTV while churn isn't stabilized.
+- **Applying 3:1 out of context**: a "too good" ratio (>5:1) may signal under-investment in acquisition, not success.
+- **Ignoring payback (cash)**: a good LTV/CAC ratio with a 24-month payback can choke cash.
+- **Confusing revenue and gross margin**: LTV is computed on gross margin, not on revenue.
 
-## Voir aussi
-- [acquisition-seo-sem.md](acquisition-seo-sem.md) — dériver le CPA/CAC max par canal pour les enchères
-- [product-analytics.md](product-analytics.md) — cohortes et rétention en amont de la LTV
-- [lifecycle-marketing.md](lifecycle-marketing.md) — rétention et expansion (leviers de LTV/NRR)
-- [`../../AGENT-FINANCIAL-ANALYST.md`](../../AGENT-FINANCIAL-ANALYST.md) — modélisation financière, unit economics et business case
+## See also
+- [acquisition-seo-sem.md](acquisition-seo-sem.md) — derive the max CPA/CAC per channel for bids
+- [product-analytics.md](product-analytics.md) — cohorts and retention upstream of LTV
+- [lifecycle-marketing.md](lifecycle-marketing.md) — retention and expansion (LTV/NRR levers)
+- [`../../AGENT-FINANCIAL-ANALYST.md`](../../AGENT-FINANCIAL-ANALYST.md) — financial modeling, unit economics, and business case

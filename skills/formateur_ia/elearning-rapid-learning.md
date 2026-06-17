@@ -1,101 +1,101 @@
 # Skill — E-learning & Rapid Learning
 
-> Certifications : Articulate Storyline 360 Certified Developer 2026, Adobe Captivate Specialist, xAPI / SCORM Expert (ADL), LMS Administration (Moodle, TalentLMS, 360Learning), Qualiopi Numérique
+> Certifications: Articulate Storyline 360 Certified Developer 2026, Adobe Captivate Specialist, xAPI / SCORM Expert (ADL), LMS Administration (Moodle, TalentLMS, 360Learning), Qualiopi Digital
 
-## Objectif
+## Objective
 
-Produire des modules e-learning et rapid learning de qualité professionnelle pour les formations Data-IA, en maîtrisant les outils auteurs, les standards SCORM/xAPI et la configuration LMS.
+Produce professional-grade e-learning and rapid-learning modules for Data-AI training, mastering authoring tools, SCORM/xAPI standards, and LMS configuration.
 
-## Comparatif des outils auteurs 2026
+## 2026 authoring tools comparison
 
-### Tableau de décision
+### Decision table
 
-| Outil | Type | Interactivité | Courbe apprentissage | Prix/an | Idéal pour |
+| Tool | Type | Interactivity | Learning curve | Price/yr | Ideal for |
 |-------|------|--------------|---------------------|---------|-----------|
-| **Articulate Storyline 360** | Desktop | Très haute | Élevée | 1 500 €/user | Scénarios complexes, simulations |
-| **Articulate Rise 360** | Web | Moyenne | Faible | Inclus 360 | Rapid learning, mobile-first |
-| **Adobe Captivate 2024** | Desktop | Très haute | Très élevée | 480 €/user | VR, simulations techniques |
-| **iSpring Suite** | PowerPoint | Haute | Faible | 770 €/user | Migration PPT rapide |
-| **H5P** | Web open-source | Moyenne | Moyenne | Gratuit | LMS Moodle, budget limité |
-| **Genially** | Web | Moyenne | Faible | 150 €/user | Infographies interactives |
-| **Synthesia** | IA vidéo | Faible | Très faible | 960 €/user | Vidéos pédagogiques IA avatar |
+| **Articulate Storyline 360** | Desktop | Very high | High | €1,500/user | Complex scenarios, simulations |
+| **Articulate Rise 360** | Web | Medium | Low | Included in 360 | Rapid learning, mobile-first |
+| **Adobe Captivate 2024** | Desktop | Very high | Very high | €480/user | VR, technical simulations |
+| **iSpring Suite** | PowerPoint | High | Low | €770/user | Fast PPT migration |
+| **H5P** | Web open-source | Medium | Medium | Free | Moodle LMS, limited budget |
+| **Genially** | Web | Medium | Low | €150/user | Interactive infographics |
+| **Synthesia** | AI video | Low | Very low | €960/user | AI avatar training videos |
 
-## Articulate Storyline 360 — Workflow professionnel
+## Articulate Storyline 360 — professional workflow
 
-### Structure d'un module e-learning IA (exemple : "Fondamentaux du Prompt Engineering")
+### Structure of an AI e-learning module (example: "Prompt Engineering Fundamentals")
 
 ```
 STORYBOARD → STORYLINE → PUBLICATION
 
-Durée production estimée (1 module 30 min) :
-  Storyboard        : 4h
-  Développement SL  : 12h
-  Révision client   : 2h
-  Corrections       : 3h
-  Tests & publication : 2h
-  TOTAL             : ~23h/module
+Estimated production time (1 module, 30 min):
+  Storyboard          : 4h
+  SL development      : 12h
+  Client review       : 2h
+  Fixes               : 3h
+  Tests & publishing  : 2h
+  TOTAL               : ~23h/module
 ```
 
-### Template de slide Storyline pour exercice de prompt
+### Storyline slide template for a prompt exercise
 
 ```
-Slide Type : Freeform Pick Many (interactif)
+Slide Type: Freeform Pick Many (interactive)
 
-Titre : "Identifiez les éléments d'un prompt efficace"
+Title: "Identify the parts of an effective prompt"
 
-Consigne : "Cliquez sur les composants présents dans ce prompt :"
+Instruction: "Click the components present in this prompt:"
 
-Prompt affiché :
+Prompt shown:
 ┌────────────────────────────────────────────────┐
-│ "Tu es un expert en marketing B2B avec 10 ans  │
-│ d'expérience. Rédige un email de prospection   │
-│ pour une PME industrielle intéressée par nos   │
-│ services de maintenance prédictive. Ton = pro  │
-│ et concis. Maximum 150 mots."                  │
+│ "You are a B2B marketing expert with 10 years  │
+│ of experience. Write a prospecting email       │
+│ for an industrial SME interested in our        │
+│ predictive-maintenance services. Tone = pro    │
+│ and concise. Maximum 150 words."               │
 └────────────────────────────────────────────────┘
 
-Zones cliquables (hotspots) :
-  [Rôle] → Feedack : "Correct ! 'expert en marketing B2B'"
-  [Contexte] → Feedback : "Correct ! 'PME industrielle...'"
-  [Tâche] → Feedback : "Correct ! 'Rédige un email'"
-  [Contrainte] → Feedback : "Correct ! 'Maximum 150 mots'"
-  [Ton] → Feedback : "Correct ! 'pro et concis'"
+Clickable zones (hotspots):
+  [Role] → Feedback: "Correct! 'B2B marketing expert'"
+  [Context] → Feedback: "Correct! 'industrial SME...'"
+  [Task] → Feedback: "Correct! 'Write an email'"
+  [Constraint] → Feedback: "Correct! 'Maximum 150 words'"
+  [Tone] → Feedback: "Correct! 'pro and concise'"
 
-Couche résultats :
-  → Score 5/5 : "Parfait ! Vous maîtrisez la structure RTCT"
-  → Score 3-4/5 : "Bien ! Revoir la vidéo sur les contraintes"
-  → Score < 3/5 : "Recommencer avec l'aide de la fiche mémo"
+Results layer:
+  → Score 5/5: "Perfect! You've mastered the RTCT structure"
+  → Score 3-4/5: "Good! Review the video on constraints"
+  → Score < 3/5: "Start over with the cheat sheet"
 ```
 
-## Standards SCORM et xAPI
+## SCORM and xAPI standards
 
-### Comparatif SCORM vs xAPI (Tin Can)
+### SCORM vs xAPI (Tin Can) comparison
 
-| Critère | SCORM 1.2 | SCORM 2004 | xAPI |
+| Criterion | SCORM 1.2 | SCORM 2004 | xAPI |
 |---------|-----------|-----------|------|
-| Trackage | Basique (score, statut) | Amélioré | Complet (toute action) |
-| Hors-ligne | Non | Non | Oui |
-| Mobile | Limité | Limité | Natif |
-| LRS requis | Non (LMS) | Non (LMS) | Oui |
-| Flexibilité | Faible | Moyenne | Totale |
-| Adoption 2026 | Décroissante | Standard | En hausse |
+| Tracking | Basic (score, status) | Improved | Full (every action) |
+| Offline | No | No | Yes |
+| Mobile | Limited | Limited | Native |
+| LRS required | No (LMS) | No (LMS) | Yes |
+| Flexibility | Low | Medium | Total |
+| 2026 adoption | Declining | Standard | Rising |
 
-### Exemple statement xAPI pour formation IA
+### Example xAPI statement for AI training
 
 ```json
 {
   "actor": {
     "name": "Marie Dupont",
-    "mbox": "mailto:marie.dupont@entreprise.fr"
+    "mbox": "mailto:marie.dupont@company.com"
   },
   "verb": {
     "id": "http://adlnet.gov/expapi/verbs/completed",
-    "display": {"fr-FR": "a complété"}
+    "display": {"en-US": "completed"}
   },
   "object": {
-    "id": "https://formation.ia/modules/prompt-engineering/module-2",
+    "id": "https://training.ai/modules/prompt-engineering/module-2",
     "definition": {
-      "name": {"fr-FR": "Techniques avancées de prompting"},
+      "name": {"en-US": "Advanced prompting techniques"},
       "type": "http://adlnet.gov/expapi/activities/module"
     }
   },
@@ -106,92 +106,92 @@ Couche résultats :
   },
   "context": {
     "platform": "360Learning",
-    "language": "fr-FR"
+    "language": "en-US"
   }
 }
 ```
 
-## Vidéo pédagogique IA avec Synthesia
+## AI training video with Synthesia
 
-### Workflow de production (30 min de vidéo)
+### Production workflow (30 min of video)
 
 ```
-Étape 1 — Script (4h)
-  → Écriture avec structure : accroche 30 sec + contenu + CTA
-  → 150 mots ≈ 1 min de vidéo
-  → Intégrer des pauses pour les exercices
+Step 1 — Script (4h)
+  → Write with structure: 30-sec hook + content + CTA
+  → 150 words ≈ 1 min of video
+  → Build in pauses for the exercises
 
-Étape 2 — Synthesia (2h)
-  → Choix avatar (recommandé : avatar neutre et diversifié)
-  → Import script → génération IA
-  → Ajout slides, annotations, sous-titres auto
-  → Voix : française, ton conversationnel
+Step 2 — Synthesia (2h)
+  → Avatar choice (recommended: neutral, diverse avatar)
+  → Import script → AI generation
+  → Add slides, annotations, auto captions
+  → Voice: English, conversational tone
 
-Étape 3 — Post-production (2h)
-  → Ajout écran de titre (Canva)
-  → Découpage en chapitres (< 5 min/segment)
-  → Export MP4 + upload LMS
-  → Génération sous-titres SRT (accessibilité)
+Step 3 — Post-production (2h)
+  → Add title screen (Canva)
+  → Split into chapters (< 5 min/segment)
+  → Export MP4 + upload to LMS
+  → Generate SRT captions (accessibility)
 
-Coût estimé : 80 €/module vidéo (Synthesia Business Plan)
+Estimated cost: €80/video module (Synthesia Business Plan)
 ```
 
-## Configuration LMS pour formation IA
+## LMS configuration for AI training
 
-### Checklist déploiement 360Learning (exemple)
+### 360Learning deployment checklist (example)
 
 ```yaml
-Configuration_parcours_IA:
-  Paramètres_généraux:
-    durée_accès: "90 jours"
-    langue: "Français"
-    certificat: true
-    score_validation: 70
+AI_track_configuration:
+  General_settings:
+    access_duration: "90 days"
+    language: "English"
+    certificate: true
+    passing_score: 70
 
-  Séquençage:
-    mode: "Libre ou conditionnel selon module"
-    prérequis: "Module 0 obligatoire avant Module 1"
-    rappels_auto: ["J+3", "J+7", "J+14 si non commencé"]
+  Sequencing:
+    mode: "Free or conditional per module"
+    prerequisite: "Module 0 required before Module 1"
+    auto_reminders: ["D+3", "D+7", "D+14 if not started"]
 
   Gamification:
-    points_par_quiz: 10
-    badge_completion: "Badge Prompt Engineer Niveau 1"
+    points_per_quiz: 10
+    completion_badge: "Prompt Engineer Level 1 badge"
     leaderboard: true
 
   Analytics:
-    exports: ["Taux completion", "Scores quiz", "Temps passé"]
-    alertes: "Notifier formateur si completion < 30% à J+14"
-    rapport_auto: "Hebdomadaire → RH"
+    exports: ["Completion rate", "Quiz scores", "Time spent"]
+    alerts: "Notify trainer if completion < 30% at D+14"
+    auto_report: "Weekly → HR"
 ```
 
-## Livrables
+## Deliverables
 
-- Module e-learning complet (Storyline 360 ou Rise — fichier source)
-- Storyboard interactif (Word ou Notion)
-- Package SCORM 2004 ou xAPI prêt à l'import LMS
-- Vidéos pédagogiques (MP4 + sous-titres SRT)
-- Guide d'administration LMS (configuration + analytics)
-- Charte graphique e-learning (couleurs, polices, icônes)
+- Complete e-learning module (Storyline 360 or Rise — source file)
+- Interactive storyboard (Word or Notion)
+- SCORM 2004 or xAPI package ready for LMS import
+- Training videos (MP4 + SRT captions)
+- LMS administration guide (configuration + analytics)
+- E-learning style guide (colors, fonts, icons)
 
-## Format de sortie
+## Output format
 
-Précise : **outil auteur disponible** (Storyline / Rise / Captivate / iSpring), **LMS cible** (Moodle / 360Learning / Docebo / autre), **standard requis** (SCORM 1.2 / SCORM 2004 / xAPI), **durée du module**, **niveau d'interactivité** (lecture passive / quiz / simulation / scénario branché), **public** et **thème IA**.
+Specify: **available authoring tool** (Storyline / Rise / Captivate / iSpring), **target LMS** (Moodle / 360Learning / Docebo / other), **required standard** (SCORM 1.2 / SCORM 2004 / xAPI), **module duration**, **interactivity level** (passive reading / quiz / simulation / branching scenario), **audience** and **AI topic**.
 
 ## Sources
-- **Richard Mayer** — *Multimedia Learning* (2001) — principes multimédia (cohérence, segmentation, redondance)
+- **Richard Mayer** — *Multimedia Learning* (2001) — multimedia principles (coherence, segmentation, redundancy)
 - **John Sweller** — *Cognitive Load Theory* (1988)
-- **ADL Initiative** — standards *SCORM* (1.2 / 2004) et *xAPI* (Experience API / Tin Can)
-- **Michael Allen & Richard Sites** — *Leaving ADDIE for SAM* (2012) — production itérative
+- **ADL Initiative** — *SCORM* (1.2 / 2004) and *xAPI* (Experience API / Tin Can) standards
+- **Michael Allen & Richard Sites** — *Leaving ADDIE for SAM* (2012) — iterative production
 
 ## Anti-patterns
-- « Page-turner » : slides/PDF linéaires sans interaction ni feedback
-- Violer les principes de Mayer (narration audio + texte écran redondants)
-- Module trop long (> 15-20 min) sans segmentation
-- Choisir xAPI/SCORM sans vérifier la compatibilité du LMS cible
-- Vidéo IA (Synthesia) générée sans script pédagogique structuré
+- "Page-turner": linear slides/PDF with no interaction or feedback
+- Violating Mayer's principles (redundant audio narration + on-screen text)
+- Module too long (> 15-20 min) with no segmentation
+- Choosing xAPI/SCORM without checking target-LMS compatibility
+- AI video (Synthesia) generated with no structured instructional script
 
-## Voir aussi
-- [conception-parcours.md](conception-parcours.md) — design pédagogique amont (ADDIE/SAM, Bloom)
-- [animation-formation.md](animation-formation.md) — articulation présentiel / distanciel
-- [evaluation-formation.md](evaluation-formation.md) — quiz et complétion suivis dans le LMS
-- [data-literacy.md](data-literacy.md) — exemple de programme multi-niveaux à médiatiser
+## See also
+- [conception-parcours.md](conception-parcours.md) — upstream instructional design (ADDIE/SAM, Bloom)
+- [animation-formation.md](animation-formation.md) — in-person / remote articulation
+- [evaluation-formation.md](evaluation-formation.md) — quizzes and completion tracked in the LMS
+- [data-literacy.md](data-literacy.md) — example of a multi-level program to deliver

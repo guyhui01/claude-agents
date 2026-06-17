@@ -1,166 +1,166 @@
-# Skill — Budget & Investissement IA (Capex/Opex, TCO, ROI, FinOps)
+# Skill — AI Budget & Investment (Capex/Opex, TCO, ROI, FinOps)
 
-> Certifications : AWS Certified Cloud Practitioner + FinOps Certified Practitioner (FinOps Foundation) 2026, Google Cloud Cost Management Professional, PMI-PBA (Business Analysis)
+> Certifications: AWS Certified Cloud Practitioner + FinOps Certified Practitioner (FinOps Foundation) 2026, Google Cloud Cost Management Professional, PMI-PBA (Business Analysis)
 
-## Objectif
+## Objective
 
-Structurer le budget Data-IA d'une organisation (Capex vs Opex), calculer le TCO d'une plateforme IA, évaluer le ROI d'un portefeuille de projets et mettre en oeuvre une démarche FinOps pour maîtriser les coûts cloud.
+Structure an organization's Data-AI budget (Capex vs Opex), compute the TCO of an AI platform, assess the ROI of a project portfolio, and implement a FinOps approach to control cloud costs.
 
-## Cadre de budgétisation Data-IA
+## Data-AI budgeting framework
 
-### Classification Capex vs Opex
+### Capex vs Opex classification
 
-| Catégorie | Capex | Opex |
+| Category | Capex | Opex |
 |-----------|-------|------|
-| Infrastructure cloud initiale | Oui (si on-premise) | Non (si cloud) |
-| Licences logicielles perpétuelles | Oui | Non |
-| Abonnements SaaS / PaaS | Non | Oui |
-| Développement projets IA | Oui (actif immo.) | Non |
-| Masse salariale équipes data | Non | Oui |
-| Formation & certifications | Mixte | Oui |
-| Coûts cloud (compute, storage) | Non | Oui |
+| Initial cloud infrastructure | Yes (if on-premise) | No (if cloud) |
+| Perpetual software licenses | Yes | No |
+| SaaS / PaaS subscriptions | No | Yes |
+| AI project development | Yes (capitalized asset) | No |
+| Data team payroll | No | Yes |
+| Training & certifications | Mixed | Yes |
+| Cloud costs (compute, storage) | No | Yes |
 
-**Règle 2026 : tendance vers 80% Opex (cloud-first) — les DSI doivent justifier tout Capex sur des actifs immatériels IA.**
+**2026 rule: a trend toward 80% Opex (cloud-first) — CIOs must justify any Capex on intangible AI assets.**
 
-### Structure budgétaire type (ETI 1000-5000 personnes)
+### Typical budget structure (mid-market 1000-5000 people)
 
 ```
-BUDGET DATA-IA ANNUEL — 3,5 M€ exemple
+ANNUAL DATA-AI BUDGET — €3.5M example
 
-1. PLATEFORME & INFRASTRUCTURE          1 000 k€  (29%)
-   ├── Cloud (compute, storage, réseau)    600 k€
-   ├── Licences outils data (catalogue,    
-   │   qualité, orchestration)             250 k€
-   └── Sécurité & conformité               150 k€
+1. PLATFORM & INFRASTRUCTURE            €1,000k  (29%)
+   ├── Cloud (compute, storage, network)   €600k
+   ├── Data tool licenses (catalog,
+   │   quality, orchestration)             €250k
+   └── Security & compliance               €150k
 
-2. RESSOURCES HUMAINES                  1 500 k€  (43%)
-   ├── Équipe interne (salaires chargés) 1 100 k€
+2. HUMAN RESOURCES                      €1,500k  (43%)
+   ├── Internal team (loaded salaries)   €1,100k
    │   (CDO + 2 DE + 2 DS + 1 MLOps
    │   + 1 Data Analyst + 1 Steward)
-   └── Consultants / freelances            400 k€
+   └── Consultants / freelancers           €400k
 
-3. PROJETS IA (use cases)                700 k€  (20%)
-   ├── POC & prototypes (5 × 40 k€)       200 k€
-   ├── Mise en production (3 projets)      350 k€
-   └── Maintenance modèles en prod         150 k€
+3. AI PROJECTS (use cases)               €700k   (20%)
+   ├── PoC & prototypes (5 × €40k)        €200k
+   ├── Production deployment (3 projects)  €350k
+   └── Maintenance of models in prod       €150k
 
-4. FORMATION & ENABLEMENT               200 k€   (6%)
-   ├── Certifications équipe               80 k€
-   ├── Formation métiers                   70 k€
-   └── Événements & veille                 50 k€
+4. TRAINING & ENABLEMENT                €200k    (6%)
+   ├── Team certifications                 €80k
+   ├── Business training                   €70k
+   └── Events & monitoring                 €50k
 
-5. GOUVERNANCE & CONFORMITÉ             100 k€   (2%)
-   ├── Audit data quality                  50 k€
-   └── Conseil juridique (RGPD, AI Act)    50 k€
+5. GOVERNANCE & COMPLIANCE              €100k    (2%)
+   ├── Data quality audit                  €50k
+   └── Legal counsel (GDPR, AI Act)        €50k
 ```
 
-## Calcul du TCO d'une plateforme IA
+## Computing the TCO of an AI platform
 
-### Template TCO 3 ans (Lakehouse IA sur AWS/Azure/GCP)
+### 3-year TCO template (AI Lakehouse on AWS/Azure/GCP)
 
 ```python
-# Modèle TCO simplifié — Python
-class TCO_IA_Platform:
+# Simplified TCO model — Python
+class TCO_AI_Platform:
     def __init__(self, nb_users, data_volume_tb, nb_models_prod):
         self.users = nb_users
         self.volume = data_volume_tb
         self.models = nb_models_prod
 
     def compute_annual(self):
-        # Coûts cloud (estimatif 2026)
-        storage = self.volume * 25          # 25 €/TB/an (S3/GCS)
+        # Cloud costs (2026 estimate)
+        storage = self.volume * 25          # €25/TB/year (S3/GCS)
         compute_etl = self.volume * 150     # ETL/ELT processing
         compute_ml = self.models * 2000     # Training + inference
         data_transfer = self.volume * 10    # Egress
 
-        # Licences
+        # Licenses
         orchestration = 18000               # Airflow/Prefect cloud
-        catalogue = 15000 * (self.users/50) # Collibra/DataHub
+        catalog = 15000 * (self.users/50)   # Collibra/DataHub
         monitoring = 12000                  # Monte Carlo/Soda
 
-        # RH (en k€)
-        salaires = 550000                   # 2 Data Engineers seniors
+        # HR (in €k)
+        salaries = 550000                   # 2 senior Data Engineers
 
         total_cloud = storage + compute_etl + compute_ml + data_transfer
-        total_licences = orchestration + catalogue + monitoring
-        total = total_cloud + total_licences + salaires
+        total_licenses = orchestration + catalog + monitoring
+        total = total_cloud + total_licenses + salaries
 
         return {
             "cloud": total_cloud,
-            "licences": total_licences,
-            "rh": salaires,
-            "total_annuel": total,
-            "cout_par_user": total / self.users
+            "licenses": total_licenses,
+            "hr": salaries,
+            "total_annual": total,
+            "cost_per_user": total / self.users
         }
 
 # Usage
-tco = TCO_IA_Platform(nb_users=200, data_volume_tb=50, nb_models_prod=5)
+tco = TCO_AI_Platform(nb_users=200, data_volume_tb=50, nb_models_prod=5)
 print(tco.compute_annual())
 ```
 
-## Calcul du ROI d'un portefeuille IA
+## Computing the ROI of an AI portfolio
 
-### Framework de qualification de la valeur
+### Value qualification framework
 
-| Type de valeur | Mesure | Exemples |
+| Value type | Measure | Examples |
 |----------------|--------|---------|
-| Réduction de coûts | € économisés/an | Automatisation traitement, réduction erreurs |
-| Augmentation de revenus | € générés/an | Recommandation, personnalisation |
-| Évitement de risques | € risque évité | Fraude, non-conformité |
-| Gains de productivité | ETP économisés × coût | RPA, aide à la décision |
-| Amélioration NPS | Valeur par point NPS | Rétention client |
+| Cost reduction | € saved/year | Processing automation, error reduction |
+| Revenue increase | € generated/year | Recommendation, personalization |
+| Risk avoidance | € risk avoided | Fraud, non-compliance |
+| Productivity gains | FTEs saved × cost | RPA, decision support |
+| NPS improvement | Value per NPS point | Customer retention |
 
-### Template ROI use case IA
+### AI use-case ROI template
 
 ```
-Projet : Modèle de prédiction de churn B2B
+Project: B2B churn-prediction model
 
-INVESTISSEMENT
-  Développement & mise en prod       : 120 000 €
-  Infrastructure ML (1 an)           :  30 000 €
-  Maintenance & monitoring (1 an)    :  20 000 €
-  TOTAL INVESTI                      : 170 000 €
+INVESTMENT
+  Development & production rollout    : €120,000
+  ML infrastructure (1 year)          :  €30,000
+  Maintenance & monitoring (1 year)   :  €20,000
+  TOTAL INVESTED                      : €170,000
 
-VALEUR GÉNÉRÉE (an 1)
-  Clients sauvegardés : 50 clients × taux succès 60% = 30
-  Revenu moyen/client/an             :  25 000 €
-  Valeur préservée                   : 750 000 €
-  Coût acquisition nouveau client    :   8 000 €
-  Acquisition évitée (30 clients)    : 240 000 €
-  VALEUR TOTALE AN 1                 : 990 000 €
+VALUE GENERATED (year 1)
+  Customers retained: 50 customers × 60% success rate = 30
+  Average revenue/customer/year       :  €25,000
+  Value preserved                     : €750,000
+  New-customer acquisition cost       :   €8,000
+  Acquisition avoided (30 customers)  : €240,000
+  TOTAL VALUE YEAR 1                  : €990,000
 
-ROI AN 1  = (990 000 - 170 000) / 170 000 = 482%
-Payback   = 170 000 / (990 000/12)        = 2,1 mois
+YEAR 1 ROI = (990,000 - 170,000) / 170,000 = 482%
+Payback    = 170,000 / (990,000/12)        = 2.1 months
 ```
 
-## FinOps Data — Maîtrise des coûts cloud
+## FinOps Data — Controlling cloud costs
 
-### Les 3 phases FinOps (FinOps Foundation)
+### The 3 FinOps phases (FinOps Foundation)
 
-| Phase | Actions | Outils |
+| Phase | Actions | Tools |
 |-------|---------|--------|
-| **Inform** | Tagging, dashboards coûts, showback | AWS Cost Explorer, Azure Cost Management |
-| **Optimize** | Reserved instances, auto-scaling, archivage cold data | Spot instances, S3 Intelligent-Tiering |
-| **Operate** | Budgets alertes, FinOps rituel mensuel, chargeback | CloudHealth, Apptio Cloudability |
+| **Inform** | Tagging, cost dashboards, showback | AWS Cost Explorer, Azure Cost Management |
+| **Optimize** | Reserved instances, auto-scaling, cold-data archiving | Spot instances, S3 Intelligent-Tiering |
+| **Operate** | Budget alerts, monthly FinOps ritual, chargeback | CloudHealth, Apptio Cloudability |
 
-### KPIs FinOps Data
+### FinOps Data KPIs
 
-| KPI | Définition | Cible |
+| KPI | Definition | Target |
 |-----|-----------|-------|
-| Cloud unit cost | Coût cloud / TB traité | < 50 € |
-| Forecast accuracy | Ecart prévision vs réel | < 10% |
-| Savings rate | % réservations / total | > 30% |
-| Untagged spend | % dépenses sans tags | < 5% |
+| Cloud unit cost | Cloud cost / TB processed | < €50 |
+| Forecast accuracy | Forecast vs actual gap | < 10% |
+| Savings rate | % reservations / total | > 30% |
+| Untagged spend | % spend without tags | < 5% |
 
-## Livrables
+## Deliverables
 
-- Budget Data-IA annuel détaillé (Capex/Opex, par catégorie)
-- Modèle TCO 3 ans pour la plateforme data
-- Business cases ROI pour les 3-5 use cases prioritaires
-- Tableau de bord FinOps mensuel (coûts cloud par équipe/projet)
-- Politique de tagging et chargeback cloud
-- Présentation CODIR budget (narrative + chiffres-clés)
+- Detailed annual Data-AI budget (Capex/Opex, by category)
+- 3-year TCO model for the data platform
+- ROI business cases for the 3-5 priority use cases
+- Monthly FinOps dashboard (cloud costs per team/project)
+- Cloud tagging and chargeback policy
+- Executive-committee budget presentation (narrative + key figures)
 
-## Format de sortie
+## Output format
 
-Précise : **taille organisation** (CA, effectifs), **cloud provider(s)** utilisés, **stack data existante** (licences en cours), **volume de données** (TB), **nombre d'équipes data**, **projets IA en cours ou planifiés**, **horizon budget** (1 an / 3 ans), **interlocuteur** (CFO / DSI / CDO).
+Specify: **organization size** (revenue, headcount), **cloud provider(s)** used, **existing data stack** (current licenses), **data volume** (TB), **number of data teams**, **AI projects ongoing or planned**, **budget horizon** (1 year / 3 years), **stakeholder** (CFO / CIO / CDO).

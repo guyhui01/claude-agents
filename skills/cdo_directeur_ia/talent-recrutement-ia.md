@@ -1,50 +1,50 @@
-# Skill — Stratégie Talent & Recrutement Data-IA
+# Skill — Data-AI Talent & Recruitment Strategy
 
-> Certifications : SHRM-SCP (Strategic HR), PMI Talent Management, LinkedIn Talent Insights Certified 2026, CDMP Associate (contexte data)
+> Certifications: SHRM-SCP (Strategic HR), PMI Talent Management, LinkedIn Talent Insights Certified 2026, CDMP Associate (data context)
 
-## Objectif
+## Objective
 
-Définir et déployer une stratégie RH Data-IA complète : cartographie des profils clés 2026, benchmarks de rémunération, arbitrage build/hire/partner et plan de développement des talents internes.
+Define and roll out a complete Data-AI HR strategy: mapping of the 2026 key profiles, compensation benchmarks, build/hire/partner trade-offs, and an internal talent development plan.
 
-## Cartographie des profils Data-IA en 2026
+## Mapping of Data-AI profiles in 2026
 
-### Les 12 profils clés et leurs compétences
+### The 12 key profiles and their skills
 
-| Profil | Niveau | Salaires Paris 2026 (brut/an) | Rareté |
+| Profile | Level | Paris salaries 2026 (gross/year) | Scarcity |
 |--------|--------|-------------------------------|--------|
-| Chief Data Officer (CDO) | C-Level | 140 000 – 220 000 € | Très élevée |
-| Head of AI / Chief AI Officer | C-Level | 150 000 – 230 000 € | Extrême |
-| Data Architect (Senior) | Expert | 85 000 – 120 000 € | Élevée |
-| ML Engineer / MLOps | Senior | 75 000 – 105 000 € | Très élevée |
-| LLM Engineer / AI Engineer | Senior | 80 000 – 115 000 € | Extrême |
-| Data Scientist (Senior) | Senior | 70 000 – 95 000 € | Élevée |
-| Data Engineer (Senior) | Senior | 65 000 – 90 000 € | Élevée |
-| Analytics Engineer (dbt) | Mid-Senior | 55 000 – 80 000 € | Moyenne |
-| Data Analyst (BI) | Mid | 45 000 – 65 000 € | Faible |
-| Data Steward / Data Governance | Mid-Senior | 50 000 – 75 000 € | Moyenne |
-| Prompt Engineer / AI Product | Mid-Senior | 55 000 – 85 000 € | Élevée |
-| AI Ethics Officer | Expert | 75 000 – 100 000 € | Très élevée |
+| Chief Data Officer (CDO) | C-Level | €140,000 – 220,000 | Very high |
+| Head of AI / Chief AI Officer | C-Level | €150,000 – 230,000 | Extreme |
+| Data Architect (Senior) | Expert | €85,000 – 120,000 | High |
+| ML Engineer / MLOps | Senior | €75,000 – 105,000 | Very high |
+| LLM Engineer / AI Engineer | Senior | €80,000 – 115,000 | Extreme |
+| Data Scientist (Senior) | Senior | €70,000 – 95,000 | High |
+| Data Engineer (Senior) | Senior | €65,000 – 90,000 | High |
+| Analytics Engineer (dbt) | Mid-Senior | €55,000 – 80,000 | Medium |
+| Data Analyst (BI) | Mid | €45,000 – 65,000 | Low |
+| Data Steward / Data Governance | Mid-Senior | €50,000 – 75,000 | Medium |
+| Prompt Engineer / AI Product | Mid-Senior | €55,000 – 85,000 | High |
+| AI Ethics Officer | Expert | €75,000 – 100,000 | Very high |
 
-### Fiches de compétences 2026 — Profils clés
+### Skill sheets 2026 — Key profiles
 
 ```yaml
 LLM_Engineer_Senior:
   missions:
-    - "Intégration et fine-tuning de LLMs (Claude, GPT-4o, Llama 3)"
-    - "Développement d'agents IA et systèmes RAG"
-    - "LLMOps : monitoring, évaluation, prompt versioning"
-  competences_techniques:
+    - "Integration and fine-tuning of LLMs (Claude, GPT-4o, Llama 3)"
+    - "Development of AI agents and RAG systems"
+    - "LLMOps: monitoring, evaluation, prompt versioning"
+  technical_skills:
     - Python (FastAPI, LangChain, LlamaIndex)
     - Vector databases (Pinecone, Weaviate, pgvector)
     - Cloud AI services (Anthropic API, Azure OpenAI, Vertex AI)
-    - MLflow / Weights & Biases pour l'évaluation LLM
-  certifications_valorisees:
+    - MLflow / Weights & Biases for LLM evaluation
+  valued_certifications:
     - Anthropic Prompt Engineering Certification 2026
     - DeepLearning.AI LLMOps Specialization
     - AWS Certified Machine Learning Specialty
-  softs_skills:
-    - Pensée produit (mesurer l'impact business)
-    - Communication avec parties prenantes non-techniques
+  soft_skills:
+    - Product thinking (measure business impact)
+    - Communication with non-technical stakeholders
 
 MLOps_Engineer_Senior:
   stack_2026:
@@ -55,77 +55,77 @@ MLOps_Engineer_Senior:
     infra: ["Kubernetes", "Terraform", "GitHub Actions"]
 ```
 
-## Arbitrage : Build vs Hire vs Partner
+## Trade-off: Build vs Hire vs Partner
 
-### Matrice de décision
+### Decision matrix
 
-| Critère | Build (Former interne) | Hire (Recruter) | Partner (Externaliser) |
+| Criterion | Build (Train internally) | Hire (Recruit) | Partner (Outsource) |
 |---------|----------------------|-----------------|----------------------|
-| **Time-to-value** | 6-18 mois | 3-6 mois | 1-3 mois |
-| **Coût total** | Faible long terme | Élevé court terme | Variable |
-| **Rétention du savoir** | Très forte | Forte (si fidélisation) | Faible |
-| **Flexibilité** | Faible | Moyenne | Forte |
-| **Expertise de pointe** | Difficile | Possible (marché rare) | Accessible |
+| **Time-to-value** | 6-18 months | 3-6 months | 1-3 months |
+| **Total cost** | Low long-term | High short-term | Variable |
+| **Knowledge retention** | Very strong | Strong (if retained) | Weak |
+| **Flexibility** | Low | Medium | Strong |
+| **Cutting-edge expertise** | Hard | Possible (rare market) | Accessible |
 
-### Algorithme de décision
+### Decision algorithm
 
 ```
-Pour chaque besoin de compétence Data-IA :
+For each Data-AI skill need:
 
-1. Est-ce un besoin durable (> 18 mois) et stratégique ?
-   → OUI : Envisager Hire ou Build
-   → NON : Partner (freelance, cabinet conseil)
+1. Is it a lasting (> 18 months) and strategic need?
+   → YES: Consider Hire or Build
+   → NO: Partner (freelancer, consulting firm)
 
-2. Est-ce une compétence disponible en interne (gap < 6 mois) ?
-   → OUI : Build (upskilling + mentorat)
-   → NON : Hire (si budget) ou Partner (si urgence)
+2. Is it a skill available internally (gap < 6 months)?
+   → YES: Build (upskilling + mentoring)
+   → NO: Hire (if budget) or Partner (if urgent)
 
-3. Le marché de l'emploi est-il trop tendu ?
-   → Profils LLM Engineer, Chief AI Officer
-   → Stratégie : Build + Partner en parallèle
-     + Employee Value Proposition différenciante
+3. Is the job market too tight?
+   → LLM Engineer, Chief AI Officer profiles
+   → Strategy: Build + Partner in parallel
+     + a differentiating Employee Value Proposition
 ```
 
-## Programme de développement interne
+## Internal development program
 
-### Data-IA Upskilling Tracks (6 mois chacun)
+### Data-AI Upskilling Tracks (6 months each)
 
-| Track | Public cible | Contenu | Certification visée |
+| Track | Target audience | Content | Target certification |
 |-------|-------------|---------|---------------------|
-| **Data Analyst → Analytics Engineer** | Data Analysts junior/mid | dbt, SQL avancé, Git, CI/CD | dbt Developer Certification |
-| **Data Engineer → MLOps** | Data Engineers seniors | Docker, Kubernetes, MLflow, Airflow | AWS ML Specialty |
-| **Développeur → AI Engineer** | Dev backend Python | LangChain, API LLM, RAG, agents | Anthropic Certification 2026 |
-| **Manager → Data-Driven Leader** | Managers métier | Data storytelling, SQL basique, BI | DP-900 Microsoft |
+| **Data Analyst → Analytics Engineer** | Junior/mid Data Analysts | dbt, advanced SQL, Git, CI/CD | dbt Developer Certification |
+| **Data Engineer → MLOps** | Senior Data Engineers | Docker, Kubernetes, MLflow, Airflow | AWS ML Specialty |
+| **Developer → AI Engineer** | Python backend devs | LangChain, LLM API, RAG, agents | Anthropic Certification 2026 |
+| **Manager → Data-Driven Leader** | Business managers | Data storytelling, basic SQL, BI | DP-900 Microsoft |
 
-## Marque employeur Data-IA
+## Data-AI employer brand
 
-### Leviers d'attraction 2026
+### 2026 attraction levers
 
 ```
-Top 5 critères de choix des talents data (enquête 2026) :
-1. Projets tech challenging (IA générative, MLOps at scale)  — 42%
-2. Qualité de l'équipe et mentoring                          — 38%
-3. Rémunération + BSPCE/AGA                                  — 35%
-4. Flexibilité (full remote ou hybride)                      — 32%
-5. Budget formation & certifications                         — 28%
+Top 5 selection criteria of data talent (2026 survey):
+1. Challenging tech projects (generative AI, MLOps at scale)  — 42%
+2. Team quality and mentoring                                — 38%
+3. Compensation + equity (BSPCE/AGA)                         — 35%
+4. Flexibility (full remote or hybrid)                       — 32%
+5. Training & certification budget                           — 28%
 
-Actions marque employeur :
-→ Publication technique (blog, GitHub, conférences)
-→ Open source contributions de l'équipe
-→ Budget certifications : 3 000 €/an/personne minimum
-→ Remote-first policy avec 2 jours présentiel/mois
+Employer-brand actions:
+→ Technical publishing (blog, GitHub, conferences)
+→ Open-source contributions from the team
+→ Certification budget: €3,000/year/person minimum
+→ Remote-first policy with 2 on-site days/month
 ```
 
-## Livrables
+## Deliverables
 
-- Cartographie des besoins en talents Data-IA (court/moyen terme)
-- Grille de rémunération benchmarkée 2026 par profil
-- Matrice build/hire/partner par famille de compétences
-- Plan de développement interne avec tracks de formation
-- Job descriptions pour les 5 profils prioritaires
-- Stratégie marque employeur Data-IA (EVP + actions concrètes)
-- Budget RH Data-IA annuel (recrutement + formation + rétention)
+- Mapping of Data-AI talent needs (short/medium term)
+- 2026 benchmarked compensation grid per profile
+- Build/hire/partner matrix per skill family
+- Internal development plan with training tracks
+- Job descriptions for the 5 priority profiles
+- Data-AI employer-brand strategy (EVP + concrete actions)
+- Annual Data-AI HR budget (recruitment + training + retention)
 
-## Format de sortie
+## Output format
 
-Précise : **taille équipe data actuelle** (nb + profils), **profils prioritaires à recruter** (liste), **budget RH disponible**, **délai** (urgence ou planification 12 mois), **contraintes** (télétravail, localisation, taille de l'entreprise), **secteur** (banque / retail / industrie / etc.), **niveau de maturité IA** de l'organisation.
+Specify: **current data team size** (# + profiles), **priority profiles to recruit** (list), **available HR budget**, **timeframe** (urgent or 12-month planning), **constraints** (remote work, location, company size), **sector** (banking / retail / industry / etc.), the organization's **AI maturity level**.

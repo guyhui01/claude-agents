@@ -1,112 +1,112 @@
-# Skill — Scoring et Priorisation des Investissements
-> Certifications : SAFe LPM (Scaled Agile), CFA Level I (CFA Institute), PMI-PBA (PMI), FRM (GARP)
-> Agent : AGENT-FINANCIAL-ANALYST.md
-> Référentiels : **WSJF** (SAFe POPM — cotation relative par colonne) · **PMI Standard for Portfolio Management** · matrice **Risque/Valeur** · scoring multicritères pondéré
+# Skill — Investment Scoring and Prioritization
+> Certifications: SAFe LPM (Scaled Agile), CFA Level I (CFA Institute), PMI-PBA (PMI), FRM (GARP)
+> Agent: AGENT-FINANCIAL-ANALYST.md
+> Frameworks: **WSJF** (SAFe POPM — relative scoring per column) · **PMI Standard for Portfolio Management** · **Risk/Value** matrix · weighted multi-criteria scoring
 
-## Objectif
-Scorer et prioriser un portefeuille d'investissements IT/IA — grilles multicritères, WSJF portfolio, scoring risque/valeur — pour allouer les budgets aux projets à plus fort impact stratégique.
+## Objective
+Score and prioritize a portfolio of IT/AI investments — multi-criteria grids, portfolio WSJF, risk/value scoring — to allocate budgets to the projects with the highest strategic impact.
 
-## Grille de scoring multicritères — Template
+## Multi-criteria scoring grid — Template
 
-| Critère | Poids | Projet A | Projet B | Projet C |
+| Criterion | Weight | Project A | Project B | Project C |
 |---|---|---|---|---|
-| Alignement stratégique | 25% | 9 | 6 | 8 |
-| ROI estimé (3 ans) | 25% | 8 | 9 | 5 |
-| Faisabilité technique | 20% | 7 | 8 | 9 |
+| Strategic alignment | 25% | 9 | 6 | 8 |
+| Estimated ROI (3 years) | 25% | 8 | 9 | 5 |
+| Technical feasibility | 20% | 7 | 8 | 9 |
 | Time-to-Value | 15% | 6 | 9 | 7 |
-| Niveau de risque (inv.) | 15% | 7 | 6 | 8 |
-| **Score pondéré** | | **7.5** | **7.6** | **7.3** |
-| **Rang** | | **2** | **1** | **3** |
+| Risk level (inv.) | 15% | 7 | 6 | 8 |
+| **Weighted score** | | **7.5** | **7.6** | **7.3** |
+| **Rank** | | **2** | **1** | **3** |
 
-## WSJF Portfolio — Niveau Epic
+## WSJF Portfolio — Epic level
 
 ```yaml
 wsjf_portfolio:
-  periode: "PI-12 à PI-14"
-  budget_disponible: 500_000
+  period: "PI-12 to PI-14"
+  available_budget: 500_000
   
-  # Cotation relative, plus petit = 1 par colonne, Fibonacci (cf. skills/safe/wsjf.md)
-  # size = taille relative ; durée en jours et budget suivis dans la grille multicritères
+  # Relative scoring, smallest = 1 per column, Fibonacci (see skills/safe/wsjf.md)
+  # size = relative size; duration in days and budget tracked in the multi-criteria grid
   epics:
     - id: "EPIC-01"
-      titre: "Module Formation IA"
+      title: "AI Training Module"
       bv: 3
       tc: 1
       rr_oe: 1
       size: 3
       cod: 5
       wsjf: 1.7
-      rang: 3
+      rank: 3
       
     - id: "EPIC-02"
-      titre: "Scoring CV IA"
+      title: "AI CV Scoring"
       bv: 5
       tc: 5
       rr_oe: 3
       size: 1
       cod: 13
       wsjf: 13.0
-      rang: 1
-      budget_estime: 150_000
+      rank: 1
+      estimated_budget: 150_000
       
     - id: "EPIC-03"
-      titre: "Intégration SIRH"
+      title: "HRIS Integration"
       bv: 1
       tc: 3
       rr_oe: 2
       size: 2
       cod: 6
       wsjf: 3.0
-      rang: 2
-      budget_estime: 180_000
+      rank: 2
+      estimated_budget: 180_000
       
-  sequence_recommandee: ["EPIC-02", "EPIC-03", "EPIC-01"]
-  budget_phases_1_2: 330_000  # Dans l'enveloppe
+  recommended_sequence: ["EPIC-02", "EPIC-03", "EPIC-01"]
+  budget_phases_1_2: 330_000  # Within the envelope
 ```
 
-## Matrice Risque / Valeur
+## Risk / Value Matrix
 
 ```
-                    VALEUR ÉLEVÉE
+                    HIGH VALUE
                          │
-  QUICK WIN             │    PROJET STRATÉGIQUE
-  (Faire rapidement)    │    (Investir prioritairement)
-  Risque faible,        │    Risque élevé, valeur élevée
-  valeur élevée         │
+  QUICK WIN             │    STRATEGIC PROJECT
+  (Do quickly)          │    (Invest as priority)
+  Low risk,             │    High risk, high value
+  high value            │
 ────────────────────────┼────────────────────────────────
-  Risque FAIBLE         │    Risque ÉLEVÉ
+  LOW risk              │    HIGH risk
 ────────────────────────┼────────────────────────────────
-  REMPLISSAGE           │    ÉVITER
-  (Faire si capacité)   │    (Reporter ou ne pas faire)
-  Risque faible,        │    Risque élevé,
-  valeur faible         │    valeur faible
+  FILL-IN               │    AVOID
+  (Do if capacity)      │    (Defer or don't do)
+  Low risk,             │    High risk,
+  low value             │    low value
                          │
-                    VALEUR FAIBLE
+                    LOW VALUE
 ```
 
-## Livrables
-- Grille de scoring multicritères complète
-- WSJF portfolio documenté
-- Matrice Risque / Valeur
-- Recommandation de priorisation motivée
+## Deliverables
+- Complete multi-criteria scoring grid
+- Documented portfolio WSJF
+- Risk / Value matrix
+- Reasoned prioritization recommendation
 
-## Format de sortie
-Précise : liste des projets / epics à scorer, critères de décision stratégiques, budget disponible, contraintes de capacité.
+## Output format
+Specify: the list of projects / epics to score, strategic decision criteria, available budget, capacity constraints.
 
 ## Anti-patterns
-- ❌ **WSJF en absolu** : coter en valeur monétaire au lieu de relatif par colonne (plus petit = 1)
-- ❌ **Scoring multicritères sans poids** : additionner des notes sans pondération stratégique
-- ❌ **Ignorer la contrainte de capacité/budget** : prioriser au-delà de l'enveloppe disponible
-- ❌ **Matrice Risque/Valeur sans seuils** : placement subjectif des projets
-- ❌ **Confondre scoring d'investissement (financier) et WSJF (flux de valeur)** : usages complémentaires
+- ❌ **WSJF in absolute terms**: scoring in monetary value instead of relative per column (smallest = 1)
+- ❌ **Multi-criteria scoring with no weights**: summing scores with no strategic weighting
+- ❌ **Ignoring the capacity/budget constraint**: prioritizing beyond the available envelope
+- ❌ **Risk/Value matrix with no thresholds**: subjective placement of projects
+- ❌ **Confusing investment scoring (financial) and WSJF (value flow)**: complementary uses
 
 ## Sources
 - **SAFe** — **WSJF** (Weighted Shortest Job First) — scaledagileframework.com
-- **PMI** — *The Standard for Portfolio Management* (4e éd. 2017)
+- **PMI** — *The Standard for Portfolio Management* (4th ed. 2017)
 - **Reinertsen D.** — *Cost of Delay* (*Principles of Product Development Flow*, 2009)
 
-## Voir aussi
-- [`../safe/wsjf.md`](../safe/wsjf.md) — méthode WSJF détaillée
-- [`../chef_projet_ia/gouvernance-portefeuille.md`](../chef_projet_ia/gouvernance-portefeuille.md) — priorisation portefeuille (vue PM)
-- [`business-case-ia.md`](business-case-ia.md) — business case par initiative
-- [`cost-benefit-analysis.md`](cost-benefit-analysis.md) — VAN/TRI pour départager
+## See also
+- [`../safe/wsjf.md`](../safe/wsjf.md) — detailed WSJF method
+- [`../chef_projet_ia/gouvernance-portefeuille.md`](../chef_projet_ia/gouvernance-portefeuille.md) — portfolio prioritization (PM view)
+- [`business-case-ia.md`](business-case-ia.md) — business case per initiative
+- [`cost-benefit-analysis.md`](cost-benefit-analysis.md) — NPV/IRR to break ties

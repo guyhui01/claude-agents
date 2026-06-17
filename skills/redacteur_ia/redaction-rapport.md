@@ -1,149 +1,149 @@
-# Skill — Rédaction de Rapport Professionnel
-> Certifications : HubSpot Content Marketing · Google Digital Garage · CQFD Communication Écrite
+# Skill — Professional Report Writing
+> Certifications: HubSpot Content Marketing · Google Digital Garage · CQFD Written Communication
 
-## Objectif
-Rédiger des rapports professionnels clairs, structurés et actionnables pour des audiences internes ou externes — rapports de projet, rapports d'audit, rapports d'activité.
+## Objective
+Write clear, structured, actionable professional reports for internal or external audiences — project reports, audit reports, activity reports.
 
-## Structure universelle d'un rapport professionnel
+## Universal structure of a professional report
 
-### Architecture en 7 parties
+### 7-part architecture
 ```
-1. PAGE DE GARDE
-   → Titre, auteur, date, version, destinataires, classification
+1. COVER PAGE
+   → Title, author, date, version, recipients, classification
 
-2. RÉSUMÉ EXÉCUTIF (1 page max)
-   → Contexte (2 phrases) → Principaux constats → Recommandations clés
-   → Lisible seul, sans le reste du rapport
+2. EXECUTIVE SUMMARY (1 page max)
+   → Context (2 sentences) → Main findings → Key recommendations
+   → Readable on its own, without the rest of the report
 
-3. SOMMAIRE
-   → Navigable, avec numéros de pages, profondeur max 3 niveaux
+3. TABLE OF CONTENTS
+   → Navigable, with page numbers, max 3 levels deep
 
 4. INTRODUCTION
-   → Contexte et enjeux → Périmètre et limites → Méthodologie utilisée
+   → Context and stakes → Scope and limits → Methodology used
 
-5. DÉVELOPPEMENT (corps du rapport)
-   → Constats objectifs (faits > opinions)
-   → Analyses et interprétations
-   → Éléments de preuve (données, tableaux, verbatims)
+5. BODY (main report)
+   → Objective findings (facts > opinions)
+   → Analyses and interpretations
+   → Evidence (data, tables, verbatims)
 
-6. CONCLUSIONS & RECOMMANDATIONS
-   → Synthèse des constats majeurs
-   → Recommandations priorisées (Impact / Effort)
-   → Plan d'action avec responsables et échéances
+6. CONCLUSIONS & RECOMMENDATIONS
+   → Summary of major findings
+   → Prioritized recommendations (Impact / Effort)
+   → Action plan with owners and deadlines
 
-7. ANNEXES
-   → Données brutes, méthodologie détaillée, glossaire, bibliographie
+7. APPENDICES
+   → Raw data, detailed methodology, glossary, bibliography
 ```
 
-## Résumé exécutif — Template
+## Executive summary — template
 ```markdown
-## Résumé exécutif
+## Executive summary
 
-**Contexte** : [Problème ou question à l'origine du rapport — 2 phrases max]
+**Context**: [Problem or question behind the report — 2 sentences max]
 
-**Principaux constats** :
-1. [Constat 1 — factuel, chiffré si possible]
-2. [Constat 2]
-3. [Constat 3]
+**Main findings**:
+1. [Finding 1 — factual, quantified if possible]
+2. [Finding 2]
+3. [Finding 3]
 
-**Recommandations** :
-- [Action prioritaire 1] → Responsable : [Nom] | Échéance : [Date]
-- [Action prioritaire 2] → Responsable : [Nom] | Échéance : [Date]
+**Recommendations**:
+- [Priority action 1] → Owner: [Name] | Deadline: [Date]
+- [Priority action 2] → Owner: [Name] | Deadline: [Date]
 
-**Impact attendu** : [Bénéfice mesurable en termes business]
+**Expected impact**: [Measurable business benefit]
 ```
 
-## Rédaction des constats — Méthode STAR
+## Writing findings — the STAR method
 ```
-SITUATION  → Contexte factuel (ce qui existe, ce qui a été observé)
-TÂCHE/TEST → Ce qui a été analysé ou testé
-ACTION     → Ce qui a été fait / ce qui se passe
-RÉSULTAT   → Ce qui en découle (avec données quantifiées)
+SITUATION  → Factual context (what exists, what was observed)
+TASK/TEST  → What was analyzed or tested
+ACTION     → What was done / what happens
+RESULT     → What follows (with quantified data)
 
-Exemple (rapport d'audit) :
-  SITUATION  : Le processus de validation des données clients implique 3 équipes
-  TÂCHE      : Analyse des délais de traitement sur 6 mois (Jan-Jun 2026)
-  ACTION     : Le délai moyen de validation est de 4,3 jours
-  RÉSULTAT   : 12% des dossiers dépassent le SLA contractuel de 3 jours,
-               générant 47 réclamations clients sur la période
+Example (audit report):
+  SITUATION  : The customer-data validation process involves 3 teams
+  TASK       : Analysis of processing times over 6 months (Jan-Jun 2026)
+  ACTION     : The average validation time is 4.3 days
+  RESULT     : 12% of cases exceed the contractual 3-day SLA,
+               generating 47 customer complaints over the period
 ```
 
-## Niveaux de langue selon le destinataire
-| Audience | Style | Jargon | Longueur |
+## Register by recipient
+| Audience | Style | Jargon | Length |
 |---|---|---|---|
-| CODIR / Direction | Assertif, synthétique | Minimal | 1-3 pages + annexes |
-| Équipe métier | Accessible, pratique | Métier maîtrisé | 5-10 pages |
-| Expert technique | Précis, dense | Technique complet | Illimité |
-| Client externe | Clair, valorisant | Zéro jargon interne | 3-7 pages |
+| Exec committee / Management | Assertive, concise | Minimal | 1-3 pages + appendices |
+| Business team | Accessible, practical | Domain-fluent | 5-10 pages |
+| Technical expert | Precise, dense | Full technical | Unlimited |
+| External client | Clear, flattering | Zero internal jargon | 3-7 pages |
 
-## Mise en forme professionnelle
+## Professional formatting
 
-### Règles de lisibilité
+### Readability rules
 ```
-Paragraphes : 5-7 lignes max
-Phrases     : 25 mots max (clarté)
-Titres      : Informatifs, pas génériques
-             ❌ "Analyse des données"
-             ✅ "Les données révèlent un écart de 23% sur les délais"
-Listes      : Toujours au moins 3 items, jamais plus de 7
-Données     : En tableau ou graphique, jamais en paragraphe dense
-```
-
-### Graphiques recommandés par type de donnée
-```
-Évolution dans le temps → Courbe (line chart)
-Comparaison catégories  → Barres horizontales (bar chart)
-Composition / part      → Secteurs si ≤ 5 catégories (pie chart)
-Corrélation             → Nuage de points (scatter plot)
-Avancement              → Jauge ou barre de progression
-Carte géographique      → Choroplèthe si répartition géographique
+Paragraphs : 5-7 lines max
+Sentences  : 25 words max (clarity)
+Headings   : Informative, not generic
+             ❌ "Data analysis"
+             ✅ "The data reveals a 23% gap in lead times"
+Lists      : Always at least 3 items, never more than 7
+Data       : In a table or chart, never in a dense paragraph
 ```
 
-## Relecture — Checklist qualité
+### Recommended charts by data type
 ```
-FOND :
-  ☐ Tous les constats sont étayés par des preuves (données, sources)
-  ☐ Les recommandations découlent logiquement des constats
-  ☐ Aucune opinion personnelle non étayée
-  ☐ Le périmètre annoncé est respecté
-
-FORME :
-  ☐ Résumé exécutif lisible sans le reste
-  ☐ Aucune faute d'orthographe ou de grammaire
-  ☐ Tous les acronymes sont explicités à la première occurrence
-  ☐ Numérotation des pages, des figures, des tableaux
-  ☐ Sources et dates des données citées
-
-IMPACT :
-  ☐ Le lecteur comprend ce qu'il doit faire après lecture
-  ☐ Les recommandations sont réalistes et chiffrées si possible
-  ☐ Délais et responsables identifiés pour chaque action
+Change over time        → Line chart
+Category comparison     → Horizontal bars (bar chart)
+Composition / share     → Pie if ≤ 5 categories (pie chart)
+Correlation             → Scatter plot
+Progress                → Gauge or progress bar
+Geographic map          → Choropleth for geographic distribution
 ```
 
-## Livrables
-- Rapport complet (Word / PDF) avec table des matières
-- Résumé exécutif standalone (1 page)
-- Fichier de données sources (Excel / CSV) en annexe
-- Version "allégée" mobile (si nécessaire)
+## Proofreading — quality checklist
+```
+CONTENT:
+  ☐ Every finding is backed by evidence (data, sources)
+  ☐ Recommendations follow logically from the findings
+  ☐ No unsupported personal opinion
+  ☐ The stated scope is respected
 
-## Format de sortie
-Précise : type de rapport (audit, activité, projet, incident) · audience principale · périmètre · données disponibles · longueur cible · deadline
+FORM:
+  ☐ Executive summary readable on its own
+  ☐ No spelling or grammar mistakes
+  ☐ Every acronym is spelled out on first use
+  ☐ Page, figure, and table numbering
+  ☐ Sources and dates of cited data
+
+IMPACT:
+  ☐ The reader understands what to do after reading
+  ☐ Recommendations are realistic and quantified where possible
+  ☐ Deadlines and owners identified for each action
+```
+
+## Deliverables
+- Complete report (Word / PDF) with table of contents
+- Standalone executive summary (1 page)
+- Source data file (Excel / CSV) in appendix
+- "Lightweight" mobile version (if needed)
+
+## Output format
+Specify: report type (audit, activity, project, incident) · main audience · scope · available data · target length · deadline
 
 ## Anti-patterns
-- ❌ **Résumé exécutif qui n'en est pas un** — résumé qui exige la lecture du rapport pour être compris → décideurs perdus. Il doit être autoportant (principe Minto).
-- ❌ **Constats noyés dans les opinions** — mélanger faits et interprétations non étayées → perte de crédibilité, conclusions contestables.
-- ❌ **Recommandations non priorisées** — empiler les actions sans Impact/Effort ni responsable/échéance → rapport non actionnable.
-- ❌ **Données en paragraphe dense** — chiffres enfouis dans le texte au lieu d'un tableau/graphique → illisible (cf. Tufte).
-- ❌ **Graphique mal choisi** — camembert à 12 parts, axes tronqués → message faussé. Choisir le type selon la donnée.
+- ❌ **An executive summary that isn't one** — a summary that requires reading the report to be understood → decision-makers lost. It must be self-standing (Minto principle).
+- ❌ **Findings drowned in opinions** — mixing facts and unsupported interpretations → loss of credibility, contestable conclusions.
+- ❌ **Unprioritized recommendations** — piling up actions with no Impact/Effort or owner/deadline → non-actionable report.
+- ❌ **Data in a dense paragraph** — numbers buried in text instead of a table/chart → unreadable (cf. Tufte).
+- ❌ **Wrong chart choice** — a 12-slice pie, truncated axes → distorted message. Choose the type to fit the data.
 
 ## Sources
-- **Barbara Minto** — *The Minto Pyramid Principle* (Pearson, 1987) — structure « réponse d'abord », SCQA, groupement MECE
-- **Edward Tufte** — *The Visual Display of Quantitative Information* (Graphics Press, 1983 ; 2ᵉ éd. 2001) — choix et intégrité des graphiques
-- **Joseph Williams** — *Style: Lessons in Clarity and Grace* (1981) — clarté rédactionnelle, longueur de phrase
-- **Méthode STAR** — issue de l'entretien comportemental (US Army / behavioral interviewing, ~1970s) — adaptée ici à la rédaction de constats factuels
+- **Barbara Minto** — *The Minto Pyramid Principle* (Pearson, 1987) — "answer first" structure, SCQA, MECE grouping
+- **Edward Tufte** — *The Visual Display of Quantitative Information* (Graphics Press, 1983; 2nd ed. 2001) — chart choice and integrity
+- **Joseph Williams** — *Style: Lessons in Clarity and Grace* (1981) — writing clarity, sentence length
+- **STAR method** — from behavioral interviewing (US Army / behavioral interviewing, ~1970s) — adapted here to writing factual findings
 
-## Voir aussi
-- [synthese-executive.md](synthese-executive.md) — résumé exécutif autoportant (pyramide Minto)
-- [compte-rendu-pro.md](compte-rendu-pro.md) — relevé de décisions de réunion
-- [note-cadrage.md](note-cadrage.md) — document fondateur amont
-- [`../ux_design/storytelling-stakeholders.md`](../ux_design/storytelling-stakeholders.md) — mise en récit des données (Tufte)
+## See also
+- [synthese-executive.md](synthese-executive.md) — self-standing executive summary (Minto pyramid)
+- [compte-rendu-pro.md](compte-rendu-pro.md) — meeting decision log
+- [note-cadrage.md](note-cadrage.md) — upstream founding document
+- [`../ux_design/storytelling-stakeholders.md`](../ux_design/storytelling-stakeholders.md) — storytelling with data (Tufte)

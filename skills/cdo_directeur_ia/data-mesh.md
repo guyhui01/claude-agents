@@ -1,14 +1,14 @@
-# Skill — Architecture Data Mesh
+# Skill — Data Mesh Architecture
 
-> Certifications : Google Cloud Professional Data Engineer 2026, AWS Data Analytics Specialty, Databricks Certified Data Engineer Associate, Thoughtworks Data Mesh Practitioner
+> Certifications: Google Cloud Professional Data Engineer 2026, AWS Data Analytics Specialty, Databricks Certified Data Engineer Associate, Thoughtworks Data Mesh Practitioner
 
-## Objectif
+## Objective
 
-Concevoir et mettre en oeuvre une architecture Data Mesh en définissant les domaines data, les data products, la self-serve data platform et la gouvernance fédérée, selon les 4 principes fondateurs de Zhamak Dehghani.
+Design and implement a Data Mesh architecture by defining the data domains, the data products, the self-serve data platform, and the federated governance, following Zhamak Dehghani's 4 founding principles.
 
-## Les 4 principes du Data Mesh
+## The 4 Data Mesh principles
 
-### Vue d'ensemble
+### Overview
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -21,73 +21,73 @@ Concevoir et mettre en oeuvre une architecture Data Mesh en définissant les dom
 └─────────────────────────────────────────────────────────┘
 ```
 
-## Principe 1 — Ownership par domaine
+## Principle 1 — Domain ownership
 
-### Découpage en domaines data
+### Splitting into data domains
 
-| Type de domaine | Description | Exemples |
+| Domain type | Description | Examples |
 |-----------------|-------------|---------|
-| **Source-aligned** | Produit les données à la source | Domaine CRM, Domaine ERP |
-| **Aggregate** | Agrège des données multi-domaines | Domaine Customer 360 |
-| **Consumer-aligned** | Consomme et expose pour un cas d'usage | Domaine Reporting Finance |
+| **Source-aligned** | Produces data at the source | CRM Domain, ERP Domain |
+| **Aggregate** | Aggregates multi-domain data | Customer 360 Domain |
+| **Consumer-aligned** | Consumes and exposes for a use case | Finance Reporting Domain |
 
-### Modèle de responsabilité par domaine
+### Responsibility model per domain
 
 ```yaml
-Domaine_Client:
-  Domain_Owner: "Directeur Commercial"
-  Data_Product_Owner: "Data Steward Senior"
+Customer_Domain:
+  Domain_Owner: "Sales Director"
+  Data_Product_Owner: "Senior Data Steward"
   Domain_Data_Team:
     - Data_Engineer: 1 FTE
-    - Data_Analyst: 0.5 FTE (partagé)
+    - Data_Analyst: 0.5 FTE (shared)
   Data_Products:
-    - "client_360_profile"
+    - "customer_360_profile"
     - "churn_risk_score"
     - "customer_lifetime_value"
   SLA:
-    disponibilite: "99.5%"
-    fraicheur: "< 4h"
-    qualite_score: "> 95%"
+    availability: "99.5%"
+    freshness: "< 4h"
+    quality_score: "> 95%"
 ```
 
-## Principe 2 — Data as a Product
+## Principle 2 — Data as a Product
 
-### Caractéristiques d'un Data Product (8 attributs)
+### Characteristics of a Data Product (8 attributes)
 
-| Attribut | Description | Exemple |
+| Attribute | Description | Example |
 |----------|-------------|---------|
-| **Discoverable** | Trouvable dans le catalogue | Référencé dans DataHub avec tags |
-| **Addressable** | URL/endpoint stable | `mesh://domaine-client/client_360/v2` |
-| **Trustworthy** | SLA qualité défini et mesuré | DQ score > 95%, uptime 99.5% |
-| **Self-describing** | Documentation embarquée | Schema + data contract + lineage |
-| **Interoperable** | Standards ouverts | Delta format, Arrow, OpenAPI |
-| **Natively accessible** | APIs pour tous consommateurs | REST, SQL endpoint, Kafka topic |
-| **Valuable** | ROI mesuré | Nb consommateurs, valeur générée |
-| **Secure** | RBAC + masquage sensible | Privacera, Column-level security |
+| **Discoverable** | Findable in the catalog | Referenced in DataHub with tags |
+| **Addressable** | Stable URL/endpoint | `mesh://customer-domain/customer_360/v2` |
+| **Trustworthy** | Defined and measured quality SLA | DQ score > 95%, uptime 99.5% |
+| **Self-describing** | Embedded documentation | Schema + data contract + lineage |
+| **Interoperable** | Open standards | Delta format, Arrow, OpenAPI |
+| **Natively accessible** | APIs for all consumers | REST, SQL endpoint, Kafka topic |
+| **Valuable** | Measured ROI | # consumers, value generated |
+| **Secure** | RBAC + sensitive masking | Privacera, Column-level security |
 
-### Data Contract — exemple
+### Data Contract — example
 
 ```yaml
-# data_contract_client_360.yaml
+# data_contract_customer_360.yaml
 dataContractSpecification: "0.9.3"
-id: "urn:mesh:domaine-client:client_360:v2"
+id: "urn:mesh:customer-domain:customer_360:v2"
 info:
-  title: "Client 360 Profile"
+  title: "Customer 360 Profile"
   version: "2.1.0"
-  owner: "Domaine Client — data-team@client.corp"
-  description: "Vue unifiée du client consolidant CRM, ERP et web analytics"
+  owner: "Customer Domain — data-team@client.corp"
+  description: "Unified customer view consolidating CRM, ERP, and web analytics"
 
 servers:
   production:
     type: "databricks"
     catalog: "gold"
-    schema: "domaine_client"
-    table: "client_360_v2"
+    schema: "customer_domain"
+    table: "customer_360_v2"
 
 models:
-  client_360:
+  customer_360:
     fields:
-      client_id:
+      customer_id:
         type: string
         required: true
         unique: true
@@ -95,32 +95,32 @@ models:
       email:
         type: string
         pii: true
-        classification: "C3-Confidentiel"
+        classification: "C3-Confidential"
       churn_score:
         type: float
         minimum: 0.0
         maximum: 1.0
-        description: "Score de risque de churn (modèle ML v3.2)"
+        description: "Churn risk score (ML model v3.2)"
 
 quality:
   type: SodaCL
   specification:
-    checks for client_360:
+    checks for customer_360:
       - row_count > 100000
-      - missing_count(client_id) = 0
-      - duplicate_count(client_id) = 0
+      - missing_count(customer_id) = 0
+      - duplicate_count(customer_id) = 0
       - freshness(updated_at) < 4h
 
 serviceLevel:
   availability: "99.5%"
   retention: "3 years"
   latency:
-    description: "Refresh toutes les 4 heures"
+    description: "Refresh every 4 hours"
 ```
 
-## Principe 3 — Self-Serve Data Platform
+## Principle 3 — Self-Serve Data Platform
 
-### Architecture de la plateforme
+### Platform architecture
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -140,35 +140,35 @@ serviceLevel:
 │                                             │
 │  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
 │  │ Observ.  │  │ Mesh API │  │  IDP     │  │
-│  │Monte     │  │ GraphQL  │  │ Portail  │  │
+│  │Monte     │  │ GraphQL  │  │ Portal   │  │
 │  │ Carlo    │  │ Gateway  │  │ Self-svc │  │
 │  └──────────┘  └──────────┘  └──────────┘  │
 └─────────────────────────────────────────────┘
 ```
 
-## Principe 4 — Gouvernance fédérée
+## Principle 4 — Federated governance
 
-### Matrice de responsabilités Centrale vs Domaine
+### Central vs Domain responsibility matrix
 
-| Décision | Central | Domaine |
+| Decision | Central | Domain |
 |----------|---------|---------|
-| Standards de format (Delta, Parquet) | DECIDE | APPLIQUE |
-| Nommage des Data Products | DECIDE | APPLIQUE |
-| SLA minimaux qualité | DECIDE | DEPASSE |
-| Schéma interne du produit | CONSULTE | DECIDE |
-| Technologies d'implémentation | GUIDE | DECIDE |
-| Classification sécurité | DECIDE | APPLIQUE |
+| Format standards (Delta, Parquet) | DECIDES | APPLIES |
+| Data Product naming | DECIDES | APPLIES |
+| Minimum quality SLAs | DECIDES | EXCEEDS |
+| Product internal schema | CONSULTED | DECIDES |
+| Implementation technologies | GUIDES | DECIDES |
+| Security classification | DECIDES | APPLIES |
 
-## Livrables
+## Deliverables
 
-- Cartographie des domaines data avec ownership
-- Spécification des Data Products prioritaires (Data Contracts)
-- Architecture technique de la Self-Serve Platform
-- Charte de gouvernance fédérée (règles centrales vs autonomie)
-- Plan de migration vers Data Mesh (assessment + roadmap 18 mois)
-- Template Data Contract (YAML) réutilisable
-- Guide du Data Product Owner (rôles, responsabilités, rituels)
+- Data-domain mapping with ownership
+- Specification of priority Data Products (Data Contracts)
+- Technical architecture of the Self-Serve Platform
+- Federated governance charter (central rules vs autonomy)
+- Migration plan to Data Mesh (assessment + 18-month roadmap)
+- Reusable Data Contract template (YAML)
+- Data Product Owner guide (roles, responsibilities, rituals)
 
-## Format de sortie
+## Output format
 
-Précise : **architecture data actuelle** (monolithique, lakehouse, etc.), **nombre de domaines métier**, **stack technique** (cloud provider, outils data existants), **niveau de maturité data engineering** (1-5), **contraintes réglementaires**, **objectif prioritaire** (réduire couplage / accélérer time-to-value / scalabilité).
+Specify: **current data architecture** (monolithic, lakehouse, etc.), **number of business domains**, **technical stack** (cloud provider, existing data tools), **data-engineering maturity level** (1-5), **regulatory constraints**, **priority objective** (reduce coupling / accelerate time-to-value / scalability).

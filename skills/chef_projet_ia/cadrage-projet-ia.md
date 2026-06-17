@@ -1,178 +1,178 @@
-# Skill — Cadrage de Projet IA
-> Certifications : PMP (PMI 2026), PRINCE2 Practitioner, SAFe Product Owner/Product Manager, Anthropic Certified AI Professional 2026
-> Agent : AGENT-CHEF-PROJET-IA.md
-> Référentiels : **PMBOK 7** (PMI 2021) · **PRINCE2 7** (PeopleCert/Axelos 2023) · **SMART** (Doran 1981) · **JTBD** (Christensen 2016) · **Matrice Mendelow** (1991) · RACI · couplage RGPD / AI Act 2024/1689
+# Skill — AI Project Scoping
+> Certifications: PMP (PMI 2026), PRINCE2 Practitioner, SAFe Product Owner/Product Manager, Anthropic Certified AI Professional 2026
+> Agent: AGENT-CHEF-PROJET-IA.md
+> Frameworks: **PMBOK 7** (PMI 2021) · **PRINCE2 7** (PeopleCert/Axelos 2023) · **SMART** (Doran 1981) · **JTBD** (Christensen 2016) · **Mendelow matrix** (1991) · RACI · GDPR / AI Act 2024/1689 coupling
 
-## Objectif
-Produire une charte de projet IA complète et partagée — périmètre précis, parties prenantes mappées, critères d'acceptation mesurables — pour aligner toutes les parties dès le kick-off.
+## Objective
+Produce a complete, shared AI project charter — precise scope, mapped stakeholders, measurable acceptance criteria — to align all parties from kickoff.
 
-## Charte de Projet IA — Template Complet
+## AI Project Charter — Full Template
 
-### 1. Contexte & Problème Métier
+### 1. Context & Business Problem
 
 ```
-PROBLÈME MÉTIER (format job-to-be-done)
+BUSINESS PROBLEM (job-to-be-done format)
 ────────────────────────────────────────
-Quand [contexte situation]
-Nous voulons [action/résultat souhaité]
-Afin de [bénéfice business mesurable]
+When [situation context]
+We want [desired action/outcome]
+So that [measurable business benefit]
 
-Exemple :
-Quand un conseiller commercial reçoit un lead entrant,
-nous voulons scorer automatiquement sa propension à convertir
-afin de prioriser les actions commerciales et augmenter le taux de conversion de 15%.
+Example:
+When a sales rep receives an inbound lead,
+we want to automatically score its propensity to convert
+so that we prioritize sales actions and increase the conversion rate by 15%.
 ```
 
-### 2. Matrice des Parties Prenantes
+### 2. Stakeholder Matrix
 
-| Partie Prenante | Rôle Projet | Intérêt | Influence | Attentes clés | Mode engagement |
+| Stakeholder | Project role | Interest | Influence | Key expectations | Engagement mode |
 |----------------|-------------|---------|-----------|---------------|----------------|
-| DSI | Sponsor | Haut | Haut | ROI, sécurité, conformité RGPD | Steering Committee mensuel |
-| DG Commerciale | Client principal | Haut | Haut | Amélioration taux conversion | Démo bi-hebdo |
-| Équipe Data Science | Maîtrise d'oeuvre | Haut | Moyen | Accès données, env ML | Daily standup |
-| DPO | Partie prenante critique | Haut | Haut | Conformité, minimisation données | Revue sprint |
-| Utilisateurs finaux | Bénéficiaires | Moyen | Faible | Outil simple, gain temps | UX tests Sprint 3 |
-| Juristes | Parties prenantes | Faible | Moyen | Contrats fournisseurs IA | Ponctuel |
+| CIO | Sponsor | High | High | ROI, security, GDPR compliance | Monthly Steering Committee |
+| Chief Sales Officer | Primary client | High | High | Improved conversion rate | Bi-weekly demo |
+| Data Science team | Delivery (build side) | High | Medium | Data access, ML env | Daily standup |
+| DPO | Critical stakeholder | High | High | Compliance, data minimization | Sprint review |
+| End users | Beneficiaries | Medium | Low | Simple tool, time savings | UX tests Sprint 3 |
+| Legal counsel | Stakeholders | Low | Medium | AI vendor contracts | Ad hoc |
 
-### 3. Périmètre — Inclus / Exclus / Hypothèses
+### 3. Scope — In / Out / Assumptions
 
 ```
-DANS LE PÉRIMÈTRE (In Scope)
-✓ Modèle de scoring de propension sur leads existants (CRM)
-✓ API REST d'intégration avec Salesforce
-✓ Dashboard de monitoring des performances du modèle
-✓ Formation utilisateurs (2 sessions)
-✓ Documentation technique et fonctionnelle
+IN SCOPE
+✓ Propensity scoring model on existing leads (CRM)
+✓ REST API integration with Salesforce
+✓ Model performance monitoring dashboard
+✓ User training (2 sessions)
+✓ Technical and functional documentation
 
-HORS PÉRIMÈTRE (Out of Scope)
-✗ Refonte du CRM Salesforce
-✗ Modèle de recommandation produit (Phase 2)
-✗ Intégration avec les outils marketing tiers
-✗ Maintenance du modèle après 6 mois (contrat MSP séparé)
+OUT OF SCOPE
+✗ Salesforce CRM overhaul
+✗ Product recommendation model (Phase 2)
+✗ Integration with third-party marketing tools
+✗ Model maintenance after 6 months (separate MSP contract)
 
-HYPOTHÈSES
-~ Les données CRM sont disponibles depuis 2022 (36 mois)
-~ Le taux de conversion actuel est de 12% (baseline mesurable)
-~ L'équipe dispose de 2 Data Scientists disponibles à 80%
-~ L'infrastructure cloud AWS est déjà en place
-~ Budget validé à 180 000€ TTC
+ASSUMPTIONS
+~ CRM data is available from 2022 (36 months)
+~ The current conversion rate is 12% (measurable baseline)
+~ The team has 2 Data Scientists available at 80%
+~ The AWS cloud infrastructure is already in place
+~ Budget approved at €180,000 incl. tax
 ```
 
-### 4. Critères d'Acceptation SMART
+### 4. SMART Acceptance Criteria
 
 ```yaml
 # acceptance_criteria.yaml
-criteres_acceptation:
-  performance_modele:
+acceptance_criteria:
+  model_performance:
     - id: AC-01
-      description: "AUC-ROC >= 0.85 sur le jeu de test holdout"
-      mesure: "sklearn.metrics.roc_auc_score"
-      seuil: 0.85
-      bloquant: true
+      description: "AUC-ROC >= 0.85 on the holdout test set"
+      measure: "sklearn.metrics.roc_auc_score"
+      threshold: 0.85
+      blocking: true
 
     - id: AC-02
-      description: "Precision >= 0.75 pour le segment 'Hot leads' (score > 0.8)"
-      mesure: "sklearn.metrics.precision_score"
-      seuil: 0.75
-      bloquant: true
+      description: "Precision >= 0.75 for the 'Hot leads' segment (score > 0.8)"
+      measure: "sklearn.metrics.precision_score"
+      threshold: 0.75
+      blocking: true
 
     - id: AC-03
-      description: "Latence d'inférence API P99 <= 200ms"
-      mesure: "percentile 99 des temps de réponse"
-      seuil_ms: 200
-      bloquant: true
+      description: "API inference latency P99 <= 200ms"
+      measure: "99th percentile of response times"
+      threshold_ms: 200
+      blocking: true
 
-  impact_metier:
+  business_impact:
     - id: AC-04
-      description: "Taux de conversion sur leads scorés 'Hot' >= 20% (vs 12% baseline)"
-      mesure: "taux conversion 3 mois post-déploiement"
-      seuil: 0.20
-      bloquant: false  # Mesurable 3 mois après go-live
+      description: "Conversion rate on 'Hot'-scored leads >= 20% (vs 12% baseline)"
+      measure: "conversion rate 3 months post-deployment"
+      threshold: 0.20
+      blocking: false  # Measurable 3 months after go-live
 
-  conformite:
+  compliance:
     - id: AC-05
-      description: "DPO a validé l'AIPD (Analyse d'Impact Vie Privée)"
-      mesure: "document signé"
-      bloquant: true
+      description: "DPO has approved the DPIA (Data Protection Impact Assessment)"
+      measure: "signed document"
+      blocking: true
 
     - id: AC-06
-      description: "Explicabilité : top 3 features disponibles pour chaque score"
-      mesure: "SHAP values exposées dans l'API"
-      bloquant: true
+      description: "Explainability: top 3 features available for each score"
+      measure: "SHAP values exposed in the API"
+      blocking: true
 
-  operationnel:
+  operational:
     - id: AC-07
-      description: "Disponibilité API >= 99.5% sur une fenêtre de 30 jours"
-      mesure: "SLO monitoring"
-      bloquant: true
+      description: "API availability >= 99.5% over a 30-day window"
+      measure: "SLO monitoring"
+      blocking: true
 
     - id: AC-08
-      description: "Documentation technique et utilisateur livrée"
-      mesure: "revue DG + DSI"
-      bloquant: true
+      description: "Technical and user documentation delivered"
+      measure: "review by executive management + CIO"
+      blocking: true
 ```
 
-### 5. Gouvernance & Prise de Décision
+### 5. Governance & Decision-Making
 
 ```
-INSTANCES DE GOUVERNANCE
+GOVERNANCE BODIES
 ─────────────────────────────────────────────────────────
-Steering Committee     Mensuel   DSI, DG Commerciale, PM
-Revue de Sprint        Bi-hebdo  Toutes parties prenantes
-Daily Standup          Quotidien Équipe projet
-Comité Éthique IA      Sprint 2  DPO, Juriste, PM, DS Lead
-Risk Review            Mensuel   PM, Tech Lead, DPO
+Steering Committee     Monthly   CIO, Chief Sales Officer, PM
+Sprint Review          Bi-weekly All stakeholders
+Daily Standup          Daily     Project team
+AI Ethics Committee    Sprint 2  DPO, Legal counsel, PM, DS Lead
+Risk Review            Monthly   PM, Tech Lead, DPO
 
-MATRICE RACI DÉCISIONS CLÉS
+RACI MATRIX — KEY DECISIONS
 ─────────────────────────────────────────────────────────
-Choix du modèle ML       R: Data Scientist  A: DSI
-Go/No-Go mise en prod    R: PM              A: Sponsor
-Changement de périmètre  R: PM              A: Steering
-Budget supplémentaire    R: Sponsor         A: DG
+ML model choice          R: Data Scientist  A: CIO
+Go/No-Go to production   R: PM              A: Sponsor
+Scope change             R: PM              A: Steering
+Additional budget        R: Sponsor         A: Executive mgmt
 
 R=Responsible A=Accountable C=Consulted I=Informed
 ```
 
-### 6. Contraintes & Risques Majeurs
+### 6. Major Constraints & Risks
 
-| # | Contrainte/Risque | Probabilité | Impact | Mitigation |
+| # | Constraint/Risk | Probability | Impact | Mitigation |
 |---|-----------------|-------------|--------|------------|
-| R1 | Qualité données CRM insuffisante | Haute | Critique | Audit data dès Sprint 1 |
-| R2 | Conformité RGPD — délai DPO | Moyenne | Critique | Lancer AIPD en parallèle |
-| R3 | Départ Data Scientist clé | Faible | Élevé | Documentation continue |
-| R4 | Performance modèle < seuil | Moyenne | Élevé | Feature engineering Sprint 2 |
-| R5 | Budget dépassé | Faible | Moyen | Suivi EVM hebdomadaire |
+| R1 | Insufficient CRM data quality | High | Critical | Data audit from Sprint 1 |
+| R2 | GDPR compliance — DPO delay | Medium | Critical | Launch DPIA in parallel |
+| R3 | Key Data Scientist departure | Low | High | Continuous documentation |
+| R4 | Model performance < threshold | Medium | High | Feature engineering Sprint 2 |
+| R5 | Budget overrun | Low | Medium | Weekly EVM tracking |
 
-## Livrables
-- Charte de projet signée (toutes parties prenantes)
-- Matrice des parties prenantes avec plan d'engagement
-- Backlog initial priorisé (au moins 20 user stories)
-- Critères d'acceptation formalisés en YAML versionné
-- Planning de gouvernance (calendrier des instances)
-- AIPD / registre de traitement IA (si données personnelles)
+## Deliverables
+- Signed project charter (all stakeholders)
+- Stakeholder matrix with engagement plan
+- Prioritized initial backlog (at least 20 user stories)
+- Acceptance criteria formalized in versioned YAML
+- Governance schedule (calendar of bodies)
+- DPIA / AI processing register (if personal data)
 
-## Format de sortie
-Précise : secteur d'activité, cas d'usage IA (NLP, ML, computer vision, LLM), volume de données disponibles, contraintes réglementaires (RGPD, IA Act), budget indicatif, durée projet, équipe (taille, expertise), systèmes existants à intégrer.
+## Output format
+Specify: industry, AI use case (NLP, ML, computer vision, LLM), available data volume, regulatory constraints (GDPR, AI Act), indicative budget, project duration, team (size, expertise), existing systems to integrate.
 
 ## Anti-patterns
-- ❌ **Charte sans critères d'acceptation mesurables** : « améliorer la conversion » au lieu d'un AC SMART chiffré et bloquant
-- ❌ **Parties prenantes mappées une fois puis oubliées** : la matrice doit être révisée à chaque jalon
-- ❌ **Périmètre sans « hors périmètre » explicite** : porte ouverte au scope creep
-- ❌ **Pas de sponsor (Accountable) nommé** : décisions de Go/No-Go sans autorité claire
-- ❌ **Confondre Responsible et Accountable** dans le RACI (1 seul A par décision)
-- ❌ **Oublier le couplage conformité** (DPIA RGPD / classification AI Act) dès le cadrage d'un projet IA
+- ❌ **Charter without measurable acceptance criteria**: "improve conversion" instead of a quantified, blocking SMART AC
+- ❌ **Stakeholders mapped once then forgotten**: the matrix must be revised at every milestone
+- ❌ **Scope without an explicit "out of scope"**: an open door to scope creep
+- ❌ **No named sponsor (Accountable)**: Go/No-Go decisions without clear authority
+- ❌ **Confusing Responsible and Accountable** in the RACI (only 1 A per decision)
+- ❌ **Forgetting the compliance coupling** (GDPR DPIA / AI Act classification) from the scoping of an AI project
 
 ## Sources
-- **PMBOK 7** — *A Guide to the Project Management Body of Knowledge* (PMI, 7e éd. 2021) — charte de projet, parties prenantes
-- **PRINCE2 7** — PeopleCert/Axelos (2023) — *Business Case* et *Organization*
-- **Doran G.T.** — objectifs **SMART** (*Management Review*, 1981)
+- **PMBOK 7** — *A Guide to the Project Management Body of Knowledge* (PMI, 7th ed. 2021) — project charter, stakeholders
+- **PRINCE2 7** — PeopleCert/Axelos (2023) — *Business Case* and *Organization*
+- **Doran G.T.** — **SMART** objectives (*Management Review*, 1981)
 - **Christensen C.M.** — *Competing Against Luck* (JTBD, HBR Press 2016)
-- **Mendelow A.L.** — matrice pouvoir/intérêt (*Proc. ICIS*, Cambridge MA, 1991)
+- **Mendelow A.L.** — power/interest matrix (*Proc. ICIS*, Cambridge MA, 1991)
 
-## Voir aussi
-- [`gestion-risques-projet.md`](gestion-risques-projet.md) — RAID log (les risques R1-R5 de la charte)
-- [`planification-hybride.md`](planification-hybride.md) — WBS et planning issus du périmètre
-- [`stakeholder-management.md`](stakeholder-management.md) — plan d'engagement des parties prenantes
-- [`evm-valeur-acquise.md`](evm-valeur-acquise.md) — pilotage budgétaire (BAC issu du cadrage)
-- [`../business_analyst/cadrage-projet.md`](../business_analyst/cadrage-projet.md) — note de cadrage MOA (cycle V, complémentaire)
-- [`../scrum/product-vision.md`](../scrum/product-vision.md) — vision produit amont
+## See also
+- [`gestion-risques-projet.md`](gestion-risques-projet.md) — RAID log (the charter's R1-R5 risks)
+- [`planification-hybride.md`](planification-hybride.md) — WBS and schedule derived from the scope
+- [`stakeholder-management.md`](stakeholder-management.md) — stakeholder engagement plan
+- [`evm-valeur-acquise.md`](evm-valeur-acquise.md) — budget tracking (BAC derived from scoping)
+- [`../business_analyst/cadrage-projet.md`](../business_analyst/cadrage-projet.md) — MOA scoping note (V-model, complementary)
+- [`../scrum/product-vision.md`](../scrum/product-vision.md) — upstream product vision

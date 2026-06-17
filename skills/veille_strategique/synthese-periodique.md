@@ -1,127 +1,127 @@
-# Skill — Production de Synthèses Périodiques de Veille
-> Certifications : SIC (SCIP — Strategic Consortium of Intelligence Professionals), HubSpot Content Marketing (HubSpot), Google Analytics Certification (Google)
+# Skill — Producing Periodic Intelligence Digests
+> Certifications: SIC (SCIP — Strategic Consortium of Intelligence Professionals), HubSpot Content Marketing (HubSpot), Google Analytics Certification (Google)
 
-## Objectif
-Produire des synthèses de veille claires, sourcées et actionnables — hebdomadaires ou mensuelles — adaptées à différents formats de diffusion (note interne, LinkedIn, newsletter, présentation CODIR).
+## Objective
+Produce clear, sourced, and actionable intelligence digests — weekly or monthly — tailored to different distribution formats (internal note, LinkedIn, newsletter, executive-committee deck).
 
-## Principe de structuration — Pyramide de Minto
-> **B. Minto, *The Pyramid Principle*, 1987.** Commencer par le message-clé (la réponse / le « so what »), puis dérouler les arguments groupés, enfin les détails/sources. Format **SCQA** pour l'accroche : *Situation → Complication → Question → Answer*. Une synthèse de veille = 1 message principal soutenu par 3-5 faits hiérarchisés, chacun sourcé et daté.
+## Structuring principle — Minto Pyramid
+> **B. Minto, *The Pyramid Principle*, 1987.** Start with the key message (the answer / the "so what"), then unfold the grouped arguments, finally the details/sources. **SCQA** format for the hook: *Situation → Complication → Question → Answer*. An intelligence digest = 1 main message supported by 3-5 ranked facts, each sourced and dated.
 
-## Template — Synthèse hebdomadaire (format court)
+## Template — Weekly digest (short format)
 
 ```markdown
-# VEILLE IA — Semaine [N] — [DATE]
-*Par Guy HUI-BON-HOA | 5 min de lecture*
+# AI INTELLIGENCE — Week [N] — [DATE]
+*By Guy HUI-BON-HOA | 5 min read*
 
-## ⚡ Le fait marquant
-**[TITRE ACCROCHEUR]**
-[Description en 3-4 lignes. Source : [LIEN]]
-→ Ce que ça change pour vous : [implication concrète]
+## ⚡ The key fact
+**[CATCHY TITLE]**
+[Description in 3-4 lines. Source: [LINK]]
+→ What it changes for you: [concrete implication]
 
-## 📌 3 news à retenir
-1. **[NEWS 1]** — [Source] — [Impact : High/Medium/Low]
+## 📌 3 news items to remember
+1. **[NEWS 1]** — [Source] — [Impact: High/Medium/Low]
 2. **[NEWS 2]** — [Source] — [Impact]
 3. **[NEWS 3]** — [Source] — [Impact]
 
-## 🔧 1 outil à tester
-**[NOM OUTIL]** — [Description 1 ligne]
-Cas d'usage : [Comment l'utiliser concrètement]
-Lien : [URL]
+## 🔧 1 tool to try
+**[TOOL NAME]** — [1-line description]
+Use case: [How to use it concretely]
+Link: [URL]
 
-## 💬 La citation de la semaine
-*"[CITATION]"* — [Auteur, source]
+## 💬 Quote of the week
+*"[QUOTE]"* — [Author, source]
 
 ---
-*Vous avez une info à partager ? Répondez à ce message.*
+*Have info to share? Reply to this message.*
 ```
 
-## Template — Synthèse mensuelle (format complet)
+## Template — Monthly digest (full format)
 
 ```markdown
-# VEILLE STRATÉGIQUE IA — [MOIS ANNÉE]
-Préparée par Guy HUI-BON-HOA | Consultant PO IA
+# AI STRATEGIC INTELLIGENCE — [MONTH YEAR]
+Prepared by Guy HUI-BON-HOA | AI PO Consultant
 
-## 📊 CHIFFRES CLÉS DU MOIS
-- [Statistique 1 avec source]
-- [Statistique 2 avec source]
-- [Statistique 3 avec source]
+## 📊 KEY FIGURES OF THE MONTH
+- [Statistic 1 with source]
+- [Statistic 2 with source]
+- [Statistic 3 with source]
 
-## 🔥 TOP 5 FAITS MARQUANTS
-### 1. [TITRE]
-[Description 5-8 lignes. Sources multiples.]
-**Impact business :** [Opportunité / Risque / Neutre]
-**Recommandation :** [Action concrète]
+## 🔥 TOP 5 KEY FACTS
+### 1. [TITLE]
+[Description 5-8 lines. Multiple sources.]
+**Business impact:** [Opportunity / Risk / Neutral]
+**Recommendation:** [Concrete action]
 
-[Répéter pour 2, 3, 4, 5]
+[Repeat for 2, 3, 4, 5]
 
-## 🚀 TENDANCES EN ACCÉLÉRATION
-| Tendance | Horizon | Maturité | Intérêt pour Guy |
+## 🚀 ACCELERATING TRENDS
+| Trend | Horizon | Maturity | Interest for Guy |
 |---|---|---|---|
-| [T1] | 6 mois | Forte | ⭐⭐⭐ |
+| [T1] | 6 months | Strong | ⭐⭐⭐ |
 
-## ⚠ RISQUES À SURVEILLER
-- [Risque 1 : description + surveillance recommandée]
+## ⚠ RISKS TO WATCH
+- [Risk 1: description + recommended monitoring]
 
-## 💡 OPPORTUNITÉS DE MISSIONS
-- [Opportunité identifiée + qualification (secteur, timing)]
+## 💡 ENGAGEMENT OPPORTUNITIES
+- [Identified opportunity + qualification (sector, timing)]
 
-## 📚 RESSOURCES RECOMMANDÉES
-- [Livre / Article / Vidéo — description courte]
+## 📚 RECOMMENDED RESOURCES
+- [Book / Article / Video — short description]
 
 ---
-*Sources : [liste des sources utilisées]*
+*Sources: [list of sources used]*
 ```
 
-## Template — Post LinkedIn veille (format réseau social)
+## Template — LinkedIn intelligence post (social media format)
 
 ```
-🔍 VEILLE IA — [SUJET]
+🔍 AI INTELLIGENCE — [TOPIC]
 
-[ACCROCHE choc en 1 ligne]
+[Punchy 1-line hook]
 
-[2-3 paragraphes courts — faits + analyse]
+[2-3 short paragraphs — facts + analysis]
 
-💡 Ce que ça signifie pour les équipes produit :
+💡 What it means for product teams:
 → [Implication 1]
 → [Implication 2]
 → [Implication 3]
 
-Vous avez expérimenté ça ? Partagez en commentaire 👇
+Have you experienced this? Share in the comments 👇
 
-#IA #ProductManagement #GenAI #Claude #SAFe #Anthropic
+#AI #ProductManagement #GenAI #Claude #SAFe #Anthropic
 ```
 
-## Calendrier éditorial veille
+## Intelligence editorial calendar
 
-| Format | Fréquence | Canal | Temps rédaction |
+| Format | Frequency | Channel | Writing time |
 |---|---|---|---|
-| Flash hebdo | Lundi matin | LinkedIn | 20 min |
-| Synthèse mensuelle | 1er du mois | Newsletter / Confluence | 90 min |
-| Benchmark outil | Sur actu | LinkedIn + blog | 30 min |
-| Analyse tendance | Trimestriel | Note stratégique | 3h |
+| Weekly flash | Monday morning | LinkedIn | 20 min |
+| Monthly digest | 1st of the month | Newsletter / Confluence | 90 min |
+| Tool benchmark | On news | LinkedIn + blog | 30 min |
+| Trend analysis | Quarterly | Strategic note | 3h |
 
-## Livrables
-- Synthèse hebdomadaire (Markdown / LinkedIn)
-- Rapport mensuel complet
-- Post LinkedIn prêt à publier
-- Calendrier éditorial personnalisé
+## Deliverables
+- Weekly digest (Markdown / LinkedIn)
+- Full monthly report
+- Ready-to-publish LinkedIn post
+- Personalized editorial calendar
 
-## Format de sortie
-Précise : format souhaité (hebdo / mensuel / LinkedIn), périmètre de veille, audience cible, ton (expert / vulgarisation).
+## Output format
+Specify: the desired format (weekly / monthly / LinkedIn), the intelligence scope, the target audience, the tone (expert / popularized).
 
 ## Anti-patterns
-- ❌ **Synthèse sans message-clé** : empiler des news sans hiérarchie Minto → le lecteur ne retient rien.
-- ❌ **Chiffres « clés » sans source ni date** : la section « chiffres clés » exige source primaire + année (jamais de stat fabriquée).
-- ❌ **Pas de recommandation** : chaque synthèse se clôt par l'actionnable (« ce que ça change pour vous »).
-- ❌ **Ton uniforme tous canaux** : adapter au support (CODIR ≠ LinkedIn ≠ note interne).
+- ❌ **Digest with no key message**: piling up news with no Minto hierarchy → the reader retains nothing.
+- ❌ **"Key" figures with no source or date**: the "key figures" section requires a primary source + year (never a fabricated stat).
+- ❌ **No recommendation**: each digest closes with the actionable ("what it changes for you").
+- ❌ **Uniform tone across all channels**: adapt to the medium (executive committee ≠ LinkedIn ≠ internal note).
 
-## Voir aussi
-- [`veille-ia-llm.md`](veille-ia-llm.md) — matière première (faits modèles)
-- [`analyse-tendances.md`](analyse-tendances.md) · [`detection-signaux-faibles.md`](detection-signaux-faibles.md) — contenu à synthétiser
-- `AGENT-REDACTEUR-IA.md` — mise en forme éditoriale pour diffusion (frontière : VEILLE produit la matière)
-- `AGENT-PROMPT-ENGINEER.md` — gabarits de génération assistée
+## See also
+- [`veille-ia-llm.md`](veille-ia-llm.md) — raw material (model facts)
+- [`analyse-tendances.md`](analyse-tendances.md) · [`detection-signaux-faibles.md`](detection-signaux-faibles.md) — content to synthesize
+- `AGENT-REDACTEUR-IA.md` — editorial formatting for distribution (boundary: VEILLE produces the material)
+- `AGENT-PROMPT-ENGINEER.md` — assisted-generation templates
 
 ## Sources
-- **Minto** : Barbara Minto, *The Pyramid Principle: Logic in Writing and Thinking* (1987)
-- **SCIP** — Strategic Consortium of Intelligence Professionals · scip.org (règle d'or : sourcer date + source primaire + fiabilité)
-- Méthode SCQA (Situation-Complication-Question-Answer) pour les accroches
+- **Minto**: Barbara Minto, *The Pyramid Principle: Logic in Writing and Thinking* (1987)
+- **SCIP** — Strategic Consortium of Intelligence Professionals · scip.org (golden rule: source date + primary source + reliability)
+- SCQA method (Situation-Complication-Question-Answer) for hooks

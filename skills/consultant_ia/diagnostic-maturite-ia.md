@@ -1,59 +1,59 @@
-# Skill — Diagnostic de Maturité IA
+# Skill — AI Maturity Diagnostic
 
-> Certifications : **CAP IABAC** · **Google Cloud Digital Leader** · **Azure AI-900** · **NIST AI RMF 1.0 Architect** (Certified Information Security) · **ISO/IEC 42001:2023 Lead Implementer** (PECB) · MIT Sloan AI Strategy Executive Education · Wharton AI for Business Executive Program
-> Agent : AGENT-CONSULTANT-IA.md
+> Certifications: **CAP IABAC** · **Google Cloud Digital Leader** · **Azure AI-900** · **NIST AI RMF 1.0 Architect** (Certified Information Security) · **ISO/IEC 42001:2023 Lead Implementer** (PECB) · MIT Sloan AI Strategy Executive Education · Wharton AI for Business Executive Program
+> Agent: AGENT-CONSULTANT-IA.md
 
-## Objectif
+## Objective
 
-Évaluer rigoureusement le **niveau de maturité IA** d'une organisation via **triangulation de 3+ référentiels normatifs** (Gartner AI Maturity · MIT Sloan/BCG · Cap Gemini Digital Mastery), couplé à la **gouvernance normative** (NIST AI RMF 1.0 · ISO/IEC 42001:2023 AIMS · AI Act UE 2024/1689) et benchmarké sur le **secteur réel** (McKinsey State of AI · Stanford HAI AI Index · Gartner Hype Cycle), afin de **prioriser les investissements** IA et définir une **roadmap chiffrée** réaliste.
+Rigorously assess an organization's **AI maturity level** through **triangulation of 3+ normative frameworks** (Gartner AI Maturity · MIT Sloan/BCG · Cap Gemini Digital Mastery), coupled with **normative governance** (NIST AI RMF 1.0 · ISO/IEC 42001:2023 AIMS · EU AI Act 2024/1689) and benchmarked against the **real sector** (McKinsey State of AI · Stanford HAI AI Index · Gartner Hype Cycle), in order to **prioritize** AI investments and define a realistic **quantified roadmap**.
 
-## Cadre référentiels mobilisés (4 catégories)
+## Frameworks mobilized (4 categories)
 
-| Catégorie | Référentiels normatifs |
+| Category | Normative frameworks |
 |---|---|
-| **Modèles de maturité IA** | Gartner AI Maturity Model · MIT Sloan/BCG · Cap Gemini Digital Mastery · Microsoft AI Maturity · IBM AI Ladder · CMMI for AI |
-| **Gouvernance normative** | NIST AI RMF 1.0 (2023) · ISO/IEC 42001:2023 AIMS · ISO/IEC 23894:2023 · AI Act UE 2024/1689 · OECD AI Principles 2019/2024 |
-| **Benchmarks marché** | McKinsey State of AI (annuel) · Stanford HAI AI Index (annuel) · Gartner Hype Cycle for AI (annuel) · PWC AI Predictions · Deloitte State of AI |
-| **Compétences & Data** | DAMA-DMBOK 2 (2017) · EDM Council DCAM · Coursera/MIT AI for Business · Wharton/INSEAD AI Strategy |
+| **AI maturity models** | Gartner AI Maturity Model · MIT Sloan/BCG · Cap Gemini Digital Mastery · Microsoft AI Maturity · IBM AI Ladder · CMMI for AI |
+| **Normative governance** | NIST AI RMF 1.0 (2023) · ISO/IEC 42001:2023 AIMS · ISO/IEC 23894:2023 · EU AI Act 2024/1689 · OECD AI Principles 2019/2024 |
+| **Market benchmarks** | McKinsey State of AI (annual) · Stanford HAI AI Index (annual) · Gartner Hype Cycle for AI (annual) · PWC AI Predictions · Deloitte State of AI |
+| **Skills & Data** | DAMA-DMBOK 2 (2017) · EDM Council DCAM · Coursera/MIT AI for Business · Wharton/INSEAD AI Strategy |
 
-## Gartner AI Maturity Model (2019+) — 5 niveaux
+## Gartner AI Maturity Model (2019+) — 5 levels
 
-| Niveau | Nom | Caractéristiques clés |
+| Level | Name | Key characteristics |
 |:---:|---|---|
-| **1** | **Awareness** | Discussions stratégiques sur l'IA, pas d'investissement concret |
-| **2** | **Active** | POCs isolés et projets pilotes, expérimentations métier, pas de gouvernance |
-| **3** | **Operational** | Au moins un projet IA en production, gouvernance émergente, équipe data dédiée |
-| **4** | **Systemic** | Chaque nouveau projet digital intègre l'IA, plateforme MLOps, gouvernance mature |
-| **5** | **Transformational** | IA au cœur de la stratégie business, avantage compétitif mesuré, culture IA-first |
+| **1** | **Awareness** | Strategic AI discussions, no concrete investment |
+| **2** | **Active** | Isolated PoCs and pilot projects, business experiments, no governance |
+| **3** | **Operational** | At least one AI project in production, emerging governance, dedicated data team |
+| **4** | **Systemic** | Every new digital project embeds AI, MLOps platform, mature governance |
+| **5** | **Transformational** | AI at the heart of the business strategy, measured competitive advantage, AI-first culture |
 
-**Observations terrain (Gartner Hype Cycle for AI, rapports annuels)** : la majorité des organisations se situent au niveau 1 (Awareness) ou 2 (Active). Le niveau 5 (Transformational) reste rare. Pour positionnement quantifié précis, se référer au rapport Gartner CIO annuel + benchmarks sectoriels McKinsey/Stanford AI Index.
+**Field observations (Gartner Hype Cycle for AI, annual reports)**: most organizations sit at level 1 (Awareness) or 2 (Active). Level 5 (Transformational) remains rare. For a precise quantified positioning, refer to the annual Gartner CIO report + McKinsey/Stanford AI Index sector benchmarks.
 
-**Mesure type** : positionnement organisation × benchmark sectoriel × ambition cible 18-36 mois.
+**Typical measure**: organization positioning × sector benchmark × 18-36 month target ambition.
 
 ## MIT Sloan / BCG AI Maturity — 4 cohorts (*Artificial Intelligence in Business Gets Real*, 2018)
 
-Étude conjointe MIT Sloan Management Review + Boston Consulting Group sur 3 000+ organisations dans 28 industries — segmentation en **4 cohorts** selon compréhension et adoption IA :
+Joint MIT Sloan Management Review + Boston Consulting Group study of 3,000+ organizations across 28 industries — segmentation into **4 cohorts** by AI understanding and adoption:
 
-| Cohort | % (2018) | Caractéristiques différenciantes |
+| Cohort | % (2018) | Differentiating characteristics |
 |---|:---:|---|
-| ⭐ **Pioneers** | ~18% | Organisations qui **comprennent ET ont adopté** l'IA — leaders du marché, IA intégrée stratégie |
-| **Investigators** | ~33% | Comprennent l'IA mais ne déploient pas au-delà de la phase pilote |
-| **Experimenters** | ~16% | Pilotent/adoptent l'IA sans compréhension profonde |
-| **Passives** | ~34% | Pas d'adoption ni de compréhension significative |
+| ⭐ **Pioneers** | ~18% | Organizations that **understand AND have adopted** AI — market leaders, AI embedded in strategy |
+| **Investigators** | ~33% | Understand AI but do not deploy beyond the pilot phase |
+| **Experimenters** | ~16% | Pilot/adopt AI without deep understanding |
+| **Passives** | ~34% | No significant adoption or understanding |
 
-**Différenciateurs Pioneers (vs Passives, étude MIT SMR/BCG 2018)** :
-- Approche stratégique IA documentée et alignée business
-- Plateformes data/IA matures (MLOps, data catalog, gouvernance)
-- Mesure ROI IA via KPI business
-- Culture "Test and Learn" institutionnalisée
-- Compétences hybrides Business + Data Science fortement valorisées
-- Engagement direction (Sponsor exécutif IA)
+**Pioneers differentiators (vs Passives, MIT SMR/BCG 2018 study)**:
+- Documented, business-aligned strategic AI approach
+- Mature data/AI platforms (MLOps, data catalog, governance)
+- AI ROI measured via business KPIs
+- Institutionalized "Test and Learn" culture
+- Hybrid Business + Data Science skills strongly valued
+- Leadership commitment (executive AI sponsor)
 
-> **Note méthodologique** : pour pourcentages 2024-2025 actualisés et différenciateurs chiffrés par Pioneers, se référer aux mises à jour annuelles MIT SMR/BCG (séries *Winning With AI* 2019, *Expanding AI's Impact* 2020+, *Achieving Individual and Organizational Value With AI* 2022+).
+> **Methodological note**: for updated 2024-2025 percentages and quantified Pioneers differentiators, refer to the annual MIT SMR/BCG updates (*Winning With AI* 2019, *Expanding AI's Impact* 2020+, *Achieving Individual and Organizational Value With AI* 2022+ series).
 
 ## Cap Gemini Digital Mastery (Westerman, Bonnet, McAfee 2012/2014)
 
-Matrice 2×2 — **Digital Capabilities** (data, IA, plateformes, cloud) × **Leadership Capabilities** (vision, gouvernance, change management) :
+A 2×2 matrix — **Digital Capabilities** (data, AI, platforms, cloud) × **Leadership Capabilities** (vision, governance, change management):
 
 ```
                   HIGH LEADERSHIP CAPABILITIES
@@ -72,243 +72,243 @@ Matrice 2×2 — **Digital Capabilities** (data, IA, plateformes, cloud) × **Le
                   LOW LEADERSHIP CAPABILITIES
 ```
 
-**Étude +400 entreprises mondiales** (Capgemini Consulting + MIT Center for Digital Business, 2012-2014) : Digital Masters surperforment de **+26% de profitabilité moyenne** et **+9% de revenus** vs leurs pairs sectoriels. **Conservatives sont mieux placés** que Fashionistas pour devenir Masters (leadership > tech sans vision).
+**Study of 400+ global companies** (Capgemini Consulting + MIT Center for Digital Business, 2012-2014): Digital Masters outperform by **+26% average profitability** and **+9% revenue** vs their sector peers. **Conservatives are better positioned** than Fashionistas to become Masters (leadership > tech with no vision).
 
 ## Microsoft AI Maturity Model + IBM AI Ladder
 
-**Microsoft (5 niveaux)** : Foundational → Approaching → Aspirational → Mature → Leading — axé déploiement Azure AI.
+**Microsoft (5 levels)**: Foundational → Approaching → Aspirational → Mature → Leading — focused on Azure AI deployment.
 
-**IBM AI Ladder (4 marches)** : **Collect** (data foundation) → **Organize** (data governance) → **Analyze** (insights) → **Infuse** (IA embedded dans processus). Référence pour priorisation data avant IA.
+**IBM AI Ladder (4 rungs)**: **Collect** (data foundation) → **Organize** (data governance) → **Analyze** (insights) → **Infuse** (AI embedded in processes). A reference for data prioritization before AI.
 
-## Grille d'évaluation enrichie — 8 dimensions (vs 6 historiques)
+## Enriched assessment grid — 8 dimensions (vs 6 historically)
 
-| # | Dimension | Indicateurs évalués | Score /5 | Pondération |
+| # | Dimension | Indicators assessed | Score /5 | Weight |
 |:---:|---|---|:---:|:---:|
-| 1 | **Stratégie & Vision IA** | Ambition IA documentée, alignement direction, budget annuel dédié, sponsor exécutif | | 15% |
-| 2 | **Data & Infrastructure** | Qualité données, cloud/edge, DataOps, data catalog, real-time pipelines | | 15% |
-| 3 | **Compétences & Talents** | Data scientists, ML engineers, prompt engineers, formation continue, partenariats académiques | | 12% |
-| 4 | **Gouvernance & Éthique IA** | Comité IA, AI policy, biais/transparence, NIST AI RMF, ISO 42001 | | 12% |
-| 5 | **Cas d'usage & Valeur business** | Nombre de cas en prod, ROI mesuré, adoption métier, time-to-value | | 15% |
-| 6 | **Technologie & MLOps/LLMOps** | Plateforme MLOps unifiée, CI/CD modèles, monitoring drift, model registry | | 11% |
-| 7 | **Sécurité & Conformité** *(nouveau)* | NIS2, AI Act classification, RGPD/DPIA, OWASP LLM Top 10, third-party risk | | 10% |
-| 8 | **Culture & Change Management** *(nouveau)* | Adoption métier, formation utilisateurs, communication interne, gestion résistance | | 10% |
+| 1 | **AI Strategy & Vision** | Documented AI ambition, leadership alignment, dedicated annual budget, executive sponsor | | 15% |
+| 2 | **Data & Infrastructure** | Data quality, cloud/edge, DataOps, data catalog, real-time pipelines | | 15% |
+| 3 | **Skills & Talent** | Data scientists, ML engineers, prompt engineers, continuous training, academic partnerships | | 12% |
+| 4 | **AI Governance & Ethics** | AI committee, AI policy, bias/transparency, NIST AI RMF, ISO 42001 | | 12% |
+| 5 | **Use cases & Business value** | Number of cases in production, measured ROI, business adoption, time-to-value | | 15% |
+| 6 | **Technology & MLOps/LLMOps** | Unified MLOps platform, model CI/CD, drift monitoring, model registry | | 11% |
+| 7 | **Security & Compliance** *(new)* | NIS2, AI Act classification, GDPR/DPIA, OWASP LLM Top 10, third-party risk | | 10% |
+| 8 | **Culture & Change Management** *(new)* | Business adoption, user training, internal communication, resistance management | | 10% |
 
-**Score global pondéré** = Σ (score dim. × pondération). Échelle 0-5 avec interprétation : 0-1.5 Initial · 1.5-2.5 Active · 2.5-3.5 Operational · 3.5-4.5 Systemic · 4.5-5 Transformational.
+**Overall weighted score** = Σ (dim. score × weight). Scale 0-5 with interpretation: 0-1.5 Initial · 1.5-2.5 Active · 2.5-3.5 Operational · 3.5-4.5 Systemic · 4.5-5 Transformational.
 
-## Couplage NIST AI RMF 1.0 (janv. 2023) — 4 fonctions × diagnostic
+## NIST AI RMF 1.0 coupling (Jan. 2023) — 4 functions × diagnostic
 
-| Fonction NIST | Question diagnostic | Score maturité |
+| NIST function | Diagnostic question | Maturity score |
 |---|---|:---:|
-| **Govern** | Qui est responsable IA ? Quelles politiques ? Quelle culture ? | Évalue dim. 1, 4 |
-| **Map** | Quel contexte projet, acteurs, risque tolérable ? Classification AI Act ? | Évalue dim. 4, 7 |
-| **Measure** | Comment quantifier risques, performance, biais ? Dashboard métriques ? | Évalue dim. 5, 6 |
-| **Manage** | Comment traiter, monitorer, dégrader gracieusement ? Plan mitigation ? | Évalue dim. 4, 6, 7 |
+| **Govern** | Who is accountable for AI? Which policies? Which culture? | Assesses dim. 1, 4 |
+| **Map** | What project context, actors, tolerable risk? AI Act classification? | Assesses dim. 4, 7 |
+| **Measure** | How to quantify risks, performance, bias? Metrics dashboard? | Assesses dim. 5, 6 |
+| **Manage** | How to treat, monitor, degrade gracefully? Mitigation plan? | Assesses dim. 4, 6, 7 |
 
-**Règle** : tout score NIST < 3/5 sur **Govern** = blocage déploiement IA haut risque (AI Act art. 6, Annexe III) tant que la gouvernance n'est pas remontée.
+**Rule**: any NIST score < 3/5 on **Govern** = block high-risk AI deployment (AI Act art. 6, Annex III) until governance is raised.
 
-## Couplage ISO/IEC 42001:2023 AIMS — AI Management System certifiable
+## ISO/IEC 42001:2023 AIMS coupling — certifiable AI Management System
 
-Référentiel **AI Management System** certifiable (équivalent ISO 27001 pour cybersec) — cycle **PDCA** (Plan-Do-Check-Act) :
+A certifiable **AI Management System** framework (equivalent to ISO 27001 for cybersecurity) — **PDCA** cycle (Plan-Do-Check-Act):
 
-| Phase PDCA | Exigence ISO 42001 | Score maturité |
+| PDCA phase | ISO 42001 requirement | Maturity score |
 |---|---|:---:|
 | **Plan** | AI policy, AI risk management, AI impact assessment, roles & responsibilities | Dim. 1, 4 |
 | **Do** | AI system lifecycle, data management, security controls, third-party AI | Dim. 2, 6, 7 |
 | **Check** | AI performance monitoring, internal audit, management review | Dim. 5, 6 |
 | **Act** | Continual improvement, nonconformity handling, corrective actions | Dim. 8 |
 
-**Certification ISO 42001** : objectif progressif sur 12-24 mois — différenciation marché (Conseil, banque, santé, industrie).
+**ISO 42001 certification**: a gradual goal over 12-24 months — market differentiation (Consulting, banking, health, industry).
 
-## Méthode de diagnostic structurée — 4 phases sur 4-8 semaines
+## Structured diagnostic method — 4 phases over 4-8 weeks
 
-### Phase 1 — Préparation (semaine 1)
-- Cadrage avec Sponsor : périmètre, objectifs, KPI succès, timeline
-- Identification parties prenantes : DSI, CDO/Directeur IA, DRH, métiers clés, RSSI, DPO, Juridique
-- Communication interne kick-off
+### Phase 1 — Preparation (week 1)
+- Scoping with the Sponsor: scope, objectives, success KPIs, timeline
+- Stakeholder identification: CIO, CDO/Head of AI, CHRO, key business units, CISO, DPO, Legal
+- Internal kickoff communication
 
-### Phase 2 — Collecte (semaines 2-4)
-**Triangulation 3 sources** :
-- **Interviews qualitatives** : 12-25 entretiens individuels (30-45 min) — direction, DSI, CDO, métiers, data scientists, RSSI, juridique, RH
-- **Questionnaire auto-évaluation** : 60-80 questions sur 8 dimensions, échelle Likert 1-5, diffusé via Typeform/Qualtrics aux équipes data/IA + managers métier (cible 100-300 répondants)
-- **Revue documentaire** : stratégie SI, organigrammes, projets IA en cours, gouvernance, contrats fournisseurs IA, charte IA, DPIA, AI registry
+### Phase 2 — Collection (weeks 2-4)
+**3-source triangulation**:
+- **Qualitative interviews**: 12-25 individual interviews (30-45 min) — leadership, CIO, CDO, business, data scientists, CISO, legal, HR
+- **Self-assessment questionnaire**: 60-80 questions across 8 dimensions, Likert scale 1-5, distributed via Typeform/Qualtrics to data/AI teams + business managers (target 100-300 respondents)
+- **Documentary review**: IS strategy, org charts, ongoing AI projects, governance, AI provider contracts, AI charter, DPIA, AI registry
 
-### Phase 3 — Analyse (semaines 5-6)
-- Cotation 8 dimensions par triangulation sources + pondération
-- Positionnement Gartner AI Maturity (1-5)
-- Classification cohort MIT Sloan (Pioneers/Investigators/Experimenters/Passives)
-- Quadrant Cap Gemini (Beginners/Conservatives/Fashionistas/Digital Masters)
-- Couplage NIST AI RMF (Govern/Map/Measure/Manage gaps)
-- Benchmark sectoriel (McKinsey + Stanford AI Index + Gartner Hype Cycle)
-- Identification quick wins (< 3 mois ROI) vs initiatives structurelles (12-18 mois)
+### Phase 3 — Analysis (weeks 5-6)
+- Rating the 8 dimensions by source triangulation + weighting
+- Gartner AI Maturity positioning (1-5)
+- MIT Sloan cohort classification (Pioneers/Investigators/Experimenters/Passives)
+- Cap Gemini quadrant (Beginners/Conservatives/Fashionistas/Digital Masters)
+- NIST AI RMF coupling (Govern/Map/Measure/Manage gaps)
+- Sector benchmark (McKinsey + Stanford AI Index + Gartner Hype Cycle)
+- Identification of quick wins (< 3 months ROI) vs structural initiatives (12-18 months)
 
-### Phase 4 — Restitution (semaines 7-8)
-- Pré-validation Sponsor (J-7 du COSTRAT)
-- Présentation COSTRAT : 30-45 min, 15-20 slides
-- Workshop priorisation roadmap avec parties prenantes
-- Plan d'action 90 jours + roadmap 18-36 mois
+### Phase 4 — Read-out (weeks 7-8)
+- Sponsor pre-validation (D-7 of the strategy committee)
+- Strategy-committee presentation: 30-45 min, 15-20 slides
+- Roadmap prioritization workshop with stakeholders
+- 90-day action plan + 18-36 month roadmap
 
-## Questionnaire auto-évaluation — Structure type
+## Self-assessment questionnaire — Typical structure
 
-**60-80 questions** réparties sur 8 dimensions × 8-10 questions chacune, échelle Likert 1-5 :
+**60-80 questions** spread across 8 dimensions × 8-10 questions each, Likert scale 1-5:
 
 ```
-Stratégie & Vision IA (8 questions, exemples)
-  Q1. Notre organisation a une vision IA documentée et communiquée
-       1 (pas du tout) ─── 2 ─── 3 ─── 4 ─── 5 (totalement d'accord)
-  Q2. Un budget annuel IA est alloué et tracé
-  Q3. Un sponsor exécutif (DG/COMEX) porte la stratégie IA
+AI Strategy & Vision (8 questions, examples)
+  Q1. Our organization has a documented, communicated AI vision
+       1 (not at all) ─── 2 ─── 3 ─── 4 ─── 5 (fully agree)
+  Q2. An annual AI budget is allocated and tracked
+  Q3. An executive sponsor (CEO/executive board) carries the AI strategy
   ...
 
 Data & Infrastructure (8 questions)
-  Q9. Nous disposons d'un data catalog unifié (avec lineage)
-  Q10. Nos données critiques sont disponibles en temps réel
+  Q9. We have a unified data catalog (with lineage)
+  Q10. Our critical data is available in real time
   ...
 
 [8 dimensions × 8-10 questions = 64-80 questions]
 ```
 
-**Calcul score** : moyenne pondérée × pondération dimension × triangulation interviews.
+**Score calculation**: weighted average × dimension weight × interview triangulation.
 
-## Benchmark sectoriel — Croisement référentiels marché
+## Sector benchmark — Cross-referencing market frameworks
 
-| Source | Donnée extraite | Usage diagnostic |
+| Source | Data extracted | Diagnostic use |
 |---|---|---|
-| **McKinsey State of AI** annuel | % adoption GenAI par secteur, ROI moyen IA, fonctions plus matures | Comparer maturité client vs moyenne secteur |
-| **Stanford HAI AI Index Report** annuel | Adoption IA par taille entreprise, investissements VC IA, publications | Benchmark international |
-| **Gartner Hype Cycle for AI** annuel | Phases technos (Innovation Trigger → Plateau of Productivity), maturité techno | Évaluer technologies en cours d'adoption |
-| **PWC AI Predictions** annuel | Trends, ROI projeté, freins adoption par secteur | Cadrage roadmap stratégique |
-| **Deloitte State of AI in the Enterprise** annuel | Maturité entreprise par taille/secteur, ROI mesuré | Calibration cohort MIT Sloan |
+| **McKinsey State of AI** annual | % GenAI adoption by sector, average AI ROI, most mature functions | Compare client maturity vs sector average |
+| **Stanford HAI AI Index Report** annual | AI adoption by company size, AI VC investments, publications | International benchmark |
+| **Gartner Hype Cycle for AI** annual | Tech phases (Innovation Trigger → Plateau of Productivity), tech maturity | Assess technologies being adopted |
+| **PWC AI Predictions** annual | Trends, projected ROI, adoption barriers by sector | Strategic roadmap scoping |
+| **Deloitte State of AI in the Enterprise** annual | Enterprise maturity by size/sector, measured ROI | MIT Sloan cohort calibration |
 
-**Règle** : benchmark **toujours sectoriel** (banque ≠ santé ≠ industrie ≠ retail) — comparaison inter-sectorielle = anti-pattern majeur.
+**Rule**: benchmark **always by sector** (banking ≠ health ≠ industry ≠ retail) — cross-sector comparison = a major anti-pattern.
 
-## Exemple chiffré sectoriel — Groupe hospitalier européen multi-pays
+## Quantified sector example — European multi-country hospital group
 
-**Contexte anonymisé** : groupe hospitalier européen présent dans 4 pays Europe (mix CHU publics + cliniques privées), ~15 000 lits, ~45 000 personnels (médical + para-médical + administratif), CA ~5 Md€/an. Diagnostic maturité IA mené sur **6 semaines** par cabinet conseil externe + équipe Direction Médicale Innovation.
+**Anonymized context**: European hospital group present in 4 European countries (mix of public teaching hospitals + private clinics), ~15,000 beds, ~45,000 staff (medical + paramedical + administrative), ~€5B revenue/year. AI maturity diagnostic conducted over **6 weeks** by an external consulting firm + the Medical Innovation Department team.
 
-**Méthode appliquée** :
-- 22 interviews (DG, DMI, DSI, CDO, RSSI, DPO, 8 chefs de service, 5 médecins, 3 data scientists, 2 cadres infirmiers)
-- Questionnaire 72 questions diffusé à 850 personnels (220 répondants — médical 45%, para-médical 35%, admin/support 20%)
-- Revue documentaire : stratégie SI, charte IA, 12 projets IA en cours, DPIA, contrats fournisseurs
+**Applied method**:
+- 22 interviews (CEO, Medical Innovation Director, CIO, CDO, CISO, DPO, 8 department heads, 5 physicians, 3 data scientists, 2 nurse managers)
+- 72-question questionnaire distributed to 850 staff (220 respondents — medical 45%, paramedical 35%, admin/support 20%)
+- Documentary review: IS strategy, AI charter, 12 ongoing AI projects, DPIA, provider contracts
 
-**Scoring 8 dimensions T0 vs benchmark sectoriel santé** :
+**8-dimension scoring T0 vs health-sector benchmark**:
 
-| Dimension | Score T0 /5 | Benchmark sectoriel santé | Écart |
+| Dimension | Score T0 /5 | Health-sector benchmark | Gap |
 |---|:---:|:---:|:---:|
-| Stratégie & Vision IA | 3.0 | 2.8 | +0.2 ✅ |
+| AI Strategy & Vision | 3.0 | 2.8 | +0.2 ✅ |
 | Data & Infrastructure | 2.0 | 2.5 | -0.5 🔴 |
-| Compétences & Talents | 2.5 | 2.4 | +0.1 ✅ |
-| Gouvernance & Éthique IA | 3.5 | 2.6 | +0.9 ⭐ |
-| Cas d'usage & Valeur business | 2.0 | 2.7 | -0.7 🔴 |
-| Technologie & MLOps/LLMOps | 1.5 | 2.0 | -0.5 🔴 |
-| Sécurité & Conformité | 3.8 | 3.2 | +0.6 ⭐ |
+| Skills & Talent | 2.5 | 2.4 | +0.1 ✅ |
+| AI Governance & Ethics | 3.5 | 2.6 | +0.9 ⭐ |
+| Use cases & Business value | 2.0 | 2.7 | -0.7 🔴 |
+| Technology & MLOps/LLMOps | 1.5 | 2.0 | -0.5 🔴 |
+| Security & Compliance | 3.8 | 3.2 | +0.6 ⭐ |
 | Culture & Change Management | 2.5 | 2.3 | +0.2 ✅ |
-| **Score global pondéré** | **2.6/5** | **2.5/5** | +0.1 |
+| **Overall weighted score** | **2.6/5** | **2.5/5** | +0.1 |
 
-**Classifications croisées** :
-- **Gartner** : niveau **2 "Active"** (POCs isolés, gouvernance émergente)
-- **MIT Sloan cohort** : **Investigators** (comprennent l'IA, déploiements limités au stade pilote)
-- **Cap Gemini quadrant** : **Conservatives** (Leadership Capabilities fortes, Digital Capabilities faibles)
-- **NIST AI RMF gap** : Govern 3.5/5 ✅, Map 2.8/5 🟡, Measure 1.8/5 🔴, Manage 2.5/5 🟡
+**Cross-classifications**:
+- **Gartner**: level **2 "Active"** (isolated PoCs, emerging governance)
+- **MIT Sloan cohort**: **Investigators** (understand AI, deployments limited to the pilot stage)
+- **Cap Gemini quadrant**: **Conservatives** (strong Leadership Capabilities, weak Digital Capabilities)
+- **NIST AI RMF gap**: Govern 3.5/5 ✅, Map 2.8/5 🟡, Measure 1.8/5 🔴, Manage 2.5/5 🟡
 
-**Cas d'usage IA identifiés (audit existant + opportunités)** :
-- En production (5) : aide à la lecture radiologique (5 sites pilotes), chatbot pré-consultation, planification bloc opératoire (1 site), détection précoce septicémie (POC unité USI), copilot codification CIM-10
-- En POC (7) : génomique oncologique, prédiction réadmissions, scribe médical, vision IA dermatologie, parcours patient optimisé, recherche clinique matching essais, optimisation stocks pharmacie
-- Recommandés (12) : voir roadmap
+**AI use cases identified (existing audit + opportunities)**:
+- In production (5): radiology reading support (5 pilot sites), pre-consultation chatbot, operating-room scheduling (1 site), early sepsis detection (ICU unit PoC), ICD-10 coding copilot
+- In PoC (7): oncology genomics, readmission prediction, medical scribe, dermatology AI vision, optimized patient pathway, clinical-trial matching research, pharmacy stock optimization
+- Recommended (12): see roadmap
 
-**Roadmap 18 mois recommandée** :
+**Recommended 18-month roadmap**:
 
-| Phase | Durée | Objectif | Investissement | ROI cible |
+| Phase | Duration | Objective | Investment | Target ROI |
 |---|:---:|---|:---:|---|
-| **Phase 1 — Foundations + Quick wins** | T0-T+6 | Plateforme MLOps unifiée + scaling 3 cas prouvés (radiologie IA, scribe médical, chatbot pré-conso) | 4.5 M€ | Productivité radiologues +25%, temps administratif médecins -30%, NPS patients +8 pts |
-| **Phase 2 — Scaling cas d'usage** | T+6-T+12 | MLOps mature + déploiement 5 nouveaux cas (septicémie, réadmissions, génomique limitée, dermatologie, optimisation bloc) | 5 M€ | Mortalité septicémie -15%, réadmissions -8%, taux occupation bloc +12% |
-| **Phase 3 — Transformational** | T+12-T+18 | Génomique de précision étendue, recherche clinique IA, parcours patient end-to-end IA | 2.5 M€ | Time-to-treatment cancer -20%, recrutement essais cliniques x2 |
+| **Phase 1 — Foundations + Quick wins** | T0-T+6 | Unified MLOps platform + scaling 3 proven cases (radiology AI, medical scribe, pre-consult chatbot) | €4.5M | Radiologist productivity +25%, physician admin time -30%, patient NPS +8 pts |
+| **Phase 2 — Use-case scaling** | T+6-T+12 | Mature MLOps + deployment of 5 new cases (sepsis, readmissions, limited genomics, dermatology, OR optimization) | €5M | Sepsis mortality -15%, readmissions -8%, OR occupancy rate +12% |
+| **Phase 3 — Transformational** | T+12-T+18 | Extended precision genomics, AI clinical research, end-to-end AI patient pathway | €2.5M | Cancer time-to-treatment -20%, clinical-trial recruitment x2 |
 
-**Budget global** : **12 M€** sur 18 mois (CAPEX 7 M€ + OPEX 5 M€)
+**Overall budget**: **€12M** over 18 months (CAPEX €7M + OPEX €5M)
 
-**Conformité réglementaire intégrée** :
-- AI Act classification : 8 cas haut risque (Annexe III), 4 cas risque limité — DPIA + documentation technique obligatoire
-- ISO/IEC 42001 : objectif certification AIMS T+18 mois (différenciation marché santé)
-- NIST AI RMF : couverture 4 fonctions intégrée à la gouvernance projet IA
+**Integrated regulatory compliance**:
+- AI Act classification: 8 high-risk cases (Annex III), 4 limited-risk cases — DPIA + technical documentation mandatory
+- ISO/IEC 42001: AIMS certification target T+18 months (health-market differentiation)
+- NIST AI RMF: coverage of the 4 functions integrated into AI project governance
 
-**Gains projetés T+18 mois** (post-implémentation) :
-- Cohort MIT Sloan : passage **Investigators → Pioneers** (sortie phase pilote, IA en production scalée)
-- Gartner : niveau 2 → **niveau 3.5 "Operational/Systemic"**
-- Productivité personnel médical : +18% (temps libéré sur tâches valeur ajoutée clinique)
-- Réduction durée séjour moyenne : -8% (parcours optimisé + détection précoce)
-- Mortalité hospitalière : -12% (détection précoce septicémie + AI-assisted triage)
-- NPS patients : 32 → **52**
-- ROI programme IA : **22 mois** (gains qualité + productivité > investissement)
+**Projected gains T+18 months** (post-implementation):
+- MIT Sloan cohort: move **Investigators → Pioneers** (exit pilot phase, AI scaled in production)
+- Gartner: level 2 → **level 3.5 "Operational/Systemic"**
+- Medical staff productivity: +18% (time freed for clinically value-adding tasks)
+- Average length-of-stay reduction: -8% (optimized pathway + early detection)
+- Hospital mortality: -12% (early sepsis detection + AI-assisted triage)
+- Patient NPS: 32 → **52**
+- AI program ROI: **22 months** (quality + productivity gains > investment)
 
-## 8 anti-patterns diagnostic maturité IA
+## 8 AI maturity-diagnostic anti-patterns
 
-- ❌ **Modèle de maturité unique non triangulé** (Gartner seul) → biais cabinet conseil, pas de robustesse — minimum 3 référentiels (Gartner + MIT Sloan + Cap Gemini)
-- ❌ **Scoring 1-5 sans benchmark sectoriel** → interprétation impossible, "3/5" peut signifier excellent (santé) ou faible (tech)
-- ❌ **Diagnostic IT-only** (oublier dimensions métier, culture, change management) → roadmap technocentrée vouée à l'échec adoption
-- ❌ **Pas de couplage NIST AI RMF + ISO 42001** → diagnostic maturité sans audit gouvernance, blocage déploiement haut risque inévitable
-- ❌ **Benchmark générique inter-sectoriel** (banque ≠ santé ≠ industrie) → comparaisons faussées, plans d'action mal calibrés
-- ❌ **Recommandations génériques** ("améliorer culture data", "investir MLOps") → pas actionnables, non chiffrées, non priorisées
-- ❌ **Pas de quick wins (< 3 mois)** identifiés → roadmap démotivante, perte de momentum projet
-- ❌ **Diagnostic livré sans pré-validation Sponsor** → rejet à la restitution COSTRAT = perte 4-8 semaines + crédibilité cabinet
+- ❌ **A single, non-triangulated maturity model** (Gartner alone) → consulting-firm bias, no robustness — minimum 3 frameworks (Gartner + MIT Sloan + Cap Gemini)
+- ❌ **1-5 scoring with no sector benchmark** → impossible interpretation, "3/5" can mean excellent (health) or weak (tech)
+- ❌ **IT-only diagnostic** (forgetting the business, culture, change-management dimensions) → a tech-centric roadmap doomed to adoption failure
+- ❌ **No NIST AI RMF + ISO 42001 coupling** → maturity diagnostic with no governance audit, inevitable high-risk deployment blockage
+- ❌ **Generic cross-sector benchmark** (banking ≠ health ≠ industry) → distorted comparisons, poorly calibrated action plans
+- ❌ **Generic recommendations** ("improve data culture", "invest in MLOps") → not actionable, not quantified, not prioritized
+- ❌ **No quick wins (< 3 months)** identified → a demotivating roadmap, loss of project momentum
+- ❌ **Diagnostic delivered without Sponsor pre-validation** → rejection at the strategy-committee read-out = 4-8 weeks lost + firm credibility
 
-## Outils
+## Tools
 
-- **Plateformes diagnostic assistées** : Gartner Ignition · Forrester Decision Tools · IBM AI Adoption Assessment · Microsoft AI Maturity Assessment · BCG Build · McKinsey QuantumBlack diagnostic
-- **Questionnaires & enquêtes** : Typeform · Qualtrics · SurveyMonkey · MS Forms · Confluence Forms
-- **Interviews qualitatives** : Notion · Dovetail · NVivo (analyse qualitative) · Otter.ai (transcription)
-- **Radar/visualisation** : PowerBI · Tableau · Miro (radar collaboratif) · Lucidchart · D3.js custom
-- **Benchmark sectoriel** : Gartner Subscriptions · Forrester Wave · IDC MarketScape · McKinsey Insights · Stanford AI Index (gratuit)
-- **Documentation diagnostic** : Confluence · Notion · SharePoint · GitBook (rapports clients)
-- **Cartographie cas d'usage IA** : Productboard · Aha! · Notion · Airtable (AI Use Case Registry)
+- **Assisted diagnostic platforms**: Gartner Ignition · Forrester Decision Tools · IBM AI Adoption Assessment · Microsoft AI Maturity Assessment · BCG Build · McKinsey QuantumBlack diagnostic
+- **Questionnaires & surveys**: Typeform · Qualtrics · SurveyMonkey · MS Forms · Confluence Forms
+- **Qualitative interviews**: Notion · Dovetail · NVivo (qualitative analysis) · Otter.ai (transcription)
+- **Radar/visualization**: PowerBI · Tableau · Miro (collaborative radar) · Lucidchart · custom D3.js
+- **Sector benchmark**: Gartner Subscriptions · Forrester Wave · IDC MarketScape · McKinsey Insights · Stanford AI Index (free)
+- **Diagnostic documentation**: Confluence · Notion · SharePoint · GitBook (client reports)
+- **AI use-case mapping**: Productboard · Aha! · Notion · Airtable (AI Use Case Registry)
 
-## Livrables
+## Deliverables
 
-- **Radar de maturité IA 8 dimensions** (visualisation T0 + cible 18 mois)
-- **Rapport diagnostic complet** (40-60 pages) : méthodo, scoring détaillé, benchmark sectoriel, gaps NIST AI RMF/ISO 42001, recommandations
-- **Synthèse exécutive COSTRAT** (10-15 slides)
-- **Benchmark sectoriel chiffré** (positionnement vs McKinsey + Stanford AI Index + Gartner)
-- **Cartographie cas d'usage IA** (en prod + POC + recommandés × niveau de risque AI Act × ROI estimé)
-- **Quick wins identifiés** (< 3 mois ROI, plan détaillé)
-- **Roadmap 18-36 mois** chiffrée (phases × investissement × ROI projeté × jalons)
-- **Plan d'action 90 jours** (immédiat post-restitution)
-- **AI Risk Register initial** (couplage NIST AI RMF)
-- **Plan de conformité ISO/IEC 42001** (si certification visée)
+- **8-dimension AI maturity radar** (T0 + 18-month target visualization)
+- **Complete diagnostic report** (40-60 pages): methodology, detailed scoring, sector benchmark, NIST AI RMF/ISO 42001 gaps, recommendations
+- **Strategy-committee executive summary** (10-15 slides)
+- **Quantified sector benchmark** (positioning vs McKinsey + Stanford AI Index + Gartner)
+- **AI use-case mapping** (in production + PoC + recommended × AI Act risk tier × estimated ROI)
+- **Identified quick wins** (< 3 months ROI, detailed plan)
+- **18-36 month roadmap** quantified (phases × investment × projected ROI × milestones)
+- **90-day action plan** (immediate post-read-out)
+- **Initial AI Risk Register** (NIST AI RMF coupling)
+- **ISO/IEC 42001 compliance plan** (if certification is targeted)
 
-## Format de sortie
+## Output format
 
-Pour chaque mission diagnostic, précise :
-- **Secteur client** : banque/finance · santé · industrie · retail · télécom · énergie · public · scale-up tech · défense
-- **Taille organisation** : PME (< 250 collab.) · ETI (250-5 000) · grand groupe (5 000-50 000) · multinational (> 50 000)
-- **Maturité IA estimée a priori** : nulle (greenfield) · POCs isolés · production limitée · scaling · mature (recalibrage)
-- **Budget d'étude** : diagnostic léger (15-30 K€, 3 sem.) · standard (40-80 K€, 6 sem.) · approfondi (100-200 K€, 8 sem. + plan transformation)
-- **Délai de rendu attendu** : 3-8 semaines selon profondeur
-- **Sponsorship** : DG · CDO · Directeur Innovation · DSI · COMEX
-- **Réglementation sectorielle applicable** : AI Act haut risque (santé, recrutement, scoring crédit, biométrie, infra critiques), DORA (banque), MDR/IVDR (santé), ITAR (défense)
+For each diagnostic engagement, specify:
+- **Client sector**: banking/finance · health · industry · retail · telecom · energy · public · tech scale-up · defense
+- **Organization size**: SME (< 250 staff) · mid-market (250-5,000) · large group (5,000-50,000) · multinational (> 50,000)
+- **A priori estimated AI maturity**: none (greenfield) · isolated PoCs · limited production · scaling · mature (recalibration)
+- **Study budget**: light diagnostic (€15-30K, 3 weeks) · standard (€40-80K, 6 weeks) · in-depth (€100-200K, 8 weeks + transformation plan)
+- **Expected delivery time**: 3-8 weeks depending on depth
+- **Sponsorship**: CEO · CDO · Head of Innovation · CIO · executive board
+- **Applicable sector regulation**: AI Act high-risk (health, recruitment, credit scoring, biometrics, critical infrastructure), DORA (banking), MDR/IVDR (health), ITAR (defense)
 
 ## Sources
 
-- **Gartner AI Maturity Model** — Gartner Research (2019+, mise à jour annuelle) — 5 niveaux Awareness/Active/Operational/Systemic/Transformational
-- **Ransbotham S., Kiron D., Gerbert P., Reeves M.** — *Artificial Intelligence in Business Gets Real*, MIT Sloan Management Review en partenariat avec BCG (septembre 2018) — 4 cohorts **Pioneers / Investigators / Experimenters / Passives** (séries annuelles ultérieures : *Winning With AI* 2019, *Expanding AI's Impact* 2020, *Achieving Individual and Organizational Value With AI* 2022+)
+- **Gartner AI Maturity Model** — Gartner Research (2019+, annual update) — 5 levels Awareness/Active/Operational/Systemic/Transformational
+- **Ransbotham S., Kiron D., Gerbert P., Reeves M.** — *Artificial Intelligence in Business Gets Real*, MIT Sloan Management Review in partnership with BCG (September 2018) — 4 cohorts **Pioneers / Investigators / Experimenters / Passives** (later annual series: *Winning With AI* 2019, *Expanding AI's Impact* 2020, *Achieving Individual and Organizational Value With AI* 2022+)
 - **Westerman G., Bonnet D., McAfee A.** — *Leading Digital: Turning Technology into Business Transformation* (HBR Press, 2014) + Cap Gemini Digital Mastery (2012, rev. 2017)
-- **NIST AI Risk Management Framework 1.0** — National Institute of Standards and Technology (janvier 2023) — 4 fonctions Govern/Map/Measure/Manage
+- **NIST AI Risk Management Framework 1.0** — National Institute of Standards and Technology (January 2023) — 4 functions Govern/Map/Measure/Manage
 - **ISO/IEC 42001:2023** — Information technology — Artificial intelligence — Management system (AIMS) — certifiable
 - **ISO/IEC 23894:2023** — Information technology — Artificial intelligence — Guidance on risk management
-- **AI Act UE** — Règlement (UE) 2024/1689 du 13 juin 2024 — JO L 2024/1689 (4 niveaux risque)
-- **OECD AI Principles** — OECD Council Recommendation (2019, révision 2024)
-- **McKinsey State of AI** — McKinsey Global Institute (rapport annuel 2017+, ex. *The State of AI in 2024: Generative AI's breakout year*)
-- **Stanford HAI AI Index Report** — Stanford Human-Centered AI Institute (annuel 2017+)
-- **Gartner Hype Cycle for AI** — Gartner Research (annuel)
-- **DAMA-DMBOK 2** — *DAMA Data Management Body of Knowledge*, 2nd edition (DAMA International, Technics Publications, 2017) — couplage data foundations
+- **EU AI Act** — Regulation (EU) 2024/1689 of June 13, 2024 — OJ L 2024/1689 (4 risk tiers)
+- **OECD AI Principles** — OECD Council Recommendation (2019, 2024 revision)
+- **McKinsey State of AI** — McKinsey Global Institute (annual report 2017+, e.g. *The State of AI in 2024: Generative AI's breakout year*)
+- **Stanford HAI AI Index Report** — Stanford Human-Centered AI Institute (annual 2017+)
+- **Gartner Hype Cycle for AI** — Gartner Research (annual)
+- **DAMA-DMBOK 2** — *DAMA Data Management Body of Knowledge*, 2nd edition (DAMA International, Technics Publications, 2017) — data foundations coupling
 - **CMMI for Development & AI extensions** — Carnegie Mellon Software Engineering Institute
 - **IBM AI Ladder** — IBM Cloud and Cognitive Software whitepapers (2019+)
 
-## Voir aussi
+## See also
 
-- [benchmark-solutions-ia.md](benchmark-solutions-ia.md) — benchmark fournisseurs/solutions IA (Gartner MQ, Forrester Wave, IDC MarketScape)
-- [feuille-route-ia.md](feuille-route-ia.md) — formalisation feuille de route IA post-diagnostic
-- [transformation-digitale.md](transformation-digitale.md) — programme de transformation digitale englobant IA
-- [`../juridique_ia/ai-act-conformite.md`](../juridique_ia/ai-act-conformite.md) — AI Act conformité opérationnelle (classification 4 niveaux)
-- [`../juridique_ia/gouvernance-ethique-ia.md`](../juridique_ia/gouvernance-ethique-ia.md) — gouvernance éthique IA, comité IA
-- [`../juridique_ia/audit-conformite-ia.md`](../juridique_ia/audit-conformite-ia.md) — audit conformité IA (ISO 42001, NIST AI RMF)
-- [`../juridique_ia/politique-ia-entreprise.md`](../juridique_ia/politique-ia-entreprise.md) — AI policy entreprise
-- [`../scrum/po-ai-product.md`](../scrum/po-ai-product.md) — vision produit IA (PSPO-AI Scrum.org)
+- [benchmark-solutions-ia.md](benchmark-solutions-ia.md) — AI provider/solution benchmark (Gartner MQ, Forrester Wave, IDC MarketScape)
+- [feuille-route-ia.md](feuille-route-ia.md) — formalizing the AI roadmap post-diagnostic
+- [transformation-digitale.md](transformation-digitale.md) — digital-transformation program encompassing AI
+- [`../juridique_ia/ai-act-conformite.md`](../juridique_ia/ai-act-conformite.md) — operational AI Act compliance (4-tier classification)
+- [`../juridique_ia/gouvernance-ethique-ia.md`](../juridique_ia/gouvernance-ethique-ia.md) — AI ethics governance, AI committee
+- [`../juridique_ia/audit-conformite-ia.md`](../juridique_ia/audit-conformite-ia.md) — AI compliance audit (ISO 42001, NIST AI RMF)
+- [`../juridique_ia/politique-ia-entreprise.md`](../juridique_ia/politique-ia-entreprise.md) — enterprise AI policy
+- [`../scrum/po-ai-product.md`](../scrum/po-ai-product.md) — AI product vision (PSPO-AI Scrum.org)
 - [`../scrum/gestion-risques.md`](../scrum/gestion-risques.md) — AI Risk Register NIST AI RMF

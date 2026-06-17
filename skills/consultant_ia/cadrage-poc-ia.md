@@ -1,127 +1,127 @@
-# Skill — Cadrage d'un PoC IA
-> Certifications : CAP IABAC · PMI-ACP · AWS CCP · Anthropic Claude Code in Action
+# Skill — Scoping an AI PoC
+> Certifications: CAP IABAC · PMI-ACP · AWS CCP · Anthropic Claude Code in Action
 
-## Objectif
-Définir et cadrer un Proof of Concept IA de façon à **valider ou invalider rapidement une hypothèse de valeur** en limitant les coûts et les risques — et éviter le « PoC graveyard » (PoC empilés, aucun en production). Gartner prédit que **≥ 30 % des projets d'IA générative seront abandonnés après le PoC d'ici fin 2025**, principalement pour qualité de données insuffisante, contrôles de risque inadéquats, coûts non maîtrisés ou valeur métier floue (Gartner, communiqué du 29 juillet 2024). Un cadrage rigoureux attaque directement ces quatre causes.
+## Objective
+Define and scope an AI Proof of Concept so as to **quickly validate or invalidate a value hypothesis** while limiting costs and risks — and avoid the "PoC graveyard" (stacked PoCs, none in production). Gartner predicts that **≥ 30% of generative-AI projects will be abandoned after the PoC by end of 2025**, mainly due to insufficient data quality, inadequate risk controls, uncontrolled costs, or unclear business value (Gartner, July 29, 2024 release). Rigorous scoping directly tackles these four causes.
 
-## Cadre méthodologique
-Le cadrage d'un PoC IA combine trois référentiels complémentaires :
-- **CRISP-DM 1.0** (consortium NCR / SPSS / DaimlerChrysler, 2000) — cycle en 6 phases (compréhension métier → compréhension données → préparation → modélisation → évaluation → déploiement), itératif et orienté objectif business. Le PoC couvre les 5 premières phases.
-- **Lean Startup** (Eric Ries, *The Lean Startup*, 2011) — logique *Build-Measure-Learn* : un PoC est une **expérimentation pour tester une hypothèse**, pas une mini-production. On cherche le *validated learning* au moindre coût.
-- **Google ML Test Score** (Breck, Cai, Nielsen, Salib, Sculley — IEEE Big Data, 2017) — rubrique de 28 tests sur la *production-readiness* (données, entraînement, service, monitoring). Utile pour juger si un PoC concluant est réellement industrialisable.
+## Methodological framework
+Scoping an AI PoC combines three complementary frameworks:
+- **CRISP-DM 1.0** (NCR / SPSS / DaimlerChrysler consortium, 2000) — a 6-phase cycle (business understanding → data understanding → preparation → modeling → evaluation → deployment), iterative and business-goal-oriented. The PoC covers the first 5 phases.
+- **Lean Startup** (Eric Ries, *The Lean Startup*, 2011) — *Build-Measure-Learn* logic: a PoC is an **experiment to test a hypothesis**, not a mini-production. You seek *validated learning* at the lowest cost.
+- **Google ML Test Score** (Breck, Cai, Nielsen, Salib, Sculley — IEEE Big Data, 2017) — a 28-test rubric on *production-readiness* (data, training, serving, monitoring). Useful to judge whether a successful PoC is truly industrializable.
 
-## PoC ≠ Pilote ≠ MVP
-Distinction structurante, souvent confondue (source de périmètre mal cadré) :
-| Étape | Objectif | Périmètre | Question répondue |
+## PoC ≠ Pilot ≠ MVP
+A structuring distinction, often confused (a source of poorly scoped perimeter):
+| Stage | Objective | Scope | Question answered |
 |---|---|---|---|
-| **PoC** | Prouver la faisabilité + la valeur d'une hypothèse | Restreint (1 cas d'usage, données échantillon, hors prod) | « Est-ce que ça **peut** marcher ? » |
-| **Pilote** | Valider en conditions réelles limitées | 1 équipe / 1 site, données réelles, environnement contrôlé | « Est-ce que ça marche **chez nous** ? » |
-| **MVP** | Première version de valeur livrée en production | Périmètre minimal mais complet, utilisateurs réels | « Est-ce que ça crée de la valeur **en continu** ? » |
+| **PoC** | Prove the feasibility + value of a hypothesis | Narrow (1 use case, sample data, outside production) | "**Can** it work?" |
+| **Pilot** | Validate in limited real conditions | 1 team / 1 site, real data, controlled environment | "Does it work **for us**?" |
+| **MVP** | First value version delivered in production | Minimal but complete scope, real users | "Does it create value **continuously**?" |
 
-> ⚠️ Ne jamais vendre un PoC comme un MVP : le PoC n'a ni la robustesse, ni le monitoring, ni la sécurité d'une mise en production.
+> ⚠️ Never sell a PoC as an MVP: the PoC has neither the robustness, the monitoring, nor the security of a production deployment.
 
-## Définition d'un PoC IA réussi
-Un PoC IA valide **3 hypothèses** :
-1. **Faisabilité technique** : les données existent en quantité/qualité suffisante, le modèle atteint le seuil de performance défini.
-2. **Valeur métier** : l'IA améliore réellement le processus cible (gain mesurable vs baseline actuelle).
-3. **Acceptabilité** : les utilisateurs adoptent l'outil (adoption, NPS, confiance).
+## Definition of a successful AI PoC
+An AI PoC validates **3 hypotheses**:
+1. **Technical feasibility**: the data exists in sufficient quantity/quality, the model reaches the defined performance threshold.
+2. **Business value**: the AI genuinely improves the target process (measurable gain vs current baseline).
+3. **Acceptability**: users adopt the tool (adoption, NPS, trust).
 
-> Un PoC qui prouve la faisabilité mais pas la valeur, ou l'inverse, est un **échec déguisé** : il faut les trois.
+> A PoC that proves feasibility but not value, or the reverse, is a **disguised failure**: you need all three.
 
-## Fiche de cadrage PoC IA
+## AI PoC scoping sheet
 ```
-TITRE DU PoC      : [Nom descriptif de la solution]
-CAS D'USAGE       : [Processus métier ciblé]
-PROBLÈME RÉSOLU   : [Pain point quantifié — baseline chiffrée]
-HYPOTHÈSE TESTÉE  : [Ce que le PoC doit prouver, formulé en hypothèse falsifiable]
+PoC TITLE         : [Descriptive name of the solution]
+USE CASE          : [Targeted business process]
+PROBLEM SOLVED    : [Quantified pain point — figured baseline]
+HYPOTHESIS TESTED : [What the PoC must prove, stated as a falsifiable hypothesis]
 
-PÉRIMÈTRE
-  Inclus          : [Ce que couvre le PoC]
-  Exclu           : [Ce qui n'est PAS testé — explicite]
-  Données         : [Source, volume, qualité, droits d'usage / RGPD]
+SCOPE
+  Included        : [What the PoC covers]
+  Excluded        : [What is NOT tested — explicit]
+  Data            : [Source, volume, quality, usage rights / GDPR]
 
-CRITÈRES DE SUCCÈS (définis AVANT de commencer)
-  KPI Go          : [Seuil de validation — SMART]
-  KPI No-Go       : [Seuil d'abandon]
+SUCCESS CRITERIA (defined BEFORE starting)
+  Go KPI          : [Validation threshold — SMART]
+  No-Go KPI       : [Abandon threshold]
 
-ÉQUIPE
-  Sponsor         : [Décideur garant du budget]
-  Product Owner   : [Responsable produit]
-  Tech Lead       : [Responsable technique]
-  Métier          : [Expert fonctionnel + utilisateurs pilotes]
+TEAM
+  Sponsor         : [Decision-maker accountable for the budget]
+  Product Owner   : [Product owner]
+  Tech Lead       : [Technical lead]
+  Business        : [Functional expert + pilot users]
 
-PLANNING
-  Durée           : [indicatif 4-10 semaines — à calibrer selon données/complexité]
-  Livrables clés  : [Jalons intermédiaires]
-  Budget          : [Enveloppe PoC + 30 % contingence]
+SCHEDULE
+  Duration        : [indicative 4-10 weeks — calibrate to data/complexity]
+  Key deliverables: [Intermediate milestones]
+  Budget          : [PoC envelope + 30% contingency]
 
-CONFORMITÉ        : [Niveau de risque AI Act · base légale RGPD · données sensibles ?]
-DÉCISION POST-PoC : Go / No-Go / Pivot
+COMPLIANCE        : [AI Act risk tier · GDPR legal basis · sensitive data?]
+POST-PoC DECISION : Go / No-Go / Pivot
 ```
 
-## Étapes du PoC IA (alignées CRISP-DM)
+## AI PoC steps (aligned with CRISP-DM)
 ```
-S1-S2 : Compréhension métier + données — cadrage, audit data, baseline chiffrée
-S3-S4 : Préparation données + modélisation (prototype technique)
-S5-S6 : Évaluation + tests avec utilisateurs pilotes
-S7    : Mesure des KPIs vs critères Go/No-Go + business case extrapolé
-S8    : Décision Go / No-Go / Pivot + recommandation d'industrialisation
+W1-W2 : Business + data understanding — scoping, data audit, figured baseline
+W3-W4 : Data preparation + modeling (technical prototype)
+W5-W6 : Evaluation + tests with pilot users
+W7    : KPI measurement vs Go/No-Go criteria + extrapolated business case
+W8    : Go / No-Go / Pivot decision + industrialization recommendation
 ```
-> Durées **indicatives** : un PoC sur données propres et disponibles tient en 4-6 semaines ; un PoC nécessitant collecte/labellisation peut dépasser 10 semaines. Calibrer dès le cadrage.
+> **Indicative** durations: a PoC on clean, available data fits in 4-6 weeks; a PoC requiring collection/labeling can exceed 10 weeks. Calibrate at scoping time.
 
-## Critères Go / No-Go
-| Dimension | Critère Go | Critère No-Go |
+## Go / No-Go criteria
+| Dimension | Go criterion | No-Go criterion |
 |---|---|---|
-| Performance | Métrique cible atteinte (seuil défini en S1) | Sous le seuil acceptable métier |
-| Données | Volume + qualité suffisants, droits d'usage clairs | Données insuffisantes / biais majeurs / non conformes RGPD |
-| Utilisateurs | NPS > 0, adoption pilote > 60 % | Rejet par les utilisateurs |
-| Valeur (ROI) | Business case extrapolé validé (payback crédible) | Gain économique insuffisant |
-| Industrialisation | ML Test Score acceptable (données, monitoring envisageables) | Dette technique rédhibitoire |
-| Conformité | Risque AI Act maîtrisé | Risque réglementaire bloquant |
+| Performance | Target metric reached (threshold defined in W1) | Below the business-acceptable threshold |
+| Data | Sufficient volume + quality, clear usage rights | Insufficient data / major bias / GDPR non-compliant |
+| Users | NPS > 0, pilot adoption > 60% | Rejection by users |
+| Value (ROI) | Extrapolated business case validated (credible payback) | Insufficient economic gain |
+| Industrialization | Acceptable ML Test Score (data, monitoring feasible) | Prohibitive technical debt |
+| Compliance | Controlled AI Act risk | Blocking regulatory risk |
 
-## Exemple chiffré — Distribution spécialisée omnicanale (anonymisé)
-**Contexte** : ETI de distribution spécialisée, ~120 magasins en France, ~2 800 collaborateurs. Pain point : ruptures fréquentes en rayon + surstock simultané sur d'autres références (réassort piloté par moyenne mobile manuelle).
-- **Cas d'usage** : prévision de la demande pour optimiser le réassort magasin.
-- **Hypothèse testée** : un modèle de forecasting réduit l'erreur de prévision (MAPE) d'au moins 20 % vs la baseline actuelle.
-- **Périmètre PoC** : 8 magasins pilotes, 1 catégorie produit, historique de ventes 24 mois (hors prod).
-- **Durée** : ~10 semaines *(indicatif)*. **Budget** : ~80 K€ *(indicatif, à calibrer)*.
-- **KPI Go** : MAPE −20 % vs baseline · adoption des planneurs > 60 % · payback extrapolé < 18 mois.
-- **Résultat** : MAPE −27 % sur la catégorie testée, adoption 70 %, mais qualité de données hétérogène entre magasins → **décision : Go avec pivot** (industrialisation sur 3 catégories à données fiables, plan d'assainissement data pour les autres).
+## Worked example — Specialized omnichannel retail (anonymized)
+**Context**: specialized retail mid-market company, ~120 stores in France, ~2,800 employees. Pain point: frequent shelf stockouts + simultaneous overstock on other SKUs (replenishment driven by a manual moving average).
+- **Use case**: demand forecasting to optimize store replenishment.
+- **Hypothesis tested**: a forecasting model reduces the forecast error (MAPE) by at least 20% vs the current baseline.
+- **PoC scope**: 8 pilot stores, 1 product category, 24-month sales history (outside production).
+- **Duration**: ~10 weeks *(indicative)*. **Budget**: ~€80K *(indicative, to be calibrated)*.
+- **Go KPI**: MAPE −20% vs baseline · planner adoption > 60% · extrapolated payback < 18 months.
+- **Result**: MAPE −27% on the tested category, 70% adoption, but heterogeneous data quality across stores → **decision: Go with pivot** (industrialization on 3 reliable-data categories, data clean-up plan for the others).
 
-> Les chiffres ci-dessus sont **illustratifs** : à recalibrer sur chaque contexte (volumétrie, maturité data, TJM, périmètre).
+> The figures above are **illustrative**: to be recalibrated to each context (volumes, data maturity, day rate, scope).
 
 ## Anti-patterns
-- **PoC trop large** : plusieurs processus/équipes en même temps → réduire à 1 cas d'usage, 1 équipe.
-- **Critères de succès flous ou définis après coup** → KPIs SMART **avant** de commencer, sinon le PoC est ininterprétable.
-- **« Data quality last »** : ignorer la qualité des données → audit data dès S1 (1ʳᵉ cause d'abandon Gartner).
-- **PoC graveyard** : enchaîner les PoCs sans critère d'industrialisation → décision Go/No-Go formalisée + ML Test Score.
-- **Change management oublié** : pas d'utilisateurs impliqués → rejet à l'arrivée ; impliquer les pilotes dès S3.
-- **PoC vendu comme MVP** : confondre faisabilité et production-readiness → robustesse/sécurité/monitoring absents.
-- **Budget sous-estimé** : pas de contingence → prévoir +30 %.
+- **PoC too broad**: several processes/teams at once → reduce to 1 use case, 1 team.
+- **Vague or after-the-fact success criteria** → SMART KPIs **before** starting, otherwise the PoC is uninterpretable.
+- **"Data quality last"**: ignoring data quality → data audit from W1 (Gartner's #1 abandonment cause).
+- **PoC graveyard**: chaining PoCs with no industrialization criterion → formalized Go/No-Go decision + ML Test Score.
+- **Change management forgotten**: no users involved → rejection on arrival; involve the pilots from W3.
+- **PoC sold as an MVP**: confusing feasibility and production-readiness → robustness/security/monitoring absent.
+- **Underestimated budget**: no contingency → plan for +30%.
 
-## Livrables
-- Fiche de cadrage PoC (1 page)
-- Plan de projet PoC (planning + jalons + budget)
-- Baseline chiffrée du processus actuel
-- Rapport de résultats Go / No-Go / Pivot (avec mesure vs critères)
-- Recommandation d'industrialisation (couplée ML Test Score)
+## Deliverables
+- PoC scoping sheet (1 page)
+- PoC project plan (schedule + milestones + budget)
+- Figured baseline of the current process
+- Go / No-Go / Pivot results report (with measurement vs criteria)
+- Industrialization recommendation (coupled with ML Test Score)
 
-## Format de sortie
-Précise : cas d'usage · données disponibles (source, volume, qualité, droits) · équipe · budget · délai · critère de succès principal · niveau de risque AI Act.
+## Output format
+Specify: use case · available data (source, volume, quality, rights) · team · budget · timeframe · main success criterion · AI Act risk tier.
 
 ## Sources
-- **CRISP-DM 1.0** — *Cross-Industry Standard Process for Data Mining*, consortium NCR / SPSS / DaimlerChrysler (1996 conception, draft 1999, version 1.0 publiée 2000)
-- **Ries E.** — *The Lean Startup*, Crown Business (2011) — boucle Build-Measure-Learn, validated learning
+- **CRISP-DM 1.0** — *Cross-Industry Standard Process for Data Mining*, NCR / SPSS / DaimlerChrysler consortium (1996 design, 1999 draft, version 1.0 published 2000)
+- **Ries E.** — *The Lean Startup*, Crown Business (2011) — Build-Measure-Learn loop, validated learning
 - **Breck E., Cai S., Nielsen E., Salib M., Sculley D.** — *The ML Test Score: A Rubric for ML Production Readiness and Technical Debt Reduction*, Proceedings of IEEE Big Data (2017) — 28 tests, Google
-- **Gartner** — *Gartner Predicts 30% of Generative AI Projects Will Be Abandoned After Proof of Concept By End of 2025* (communiqué, 29 juillet 2024)
-- **Gartner** — *Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027* (communiqué, 25 juin 2025)
-- **AI Act UE** — Règlement (UE) 2024/1689 du 13 juin 2024 (classification du niveau de risque dès le cadrage)
+- **Gartner** — *Gartner Predicts 30% of Generative AI Projects Will Be Abandoned After Proof of Concept By End of 2025* (release, July 29, 2024)
+- **Gartner** — *Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027* (release, June 25, 2025)
+- **EU AI Act** — Regulation (EU) 2024/1689 of June 13, 2024 (risk-tier classification from scoping onward)
 
-## Voir aussi
-- [diagnostic-maturite-ia.md](diagnostic-maturite-ia.md) — diagnostic de maturité IA en amont (sélection des cas d'usage)
-- [estimation-roi-rapide.md](estimation-roi-rapide.md) — business case et ROI extrapolé post-PoC
-- [feuille-route-ia.md](feuille-route-ia.md) — intégration du cas d'usage validé dans la roadmap IA
-- [benchmark-solutions-ia.md](benchmark-solutions-ia.md) — choix de la solution/modèle pour le prototype
-- [`../chef_projet_ia/cadrage-projet-ia.md`](../chef_projet_ia/cadrage-projet-ia.md) — cadrage projet (charte, business case) si industrialisation
-- [`../scrum/gestion-risques.md`](../scrum/gestion-risques.md) — registre de risques (AI Risk Register, NIST AI RMF)
-- [`../juridique_ia/ai-act-conformite.md`](../juridique_ia/ai-act-conformite.md) — classification du risque AI Act du cas d'usage
+## See also
+- [diagnostic-maturite-ia.md](diagnostic-maturite-ia.md) — upstream AI maturity diagnostic (use-case selection)
+- [estimation-roi-rapide.md](estimation-roi-rapide.md) — business case and extrapolated ROI post-PoC
+- [feuille-route-ia.md](feuille-route-ia.md) — integration of the validated use case into the AI roadmap
+- [benchmark-solutions-ia.md](benchmark-solutions-ia.md) — choosing the solution/model for the prototype
+- [`../chef_projet_ia/cadrage-projet-ia.md`](../chef_projet_ia/cadrage-projet-ia.md) — project scoping (charter, business case) if industrialized
+- [`../scrum/gestion-risques.md`](../scrum/gestion-risques.md) — risk register (AI Risk Register, NIST AI RMF)
+- [`../juridique_ia/ai-act-conformite.md`](../juridique_ia/ai-act-conformite.md) — AI Act risk classification of the use case

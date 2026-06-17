@@ -59,7 +59,7 @@
 |---|---|---|
 | `AGENT-CHEF-PROJET-IA.md` | AI Project Manager | Scoping, planning, risk management, EVM |
 | `AGENT-CONSULTANT-IA.md` | AI Consultant | Maturity assessment, roadmap, ROI |
-| `AGENT-CDO-DIRECTEUR-IA.md` | CDO / AI Director | Data strategy, governance, OKR, talent |
+| `AGENT-CDO-DIRECTEUR-IA.md` | CDO / Chief AI Officer | Data strategy, governance, OKR, talent |
 | `AGENT-FORMATEUR-IA.md` | AI Trainer | Curriculum design, facilitation, e-learning |
 | `AGENT-GROWTH-IA.md` | AI Growth / Marketing | Acquisition, marketing automation, analytics |
 | `AGENT-REDACTEUR-IA.md` | AI Content Writer | Copywriting, SEO, editorial prompting |

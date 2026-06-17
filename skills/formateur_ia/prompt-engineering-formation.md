@@ -1,169 +1,169 @@
-# Skill — Formation Prompt Engineering
+# Skill — Prompt Engineering Training
 
-> Certifications : Anthropic Prompt Engineering Certification 2026, DeepLearning.AI Prompt Engineering for Developers, Google Prompting Essentials 2026, OpenAI Prompt Engineering Best Practices
+> Certifications: Anthropic Prompt Engineering Certification 2026, DeepLearning.AI Prompt Engineering for Developers, Google Prompting Essentials 2026, OpenAI Prompt Engineering Best Practices
 
-## Objectif
+## Objective
 
-Concevoir et animer une formation complète au prompt engineering pour les modèles LLM (Claude, ChatGPT, Gemini), structurée en 3 niveaux de progression avec exercices pratiques et projets fil rouge.
+Design and deliver a complete prompt engineering training for LLM models (Claude, ChatGPT, Gemini), structured in 3 progression levels with hands-on exercises and capstone projects.
 
-## Architecture du parcours (3 niveaux)
-
-```
-NIVEAU 1 — DÉBUTANT (4h)
-"Écrire mon premier bon prompt"
-  → Public : Tous collaborateurs sans expérience LLM
-  → Prérequis : Avoir un compte ChatGPT ou Claude
-
-NIVEAU 2 — INTERMÉDIAIRE (8h)
-"Maîtriser les techniques avancées"
-  → Public : Utilisateurs réguliers, professions du savoir
-  → Prérequis : Niveau 1 validé ou test d'entrée
-
-NIVEAU 3 — AVANCÉ (16h)
-"Architecturer des workflows IA complexes"
-  → Public : Développeurs, chefs de projet IA, Data Scientists
-  → Prérequis : Niveau 2 + bases Python
-```
-
-## Niveau 1 — Débutant : Contenus et exercices
-
-### Le framework CLEAR (structure universelle)
+## Track architecture (3 levels)
 
 ```
-C — Contexte    : "Tu es [rôle]. La situation est [contexte]."
-L — Longueur    : "Réponds en [nb mots / bullets / pages]."
-E — Exemples    : "Voici un exemple de ce que j'attends : [ex]"
-A — Action      : "Ta tâche est de [verbe d'action précis]."
-R — Résultat    : "Le résultat doit être [critère de qualité]."
+LEVEL 1 — BEGINNER (4h)
+"Write my first good prompt"
+  → Audience: all employees with no LLM experience
+  → Prerequisite: have a ChatGPT or Claude account
+
+LEVEL 2 — INTERMEDIATE (8h)
+"Master the advanced techniques"
+  → Audience: regular users, knowledge workers
+  → Prerequisite: Level 1 passed or entry test
+
+LEVEL 3 — ADVANCED (16h)
+"Architect complex AI workflows"
+  → Audience: developers, AI project managers, Data Scientists
+  → Prerequisite: Level 2 + Python basics
 ```
 
-#### Exercice 1.1 — Transformer un prompt naïf
+## Level 1 — Beginner: content and exercises
+
+### The CLEAR framework (universal structure)
 
 ```
-AVANT (prompt naïf) :
-"Écris un email"
-
-APRÈS (prompt CLEAR) :
-"Tu es un chargé de communication B2B senior.
-Contexte : notre client Dupont SA n'a pas renouvelé son contrat
-depuis 3 mois. Dernier contact : appel positif il y a 6 semaines.
-Tâche : Rédige un email de relance chaleureux et professionnel.
-Ton : amical mais orienté business.
-Longueur : 150-200 mots maximum.
-Inclure : une accroche personnalisée + 1 proposition de valeur
-concrète + un appel à l'action clair (réunion 30 min)."
-
-Exercice : Améliore CE prompt naïf avec le framework CLEAR :
-"Résume le rapport"
+C — Context     : "You are [role]. The situation is [context]."
+L — Length      : "Answer in [word count / bullets / pages]."
+E — Examples    : "Here is an example of what I expect: [ex]"
+A — Action      : "Your task is to [precise action verb]."
+R — Result      : "The result must be [quality criterion]."
 ```
 
-#### Exercice 1.2 — Le jeu des 5 reformulations
+#### Exercise 1.1 — Transform a naive prompt
 
 ```
-Principe : Partir d'une même demande et l'améliorer 5 fois.
+BEFORE (naive prompt):
+"Write an email"
 
-Demande de base : "Explique-moi le machine learning"
+AFTER (CLEAR prompt):
+"You are a senior B2B communications officer.
+Context: our client Dupont SA has not renewed its contract
+for 3 months. Last contact: positive call 6 weeks ago.
+Task: Write a warm, professional follow-up email.
+Tone: friendly but business-oriented.
+Length: 150-200 words maximum.
+Include: a personalized hook + 1 concrete value
+proposition + a clear call to action (30-min meeting)."
 
-Reformulation 1 — Ajouter le rôle :
-"Tu es un professeur expert en IA qui s'adresse à des managers
-non-techniques. Explique-moi le machine learning."
-
-Reformulation 2 — Ajouter une contrainte de format :
-"[...] Utilise 3 analogies du quotidien et maximum 200 mots."
-
-Reformulation 3 — Ajouter un exemple :
-"[...] Sur le modèle de cette explication du cloud : [exemple]"
-
-Reformulation 4 — Définir l'audience :
-"[...] Mon interlocuteur est un directeur commercial de 50 ans."
-
-Reformulation 5 — Chaîner avec une question de suivi :
-"[...] Termine par 3 questions que je peux poser pour approfondir."
+Exercise: Improve THIS naive prompt with the CLEAR framework:
+"Summarize the report"
 ```
 
-## Niveau 2 — Intermédiaire : Techniques avancées
+#### Exercise 1.2 — The 5-rephrasings game
 
-### Techniques au programme
+```
+Principle: Start from one request and improve it 5 times.
 
-| Technique | Description | Exemple d'usage |
+Base request: "Explain machine learning to me"
+
+Rephrasing 1 — Add the role:
+"You are an AI expert teacher addressing non-technical
+managers. Explain machine learning to me."
+
+Rephrasing 2 — Add a format constraint:
+"[...] Use 3 everyday analogies and 200 words maximum."
+
+Rephrasing 3 — Add an example:
+"[...] Following the model of this cloud explanation: [example]"
+
+Rephrasing 4 — Define the audience:
+"[...] My counterpart is a 50-year-old sales director."
+
+Rephrasing 5 — Chain with a follow-up question:
+"[...] End with 3 questions I can ask to go deeper."
+```
+
+## Level 2 — Intermediate: advanced techniques
+
+### Techniques covered
+
+| Technique | Description | Example use |
 |-----------|-------------|----------------|
-| **Chain-of-thought (CoT)** | Demander le raisonnement étape par étape | Problèmes complexes, analyse |
-| **Few-shot prompting** | Fournir 2-5 exemples dans le prompt | Génération cohérente, classification |
-| **Role-playing system** | Définir un personnage précis et persistant | Assistants spécialisés |
-| **Output structuring** | Demander JSON, XML, tableau Markdown | Intégration dans des workflows |
-| **Self-critique** | Demander à l'IA d'évaluer sa propre réponse | Amélioration de la qualité |
-| **Decomposition** | Décomposer une tâche complexe | Projets multi-étapes |
+| **Chain-of-thought (CoT)** | Ask for step-by-step reasoning | Complex problems, analysis |
+| **Few-shot prompting** | Provide 2-5 examples in the prompt | Consistent generation, classification |
+| **Role-playing system** | Define a precise, persistent persona | Specialized assistants |
+| **Output structuring** | Request JSON, XML, Markdown table | Integration into workflows |
+| **Self-critique** | Ask the AI to evaluate its own answer | Quality improvement |
+| **Decomposition** | Break down a complex task | Multi-step projects |
 
-### Exercice 2.1 — Chain-of-Thought pour l'analyse
-
-```
-Prompt CoT — Analyse de risques projet :
-
-"Tu es un expert en gestion de risques IT avec 15 ans d'expérience.
-
-TÂCHE : Analyse les risques du projet suivant et propose
-un plan de mitigation.
-
-PROCESSUS DE RAISONNEMENT (utilise ces étapes) :
-Étape 1 : Identifie les 5 risques majeurs (probabilité × impact)
-Étape 2 : Classe-les selon la matrice PESTEL
-Étape 3 : Pour chaque risque critique, propose 2 mesures de mitigation
-Étape 4 : Évalue le risque résiduel après mitigation
-Étape 5 : Rédige un résumé exécutif de 100 mots
-
-PROJET : [description du projet]
-
-CONTRAINTE : Sois exhaustif mais concis. Utilise des tableaux
-Markdown pour les étapes 1 et 2."
-```
-
-### Exercice 2.2 — Few-shot pour la cohérence de ton
+### Exercise 2.1 — Chain-of-Thought for analysis
 
 ```
-Prompt Few-shot — Générer des titres d'articles dans le style de la marque :
+CoT prompt — Project risk analysis:
 
-"Voici des exemples de titres d'articles qui correspondent
-à notre ligne éditoriale :
+"You are an IT risk management expert with 15 years of experience.
 
-Exemple 1 : "5 erreurs que font 90% des managers avec la data
-(et comment les éviter)"
-Exemple 2 : "Pourquoi votre tableau de bord vous ment —
-et comment le réparer en 3 étapes"
-Exemple 3 : "Data-driven en 2026 : ce que font les leaders
-que vous ne faites pas encore"
+TASK: Analyze the following project's risks and propose
+a mitigation plan.
 
-Style caractéristique : accrocheur, chiffres concrets,
-légère provocation, promesse de valeur immédiate.
+REASONING PROCESS (use these steps):
+Step 1: Identify the 5 major risks (probability × impact)
+Step 2: Sort them by the PESTEL matrix
+Step 3: For each critical risk, propose 2 mitigation measures
+Step 4: Assess the residual risk after mitigation
+Step 5: Write a 100-word executive summary
 
-TÂCHE : Génère 10 titres dans ce style pour le sujet :
-[IA générative pour les équipes commerciales]"
+PROJECT: [project description]
+
+CONSTRAINT: Be thorough but concise. Use Markdown
+tables for steps 1 and 2."
 ```
 
-## Niveau 3 — Avancé : Workflows IA complexes
+### Exercise 2.2 — Few-shot for tone consistency
 
-### Architecture de prompts systèmes (Claude API)
+```
+Few-shot prompt — Generate article titles in the brand's style:
+
+"Here are examples of article titles that match
+our editorial line:
+
+Example 1: "5 mistakes 90% of managers make with data
+(and how to avoid them)"
+Example 2: "Why your dashboard is lying to you —
+and how to fix it in 3 steps"
+Example 3: "Data-driven in 2026: what leaders do
+that you don't yet"
+
+Signature style: catchy, concrete numbers,
+slightly provocative, promise of immediate value.
+
+TASK: Generate 10 titles in this style for the topic:
+[generative AI for sales teams]"
+```
+
+## Level 3 — Advanced: complex AI workflows
+
+### System prompt architecture (Claude API)
 
 ```python
 import anthropic
 
 client = anthropic.Anthropic()
 
-# Système de prompt multi-rôle pour analyse documentaire
-SYSTEM_PROMPT = """Tu es un analyste financier senior spécialisé
-dans les fusions-acquisitions. Tu as accès aux données financières
-de l'entreprise cible.
+# Multi-role system prompt for document analysis
+SYSTEM_PROMPT = """You are a senior financial analyst specialized
+in mergers and acquisitions. You have access to the target
+company's financial data.
 
-TES CONTRAINTES ABSOLUES :
-1. Ne jamais inventer de chiffres — si tu ne sais pas, dis-le
-2. Toujours sourcer tes affirmations avec [SOURCE: document X]
-3. Signaler les incertitudes avec [INCERTITUDE: niveau faible/moyen/élevé]
-4. Format de sortie : structuré en sections markdown
+YOUR ABSOLUTE CONSTRAINTS:
+1. Never make up figures — if you don't know, say so
+2. Always source your claims with [SOURCE: document X]
+3. Flag uncertainties with [UNCERTAINTY: level low/medium/high]
+4. Output format: structured in markdown sections
 
-TES CAPABILITIES :
-- Analyse de ratios financiers (P/E, EV/EBITDA, etc.)
-- Évaluation de synergies potentielles
-- Identification des red flags comptables
-- Benchmark sectoriel"""
+YOUR CAPABILITIES:
+- Financial ratio analysis (P/E, EV/EBITDA, etc.)
+- Assessment of potential synergies
+- Identification of accounting red flags
+- Sector benchmark"""
 
 def analyze_document(document_text: str, question: str) -> str:
     response = client.messages.create(
@@ -173,73 +173,73 @@ def analyze_document(document_text: str, question: str) -> str:
         messages=[
             {
                 "role": "user",
-                "content": f"Document à analyser :\n\n{document_text}\n\n"
-                          f"Question : {question}"
+                "content": f"Document to analyze:\n\n{document_text}\n\n"
+                          f"Question: {question}"
             }
         ]
     )
     return response.content[0].text
 ```
 
-### Prompt de méta-évaluation (Self-critique)
+### Meta-evaluation prompt (Self-critique)
 
 ```
-PROMPT D'AUTO-ÉVALUATION :
+SELF-ASSESSMENT PROMPT:
 
-"Tu viens de générer cette réponse : [RÉPONSE PRÉCÉDENTE]
+"You have just generated this answer: [PREVIOUS ANSWER]
 
-Maintenant, évalue-la selon ces 5 critères (note /10 + justification) :
-1. Précision factuelle : Les faits sont-ils vérifiables ?
-2. Complétude : La réponse couvre-t-elle tous les aspects demandés ?
-3. Clarté : Un non-expert comprendrait-il facilement ?
-4. Actionabilité : Les recommandations sont-elles concrètes ?
-5. Risques : Y a-t-il des biais ou omissions importantes ?
+Now evaluate it against these 5 criteria (score /10 + justification):
+1. Factual accuracy: Are the facts verifiable?
+2. Completeness: Does the answer cover all the requested aspects?
+3. Clarity: Would a non-expert understand it easily?
+4. Actionability: Are the recommendations concrete?
+5. Risks: Are there important biases or omissions?
 
-Puis génère une version améliorée en corrigeant les lacunes identifiées."
+Then generate an improved version, fixing the identified gaps."
 ```
 
-## Différences Claude vs ChatGPT vs Gemini
+## Differences: Claude vs ChatGPT vs Gemini
 
 | Aspect | Claude (Anthropic) | ChatGPT (OpenAI) | Gemini (Google) |
 |--------|-------------------|-----------------|----------------|
-| Longueur contexte | 200K tokens | 128K tokens | 1M tokens |
-| Suivi d'instructions | Très précis | Très bon | Bon |
-| Raisonnement éthique | Intégré nativement | Modéré | Modéré |
-| Code | Excellent | Excellent | Très bon |
-| Multimodal | Images + PDF | Images + vidéo | Images + vidéo + audio |
-| Ton | Nuancé, équilibré | Direct, concis | Informatif |
-| Idéal pour | Documents longs, analyse | Conversations, code | Recherche, multimodal |
+| Context length | 200K tokens | 128K tokens | 1M tokens |
+| Instruction following | Very precise | Very good | Good |
+| Ethical reasoning | Natively built-in | Moderate | Moderate |
+| Code | Excellent | Excellent | Very good |
+| Multimodal | Images + PDF | Images + video | Images + video + audio |
+| Tone | Nuanced, balanced | Direct, concise | Informative |
+| Ideal for | Long documents, analysis | Conversations, code | Search, multimodal |
 
-## Livrables
+## Deliverables
 
-- Supports de formation niveaux 1/2/3 (slides + guides apprenants)
-- Bibliothèque de 50 exercices pratiques classés par niveau et métier
-- Prompt Library starter kit (20 templates par fonction : RH, Finance, Marketing, Dev)
-- Guide de référence Claude/ChatGPT/Gemini (comparatif pratique)
-- Évaluations niveau 1+2+3 avec corrigés
-- Certification interne "Prompt Engineer" (critères + badge Credly)
+- Training materials levels 1/2/3 (slides + learner guides)
+- Library of 50 hands-on exercises sorted by level and job
+- Prompt Library starter kit (20 templates per function: HR, Finance, Marketing, Dev)
+- Claude/ChatGPT/Gemini reference guide (practical comparison)
+- Level 1+2+3 assessments with answer keys
+- Internal "Prompt Engineer" certification (criteria + Credly badge)
 
-## Format de sortie
+## Output format
 
-Précise : **niveau cible** (débutant / intermédiaire / avancé / multi-niveaux), **outil LLM principal** de l'organisation (Claude / ChatGPT / Gemini / Copilot), **métiers des participants**, **durée disponible** (2h / demi-journée / journée / parcours), **format** (présentiel / e-learning / blended), **cas d'usage métier** prioritaires à traiter.
+Specify: **target level** (beginner / intermediate / advanced / multi-level), **main LLM tool** in the organization (Claude / ChatGPT / Gemini / Copilot), **participants' jobs**, **available duration** (2h / half-day / full day / track), **format** (in-person / e-learning / blended), **priority business use cases** to address.
 
 ## Sources
 - **Anthropic** — *Prompt Engineering Guide* (docs.anthropic.com)
 - **Wei et al.** — *Chain-of-Thought Prompting Elicits Reasoning in LLMs* (NeurIPS 2022)
 - **Brown et al.** — *Language Models are Few-Shot Learners* (NeurIPS 2020, GPT-3)
-- **Wang et al.** — *Self-Consistency* (2023) ; **Yao et al.** — *ReAct* (2023)
-- **Anderson & Krathwohl** — taxonomie de Bloom révisée (2001) — progression des niveaux
+- **Wang et al.** — *Self-Consistency* (2023); **Yao et al.** — *ReAct* (2023)
+- **Anderson & Krathwohl** — revised Bloom's taxonomy (2001) — level progression
 
 ## Anti-patterns
-- Enseigner des « formules magiques » figées plutôt que des principes transférables
-- Présenter Few-shot / CoT sans attribution académique
-- Comparatif LLM avec des fenêtres de contexte non datées (elles évoluent vite)
-- Pas de projet fil rouge → compétence non ancrée
-- Négliger l'évaluation de la qualité des prompts (itération, self-critique)
+- Teaching fixed "magic formulas" instead of transferable principles
+- Presenting Few-shot / CoT without academic attribution
+- LLM comparison with undated context windows (they change fast)
+- No capstone project → skill not anchored
+- Neglecting prompt-quality evaluation (iteration, self-critique)
 
-## Voir aussi
-- [formation-claude-code.md](formation-claude-code.md) — mise en pratique outillée
-- [formation-agents-ia.md](formation-agents-ia.md) — prompts d'orchestration d'agents
-- [`../prompt_engineer/few-shot-learning.md`](../prompt_engineer/few-shot-learning.md) — few-shot approfondi
-- [`../prompt_engineer/chain-of-thought.md`](../prompt_engineer/chain-of-thought.md) — CoT approfondi
-- [`../redacteur_ia/prompt-engineering-redaction.md`](../redacteur_ia/prompt-engineering-redaction.md) — prompts pour la rédaction
+## See also
+- [formation-claude-code.md](formation-claude-code.md) — tooled hands-on practice
+- [formation-agents-ia.md](formation-agents-ia.md) — agent orchestration prompts
+- [`../prompt_engineer/few-shot-learning.md`](../prompt_engineer/few-shot-learning.md) — few-shot in depth
+- [`../prompt_engineer/chain-of-thought.md`](../prompt_engineer/chain-of-thought.md) — CoT in depth
+- [`../redacteur_ia/prompt-engineering-redaction.md`](../redacteur_ia/prompt-engineering-redaction.md) — prompts for writing

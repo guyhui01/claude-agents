@@ -1,96 +1,96 @@
-# Skill — UX Writing & Microcopy IA
-> Certifications : Google UX Design · HubSpot Content Marketing
+# Skill — AI UX Writing & Microcopy
+> Certifications: Google UX Design · HubSpot Content Marketing
 
-## Objectif
-Rédiger les textes d'interface (boutons, messages d'erreur, onboarding, notifications) qui guident l'utilisateur avec clarté et réduisent la friction.
+## Objective
+Write interface text (buttons, error messages, onboarding, notifications) that guides the user clearly and reduces friction.
 
-## Principes fondamentaux de l'UX Writing
-1. **Clarté** : 1 idée = 1 phrase = 1 action
-2. **Concision** : supprimer chaque mot inutile
-3. **Cohérence** : même terme pour le même concept partout
-4. **Ton de marque** : même voix dans toute l'interface
-5. **Centré utilisateur** : "vous" pas "nous", bénéfices pas fonctionnalités
+## Core UX writing principles
+1. **Clarity**: 1 idea = 1 sentence = 1 action
+2. **Concision**: cut every unnecessary word
+3. **Consistency**: same term for the same concept everywhere
+4. **Brand tone**: same voice across the whole interface
+5. **User-centered**: "you" not "we", benefits not features
 
-## Types de microcopy et leurs règles
+## Microcopy types and their rules
 
-### Boutons (CTA)
-| À éviter | À préférer | Principe |
+### Buttons (CTA)
+| Avoid | Prefer | Principle |
 |---|---|---|
-| "Cliquez ici" | "Commencer gratuitement" | Action + valeur |
-| "Valider" | "Envoyer ma demande" | Contexte précis |
-| "OK" | "Oui, supprimer" | Confirmer l'action |
+| "Click here" | "Start for free" | Action + value |
+| "Submit" | "Send my request" | Precise context |
+| "OK" | "Yes, delete" | Confirm the action |
 
-### Messages d'erreur
+### Error messages
 ```
-Structure : Quoi s'est passé + Pourquoi + Comment y remédier
+Structure: What happened + Why + How to fix it
 
-❌ "Erreur 404"
-✅ "Cette page n'existe plus. Retournez à l'accueil ou faites une recherche."
+❌ "Error 404"
+✅ "This page no longer exists. Go back home or run a search."
 
-❌ "Champ invalide"
-✅ "L'email doit être au format nom@domaine.fr"
-```
-
-### Onboarding (premiers pas)
-```
-Étape 1 : Bienvenue — valider le choix de l'utilisateur
-  "Bienvenue [Prénom] ! Vous avez rejoint [X] professionnels."
-
-Étape 2 : Première action — rendre le succès immédiat
-  "Commencez par ajouter votre premier projet — ça prend 2 minutes."
-
-Étape 3 : Valeur atteinte — célébrer
-  "Votre projet est créé ! Invitez maintenant votre équipe."
+❌ "Invalid field"
+✅ "The email must be in the format name@domain.com"
 ```
 
-### Notifications et emails système
+### Onboarding (first steps)
 ```
-Objet : action + contexte (pas de vague)
-  ✅ "[Action requise] Votre abonnement expire dans 3 jours"
-  ❌ "Important : information concernant votre compte"
-```
+Step 1: Welcome — validate the user's choice
+  "Welcome [First name]! You've joined [X] professionals."
 
-## Prompt UX Writing IA
-```
-"Écris le microcopy pour [élément d'interface : bouton / erreur / tooltip / onboarding].
-Contexte : [ce que l'utilisateur vient de faire / vient de voir].
-Ton de marque : [amical / professionnel / rassurant].
-Contrainte de longueur : [X caractères max].
-Objectif : [réduire la friction / encourager l'action / rassurer]."
+Step 2: First action — make success immediate
+  "Start by adding your first project — it takes 2 minutes."
+
+Step 3: Value reached — celebrate
+  "Your project is created! Now invite your team."
 ```
 
-## Checklist UX Writing avant publication
-- [ ] Chaque bouton décrit l'action ET le résultat
-- [ ] Aucun message d'erreur sans solution proposée
-- [ ] Le ton est cohérent sur toute la page
-- [ ] Les termes métier sont expliqués ou évités
-- [ ] Testé avec de vrais utilisateurs (≈5 suffisent en test qualitatif — Nielsen & Landauer 1993)
+### Notifications and system emails
+```
+Subject: action + context (nothing vague)
+  ✅ "[Action required] Your subscription expires in 3 days"
+  ❌ "Important: information about your account"
+```
 
-## Livrables
-- Guide de ton de voix (Voice & Tone)
-- Bibliothèque microcopy par composant (boutons, erreurs, tooltips)
-- Audit UX Writing de l'interface existante
-- Templates onboarding (3-5 étapes)
+## AI UX writing prompt
+```
+"Write the microcopy for [interface element: button / error / tooltip / onboarding].
+Context: [what the user just did / just saw].
+Brand tone: [friendly / professional / reassuring].
+Length constraint: [X characters max].
+Objective: [reduce friction / encourage action / reassure]."
+```
 
-## Format de sortie
-Précise : type d'interface · composant ciblé · ton de marque · audience · contrainte de longueur · contexte d'affichage
+## UX writing checklist before publishing
+- [ ] Every button describes the action AND the result
+- [ ] No error message without a proposed solution
+- [ ] The tone is consistent across the whole page
+- [ ] Domain terms are explained or avoided
+- [ ] Tested with real users (≈5 are enough for qualitative testing — Nielsen & Landauer 1993)
+
+## Deliverables
+- Voice & Tone guide
+- Microcopy library by component (buttons, errors, tooltips)
+- UX writing audit of the existing interface
+- Onboarding templates (3-5 steps)
+
+## Output format
+Specify: interface type · targeted component · brand tone · audience · length constraint · display context
 
 ## Anti-patterns
-- ❌ **« Cliquez ici »** — libellé de bouton sans action ni valeur → ne dit pas ce qui se passe. Décrire l'action + le résultat.
-- ❌ **Message d'erreur sans solution** — « Erreur 404 » / « Champ invalide » → l'utilisateur est bloqué. Toujours indiquer quoi faire.
-- ❌ **Jargon ou ton corporate** — « Veuillez réessayer ultérieurement » → froid et flou. Parler comme à un humain.
-- ❌ **Incohérence terminologique** — « Supprimer » ici, « Effacer » là pour la même action → confusion.
-- ❌ **Microcopy non accessible** — messages reposant sur la couleur seule, libellés non lisibles par lecteur d'écran → exclusion (cf. WCAG 2.2).
+- ❌ **"Click here"** — button label with no action or value → doesn't say what happens. Describe the action + the result.
+- ❌ **Error message with no solution** — "Error 404" / "Invalid field" → the user is stuck. Always say what to do.
+- ❌ **Jargon or corporate tone** — "Please try again later" → cold and vague. Talk like to a human.
+- ❌ **Terminology inconsistency** — "Delete" here, "Erase" there for the same action → confusion.
+- ❌ **Inaccessible microcopy** — messages relying on color alone, labels not readable by screen readers → exclusion (cf. WCAG 2.2).
 
 ## Sources
-- **Jakob Nielsen** — *10 Usability Heuristics for User Interface Design* (NN/g, 1994) — heuristiques d'interface
-- **Nielsen & Landauer** — *A mathematical model of the finding of usability problems* (1993) ; Nielsen, *Why You Only Need to Test with 5 Users* (NN/g, 2000) — règle des 5 utilisateurs (~85 % des problèmes en test qualitatif)
-- **W3C** — *WCAG 2.2* (octobre 2023) — accessibilité du contenu (libellés, messages, contraste)
-- **Torrey Podmajersky** — *Strategic Writing for UX* (O'Reilly, 2019) — voix & ton, microcopy
-- **Kinneret Yifrah** — *Microcopy: The Complete Guide* (2017) — microcopy par composant
+- **Jakob Nielsen** — *10 Usability Heuristics for User Interface Design* (NN/g, 1994) — interface heuristics
+- **Nielsen & Landauer** — *A mathematical model of the finding of usability problems* (1993); Nielsen, *Why You Only Need to Test with 5 Users* (NN/g, 2000) — the 5-user rule (~85% of problems in qualitative testing)
+- **W3C** — *WCAG 2.2* (October 2023) — content accessibility (labels, messages, contrast)
+- **Torrey Podmajersky** — *Strategic Writing for UX* (O'Reilly, 2019) — voice & tone, microcopy
+- **Kinneret Yifrah** — *Microcopy: The Complete Guide* (2017) — microcopy by component
 
-## Voir aussi
-- [`../ux_design/accessibilite-wcag.md`](../ux_design/accessibilite-wcag.md) — conformité WCAG 2.2 détaillée
-- [`../ux_design/audit-ux-heuristiques.md`](../ux_design/audit-ux-heuristiques.md) — 10 heuristiques de Nielsen
-- [`../ux_design/tests-utilisateurs.md`](../ux_design/tests-utilisateurs.md) — tests utilisateurs (règle des 5)
-- [documentation-technique.md](documentation-technique.md) — messages et guides côté produit
+## See also
+- [`../ux_design/accessibilite-wcag.md`](../ux_design/accessibilite-wcag.md) — detailed WCAG 2.2 compliance
+- [`../ux_design/audit-ux-heuristiques.md`](../ux_design/audit-ux-heuristiques.md) — Nielsen's 10 heuristics
+- [`../ux_design/tests-utilisateurs.md`](../ux_design/tests-utilisateurs.md) — user testing (the rule of 5)
+- [documentation-technique.md](documentation-technique.md) — product-side messages and guides

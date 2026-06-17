@@ -1,131 +1,131 @@
-# WF-004 — Mission Conseil IA
+# WF-004 — AI Consulting Engagement
 
-> Signature mission → audit maturité → stratégie → plan formation → livrables executive  
-> Certifications mobilisées : PMP · PROSCI · SIC (SCIP) · CFA · CAP IABAC · TOGAF 10
+> Engagement signed → maturity audit → strategy → training plan → executive deliverables  
+> Certifications mobilized: PMP · PROSCI · SIC (SCIP) · CFA · CAP IABAC · TOGAF 10
 
 ---
 
-## Carte d'identité
+## Identity card
 
 ```yaml
 id: "WF-004"
 nom: "Mission Conseil IA"
-domaine: "Management & Conseil"
-declencheur: "Signature d'une mission conseil IA / réception d'un RFP client"
-resultat_final: "Rapport audit maturité + roadmap stratégique + plan formation + synthèse executive"
+domaine: "Management & Consulting"
+declencheur: "Signing of an AI consulting engagement / receipt of a client RFP"
+resultat_final: "Maturity audit report + strategic roadmap + training plan + executive summary"
 duree_estimee: "60-90 min"
 modele_recommande: "claude-opus-4-8"
-modele_raison: "Workflow stratégique à haute valeur : audit maturité, ROI, roadmap 12-24 mois, ADKAR, plan formation et synthèse executive. Requiert un raisonnement stratégique profond et une capacité de synthèse multi-sources. Opus 4.8 recommandé pour la qualité des livrables clients CAC40."
-modele_alternatif: "claude-sonnet-4-6"  # pour des missions courtes de diagnostic seul (sans roadmap ni rapport complet)
+modele_raison: "High-value strategic workflow: maturity audit, ROI, 12-24 month roadmap, ADKAR, training plan, and executive summary. Requires deep strategic reasoning and multi-source synthesis ability. Opus 4.8 recommended for the quality of CAC40 client deliverables."
+modele_alternatif: "claude-sonnet-4-6"  # for short diagnostic-only engagements (no roadmap or full report)
 agents_core:
-  - CONSULTANT-IA        # diagnostic maturité IA, recommandations
-  - FINANCIAL-ANALYST    # ROI transformation, business case recommandations
-  - CDO-DIRECTEUR-IA     # stratégie data et gouvernance IA long terme
-  - CHANGE-MANAGER       # plan d'adoption et accompagnement au changement
-  - FORMATEUR-IA         # plan de formation et montée en compétences
-  - REDACTEUR-IA         # synthèse executive et livrables clients
+  - CONSULTANT-IA        # AI maturity diagnostic, recommendations
+  - FINANCIAL-ANALYST    # transformation ROI, recommendation business cases
+  - CDO-DIRECTEUR-IA     # long-term data strategy and AI governance
+  - CHANGE-MANAGER       # adoption plan and change management
+  - FORMATEUR-IA         # training plan and upskilling
+  - REDACTEUR-IA         # executive summary and client deliverables
 agents_optionnels:
-  - JURIDIQUE-IA         # si conformité RGPD / AI Act à auditer
-  - VEILLE-STRATEGIQUE   # si benchmark concurrentiel requis
-  - CHEF-PROJET-IA       # si mission avec PMO client
+  - JURIDIQUE-IA         # if GDPR / AI Act compliance is to be audited
+  - VEILLE-STRATEGIQUE   # if a competitive benchmark is required
+  - CHEF-PROJET-IA       # if engagement with a client PMO
 statut: "disponible"
 version: "1.1"
 ```
 
 ---
 
-## Agents mobilisés
+## Agents mobilized
 
-| Étape | Agent | Rôle dans le workflow | Output |
+| Step | Agent | Role in the workflow | Output |
 |---|---|---|---|
-| 1 | CONSULTANT-IA | Audit maturité IA, diagnostic, recommandations | Rapport maturité IA (1-10) |
-| 2 | FINANCIAL-ANALYST | ROI transformation, business cases recommandations | Chiffrage ROI par levier |
-| 3 | CDO-DIRECTEUR-IA | Roadmap stratégique IA 12-24 mois, gouvernance | Roadmap + OKR IA |
-| 4 | CHANGE-MANAGER | Plan adoption et accompagnement organisationnel | Plan ADKAR par population |
-| 5 | FORMATEUR-IA | Plan de formation équipes IA | Programme formation priorisé |
-| 6 | REDACTEUR-IA | Synthèse executive + rapport client final | Livrables clients (1-page + rapport) |
-| opt | JURIDIQUE-IA | Audit conformité RGPD / AI Act | Rapport conformité |
-| opt | VEILLE-STRATEGIQUE | Benchmark concurrentiel IA secteur client | Radar concurrentiel |
+| 1 | CONSULTANT-IA | AI maturity audit, diagnostic, recommendations | AI maturity report (1-10) |
+| 2 | FINANCIAL-ANALYST | Transformation ROI, recommendation business cases | ROI costing per lever |
+| 3 | CDO-DIRECTEUR-IA | 12-24 month strategic AI roadmap, governance | Roadmap + AI OKRs |
+| 4 | CHANGE-MANAGER | Adoption plan and organizational support | ADKAR plan per population |
+| 5 | FORMATEUR-IA | AI team training plan | Prioritized training program |
+| 6 | REDACTEUR-IA | Executive summary + final client report | Client deliverables (1-pager + report) |
+| opt | JURIDIQUE-IA | GDPR / AI Act compliance audit | Compliance report |
+| opt | VEILLE-STRATEGIQUE | AI competitive benchmark for the client's sector | Competitive radar |
 
 ---
 
-## Paramètres contextuels
+## Contextual parameters
 
 ```
-CONTEXTE MISSION (à renseigner avant le démarrage)
+ENGAGEMENT CONTEXT (to fill in before starting)
 ──────────────────────────────────────────────────────
-Client             : [Nom / Secteur / Taille]
-Périmètre mission  : [Audit / Stratégie / Formation / Accompagnement / Full]
-Durée mission      : [ex. 3 jours / 2 semaines / 3 mois]
-Interlocuteurs     : [DSI / CDO / CODIR / DG / Équipes opérationnelles]
-Maturité IA client : [Débutant / Expérimentateur / Avancé — estimation]
-Enjeux prioritaires: [Productivité / Conformité / ROI / Compétitivité / RH]
-Contraintes        : [RGPD, AI Act, budgets, résistances internes]
-Livrables attendus : [Rapport / Roadmap / Présentation CODIR / Formation]
+Client             : [Name / Sector / Size]
+Engagement scope   : [Audit / Strategy / Training / Support / Full]
+Engagement duration: [e.g. 3 days / 2 weeks / 3 months]
+Stakeholders       : [CIO / CDO / executive committee / CEO / Operational teams]
+Client AI maturity : [Beginner / Experimenter / Advanced — estimate]
+Priority stakes    : [Productivity / Compliance / ROI / Competitiveness / HR]
+Constraints        : [GDPR, AI Act, budgets, internal resistance]
+Expected deliverables: [Report / Roadmap / Executive-committee presentation / Training]
 ```
 
 ---
 
-## Diagramme de flux BPMN
+## BPMN flow diagram
 
 ```
-(DÉBUT — RFP reçu / mission signée)
+(START — RFP received / engagement signed)
         │
         ▼
 [STEP-01 — CONSULTANT-IA]
-  Audit maturité IA (grille 6 dimensions),
-  diagnostic forces / faiblesses,
-  opportunités et risques
+  AI maturity audit (6-dimension grid),
+  strengths / weaknesses diagnostic,
+  opportunities and risks
         │
         ▼
 ═══════════════════════════════════
-  FORK PARALLÈLE
+  PARALLEL FORK
 ═══════════════════════════════════
   ├── [STEP-02A — FINANCIAL-ANALYST]
-  │    ROI par levier, business cases
+  │    ROI per lever, business cases
   │
-  └── [STEP-02B — VEILLE-STRATEGIQUE] (optionnel)
-       Benchmark concurrentiel secteur
+  └── [STEP-02B — VEILLE-STRATEGIQUE] (optional)
+       Sector competitive benchmark
 ═══════════════════════════════════
   JOIN
 ═══════════════════════════════════
         │
         ▼
 [STEP-03 — CDO-DIRECTEUR-IA]
-  Roadmap stratégique IA 12-24 mois,
-  gouvernance, OKR, talents
+  12-24 month strategic AI roadmap,
+  governance, OKR, talent
         │
         ▼
 [STEP-04 — CHANGE-MANAGER]
-  Plan d'adoption et accompagnement,
-  ADKAR par population,
-  stratégie résistances
+  Adoption and support plan,
+  ADKAR per population,
+  resistance strategy
         │
         ▼
 [STEP-05 — FORMATEUR-IA]
-  Plan de formation priorisé,
-  parcours par profil,
-  quick wins formation
+  Prioritized training plan,
+  tracks per profile,
+  training quick wins
         │
         ▼
-<GATEWAY — Conformité RGPD / AI Act requise ?>
-  ├── OUI ──▶ [STEP-06 — JURIDIQUE-IA]
-  │            Audit conformité + recommandations
-  └── NON ──▶ (bypass)
+<GATEWAY — GDPR / AI Act compliance required?>
+  ├── YES ──▶ [STEP-06 — JURIDIQUE-IA]
+  │            Compliance audit + recommendations
+  └── NO ───▶ (bypass)
         │
         ▼
 [STEP-07 — REDACTEUR-IA]
-  Synthèse executive (1 page),
-  rapport client complet,
-  présentation CODIR
+  Executive summary (1 page),
+  full client report,
+  executive-committee presentation
         │
         ▼
-(FIN — Livrables clients remis)
+(END — Client deliverables handed over)
 ```
 
 ---
 
-## Étapes détaillées
+## Detailed steps
 
 ### STEP-01 — CONSULTANT-IA
 
@@ -133,21 +133,21 @@ Livrables attendus : [Rapport / Roadmap / Présentation CODIR / Formation]
 etape:
   id: "STEP-01"
   agent: "AGENT-CONSULTANT-IA"
-  role: "Audit de maturité IA et diagnostic"
+  role: "AI maturity audit and diagnostic"
   input:
-    - "Contexte client : secteur, taille, enjeux"
-    - "Informations disponibles : entretiens, docs, cas d'usage existants"
-    - "Objectifs de la mission"
+    - "Client context: sector, size, stakes"
+    - "Available information: interviews, docs, existing use cases"
+    - "Engagement objectives"
   output_attendu:
-    - "Score maturité IA global (1-10) et par dimension"
-      # Dimensions : stratégie / data / technologie / compétences / gouvernance / culture
-    - "Forces, faiblesses, opportunités, risques (SWOT IA)"
-    - "Top 5 cas d'usage IA prioritaires avec scoring valeur/effort"
-    - "Benchmark sectoriel (si données disponibles)"
-    - "Recommandations clés (3-5 actions prioritaires)"
-  condition_passage: "Diagnostic validé par l'utilisateur avant roadmap"
+    - "Overall AI maturity score (1-10) and per dimension"
+      # Dimensions: strategy / data / technology / skills / governance / culture
+    - "Strengths, weaknesses, opportunities, risks (AI SWOT)"
+    - "Top 5 priority AI use cases with value/effort scoring"
+    - "Sector benchmark (if data available)"
+    - "Key recommendations (3-5 priority actions)"
+  condition_passage: "Diagnostic validated by the user before the roadmap"
   duree_estimee: "20 min"
-  execution: "séquentielle — ouvre le workflow"
+  execution: "sequential — opens the workflow"
 ```
 
 ### STEP-02 — FINANCIAL-ANALYST
@@ -156,18 +156,18 @@ etape:
 etape:
   id: "STEP-02"
   agent: "AGENT-FINANCIAL-ANALYST"
-  role: "ROI transformation et business cases"
+  role: "Transformation ROI and business cases"
   input:
-    - "Top 5 cas d'usage IA (STEP-01)"
-    - "Effectifs impactés et coûts actuels des processus"
-    - "Budget IA disponible et horizon de retour"
+    - "Top 5 AI use cases (STEP-01)"
+    - "Impacted headcount and current process costs"
+    - "Available AI budget and return horizon"
   output_attendu:
-    - "Business case par cas d'usage : investissement / gain / ROI / payback"
-    - "Priorisation financière des recommandations"
-    - "Tableau synthèse ROI global transformation"
-    - "Scénarios financiers (optimiste / réaliste / conservateur)"
+    - "Business case per use case: investment / gain / ROI / payback"
+    - "Financial prioritization of the recommendations"
+    - "Overall transformation ROI summary table"
+    - "Financial scenarios (optimistic / realistic / conservative)"
   duree_estimee: "15 min"
-  execution: "parallèle avec STEP-02B si benchmark requis"
+  execution: "parallel with STEP-02B if benchmark required"
 ```
 
 ### STEP-03 — CDO-DIRECTEUR-IA
@@ -176,19 +176,19 @@ etape:
 etape:
   id: "STEP-03"
   agent: "AGENT-CDO-DIRECTEUR-IA"
-  role: "Roadmap stratégique IA et gouvernance"
+  role: "Strategic AI roadmap and governance"
   input:
-    - "Diagnostic maturité (STEP-01)"
-    - "Priorisation financière (STEP-02)"
-    - "Contexte organisationnel et stratégique client"
+    - "Maturity diagnostic (STEP-01)"
+    - "Financial prioritization (STEP-02)"
+    - "Client organizational and strategic context"
   output_attendu:
-    - "Roadmap IA 12-24 mois (Now / Next / Later)"
-    - "OKR IA par période"
-    - "Cadre de gouvernance IA (rôles, instances, processus)"
-    - "Plan de recrutement / montée en compétences talents IA"
-    - "Architecture data cible (si applicable)"
+    - "12-24 month AI roadmap (Now / Next / Later)"
+    - "AI OKRs per period"
+    - "AI governance framework (roles, bodies, processes)"
+    - "AI talent recruitment / upskilling plan"
+    - "Target data architecture (if applicable)"
   duree_estimee: "15 min"
-  execution: "séquentielle après STEP-02"
+  execution: "sequential after STEP-02"
 ```
 
 ### STEP-04 — CHANGE-MANAGER
@@ -197,19 +197,19 @@ etape:
 etape:
   id: "STEP-04"
   agent: "AGENT-CHANGE-MANAGER"
-  role: "Plan d'adoption et accompagnement au changement"
+  role: "Adoption plan and change management"
   input:
-    - "Roadmap IA (STEP-03)"
-    - "Populations impactées et niveaux de maturité"
-    - "Résistances anticipées"
+    - "AI roadmap (STEP-03)"
+    - "Impacted populations and maturity levels"
+    - "Anticipated resistance"
   output_attendu:
-    - "Assessment ADKAR par population (CODIR / managers / opérationnels)"
-    - "Plan de communication sur 12 mois"
-    - "Stratégie de gestion des résistances"
-    - "Réseau de champions IA (identification + activation)"
-    - "KPIs d'adoption avec jalons mesurables"
+    - "ADKAR assessment per population (executive committee / managers / operational)"
+    - "12-month communication plan"
+    - "Resistance management strategy"
+    - "AI champions network (identification + activation)"
+    - "Adoption KPIs with measurable milestones"
   duree_estimee: "10 min"
-  execution: "séquentielle après STEP-03"
+  execution: "sequential after STEP-03"
 ```
 
 ### STEP-05 — FORMATEUR-IA
@@ -218,18 +218,18 @@ etape:
 etape:
   id: "STEP-05"
   agent: "AGENT-FORMATEUR-IA"
-  role: "Plan de formation et montée en compétences IA"
+  role: "AI training plan and upskilling"
   input:
-    - "Roadmap IA (STEP-03)"
-    - "Profils à former (CODIR / managers / utilisateurs / tech)"
-    - "Budget formation disponible"
+    - "AI roadmap (STEP-03)"
+    - "Profiles to train (executive committee / managers / users / tech)"
+    - "Available training budget"
   output_attendu:
-    - "Catalogue formation : parcours par profil (4 niveaux)"
-    - "Format recommandé : présentiel / e-learning / workshop"
-    - "Quick wins formation (2-4 semaines)"
-    - "Plan d'évaluation des compétences acquises"
+    - "Training catalog: tracks per profile (4 levels)"
+    - "Recommended format: in-person / e-learning / workshop"
+    - "Training quick wins (2-4 weeks)"
+    - "Acquired-skills evaluation plan"
   duree_estimee: "10 min"
-  execution: "séquentielle après STEP-04"
+  execution: "sequential after STEP-04"
 ```
 
 ### STEP-07 — REDACTEUR-IA
@@ -238,52 +238,52 @@ etape:
 etape:
   id: "STEP-07"
   agent: "AGENT-REDACTEUR-IA"
-  role: "Rédaction des livrables clients finaux"
+  role: "Writing of the final client deliverables"
   input:
-    - "Tous les outputs des STEP-01 à STEP-06"
-    - "Ton et format attendus par le client"
-    - "Contraintes de confidentialité"
+    - "All outputs from STEP-01 to STEP-06"
+    - "Tone and format expected by the client"
+    - "Confidentiality constraints"
   output_attendu:
-    - "Synthèse executive (1 page) : contexte / enjeux / recommandations / ROI"
-    - "Rapport conseil complet (15-30 pages)"
-    - "Présentation CODIR (10-15 slides)"
-    - "Annexes techniques si applicable"
+    - "Executive summary (1 page): context / stakes / recommendations / ROI"
+    - "Full consulting report (15-30 pages)"
+    - "Executive-committee presentation (10-15 slides)"
+    - "Technical appendices if applicable"
   duree_estimee: "15 min"
-  execution: "séquentielle — clôture le workflow"
+  execution: "sequential — closes the workflow"
 ```
 
 ---
 
-## Livrables finaux
+## Final deliverables
 
 ```
-CHECKLIST WF-004
+WF-004 CHECKLIST
 ──────────────────────────────────────────────────────
-□ Rapport d'audit maturité IA (score + SWOT + top 5 cas d'usage)
-□ Business cases ROI par levier prioritaire
-□ Roadmap stratégique IA 12-24 mois (Now/Next/Later)
-□ Cadre de gouvernance IA (rôles + instances)
-□ Plan ADKAR par population + stratégie résistances
-□ Plan de formation par profil (4 niveaux)
-□ [optionnel] Rapport conformité RGPD / AI Act
-□ Synthèse executive (1 page)
-□ Rapport conseil complet (15-30 pages)
-□ Présentation CODIR (10-15 slides)
+□ AI maturity audit report (score + SWOT + top 5 use cases)
+□ ROI business cases per priority lever
+□ 12-24 month strategic AI roadmap (Now/Next/Later)
+□ AI governance framework (roles + bodies)
+□ ADKAR plan per population + resistance strategy
+□ Training plan per profile (4 levels)
+□ [optional] GDPR / AI Act compliance report
+□ Executive summary (1 page)
+□ Full consulting report (15-30 pages)
+□ Executive-committee presentation (10-15 slides)
 ```
 
 ---
 
-## Commande de démarrage rapide
+## Quick-start command
 
 ```
-Lis le fichier AGENT-ORCHESTRATEUR-WORKFLOW.md et adopte le rôle d'orchestrateur.
-Confirme que tu es prêt, puis charge le workflow WF-004 depuis workflows/WF-004-mission-conseil-ia.md.
+Read the file AGENT-ORCHESTRATEUR-WORKFLOW.md and take on the orchestrator role.
+Confirm you are ready, then load workflow WF-004 from workflows/WF-004-mission-conseil-ia.md.
 
-Contexte mission :
-- Client : [à renseigner]
-- Périmètre : [à renseigner]
-- Interlocuteurs : [à renseigner]
-- Livrables attendus : [à renseigner]
+Engagement context:
+- Client: [to fill in]
+- Scope: [to fill in]
+- Stakeholders: [to fill in]
+- Expected deliverables: [to fill in]
 
-Lance STEP-01 avec AGENT-CONSULTANT-IA.
+Launch STEP-01 with AGENT-CONSULTANT-IA.
 ```

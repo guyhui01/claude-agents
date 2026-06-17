@@ -1,287 +1,287 @@
-# WF-001 — Use Case UC-01 — Digitalisation sinistres Assurance IA
+# WF-001 — Use Case UC-01 — Insurance AI claim digitalization
 
-> Workflow : `WF-001-cadrage-produit-ia.md`
-> Secteur : Assurance · Client fictif : Prévalistest Assurances
-> Durée d'exécution simulée : 75 min · Agents activés : BA · UX · PO · QA · JURIDIQUE-IA
-
----
-
-## Brief client (input du workflow)
-
-```
-CLIENT       : Prévalistest Assurances — mutuelle régionale, 280 000 assurés
-SECTEUR      : Assurance IARD (Auto, Habitation, Santé)
-PRODUIT      : Assistant IA de déclaration de sinistre en ligne
-DÉCLENCHEUR  : Taux d'abandon déclaration web : 67% — Délai moyen traitement : 8 jours
-OBJECTIF     : Réduire le délai à < 48h et l'abandon à < 20% via un parcours guidé par IA
-CONTRAINTES  : RGPD · AI Act (Article 6 — système IA à risque limité) · Intégration SI legacy
-               Budget Sprint 0 : 15 j/h · Livraison MVP : 12 semaines
-ÉQUIPE       : 1 squad Scrum (5 dev · 1 PO · 1 SM) · méthodo Scrum
-LANGUE       : Français
-NIVEAU       : Cadrage complet — backlog multi-sprints
-```
+> Workflow: `WF-001-cadrage-produit-ia.md`
+> Sector: Insurance · Fictional client: Prévalistest Assurances
+> Simulated execution time: 75 min · Agents activated: BA · UX · PO · QA · JURIDIQUE-IA
 
 ---
 
-## STEP-01 — BUSINESS-ANALYST · Analyse métier
+## Client brief (workflow input)
 
-### Carte des besoins (job-to-be-done)
+```
+CLIENT       : Prévalistest Assurances — regional mutual, 280,000 policyholders
+SECTOR       : P&C insurance (Auto, Home, Health)
+PRODUCT      : Online AI claim-filing assistant
+TRIGGER      : Web claim-filing abandonment rate: 67% — Average handling time: 8 days
+OBJECTIVE    : Cut the time to < 48h and abandonment to < 20% via an AI-guided journey
+CONSTRAINTS  : GDPR · AI Act (Article 6 — limited-risk AI system) · Legacy IS integration
+               Sprint 0 budget: 15 person-days · MVP delivery: 12 weeks
+TEAM         : 1 Scrum squad (5 dev · 1 PO · 1 SM) · Scrum method
+LANGUAGE     : French
+LEVEL        : Full scoping — multi-sprint backlog
+```
 
-| Persona | Job principal | Frustration actuelle | Gain attendu |
+---
+
+## STEP-01 — BUSINESS-ANALYST · Business analysis
+
+### Needs map (job-to-be-done)
+
+| Persona | Main job | Current frustration | Expected gain |
 |---------|--------------|----------------------|--------------|
-| Assuré sinistré (Marie, 42 ans) | Déclarer rapidement son sinistre auto depuis son mobile | Formulaire de 47 champs, aucune aide contextuelle, abandon à mi-parcours | Guidage intelligent, < 10 min, confirmation immédiate |
-| Gestionnaire sinistres (Mike) | Traiter les dossiers sans relance client | 40% des dossiers incomplets à réception — relances manuelles chronophages | Dossier complet dès la déclaration, IA pré-qualifiée |
-| Responsable conformité (Isabelle) | Garantir la traçabilité RGPD et AI Act | Aucun registre automatique des décisions IA | Log automatique des suggestions IA + consentement explicite |
+| Policyholder with a claim (Marie, 42) | Quickly file her auto claim from her phone | 47-field form, no contextual help, abandons midway | Smart guidance, < 10 min, immediate confirmation |
+| Claims handler (Mike) | Process cases without chasing the client | 40% of cases incomplete on receipt — time-consuming manual follow-ups | Complete case from filing, AI pre-qualified |
+| Compliance officer (Isabelle) | Ensure GDPR and AI Act traceability | No automatic register of AI decisions | Automatic log of AI suggestions + explicit consent |
 
-### Périmètre fonctionnel
+### Functional scope
 
 | In scope | Out of scope |
 |----------|-------------|
-| Déclaration sinistre Auto et Habitation | Sinistres Santé (phase 2) |
-| Guidage IA par type de sinistre | Évaluation automatique du montant d'indemnisation |
-| Upload photos / documents | Intégration téléphonie (CTI) |
-| Notification statut dossier | Back-office gestionnaire (phase 2) |
-| Consentement RGPD inline | Portail courtier |
+| Auto and Home claim filing | Health claims (phase 2) |
+| AI guidance by claim type | Automatic computation of the payout amount |
+| Photo / document upload | Telephony integration (CTI) |
+| Case status notification | Handler back-office (phase 2) |
+| Inline GDPR consent | Broker portal |
 
-### Processus AS-IS (BPMN simplifié)
+### AS-IS process (simplified BPMN)
 
 ```
-[Assuré] → Accès formulaire web → Remplissage 47 champs (sans aide) →
-Soumission → Vérification manuelle J+1 → Dossier incomplet ? → Relance email →
-[Gestionnaire] → Traitement → Décision → Courrier J+8
+[Policyholder] → Web form access → Filling 47 fields (no help) →
+Submission → Manual check D+1 → Incomplete case? → Email follow-up →
+[Handler] → Processing → Decision → Letter D+8
 ```
 
-### Questions ouvertes
+### Open questions
 
-- Q1 : L'IA peut-elle suggérer un montant d'indemnisation indicatif ? → Impact AI Act Article 6
-- Q2 : Quel niveau d'autonomie de l'IA ? Suggestion vs décision
-- Q3 : Intégration SI legacy (AS/400) : API REST disponible ou flux batch ?
+- Q1: Can the AI suggest an indicative payout amount? → AI Act Article 6 impact
+- Q2: What level of AI autonomy? Suggestion vs decision
+- Q3: Legacy IS integration (AS/400): REST API available or batch flow?
 
 ---
 
-## STEP-02 — UX-DESIGNER · Parcours utilisateur
+## STEP-02 — UX-DESIGNER · User journey
 
-### Persona principal — Marie Dupont
+### Main persona — Marie Dupont
 
 ```
-Prénom      : Marie Dupont
-Âge         : 47 ans
-Situation   : Employée de commerce, permis B depuis 25 ans, peu à l'aise avec le numérique
-Device      : Mobile 80% du temps (iPhone SE)
-Contexte    : Accrochage parking — stressée, veut que ça se règle vite
-Citation    : "Je ne sais jamais quoi mettre dans ces formulaires, j'ai peur de mal remplir
-               et que l'assurance refuse. En général j'abandonne et j'appelle."
+First name  : Marie Dupont
+Age         : 47
+Situation   : Retail employee, driver's license for 25 years, not at ease with digital
+Device      : Mobile 80% of the time (iPhone SE)
+Context     : Parking fender-bender — stressed, wants it sorted out fast
+Quote       : "I never know what to put in these forms, I'm afraid of filling them
+               in wrong and the insurer refusing. I usually give up and call."
 JTBD        :
-  1. Déclarer en < 10 min depuis le lieu du sinistre
-  2. Savoir immédiatement si son dossier est recevable
-  3. Ne pas avoir à rappeler pour savoir où en est son dossier
+  1. File in < 10 min from the claim location
+  2. Know immediately whether her case is admissible
+  3. Not have to call back to find out where her case stands
 ```
 
-### User Journey Map — Déclaration sinistre IA
+### User Journey Map — AI claim filing
 
 ```
-Étape          : 1. Accès        2. Identification  3. Guidage IA   4. Upload      5. Confirmation
+Step           : 1. Access      2. Identification  3. AI guidance  4. Upload      5. Confirmation
 ─────────────────────────────────────────────────────────────────────────────────────────────────
-Action Marie   : Ouvre l'app     Connexion espace   Répond aux      Photo du       Reçoit n° dossier
-                                 assuré             questions IA    véhicule       + délai estimé
+Marie's action : Opens the app  Policyholder       Answers the     Photo of the   Receives case no.
+                                login              AI questions    vehicle        + estimated time
 ─────────────────────────────────────────────────────────────────────────────────────────────────
-Émotion        : 😟 Stressée     😐 Neutre           🙂 Guidée        😌 Soulagée     😊 Rassurée
+Emotion        : 😟 Stressed     😐 Neutral          🙂 Guided        😌 Relieved     😊 Reassured
 ─────────────────────────────────────────────────────────────────────────────────────────────────
-Points friction: Trouver le lien Mot de passe ?     Questions trop  Format photo   Pas de récap
-                 de déclaration                     techniques      refusé         PDF immédiat
+Friction points: Finding the    Password?          Too-technical   Photo format   No immediate
+                 filing link                        questions       rejected       PDF recap
 ─────────────────────────────────────────────────────────────────────────────────────────────────
-Opportunité IA : Deep link push  SSO ou magic link  NLP questions   Compression    PDF auto-généré
-                 notification                       adaptatives     auto mobile    + email
+AI opportunity : Deep-link push  SSO or magic link  Adaptive NLP    Auto mobile    Auto-generated
+                 notification                       questions       compression    PDF + email
 ```
 
-### Wireframes clés (lo-fi)
+### Key wireframes (lo-fi)
 
-**Écran 1 — Choix type de sinistre**
+**Screen 1 — Claim type selection**
 ```
 ┌──────────────────────────────┐
-│  🛡️ Prévalistest — Mon sinistre  │
+│  🛡️ Prévalistest — My claim   │
 ├──────────────────────────────┤
-│  Bonjour Marie,              │
-│  Quel type de sinistre ?     │
+│  Hello Marie,                │
+│  What type of claim?         │
 │                              │
 │  ┌──────────┐  ┌──────────┐  │
-│  │ 🚗 Auto  │  │ 🏠 Habita│  │
+│  │ 🚗 Auto  │  │ 🏠 Home  │  │
 │  └──────────┘  └──────────┘  │
 │                              │
 │  ┌──────────────────────────┐│
-│  │ 📞 Urgence — Appeler     ││
+│  │ 📞 Emergency — Call      ││
 │  └──────────────────────────┘│
 └──────────────────────────────┘
 ```
 
-**Écran 2 — Guidage IA (question adaptative)**
+**Screen 2 — AI guidance (adaptive question)**
 ```
 ┌──────────────────────────────┐
-│  🚗 Sinistre Auto — Étape 2/5│
+│  🚗 Auto claim — Step 2/5    │
 │  ────────────────            │
 │                              │
-│  L'accident implique-t-il    │
-│  un autre véhicule ?         │
+│  Does the accident involve   │
+│  another vehicle?            │
 │                              │
 │  ┌──────────┐  ┌──────────┐  │
-│  │  ✅ Oui  │  │  ❌ Non  │  │
+│  │  ✅ Yes  │  │  ❌ No   │  │
 │  └──────────┘  └──────────┘  │
 │                              │
-│  ℹ️ Si oui, vous aurez       │
-│  besoin du constat amiable   │
+│  ℹ️ If yes, you'll need the  │
+│  accident report form        │
 └──────────────────────────────┘
 ```
 
 ---
 
-## STEP-03 — PO-SCRUM · Backlog initial
+## STEP-03 — PO-SCRUM · Initial backlog
 
-### Épics
+### Epics
 
-> Priorisation WSJF (SAFe) — CoD = BV + TC + RR/OE · WSJF = CoD / Size · cotation relative, plus petit = 1 par colonne · Fibonacci : 1·2·3·5·8·13
-> BV : Business Value · TC : Time Criticality · RR/OE : Risk Reduction / Opportunity Enablement
+> WSJF prioritization (SAFe) — CoD = BV + TC + RR/OE · WSJF = CoD / Size · relative rating, smallest = 1 per column · Fibonacci: 1·2·3·5·8·13
+> BV: Business Value · TC: Time Criticality · RR/OE: Risk Reduction / Opportunity Enablement
 
-| ID | Libellé | BV | TC | RR/OE | CoD | Size | WSJF | Rang |
+| ID | Label | BV | TC | RR/OE | CoD | Size | WSJF | Rank |
 |----|---------|----|----|-------|-----|------|------|------|
-| EP-04 | Conformité RGPD + AI Act | 8 | 13 | 13 | 34 | 3 | **11,3** | #1 |
-| EP-03 | Suivi et notification | 1 | 1 | 1 | 3 | 1 | **3,0** | #2 |
-| EP-02 | Gestion documentaire sinistre | 5 | 3 | 3 | 11 | 5 | **2,2** | #3 |
-| EP-01 | Parcours déclaration guidée IA | 13 | 8 | 5 | 26 | 13 | **2,0** | #4 |
+| EP-04 | GDPR + AI Act compliance | 8 | 13 | 13 | 34 | 3 | **11.3** | #1 |
+| EP-03 | Tracking and notification | 1 | 1 | 1 | 3 | 1 | **3.0** | #2 |
+| EP-02 | Claim document management | 5 | 3 | 3 | 11 | 5 | **2.2** | #3 |
+| EP-01 | AI-guided claim-filing journey | 13 | 8 | 5 | 26 | 13 | **2.0** | #4 |
 
-### User Stories — Backlog initial priorisé
+### User Stories — Prioritized initial backlog
 
-| ID | User Story | Épic | MoSCoW | SP |
+| ID | User Story | Epic | MoSCoW | SP |
 |----|-----------|------|--------|----|
-| US-01 | En tant qu'assuré, je veux choisir le type de sinistre (Auto/Habitation) afin d'accéder au parcours adapté | EP-01 | Must | 3 |
-| US-02 | En tant qu'assuré, je veux répondre à des questions guidées par l'IA afin de remplir ma déclaration sans erreur | EP-01 | Must | 8 |
-| US-03 | En tant qu'assuré, je veux uploader des photos depuis mon mobile afin de documenter les dégâts sans démarche complémentaire | EP-02 | Must | 5 |
-| US-04 | En tant qu'assuré, je veux recevoir un numéro de dossier et un délai estimé dès la soumission afin de savoir où j'en suis | EP-03 | Must | 3 |
-| US-05 | En tant qu'assuré, je veux recevoir un email de confirmation avec récapitulatif PDF afin d'avoir une preuve de ma déclaration | EP-03 | Should | 5 |
-| US-06 | En tant qu'assuré, je veux donner mon consentement explicite à l'utilisation de l'IA afin d'être informé de mes droits | EP-04 | Must | 3 |
-| US-07 | En tant que gestionnaire, je veux recevoir un dossier pré-qualifié par l'IA afin de traiter sans relance client | EP-01 | Must | 8 |
-| US-08 | En tant que DPO, je veux un log automatique de chaque suggestion IA afin de répondre aux exigences AI Act | EP-04 | Must | 5 |
-| US-09 | En tant qu'assuré, je veux suivre le statut de mon dossier en temps réel afin d'éviter d'appeler le service client | EP-03 | Could | 5 |
-| US-10 | En tant qu'assuré, je veux déclarer en < 10 min sur mobile afin de ne pas perdre de temps sur le lieu du sinistre | EP-01 | Must | 13 |
+| US-01 | As a policyholder, I want to choose the claim type (Auto/Home) so that I reach the matching journey | EP-01 | Must | 3 |
+| US-02 | As a policyholder, I want to answer AI-guided questions so that I fill in my claim without errors | EP-01 | Must | 8 |
+| US-03 | As a policyholder, I want to upload photos from my phone so that I document the damage with no extra step | EP-02 | Must | 5 |
+| US-04 | As a policyholder, I want to receive a case number and an estimated time at submission so that I know where I stand | EP-03 | Must | 3 |
+| US-05 | As a policyholder, I want to receive a confirmation email with a PDF recap so that I have proof of my filing | EP-03 | Should | 5 |
+| US-06 | As a policyholder, I want to give explicit consent to the use of AI so that I am informed of my rights | EP-04 | Must | 3 |
+| US-07 | As a handler, I want to receive an AI pre-qualified case so that I process it without chasing the client | EP-01 | Must | 8 |
+| US-08 | As a DPO, I want an automatic log of every AI suggestion so that I meet the AI Act requirements | EP-04 | Must | 5 |
+| US-09 | As a policyholder, I want to track my case status in real time so that I avoid calling customer service | EP-03 | Could | 5 |
+| US-10 | As a policyholder, I want to file in < 10 min on mobile so that I don't waste time at the claim location | EP-01 | Must | 13 |
 
-**Vélocité estimée** : ~40 SP sprint 1 · MVP en 3 sprints (12 semaines)
+**Estimated velocity**: ~40 SP sprint 1 · MVP in 3 sprints (12 weeks)
 
 ---
 
-## STEP-04 — QA-AGILE · Critères d'acceptation Gherkin
+## STEP-04 — QA-AGILE · Gherkin acceptance criteria
 
-### US-02 — Guidage IA déclaration
+### US-02 — AI claim-filing guidance
 
 ```gherkin
-Feature: Guidage IA déclaration sinistre auto
-  En tant qu'assuré mobile,
-  Je veux être guidé par des questions adaptatives
-  Afin de compléter ma déclaration sans erreur en moins de 10 minutes.
+Feature: AI guidance for auto claim filing
+  As a mobile policyholder,
+  I want to be guided by adaptive questions
+  So that I complete my claim filing without errors in under 10 minutes.
 
   Background:
-    Given Marie est connectée à son espace assuré
-    And elle a sélectionné "Sinistre Auto"
+    Given Marie is logged into her policyholder account
+    And she has selected "Auto claim"
 
-  Scenario: Parcours nominal — sinistre sans tiers
-    When elle répond "Non" à "Implique-t-il un autre véhicule ?"
-    Then le formulaire n'affiche pas les champs "Coordonnées du tiers"
-    And l'étape suivante demande "Avez-vous des témoins ?"
-    And la barre de progression indique "Étape 2/4"
+  Scenario: Nominal journey — claim with no third party
+    When she answers "No" to "Does it involve another vehicle?"
+    Then the form does not display the "Third-party details" fields
+    And the next step asks "Do you have any witnesses?"
+    And the progress bar shows "Step 2/4"
 
-  Scenario: Parcours avec tiers — constat amiable requis
-    When elle répond "Oui" à "Implique-t-il un autre véhicule ?"
-    Then l'IA affiche le message "Vous aurez besoin du constat amiable"
-    And un champ upload "Constat amiable (PDF ou photo)" est activé
-    And l'étape compte 5 étapes au lieu de 4
+  Scenario: Journey with third party — accident report required
+    When she answers "Yes" to "Does it involve another vehicle?"
+    Then the AI displays the message "You will need the accident report form"
+    And an upload field "Accident report (PDF or photo)" is enabled
+    And the journey counts 5 steps instead of 4
 
-  Scenario: Abandon et reprise
-    When Marie ferme l'application après l'étape 2
-    And elle revient sur la déclaration dans les 24h
-    Then elle voit le message "Reprendre votre déclaration en cours"
-    And ses réponses aux étapes 1 et 2 sont conservées
+  Scenario: Abandon and resume
+    When Marie closes the app after step 2
+    And she returns to the claim filing within 24h
+    Then she sees the message "Resume your claim in progress"
+    And her answers to steps 1 and 2 are preserved
 ```
 
-### US-06 — Consentement RGPD + AI Act
+### US-06 — GDPR + AI Act consent
 
 ```gherkin
-Feature: Consentement utilisation IA
-  En tant qu'assuré,
-  Je veux donner un consentement explicite et éclairé
-  Afin de comprendre comment l'IA traite mes données.
+Feature: AI-use consent
+  As a policyholder,
+  I want to give explicit, informed consent
+  So that I understand how the AI processes my data.
 
-  Scenario: Affichage du consentement avant guidage IA
-    Given Marie accède au parcours de déclaration guidé
-    When le module IA est sur le point d'être activé
-    Then un écran de consentement s'affiche AVANT toute suggestion IA
-    And il mentionne : "L'IA suggère des champs à compléter — elle ne prend pas de décision"
-    And deux boutons sont proposés : "Accepter" et "Déclarer sans IA"
+  Scenario: Consent shown before AI guidance
+    Given Marie accesses the guided claim-filing journey
+    When the AI module is about to be activated
+    Then a consent screen is shown BEFORE any AI suggestion
+    And it states: "The AI suggests fields to fill in — it does not make decisions"
+    And two buttons are offered: "Accept" and "File without AI"
 
-  Scenario: Refus du consentement — formulaire standard accessible
-    When Marie clique sur "Déclarer sans IA"
-    Then elle accède au formulaire standard (sans guidage IA)
-    And aucune donnée n'est transmise au moteur IA
-    And un log "consentement_refusé" est enregistré (sans donnée personnelle)
+  Scenario: Consent refusal — standard form accessible
+    When Marie clicks "File without AI"
+    Then she reaches the standard form (no AI guidance)
+    And no data is sent to the AI engine
+    And a "consent_refused" log is recorded (with no personal data)
 ```
 
-### US-08 — Log AI Act
+### US-08 — AI Act log
 
 ```gherkin
-Feature: Traçabilité AI Act — log suggestions IA
-  En tant que DPO Prévalistest,
-  Je veux un registre automatique de chaque interaction IA
-  Afin de répondre aux obligations de l'Article 13 AI Act.
+Feature: AI Act traceability — AI suggestion log
+  As Prévalistest's DPO,
+  I want an automatic register of every AI interaction
+  So that I meet the AI Act Article 13 obligations.
 
-  Scenario: Log créé à chaque suggestion IA
-    Given Marie utilise le guidage IA avec consentement accordé
-    When l'IA génère une suggestion (ex: "champ tiers requis")
-    Then un log est créé avec : timestamp · hash anonymisé assuré · type_suggestion · modèle_IA · version
-    And ce log est accessible au DPO depuis le back-office conformité
-    And il est conservé 5 ans (obligation légale)
+  Scenario: Log created on each AI suggestion
+    Given Marie uses AI guidance with consent granted
+    When the AI generates a suggestion (e.g. "third-party field required")
+    Then a log is created with: timestamp · anonymized policyholder hash · suggestion_type · AI_model · version
+    And this log is accessible to the DPO from the compliance back-office
+    And it is retained for 5 years (legal obligation)
 
-  Scenario: Absence de log si consentement refusé
-    Given Marie a refusé le consentement IA
-    When elle soumet sa déclaration via formulaire standard
-    Then aucun log IA n'est créé pour cette déclaration
+  Scenario: No log if consent refused
+    Given Marie refused AI consent
+    When she submits her claim via the standard form
+    Then no AI log is created for this filing
 ```
 
 ---
 
-## STEP optionnel — JURIDIQUE-IA · Analyse AI Act
+## Optional STEP — JURIDIQUE-IA · AI Act analysis
 
-> Activé car US-08 implique une classification AI Act.
+> Activated because US-08 involves an AI Act classification.
 
-**Classification du système** : Risque limité (Article 6 — pas de décision automatisée sur droits individuels)
-**Obligations** : Transparence obligatoire (consentement + information) · Pas de conformité renforcée requise
-**Recommandation** : Documenter dans le registre des traitements RGPD (Article 30) + mention dans les CGU
-
----
-
-## Livrables finaux WF-001 — Checklist
-
-```
-✅ Carte des besoins métier (3 personas · AS-IS · périmètre in/out)
-✅ User journey map Marie — 5 étapes · courbe émotion · points de friction
-✅ 2 wireframes lo-fi mobile (écran choix sinistre · guidage IA)
-✅ Backlog initial : 10 US ordonnées par valeur · épics · estimations SP
-✅ Critères d'acceptation Gherkin : US-02 · US-06 · US-08 (3 features · 8 scénarios)
-✅ Analyse AI Act : classification risque limité · obligations transparence
-⬜ [optionnel] Plan de test Sprint 1 (non activé dans ce use case)
-⬜ [optionnel] ADKAR assessment (pas de transformation organisationnelle majeure)
-```
+**System classification**: Limited risk (Article 6 — no automated decision on individual rights)
+**Obligations**: Mandatory transparency (consent + information) · No reinforced compliance required
+**Recommendation**: Document in the GDPR processing register (Article 30) + mention in the ToS
 
 ---
 
-## Bilan d'exécution
+## WF-001 final deliverables — Checklist
 
-| Indicateur | Valeur |
+```
+✅ Business needs map (3 personas · AS-IS · in/out scope)
+✅ Marie user journey map — 5 steps · emotion curve · friction points
+✅ 2 lo-fi mobile wireframes (claim-type screen · AI guidance)
+✅ Initial backlog: 10 US ordered by value · epics · SP estimates
+✅ Gherkin acceptance criteria: US-02 · US-06 · US-08 (3 features · 8 scenarios)
+✅ AI Act analysis: limited-risk classification · transparency obligations
+⬜ [optional] Sprint 1 test plan (not activated in this use case)
+⬜ [optional] ADKAR assessment (no major organizational transformation)
+```
+
+---
+
+## Execution summary
+
+| Indicator | Value |
 |-----------|--------|
-| Durée totale | 75 min |
-| Agents activés | 5 (BA · UX · PO · QA · JURIDIQUE-IA) |
-| US produites | 10 US · 4 épics |
-| Scénarios Gherkin | 8 scénarios sur 3 US prioritaires |
-| Wireframes | 2 écrans lo-fi mobile |
-| Décisions documentées | 3 (périmètre · AI Act · consentement) |
-| Valeur clé démontrée | Parcours réduit de 47 champs → 5 étapes guidées · conformité IA intégrée dès le cadrage |
+| Total duration | 75 min |
+| Agents activated | 5 (BA · UX · PO · QA · JURIDIQUE-IA) |
+| US produced | 10 US · 4 epics |
+| Gherkin scenarios | 8 scenarios across 3 priority US |
+| Wireframes | 2 lo-fi mobile screens |
+| Documented decisions | 3 (scope · AI Act · consent) |
+| Key value demonstrated | Journey cut from 47 fields → 5 guided steps · AI compliance built in from scoping |
 
 ---
 
-*Use case fictif · WF-001 v1.2 · Généré avec Claude Code · 2026-05-26*
+*Fictional use case · WF-001 v1.2 · Generated with Claude Code · 2026-05-26*

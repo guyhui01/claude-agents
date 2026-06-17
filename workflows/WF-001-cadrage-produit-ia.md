@@ -1,120 +1,120 @@
-# WF-001 — Cadrage Produit IA
+# WF-001 — AI Product Scoping
 
-> Brief client → backlog priorisé + critères d'acceptation  
-> Certifications mobilisées : PSPO I · SAFe 6 · PMI-ACP · ISTQB · UX certifié
+> Client brief → prioritized backlog + acceptance criteria  
+> Certifications mobilized: PSPO I · SAFe 6 · PMI-ACP · ISTQB · certified UX
 
 ---
 
-## Carte d'identité
+## Identity card
 
 ```yaml
 id: "WF-001"
 nom: "Cadrage Produit IA"
-domaine: "Agile & Produit"
-declencheur: "Brief client reçu / idée produit à cadrer"
-resultat_final: "Backlog initial priorisé + critères d'acceptation Gherkin"
+domaine: "Agile & Product"
+declencheur: "Client brief received / product idea to scope"
+resultat_final: "Prioritized initial backlog + Gherkin acceptance criteria"
 duree_estimee: "45-90 min"
 modele_recommande: "claude-sonnet-4-6"
-modele_raison: "Workflow structuré et séquentiel — sorties balisées (US, Gherkin, wireframes). Sonnet 4.6 offre le meilleur rapport qualité/vitesse/coût pour ce type de production."
-modele_alternatif: "claude-opus-4-8"  # si brief client très ambigu ou contexte métier complexe (ex: réglementaire, niche sectorielle)
+modele_raison: "Structured, sequential workflow — well-bounded outputs (US, Gherkin, wireframes). Sonnet 4.6 offers the best quality/speed/cost ratio for this kind of production."
+modele_alternatif: "claude-opus-4-8"  # if the client brief is very ambiguous or the business context complex (e.g. regulatory, sector niche)
 agents_core:
-  - BUSINESS-ANALYST     # analyse des besoins métier, BPMN AS-IS
-  - UX-DESIGNER          # parcours utilisateur, personas, wireframes clés
-  - PO-SCRUM             # rédaction User Stories + priorisation MoSCoW
-  - QA-AGILE             # critères d'acceptation + cas de test BDD
+  - BUSINESS-ANALYST     # business-needs analysis, AS-IS BPMN
+  - UX-DESIGNER          # user journey, personas, key wireframes
+  - PO-SCRUM             # User Stories drafting + MoSCoW prioritization
+  - QA-AGILE             # acceptance criteria + BDD test cases
 agents_optionnels:
-  - CHANGE-MANAGER       # si transformation organisationnelle impliquée
-  - PRODUCT-MANAGER-SAFE # si contexte SAFe / multi-équipes
-  - JURIDIQUE-IA         # si données personnelles ou AI Act concerné
-  - AI-ARCHITECT         # si produit IA-natif (RAG, agents, multi-modèles)
-  - PROMPT-ENGINEER      # si conception de prompts ou agents IA dans le périmètre
-  - FINANCIAL-ANALYST    # si business case et chiffrage ROI requis dès le cadrage
+  - CHANGE-MANAGER       # if organizational transformation is involved
+  - PRODUCT-MANAGER-SAFE # if SAFe / multi-team context
+  - JURIDIQUE-IA         # if personal data or AI Act is concerned
+  - AI-ARCHITECT         # if AI-native product (RAG, agents, multi-model)
+  - PROMPT-ENGINEER      # if prompt or AI-agent design is in scope
+  - FINANCIAL-ANALYST    # if business case and ROI costing required from scoping
 statut: "disponible"
 version: "1.2"
 ```
 
 ---
 
-## Agents mobilisés
+## Agents mobilized
 
-| Étape | Agent | Rôle dans le workflow | Output |
+| Step | Agent | Role in the workflow | Output |
 |---|---|---|---|
-| 1 | BUSINESS-ANALYST | Analyse des besoins métier, BPMN AS-IS | Carte des besoins, périmètre in/out |
-| 2 | UX-DESIGNER | Parcours utilisateur, personas, wireframes clés | User journey map, maquettes |
-| 3 | PO-SCRUM | Rédaction User Stories + priorisation MoSCoW | Backlog initial (8-15 US) |
-| 4 | QA-AGILE | Critères d'acceptation + cas de test BDD | Scénarios Gherkin validés |
-| opt | CHANGE-MANAGER | Plan d'adoption si changement organisationnel | ADKAR assessment, plan comm |
-| opt | PRODUCT-MANAGER-SAFE | Alignement vision Programme si ART | Epic SAFe, Lean Business Case |
-| opt | AI-ARCHITECT | Esquisse d'architecture cible si produit IA-natif | Schéma archi C4 Level 1, choix LLM |
-| opt | PROMPT-ENGINEER | Conception baseline de prompts si IA | System prompt v0, stratégie tokens |
-| opt | FINANCIAL-ANALYST | Business case léger pour go/no-go | ROI estimé, payback, scénarios |
+| 1 | BUSINESS-ANALYST | Business-needs analysis, AS-IS BPMN | Needs map, in/out scope |
+| 2 | UX-DESIGNER | User journey, personas, key wireframes | User journey map, mockups |
+| 3 | PO-SCRUM | User Stories drafting + MoSCoW prioritization | Initial backlog (8-15 US) |
+| 4 | QA-AGILE | Acceptance criteria + BDD test cases | Validated Gherkin scenarios |
+| opt | CHANGE-MANAGER | Adoption plan if organizational change | ADKAR assessment, comms plan |
+| opt | PRODUCT-MANAGER-SAFE | Program vision alignment if ART | SAFe Epic, Lean Business Case |
+| opt | AI-ARCHITECT | Target architecture sketch if AI-native product | C4 Level 1 architecture diagram, LLM choice |
+| opt | PROMPT-ENGINEER | Baseline prompt design if AI | System prompt v0, token strategy |
+| opt | FINANCIAL-ANALYST | Light business case for go/no-go | Estimated ROI, payback, scenarios |
 
 ---
 
-## Paramètres contextuels
+## Contextual parameters
 
 ```
-CONTEXTE CLIENT (à renseigner avant le démarrage)
+CLIENT CONTEXT (to fill in before starting)
 ──────────────────────────────────────────────────
-Secteur          : [Banque / Assurance / Retail / Industrie / Autre]
-Type de produit  : [App IA / Portail B2B / CMS / Workflow interne / Autre]
-Taille équipe    : [Solo / 1 squad / Plusieurs équipes SAFe]
-Méthodo projet   : [Scrum / SAFe / Kanban / Hybride]
-Contraintes      : [Date jalon, budget, RGPD, AI Act, stack imposée]
-Langue livrables : [Français / Anglais / Bilingue]
-Niveau de détail : [MVP rapide / Cadrage complet / Backlog multi-sprints]
+Sector           : [Banking / Insurance / Retail / Industry / Other]
+Product type     : [AI app / B2B portal / CMS / Internal workflow / Other]
+Team size        : [Solo / 1 squad / Several SAFe teams]
+Project method   : [Scrum / SAFe / Kanban / Hybrid]
+Constraints      : [Milestone date, budget, GDPR, AI Act, imposed stack]
+Deliverables language : [French / English / Bilingual]
+Level of detail  : [Quick MVP / Full scoping / Multi-sprint backlog]
 ```
 
 ---
 
-## Diagramme de flux BPMN
+## BPMN flow diagram
 
 ```
-(DÉBUT — Brief client reçu)
+(START — Client brief received)
         │
         ▼
 [STEP-01 — BUSINESS-ANALYST]
-  Analyse métier, BPMN AS-IS,
-  identification des besoins
+  Business analysis, AS-IS BPMN,
+  needs identification
         │
         ▼
-<GATEWAY — Composante UX identifiée ?>
-  ├── OUI ──▶ [STEP-02 — UX-DESIGNER]
+<GATEWAY — UX component identified?>
+  ├── YES ──▶ [STEP-02 — UX-DESIGNER]
   │            User journey, personas, wireframes
   │                      │
-  └── NON ──────────────┘
+  └── NO ───────────────┘
         │
         ▼
 [STEP-03 — PO-SCRUM]
-  Rédaction User Stories,
-  priorisation MoSCoW / WSJF
+  User Stories drafting,
+  MoSCoW / WSJF prioritization
         │
         ▼
 [STEP-04 — QA-AGILE]
-  Critères d'acceptation Gherkin
-  Cas de tests BDD
+  Gherkin acceptance criteria
+  BDD test cases
         │
         ▼
-<GATEWAY — Transformation organisationnelle ?>
-  ├── OUI ──▶ [STEP-05 — CHANGE-MANAGER]
-  │            ADKAR, plan communication
+<GATEWAY — Organizational transformation?>
+  ├── YES ──▶ [STEP-05 — CHANGE-MANAGER]
+  │            ADKAR, communication plan
   │                      │
-  └── NON ──────────────┘
+  └── NO ───────────────┘
         │
         ▼
-<GATEWAY — Contexte SAFe / multi-équipes ?>
-  ├── OUI ──▶ [STEP-06 — PRODUCT-MANAGER-SAFE]
-  │            Epic SAFe, Lean Business Case
+<GATEWAY — SAFe / multi-team context?>
+  ├── YES ──▶ [STEP-06 — PRODUCT-MANAGER-SAFE]
+  │            SAFe Epic, Lean Business Case
   │                      │
-  └── NON ──────────────┘
+  └── NO ───────────────┘
         │
         ▼
-(FIN — Backlog + critères d'acceptation livrés)
+(END — Backlog + acceptance criteria delivered)
 ```
 
 ---
 
-## Étapes détaillées
+## Detailed steps
 
 ### STEP-01 — BUSINESS-ANALYST
 
@@ -122,44 +122,44 @@ Niveau de détail : [MVP rapide / Cadrage complet / Backlog multi-sprints]
 etape:
   id: "STEP-01"
   agent: "AGENT-BUSINESS-ANALYST"
-  role: "Analyse des besoins métier et élicitation"
+  role: "Business-needs analysis and elicitation"
   input:
-    - "Brief client (texte libre ou template structuré)"
-    - "Contexte secteur : [secteur]"
-    - "Contraintes identifiées : [budget, délai, tech, réglementaire]"
+    - "Client brief (free text or structured template)"
+    - "Sector context: [sector]"
+    - "Identified constraints: [budget, deadline, tech, regulatory]"
   output_attendu:
-    - "Carte des besoins (job-to-be-done structuré)"
-    - "Liste des parties prenantes avec rôles"
-    - "Périmètre fonctionnel : in scope / out of scope"
-    - "Processus AS-IS (BPMN simplifié si applicable)"
-    - "Questions ouvertes à clarifier"
-  condition_passage: "Output validé par l'utilisateur avant STEP-02"
-  si_echec: "Relancer STEP-01 avec brief enrichi ou atelier d'élicitation"
+    - "Needs map (structured job-to-be-done)"
+    - "Stakeholder list with roles"
+    - "Functional scope: in scope / out of scope"
+    - "AS-IS process (simplified BPMN if applicable)"
+    - "Open questions to clarify"
+  condition_passage: "Output validated by the user before STEP-02"
+  si_echec: "Restart STEP-01 with an enriched brief or an elicitation workshop"
   duree_estimee: "15 min"
-  execution: "séquentielle"
+  execution: "sequential"
 ```
 
-### STEP-02 — UX-DESIGNER (conditionnel)
+### STEP-02 — UX-DESIGNER (conditional)
 
 ```yaml
 etape:
   id: "STEP-02"
   agent: "AGENT-UX-DESIGNER"
-  condition_activation: "Produit avec interface utilisateur / parcours à concevoir"
-  role: "Conception parcours utilisateur et wireframes clés"
+  condition_activation: "Product with a user interface / journey to design"
+  role: "User-journey design and key wireframes"
   input:
-    - "Carte des besoins (STEP-01)"
-    - "Parties prenantes identifiées"
-    - "Contraintes UX : accessibilité WCAG, charte graphique, device cible"
+    - "Needs map (STEP-01)"
+    - "Identified stakeholders"
+    - "UX constraints: WCAG accessibility, brand guidelines, target device"
   output_attendu:
-    - "User journey map (étapes clés)"
-    - "2-3 personas principaux"
-    - "Wireframes des écrans clés (lo-fi)"
-    - "Points de friction identifiés"
-  condition_passage: "Wireframes validés avant rédaction US"
-  si_echec: "Reprendre avec hypothèses documentées"
+    - "User journey map (key steps)"
+    - "2-3 main personas"
+    - "Wireframes of the key screens (lo-fi)"
+    - "Identified friction points"
+  condition_passage: "Wireframes validated before US drafting"
+  si_echec: "Resume with documented assumptions"
   duree_estimee: "15-20 min"
-  execution: "séquentielle après STEP-01"
+  execution: "sequential after STEP-01"
 ```
 
 ### STEP-03 — PO-SCRUM
@@ -168,20 +168,20 @@ etape:
 etape:
   id: "STEP-03"
   agent: "AGENT-PO-SCRUM"
-  role: "Rédaction du backlog initial et priorisation"
+  role: "Initial backlog drafting and prioritization"
   input:
-    - "Carte des besoins (STEP-01)"
-    - "User journey map et wireframes (STEP-02 si disponible)"
-    - "Critères de priorisation : MoSCoW / WSJF / valeur métier"
+    - "Needs map (STEP-01)"
+    - "User journey map and wireframes (STEP-02 if available)"
+    - "Prioritization criteria: MoSCoW / WSJF / business value"
   output_attendu:
-    - "8 à 15 User Stories format : En tant que [persona], je veux [action] afin de [bénéfice]"
-    - "Chaque US avec : priorité, estimation story points, DoD"
-    - "Backlog ordonné par valeur / risque"
-    - "Épics de regroupement (3-5 max)"
-  condition_passage: "Backlog relu et approuvé par l'utilisateur"
-  si_echec: "Décomposer les US trop larges, reformuler si ambiguës"
+    - "8 to 15 User Stories in the format: As a [persona], I want [action] so that [benefit]"
+    - "Each US with: priority, story-point estimate, DoD"
+    - "Backlog ordered by value / risk"
+    - "Grouping Epics (3-5 max)"
+  condition_passage: "Backlog reviewed and approved by the user"
+  si_echec: "Break down overly broad US, reword if ambiguous"
   duree_estimee: "15-20 min"
-  execution: "séquentielle après STEP-02"
+  execution: "sequential after STEP-02"
 ```
 
 ### STEP-04 — QA-AGILE
@@ -190,93 +190,93 @@ etape:
 etape:
   id: "STEP-04"
   agent: "AGENT-QA-AGILE"
-  role: "Critères d'acceptation et scénarios BDD"
+  role: "Acceptance criteria and BDD scenarios"
   input:
-    - "Backlog priorisé (STEP-03)"
-    - "5 à 8 US prioritaires à couvrir"
-    - "Risques fonctionnels identifiés"
+    - "Prioritized backlog (STEP-03)"
+    - "5 to 8 priority US to cover"
+    - "Identified functional risks"
   output_attendu:
-    - "Critères d'acceptation Gherkin pour chaque US sélectionnée"
-      # Format : Given [contexte] / When [action] / Then [résultat attendu]
-    - "Cas nominaux + cas d'erreur + cas limites"
-    - "Plan de test sprint 1 (quick win)"
-  condition_passage: "Scénarios Gherkin validés fonctionnellement"
-  si_echec: "Affiner avec le BA ou le PO si ambiguïté fonctionnelle"
+    - "Gherkin acceptance criteria for each selected US"
+      # Format: Given [context] / When [action] / Then [expected result]
+    - "Nominal cases + error cases + boundary cases"
+    - "Sprint 1 test plan (quick win)"
+  condition_passage: "Gherkin scenarios functionally validated"
+  si_echec: "Refine with the BA or the PO if functional ambiguity"
   duree_estimee: "15 min"
-  execution: "séquentielle après STEP-03"
+  execution: "sequential after STEP-03"
 ```
 
-### STEP-05 — CHANGE-MANAGER (optionnel)
+### STEP-05 — CHANGE-MANAGER (optional)
 
 ```yaml
 etape:
   id: "STEP-05"
   agent: "AGENT-CHANGE-MANAGER"
-  condition_activation: "Transformation organisationnelle ou adoption IA impliquée"
-  role: "Évaluation du changement et plan d'accompagnement"
+  condition_activation: "Organizational transformation or AI adoption involved"
+  role: "Change assessment and support plan"
   input:
-    - "Périmètre fonctionnel (STEP-01)"
-    - "Parties prenantes impactées"
-    - "Niveau de maturité IA des équipes"
+    - "Functional scope (STEP-01)"
+    - "Impacted stakeholders"
+    - "Teams' AI maturity level"
   output_attendu:
-    - "Assessment ADKAR par population cible"
-    - "Plan de communication phase cadrage"
-    - "Identification des sponsors et relais"
-    - "Risques de résistance et mesures préventives"
+    - "ADKAR assessment per target population"
+    - "Scoping-phase communication plan"
+    - "Identification of sponsors and relays"
+    - "Resistance risks and preventive measures"
   duree_estimee: "10 min"
-  execution: "parallèle possible avec STEP-04"
+  execution: "parallel possible with STEP-04"
 ```
 
-### STEP-06 — PRODUCT-MANAGER-SAFE (optionnel)
+### STEP-06 — PRODUCT-MANAGER-SAFE (optional)
 
 ```yaml
 etape:
   id: "STEP-06"
   agent: "AGENT-PRODUCT-MANAGER-SAFE"
-  condition_activation: "Contexte SAFe — livraison multi-équipes ART"
-  role: "Alignement vision Programme et Lean Business Case"
+  condition_activation: "SAFe context — multi-team ART delivery"
+  role: "Program vision alignment and Lean Business Case"
   input:
-    - "Backlog initial (STEP-03)"
-    - "Contraintes budget et timeline"
-    - "Contexte portefeuille SAFe"
+    - "Initial backlog (STEP-03)"
+    - "Budget and timeline constraints"
+    - "SAFe portfolio context"
   output_attendu:
-    - "Epic SAFe avec Lean Business Case"
-    - "Hypothèses de valeur et critères de succès"
-    - "Dépendances identifiées avec les autres équipes ART"
+    - "SAFe Epic with Lean Business Case"
+    - "Value hypotheses and success criteria"
+    - "Dependencies identified with the other ART teams"
   duree_estimee: "15 min"
-  execution: "séquentielle après STEP-04"
+  execution: "sequential after STEP-04"
 ```
 
 ---
 
-## Livrables finaux
+## Final deliverables
 
 ```
-CHECKLIST WF-001
+WF-001 CHECKLIST
 ──────────────────────────────────────────────────────
-□ Carte des besoins métier (job-to-be-done)
-□ Périmètre fonctionnel in scope / out of scope
-□ User journey map + personas (si UX activé)
-□ Wireframes lo-fi des écrans clés (si UX activé)
-□ Backlog initial : 8-15 User Stories ordonnées
-□ Critères d'acceptation Gherkin (US prioritaires)
-□ Plan de test sprint 1
-□ [optionnel] Assessment ADKAR + plan communication
-□ [optionnel] Epic SAFe + Lean Business Case
+□ Business needs map (job-to-be-done)
+□ Functional scope in scope / out of scope
+□ User journey map + personas (if UX enabled)
+□ Lo-fi wireframes of the key screens (if UX enabled)
+□ Initial backlog: 8-15 ordered User Stories
+□ Gherkin acceptance criteria (priority US)
+□ Sprint 1 test plan
+□ [optional] ADKAR assessment + communication plan
+□ [optional] SAFe Epic + Lean Business Case
 ```
 
 ---
 
-## Commande de démarrage rapide
+## Quick-start command
 
 ```
-Lis le fichier AGENT-ORCHESTRATEUR-WORKFLOW.md et adopte le rôle d'orchestrateur.
-Confirme que tu es prêt, puis charge le workflow WF-001 depuis workflows/WF-001-cadrage-produit-ia.md.
+Read the file AGENT-ORCHESTRATEUR-WORKFLOW.md and take on the orchestrator role.
+Confirm you are ready, then load workflow WF-001 from workflows/WF-001-cadrage-produit-ia.md.
 
-Contexte client :
-- Secteur : [à renseigner]
-- Produit : [à renseigner]
-- Contraintes : [à renseigner]
+Client context:
+- Sector: [to fill in]
+- Product: [to fill in]
+- Constraints: [to fill in]
 
-Lance STEP-01 avec AGENT-BUSINESS-ANALYST.
+Launch STEP-01 with AGENT-BUSINESS-ANALYST.
 ```

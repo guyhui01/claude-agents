@@ -4,7 +4,7 @@
     "name": "claude-agents",
     "version": "v3.26.2"
   },
-  "generatedAt": "2026-06-16T13:29:57.454Z",
+  "generatedAt": "2026-06-17T16:14:46.488Z",
   "assets": [
     {
       "id": "AGENT-AI-ARCHITECT",
@@ -36,8 +36,8 @@
       "id": "AGENT-CHEF-PROJET-IA",
       "type": "agent",
       "path": "AGENT-CHEF-PROJET-IA.md",
-      "title": "Chef de Projet IA & PMO Expert",
-      "description": "Gestion de Projet IA — cadrage, planning, gestion risques, EVM",
+      "title": "AI Project Manager & PMO Expert",
+      "description": "AI Project Management — scoping, planning, risk management, EVM",
       "catalogVersion": "v3.26.2",
       "source": {
         "file": "AGENT-CHEF-PROJET-IA.md",

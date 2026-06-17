@@ -1,173 +1,173 @@
-# Skill — Post-Mortem & Retour d'Expérience (REX)
-> Certifications : PMP (PMI 2026), SRE Foundation (Google), Certified Agile Retrospective Facilitator, Blameless Post-Mortem Practitioner
-> Agent : AGENT-CHEF-PROJET-IA.md
-> Référentiels : **Google SRE** (Beyer et al. 2016 — postmortem culture, error budget) · **Blameless Post-Mortem** (Allspaw/Etsy 2012) · **5 Whys** (Toyota / Ohno) · PMBOK 7 (clôture / leçons apprises)
+# Skill — Post-Mortem & Lessons Learned (REX)
+> Certifications: PMP (PMI 2026), SRE Foundation (Google), Certified Agile Retrospective Facilitator, Blameless Post-Mortem Practitioner
+> Agent: AGENT-CHEF-PROJET-IA.md
+> Frameworks: **Google SRE** (Beyer et al. 2016 — postmortem culture, error budget) · **Blameless Post-Mortem** (Allspaw/Etsy 2012) · **5 Whys** (Toyota / Ohno) · PMBOK 7 (closeout / lessons learned)
 
-## Objectif
-Conduire des post-mortems constructifs et sans blame après un incident ou en fin de projet — identifier les causes profondes avec les 5 Pourquoi, produire des plans d'amélioration actionnables et capitaliser sur les apprentissages.
+## Objective
+Run constructive, blameless post-mortems after an incident or at project end — identify root causes with the 5 Whys, produce actionable improvement plans, and capitalize on the learnings.
 
-## Blameless Post-Mortem — Principes & Process
+## Blameless Post-Mortem — Principles & Process
 
-### Principes fondamentaux
+### Core principles
 
 ```
-BLAMELESS POST-MORTEM — RÈGLES D'OR
+BLAMELESS POST-MORTEM — GOLDEN RULES
 ─────────────────────────────────────────────────────────────
-1. On blâme les systèmes et processus, PAS les individus
-   "Le processus de validation n'a pas détecté le bug"
-   (pas "Jean n'a pas vérifié le code")
+1. Blame systems and processes, NOT individuals
+   "The validation process did not catch the bug"
+   (not "John didn't check the code")
 
-2. Les personnes font toujours de leur mieux avec les 
-   informations dont elles disposaient à ce moment-là
+2. People always do their best with the
+   information they had at the time
 
-3. L'objectif est d'APPRENDRE, pas de punir
+3. The goal is to LEARN, not to punish
 
-4. Tout incident est une opportunité d'améliorer le système
+4. Every incident is an opportunity to improve the system
 
-5. La transparence totale favorise la prévention future
+5. Full transparency drives future prevention
 ```
 
-### Template Post-Mortem Complet
+### Full Post-Mortem Template
 
 ```yaml
 # post_mortem_template.yaml
 metadata:
-  titre: "Incident #42 — API de scoring indisponible 4h"
-  date_incident: "2026-05-15T14:30:00+02:00"
-  date_resolution: "2026-05-15T18:45:00+02:00"
-  duree_incident: "4h15"
-  severite: "P1"           # P1 (critique) / P2 / P3 / P4
-  services_impactes: ["API scoring", "CRM Salesforce integration"]
-  auteur: "PM + SRE Lead"
-  statut: "DRAFT"          # DRAFT / IN_REVIEW / FINAL
-  date_publication: "2026-05-19"
+  title: "Incident #42 — Scoring API unavailable 4h"
+  incident_date: "2026-05-15T14:30:00+02:00"
+  resolution_date: "2026-05-15T18:45:00+02:00"
+  incident_duration: "4h15"
+  severity: "P1"           # P1 (critical) / P2 / P3 / P4
+  impacted_services: ["API scoring", "CRM Salesforce integration"]
+  author: "PM + SRE Lead"
+  status: "DRAFT"          # DRAFT / IN_REVIEW / FINAL
+  publication_date: "2026-05-19"
 
 impact:
-  utilisateurs_affectes: "~850 commerciaux — accès scoring indisponible"
-  revenue_impact: "Estimation : 12 000 euros (leads non traités)"
+  affected_users: "~850 sales reps — scoring access unavailable"
+  revenue_impact: "Estimate: 12,000 euros (leads not processed)"
   slo_breach: true
   error_budget_consumed_pct: 45
   external_communication: false
 
 timeline:
   - time: "14:28"
-    who: "Alerting Prometheus"
-    what: "Alerte SLO breach — error rate > 5% sur api-scoring"
+    who: "Prometheus alerting"
+    what: "SLO breach alert — error rate > 5% on api-scoring"
     type: "DETECTION"
   - time: "14:35"
     who: "On-call SRE (Bob)"
-    what: "Acknowledge alerte, début investigation"
+    what: "Acknowledge alert, start investigation"
     type: "RESPONSE"
   - time: "14:52"
     who: "Bob (SRE)"
-    what: "Identifie OOM sur pods scoring — modèle ML chargé 3x en mémoire"
+    what: "Identifies OOM on scoring pods — ML model loaded 3x in memory"
     type: "DIAGNOSIS"
   - time: "15:10"
     who: "Alice (ML Engineer)"
-    what: "Root cause confirmée : mise à jour modèle v2.1 sans test de charge"
+    what: "Root cause confirmed: model update v2.1 without load testing"
     type: "ROOT_CAUSE"
   - time: "15:30"
     who: "Alice + Bob"
-    what: "Rollback vers modèle v2.0 — service partiellement restauré"
+    what: "Rollback to model v2.0 — service partially restored"
     type: "MITIGATION"
   - time: "18:45"
     who: "Alice"
-    what: "Déploiement correctif mémoire — service pleinement restauré"
+    what: "Memory fix deployed — service fully restored"
     type: "RESOLUTION"
 
 root_cause_analysis:
-  methode: "5 Pourquoi"
-  cause_immediate: "OOM sur pods scoring — crash loop"
-  cinq_pourquoi:
-    - pourquoi: "Les pods scoring crashent en OOM"
-      parce_que: "Le modèle v2.1 consomme 3x plus de RAM que v2.0 (350MB vs 95MB)"
-    - pourquoi: "Le modèle consomme 3x plus de RAM"
-      parce_que: "Nouveau feature store charge 3 versions du modèle simultanément"
-    - pourquoi: "3 versions chargées simultanément"
-      parce_que: "Bug dans le lazy-loading du ModelRegistry introduit en v2.1"
-    - pourquoi: "Le bug n'a pas été détecté avant prod"
-      parce_que: "Les tests de charge ne mesurent pas la consommation mémoire"
-    - pourquoi: "Les tests de charge ne mesurent pas la mémoire"
-      parce_que: "Pas de test de régression mémoire dans le pipeline CI/CD"
+  method: "5 Whys"
+  immediate_cause: "OOM on scoring pods — crash loop"
+  five_whys:
+    - why: "The scoring pods crash with OOM"
+      because: "Model v2.1 uses 3x more RAM than v2.0 (350MB vs 95MB)"
+    - why: "The model uses 3x more RAM"
+      because: "The new feature store loads 3 model versions simultaneously"
+    - why: "3 versions loaded simultaneously"
+      because: "Bug in the ModelRegistry lazy-loading introduced in v2.1"
+    - why: "The bug was not caught before prod"
+      because: "Load tests do not measure memory consumption"
+    - why: "Load tests do not measure memory"
+      because: "No memory regression test in the CI/CD pipeline"
 
-  cause_racine_principale: "Absence de test de régression sur consommation mémoire en CI/CD"
-  facteurs_contributifs:
-    - "Pas d'alerting sur memory pressure avant OOM"
-    - "Limites K8s non ajustées après changement d'architecture"
-    - "Runbook de rollback mal documenté (30 min perdues)"
+  primary_root_cause: "No memory-consumption regression test in CI/CD"
+  contributing_factors:
+    - "No alerting on memory pressure before OOM"
+    - "K8s limits not adjusted after the architecture change"
+    - "Rollback runbook poorly documented (30 min lost)"
 
 action_plan:
   - id: AP-01
-    action: "Ajouter un test de régression mémoire dans le pipeline CI"
-    responsable: "Alice (ML Engineer)"
+    action: "Add a memory regression test to the CI pipeline"
+    owner: "Alice (ML Engineer)"
     deadline: "2026-05-26"
-    priorite: "P0"
+    priority: "P0"
     type: "PREVENTION"
   - id: AP-02
-    action: "Configurer une alerte Prometheus sur memory_usage > 80% (avant OOM)"
-    responsable: "Bob (SRE)"
+    action: "Configure a Prometheus alert on memory_usage > 80% (before OOM)"
+    owner: "Bob (SRE)"
     deadline: "2026-05-22"
-    priorite: "P0"
+    priority: "P0"
     type: "DETECTION"
   - id: AP-03
-    action: "Mettre à jour le runbook de rollback modèle ML (moins de 15 min)"
-    responsable: "Bob + Alice"
+    action: "Update the ML model rollback runbook (under 15 min)"
+    owner: "Bob + Alice"
     deadline: "2026-05-23"
-    priorite: "P1"
+    priority: "P1"
     type: "RESPONSE"
   - id: AP-04
-    action: "Ajouter les limites K8s dans les critères de Definition of Done"
-    responsable: "PM (Guy)"
+    action: "Add K8s limits to the Definition of Done criteria"
+    owner: "PM (Guy)"
     deadline: "2026-05-20"
-    priorite: "P1"
+    priority: "P1"
     type: "PROCESS"
 
 lessons_learned:
   positive:
-    - "Alerting Prometheus a détecté l'incident en 2 min (objectif < 5 min)"
-    - "Communication interne fluide entre SRE et ML team"
-    - "Rollback exécuté sans downtime supplémentaire"
+    - "Prometheus alerting caught the incident in 2 min (target < 5 min)"
+    - "Smooth internal communication between SRE and ML team"
+    - "Rollback executed with no additional downtime"
   to_improve:
-    - "Tests de charge insuffisants (mémoire non mesurée)"
-    - "Runbook incomplet — 30 min perdues à chercher la procédure"
-    - "Limites K8s non révisées lors du changement de modèle"
+    - "Insufficient load tests (memory not measured)"
+    - "Incomplete runbook — 30 min lost finding the procedure"
+    - "K8s limits not revised during the model change"
   share_with_team: true
 ```
 
-### Facilitation du Post-Mortem — Guide
+### Post-Mortem Facilitation — Guide
 
 ```
-DÉROULÉ DE LA RÉUNION POST-MORTEM (90 minutes)
+POST-MORTEM MEETING FLOW (90 minutes)
 ─────────────────────────────────────────────────────────────
-[00-05 min]  Règles du jeu
-             → Rappel : blameless, respect, focus système
-             → Facilitateur désigné (idéalement externe à l'incident)
+[00-05 min]  Ground rules
+             → Reminder: blameless, respect, system focus
+             → Designated facilitator (ideally external to the incident)
 
-[05-25 min]  Construction de la timeline
-             → Chacun partage sa perspective
-             → Chronologie partagée sur tableau blanc / Miro
-             → Questions : "Que savais-tu à ce moment ?", "Qu'as-tu décidé et pourquoi ?"
+[05-25 min]  Building the timeline
+             → Everyone shares their perspective
+             → Shared chronology on whiteboard / Miro
+             → Questions: "What did you know at the time?", "What did you decide and why?"
 
-[25-50 min]  Analyse des causes — 5 Pourquoi
-             → Partir du symptôme visible
-             → Questionner jusqu'à la cause système
-             → Identifier les facteurs contribuants
+[25-50 min]  Root cause analysis — 5 Whys
+             → Start from the visible symptom
+             → Question down to the system cause
+             → Identify contributing factors
 
-[50-70 min]  Plan d'actions
-             → Chaque cause racine = au moins 1 action
-             → Responsable + deadline explicites
-             → Pas plus de 5-7 actions (sinon trop dilué)
+[50-70 min]  Action plan
+             → Each root cause = at least 1 action
+             → Explicit owner + deadline
+             → No more than 5-7 actions (otherwise too diluted)
 
-[70-85 min]  Lessons learned & ce qui a bien fonctionné
-             → Reconnaître ce qui a bien marché
-             → Capitaliser pour partage avec d'autres équipes
+[70-85 min]  Lessons learned & what went well
+             → Acknowledge what worked well
+             → Capitalize for sharing with other teams
 
-[85-90 min]  Publication & suivi
-             → Draft disponible dans 48h
-             → Revue dans 2 semaines
+[85-90 min]  Publication & follow-up
+             → Draft available within 48h
+             → Review in 2 weeks
 ```
 
-## REX Projet — Clôture de Projet IA
+## Project REX — AI Project Closeout
 
 ```python
 # rex_project_template.py
@@ -195,54 +195,54 @@ class ProjectREX:
     def to_markdown(self) -> str:
         lines = [
             f"# REX — {self.project_name}",
-            f"**Durée :** {self.duration_weeks} semaines | "
-            f"**Budget :** {self.budget_initial/1000:.0f}k€ → {self.budget_final/1000:.0f}k€ "
+            f"**Duration:** {self.duration_weeks} weeks | "
+            f"**Budget:** €{self.budget_initial/1000:.0f}k → €{self.budget_final/1000:.0f}k "
             f"({'+'if self.budget_variance_pct>0 else ''}{self.budget_variance_pct:.1f}%)",
             "",
-            "## Succès",
+            "## Successes",
             *[f"- {s}" for s in self.successes],
             "",
-            "## Difficultés rencontrées",
+            "## Challenges encountered",
             *[f"- {c}" for c in self.challenges],
             "",
-            "## A reproduire sur les prochains projets",
+            "## To replicate on the next projects",
             *[f"- {r}" for r in self.what_to_replicate],
             "",
-            "## A éviter absolument",
+            "## To absolutely avoid",
             *[f"- {a}" for a in self.what_to_avoid],
             "",
-            "## Recommandations pour le prochain projet IA",
+            "## Recommendations for the next AI project",
             *[f"- {r}" for r in self.recommendations_next_project],
         ]
         return "\n".join(lines)
 ```
 
-## Livrables
-- Document de post-mortem complet (timeline, 5 pourquoi, plan d'action)
-- REX de fin de projet (succès, difficultés, recommandations)
-- Suivi des actions post-mortem (tableau Jira/Linear)
-- Partage de connaissances (wiki, lunch & learn)
-- Rapport de maturité de l'équipe SRE/projet
+## Deliverables
+- Full post-mortem document (timeline, 5 whys, action plan)
+- End-of-project REX (successes, challenges, recommendations)
+- Post-mortem action tracking (Jira/Linear board)
+- Knowledge sharing (wiki, lunch & learn)
+- SRE/project team maturity report
 
-## Format de sortie
-Précise : type d'événement (incident de production / clôture projet / fin de sprint), sévérité, durée de l'impact, participants disponibles, outil de documentation (Confluence/Notion/Google Docs), délai pour publication du post-mortem.
+## Output format
+Specify: event type (production incident / project closeout / sprint end), severity, impact duration, available attendees, documentation tool (Confluence/Notion/Google Docs), deadline for post-mortem publication.
 
 ## Anti-patterns
-- ❌ **Blâmer les individus** au lieu des systèmes/processus (tue la transparence — règle blameless)
-- ❌ **5 Pourquoi arrêté trop tôt** : s'arrêter à la cause technique sans remonter à la cause process
-- ❌ **Plan d'action sans owner ni deadline** : un post-mortem sans suivi est un rituel vide
-- ❌ **Trop d'actions (> 5-7)** : dilution, rien n'est fait
-- ❌ **Post-mortem jamais partagé** : l'apprentissage reste dans l'équipe, l'incident se reproduit ailleurs
-- ❌ **Hindsight bias** : juger les décisions passées avec l'information d'aujourd'hui
+- ❌ **Blaming individuals** instead of systems/processes (kills transparency — blameless rule)
+- ❌ **5 Whys stopped too early**: stopping at the technical cause without reaching the process cause
+- ❌ **Action plan with no owner or deadline**: a post-mortem with no follow-up is an empty ritual
+- ❌ **Too many actions (> 5-7)**: dilution, nothing gets done
+- ❌ **Post-mortem never shared**: the learning stays in the team, the incident recurs elsewhere
+- ❌ **Hindsight bias**: judging past decisions with today's information
 
 ## Sources
 - **Beyer B. et al.** — *Site Reliability Engineering* (Google, O'Reilly 2016) — postmortem culture, error budget
 - **Allspaw J.** — *Blameless PostMortems and a Just Culture* (Etsy, 2012)
-- **Ohno T.** — méthode des **5 Pourquoi** (Toyota Production System)
-- **PMBOK 7** (PMI 2021) — clôture de projet et leçons apprises
+- **Ohno T.** — the **5 Whys** method (Toyota Production System)
+- **PMBOK 7** (PMI 2021) — project closeout and lessons learned
 
-## Voir aussi
-- [`gestion-risques-projet.md`](gestion-risques-projet.md) — risques réalisés → incidents (boucle)
-- [`reporting-codir.md`](reporting-codir.md) — escalade et communication d'incident
-- [`../scrum_master/`](../scrum_master/) — rétrospectives Agile (complément du REX projet)
-- [`../mlops_engineer/`](../mlops_engineer/) — incidents techniques ML (drift, OOM, rollback modèle)
+## See also
+- [`gestion-risques-projet.md`](gestion-risques-projet.md) — realized risks → incidents (loop)
+- [`reporting-codir.md`](reporting-codir.md) — incident escalation and communication
+- [`../scrum_master/`](../scrum_master/) — Agile retrospectives (complement to the project REX)
+- [`../mlops_engineer/`](../mlops_engineer/) — ML technical incidents (drift, OOM, model rollback)

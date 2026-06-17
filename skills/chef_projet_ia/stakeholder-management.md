@@ -1,14 +1,14 @@
-# Skill — Gestion des Parties Prenantes
-> Certifications : PMP (PMI 2026), PRINCE2 Practitioner, Prosci Change Management Certified, ADKAR Practitioner
-> Agent : AGENT-CHEF-PROJET-IA.md
-> Référentiels : **Matrice Mendelow** pouvoir/intérêt (1991) · **PROSCI ADKAR** (Hiatt 2006) · **PMBOK 7** (engagement des parties prenantes) · couplage Kotter / change management
+# Skill — Stakeholder Management
+> Certifications: PMP (PMI 2026), PRINCE2 Practitioner, Prosci Change Management Certified, ADKAR Practitioner
+> Agent: AGENT-CHEF-PROJET-IA.md
+> Frameworks: **Mendelow matrix** power/interest (1991) · **PROSCI ADKAR** (Hiatt 2006) · **PMBOK 7** (stakeholder engagement) · Kotter / change management coupling
 
-## Objectif
-Identifier, analyser et engager toutes les parties prenantes d'un projet IA — en utilisant la matrice influence/intérêt, un plan de communication adapté et les techniques de change management ADKAR pour maximiser l'adoption.
+## Objective
+Identify, analyze, and engage all the stakeholders of an AI project — using the influence/interest matrix, a tailored communication plan, and ADKAR change-management techniques to maximize adoption.
 
-## Cartographie des Parties Prenantes
+## Stakeholder Mapping
 
-### Matrice Influence / Intérêt
+### Influence / Interest Matrix
 
 ```python
 # stakeholder_matrix.py
@@ -30,13 +30,13 @@ class Stakeholder:
     @property
     def quadrant(self) -> Quadrant:
         if self.influence >= 3 and self.interest >= 3:
-            return "MANAGE_CLOSELY"     # Gérer de près — partenaires clés
+            return "MANAGE_CLOSELY"     # Manage closely — key partners
         elif self.influence >= 3 and self.interest < 3:
-            return "KEEP_SATISFIED"     # Satisfaire — décideurs peu impliqués
+            return "KEEP_SATISFIED"     # Keep satisfied — uninvolved decision-makers
         elif self.influence < 3 and self.interest >= 3:
-            return "KEEP_INFORMED"      # Informer — utilisateurs, experts
+            return "KEEP_INFORMED"      # Keep informed — users, experts
         else:
-            return "MONITOR"            # Surveiller — périphériques
+            return "MONITOR"            # Monitor — peripheral
 
     @property
     def priority_score(self) -> int:
@@ -44,166 +44,166 @@ class Stakeholder:
 
 
 def generate_engagement_plan(stakeholders: list[Stakeholder]) -> str:
-    """Génère un plan d'engagement priorisé."""
+    """Generate a prioritized engagement plan."""
     sorted_shs = sorted(stakeholders, key=lambda x: x.priority_score, reverse=True)
 
-    plan = ["# Plan d'Engagement des Parties Prenantes\n"]
+    plan = ["# Stakeholder Engagement Plan\n"]
     for sh in sorted_shs:
         plan.append(f"## {sh.name} ({sh.role})")
-        plan.append(f"- Quadrant : **{sh.quadrant}**")
-        plan.append(f"- Stance actuelle : {sh.current_stance}")
-        plan.append(f"- Préoccupations clés : {', '.join(sh.key_concerns)}")
-        plan.append(f"- Stratégie : {sh.engagement_strategy}\n")
+        plan.append(f"- Quadrant: **{sh.quadrant}**")
+        plan.append(f"- Current stance: {sh.current_stance}")
+        plan.append(f"- Key concerns: {', '.join(sh.key_concerns)}")
+        plan.append(f"- Strategy: {sh.engagement_strategy}\n")
     return "\n".join(plan)
 
 
-# Exemple projet IA
+# AI project example
 stakeholders = [
-    Stakeholder("Marie D.", "DSI", 5, 4, "SUPPORTIVE",
-        ["Sécurité des données", "Conformité", "ROI infrastructure"],
-        "Steering Committee mensuel, accès direct en cas de risque critique"),
-    Stakeholder("Jean P.", "DG Commercial", 5, 5, "CHAMPION",
-        ["Taux de conversion", "Adoption par les commerciaux"],
-        "Co-sponsor, présent à toutes les démos, testimonial interne"),
+    Stakeholder("Marie D.", "CIO", 5, 4, "SUPPORTIVE",
+        ["Data security", "Compliance", "Infrastructure ROI"],
+        "Monthly Steering Committee, direct access in case of critical risk"),
+    Stakeholder("Jean P.", "Chief Sales Officer", 5, 5, "CHAMPION",
+        ["Conversion rate", "Adoption by sales reps"],
+        "Co-sponsor, present at every demo, internal testimonial"),
     Stakeholder("Sophie L.", "DPO", 4, 5, "NEUTRAL",
-        ["RGPD", "AIPD", "Minimisation données", "Droits des personnes"],
-        "Workshop dédié S1, revue mensuelle, draft AIPD fourni en S2"),
-    Stakeholder("Équipe Commerciale", "Utilisateurs finaux", 2, 4, "RESISTANT",
-        ["Charge de travail", "Peur d'être remplacé", "Complexité outil"],
-        "Ateliers co-design S3, formation dédiée, champion interne identifié"),
+        ["GDPR", "DPIA", "Data minimization", "Individuals' rights"],
+        "Dedicated workshop W1, monthly review, DPIA draft provided in W2"),
+    Stakeholder("Sales Team", "End users", 2, 4, "RESISTANT",
+        ["Workload", "Fear of being replaced", "Tool complexity"],
+        "Co-design workshops W3, dedicated training, internal champion identified"),
 ]
 ```
 
-### Plan de Communication
+### Communication Plan
 
 ```yaml
 # communication_plan.yaml
 communications:
-  - audience: "Steering Committee (DSI, DG, Sponsor)"
-    format: "One-pager + 15 min présentation"
-    frequence: "Mensuelle"
-    canal: "Réunion en présentiel"
-    contenu: "Statut RAG, EVM, risques escaladés, décisions requises"
-    responsable: "PM"
+  - audience: "Steering Committee (CIO, executive mgmt, Sponsor)"
+    format: "One-pager + 15 min presentation"
+    frequency: "Monthly"
+    channel: "In-person meeting"
+    content: "RAG status, EVM, escalated risks, required decisions"
+    owner: "PM"
 
-  - audience: "Équipe Projet"
+  - audience: "Project Team"
     format: "Daily standup (15 min)"
-    frequence: "Quotidienne"
-    canal: "Teams / présentiel"
-    contenu: "Avancement, blocages, dépendances"
-    responsable: "Scrum Master"
+    frequency: "Daily"
+    channel: "Teams / in-person"
+    content: "Progress, blockers, dependencies"
+    owner: "Scrum Master"
 
   - audience: "Sprint Review"
-    format: "Démo + feedback (1h)"
-    frequence: "Bi-hebdomadaire"
-    canal: "Présentiel + enregistrement"
-    contenu: "Démos fonctionnalités livrées, feedback utilisateurs"
-    responsable: "PO"
+    format: "Demo + feedback (1h)"
+    frequency: "Bi-weekly"
+    channel: "In-person + recording"
+    content: "Demos of delivered features, user feedback"
+    owner: "PO"
 
-  - audience: "DPO + Juristes"
-    format: "Revue conformité (45 min)"
-    frequence: "Par sprint"
-    canal: "Réunion dédiée"
-    contenu: "Avancement AIPD, nouvelles fonctionnalités à valider"
-    responsable: "PM + Data Scientist Lead"
+  - audience: "DPO + Legal counsel"
+    format: "Compliance review (45 min)"
+    frequency: "Per sprint"
+    channel: "Dedicated meeting"
+    content: "DPIA progress, new features to validate"
+    owner: "PM + Data Scientist Lead"
 
-  - audience: "Utilisateurs finaux (équipe commerciale)"
-    format: "Newsletter projet (email)"
-    frequence: "Mensuelle"
-    canal: "Email + intranet"
-    contenu: "Progrès, bénéfices attendus, comment participer aux tests"
-    responsable: "Change Manager"
+  - audience: "End users (sales team)"
+    format: "Project newsletter (email)"
+    frequency: "Monthly"
+    channel: "Email + intranet"
+    content: "Progress, expected benefits, how to take part in testing"
+    owner: "Change Manager"
 ```
 
-## Change Management — Modèle ADKAR
+## Change Management — ADKAR Model
 
-### Application ADKAR au projet IA
-
-```
-ADKAR — Changement "Adoption du Scoring IA par l'équipe commerciale"
-
-A — AWARENESS (Conscience du changement)
-   Actions : Communication DSI + DG lors du kick-off
-   Message : "L'IA va prioriser vos leads — vous gagnerez 30% de temps"
-   Canal : All-hands meeting, newsletter, vidéo du DG
-   Timeline : S1-S2
-   Mesure : 90% de l'équipe consciente de l'arrivée de l'outil (survey)
-
-D — DESIRE (Désir de changer)
-   Actions : Ateliers co-design avec commerciaux ambassadeurs
-   Message : "Vous avez co-conçu cet outil — vos retours ont été intégrés"
-   Canal : Workshops, témoignages champions
-   Timeline : S3-S5
-   Mesure : 75% souhaitent utiliser l'outil (survey)
-
-K — KNOWLEDGE (Savoir comment changer)
-   Actions : Formation 2h + documentation utilisateur simple
-   Message : "3 clics pour voir votre score et les raisons"
-   Canal : E-learning, quick start guide, vidéos courtes
-   Timeline : S10-S11
-   Mesure : 80% formés, score quiz > 80%
-
-A — ABILITY (Capacité à changer)
-   Actions : Accompagnement hypercare 4 semaines post go-live
-   Message : "Support disponible — feedback pris en compte chaque semaine"
-   Canal : Slack dédié, office hours hebdo, FAQ vivante
-   Timeline : S13-S17
-   Mesure : Taux d'utilisation > 60% en semaine 4
-
-R — REINFORCEMENT (Renforcement)
-   Actions : Partage des succès (leads convertis grâce au scoring)
-   Message : "L'équipe A a augmenté son taux de conversion de 18% en 1 mois"
-   Canal : Newsletter, réunion équipe, gamification
-   Timeline : S17+
-   Mesure : Taux d'utilisation stable > 80% à M+3
-```
-
-### Gestion des Conflits & Résistances
+### Applying ADKAR to the AI project
 
 ```
-NIVEAU DE RESISTANCE    APPROCHE RECOMMANDÉE
+ADKAR — Change "Adoption of AI Scoring by the sales team"
+
+A — AWARENESS (Awareness of the change)
+   Actions: CIO + executive mgmt communication at kickoff
+   Message: "AI will prioritize your leads — you'll save 30% of your time"
+   Channel: All-hands meeting, newsletter, video from the exec sponsor
+   Timeline: W1-W2
+   Measure: 90% of the team aware the tool is coming (survey)
+
+D — DESIRE (Desire to change)
+   Actions: Co-design workshops with sales-rep ambassadors
+   Message: "You co-designed this tool — your feedback was incorporated"
+   Channel: Workshops, champion testimonials
+   Timeline: W3-W5
+   Measure: 75% want to use the tool (survey)
+
+K — KNOWLEDGE (Knowing how to change)
+   Actions: 2h training + simple user documentation
+   Message: "3 clicks to see your score and the reasons"
+   Channel: E-learning, quick start guide, short videos
+   Timeline: W10-W11
+   Measure: 80% trained, quiz score > 80%
+
+A — ABILITY (Ability to change)
+   Actions: 4-week hypercare support post go-live
+   Message: "Support available — feedback reviewed every week"
+   Channel: Dedicated Slack, weekly office hours, living FAQ
+   Timeline: W13-W17
+   Measure: Usage rate > 60% by week 4
+
+R — REINFORCEMENT (Reinforcement)
+   Actions: Sharing successes (leads converted thanks to scoring)
+   Message: "Team A increased its conversion rate by 18% in 1 month"
+   Channel: Newsletter, team meeting, gamification
+   Timeline: W17+
+   Measure: Stable usage rate > 80% at M+3
+```
+
+### Conflict & Resistance Management
+
+```
+RESISTANCE LEVEL        RECOMMENDED APPROACH
 ────────────────────────────────────────────────────────────
-Questionnement          Écoute active, réponse aux objections
-(normal)                Workshop d'expression, Q&A structuré
+Questioning             Active listening, answering objections
+(normal)                Expression workshop, structured Q&A
 
-Opposition modérée      Identifier les préoccupations profondes
-(inquiétude)            1:1 avec le manager direct, impliquer dans tests
+Moderate opposition     Identify the deep concerns
+(concern)               1:1 with the direct manager, involve in testing
 
-Résistance active       Réunion trilatérale (sponsor + concerné + PM)
-(blocage)               Escalade si nécessaire, plan alternatif
+Active resistance       Three-way meeting (sponsor + person + PM)
+(blocking)              Escalate if needed, alternative plan
 
-Sabotage                Escalade au sponsor, arbitrage RH si nécessaire
-(rare)                  (Situation à éviter avec un bon ADKAR)
+Sabotage                Escalate to the sponsor, HR arbitration if needed
+(rare)                  (Situation to avoid with good ADKAR)
 ```
 
-## Livrables
-- Registre des parties prenantes (cartographie, stance, plan d'engagement)
-- Matrice influence/intérêt (format visuel 2x2)
-- Plan de communication complet par audience
-- Plan ADKAR pour les populations impactées
-- Rapport d'adoption post go-live (semaines 1, 4, 12)
-- Template de résolution des conflits
+## Deliverables
+- Stakeholder register (mapping, stance, engagement plan)
+- Influence/interest matrix (visual 2x2 format)
+- Full communication plan per audience
+- ADKAR plan for the impacted populations
+- Post go-live adoption report (weeks 1, 4, 12)
+- Conflict resolution template
 
-## Format de sortie
-Précise : nombre et type de parties prenantes, transformation impactée (processus métier, outil, organisation), taille de la population impactée, expérience ADKAR de l'équipe, culture de l'entreprise (top-down / participative), délai pour le changement.
+## Output format
+Specify: number and type of stakeholders, impacted transformation (business process, tool, organization), size of the impacted population, the team's ADKAR experience, company culture (top-down / participative), timeframe for the change.
 
 ## Anti-patterns
-- ❌ **Cartographie figée** : la matrice influence/intérêt doit être révisée (les stances évoluent)
-- ❌ **Communication uniforme** : même message pour le DG et l'utilisateur final (≠ besoins)
-- ❌ **Sauter une étape ADKAR** : former (K) sans avoir créé le désir (D) → adoption qui échoue
-- ❌ **Ignorer la résistance** au lieu de l'adresser (la résistance non traitée devient sabotage)
-- ❌ **Confondre Mendelow et RACI** : pouvoir/intérêt (engagement) ≠ responsabilités (exécution)
-- ❌ **Mesurer l'adoption seulement au go-live** : suivre L1→L4 (conscience → renforcement à M+3)
+- ❌ **Static mapping**: the influence/interest matrix must be revised (stances evolve)
+- ❌ **Uniform communication**: the same message for the exec sponsor and the end user (≠ needs)
+- ❌ **Skipping an ADKAR step**: training (K) without having created desire (D) → adoption that fails
+- ❌ **Ignoring resistance** instead of addressing it (untreated resistance becomes sabotage)
+- ❌ **Confusing Mendelow and RACI**: power/interest (engagement) ≠ responsibilities (execution)
+- ❌ **Measuring adoption only at go-live**: track L1→L4 (awareness → reinforcement at M+3)
 
 ## Sources
-- **Mendelow A.L.** — matrice pouvoir/intérêt (*Proc. ICIS*, Cambridge MA, 1991)
+- **Mendelow A.L.** — power/interest matrix (*Proc. ICIS*, Cambridge MA, 1991)
 - **Hiatt J.** — *ADKAR: A Model for Change* (Prosci Research, 2006)
-- **PMBOK 7** (PMI 2021) — domaine de performance « Parties prenantes »
-- **Kotter J.** — *Leading Change* (HBR Press, 1996) — couplage conduite du changement
+- **PMBOK 7** (PMI 2021) — "Stakeholders" performance domain
+- **Kotter J.** — *Leading Change* (HBR Press, 1996) — change management coupling
 
-## Voir aussi
-- [`cadrage-projet-ia.md`](cadrage-projet-ia.md) — matrice des parties prenantes initiale
-- [`reporting-codir.md`](reporting-codir.md) — communication adaptée par audience
-- [`../change_manager/`](../change_manager/) — conduite du changement approfondie (PROSCI/Kotter)
-- [`../scrum/stakeholder-map.md`](../scrum/stakeholder-map.md) — cartographie côté produit
-- [`../juridique_ia/politique-ia-entreprise.md`](../juridique_ia/politique-ia-entreprise.md) — adoption IA & CSE
+## See also
+- [`cadrage-projet-ia.md`](cadrage-projet-ia.md) — initial stakeholder matrix
+- [`reporting-codir.md`](reporting-codir.md) — communication tailored per audience
+- [`../change_manager/`](../change_manager/) — in-depth change management (PROSCI/Kotter)
+- [`../scrum/stakeholder-map.md`](../scrum/stakeholder-map.md) — mapping on the product side
+- [`../juridique_ia/politique-ia-entreprise.md`](../juridique_ia/politique-ia-entreprise.md) — AI adoption & Works Council

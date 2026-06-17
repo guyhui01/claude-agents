@@ -1,76 +1,76 @@
-# Skill — Planification Agile/Waterfall Hybride pour Projets IA
-> Certifications : PMP (PMI 2026), SAFe Program Consultant (SPC), PMI-ACP, PRINCE2 Agile
-> Agent : AGENT-CHEF-PROJET-IA.md
-> Référentiels : **PMBOK 7** (PMI 2021) · **PRINCE2 Agile** (PeopleCert) · **SAFe** (PI Planning) · **Planning Poker** (Grenning 2002) · **Story Points** (Cohn 2005) · WBS (PMI)
+# Skill — Hybrid Agile/Waterfall Planning for AI Projects
+> Certifications: PMP (PMI 2026), SAFe Program Consultant (SPC), PMI-ACP, PRINCE2 Agile
+> Agent: AGENT-CHEF-PROJET-IA.md
+> Frameworks: **PMBOK 7** (PMI 2021) · **PRINCE2 Agile** (PeopleCert) · **SAFe** (PI Planning) · **Planning Poker** (Grenning 2002) · **Story Points** (Cohn 2005) · WBS (PMI)
 
-## Objectif
-Construire un plan hybride adapté aux projets IA — phases séquentielles pour la conformité et l'infrastructure, sprints Agile pour le développement et l'expérimentation, avec estimation et jalons clairs.
+## Objective
+Build a hybrid plan suited to AI projects — sequential phases for compliance and infrastructure, Agile sprints for development and experimentation, with clear estimation and milestones.
 
-## Structure Hybride — WBS & Jalons
+## Hybrid Structure — WBS & Milestones
 
-### WBS (Work Breakdown Structure) Projet IA
+### WBS (Work Breakdown Structure) for an AI project
 
 ```
-1.0  PROJET IA — SCORING CONVERSION
+1.0  AI PROJECT — CONVERSION SCORING
 │
-├── 1.1  PHASE CADRAGE (Waterfall — 3 semaines)
-│   ├── 1.1.1  Charte de projet
-│   ├── 1.1.2  Analyse parties prenantes
-│   ├── 1.1.3  AIPD / Conformité RGPD
-│   └── 1.1.4  Setup infrastructure (AWS, MLflow, Git)
+├── 1.1  SCOPING PHASE (Waterfall — 3 weeks)
+│   ├── 1.1.1  Project charter
+│   ├── 1.1.2  Stakeholder analysis
+│   ├── 1.1.3  DPIA / GDPR compliance
+│   └── 1.1.4  Infrastructure setup (AWS, MLflow, Git)
 │
-├── 1.2  PHASE DÉCOUVERTE DATA (Sprint 0 — 2 semaines)
-│   ├── 1.2.1  Audit qualité données CRM
-│   ├── 1.2.2  Analyse exploratoire (EDA)
+├── 1.2  DATA DISCOVERY PHASE (Sprint 0 — 2 weeks)
+│   ├── 1.2.1  CRM data quality audit
+│   ├── 1.2.2  Exploratory data analysis (EDA)
 │   ├── 1.2.3  Feature catalog
-│   └── 1.2.4  Baseline metrics (taux conversion actuel)
+│   └── 1.2.4  Baseline metrics (current conversion rate)
 │
-├── 1.3  DÉVELOPPEMENT AGILE (5 Sprints × 2 semaines)
-│   ├── Sprint 1  Feature engineering + modèle baseline
-│   ├── Sprint 2  Optimisation modèle + explicabilité (SHAP)
-│   ├── Sprint 3  API REST + tests d'intégration
-│   ├── Sprint 4  Dashboard monitoring + UX tests
-│   └── Sprint 5  Hardening, perf, sécurité
+├── 1.3  AGILE DEVELOPMENT (5 Sprints × 2 weeks)
+│   ├── Sprint 1  Feature engineering + baseline model
+│   ├── Sprint 2  Model optimization + explainability (SHAP)
+│   ├── Sprint 3  REST API + integration tests
+│   ├── Sprint 4  Monitoring dashboard + UX tests
+│   └── Sprint 5  Hardening, perf, security
 │
-├── 1.4  PHASE DÉPLOIEMENT (Waterfall — 2 semaines)
-│   ├── 1.4.1  Recette et UAT
-│   ├── 1.4.2  Déploiement production (canary 10%)
-│   ├── 1.4.3  Formation utilisateurs
-│   └── 1.4.4  Bascule totale + hypercare
+├── 1.4  DEPLOYMENT PHASE (Waterfall — 2 weeks)
+│   ├── 1.4.1  Testing and UAT
+│   ├── 1.4.2  Production deployment (canary 10%)
+│   ├── 1.4.3  User training
+│   └── 1.4.4  Full cutover + hypercare
 │
-└── 1.5  CLÔTURE
-    ├── 1.5.1  REX et post-mortem
-    └── 1.5.2  Documentation finale
+└── 1.5  CLOSEOUT
+    ├── 1.5.1  Lessons learned and post-mortem
+    └── 1.5.2  Final documentation
 ```
 
-### Jalons (Milestones) — Go/No-Go
+### Milestones — Go/No-Go
 
-| # | Milestone | Critère de sortie | Date cible |
+| # | Milestone | Exit criterion | Target date |
 |---|-----------|------------------|------------|
-| M1 | Kick-off validé | Charte signée, budget validé | S1 |
-| M2 | Data Ready | Score qualité données >= 80%, AIPD signée | S3 |
-| M3 | Modèle Baseline | AUC >= 0.75 sur validation | S5 |
-| M4 | Modèle Production-Ready | AUC >= 0.85, latence OK, SHAP intégré | S10 |
-| M5 | UAT Terminée | 0 bug bloquant, sign-off utilisateurs | S12 |
-| M6 | Go Live | Canary stable 3 jours, rollback testé | S13 |
-| M7 | Clôture projet | REX validé, KPIs 30j post go-live | S17 |
+| M1 | Kick-off approved | Charter signed, budget approved | W1 |
+| M2 | Data Ready | Data quality score >= 80%, DPIA signed | W3 |
+| M3 | Baseline Model | AUC >= 0.75 on validation | W5 |
+| M4 | Production-Ready Model | AUC >= 0.85, latency OK, SHAP integrated | W10 |
+| M5 | UAT Complete | 0 blocking bugs, user sign-off | W12 |
+| M6 | Go Live | Canary stable 3 days, rollback tested | W13 |
+| M7 | Project closeout | Lessons learned approved, KPIs 30d post go-live | W17 |
 
 ## Estimation — T-Shirt Sizing & Planning Poker
 
-### Référentiel T-Shirt Sizing pour user stories IA
+### T-Shirt Sizing reference for AI user stories
 
 ```
-TAILLE  STORY POINTS  EXEMPLES TYPIQUES
+SIZE    STORY POINTS  TYPICAL EXAMPLES
 ───────────────────────────────────────────────────────────
-XS      1-2           Ajout d'une feature simple, bugfix
-S       3             Feature engineering (1 variable), endpoint API simple
-M       5             Entraînement modèle baseline, intégration service tiers
-L       8             Pipeline ML bout-en-bout, dashboard monitoring complet
-XL      13            Architecture nouveau composant, migration infrastructure
-XXL     21            Ne PAS planifier — découper en histoires plus petites
+XS      1-2           Adding a simple feature, bugfix
+S       3             Feature engineering (1 variable), simple API endpoint
+M       5             Baseline model training, third-party service integration
+L       8             End-to-end ML pipeline, full monitoring dashboard
+XL      13            New-component architecture, infrastructure migration
+XXL     21            Do NOT plan — break into smaller stories
 ```
 
-### Vélocité & Capacité Sprint
+### Velocity & Sprint Capacity
 
 ```python
 # sprint_capacity.py
@@ -89,7 +89,7 @@ def calculate_sprint_capacity(
     sprint_days: int = 10,
     ceremonies_days: float = 1.5,  # Sprint planning + review + retro
 ) -> dict:
-    """Calcule la capacité d'un sprint en jours-homme et story points."""
+    """Compute a sprint's capacity in person-days and story points."""
     available_days = sprint_days - ceremonies_days
 
     total_person_days = sum(
@@ -107,7 +107,7 @@ def calculate_sprint_capacity(
         "focus_factor": round(available_days / sprint_days, 2),
     }
 
-# Exemple équipe projet IA
+# Example AI project team
 team = [
     TeamMember("Alice", "Data Scientist", 0.8, story_points_per_sprint=18),
     TeamMember("Bob",   "ML Engineer",   1.0, story_points_per_sprint=20),
@@ -116,16 +116,16 @@ team = [
 ]
 
 capacity = calculate_sprint_capacity(team)
-print(f"Vélocité estimée : {capacity['estimated_velocity_sp']} SP/sprint")
-# Vélocité estimée : 50 SP/sprint
+print(f"Estimated velocity: {capacity['estimated_velocity_sp']} SP/sprint")
+# Estimated velocity: 50 SP/sprint
 ```
 
-### Gantt Agile — Format de présentation hybride
+### Agile Gantt — Hybrid presentation format
 
 ```
-SEMAINE  1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16
+WEEK     1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16
          ├───┤   ├───┤   ├───┤   ├───┤   ├───┤   ├───┤   ├───┤   ├───┤
-CADRAGE  [==========]
+SCOPING  [==========]
 SPRINT 0             [=====]
 SPRINT 1                   [=========]
 SPRINT 2                               [=========]
@@ -135,77 +135,77 @@ SPRINT 5                                                                   [=]
                      M2   M3           M4          M5         M6
 ```
 
-### Backlog Initial — User Stories IA
+### Initial Backlog — AI User Stories
 
 ```yaml
 # product_backlog.yaml
-epic: "Scoring de propension conversion"
+epic: "Conversion propensity scoring"
 
 user_stories:
   - id: US-01
-    titre: "Feature engineering — données comportementales"
-    en_tant_que: "Data Scientist"
-    je_veux: "transformer les logs CRM en features temporelles (sessions/7j, 14j, 30j)"
-    afin_de: "fournir des inputs de qualité au modèle"
-    taille: L
+    title: "Feature engineering — behavioral data"
+    as_a: "Data Scientist"
+    i_want: "to turn CRM logs into time-based features (sessions/7d, 14d, 30d)"
+    so_that: "the model gets quality inputs"
+    size: L
     sprint: 1
     definition_of_done:
-      - 15 features créées et documentées dans le feature catalog
-      - Tests unitaires (coverage > 90%)
-      - Validées par DG Commerciale (pertinence métier)
+      - 15 features created and documented in the feature catalog
+      - Unit tests (coverage > 90%)
+      - Approved by the Chief Sales Officer (business relevance)
 
   - id: US-02
-    titre: "Modèle baseline XGBoost"
-    en_tant_que: "Data Scientist"
-    je_veux: "entraîner un modèle XGBoost avec cross-validation 5-fold"
-    afin_de: "établir un AUC baseline >= 0.75"
-    taille: M
+    title: "XGBoost baseline model"
+    as_a: "Data Scientist"
+    i_want: "to train an XGBoost model with 5-fold cross-validation"
+    so_that: "I establish a baseline AUC >= 0.75"
+    size: M
     sprint: 1
     definition_of_done:
-      - AUC >= 0.75 sur holdout set
-      - MLflow experiment loggé
-      - Rapport confusion matrix + rapport de classification
+      - AUC >= 0.75 on the holdout set
+      - MLflow experiment logged
+      - Confusion matrix report + classification report
 
   - id: US-03
-    titre: "Explicabilité SHAP"
-    en_tant_que: "Conseiller commercial"
-    je_veux: "voir les 3 principales raisons du score d'un lead"
-    afin_de: "personnaliser mon approche commerciale"
-    taille: M
+    title: "SHAP explainability"
+    as_a: "Sales rep"
+    i_want: "to see the top 3 reasons for a lead's score"
+    so_that: "I tailor my sales approach"
+    size: M
     sprint: 2
-    criteres_acceptation:
-      - SHAP values calculées et exposées dans la réponse API
-      - Temps de calcul < 50ms par prédiction
+    acceptance_criteria:
+      - SHAP values computed and exposed in the API response
+      - Compute time < 50ms per prediction
 ```
 
-## Livrables
-- WBS complet et jalons avec critères de sortie Go/No-Go
-- Planning sprint par sprint avec capacité calculée
-- Backlog priorisé (épics + user stories + critères d'acceptation)
-- Gantt agile pour présentation au Steering Committee
-- Definition of Done et Definition of Ready
-- Plan de gestion de la vélocité et des dérives
+## Deliverables
+- Complete WBS and milestones with Go/No-Go exit criteria
+- Sprint-by-sprint schedule with computed capacity
+- Prioritized backlog (epics + user stories + acceptance criteria)
+- Agile Gantt for presentation to the Steering Committee
+- Definition of Done and Definition of Ready
+- Velocity and drift management plan
 
-## Format de sortie
-Précise : durée totale du projet, taille de l'équipe et rôles, contraintes dates clés (fiscales, réglementaires), méthode de gestion préférée (SAFe/Scrum/Kanban), outil de gestion projet (Jira/Linear/Azure DevOps), niveau d'expérience Agile de l'équipe.
+## Output format
+Specify: total project duration, team size and roles, key date constraints (fiscal, regulatory), preferred management method (SAFe/Scrum/Kanban), project management tool (Jira/Linear/Azure DevOps), the team's Agile experience level.
 
 ## Anti-patterns
-- ❌ **Gantt fixe rigide sur 18 mois** : illusion de prédictibilité, ingérable sur la partie expérimentale IA
-- ❌ **Estimer en jours/homme absolus** au lieu de points relatifs (Planning Poker / T-shirt)
-- ❌ **Story XXL (21) non découpée** : à refuser et fractionner avant planification
-- ❌ **Phase data « découverte » zappée** : démarrer le dev IA sans audit qualité des données
-- ❌ **Jalons sans critères de sortie Go/No-Go** mesurables (ex. AUC ≥ seuil)
-- ❌ **Vélocité confondue avec engagement** : la capacité calculée ≠ promesse contractuelle
+- ❌ **Rigid fixed Gantt over 18 months**: an illusion of predictability, unmanageable on the experimental AI part
+- ❌ **Estimating in absolute person-days** instead of relative points (Planning Poker / T-shirt)
+- ❌ **XXL story (21) not broken down**: refuse and split it before planning
+- ❌ **Skipping the data "discovery" phase**: starting AI dev without a data quality audit
+- ❌ **Milestones without measurable Go/No-Go exit criteria** (e.g. AUC ≥ threshold)
+- ❌ **Velocity confused with commitment**: computed capacity ≠ a contractual promise
 
 ## Sources
-- **PMBOK 7** (PMI 2021) — WBS, jalons, planification adaptative
-- **PRINCE2 Agile** — PeopleCert/Axelos (gestion par phases + Agile delivery)
+- **PMBOK 7** (PMI 2021) — WBS, milestones, adaptive planning
+- **PRINCE2 Agile** — PeopleCert/Axelos (phase-based management + Agile delivery)
 - **Grenning J.** — *Planning Poker* (2002) · **Cohn M.** — *Agile Estimating and Planning* (2005) — Story Points
 - **SAFe** — PI Planning (scaledagileframework.com)
 
-## Voir aussi
-- [`cadrage-projet-ia.md`](cadrage-projet-ia.md) — périmètre amont (source du WBS)
-- [`evm-valeur-acquise.md`](evm-valeur-acquise.md) — baseline planning → PV
-- [`../scrum_master/planning-poker.md`](../scrum_master/planning-poker.md) — estimation relative (Grenning)
-- [`../scrum/forecasting-planning.md`](../scrum/forecasting-planning.md) — forecasting vélocité
-- [`gestion-risques-projet.md`](gestion-risques-projet.md) — risques de planning (RAID)
+## See also
+- [`cadrage-projet-ia.md`](cadrage-projet-ia.md) — upstream scope (source of the WBS)
+- [`evm-valeur-acquise.md`](evm-valeur-acquise.md) — schedule baseline → PV
+- [`../scrum_master/planning-poker.md`](../scrum_master/planning-poker.md) — relative estimation (Grenning)
+- [`../scrum/forecasting-planning.md`](../scrum/forecasting-planning.md) — velocity forecasting
+- [`gestion-risques-projet.md`](gestion-risques-projet.md) — schedule risks (RAID)

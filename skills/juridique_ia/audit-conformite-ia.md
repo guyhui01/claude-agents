@@ -1,67 +1,67 @@
-# Skill — Audit de Conformité IA
+# Skill — AI Compliance Audit
 
-> Certifications : AI Act Compliance Expert · CIPP/E · ISO 27001 Lead Auditor · DPO Certifié
-> Agent : AGENT-JURIDIQUE-IA.md
-> Référentiels : **ISO/IEC 19011:2018** (lignes directrices audit) · **ISO/IEC 42001:2023** (AIMS auditable) · **NIST AI RMF 1.0** (2023) · **AI Act UE 2024/1689** · RGPD UE 2016/679 · **OWASP Top 10 for LLM Applications (2025)**
+> Certifications: AI Act Compliance Expert · CIPP/E · ISO 27001 Lead Auditor · Certified DPO
+> Agent: AGENT-JURIDIQUE-IA.md
+> Frameworks: **ISO/IEC 19011:2018** (auditing guidelines) · **ISO/IEC 42001:2023** (auditable AIMS) · **NIST AI RMF 1.0** (2023) · **AI Act EU 2024/1689** · GDPR EU 2016/679 · **OWASP Top 10 for LLM Applications (2025)**
 
-## Objectif
+## Objective
 
-Réaliser des **audits de conformité** des systèmes IA (AI Act, RGPD, sécurité, éthique), selon une démarche d'audit normée (**ISO/IEC 19011:2018**), produisant un rapport scoré et un plan de remédiation daté.
+Carry out **compliance audits** of AI systems (AI Act, GDPR, security, ethics), following a standardized audit approach (**ISO/IEC 19011:2018**), producing a scored report and a dated remediation plan.
 
-## Cadre référentiels mobilisés
+## Frameworks mobilized
 
-| Référentiel | Apport pour l'audit |
+| Framework | Contribution to the audit |
 |---|---|
-| **ISO/IEC 19011:2018** | Méthode d'audit : 7 principes (intégrité, présentation impartiale, conscience professionnelle, confidentialité, indépendance, approche fondée sur les preuves, approche par les risques) + gestion du programme d'audit |
-| **ISO/IEC 42001:2023** | Référentiel auditable du système de management de l'IA (AIMS) — base d'un audit de certification |
-| **NIST AI RMF 1.0** | Grille d'évaluation des risques (GOVERN/MAP/MEASURE/MANAGE) |
-| **AI Act 2024/1689** | Obligations contrôlées (art. 5, 6+Annexe III, 9-17, 50) |
-| **RGPD 2016/679** | Conformité données (art. 13/14, 22, 28, 30, 35) |
-| **OWASP Top 10 for LLM Applications 2025** | Volet sécurité IA générative |
+| **ISO/IEC 19011:2018** | Audit method: 7 principles (integrity, fair presentation, due professional care, confidentiality, independence, evidence-based approach, risk-based approach) + audit program management |
+| **ISO/IEC 42001:2023** | Auditable framework for the AI management system (AIMS) — basis for a certification audit |
+| **NIST AI RMF 1.0** | Risk assessment grid (GOVERN/MAP/MEASURE/MANAGE) |
+| **AI Act 2024/1689** | Audited obligations (art. 5, 6+Annex III, 9-17, 50) |
+| **GDPR 2016/679** | Data compliance (art. 13/14, 22, 28, 30, 35) |
+| **OWASP Top 10 for LLM Applications 2025** | Generative-AI security part |
 
-## Principes d'audit (ISO/IEC 19011:2018)
+## Audit principles (ISO/IEC 19011:2018)
 
-Tout audit s'appuie sur les **7 principes** : intégrité · présentation impartiale (rapporter findings positifs ET négatifs) · conscience professionnelle (diligence) · confidentialité · **indépendance** (auditeur ≠ audité) · **approche fondée sur les preuves** (chaque finding = preuve vérifiable) · **approche par les risques** (prioriser les systèmes haut risque AI Act).
+Every audit relies on the **7 principles**: integrity · fair presentation (report positive AND negative findings) · due professional care (diligence) · confidentiality · **independence** (auditor ≠ auditee) · **evidence-based approach** (each finding = verifiable evidence) · **risk-based approach** (prioritize AI Act high-risk systems).
 
-## Méthodologie d'audit IA en 5 phases
+## 5-phase AI audit methodology
 
-### Phase 1 : Cadrage (J1-J5)
+### Phase 1: Scoping (D1-D5)
 ```
-Livrables : lettre de mission · cartographie des systèmes IA · plan d'audit · checklist documentaire
-Documents à collecter :
-  → Registre des traitements (RGPD art. 30) · DPIA existantes (art. 35)
-  → Documentation technique des modèles (AI Act art. 11 + Annexe IV)
+Deliverables: engagement letter · AI systems mapping · audit plan · documentary checklist
+Documents to collect:
+  → Processing register (GDPR art. 30) · existing DPIAs (art. 35)
+  → Models' technical documentation (AI Act art. 11 + Annex IV)
   → Model Cards (Mitchell et al. 2019) / System Cards
-  → Politiques de gouvernance IA · contrats fournisseurs (DPA art. 28, CGU SaaS)
-  → Logs de traçabilité (AI Act art. 12)
+  → AI governance policies · provider contracts (DPA art. 28, SaaS ToS)
+  → Traceability logs (AI Act art. 12)
 ```
 
-### Phase 2 : Revue documentaire (J6-J15)
+### Phase 2: Documentary review (D6-D15)
 ```
-Contrôles (preuves à l'appui — ISO 19011 evidence-based) :
-  ☐ AI Act : classification du risque correcte (art. 6 + Annexe III)
-  ☐ AI Act : documentation technique complète si haut risque (art. 11)
-  ☐ AI Act : transparence (art. 50) — marquage contenus IA / info chatbot
-  ☐ RGPD art. 13/14 : information des personnes
-  ☐ RGPD art. 22 : droits sur la décision automatisée
-  ☐ RGPD art. 28 : DPA signé avec chaque sous-traitant
-  ☐ RGPD art. 35 : DPIA réalisée si obligatoire
-  ☐ Éthique : Model Card avec métriques de biais (cf. gouvernance-ethique-ia)
-  ☐ Sécurité : OWASP Top 10 LLM 2025 adressé (cf. ci-dessous)
-  ☐ Gouvernance : système de management IA (ISO/IEC 42001:2023)
-```
-
-### Phase 3 : Tests techniques (J16-J25)
-```
-Test 1 — Explicabilité : XAI disponible (SHAP/LIME) sur décisions critiques ?
-Test 2 — Biais & équité : métriques de fairness par sous-groupe ; écart < seuil documenté ?
-Test 3 — Supervision humaine (AI Act art. 14) : override humain réel sur décisions ?
-Test 4 — Droits des personnes (RGPD) : accès < 1 mois (art. 12.3), oubli effectif, portabilité ?
-Test 5 — Transparence (AI Act art. 50) : marquage "généré par IA", info chatbot ?
-Test 6 — Sécurité GenAI (OWASP LLM 2025) : cf. checklist dédiée
+Controls (evidence-backed — ISO 19011 evidence-based):
+  ☐ AI Act: correct risk classification (art. 6 + Annex III)
+  ☐ AI Act: complete technical documentation if high-risk (art. 11)
+  ☐ AI Act: transparency (art. 50) — AI content marking / chatbot info
+  ☐ GDPR art. 13/14: information to individuals
+  ☐ GDPR art. 22: rights over the automated decision
+  ☐ GDPR art. 28: DPA signed with every processor
+  ☐ GDPR art. 35: DPIA carried out if mandatory
+  ☐ Ethics: Model Card with bias metrics (see gouvernance-ethique-ia)
+  ☐ Security: OWASP Top 10 LLM 2025 addressed (see below)
+  ☐ Governance: AI management system (ISO/IEC 42001:2023)
 ```
 
-### Volet sécurité — OWASP Top 10 for LLM Applications (2025)
+### Phase 3: Technical testing (D16-D25)
+```
+Test 1 — Explainability: XAI available (SHAP/LIME) on critical decisions?
+Test 2 — Bias & fairness: fairness metrics by subgroup; gap < documented threshold?
+Test 3 — Human oversight (AI Act art. 14): real human override on decisions?
+Test 4 — Individuals' rights (GDPR): access < 1 month (art. 12.3), effective erasure, portability?
+Test 5 — Transparency (AI Act art. 50): "AI-generated" marking, chatbot info?
+Test 6 — GenAI security (OWASP LLM 2025): see dedicated checklist
+```
+
+### Security part — OWASP Top 10 for LLM Applications (2025)
 ```
 LLM01 Prompt Injection            LLM06 Excessive Agency
 LLM02 Sensitive Info Disclosure   LLM07 System Prompt Leakage
@@ -69,78 +69,78 @@ LLM03 Supply Chain                LLM08 Vector & Embedding Weaknesses
 LLM04 Data & Model Poisoning      LLM09 Misinformation
 LLM05 Improper Output Handling    LLM10 Unbounded Consumption
 ```
-> Source : OWASP Gen AI Security Project, *OWASP Top 10 for LLM Applications 2025* (genai.owasp.org). Audit technique approfondi → renvoi AGENT-SECURITE-IA.
+> Source: OWASP Gen AI Security Project, *OWASP Top 10 for LLM Applications 2025* (genai.owasp.org). In-depth technical audit → see AGENT-SECURITE-IA.
 
-### Phase 4 : Rapport d'audit
+### Phase 4: Audit report
 ```
-1. Synthèse exécutive (1 page CODIR) : score global /100 + findings critiques + recos prioritaires
-2. Résultats par domaine : AI Act · RGPD · Éthique · Sécurité (score + findings + preuves)
-3. Plan de remédiation : Finding | Risque | Action | Responsable | Délai
-4. Annexes techniques : tests réalisés, preuves, méthodologie (traçabilité ISO 19011)
-```
-
-### Phase 5 : Suivi et re-audit
-```
-J+30 : findings critiques · J+90 : findings majeurs · J+180 : améliorations · J+365 : re-audit
+1. Executive summary (1-page for the executive committee): overall score /100 + critical findings + priority recommendations
+2. Results by domain: AI Act · GDPR · Ethics · Security (score + findings + evidence)
+3. Remediation plan: Finding | Risk | Action | Owner | Deadline
+4. Technical appendices: tests performed, evidence, methodology (ISO 19011 traceability)
 ```
 
-## Scoring de conformité IA
-| Score | Niveau | Action |
+### Phase 5: Follow-up and re-audit
+```
+D+30: critical findings · D+90: major findings · D+180: improvements · D+365: re-audit
+```
+
+## AI compliance scoring
+| Score | Level | Action |
 |---|---|---|
-| 90-100 | Conforme | Maintenance et surveillance |
-| 75-89 | Conforme avec réserves | Plan d'amélioration 90 jours |
-| 60-74 | Partiellement conforme | Plan de remédiation urgent |
-| < 60 | Non conforme | Suspension recommandée + escalade |
-> Grille de **pilotage interne** (convention de l'auditeur), à distinguer des obligations légales AI Act/RGPD qui, elles, ne se « scorent » pas (elles sont remplies ou non).
+| 90-100 | Compliant | Maintenance and monitoring |
+| 75-89 | Compliant with reservations | 90-day improvement plan |
+| 60-74 | Partially compliant | Urgent remediation plan |
+| < 60 | Non-compliant | Suspension recommended + escalation |
+> An **internal management** grid (auditor's convention), to be distinguished from the AI Act/GDPR legal obligations, which are not "scored" (they are met or not).
 
-## Exemple — audit d'un système de pré-instruction d'aides sociales (secteur public)
+## Example — audit of a social-benefits pre-processing system (public sector)
 
-**Contexte anonymisé** : collectivité territoriale, système IA de **pré-instruction et priorisation** de demandes d'aides sociales. Usage **haut risque** (AI Act Annexe III §5 — accès aux prestations sociales essentielles). Audit interne, 4 domaines, sur population vulnérable.
+**Anonymized context**: local authority, AI system for **pre-processing and prioritizing** social-benefit applications. **High-risk** use (AI Act Annex III §5 — access to essential social benefits). Internal audit, 4 domains, on a vulnerable population.
 
-| Domaine | Score /100 | Findings clés |
+| Domain | Score /100 | Key findings |
 |---|:--:|---|
-| AI Act | 70 | Classification haut risque correcte ; documentation technique (art. 11 + Annexe IV) incomplète |
-| RGPD | 80 | DPIA réalisée (art. 35) ; information des usagers (art. 13-14) à renforcer |
-| Éthique | 55 | 🔴 test de biais par sous-groupe **absent** (population vulnérable) |
-| Sécurité (OWASP LLM 2025) | 75 | LLM02 (fuite données) / LLM06 (excessive agency) partiellement traités |
+| AI Act | 70 | Correct high-risk classification; technical documentation (art. 11 + Annex IV) incomplete |
+| GDPR | 80 | DPIA carried out (art. 35); information to users (art. 13-14) to be reinforced |
+| Ethics | 55 | 🔴 subgroup bias test **absent** (vulnerable population) |
+| Security (OWASP LLM 2025) | 75 | LLM02 (data leak) / LLM06 (excessive agency) partially addressed |
 
-**Score global : 70/100 → « partiellement conforme »** (plan de remédiation urgent).
-- **Findings critiques** : test d'équité par sous-groupe (R1) + supervision humaine effective sur les **refus** (AI Act art. 14, RGPD art. 22).
-- **Remédiation** : J+30 test de biais + override humain · J+90 documentation technique · re-audit J+365.
+**Overall score: 70/100 → "partially compliant"** (urgent remediation plan).
+- **Critical findings**: subgroup fairness test (R1) + effective human oversight on **refusals** (AI Act art. 14, GDPR art. 22).
+- **Remediation**: D+30 bias test + human override · D+90 technical documentation · re-audit D+365.
 
 ## Anti-patterns
 
-- ❌ **Audit sans référentiel de méthode** : conduire un audit sans s'appuyer sur ISO/IEC 19011:2018 (preuves, indépendance, programme)
-- ❌ **Cocher « conforme » sans preuve** : viole l'approche fondée sur les preuves (faux positif = risque n°1)
-- ❌ **Auditeur = audité** : l'équipe qui a conçu le système ne peut pas s'auto-auditer (indépendance)
-- ❌ **OWASP LLM sans version** : citer « OWASP LLM Top 10 » sans préciser l'édition (2025)
-- ❌ **Confondre score interne et conformité légale** : un score 85/100 ne dispense pas d'une obligation AI Act manquante
-- ❌ **Audit ponctuel sans re-audit** : la conformité IA se dégrade (model drift, évolution réglementaire)
-- ❌ **Ignorer la traçabilité des preuves** : un finding non documenté n'est pas opposable
+- ❌ **Audit without a method framework**: conducting an audit without relying on ISO/IEC 19011:2018 (evidence, independence, program)
+- ❌ **Checking "compliant" without evidence**: violates the evidence-based approach (false positive = risk no. 1)
+- ❌ **Auditor = auditee**: the team that designed the system cannot self-audit it (independence)
+- ❌ **OWASP LLM without a version**: citing "OWASP LLM Top 10" without specifying the edition (2025)
+- ❌ **Confusing internal score and legal compliance**: an 85/100 score does not excuse a missing AI Act obligation
+- ❌ **One-off audit without re-audit**: AI compliance degrades (model drift, regulatory change)
+- ❌ **Ignoring evidence traceability**: an undocumented finding is not enforceable
 
-## Livrables
-- Rapport d'audit complet (confidentiel) + synthèse exécutive CODIR (1 page)
-- Plan de remédiation priorisé (échéances J+30/90/180/365)
-- Registre de preuves (traçabilité ISO 19011)
-- Certificat / attestation de conformité (si applicable, ISO 42001)
-- Rapport de re-audit (J+365)
+## Deliverables
+- Complete audit report (confidential) + executive-committee summary (1 page)
+- Prioritized remediation plan (deadlines D+30/90/180/365)
+- Evidence register (ISO 19011 traceability)
+- Compliance certificate / attestation (if applicable, ISO 42001)
+- Re-audit report (D+365)
 
-## Format de sortie
-Précise : systèmes IA en périmètre · référentiels applicables (AI Act, RGPD, ISO 42001, OWASP LLM 2025) · type d'audit (interne, externe, pré-certification) · délai · audience du rapport.
+## Output format
+Specify: AI systems in scope · applicable frameworks (AI Act, GDPR, ISO 42001, OWASP LLM 2025) · audit type (internal, external, pre-certification) · timeframe · report audience.
 
 ## Sources
-- **ISO/IEC 19011:2018** — *Guidelines for auditing management systems* (7 principes + programme d'audit) — iso.org/standard/70017.html
+- **ISO/IEC 19011:2018** — *Guidelines for auditing management systems* (7 principles + audit program) — iso.org/standard/70017.html
 - **ISO/IEC 42001:2023** — AI Management System (auditable) — iso.org
-- **NIST AI RMF 1.0** (NIST AI 100-1, janv. 2023) — nist.gov
-- **AI Act** — Règlement (UE) 2024/1689 (art. 11 doc technique, art. 12 logs, art. 14 supervision, art. 50 transparence)
-- **RGPD** — Règlement (UE) 2016/679 (art. 13/14, 22, 28, 30, 35)
+- **NIST AI RMF 1.0** (NIST AI 100-1, Jan. 2023) — nist.gov
+- **AI Act** — Regulation (EU) 2024/1689 (art. 11 technical doc, art. 12 logs, art. 14 oversight, art. 50 transparency)
+- **GDPR** — Regulation (EU) 2016/679 (art. 13/14, 22, 28, 30, 35)
 - **OWASP Top 10 for LLM Applications 2025** — OWASP Gen AI Security Project — genai.owasp.org
 - **Mitchell M. et al.** — *Model Cards for Model Reporting* (ACM FAT* 2019)
 
-## Voir aussi
-- [`ai-act-conformite.md`](ai-act-conformite.md) — classification et obligations AI Act (objet de l'audit)
-- [`dpia-systemes-ia.md`](dpia-systemes-ia.md) — DPIA RGPD art. 35
-- [`gouvernance-ethique-ia.md`](gouvernance-ethique-ia.md) — gouvernance et EIA (audités ici)
-- [`rgpd-ia.md`](rgpd-ia.md) — conformité RGPD appliquée à l'IA
-- [`../critique_conformite/audit-qualite-catalogue.md`](../critique_conformite/audit-qualite-catalogue.md) — audit qualité méthodo (ISO 19011 appliqué aux skills)
-- [`../securite_ia/`](../securite_ia/) — audit technique sécurité IA (OWASP LLM approfondi)
+## See also
+- [`ai-act-conformite.md`](ai-act-conformite.md) — AI Act classification and obligations (subject of the audit)
+- [`dpia-systemes-ia.md`](dpia-systemes-ia.md) — GDPR DPIA art. 35
+- [`gouvernance-ethique-ia.md`](gouvernance-ethique-ia.md) — governance and EIA (audited here)
+- [`rgpd-ia.md`](rgpd-ia.md) — GDPR compliance applied to AI
+- [`../critique_conformite/audit-qualite-catalogue.md`](../critique_conformite/audit-qualite-catalogue.md) — methodological quality audit (ISO 19011 applied to skills)
+- [`../securite_ia/`](../securite_ia/) — AI technical security audit (in-depth OWASP LLM)

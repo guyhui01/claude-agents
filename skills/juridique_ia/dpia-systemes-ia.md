@@ -1,119 +1,119 @@
-# Skill — DPIA (Analyse d'Impact) pour les Systèmes IA
+# Skill — DPIA (Impact Assessment) for AI Systems
 
-> Certifications : CIPP/E · CIPM · DPO Certifié CNIL · ISO/IEC 27701 Lead Implementer
-> Agent : AGENT-JURIDIQUE-IA.md
-> Référentiels : **RGPD UE 2016/679 art. 35** · **EDPB/G29 WP248 rev.01** (9 critères) · **CNIL** délibération n° 2018-327 (11 oct. 2018, liste AIPD) · couplage **AI Act 2024/1689** (art. 6 + Annexe III)
+> Certifications: CIPP/E · CIPM · Certified DPO CNIL · ISO/IEC 27701 Lead Implementer
+> Agent: AGENT-JURIDIQUE-IA.md
+> Frameworks: **GDPR EU 2016/679 art. 35** · **EDPB/WP29 WP248 rev.01** (9 criteria) · **CNIL** decision no. 2018-327 (Oct. 11, 2018, DPIA list) · **AI Act 2024/1689** coupling (art. 6 + Annex III)
 
-## Objectif
+## Objective
 
-Réaliser les **analyses d'impact relatives à la protection des données (DPIA / AIPD)** obligatoires pour les systèmes IA susceptibles d'engendrer un risque élevé pour les droits et libertés des personnes (RGPD art. 35).
+Carry out the **data protection impact assessments (DPIA)** required for AI systems likely to result in a high risk to the rights and freedoms of individuals (GDPR art. 35).
 
-## Cadre référentiels mobilisés
+## Frameworks mobilized
 
-| Référentiel | Apport |
+| Framework | Contribution |
 |---|---|
-| **RGPD art. 35** | Obligation de DPIA si « risque élevé » ; contenu minimal (art. 35.7) |
-| **EDPB/G29 WP248 rev.01** | **9 critères** ; DPIA généralement requise si **≥ 2 critères** réunis |
-| **CNIL délib. 2018-327** (11 oct. 2018) | Liste de **14 types** de traitements imposant une AIPD (liste non exhaustive) |
-| **AI Act art. 6 + Annexe III** | Les systèmes IA haut risque déclenchent quasi systématiquement une DPIA |
+| **GDPR art. 35** | DPIA obligation if "high risk"; minimum content (art. 35.7) |
+| **EDPB/WP29 WP248 rev.01** | **9 criteria**; DPIA generally required if **≥ 2 criteria** met |
+| **CNIL decision 2018-327** (Oct. 11, 2018) | List of **14 types** of processing requiring a DPIA (non-exhaustive list) |
+| **AI Act art. 6 + Annex III** | High-risk AI systems almost systematically trigger a DPIA |
 
-## Quand une DPIA est-elle obligatoire ?
+## When is a DPIA mandatory?
 
 ```
-Base : RGPD art. 35 + 9 critères EDPB (WP248 rev.01) — DPIA requise si ≥ 2 critères :
+Basis: GDPR art. 35 + 9 EDPB criteria (WP248 rev.01) — DPIA required if ≥ 2 criteria:
 
-  1. Évaluation / scoring (y compris profilage)
-  2. Décision automatisée avec effet juridique / significatif (art. 22)
-  3. Surveillance systématique
-  4. Données sensibles (art. 9) ou à caractère hautement personnel
-  5. Données traitées à grande échelle
-  6. Croisement / combinaison de jeux de données
-  7. Données de personnes vulnérables (mineurs, patients, salariés)
-  8. Usage innovant / nouvelle technologie (← l'IA en relève typiquement)
-  9. Traitement faisant obstacle à un droit / à un contrat
+  1. Evaluation / scoring (including profiling)
+  2. Automated decision with legal / significant effect (art. 22)
+  3. Systematic monitoring
+  4. Sensitive data (art. 9) or highly personal data
+  5. Data processed at large scale
+  6. Matching / combining datasets
+  7. Data of vulnerable individuals (minors, patients, employees)
+  8. Innovative use / new technology (← AI typically falls under this)
+  9. Processing that prevents a right / a contract
 
-+ CNIL délib. 2018-327 : 14 types de traitements pour lesquels l'AIPD est
-  obligatoire en France (ex. profilage à grande échelle, traitements RH de
-  surveillance, etc.).
++ CNIL decision 2018-327: 14 types of processing for which a DPIA is
+  mandatory in France (e.g. large-scale profiling, HR monitoring
+  processing, etc.).
 ```
-> **IA = quasi toujours ≥ 2 critères** (usage innovant #8 + souvent scoring #1 ou grande échelle #5). La DPIA doit être menée **avant** le traitement et est un processus **itératif**.
+> **AI = almost always ≥ 2 criteria** (innovative use #8 + often scoring #1 or large scale #5). The DPIA must be carried out **before** the processing and is an **iterative** process.
 
-## Structure d'une DPIA IA (contenu RGPD art. 35.7)
+## Structure of an AI DPIA (GDPR art. 35.7 content)
 
-### Section 1 — Description du traitement
+### Section 1 — Processing description
 ```
-1.1 Contexte et objectifs : finalité(s), périmètre fonctionnel/géographique, parties prenantes
-1.2 Données : catégories, sensibilité (art. 9/10), source, volume, fréquence
-1.3 Flux : collecte → traitement → stockage → suppression ; transferts hors UE (mécanisme)
-1.4 Spécificités IA : type de modèle, données d'entraînement, décisions (auto/assistées),
-    biais identifiés + mitigation
-```
-
-### Section 2 — Nécessité et proportionnalité (art. 35.7.b)
-```
-2.1 Base légale (art. 6) + justification (test de mise en balance si intérêt légitime)
-2.2 Proportionnalité : finalité légitime ? nécessaire ? alternatives moins intrusives ?
-2.3 Droits des personnes : information, accès, opposition/retrait, portabilité (délais art. 12.3)
+1.1 Context and objectives: purpose(s), functional/geographic scope, stakeholders
+1.2 Data: categories, sensitivity (art. 9/10), source, volume, frequency
+1.3 Flows: collection → processing → storage → deletion; transfers outside the EU (mechanism)
+1.4 AI specifics: model type, training data, decisions (automated/assisted),
+    identified biases + mitigation
 ```
 
-### Section 3 — Risques (cotation Probabilité × Impact, échelle 1-4)
+### Section 2 — Necessity and proportionality (art. 35.7.b)
 ```
-R1 Discrimination / biais          → audit de biais, tests fairness, supervision humaine
-R2 Fuite de données personnelles   → chiffrement, accès restreint, DLP
-R3 Décision erronée impactante     → droit de recours, revue humaine, seuil de confiance
-R4 Opacité / défaut d'explicabilité→ XAI (SHAP/LIME), explication art. 22 / AI Act art. 86
-R5 Réidentification (pseudonymisé) → k-anonymat, confidentialité différentielle
+2.1 Legal basis (art. 6) + justification (balancing test if legitimate interest)
+2.2 Proportionality: legitimate purpose? necessary? less intrusive alternatives?
+2.3 Individuals' rights: information, access, objection/withdrawal, portability (deadlines art. 12.3)
 ```
 
-### Section 4 — Mesures et conclusion
+### Section 3 — Risks (Probability × Impact rating, 1-4 scale)
 ```
-Plan d'action : | Risque | Mesure | Responsable | Échéance | Statut |
-Avis du DPO : Favorable / Favorable avec réserves / Défavorable
-Consultation préalable CNIL (art. 36) si risque résiduel élevé non maîtrisé.
-Révision : la CNIL recommande une réévaluation au moins tous les 3 ans, ou à tout
-changement significatif du traitement.
+R1 Discrimination / bias            → bias audit, fairness tests, human oversight
+R2 Personal data leak               → encryption, restricted access, DLP
+R3 Impactful erroneous decision     → right of recourse, human review, confidence threshold
+R4 Opacity / lack of explainability → XAI (SHAP/LIME), explanation art. 22 / AI Act art. 86
+R5 Re-identification (pseudonymized) → k-anonymity, differential privacy
 ```
 
-## Exemple — DPIA partielle d'un tri automatisé de CV (RH, AI Act haut risque)
+### Section 4 — Measures and conclusion
+```
+Action plan: | Risk | Measure | Owner | Deadline | Status |
+DPO opinion: Favorable / Favorable with reservations / Unfavorable
+Prior CNIL consultation (art. 36) if uncontrolled high residual risk.
+Review: the CNIL recommends a reassessment at least every 3 years, or on any
+significant change to the processing.
+```
 
-| Élément | Valeur |
+## Example — partial DPIA of automated CV screening (HR, AI Act high-risk)
+
+| Element | Value |
 |---|---|
-| Traitement | Pré-tri automatisé de candidatures (scoring CV) |
-| Critères EDPB réunis | #1 scoring · #2 décision automatisée · #7 (candidats) · #8 IA → **4 critères ⇒ DPIA obligatoire** |
-| Base légale | Intérêt légitime (art. 6.1.f) + test de mise en balance documenté |
-| AI Act | Annexe III §4 (emploi) → **haut risque** ⇒ supervision humaine art. 14 |
-| Risque R1 (biais) | P=3 / I=4 → **12** → mitigation : test d'équité par sexe/âge/origine, jamais de rejet 100% auto (art. 22) |
-| Avis DPO | Favorable avec réserves (déploiement après test de biais + notice candidats art. 13) |
+| Processing | Automated pre-screening of applications (CV scoring) |
+| EDPB criteria met | #1 scoring · #2 automated decision · #7 (candidates) · #8 AI → **4 criteria ⇒ mandatory DPIA** |
+| Legal basis | Legitimate interest (art. 6.1.f) + documented balancing test |
+| AI Act | Annex III §4 (employment) → **high-risk** ⇒ human oversight art. 14 |
+| Risk R1 (bias) | P=3 / I=4 → **12** → mitigation: fairness test by sex/age/origin, never a 100% automated rejection (art. 22) |
+| DPO opinion | Favorable with reservations (deployment after bias test + candidate notice art. 13) |
 
 ## Anti-patterns
 
-- ❌ **DPIA réalisée après le déploiement** : elle doit précéder le traitement (art. 35)
-- ❌ **« 1 seul critère donc pas de DPIA »** : un seul critère peut suffire en cas de risque élevé ; et l'IA en cumule souvent ≥ 2
-- ❌ **Plan d'action sans owner ni échéance** : la DPIA devient un document mort
-- ❌ **Oublier la consultation CNIL (art. 36)** quand le risque résiduel reste élevé
-- ❌ **Confondre DPIA (données) et EIA éthique / évaluation AI Act** : trois objets distincts et complémentaires
-- ❌ **Réidentification non traitée** : pseudonymisation présentée comme anonymisation
-- ❌ **DPIA figée** : pas de réévaluation au changement significatif (ou > 3 ans)
+- ❌ **DPIA carried out after deployment**: it must precede the processing (art. 35)
+- ❌ **"Only 1 criterion so no DPIA"**: a single criterion can suffice in case of high risk; and AI often stacks ≥ 2
+- ❌ **Action plan with no owner or deadline**: the DPIA becomes a dead document
+- ❌ **Forgetting the CNIL consultation (art. 36)** when the residual risk remains high
+- ❌ **Confusing DPIA (data) and ethics EIA / AI Act assessment**: three distinct, complementary objects
+- ❌ **Re-identification not addressed**: pseudonymization presented as anonymization
+- ❌ **Frozen DPIA**: no reassessment on significant change (or > 3 years)
 
-## Livrables
-- DPIA complète (structurée art. 35.7) + registre des DPIA
-- Plan de mitigation des risques (owner + échéance)
-- Avis du DPO documenté
-- Procédure de révision (≤ 3 ans / changement significatif)
+## Deliverables
+- Complete DPIA (structured per art. 35.7) + DPIA register
+- Risk mitigation plan (owner + deadline)
+- Documented DPO opinion
+- Review procedure (≤ 3 years / significant change)
 
-## Format de sortie
-Précise : système IA décrit · données traitées (sensibles ?) · finalité · volume de personnes · décisions automatisées (oui/non) · transferts hors UE · classification AI Act.
+## Output format
+Specify: AI system described · data processed (sensitive?) · purpose · number of individuals · automated decisions (yes/no) · transfers outside the EU · AI Act classification.
 
 ## Sources
-- **RGPD** — Règlement (UE) 2016/679, **art. 35** (DPIA) + art. 36 (consultation préalable) — eur-lex.europa.eu
-- **EDPB / G29** — *Guidelines on DPIA (WP248 rev.01)* — 9 critères de risque élevé — ec.europa.eu (Article 29 WP)
-- **CNIL** — Délibération n° **2018-327 du 11 octobre 2018** (liste des traitements imposant une AIPD) + référentiels AIPD — cnil.fr / legifrance.gouv.fr
-- **AI Act** — Règlement (UE) 2024/1689 (art. 6 + Annexe III haut risque, art. 14 supervision, art. 86 explication)
-- **CNIL** — Recommandations IA (2024-2025)
+- **GDPR** — Regulation (EU) 2016/679, **art. 35** (DPIA) + art. 36 (prior consultation) — eur-lex.europa.eu
+- **EDPB / WP29** — *Guidelines on DPIA (WP248 rev.01)* — 9 high-risk criteria — ec.europa.eu (Article 29 WP)
+- **CNIL** — Decision no. **2018-327 of October 11, 2018** (list of processing requiring a DPIA) + DPIA frameworks — cnil.fr / legifrance.gouv.fr
+- **AI Act** — Regulation (EU) 2024/1689 (art. 6 + Annex III high-risk, art. 14 oversight, art. 86 explanation)
+- **CNIL** — AI Recommendations (2024-2025)
 
-## Voir aussi
-- [`rgpd-ia.md`](rgpd-ia.md) — RGPD appliqué à l'IA (bases légales, droits)
-- [`ai-act-conformite.md`](ai-act-conformite.md) — haut risque (déclencheur de DPIA)
-- [`gouvernance-ethique-ia.md`](gouvernance-ethique-ia.md) — EIA éthique (complémentaire à la DPIA)
-- [`audit-conformite-ia.md`](audit-conformite-ia.md) — vérifie l'existence et la qualité des DPIA
-- [`../data_scientist/ethique-ia-biais.md`](../data_scientist/ethique-ia-biais.md) — mesure technique des biais (risque R1)
+## See also
+- [`rgpd-ia.md`](rgpd-ia.md) — GDPR applied to AI (legal bases, rights)
+- [`ai-act-conformite.md`](ai-act-conformite.md) — high-risk (DPIA trigger)
+- [`gouvernance-ethique-ia.md`](gouvernance-ethique-ia.md) — ethics EIA (complementary to the DPIA)
+- [`audit-conformite-ia.md`](audit-conformite-ia.md) — checks the existence and quality of DPIAs
+- [`../data_scientist/ethique-ia-biais.md`](../data_scientist/ethique-ia-biais.md) — technical bias measurement (risk R1)

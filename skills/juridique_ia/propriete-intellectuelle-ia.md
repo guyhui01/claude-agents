@@ -1,323 +1,323 @@
-# Skill — Propriété Intellectuelle & Droit d'Auteur IA
+# Skill — AI Intellectual Property & Copyright
 
-> Certifications : **DPO Certifié CNIL** · **CIPP/E** (IAPP) · **CIPM** (IAPP) · **ISO/IEC 42001:2023 Lead Implementer** (PECB) · LegalTech AI Certificate · Avocat IP/IT (selon profil)
-> Agent : AGENT-JURIDIQUE-IA.md
+> Certifications: **Certified DPO CNIL** · **CIPP/E** (IAPP) · **CIPM** (IAPP) · **ISO/IEC 42001:2023 Lead Implementer** (PECB) · LegalTech AI Certificate · IP/IT attorney (depending on profile)
+> Agent: AGENT-JURIDIQUE-IA.md
 
-## Objectif
+## Objective
 
-Conseiller rigoureusement sur les questions de propriété intellectuelle liées à l'IA : **droits sur les outputs IA**, **propriété des modèles** (poids, code, datasets), **conformité TDM** (Directive UE 2019/790 art. 3 & 4 + opt-out), **clauses contractuelles** (cession PI, anti-usage entraînement, indemnisation), et **veille jurisprudentielle active** (Like Company v. Google CJUE C-250/25, NYT v. OpenAI, Andersen v. Stability AI, Getty v. Stability AI UK, Thaler v. Vidal DABUS).
+Advise rigorously on the intellectual property questions tied to AI: **rights over AI outputs**, **model ownership** (weights, code, datasets), **TDM compliance** (EU Directive 2019/790 art. 3 & 4 + opt-out), **contractual clauses** (IP assignment, anti-training-use, indemnification), and **active case-law monitoring** (Like Company v. Google CJEU C-250/25, NYT v. OpenAI, Andersen v. Stability AI, Getty v. Stability AI UK, Thaler v. Vidal DABUS).
 
-## Cadre référentiels mobilisés (4 catégories)
+## Frameworks mobilized (4 categories)
 
-| Catégorie | Référentiels |
+| Category | Frameworks |
 |---|---|
-| **Droit UE & national** | Directive UE 2019/790 (DSM) · AI Act UE 2024/1689 · Directive 2016/943 secret d'affaires · RGPD UE 2016/679 · Code de la propriété intellectuelle (CPI français) |
-| **Droit US & UK** | Copyright Act 17 USC · Patent Act 35 USC · DMCA · UK Copyright, Designs and Patents Act 1988 |
-| **Jurisprudence en cours** | Like Company v. Google (CJUE C-250/25) · NYT v. OpenAI (SDNY) · Andersen v. Stability AI (NDCal) · Getty v. Stability AI (UK High Court) · Thaler v. Vidal (USPTO/Federal Circuit/D.C. Circuit) |
-| **Doctrines & guides** | USCO Copyright Guidance (2023+) · EUIPO Q&A · CNIL Recommandations IA (2024+) · UK IPO consultation TDM |
+| **EU & national law** | EU Directive 2019/790 (DSM) · AI Act EU 2024/1689 · Directive 2016/943 trade secrets · GDPR EU 2016/679 · French Intellectual Property Code (CPI) |
+| **US & UK law** | Copyright Act 17 USC · Patent Act 35 USC · DMCA · UK Copyright, Designs and Patents Act 1988 |
+| **Pending case law** | Like Company v. Google (CJEU C-250/25) · NYT v. OpenAI (SDNY) · Andersen v. Stability AI (NDCal) · Getty v. Stability AI (UK High Court) · Thaler v. Vidal (USPTO/Federal Circuit/D.C. Circuit) |
+| **Doctrines & guides** | USCO Copyright Guidance (2023+) · EUIPO Q&A · CNIL AI Recommendations (2024+) · UK IPO TDM consultation |
 
-## Directive UE 2019/790 (DSM Copyright Directive) — Articles 3 & 4 TDM
+## EU Directive 2019/790 (DSM Copyright Directive) — Articles 3 & 4 TDM
 
-**Pivot juridique pour l'entraînement d'IA en Europe** — deux exceptions TDM (Text and Data Mining) :
+**Legal pivot for AI training in Europe** — two TDM (Text and Data Mining) exceptions:
 
-| Article | Bénéficiaires | Conditions | Opt-out possible ? | Application IA |
+| Article | Beneficiaries | Conditions | Opt-out possible? | AI application |
 |---|---|---|:---:|---|
-| **Art. 3** | Organismes de recherche + institutions patrimoine culturel (à but non-commercial) | Accès licite à l'œuvre + finalité recherche scientifique | ❌ **Non** | Recherche académique IA uniquement |
-| **Art. 4** | **Toute personne** (commercial inclus) | Accès licite à l'œuvre + opt-out non exercé par l'ayant droit | ✅ **Oui** (réservation explicite ayant droit) | **Entraînement IA commercial** — base juridique privilégiée en UE |
+| **Art. 3** | Research organizations + cultural heritage institutions (non-commercial) | Lawful access to the work + scientific research purpose | ❌ **No** | Academic AI research only |
+| **Art. 4** | **Anyone** (commercial included) | Lawful access to the work + opt-out not exercised by the rightholder | ✅ **Yes** (explicit rightholder reservation) | **Commercial AI training** — preferred legal basis in the EU |
 
-**Couplage AI Act UE 2024/1689** : l'art. 53(1)(c) impose aux fournisseurs de **General-Purpose AI models** de mettre en place une politique respectant le droit d'auteur de l'Union, incluant l'**identification et le respect des opt-out** au titre de l'article 4(3) de la Directive 2019/790. → L'AI Act consacre explicitement le mécanisme opt-out comme **norme européenne** pour le TDM commercial.
+**AI Act EU 2024/1689 coupling**: art. 53(1)(c) requires providers of **General-Purpose AI models** to put in place a policy respecting Union copyright, including the **identification and respect of opt-outs** under article 4(3) of Directive 2019/790. → The AI Act explicitly enshrines the opt-out mechanism as the **European standard** for commercial TDM.
 
-**Mise en œuvre opt-out** :
-- Machine-readable : robots.txt, métadonnées TDM-Rep (W3C standard), HTTP headers
-- Contractuel : CGU sites web, licences explicites
-- À documenter par le fournisseur d'IA : registre des opt-out respectés + politique TDM
+**Opt-out implementation**:
+- Machine-readable: robots.txt, TDM-Rep metadata (W3C standard), HTTP headers
+- Contractual: website ToS, explicit licenses
+- To be documented by the AI provider: register of respected opt-outs + TDM policy
 
-## AI Act UE 2024/1689 (publié JO L du 12 juillet 2024)
+## AI Act EU 2024/1689 (published OJ L of July 12, 2024)
 
-| Disposition AI Act | Impact PI |
+| AI Act provision | IP impact |
 |---|---|
-| **Art. 50** Transparence | Mention obligatoire "Contenu généré par IA" pour deepfakes + chatbots + contenus génératifs |
-| **Art. 53** Fournisseurs General-Purpose AI | Documentation training data summary + respect copyright UE (incluant opt-out art. 4 Directive 2019/790) |
-| **Art. 53(1)(c)** GPAI copyright policy | Politique respect droits d'auteur — identification opt-out machine-readable |
-| **Annexe XI** | Liste des informations à fournir : sources données, types de contenus protégés, mesures respect droits |
+| **Art. 50** Transparency | Mandatory "AI-generated content" marking for deepfakes + chatbots + generative content |
+| **Art. 53** General-Purpose AI providers | Training-data summary documentation + EU copyright respect (including opt-out art. 4 Directive 2019/790) |
+| **Art. 53(1)(c)** GPAI copyright policy | Copyright-respect policy — machine-readable opt-out identification |
+| **Annex XI** | List of information to provide: data sources, types of protected content, rights-respect measures |
 
-## Directive 2016/943 — Secret d'affaires (Trade Secrets)
+## Directive 2016/943 — Trade Secrets
 
-Protection des **modèles IA entraînés** (poids, hyperparamètres, datasets internes) :
+Protection of **trained AI models** (weights, hyperparameters, internal datasets):
 
-**3 conditions cumulatives** (art. 2.1) :
-1. **Secret** : information n'est pas généralement connue ni aisément accessible
-2. **Valeur commerciale** : valeur commerciale parce que secrète
-3. **Mesures raisonnables** : précautions raisonnables pour préserver le secret (NDA, accès restreint, logs, watermarking, segregation environnements)
+**3 cumulative conditions** (art. 2.1):
+1. **Secrecy**: the information is not generally known or readily accessible
+2. **Commercial value**: commercial value because it is secret
+3. **Reasonable measures**: reasonable precautions to keep it secret (NDA, restricted access, logs, watermarking, environment segregation)
 
-→ **Recommandation 2026** : pour protéger un modèle IA propriétaire entraîné, le **secret d'affaires** est généralement plus robuste que :
-- Le brevet (très restrictif en UE — exception logicielle pure, sauf "effet technique" démontrable)
-- Le droit d'auteur (protège le code source d'entraînement mais pas les poids du modèle)
+→ **2026 recommendation**: to protect a proprietary trained AI model, the **trade secret** is generally more robust than:
+- The patent (very restrictive in the EU — pure-software exception, unless a demonstrable "technical effect")
+- Copyright (protects the training source code but not the model weights)
 
-## Droit d'auteur des outputs IA — Positions des offices
+## Copyright of AI outputs — Offices' positions
 
 ### US Copyright Office (USCO)
-- **Mars 2023** *Copyright Registration Guidance: Works Containing Material Generated by Artificial Intelligence* — outputs purement IA = **non protégeables** (absence d'auteur humain) ; mais éléments **sélectionnés/arrangés/modifiés** par un humain peuvent l'être
-- **Janvier 2025** *Copyright and Artificial Intelligence Part 2: Copyrightability* — réitération de la position : seuil de "human authorship" exigé, examen au cas par cas
-- **Affaires emblématiques** : USCO a refusé l'enregistrement de "A Recent Entrance to Paradise" (Thaler, IA seule) et de la BD "Zarya of the Dawn" (Kashtanova — images Midjourney refusées, texte humain accepté)
+- **March 2023** *Copyright Registration Guidance: Works Containing Material Generated by Artificial Intelligence* — purely AI outputs = **not protectable** (no human author); but elements **selected/arranged/modified** by a human can be
+- **January 2025** *Copyright and Artificial Intelligence Part 2: Copyrightability* — reiteration of the position: a "human authorship" threshold is required, case-by-case examination
+- **Landmark cases**: USCO refused registration of "A Recent Entrance to Paradise" (Thaler, AI alone) and of the comic "Zarya of the Dawn" (Kashtanova — Midjourney images refused, human text accepted)
 
-### EUIPO / position UE
-- Pas de décision EUIPO formelle codifiée — l'office gère plutôt les marques. Le **droit d'auteur** relève des juridictions nationales en application des directives UE
-- Doctrine majoritaire : critère **CJEU Infopaq (C-5/08, 2009)** "originalité = création intellectuelle propre à l'auteur" → exclut généralement les outputs purement IA
-- Affaire CJUE attendue : **Like Company v. Google Ireland (C-250/25)** — première affaire CJUE sur IA générative (cf. section dédiée)
+### EUIPO / EU position
+- No formal codified EUIPO decision — the office handles trademarks instead. **Copyright** falls to national courts applying EU directives
+- Majority doctrine: **CJEU Infopaq (C-5/08, 2009)** criterion "originality = the author's own intellectual creation" → generally excludes purely AI outputs
+- Awaited CJEU case: **Like Company v. Google Ireland (C-250/25)** — first CJEU case on generative AI (see dedicated section)
 
-### Droit français (Code de la propriété intellectuelle)
-- Art. L. 111-1 CPI : "L'auteur d'une œuvre de l'esprit jouit sur cette œuvre, du seul fait de sa création, d'un droit de propriété incorporelle exclusif" — implique une création humaine
-- Art. L. 112-1 CPI : protection des œuvres "quels qu'en soient le genre, la forme d'expression, le mérite ou la destination"
-- → Output IA seul = pas protégé (pas d'auteur humain) ; output avec apport humain substantiel = protection possible (jurisprudence à construire)
+### French law (Intellectual Property Code)
+- Art. L. 111-1 CPI: "The author of a work of the mind enjoys, by the mere fact of its creation, an exclusive incorporeal property right over that work" — implies a human creation
+- Art. L. 112-1 CPI: protection of works "whatever their genre, form of expression, merit, or purpose"
+- → AI output alone = not protected (no human author); output with a substantial human contribution = possible protection (case law to be built)
 
-## Affaires US clés actuellement en cours (octobre 2025)
+## Key US cases currently pending (October 2025)
 
-**Bilan trackers spécialisés** : ~51 lawsuits AI copyright actifs aux États-Unis (status au 8 octobre 2025, sources : ChatGPT Is Eating the World tracker / AI Lawsuit Tracker).
+**Specialized-tracker tally**: ~51 active AI copyright lawsuits in the United States (status as of October 8, 2025, sources: ChatGPT Is Eating the World tracker / AI Lawsuit Tracker).
 
 ### NYT v. OpenAI & Microsoft (SDNY)
-- **Dépôt** : 27 décembre 2023 (Southern District of New York)
-- **Allégations** : OpenAI aurait utilisé sans autorisation des millions d'articles NYT pour entraîner GPT (notamment ChatGPT), avec capacité de "régurgitation" reproduisant des contenus protégés
-- **Défense OpenAI** : fair use (USA) + transformative use
-- **Avril 2025** : Judge Sidney Stein rejette la majeure partie du motion to dismiss → procès continue
-- **Mai 2025** : Magistrate Judge Ona T. Wang ordonne **préservation de tous les logs ChatGPT** (~400M utilisateurs) — implications data privacy globales
-- **Juin 2025** : Judge Stein confirme l'ordre de préservation (objection OpenAI rejetée)
-- **Statut** : aucune décision summary judgment fair use attendue avant l'été 2026
+- **Filing**: December 27, 2023 (Southern District of New York)
+- **Allegations**: OpenAI allegedly used millions of NYT articles without authorization to train GPT (notably ChatGPT), with a "regurgitation" capability reproducing protected content
+- **OpenAI defense**: fair use (USA) + transformative use
+- **April 2025**: Judge Sidney Stein denies most of the motion to dismiss → case proceeds
+- **May 2025**: Magistrate Judge Ona T. Wang orders **preservation of all ChatGPT logs** (~400M users) — global data-privacy implications
+- **June 2025**: Judge Stein upholds the preservation order (OpenAI objection rejected)
+- **Status**: no fair-use summary judgment decision expected before summer 2026
 
 ### Andersen v. Stability AI, Midjourney, DeviantArt (NDCal)
-- **Dépôt** : 12 janvier 2023 (Northern District of California, class action)
-- **Plaignants** : Sarah Andersen, Kelly McKernan, Karla Ortiz + class artists
-- **Cible** : utilisation du dataset **LAION** (~5 milliards d'images scrapées) pour entraîner Stable Diffusion et Midjourney
-- **Octobre 2023** : claims principaux maintenus, Judge William Orrick refuse motion to dismiss du copyright infringement
-- **Août 2024** : direct + induced copyright infringement claims **jugés plausibles** ; DMCA Section 1202 claims rejetés *with prejudice*
-- **Statut** : **trial fixé au 8 septembre 2026** ; 3ème amended complaint déposée février 2026
+- **Filing**: January 12, 2023 (Northern District of California, class action)
+- **Plaintiffs**: Sarah Andersen, Kelly McKernan, Karla Ortiz + class artists
+- **Target**: use of the **LAION** dataset (~5 billion scraped images) to train Stable Diffusion and Midjourney
+- **October 2023**: main claims upheld, Judge William Orrick denies the copyright-infringement motion to dismiss
+- **August 2024**: direct + induced copyright infringement claims **deemed plausible**; DMCA Section 1202 claims dismissed *with prejudice*
+- **Status**: **trial set for September 8, 2026**; 3rd amended complaint filed February 2026
 
-### Thaler v. Vidal (DABUS) — clôturée définitivement
-- **Brevet** : USPTO refuse de lister DABUS comme inventeur ; Federal Circuit confirme (août 2022) que le Patent Act 35 USC limite l'inventorship aux *natural persons*
-- **Copyright** : D.C. Circuit (2025) confirme le rejet de DABUS comme *author* sous Copyright Act 17 USC
-- **Mars 2026** : **Supreme Court denies certiorari** — fin du parcours, Thaler a épuisé les voies de recours
-- **USPTO guidance évolutive** :
-  - Février 2024 : *Inventorship Guidance for AI-Assisted Inventions* — patent OK si "at least one natural person significantly contributed"
-  - 2025 : guidance révisée — AI = "tool that assists" (analogue à laboratory equipment / computer software / research databases)
+### Thaler v. Vidal (DABUS) — definitively closed
+- **Patent**: USPTO refuses to list DABUS as inventor; Federal Circuit confirms (August 2022) that the Patent Act 35 USC limits inventorship to *natural persons*
+- **Copyright**: D.C. Circuit (2025) upholds the rejection of DABUS as *author* under Copyright Act 17 USC
+- **March 2026**: **Supreme Court denies certiorari** — end of the road, Thaler has exhausted his remedies
+- **Evolving USPTO guidance**:
+  - February 2024: *Inventorship Guidance for AI-Assisted Inventions* — patent OK if "at least one natural person significantly contributed"
+  - 2025: revised guidance — AI = "tool that assists" (analogous to laboratory equipment / computer software / research databases)
 
-## Affaire UK — Getty Images v. Stability AI
+## UK case — Getty Images v. Stability AI
 
-- **Juridiction** : High Court of England and Wales
-- **Jugement** : **4 novembre 2025** (Mrs Justice Joanna Smith DBE) — **première affaire UK majeure** sur copyright et IA générative
-- **Résultats** :
-  - **Copyright infringement principal** : Getty a **abandonné les claims principaux** pendant le procès → Stability AI prévaut
-  - **Copyright infringement secondaire** (importation/possession/distribution UK du modèle) : la Court juge que **Stable Diffusion n'est pas une "infringing copy"** au sens de la Section 27 CDPA 1988
-  - **Trademark infringement** : reconnaissance **partielle** — versions antérieures de Stable Diffusion pouvaient générer images contenant watermarks Getty/iStock sous prompting non-contraint → infringement possible si "in the course of trade"
-- **Finding clé** : la Court admet que les œuvres protégées par copyright de Getty **ont été utilisées pour entraîner Stable Diffusion**, mais le TDM ayant eu lieu hors UK, la juridiction britannique n'a pas compétence sur l'acte d'entraînement lui-même
+- **Jurisdiction**: High Court of England and Wales
+- **Judgment**: **November 4, 2025** (Mrs Justice Joanna Smith DBE) — **first major UK case** on copyright and generative AI
+- **Outcomes**:
+  - **Primary copyright infringement**: Getty **dropped the main claims** during trial → Stability AI prevails
+  - **Secondary copyright infringement** (UK import/possession/distribution of the model): the Court holds that **Stable Diffusion is not an "infringing copy"** within the meaning of Section 27 CDPA 1988
+  - **Trademark infringement**: **partial** recognition — earlier versions of Stable Diffusion could generate images containing Getty/iStock watermarks under unconstrained prompting → possible infringement if "in the course of trade"
+- **Key finding**: the Court accepts that Getty's copyright-protected works **were used to train Stable Diffusion**, but the TDM having occurred outside the UK, the British court has no jurisdiction over the act of training itself
 
-## Affaire CJUE — Like Company v. Google Ireland (Case C-250/25)
+## CJEU case — Like Company v. Google Ireland (Case C-250/25)
 
-**Première fois** que la Court of Justice of the European Union est saisie sur copyright vs IA générative.
+**First time** the Court of Justice of the European Union is seized on copyright vs generative AI.
 
-- **Référé** : 3 avril 2025 par le Budapest Környéki Törvényszék (Tribunal d'arrondissement de Budapest, Hongrie)
-- **Plaignant** : Like Company (éditeur de presse hongrois, plusieurs portails d'actualités)
-- **Défendeur** : Google Ireland Limited (chatbot **Gemini**, anciennement Bard)
-- **Allégations** : Gemini reproduit et résume des portions substantielles d'articles protégés sans autorisation
-- **Cadre juridique mobilisé** : Directive 2019/790 (DSM) + Directive 2001/29/CE (InfoSoc Directive) — droits voisins des éditeurs de presse
-- **Audience** : **10 mars 2026** (première audition CJUE sur IA générative)
-- **Advocate General opinion** attendue : **3 septembre 2026**
-- **Arrêt CJUE** attendu : généralement 4-8 mois après opinion AG → **fin 2026 / début 2027**
+- **Reference**: April 3, 2025 by the Budapest Környéki Törvényszék (Budapest District Court, Hungary)
+- **Plaintiff**: Like Company (Hungarian press publisher, several news portals)
+- **Defendant**: Google Ireland Limited (chatbot **Gemini**, formerly Bard)
+- **Allegations**: Gemini reproduces and summarizes substantial portions of protected articles without authorization
+- **Legal framework mobilized**: Directive 2019/790 (DSM) + Directive 2001/29/EC (InfoSoc Directive) — press publishers' neighboring rights
+- **Hearing**: **March 10, 2026** (first CJEU hearing on generative AI)
+- **Advocate General opinion** expected: **September 3, 2026**
+- **CJEU ruling** expected: generally 4-8 months after the AG opinion → **end of 2026 / early 2027**
 
-→ **Impact attendu** : la décision CJUE constituera le **precedent référence européen** sur la frontière TDM exception (art. 4 Directive 2019/790) ↔ reproduction substantielle non autorisée par chatbot IA.
+→ **Expected impact**: the CJEU decision will set the **European reference precedent** on the boundary between the TDM exception (art. 4 Directive 2019/790) ↔ unauthorized substantial reproduction by an AI chatbot.
 
-## Propriété des modèles IA — Stratégie de protection
+## AI model ownership — Protection strategy
 
-| Élément du modèle | Protection possible | Forme privilégiée 2026 |
+| Model element | Possible protection | Preferred form 2026 |
 |---|---|---|
-| **Code d'entraînement** | Droit d'auteur (logiciel) | OK — Directive 2009/24 + CPI art. L. 122-6 |
-| **Poids du modèle** (paramètres entraînés) | Pas de droit d'auteur clair ; **secret d'affaires** | **Secret d'affaires (Dir. 2016/943)** ⭐ |
-| **Datasets propriétaires (annotation interne)** | Droit *sui generis* sur bases de données (Dir. 96/9) + secret d'affaires | Cumul recommandé |
-| **Architecture / méthode** | Brevet possible si "effet technique" UE | Difficile UE, plus accessible US |
-| **Marque modèle (nom, logo)** | Marque (Règl. UE 2017/1001) | Recommandé pour modèles commerciaux |
-| **Watermarking outputs** | Pas un droit en soi mais preuve provenance | Bonne pratique traçabilité (AI Act art. 50) |
+| **Training code** | Copyright (software) | OK — Directive 2009/24 + CPI art. L. 122-6 |
+| **Model weights** (trained parameters) | No clear copyright; **trade secret** | **Trade secret (Dir. 2016/943)** ⭐ |
+| **Proprietary datasets (internal annotation)** | *Sui generis* database right (Dir. 96/9) + trade secret | Combination recommended |
+| **Architecture / method** | Patent possible if "technical effect" EU | Hard in the EU, more accessible in the US |
+| **Model trademark (name, logo)** | Trademark (Reg. EU 2017/1001) | Recommended for commercial models |
+| **Output watermarking** | Not a right in itself but provenance evidence | Good traceability practice (AI Act art. 50) |
 
-## Données d'entraînement — 3 risques juridiques majeurs
+## Training data — 3 major legal risks
 
-### 1. Copyright des œuvres utilisées pour l'entraînement
-- **UE** : exception TDM art. 4 Directive 2019/790 si accès licite + opt-out respecté
-- **US** : doctrine **fair use** (4 facteurs : purpose/nature/amount/effect on market) — débattue, jurisprudence en construction (NYT, Andersen, etc.)
-- **UK** : pas d'exception TDM commerciale équivalente UE actuellement (consultation UK IPO en cours 2024-2025)
+### 1. Copyright of works used for training
+- **EU**: TDM exception art. 4 Directive 2019/790 if lawful access + opt-out respected
+- **US**: **fair use** doctrine (4 factors: purpose/nature/amount/effect on market) — debated, case law being built (NYT, Andersen, etc.)
+- **UK**: no commercial TDM exception equivalent to the EU's currently (UK IPO consultation ongoing 2024-2025)
 
-### 2. Données personnelles (RGPD UE 2016/679)
-- Base légale nécessaire pour scraping + entraînement (intérêt légitime art. 6(1)(f) souvent invoqué, débattu)
-- **CNIL Recommandations IA** (octobre 2024 + avril 2025) sur fondement légitime base IA + intérêt légitime + droits des personnes
-- DPIA obligatoire pour systèmes IA "haut risque" (couplage AI Act art. 6, Annexe III + RGPD art. 35)
-- Sanctions RGPD jusqu'à 20 M€ ou 4% CA mondial
+### 2. Personal data (GDPR EU 2016/679)
+- Legal basis required for scraping + training (legitimate interest art. 6(1)(f) often invoked, debated)
+- **CNIL AI Recommendations** (October 2024 + April 2025) on the legitimate basis for AI databases + legitimate interest + individuals' rights
+- DPIA mandatory for "high-risk" AI systems (coupling AI Act art. 6, Annex III + GDPR art. 35)
+- GDPR penalties up to €20M or 4% of worldwide turnover
 
-### 3. Données propriétaires des clients
-- Clause contractuelle indispensable : interdiction d'utiliser les données client pour entraîner le modèle fournisseur
-- Couplage avec DORA (banque) : third-party ICT risk + clauses de réversibilité
+### 3. Clients' proprietary data
+- Essential contractual clause: prohibition on using client data to train the provider's model
+- Coupling with DORA (banking): third-party ICT risk + reversibility clauses
 
-## Contrats — Clauses PI essentielles (templates)
+## Contracts — Essential IP clauses (templates)
 
-### Clause de cession de la PI (projet de développement IA spécifique)
+### IP assignment clause (specific AI development project)
 ```
-À compter de la recette définitive, le CLIENT acquiert la propriété
-exclusive des Éléments spécifiques, incluant :
-(i)   le code source développé spécifiquement pour le CLIENT,
-(ii)  les poids du modèle entraîné sur les données du CLIENT,
-(iii) les datasets annotés par le PRESTATAIRE pour le CLIENT,
-(iv)  la documentation technique et fonctionnelle associée.
+As of final acceptance, the CLIENT acquires exclusive ownership
+of the specific Elements, including:
+(i)   the source code developed specifically for the CLIENT,
+(ii)  the weights of the model trained on the CLIENT's data,
+(iii) the datasets annotated by the PROVIDER for the CLIENT,
+(iv)  the associated technical and functional documentation.
 
-Les éléments réutilisables (frameworks tiers, librairies open source,
-fine-tuning de modèles de base sous licence) font l'objet d'une licence
-non-exclusive, perpétuelle, transférable, irrévocable en faveur du CLIENT.
+Reusable elements (third-party frameworks, open-source libraries,
+fine-tuning of licensed base models) are subject to a non-exclusive,
+perpetual, transferable, irrevocable license in favor of the CLIENT.
 
-Le PRESTATAIRE garantit la titularité des droits cédés et indemnise
-le CLIENT contre toute revendication de tiers (cf. clause indemnisation).
-```
-
-### Clause anti-usage pour l'entraînement
-```
-Le PRESTATAIRE / FOURNISSEUR s'interdit d'utiliser :
-- les données du CLIENT (input et outputs)
-- les conversations échangées avec le système
-- les prompts et logs d'utilisation
-pour entraîner, fine-tuner, affiner, évaluer ou améliorer tout autre
-modèle, système ou service, sauf accord écrit préalable du CLIENT.
-
-Cette interdiction s'étend aux sous-traitants et partenaires.
-Engagement contractuel de durée illimitée (post-contractuel inclus).
+The PROVIDER warrants ownership of the assigned rights and indemnifies
+the CLIENT against any third-party claim (see indemnification clause).
 ```
 
-### Clause d'indemnisation IP (IP Indemnification)
+### Anti-training-use clause
 ```
-Le FOURNISSEUR garantit le CLIENT contre toute revendication de tiers
-relative à la violation de droits de propriété intellectuelle par
-l'utilisation conforme du Service IA, incluant les outputs générés.
+The PROVIDER / SUPPLIER shall refrain from using:
+- the CLIENT's data (inputs and outputs)
+- the conversations exchanged with the system
+- the prompts and usage logs
+to train, fine-tune, refine, evaluate, or improve any other
+model, system, or service, save prior written agreement of the CLIENT.
 
-Plafond : à négocier (généralement 12-24 mois de fees / cap absolu).
-Exclusions usuelles : usage non conforme, fine-tuning non autorisé,
-outputs modifiés substantiellement par le CLIENT.
-
-Note : Adobe Firefly propose une IP indemnification "Enterprise" complète.
-OpenAI propose "Copyright Shield" (limites contractuelles). Anthropic
-propose des protections IP avec conditions. Microsoft Copilot for M365 :
-"Customer Copyright Commitment" sous conditions usage responsable.
-À vérifier au cas par cas dans les CGU à jour.
+This prohibition extends to sub-processors and partners.
+Contractual commitment of unlimited duration (post-contractual included).
 ```
 
-## Due Diligence PI avant utilisation d'un LLM SaaS
+### IP Indemnification clause
+```
+The PROVIDER indemnifies the CLIENT against any third-party claim
+relating to an intellectual property infringement arising from
+compliant use of the AI Service, including the generated outputs.
 
-| Question DD | OpenAI (ChatGPT/API) | Anthropic Claude | Google Gemini | Mistral |
+Cap: to be negotiated (generally 12-24 months of fees / absolute cap).
+Usual exclusions: non-compliant use, unauthorized fine-tuning,
+outputs substantially modified by the CLIENT.
+
+Note: Adobe Firefly offers a full "Enterprise" IP indemnification.
+OpenAI offers "Copyright Shield" (contractual limits). Anthropic
+offers IP protections with conditions. Microsoft Copilot for M365:
+"Customer Copyright Commitment" under responsible-use conditions.
+To be checked case by case in the current ToS.
+```
+
+## IP Due Diligence before using a SaaS LLM
+
+| DD question | OpenAI (ChatGPT/API) | Anthropic Claude | Google Gemini | Mistral |
 |---|---|---|---|---|
-| **Mes données entraînent le modèle ?** | API par défaut **NON** (opt-out auto) · ChatGPT consumer : opt-in possible | API/Workbench par défaut **NON** · Consumer Claude.ai : pas d'usage pour entraînement par défaut | Vertex AI / Workspace AI : **NON** par défaut · Gemini consumer : voir CGU à jour | API par défaut **NON** (claim "no training on customer data") |
-| **Indemnisation IP outputs ?** | Copyright Shield API (limites contractuelles) | Indemnisation Enterprise avec conditions | Indemnisation Vertex/Workspace AI sous conditions | Indemnisation à vérifier CGU |
-| **Localisation données EU ?** | Azure OpenAI EU regions disponibles · OpenAI direct : à vérifier | AWS Bedrock EU (Anthropic via Bedrock) · API directe : voir CGU | Vertex AI EU multi-region | EU native (FR), souveraineté forte |
-| **Sub-processors documentés ?** | DPA OpenAI + sub-processors listés | DPA Anthropic + Trust Center | DPA Google + sub-processors | DPA Mistral + sub-processors |
-| **Certifications conformité** | SOC 2 Type II, ISO 27001/27017/27018/27701 | SOC 2 Type II, ISO 27001/27018/27701, HIPAA possible | ISO 27001/27017/27018, SOC 2/3, multiples FedRAMP | SOC 2 Type II, ISO 27001 |
+| **Does my data train the model?** | API by default **NO** (auto opt-out) · ChatGPT consumer: opt-in possible | API/Workbench by default **NO** · Consumer Claude.ai: no use for training by default | Vertex AI / Workspace AI: **NO** by default · Gemini consumer: see current ToS | API by default **NO** (claim "no training on customer data") |
+| **Output IP indemnification?** | Copyright Shield API (contractual limits) | Enterprise indemnification with conditions | Vertex/Workspace AI indemnification under conditions | Indemnification to be checked in ToS |
+| **EU data location?** | Azure OpenAI EU regions available · OpenAI direct: to be checked | AWS Bedrock EU (Anthropic via Bedrock) · direct API: see ToS | Vertex AI EU multi-region | EU native (FR), strong sovereignty |
+| **Documented sub-processors?** | OpenAI DPA + listed sub-processors | Anthropic DPA + Trust Center | Google DPA + sub-processors | Mistral DPA + sub-processors |
+| **Compliance certifications** | SOC 2 Type II, ISO 27001/27017/27018/27701 | SOC 2 Type II, ISO 27001/27018/27701, HIPAA possible | ISO 27001/27017/27018, SOC 2/3, multiple FedRAMP | SOC 2 Type II, ISO 27001 |
 
-⚠️ **À vérifier systématiquement dans les CGU à jour** au moment du contrat (les conditions évoluent rapidement — la table ci-dessus reflète une situation 2025-2026 indicative).
+⚠️ **Always verify in the current ToS** at the time of contracting (terms evolve quickly — the table above reflects an indicative 2025-2026 situation).
 
-## Exemple chiffré sectoriel — Groupe de presse européen multi-pays
+## Quantified sector example — European multi-country press group
 
-**Contexte anonymisé** : groupe de presse européen présent dans 6 pays UE (~12 titres quotidiens + magazines + sites d'info), ~3 500 collaborateurs, CA 850 M€/an, 18M utilisateurs uniques mensuels. Mission **audit PI & stratégie IA générative** sur 4 mois.
+**Anonymized context**: European press group present in 6 EU countries (~12 daily titles + magazines + news sites), ~3,500 employees, €850M turnover/year, 18M monthly unique users. **IP audit & generative-AI strategy** engagement over 4 months.
 
-**Périmètre audit** :
-1. **Usage interne** : intégration GPT-4o (via Azure) + Claude (via Bedrock) en rédaction (assistance recherche, traduction, résumés, brouillons)
-2. **Protection corpus** : analyse exposition archives + flux temps réel au scraping LLM tiers (OpenAI, Google, Meta, Anthropic, Perplexity, etc.)
-3. **Stratégie monétisation contenus** : opt-out art. 4 Directive 2019/790 + licences de réutilisation IA + jurisprudence Like Company v. Google (C-250/25)
+**Audit scope**:
+1. **Internal use**: integration of GPT-4o (via Azure) + Claude (via Bedrock) in editorial work (research assistance, translation, summaries, drafts)
+2. **Corpus protection**: analysis of archive + real-time feed exposure to third-party LLM scraping (OpenAI, Google, Meta, Anthropic, Perplexity, etc.)
+3. **Content monetization strategy**: opt-out art. 4 Directive 2019/790 + AI reuse licenses + Like Company v. Google case law (C-250/25)
 
-**Diagnostic PI initial** :
+**Initial IP diagnosis**:
 
-| Dimension | Constat | Risque |
+| Dimension | Finding | Risk |
 |---|:---:|---|
-| Conformité art. 50 AI Act (transparence) | ❌ Aucune mention "Contenu généré avec IA" | 🔴 Sanction AI Act (entrée en application 2026) |
-| Opt-out TDM machine-readable | ❌ robots.txt sans directive TDM-Rep | 🔴 Corpus 100% scrapable par LLM tiers |
-| Clauses contractuelles fournisseurs LLM | 🟡 Génériques (CGU standard, pas négociées) | 🟠 Risque réutilisation données pour entraînement |
-| Politique interne usage GenAI rédactionnel | ❌ Absente, usage ad hoc journalistes | 🔴 Risque déontologique + factualité + plagiat |
-| Indemnisation IP fournisseurs | 🟡 Couverture partielle (Copyright Shield OpenAI limité) | 🟠 Risque litige outputs |
-| Stratégie licences IA contenus | ❌ Aucune négociation avec OpenAI/Google/Anthropic | 🔴 Manque à gagner (jurisprudence NYT, AP, AFP, Axel Springer-OpenAI deal) |
+| AI Act art. 50 compliance (transparency) | ❌ No "AI-generated content" mention | 🔴 AI Act penalty (entry into application 2026) |
+| Machine-readable TDM opt-out | ❌ robots.txt without a TDM-Rep directive | 🔴 Corpus 100% scrapable by third-party LLMs |
+| LLM-provider contractual clauses | 🟡 Generic (standard ToS, not negotiated) | 🟠 Risk of data reuse for training |
+| Internal editorial GenAI policy | ❌ Absent, ad hoc use by journalists | 🔴 Ethics + factuality + plagiarism risk |
+| Provider IP indemnification | 🟡 Partial coverage (OpenAI Copyright Shield limited) | 🟠 Output litigation risk |
+| Content AI-licensing strategy | ❌ No negotiation with OpenAI/Google/Anthropic | 🔴 Lost revenue (NYT, AP, AFP, Axel Springer-OpenAI deal case law) |
 
-**Plan d'action 6 mois (recommandations)** :
+**6-month action plan (recommendations)**:
 
-| Action | Effort | Échéance | Impact |
+| Action | Effort | Deadline | Impact |
 |---|:---:|:---:|---|
-| **Implémentation opt-out TDM-Rep** (W3C standard) | 1 sem dev | T+1 mois | Conformité art. 4 Directive 2019/790, signal opt-out clair pour LLM |
-| **Mention "Contenu généré avec IA"** sur articles concernés | 2 sem éditorial + outil CMS | T+2 mois | Conformité AI Act art. 50 |
-| **Charte interne usage GenAI rédactionnel** (10 règles + formation) | 1 mois | T+2 mois | Réduction risque déontologique + factualité |
-| **Renégociation contrats fournisseurs LLM** (clauses anti-entraînement + indemnisation IP renforcée) | 3 mois | T+5 mois | Sécurisation usage interne |
-| **Stratégie licences IA contenus** (négociation directe Anthropic, OpenAI, Google + AFP/EBU mutualisation) | 4 mois | T+6 mois | Monétisation corpus 1-5 M€/an cible 3 ans (benchmark deal Axel Springer + AP + News Corp + Le Monde-Perplexity) |
+| **TDM-Rep opt-out implementation** (W3C standard) | 1 dev week | T+1 month | Compliance art. 4 Directive 2019/790, clear opt-out signal for LLMs |
+| **"AI-generated content" mention** on relevant articles | 2 editorial weeks + CMS tool | T+2 months | Compliance AI Act art. 50 |
+| **Internal editorial GenAI charter** (10 rules + training) | 1 month | T+2 months | Reduced ethics + factuality risk |
+| **Renegotiation of LLM-provider contracts** (anti-training clauses + reinforced IP indemnification) | 3 months | T+5 months | Secured internal use |
+| **Content AI-licensing strategy** (direct negotiation Anthropic, OpenAI, Google + AFP/EBU pooling) | 4 months | T+6 months | Corpus monetization €1-5M/year target over 3 years (benchmark Axel Springer + AP + News Corp + Le Monde-Perplexity deals) |
 
-**Budget global audit + déploiement** : 380 K€ sur 6 mois (avocat IP/IT 220 K€ + dev technique opt-out 60 K€ + accompagnement éditorial 100 K€)
+**Overall audit + rollout budget**: €380K over 6 months (IP/IT attorney €220K + technical opt-out dev €60K + editorial support €100K)
 
-**Gains projetés T+12 mois** :
-- Conformité AI Act art. 50 + 53 (anticipation entrée en application 2026)
-- Conformité Directive 2019/790 art. 4 (opt-out machine-readable)
-- Pipeline contractuel : 3-5 deals licences IA en négociation (cible 1.5 M€ ARR T+18 mois)
-- Réduction risque litige IP outputs (indemnisation renforcée)
+**Projected gains T+12 months**:
+- AI Act art. 50 + 53 compliance (anticipating entry into application 2026)
+- Directive 2019/790 art. 4 compliance (machine-readable opt-out)
+- Contractual pipeline: 3-5 AI license deals under negotiation (target €1.5M ARR T+18 months)
+- Reduced output-IP litigation risk (reinforced indemnification)
 
-## 8 anti-patterns propriété intellectuelle IA
+## 8 AI intellectual-property anti-patterns
 
-- ❌ **"Pas de droit d'auteur sur output IA = on peut tout faire"** : confusion avec utilisation de données d'entrée protégées (le droit d'auteur des œuvres scrapées reste opposable)
-- ❌ **Pas de mention "Contenu généré avec IA"** sur les outputs : violation AI Act art. 50 (sanctions jusqu'à 35 M€ ou 7% CA)
-- ❌ **Pas d'opt-out TDM machine-readable** : corpus 100% scrapable, perte de levier de négociation (Directive 2019/790 art. 4)
-- ❌ **Confondre Article 3 (scientifique) et Article 4 (commercial)** Directive 2019/790 : seul l'art. 4 autorise le TDM commercial sous condition d'opt-out
-- ❌ **Brevet logiciel pur en UE** sans démontrer "effet technique" : refus quasi systématique OEB — préférer secret d'affaires
-- ❌ **Clauses contractuelles génériques fournisseurs LLM** : pas de négociation anti-entraînement ni IP indemnification = risque maximal
-- ❌ **Confondre "human authorship" minimal et substantiel** : prompt seul ≠ apport créatif suffisant (positions USCO 2023+ et doctrine UE)
-- ❌ **Ignorer la veille jurisprudentielle en cours** (NYT v. OpenAI, Andersen, Getty UK, Like Company CJUE) : risque de décisions obsolètes 6-12 mois après prise
+- ❌ **"No copyright on AI output = we can do anything"**: confusion with the use of protected input data (the copyright of scraped works remains enforceable)
+- ❌ **No "AI-generated content" mention** on outputs: AI Act art. 50 violation (penalties up to €35M or 7% of turnover)
+- ❌ **No machine-readable TDM opt-out**: corpus 100% scrapable, loss of negotiating leverage (Directive 2019/790 art. 4)
+- ❌ **Confusing Article 3 (scientific) and Article 4 (commercial)** of Directive 2019/790: only art. 4 allows commercial TDM subject to opt-out
+- ❌ **Pure-software patent in the EU** without demonstrating a "technical effect": near-systematic EPO refusal — prefer the trade secret
+- ❌ **Generic LLM-provider contractual clauses**: no anti-training negotiation or IP indemnification = maximum risk
+- ❌ **Confusing minimal and substantial "human authorship"**: prompt alone ≠ sufficient creative contribution (USCO 2023+ positions and EU doctrine)
+- ❌ **Ignoring ongoing case-law monitoring** (NYT v. OpenAI, Andersen, Getty UK, Like Company CJEU): risk of decisions becoming obsolete 6-12 months after they are made
 
-## Outils
+## Tools
 
-- **Veille jurisprudentielle** : Doctrine.fr · Dalloz · Lexis 360 · Westlaw · Bloomberg Law · LexisNexis · ailawsuittracker.com (gratuit, US) · chatgptiseatingtheworld.com (tracker copyright AI gratuit)
-- **TDM opt-out implementation** : W3C TDM Reservation Protocol (TDM-Rep) · robots.txt standard · IPTC PhotoMetadata · C2PA (Content Authenticity)
-- **Watermarking outputs IA** : C2PA (Coalition for Content Provenance and Authenticity, Adobe/Microsoft/BBC) · SynthID Google · Adobe Content Credentials
-- **Contrats IP IA** : templates EFTA / IIPLA / WIPO + revue avocat IP/IT spécialisé
-- **DD fournisseurs LLM** : DPA fournisseurs + Trust Centers (OpenAI Trust, Anthropic Trust, Google Trust) + audits SOC 2 / ISO 27001/27701
-- **Registre des œuvres** : INPI (FR) · EUIPO · USCO · WIPO Global Brand Database
+- **Case-law monitoring**: Doctrine.fr · Dalloz · Lexis 360 · Westlaw · Bloomberg Law · LexisNexis · ailawsuittracker.com (free, US) · chatgptiseatingtheworld.com (free AI copyright tracker)
+- **TDM opt-out implementation**: W3C TDM Reservation Protocol (TDM-Rep) · robots.txt standard · IPTC PhotoMetadata · C2PA (Content Authenticity)
+- **AI output watermarking**: C2PA (Coalition for Content Provenance and Authenticity, Adobe/Microsoft/BBC) · SynthID Google · Adobe Content Credentials
+- **AI IP contracts**: EFTA / IIPLA / WIPO templates + specialized IP/IT attorney review
+- **LLM provider DD**: provider DPAs + Trust Centers (OpenAI Trust, Anthropic Trust, Google Trust) + SOC 2 / ISO 27001/27701 audits
+- **Works register**: INPI (FR) · EUIPO · USCO · WIPO Global Brand Database
 
-## Livrables
+## Deliverables
 
-- **Audit PI d'un projet IA** (rapport 30-50 pages : conformité Directive 2019/790 + AI Act + RGPD + jurisprudence applicable)
-- **Cartographie risques PI** (matrice usage IA × droits potentiellement enfreints × probabilité × impact financier × mitigation)
-- **Clauses contractuelles PI types** (cession PI, anti-usage entraînement, indemnisation IP, réversibilité)
-- **Politique interne d'utilisation responsable de la GenAI** (charte employés + formation + outil de contrôle)
-- **Guide "Droits sur les outputs IA"** pour équipes opérationnelles (1 pager + FAQ)
-- **Template mention "Contenu généré avec IA"** (AI Act art. 50) déclinaisons (texte, image, audio, vidéo)
-- **Procédure opt-out TDM machine-readable** (W3C TDM-Rep + robots.txt + métadonnées + revue annuelle)
-- **Veille jurisprudentielle mensuelle** (rapport 2-3 pages : décisions du mois + impacts opérationnels)
+- **IP audit of an AI project** (30-50 page report: compliance Directive 2019/790 + AI Act + GDPR + applicable case law)
+- **IP risk mapping** (matrix of AI use × potentially infringed rights × probability × financial impact × mitigation)
+- **Standard IP contractual clauses** (IP assignment, anti-training-use, IP indemnification, reversibility)
+- **Internal responsible-GenAI-use policy** (employee charter + training + control tool)
+- **"Rights over AI outputs" guide** for operational teams (1-pager + FAQ)
+- **"AI-generated content" mention template** (AI Act art. 50) variants (text, image, audio, video)
+- **Machine-readable TDM opt-out procedure** (W3C TDM-Rep + robots.txt + metadata + annual review)
+- **Monthly case-law monitoring** (2-3 page report: the month's decisions + operational impacts)
 
-## Format de sortie
+## Output format
 
-Pour chaque mission PI IA, précise :
-- **Type de création** : texte · code · image · audio · vidéo · modèle IA · dataset annoté
-- **Rôle du client** : **Provider** (fournisseur GPAI au sens AI Act) · **Deployer** (utilisateur professionnel) · **Distributor** · **End-user** · **Press publisher** (droits voisins)
-- **Juridiction(s) applicables** : France · autres pays UE · UK · US · multi-juridictionnel
-- **Enjeu commercial** : faible (usage interne) · moyen (produit commercialisé) · élevé (modèle propriétaire stratégique) · critique (réglementé AI Act haut risque)
-- **Fournisseur IA utilisé** : OpenAI · Anthropic · Google · Mistral · Meta (Llama) · Cohere · open-source (HuggingFace) · custom interne
+For each AI IP engagement, specify:
+- **Type of creation**: text · code · image · audio · video · AI model · annotated dataset
+- **Client's role**: **Provider** (GPAI provider within the meaning of the AI Act) · **Deployer** (professional user) · **Distributor** · **End-user** · **Press publisher** (neighboring rights)
+- **Applicable jurisdiction(s)**: France · other EU countries · UK · US · multi-jurisdictional
+- **Commercial stake**: low (internal use) · medium (commercialized product) · high (strategic proprietary model) · critical (AI Act high-risk regulated)
+- **AI provider used**: OpenAI · Anthropic · Google · Mistral · Meta (Llama) · Cohere · open-source (HuggingFace) · custom in-house
 
 ## Sources
 
-- **Directive (UE) 2019/790** du 17 avril 2019 sur le droit d'auteur dans le marché unique numérique (DSM Copyright Directive) — articles 3 (TDM scientifique) et 4 (TDM général + opt-out)
-- **AI Act UE** — Règlement (UE) 2024/1689 du 13 juin 2024 — JO L du 12 juillet 2024 — art. 50 transparence, art. 53 GPAI providers
-- **Directive (UE) 2016/943** du 8 juin 2016 sur la protection des savoir-faire et informations commerciales non divulgués (Secret d'affaires)
-- **RGPD UE 2016/679** — Règlement général sur la protection des données
-- **CNIL** — Recommandations sur l'IA (octobre 2024 + avril 2025) — fondement légal + intérêt légitime + droits des personnes
-- **NYT v. OpenAI & Microsoft** — SDNY, dépôt 27 décembre 2023, motion to dismiss largement rejetée avril 2025 (Judge Sidney Stein), préservation logs ChatGPT mai-juin 2025
-- **Andersen et al. v. Stability AI, Midjourney, DeviantArt** — Northern District of California, dépôt 12 janvier 2023 (class action), trial fixé 8 septembre 2026
-- **Getty Images (US) Inc & Ors v. Stability AI Ltd** — UK High Court of England and Wales, jugement 4 novembre 2025 (Mrs Justice Joanna Smith DBE) — Stability AI prévaut copyright, trademark partiel
-- **Thaler v. Vidal (DABUS)** — USPTO, Federal Circuit (Patent), D.C. Circuit (Copyright) — Supreme Court denial of certiorari mars 2026
-- **Like Company v. Google Ireland Limited (Case C-250/25)** — CJUE, référence préjudicielle Budapest 3 avril 2025, première audition CJUE IA générative 10 mars 2026, AG opinion attendue 3 septembre 2026
-- **USCO** — *Copyright Registration Guidance: Works Containing Material Generated by Artificial Intelligence* (mars 2023) + *Copyright and Artificial Intelligence Part 2: Copyrightability* (janvier 2025)
-- **CJEU Infopaq International (C-5/08)** — arrêt 16 juillet 2009 — critère originalité "création intellectuelle propre à l'auteur"
-- **USPTO Inventorship Guidance for AI-Assisted Inventions** (février 2024 + révision 2025)
-- **Code de la propriété intellectuelle français** — art. L. 111-1, L. 112-1, L. 122-6 (logiciels), L. 341-1 (bases de données sui generis)
-- **Tracker AI Copyright Lawsuits** — ChatGPT Is Eating the World tracker (~51 lawsuits actives octobre 2025) + AI Lawsuit Tracker
+- **Directive (EU) 2019/790** of April 17, 2019 on copyright in the digital single market (DSM Copyright Directive) — articles 3 (scientific TDM) and 4 (general TDM + opt-out)
+- **AI Act EU** — Regulation (EU) 2024/1689 of June 13, 2024 — OJ L of July 12, 2024 — art. 50 transparency, art. 53 GPAI providers
+- **Directive (EU) 2016/943** of June 8, 2016 on the protection of undisclosed know-how and business information (Trade Secrets)
+- **GDPR EU 2016/679** — General Data Protection Regulation
+- **CNIL** — Recommendations on AI (October 2024 + April 2025) — legal basis + legitimate interest + individuals' rights
+- **NYT v. OpenAI & Microsoft** — SDNY, filed December 27, 2023, motion to dismiss largely denied April 2025 (Judge Sidney Stein), ChatGPT log preservation May-June 2025
+- **Andersen et al. v. Stability AI, Midjourney, DeviantArt** — Northern District of California, filed January 12, 2023 (class action), trial set September 8, 2026
+- **Getty Images (US) Inc & Ors v. Stability AI Ltd** — UK High Court of England and Wales, judgment November 4, 2025 (Mrs Justice Joanna Smith DBE) — Stability AI prevails on copyright, partial trademark
+- **Thaler v. Vidal (DABUS)** — USPTO, Federal Circuit (Patent), D.C. Circuit (Copyright) — Supreme Court denial of certiorari March 2026
+- **Like Company v. Google Ireland Limited (Case C-250/25)** — CJEU, preliminary reference Budapest April 3, 2025, first CJEU generative-AI hearing March 10, 2026, AG opinion expected September 3, 2026
+- **USCO** — *Copyright Registration Guidance: Works Containing Material Generated by Artificial Intelligence* (March 2023) + *Copyright and Artificial Intelligence Part 2: Copyrightability* (January 2025)
+- **CJEU Infopaq International (C-5/08)** — judgment July 16, 2009 — originality criterion "the author's own intellectual creation"
+- **USPTO Inventorship Guidance for AI-Assisted Inventions** (February 2024 + 2025 revision)
+- **French Intellectual Property Code** — art. L. 111-1, L. 112-1, L. 122-6 (software), L. 341-1 (sui generis databases)
+- **AI Copyright Lawsuits Tracker** — ChatGPT Is Eating the World tracker (~51 active lawsuits October 2025) + AI Lawsuit Tracker
 
-## Voir aussi
+## See also
 
-- [ai-act-conformite.md](ai-act-conformite.md) — AI Act conformité opérationnelle (classification 4 niveaux, art. 50 transparence, art. 53 GPAI)
-- [rgpd-ia.md](rgpd-ia.md) — RGPD appliqué à l'IA (base légale entraînement, DPIA, droits des personnes)
-- [contrats-ia.md](contrats-ia.md) — contrats IA (cession PI, anti-usage entraînement, indemnisation, SLA)
-- [dpia-systemes-ia.md](dpia-systemes-ia.md) — DPIA systèmes IA (couplage RGPD + AI Act haut risque)
-- [audit-conformite-ia.md](audit-conformite-ia.md) — audit conformité IA (ISO 42001, NIST AI RMF, AI Act)
-- [veille-reglementaire.md](veille-reglementaire.md) — veille jurisprudentielle et réglementaire IA
-- [`../consultant_ia/benchmark-solutions-ia.md`](../consultant_ia/benchmark-solutions-ia.md) — clauses IP dans benchmark fournisseurs LLM (DD systématique)
-- [`../scrum/po-ai-product.md`](../scrum/po-ai-product.md) — AI Vision produit + AI Risk Register (couplage NIST AI RMF + PI)
-- [`../scrum/gestion-risques.md`](../scrum/gestion-risques.md) — Risk Register projet IA (incluant risques PI)
+- [ai-act-conformite.md](ai-act-conformite.md) — operational AI Act compliance (4-tier classification, art. 50 transparency, art. 53 GPAI)
+- [rgpd-ia.md](rgpd-ia.md) — GDPR applied to AI (training legal basis, DPIA, individuals' rights)
+- [contrats-ia.md](contrats-ia.md) — AI contracts (IP assignment, anti-training-use, indemnification, SLA)
+- [dpia-systemes-ia.md](dpia-systemes-ia.md) — AI systems DPIA (GDPR + AI Act high-risk coupling)
+- [audit-conformite-ia.md](audit-conformite-ia.md) — AI compliance audit (ISO 42001, NIST AI RMF, AI Act)
+- [veille-reglementaire.md](veille-reglementaire.md) — AI case-law and regulatory monitoring
+- [`../consultant_ia/benchmark-solutions-ia.md`](../consultant_ia/benchmark-solutions-ia.md) — IP clauses in LLM-provider benchmarking (systematic DD)
+- [`../scrum/po-ai-product.md`](../scrum/po-ai-product.md) — AI product Vision + AI Risk Register (NIST AI RMF + IP coupling)
+- [`../scrum/gestion-risques.md`](../scrum/gestion-risques.md) — AI project Risk Register (including IP risks)

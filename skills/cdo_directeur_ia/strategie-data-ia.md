@@ -1,96 +1,96 @@
-# Skill — Stratégie Data-IA 3-5 ans
+# Skill — Data-AI Strategy 3-5 years
 
-> Certifications : CDMP (DAMA) v2026, AWS Certified Machine Learning Specialty, Google Cloud Professional Data Engineer, Anthropic Prompt Engineering Certification 2026
+> Certifications: CDMP (DAMA) v2026, AWS Certified Machine Learning Specialty, Google Cloud Professional Data Engineer, Anthropic Prompt Engineering Certification 2026
 
-## Objectif
+## Objective
 
-Construire une feuille de route Data-IA pluriannuelle cohérente avec la stratégie d'entreprise, en alignant investissements, OKRs et capacités organisationnelles sur un horizon 3 à 5 ans.
+Build a multi-year Data-AI roadmap consistent with the corporate strategy, aligning investments, OKRs, and organizational capabilities over a 3-to-5-year horizon.
 
-## Cadre stratégique
+## Strategic framework
 
-### 1. Diagnostic de maturité initiale
+### 1. Initial maturity diagnostic
 
-Utiliser le modèle TDMM (Transformational Data & AI Maturity Model) sur 5 niveaux :
+Use the TDMM (Transformational Data & AI Maturity Model) across 5 levels:
 
-| Niveau | Label | Caractéristiques clés |
+| Level | Label | Key characteristics |
 |--------|-------|----------------------|
-| 1 | Opportuniste | Données silotées, pas de gouvernance |
-| 2 | Localisé | Projets isolés, peu de réutilisation |
-| 3 | Standardisé | Plateforme commune, MDM déployé |
-| 4 | Différenciant | IA en production, culture data |
-| 5 | Transformationnel | IA systémique, data product thinking |
+| 1 | Opportunistic | Siloed data, no governance |
+| 2 | Localized | Isolated projects, little reuse |
+| 3 | Standardized | Common platform, MDM deployed |
+| 4 | Differentiating | AI in production, data culture |
+| 5 | Transformational | Systemic AI, data product thinking |
 
-### 2. Architecture de la vision stratégique
+### 2. Strategic vision architecture
 
 ```
-Vision (5 ans)
-    └── Ambition Data-IA (3 ans)
-            ├── Axe 1 : Fondations (Data Platform, Gouvernance)
-            ├── Axe 2 : Valorisation (Analytics, Self-service BI)
-            ├── Axe 3 : IA à l'échelle (MLOps, IA générative)
-            └── Axe 4 : Culture & Talents
+Vision (5 years)
+    └── Data-AI Ambition (3 years)
+            ├── Pillar 1: Foundations (Data Platform, Governance)
+            ├── Pillar 2: Value creation (Analytics, Self-service BI)
+            ├── Pillar 3: AI at scale (MLOps, generative AI)
+            └── Pillar 4: Culture & Talent
 ```
 
-### 3. Méthode d'alignement business
+### 3. Business alignment method
 
-**Framework OKR-Data (3 niveaux) :**
+**OKR-Data framework (3 levels):**
 
 ```yaml
-# Exemple OKR stratégique — Horizon 2026-2028
-Objectif_Entreprise: "Devenir leader data-driven sur le marché B2B"
-  KR1: "80% des décisions CODIR appuyées sur des dashboards temps réel"
-  KR2: "5 cas d'usage IA en production générant > 2M€ de valeur"
-  KR3: "Score NPS interne data-IA > 7/10 d'ici T4 2026"
+# Strategic OKR example — Horizon 2026-2028
+Company_Objective: "Become a data-driven leader in the B2B market"
+  KR1: "80% of executive-committee decisions backed by real-time dashboards"
+  KR2: "5 AI use cases in production generating > €2M of value"
+  KR3: "Internal data-AI NPS score > 7/10 by Q4 2026"
 
-Objectif_Data_Platform:
-  KR1: "Latence ingestion < 15 min pour 95% des flux critiques"
-  KR2: "Data catalogue à 90% de couverture actifs prioritaires"
+Data_Platform_Objective:
+  KR1: "Ingestion latency < 15 min for 95% of critical flows"
+  KR2: "Data catalog at 90% coverage of priority assets"
 ```
 
-### 4. Matrice de priorisation des initiatives
+### 4. Initiative prioritization matrix
 
-| Critère | Poids | Note /5 |
+| Criterion | Weight | Score /5 |
 |---------|-------|---------|
-| Impact business (revenus / coûts / risques) | 35% | |
-| Faisabilité technique | 25% | |
-| Maturité des données disponibles | 20% | |
+| Business impact (revenue / cost / risk) | 35% | |
+| Technical feasibility | 25% | |
+| Maturity of available data | 20% | |
 | Time-to-value | 20% | |
 
-**Score = Σ(Note × Poids) — seuil de sélection : ≥ 3,5**
+**Score = Σ(Score × Weight) — selection threshold: ≥ 3.5**
 
-### 5. Budgétisation pluriannuelle
+### 5. Multi-year budgeting
 
 ```
-Année 1 — Fondations (60% Capex / 40% Opex)
-  - Data Platform (Lakehouse, orchestration)       → 800 k€
-  - Gouvernance & MDM                              → 200 k€
-  - Recrutement (2 Data Engineers, 1 Data Steward) → 300 k€
+Year 1 — Foundations (60% Capex / 40% Opex)
+  - Data Platform (Lakehouse, orchestration)       → €800k
+  - Governance & MDM                               → €200k
+  - Recruitment (2 Data Engineers, 1 Data Steward) → €300k
 
-Année 2 — Valorisation (40% Capex / 60% Opex)
-  - Self-service analytics & formation             → 400 k€
-  - 3 projets ML/IA pilotes                        → 600 k€
+Year 2 — Value creation (40% Capex / 60% Opex)
+  - Self-service analytics & training              → €400k
+  - 3 pilot ML/AI projects                         → €600k
 
-Année 3 — IA à l'échelle (20% Capex / 80% Opex)
-  - MLOps platform, LLMOps                         → 500 k€
-  - Scaling use cases IA                           → 700 k€
+Year 3 — AI at scale (20% Capex / 80% Opex)
+  - MLOps platform, LLMOps                         → €500k
+  - Scaling AI use cases                           → €700k
 ```
 
-### 6. Gouvernance de la feuille de route
+### 6. Roadmap governance
 
-- **Comité stratégique Data-IA** : trimestriel (CODIR + CDO)
-- **Revue de portefeuille** : mensuelle (CDO + DSI + métiers)
-- **OKR check-in** : bi-mensuel (équipes data)
-- **Revue annuelle** de la roadmap avec ajustement budget
+- **Data-AI strategic committee**: quarterly (executive committee + CDO)
+- **Portfolio review**: monthly (CDO + CIO + business)
+- **OKR check-in**: bi-monthly (data teams)
+- **Annual review** of the roadmap with budget adjustment
 
-## Livrables
+## Deliverables
 
-- Document de vision Data-IA (executive summary 5 slides + détail 20 slides)
-- Feuille de route 3-5 ans avec jalons trimestriels
-- Matrice de priorisation des initiatives (Excel/Notion)
-- Budget pluriannuel Capex/Opex avec hypothèses
-- Framework OKR Data-IA (3 niveaux hiérarchiques)
-- Plan de communication CODIR (narrative + visuels)
+- Data-AI vision document (executive summary 5 slides + detail 20 slides)
+- 3-5 year roadmap with quarterly milestones
+- Initiative prioritization matrix (Excel/Notion)
+- Multi-year Capex/Opex budget with assumptions
+- Data-AI OKR framework (3 hierarchical levels)
+- Executive-committee communication plan (narrative + visuals)
 
-## Format de sortie
+## Output format
 
-Précise : **secteur d'activité**, **taille de l'organisation** (collaborateurs + CA), **niveau de maturité data actuel** (1-5), **horizon souhaité** (3 ou 5 ans), **contraintes budgétaires**, **initiatives data-IA déjà en cours**, **interlocuteurs cibles** (CODIR / DSI / métiers).
+Specify: **industry**, **organization size** (employees + revenue), **current data maturity level** (1-5), **desired horizon** (3 or 5 years), **budget constraints**, **data-AI initiatives already underway**, **target stakeholders** (executive committee / CIO / business).

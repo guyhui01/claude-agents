@@ -1,107 +1,107 @@
-# WF-005 — Veille Stratégique & Growth
+# WF-005 — Strategic Intelligence & Growth
 
-> Signal marché / cadence hebdo → synthèse qualifiée → contenu thought-leadership → publication  
-> Certifications mobilisées : SIC (SCIP) · HubSpot Content Marketing · Google Analytics · PMI-ACP
+> Market signal / weekly cadence → qualified synthesis → thought-leadership content → publication  
+> Certifications mobilized: SIC (SCIP) · HubSpot Content Marketing · Google Analytics · PMI-ACP
 
 ---
 
-## Carte d'identité
+## Identity card
 
 ```yaml
 id: "WF-005"
 nom: "Veille Stratégique & Growth"
-domaine: "Management & Conseil"
-declencheur: "Cadence hebdomadaire / mensuelle ou signal marché détecté"
-resultat_final: "Synthèse veille qualifiée + contenu thought-leadership prêt à publier"
+domaine: "Management & Consulting"
+declencheur: "Weekly / monthly cadence or detected market signal"
+resultat_final: "Qualified intelligence synthesis + thought-leadership content ready to publish"
 duree_estimee: "30-60 min"
 modele_recommande: "claude-sonnet-4-6"
-modele_raison: "Workflow léger : 3 agents, tâches de collecte, qualification et rédaction éditoriale. Sonnet 4.6 est suffisant et optimal — rapidité et coût maîtrisé pour une cadence hebdomadaire."
-modele_alternatif: "claude-opus-4-8"  # si synthèse mensuelle stratégique approfondie avec analyse tendances PESTEL
+modele_raison: "Light workflow: 3 agents, collection, qualification, and editorial writing tasks. Sonnet 4.6 is sufficient and optimal — speed and controlled cost for a weekly cadence."
+modele_alternatif: "claude-opus-4-8"  # if an in-depth monthly strategic synthesis with PESTEL trend analysis
 agents_core:
-  - VEILLE-STRATEGIQUE   # collecte, qualification, synthèse intelligence
-  - GROWTH-IA            # stratégie de contenu, SEO, acquisition
-  - REDACTEUR-IA         # rédaction et adaptation formats de publication
+  - VEILLE-STRATEGIQUE   # collection, qualification, intelligence synthesis
+  - GROWTH-IA            # content strategy, SEO, acquisition
+  - REDACTEUR-IA         # writing and adaptation of publication formats
 agents_optionnels:
-  - JURIDIQUE-IA         # si vérification contractuelle ou conformité requise
-  - FINANCIAL-ANALYST    # si scoring d'opportunités de missions
-  - CONSULTANT-IA        # si analyse approfondie d'un signal stratégique
+  - JURIDIQUE-IA         # if contractual verification or compliance is required
+  - FINANCIAL-ANALYST    # if scoring of engagement opportunities
+  - CONSULTANT-IA        # if in-depth analysis of a strategic signal
 statut: "disponible"
 version: "1.1"
 ```
 
 ---
 
-## Agents mobilisés
+## Agents mobilized
 
-| Étape | Agent | Rôle dans le workflow | Output |
+| Step | Agent | Role in the workflow | Output |
 |---|---|---|---|
-| 1 | VEILLE-STRATEGIQUE | Collecte, filtrage, qualification des signaux | Radar veille qualifié |
-| 2 | GROWTH-IA | Stratégie de diffusion, calendrier éditorial | Plan contenu + SEO |
-| 3 | REDACTEUR-IA | Rédaction synthèse + posts LinkedIn | Contenus prêts à publier |
-| opt | JURIDIQUE-IA | Vérification clause contractuelle ou conformité | Note juridique |
-| opt | FINANCIAL-ANALYST | Scoring opportunités de missions identifiées | Tableau scoring missions |
+| 1 | VEILLE-STRATEGIQUE | Collection, filtering, signal qualification | Qualified intelligence radar |
+| 2 | GROWTH-IA | Distribution strategy, editorial calendar | Content plan + SEO |
+| 3 | REDACTEUR-IA | Synthesis writing + LinkedIn posts | Content ready to publish |
+| opt | JURIDIQUE-IA | Contractual clause or compliance verification | Legal note |
+| opt | FINANCIAL-ANALYST | Scoring of identified engagement opportunities | Engagement scoring table |
 
 ---
 
-## Paramètres contextuels
+## Contextual parameters
 
 ```
-CONTEXTE VEILLE (à renseigner avant le démarrage)
+INTELLIGENCE CONTEXT (to fill in before starting)
 ──────────────────────────────────────────────────────
-Format cible       : [Flash hebdo / Synthèse mensuelle / Post LinkedIn / Note stratégique]
-Périmètre veille   : [IA/LLM / Conseil IA / Marché emploi / Réglementaire / Tech stack]
-Audience           : [LinkedIn public / Newsletter clients / Réseau perso / Usage interne]
-Ton                : [Expert technique / Vulgarisation / Thought leader / Neutre]
-Horizon            : [3 mois / 12 mois / 3 ans]
-Sources à prioriser: [ArXiv / GitHub / LinkedIn / RFP / Presse spécialisée]
-Opportunités focus : [Missions CAC40 / Formations / Partenariats / Positionnement]
+Target format      : [Weekly flash / Monthly synthesis / LinkedIn post / Strategic note]
+Intelligence scope : [AI/LLM / AI consulting / Job market / Regulatory / Tech stack]
+Audience           : [Public LinkedIn / Client newsletter / Personal network / Internal use]
+Tone               : [Technical expert / Plain-language / Thought leader / Neutral]
+Horizon            : [3 months / 12 months / 3 years]
+Sources to prioritize: [ArXiv / GitHub / LinkedIn / RFP / Trade press]
+Opportunity focus  : [CAC40 engagements / Training / Partnerships / Positioning]
 ```
 
 ---
 
-## Diagramme de flux BPMN
+## BPMN flow diagram
 
 ```
-(DÉBUT — Cadence hebdomadaire / signal détecté)
+(START — Weekly cadence / detected signal)
         │
         ▼
 [STEP-01 — VEILLE-STRATEGIQUE]
-  Collecte multi-sources,
-  filtrage 3 critères SCIP,
-  qualification signaux faibles/forts
+  Multi-source collection,
+  3-criteria SCIP filtering,
+  weak/strong signal qualification
         │
         ▼
-<GATEWAY — Signal fort identifié avec opportunité mission ?>
-  ├── OUI ──▶ [STEP-01B — FINANCIAL-ANALYST] (optionnel)
-  │            Scoring opportunité, ROI mission estimé
-  └── NON ──▶ (bypass)
+<GATEWAY — Strong signal identified with an engagement opportunity?>
+  ├── YES ──▶ [STEP-01B — FINANCIAL-ANALYST] (optional)
+  │            Opportunity scoring, estimated engagement ROI
+  └── NO ───▶ (bypass)
         │
         ▼
 [STEP-02 — GROWTH-IA]
-  Stratégie de diffusion,
-  sélection canaux (LinkedIn / newsletter / blog),
-  plan de contenu semaine/mois
+  Distribution strategy,
+  channel selection (LinkedIn / newsletter / blog),
+  weekly/monthly content plan
         │
         ▼
 [STEP-03 — REDACTEUR-IA]
-  Rédaction :
-  - Synthèse veille (format cible)
-  - Post(s) LinkedIn prêt(s) à publier
-  - Note interne si applicable
+  Writing:
+  - Intelligence synthesis (target format)
+  - LinkedIn post(s) ready to publish
+  - Internal note if applicable
         │
         ▼
-<GATEWAY — Vérification contractuelle ou conformité requise ?>
-  ├── OUI ──▶ [STEP-04 — JURIDIQUE-IA]
-  │            Vérification clause, note conformité
-  └── NON ──▶ (bypass)
+<GATEWAY — Contractual or compliance verification required?>
+  ├── YES ──▶ [STEP-04 — JURIDIQUE-IA]
+  │            Clause verification, compliance note
+  └── NO ───▶ (bypass)
         │
         ▼
-(FIN — Contenu validé, prêt à publication)
+(END — Content validated, ready to publish)
 ```
 
 ---
 
-## Étapes détaillées
+## Detailed steps
 
 ### STEP-01 — VEILLE-STRATEGIQUE
 
@@ -109,21 +109,21 @@ Opportunités focus : [Missions CAC40 / Formations / Partenariats / Positionneme
 etape:
   id: "STEP-01"
   agent: "AGENT-VEILLE-STRATEGIQUE"
-  role: "Collecte et qualification des signaux intelligence"
+  role: "Collection and qualification of intelligence signals"
   input:
-    - "Périmètre de veille : [domaines à surveiller]"
-    - "Sources disponibles cette semaine"
-    - "Contexte : signaux récents déjà identifiés"
-    - "Horizon de focus : [court / moyen / long terme]"
+    - "Intelligence scope: [domains to monitor]"
+    - "Sources available this week"
+    - "Context: recent signals already identified"
+    - "Focus horizon: [short / medium / long term]"
   output_attendu:
-    - "Top 5 faits marquants classés par impact (High / Medium / Low)"
-    - "Radar signaux faibles : opportunités en formation"
-    - "1-2 outils ou technologies à surveiller / tester"
-    - "Analyse tendances PESTEL si synthèse mensuelle"
-    - "Opportunités de missions identifiées avec qualification"
-  condition_passage: "Signaux qualifiés et hiérarchisés avant rédaction"
+    - "Top 5 highlights ranked by impact (High / Medium / Low)"
+    - "Weak-signal radar: emerging opportunities"
+    - "1-2 tools or technologies to monitor / test"
+    - "PESTEL trend analysis if monthly synthesis"
+    - "Identified engagement opportunities with qualification"
+  condition_passage: "Signals qualified and ranked before writing"
   duree_estimee: "15-20 min"
-  execution: "séquentielle — ouvre le workflow"
+  execution: "sequential — opens the workflow"
 ```
 
 ### STEP-02 — GROWTH-IA
@@ -132,20 +132,20 @@ etape:
 etape:
   id: "STEP-02"
   agent: "AGENT-GROWTH-IA"
-  role: "Stratégie de contenu et plan de diffusion"
+  role: "Content strategy and distribution plan"
   input:
-    - "Signaux qualifiés et faits marquants (STEP-01)"
-    - "Audience cible et canaux disponibles"
-    - "Objectifs growth : notoriété / engagement / leads missions"
-    - "Calendrier éditorial existant"
+    - "Qualified signals and highlights (STEP-01)"
+    - "Target audience and available channels"
+    - "Growth objectives: awareness / engagement / engagement leads"
+    - "Existing editorial calendar"
   output_attendu:
-    - "Sélection des sujets à traiter cette semaine (1-3 max)"
-    - "Format recommandé par sujet (post LinkedIn / article / newsletter)"
-    - "Angle éditorial et accroche pour chaque contenu"
-    - "Hashtags et mentions à utiliser (SEO LinkedIn)"
-    - "Meilleur timing de publication (jour / heure)"
+    - "Selection of topics to cover this week (1-3 max)"
+    - "Recommended format per topic (LinkedIn post / article / newsletter)"
+    - "Editorial angle and hook for each piece of content"
+    - "Hashtags and mentions to use (LinkedIn SEO)"
+    - "Best publication timing (day / time)"
   duree_estimee: "10 min"
-  execution: "séquentielle après STEP-01"
+  execution: "sequential after STEP-01"
 ```
 
 ### STEP-03 — REDACTEUR-IA
@@ -154,127 +154,127 @@ etape:
 etape:
   id: "STEP-03"
   agent: "AGENT-REDACTEUR-IA"
-  role: "Rédaction des contenus de veille"
+  role: "Writing of the intelligence content"
   input:
-    - "Signaux qualifiés (STEP-01)"
-    - "Stratégie de contenu et angles éditoriaux (STEP-02)"
-    - "Format cible : [flash hebdo / mensuel / LinkedIn / note interne]"
-    - "Ton : [expert / vulgarisation / thought leader]"
+    - "Qualified signals (STEP-01)"
+    - "Content strategy and editorial angles (STEP-02)"
+    - "Target format: [weekly flash / monthly / LinkedIn / internal note]"
+    - "Tone: [expert / plain-language / thought leader]"
   output_attendu:
-    - "Synthèse veille au format demandé (Markdown)"
-    - "1-3 posts LinkedIn prêts à copier-coller"
-    - "Note interne si usage CODIR / newsletter"
-    - "Citation de la semaine pour engagement"
+    - "Intelligence synthesis in the requested format (Markdown)"
+    - "1-3 LinkedIn posts ready to copy-paste"
+    - "Internal note if executive-committee / newsletter use"
+    - "Quote of the week for engagement"
   duree_estimee: "15 min"
-  execution: "séquentielle après STEP-02"
+  execution: "sequential after STEP-02"
 ```
 
-### STEP-04 — JURIDIQUE-IA (optionnel)
+### STEP-04 — JURIDIQUE-IA (optional)
 
 ```yaml
 etape:
   id: "STEP-04"
   agent: "AGENT-JURIDIQUE-IA"
-  condition_activation: "Vérification contractuelle ou contenu avec implications légales"
-  role: "Vérification conformité et clauses contractuelles"
+  condition_activation: "Contractual verification or content with legal implications"
+  role: "Compliance and contractual-clause verification"
   input:
-    - "Contenu rédigé (STEP-03)"
-    - "Document contractuel à vérifier (si applicable)"
-    - "Question de conformité spécifique"
+    - "Written content (STEP-03)"
+    - "Contractual document to verify (if applicable)"
+    - "Specific compliance question"
   output_attendu:
-    - "Note de vérification (vert / orange / rouge)"
-    - "Points d'attention RGPD / AI Act si applicable"
-    - "Modifications recommandées sur le contenu"
+    - "Verification note (green / amber / red)"
+    - "GDPR / AI Act points of attention if applicable"
+    - "Recommended changes to the content"
   duree_estimee: "10 min"
-  execution: "séquentielle — optionnelle avant publication"
+  execution: "sequential — optional before publication"
 ```
 
 ---
 
-## Templates de contenus — Rappels formats
+## Content templates — Format reminders
 
-### Flash hebdomadaire (20 min de rédaction)
+### Weekly flash (20 min of writing)
 
 ```markdown
-# VEILLE IA — Semaine [N] — [DATE]
-*Par Guy HUI-BON-HOA | 5 min de lecture*
+# AI INTELLIGENCE — Week [N] — [DATE]
+*By Guy HUI-BON-HOA | 5 min read*
 
-## Le fait marquant
-**[TITRE ACCROCHEUR]**
-[3-4 lignes. Source : [LIEN]]
-→ Ce que ça change : [implication concrète]
+## The highlight
+**[CATCHY TITLE]**
+[3-4 lines. Source: [LINK]]
+→ What it changes: [concrete implication]
 
-## 3 news à retenir
-1. **[NEWS 1]** — [Source] — Impact : High/Medium/Low
-2. **[NEWS 2]** — [Source] — Impact : ...
-3. **[NEWS 3]** — [Source] — Impact : ...
+## 3 news items to remember
+1. **[NEWS 1]** — [Source] — Impact: High/Medium/Low
+2. **[NEWS 2]** — [Source] — Impact: ...
+3. **[NEWS 3]** — [Source] — Impact: ...
 
-## 1 outil à tester
-**[NOM]** — [Description 1 ligne]
-Cas d'usage : [Comment l'utiliser concrètement]
+## 1 tool to try
+**[NAME]** — [1-line description]
+Use case: [How to use it concretely]
 
-## Citation de la semaine
-*"[CITATION]"* — [Auteur]
+## Quote of the week
+*"[QUOTE]"* — [Author]
 ```
 
-### Post LinkedIn (accroche + analyse)
+### LinkedIn post (hook + analysis)
 
 ```
-🔍 VEILLE IA — [SUJET]
+🔍 AI INTELLIGENCE — [TOPIC]
 
-[ACCROCHE choc en 1 ligne]
+[Punchy 1-line hook]
 
-[2-3 paragraphes courts — faits + analyse]
+[2-3 short paragraphs — facts + analysis]
 
-💡 Ce que ça signifie pour les équipes produit :
+💡 What it means for product teams:
 → [Implication 1]
 → [Implication 2]
 → [Implication 3]
 
-Vous avez expérimenté ça ? Partagez en commentaire 👇
+Have you experienced this? Share in the comments 👇
 
-#IA #ProductManagement #GenAI #Claude #SAFe #Anthropic
+#AI #ProductManagement #GenAI #Claude #SAFe #Anthropic
 ```
 
 ---
 
-## Livrables finaux
+## Final deliverables
 
 ```
-CHECKLIST WF-005
+WF-005 CHECKLIST
 ──────────────────────────────────────────────────────
-□ Top 5 faits marquants qualifiés (High/Medium/Low)
-□ Radar signaux faibles (opportunités en formation)
-□ Synthèse veille au format demandé (hebdo ou mensuel)
-□ 1-3 posts LinkedIn prêts à publier
-□ Plan de publication (canaux + timing)
-□ [optionnel] Note juridique / conformité
-□ [optionnel] Scoring opportunités de missions
+□ Top 5 qualified highlights (High/Medium/Low)
+□ Weak-signal radar (emerging opportunities)
+□ Intelligence synthesis in the requested format (weekly or monthly)
+□ 1-3 LinkedIn posts ready to publish
+□ Publication plan (channels + timing)
+□ [optional] Legal / compliance note
+□ [optional] Engagement-opportunity scoring
 ```
 
 ---
 
-## Cadence recommandée
+## Recommended cadence
 
-| Fréquence | Format | Agent principal | Temps |
+| Frequency | Format | Main agent | Time |
 |---|---|---|---|
-| Lundi matin | Flash hebdo + 1 post LinkedIn | VEILLE-STRATEGIQUE + REDACTEUR-IA | 30 min |
-| 1er du mois | Synthèse mensuelle complète | Workflow complet WF-005 | 60 min |
-| Sur signal fort | Note stratégique rapide | VEILLE-STRATEGIQUE + CONSULTANT-IA | 20 min |
-| Trimestriel | Analyse tendances approfondie | VEILLE-STRATEGIQUE + CDO-DIRECTEUR-IA | 90 min |
+| Monday morning | Weekly flash + 1 LinkedIn post | VEILLE-STRATEGIQUE + REDACTEUR-IA | 30 min |
+| 1st of the month | Full monthly synthesis | Full WF-005 workflow | 60 min |
+| On a strong signal | Quick strategic note | VEILLE-STRATEGIQUE + CONSULTANT-IA | 20 min |
+| Quarterly | In-depth trend analysis | VEILLE-STRATEGIQUE + CDO-DIRECTEUR-IA | 90 min |
 
 ---
 
-## Commande de démarrage rapide
+## Quick-start command
 
 ```
-Lis le fichier AGENT-ORCHESTRATEUR-WORKFLOW.md et adopte le rôle d'orchestrateur.
-Confirme que tu es prêt, puis charge le workflow WF-005 depuis workflows/WF-005-veille-growth.md.
+Read the file AGENT-ORCHESTRATEUR-WORKFLOW.md and take on the orchestrator role.
+Confirm you are ready, then load workflow WF-005 from workflows/WF-005-veille-growth.md.
 
-Contexte veille :
-- Format cible : [Flash hebdo / Synthèse mensuelle / Post LinkedIn]
-- Périmètre : [IA/LLM / Conseil IA / Marché / Réglementaire]
-- Audience : [LinkedIn / Newsletter / Interne]
+Intelligence context:
+- Target format: [Weekly flash / Monthly synthesis / LinkedIn post]
+- Scope: [AI/LLM / AI consulting / Market / Regulatory]
+- Audience: [LinkedIn / Newsletter / Internal]
 
-Lance STEP-01 avec AGENT-VEILLE-STRATEGIQUE.
+Launch STEP-01 with AGENT-VEILLE-STRATEGIQUE.
 ```

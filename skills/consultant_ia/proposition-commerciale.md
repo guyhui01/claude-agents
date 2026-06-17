@@ -1,111 +1,111 @@
-# Skill — Proposition Commerciale
-> Certifications : PMI-ACP · CAP IABAC · PROSCI
+# Skill — Commercial Proposal
+> Certifications: PMI-ACP · CAP IABAC · PROSCI
 
-## Objectif
-Rédiger une proposition commerciale **convaincante et différenciante** pour remporter une mission de conseil IA — centrée sur le client, étayée par une proposition de valeur claire et une économie de mission crédible. Une proposition gagnante se prépare bien avant la rédaction : selon Shipley Associates, **40 à 60 % des clients ont déjà un fournisseur préféré en tête avant la remise des offres** — d'où l'importance du travail de *capture* en amont.
+## Objective
+Write a **convincing, differentiating commercial proposal** to win an AI consulting engagement — client-centered, backed by a clear value proposition and a credible engagement economics. A winning proposal is prepared well before the writing: according to Shipley Associates, **40 to 60% of clients already have a preferred vendor in mind before bids are submitted** — hence the importance of upstream *capture* work.
 
-## Cadre méthodologique
-- **Shipley** (Shipley Associates — méthode de *capture & proposal management*) — processus structuré et répétable pour augmenter le taux de gain :
-  - **Capture planning** en amont du RFP : évaluation de l'opportunité, du paysage concurrentiel, de ses propres capacités, du *price-to-win*.
-  - **Bid / No-Bid** : décision go/no-go sur 5 facteurs pondérés — Pwin (probabilité de gagner), adéquation capacités/références, positionnement concurrentiel, viabilité du prix, *fit* stratégique. Sauter cette porte = brûler des ressources sur des affaires ingagnables.
-  - **Win themes** : 2-3 thèmes de gain qui irriguent toute la proposition (et *ghosting* discret des faiblesses concurrentes).
-- **Value Proposition Canvas** (Osterwalder, Pigneur, Bernarda, Smith — *Value Proposition Design*, Wiley, 2014) — aligner l'offre sur les *customer jobs / pains / gains* du client (pain relievers, gain creators).
-- **SPIN Selling** (Neil Rackham, McGraw-Hill, 1988) — questionnement de découverte *Situation – Problem – Implication – Need-payoff* pour qualifier le besoin réel avant de proposer.
+## Methodological framework
+- **Shipley** (Shipley Associates — *capture & proposal management* method) — a structured, repeatable process to increase the win rate:
+  - **Capture planning** ahead of the RFP: assessment of the opportunity, the competitive landscape, your own capabilities, and the *price-to-win*.
+  - **Bid / No-Bid**: go/no-go decision on 5 weighted factors — Pwin (probability of winning), capability/reference fit, competitive positioning, price viability, strategic *fit*. Skipping this gate = burning resources on unwinnable deals.
+  - **Win themes**: 2-3 win themes that run through the whole proposal (and discreet *ghosting* of competitors' weaknesses).
+- **Value Proposition Canvas** (Osterwalder, Pigneur, Bernarda, Smith — *Value Proposition Design*, Wiley, 2014) — align the offer with the client's *customer jobs / pains / gains* (pain relievers, gain creators).
+- **SPIN Selling** (Neil Rackham, McGraw-Hill, 1988) — discovery questioning *Situation – Problem – Implication – Need-payoff* to qualify the real need before proposing.
 
-## Bid / No-Bid — qualifier avant de répondre
-Avant de mobiliser des jours/homme sur une proposition, scorer l'opportunité :
-| Facteur | Question | Poids |
+## Bid / No-Bid — qualify before responding
+Before committing person-days to a proposal, score the opportunity:
+| Factor | Question | Weight |
 |---|---|---|
-| Pwin | Relation client, incumbent, antériorité ? | fort |
-| Capacités / références | Ai-je les compétences et des cas comparables ? | fort |
-| Concurrence | Qui d'autre répond ? Suis-je différencié ? | moyen |
-| Prix | Le budget client est-il viable pour moi ? | moyen |
-| Fit stratégique | Cette mission sert-elle ma trajectoire ? | moyen |
+| Pwin | Client relationship, incumbent, prior history? | high |
+| Capabilities / references | Do I have the skills and comparable cases? | high |
+| Competition | Who else is responding? Am I differentiated? | medium |
+| Price | Is the client's budget viable for me? | medium |
+| Strategic fit | Does this engagement serve my trajectory? | medium |
 
-> Un « No-Bid » assumé est une **décision de qualité**, pas un échec.
+> An owned "No-Bid" is a **quality decision**, not a failure.
 
-## Structure de la proposition commerciale
+## Commercial proposal structure
 ```
-1. Page de couverture (logo, titre, client, date)
-2. Synthèse exécutive (1/2 page) — LA plus lue (structure pyramidale Minto)
-   - Problématique client résumée
-   - Notre approche différenciante (win themes)
-   - Valeur attendue (ROI, bénéfices)
-3. Compréhension du contexte client
-   - Enjeux business, jobs / pains / gains (Value Proposition Canvas)
-   - Situation actuelle et pain points
-4. Notre approche / Méthodologie
-   - Phases, livrables, jalons
-   - Outils et frameworks mobilisés
-5. Planning prévisionnel
-   - Jalons et durées
-6. Équipe proposée
-   - Profils et expériences pertinentes
-7. Références clients (cas similaires, anonymisés si confidentiels)
-8. Proposition financière
-   - Tarification (TJM ou forfait), conditions de paiement
-9. Nos engagements
-   - Garanties, conditions, exclusions
-10. Annexes (CV détaillés, méthodologie)
+1. Cover page (logo, title, client, date)
+2. Executive summary (1/2 page) — THE most-read (Minto pyramid structure)
+   - Summarized client problem
+   - Our differentiating approach (win themes)
+   - Expected value (ROI, benefits)
+3. Understanding of the client context
+   - Business stakes, jobs / pains / gains (Value Proposition Canvas)
+   - Current situation and pain points
+4. Our approach / Methodology
+   - Phases, deliverables, milestones
+   - Tools and frameworks mobilized
+5. Provisional schedule
+   - Milestones and durations
+6. Proposed team
+   - Profiles and relevant experience
+7. Client references (similar cases, anonymized if confidential)
+8. Financial proposal
+   - Pricing (day rate or fixed price), payment terms
+9. Our commitments
+   - Warranties, conditions, exclusions
+10. Appendices (detailed CVs, methodology)
 ```
 
-## Règles d'une proposition gagnante
-- **Centrer sur le client** : parler de ses problèmes (jobs/pains/gains), pas de ses propres compétences.
-- **Quantifier la valeur** : « réduction de 30 % du time-to-market » (chiffre traçable).
-- **Être spécifique** : adapter au contexte, jamais un template générique recyclé.
-- **Différencier** : win themes explicites — pourquoi vous et pas un autre ?
-- **Synthèse exécutive impactante** : si le décideur ne lit qu'elle, il doit tout comprendre.
+## Rules of a winning proposal
+- **Center on the client**: speak to their problems (jobs/pains/gains), not your own skills.
+- **Quantify the value**: "30% reduction in time-to-market" (a traceable figure).
+- **Be specific**: tailor to the context, never a recycled generic template.
+- **Differentiate**: explicit win themes — why you and not someone else?
+- **Impactful executive summary**: if the decision-maker reads only it, they must understand everything.
 
-## Repères de tarification *(indicatifs — à calibrer, NON un barème de marché)*
-> ⚠️ Les TJM varient fortement selon la plateforme (portage, intermédiation), la région, la séniorité, le secteur et la rareté de la compétence. Ces fourchettes sont des **repères de cadrage**, pas des données de marché sourcées ni un barème opposable. Toujours se recaler sur les baromètres récents (Malt, Free-Work, etc.) et la réalité de la mission.
+## Pricing benchmarks *(indicative — to be calibrated, NOT a market rate card)*
+> ⚠️ Day rates vary widely by platform (umbrella, intermediation), region, seniority, sector, and skill scarcity. These ranges are **scoping benchmarks**, not sourced market data or an enforceable rate card. Always recalibrate against recent barometers (Malt, Free-Work, etc.) and the reality of the engagement.
 
-| Profil | Ordre de grandeur TJM (indicatif) |
+| Profile | Day-rate order of magnitude (indicative) |
 |---|---|
-| PO IA senior (PSPO + SAFe) | repère « consulting senior » |
-| Consultant IA stratégie | repère « conseil haut » |
-| Architecte IA | repère « expertise technique haute » |
-| Data Scientist senior | repère « expertise data senior » |
+| Senior AI PO (PSPO + SAFe) | "senior consulting" benchmark |
+| AI strategy consultant | "high consulting" benchmark |
+| AI architect | "high technical expertise" benchmark |
+| Senior Data Scientist | "senior data expertise" benchmark |
 
-> Préférer un **forfait au livrable** quand le périmètre est cadré (PoC, diagnostic) ; le **TJM en régie** quand le périmètre est mouvant.
+> Prefer a **deliverable-based fixed price** when the scope is framed (PoC, diagnostic); a **time-and-materials day rate** when the scope is shifting.
 
-## Exemple — Groupe agroalimentaire (anonymisé)
-**Contexte** : groupe agroalimentaire multi-sites. Besoin exprimé : « faire de l'IA » (flou). Découverte SPIN : *Situation* — contrôle qualité manuel ; *Problem* — taux de non-conformité et rappels coûteux ; *Implication* — risque image + pertes ; *Need-payoff* — réduire les non-conformités de X %.
-- **Bid/No-Bid** : Pwin moyen (pas d'incumbent), fort fit (cas comparables industrie) → **Bid**.
-- **Win themes** : (1) approche PoC-first à risque maîtrisé, (2) conformité AI Act intégrée, (3) transfert de compétences aux équipes qualité.
-- **Proposition financière** : Phase 1 diagnostic + PoC au **forfait**, Phase 2 industrialisation en **régie** plafonnée.
+## Example — food & beverage group (anonymized)
+**Context**: multi-site food & beverage group. Stated need: "do AI" (vague). SPIN discovery: *Situation* — manual quality control; *Problem* — non-conformity rate and costly recalls; *Implication* — reputational risk + losses; *Need-payoff* — reduce non-conformities by X%.
+- **Bid/No-Bid**: medium Pwin (no incumbent), strong fit (comparable industry cases) → **Bid**.
+- **Win themes**: (1) PoC-first, risk-controlled approach, (2) built-in AI Act compliance, (3) skills transfer to the quality teams.
+- **Financial proposal**: Phase 1 diagnostic + PoC on a **fixed price**, Phase 2 industrialization on a **capped time-and-materials** basis.
 
-> Tous les éléments chiffrés sont **illustratifs** : à recalibrer.
+> All figures are **illustrative**: to be recalibrated.
 
 ## Anti-patterns
-- **Répondre à tout** : pas de bid/no-bid → ressources gaspillées sur des affaires ingagnables.
-- **Proposition centrée sur soi** : catalogue de compétences au lieu des pains du client.
-- **Template recyclé** : copier-coller d'une offre précédente, le client le sent.
-- **Pas de win theme** : offre « plate » sans différenciation.
-- **Synthèse exécutive faible** : la section la plus lue est bâclée.
-- **TJM présenté comme un barème** : chiffres non sourcés affichés comme une vérité de marché.
-- **Sur-promesse de ROI** : engager des gains non démontrables (cf. business case).
+- **Responding to everything**: no bid/no-bid → resources wasted on unwinnable deals.
+- **Self-centered proposal**: a catalog of skills instead of the client's pains.
+- **Recycled template**: copy-paste from a previous offer, the client can tell.
+- **No win theme**: a "flat" offer with no differentiation.
+- **Weak executive summary**: the most-read section is rushed.
+- **Day rate presented as a rate card**: unsourced figures shown as market truth.
+- **ROI over-promise**: committing to gains that cannot be demonstrated (see business case).
 
-## Livrables
-- Proposition commerciale complète (Word / PowerPoint)
-- Synthèse exécutive 1 page (structure pyramidale)
-- Planning prévisionnel + jalons
-- Grille tarifaire / structure de prix (forfait vs régie)
-- Fiche bid/no-bid documentée (interne)
+## Deliverables
+- Complete commercial proposal (Word / PowerPoint)
+- 1-page executive summary (pyramid structure)
+- Provisional schedule + milestones
+- Pricing grid / price structure (fixed price vs T&M)
+- Documented bid/no-bid sheet (internal)
 
-## Format de sortie
-Précise : type de mission (PO, conseil, architecture) · client (secteur, taille) · durée estimée · budget client connu ? · présence d'un incumbent ? · win themes envisagés.
+## Output format
+Specify: engagement type (PO, consulting, architecture) · client (sector, size) · estimated duration · is the client budget known? · presence of an incumbent? · envisaged win themes.
 
 ## Sources
 - **Shipley Associates** — *Shipley proposal & capture method* — business-winning lifecycle (capture planning, bid/no-bid, win themes, Pwin)
 - **Osterwalder A., Pigneur Y., Bernarda G., Smith A.** — *Value Proposition Design*, Wiley (2014) — Value Proposition Canvas (jobs / pains / gains)
-- **Rackham N.** — *SPIN Selling*, McGraw-Hill (1988) — questionnement Situation / Problem / Implication / Need-payoff
-- **Minto B.** — *The Pyramid Principle* (1987) — structure de la synthèse exécutive
-- Baromètres TJM freelance (Malt, Free-Work…) — **à consulter pour toute tarification réelle** (les repères de ce skill ne sont pas un barème)
+- **Rackham N.** — *SPIN Selling*, McGraw-Hill (1988) — Situation / Problem / Implication / Need-payoff questioning
+- **Minto B.** — *The Pyramid Principle* (1987) — executive-summary structure
+- Freelance day-rate barometers (Malt, Free-Work…) — **to be consulted for any real pricing** (this skill's benchmarks are not a rate card)
 
-## Voir aussi
-- [presentation-executif.md](presentation-executif.md) — pitch oral de la proposition (logique pyramidale)
-- [estimation-roi-rapide.md](estimation-roi-rapide.md) — valorisation du ROI proposé
-- [cadrage-poc-ia.md](cadrage-poc-ia.md) — cadrage de la Phase 1 (diagnostic / PoC)
-- [feuille-route-ia.md](feuille-route-ia.md) — roadmap proposée en mission
-- [transformation-digitale.md](transformation-digitale.md) — offre de programme de transformation
-- [`../chef_projet_ia/cadrage-projet-ia.md`](../chef_projet_ia/cadrage-projet-ia.md) — cadrage projet en phase de delivery
+## See also
+- [presentation-executif.md](presentation-executif.md) — oral pitch of the proposal (pyramid logic)
+- [estimation-roi-rapide.md](estimation-roi-rapide.md) — valuation of the proposed ROI
+- [cadrage-poc-ia.md](cadrage-poc-ia.md) — scoping of Phase 1 (diagnostic / PoC)
+- [feuille-route-ia.md](feuille-route-ia.md) — roadmap proposed in the engagement
+- [transformation-digitale.md](transformation-digitale.md) — transformation program offer
+- [`../chef_projet_ia/cadrage-projet-ia.md`](../chef_projet_ia/cadrage-projet-ia.md) — project scoping in the delivery phase

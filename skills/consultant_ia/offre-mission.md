@@ -1,86 +1,86 @@
-# Skill — Offre de Mission & Positionnement (freelance / consulting IA)
+# Skill — Engagement Offer & Positioning (freelance / AI consulting)
 
-> Certifications : CAP IABAC · Anthropic Claude Code in Action
-> Agent : AGENT-CONSULTANT-IA.md
-> Référentiels : **Value Proposition Canvas** (Osterwalder, Strategyzer 2014) · **Positioning** (April Dunford, *Obviously Awesome* 2019) · **STAR** (références) · personal branding
+> Certifications: CAP IABAC · Anthropic Claude Code in Action
+> Agent: AGENT-CONSULTANT-IA.md
+> Frameworks: **Value Proposition Canvas** (Osterwalder, Strategyzer 2014) · **Positioning** (April Dunford, *Obviously Awesome* 2019) · **STAR** (references) · personal branding
 
-## Objectif
+## Objective
 
-Construire une **offre de mission** et un **positionnement** clairs et différenciants (freelance, portage ou consulting) : proposition de valeur, structure d'offre, preuve par références, pitch — applicable à tout profil PO/MOA/consultant IA, sur tous segments d'organisations (grands comptes, ETI, scale-ups, PME, secteur public).
+Build a clear, differentiating **engagement offer** and **positioning** (freelance, umbrella, or consulting): value proposition, offer structure, proof through references, pitch — applicable to any PO/MOA/AI-consultant profile, across all organization segments (large accounts, mid-market, scale-ups, SMEs, public sector).
 
-## Méthode de positionnement (avant l'offre)
+## Positioning method (before the offer)
 
-Avant de rédiger une offre, clarifier le positionnement (Dunford / Value Proposition Canvas) :
-1. **Pour qui** — segment cible précis (ex. « PO/MOA pour transformation IA en banque/assurance »)
-2. **Quel problème** — le « job-to-be-done » du client (gagner du temps, sécuriser la conformité IA…)
-3. **Alternative de référence** — à quoi le client compare (ESN, autre freelance, statu quo)
-4. **Différenciateur unique** — ce que vous seul combinez (ex. PO certifié + expertise IA générative + secteur)
-5. **Preuve** — références anonymisées (secteurs, résultats chiffrés), certifications
+Before writing an offer, clarify the positioning (Dunford / Value Proposition Canvas):
+1. **For whom** — precise target segment (e.g. "PO/MOA for AI transformation in banking/insurance")
+2. **What problem** — the client's "job-to-be-done" (save time, secure AI compliance…)
+3. **Reference alternative** — what the client compares you to (IT services firm, another freelancer, status quo)
+4. **Unique differentiator** — what only you combine (e.g. certified PO + generative-AI expertise + sector)
+5. **Proof** — anonymized references (sectors, quantified results), certifications
 
-## Structure d'une offre de mission
+## Structure of an engagement offer
 
 ```
-1. Titre — accrocheur, précis, orienté valeur
-   Ex. : "Product Owner IA Senior — cadrage & delivery transformation IA (grands comptes)"
+1. Title — catchy, precise, value-oriented
+   E.g.: "Senior AI Product Owner — scoping & delivery of AI transformation (large accounts)"
 
-2. Résumé (5 lignes max) — contexte client · objectif · ce que vous apportez
+2. Summary (5 lines max) — client context · objective · what you bring
 
-3. Profil offert — compétences clés · certifications valorisées · domaines
+3. Profile offered — key skills · valued certifications · domains
 
-4. Détail des prestations — livrables par phase · méthodologie · indicateurs de succès
+4. Service detail — deliverables per phase · methodology · success indicators
 
-5. Modalités — durée · rythme (plein/partiel) · lieu (sur site/hybride/remote) · conditions tarifaires
+5. Terms — duration · pace (full/part-time) · location (on-site/hybrid/remote) · pricing terms
 
-6. Preuve — références anonymisées par SECTEUR (banque, luxe, énergie, télécom, hôtellerie,
-   secteur public) + résultats chiffrés, sans citer de client nominatif
+6. Proof — references anonymized by SECTOR (banking, luxury, energy, telecom, hospitality,
+   public sector) + quantified results, without naming any client
 ```
 
-## Canaux de mise en relation (catégories)
+## Connection channels (categories)
 
-> ⚠️ Les frais et conditions des plateformes évoluent — **vérifier les CGU à jour** au moment du contrat (ne pas se fier à un barème figé).
+> ⚠️ Platform fees and terms evolve — **check the current ToS** at the time of contracting (do not rely on a fixed rate card).
 
-| Catégorie | Exemples de canaux | À vérifier |
+| Category | Example channels | To verify |
 |---|---|---|
-| Plateformes freelance généralistes | marketplaces freelance/IT | commission, paiement, garanties |
-| Plateformes tech/data spécialisées | réseaux experts IT/Data | sélection, TJM marché |
-| Portage salarial | sociétés de portage | frais de gestion, protection sociale |
-| Direct / réseau | LinkedIn, bouche-à-oreille, ESN partenaires | marge, intermédiation |
+| Generalist freelance platforms | freelance/IT marketplaces | commission, payment, guarantees |
+| Specialized tech/data platforms | IT/Data expert networks | selection, market day rate |
+| Umbrella employment | umbrella companies | management fees, social protection |
+| Direct / network | LinkedIn, word of mouth, partner IT services firms | margin, intermediation |
 
-## Pitch court (réseaux / LinkedIn)
+## Short pitch (networks / LinkedIn)
 
 ```
-🎯 [Expertise en 1 ligne]
-🏆 [Certification ou réalisation marquante]
-💼 [Expérience en chiffres : années, nb de projets/secteurs]
-🚀 [Bénéfice concret apporté au client]
-📩 [Call to action : disponibilité]
+🎯 [Expertise in 1 line]
+🏆 [Certification or notable achievement]
+💼 [Experience in figures: years, # of projects/sectors]
+🚀 [Concrete benefit delivered to the client]
+📩 [Call to action: availability]
 ```
 
 ## Anti-patterns
-- ❌ **Offre centrée sur soi** (« je fais X, Y, Z ») au lieu du **problème client** et de sa valeur
-- ❌ **Positionnement « tout pour tous »** : sans segment ni différenciateur, on est interchangeable
-- ❌ **Références nominatives** de clients (RGPD/confidentialité) : anonymiser en secteurs
-- ❌ **TJM/barèmes affichés comme figés** : les conditions marché évoluent, à calibrer/vérifier
-- ❌ **Aucune preuve chiffrée** : « j'ai de l'expérience » sans résultat mesurable
-- ❌ **Pitch sans call-to-action** ni disponibilité claire
+- ❌ **Self-centered offer** ("I do X, Y, Z") instead of the **client problem** and its value
+- ❌ **"All things to all people" positioning**: with no segment or differentiator, you are interchangeable
+- ❌ **Named client references** (GDPR/confidentiality): anonymize into sectors
+- ❌ **Day rates/rate cards shown as fixed**: market terms evolve, to be calibrated/verified
+- ❌ **No quantified proof**: "I have experience" with no measurable result
+- ❌ **Pitch with no call-to-action** or clear availability
 
-## Livrables
-- Offre de mission complète (PDF / format plateforme)
-- Énoncé de positionnement (Value Proposition Canvas rempli)
-- Pitch court (3-5 lignes) pour les réseaux
-- Trame de proposition tarifaire (à adapter au marché)
-- Références anonymisées par secteur (format STAR : Situation-Tâche-Action-Résultat)
+## Deliverables
+- Complete engagement offer (PDF / platform format)
+- Positioning statement (Value Proposition Canvas filled in)
+- Short pitch (3-5 lines) for networks
+- Pricing-proposal template (to adapt to the market)
+- Sector-anonymized references (STAR format: Situation-Task-Action-Result)
 
-## Format de sortie
-Précise : type de mission · secteur client · segment d'organisation · durée · modalités (remote/sur site) · différenciateur à mettre en avant · positionnement tarifaire visé.
+## Output format
+Specify: engagement type · client sector · organization segment · duration · terms (remote/on-site) · differentiator to highlight · targeted pricing positioning.
 
 ## Sources
 - **Osterwalder A. et al.** — *Value Proposition Design* (Strategyzer / Wiley, 2014)
 - **Dunford A.** — *Obviously Awesome: How to Nail Product Positioning* (2019)
-- **Méthode STAR** — structuration des références (Situation, Tâche, Action, Résultat)
+- **STAR method** — structuring references (Situation, Task, Action, Result)
 
-## Voir aussi
-- [`proposition-commerciale.md`](proposition-commerciale.md) — proposition commerciale structurée (réponse à un besoin)
-- [`presentation-executif.md`](presentation-executif.md) — pitch et présentation au décideur
-- [`../redacteur_ia/copywriting-ia.md`](../redacteur_ia/copywriting-ia.md) — accroches et copywriting du pitch
-- [`feuille-route-ia.md`](feuille-route-ia.md) — contenu d'expertise à valoriser dans l'offre
+## See also
+- [`proposition-commerciale.md`](proposition-commerciale.md) — structured commercial proposal (response to a need)
+- [`presentation-executif.md`](presentation-executif.md) — pitch and presentation to the decision-maker
+- [`../redacteur_ia/copywriting-ia.md`](../redacteur_ia/copywriting-ia.md) — hooks and copywriting for the pitch
+- [`feuille-route-ia.md`](feuille-route-ia.md) — expertise content to highlight in the offer

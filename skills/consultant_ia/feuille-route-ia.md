@@ -1,106 +1,106 @@
-# Skill — Feuille de Route IA
-> Certifications : CAP IABAC · Azure AI-900 · PMI-ACP
+# Skill — AI Roadmap
+> Certifications: CAP IABAC · Azure AI-900 · PMI-ACP
 
-## Objectif
-Construire une roadmap IA **réaliste, priorisée et séquencée**, alignée sur les objectifs business, la maturité data de l'organisation et les jalons réglementaires (AI Act). Une bonne feuille de route arbitre explicitement entre valeur rapide (quick wins) et initiatives structurantes, et rend visible le « pourquoi maintenant » de chaque vague.
+## Objective
+Build a **realistic, prioritized, sequenced** AI roadmap, aligned with business objectives, the organization's data maturity, and the regulatory milestones (AI Act). A good roadmap explicitly arbitrates between fast value (quick wins) and structuring initiatives, and makes the "why now" of each wave visible.
 
-## Cadre méthodologique
-- **McKinsey — Three Horizons of Growth** (Baghai, Coley, White, *The Alchemy of Growth*, 1999) — allouer simultanément l'effort sur 3 horizons (cœur / émergent / options), classiquement en ratio indicatif **70-20-10**. Adapté ici à la cadence IA (l'IA va plus vite que la stratégie corporate d'origine).
-- **Priorisation** : matrice **Valeur × Complexité × Maturité data**, complétée par une méthode de scoring :
-  - **WSJF** (Weighted Shortest Job First, SAFe — d'après D. Reinertsen, *Principles of Product Development Flow*, 2009) : `WSJF = Coût du retard / Durée du job`, où le coût du retard = valeur métier + criticité temporelle + réduction de risque/ouverture d'opportunité.
-  - **RICE** (Intercom, 2016) : `(Reach × Impact × Confidence) / Effort`.
-- **Now-Next-Later** (Janna Bastow / ProdPad) — format de roadmap par niveaux de confiance plutôt que par dates fermes ; utile en environnement incertain (l'IA en est un).
+## Methodological framework
+- **McKinsey — Three Horizons of Growth** (Baghai, Coley, White, *The Alchemy of Growth*, 1999) — allocate effort simultaneously across 3 horizons (core / emerging / options), classically in an indicative **70-20-10** ratio. Adapted here to the AI cadence (AI moves faster than the original corporate strategy).
+- **Prioritization**: a **Value × Complexity × Data maturity** matrix, complemented by a scoring method:
+  - **WSJF** (Weighted Shortest Job First, SAFe — after D. Reinertsen, *Principles of Product Development Flow*, 2009): `WSJF = Cost of delay / Job duration`, where cost of delay = business value + time criticality + risk reduction/opportunity enablement.
+  - **RICE** (Intercom, 2016): `(Reach × Impact × Confidence) / Effort`.
+- **Now-Next-Later** (Janna Bastow / ProdPad) — roadmap format by confidence levels rather than firm dates; useful in an uncertain environment (AI is one).
 
-## Structure de la feuille de route IA (3 horizons adaptés)
+## AI roadmap structure (3 adapted horizons)
 ```
-Horizon 1 (0-6 mois)   : Quick wins — valeur rapide, faible complexité, données disponibles
-Horizon 2 (6-18 mois)  : Initiatives structurantes — valeur forte, complexité moyenne
-Horizon 3 (18-36 mois) : Transformation — impact majeur, complexité et dépendances élevées
+Horizon 1 (0-6 months)   : Quick wins — fast value, low complexity, available data
+Horizon 2 (6-18 months)  : Structuring initiatives — high value, medium complexity
+Horizon 3 (18-36 months) : Transformation — major impact, high complexity and dependencies
 ```
-> Inspiré des 3 Horizons McKinsey, recalé sur la cadence IA. La règle d'or : **financer H1 par des gains réels qui crédibilisent H2 et H3**, sans starver l'innovation long terme.
+> Inspired by McKinsey's 3 Horizons, recalibrated to the AI cadence. The golden rule: **fund H1 with real gains that lend credibility to H2 and H3**, without starving long-term innovation.
 
-## Matrice de priorisation des initiatives IA
-| Initiative | Valeur Business | Complexité | Maturité Data | Score (WSJF/RICE) | Priorité |
+## AI initiative prioritization matrix
+| Initiative | Business Value | Complexity | Data Maturity | Score (WSJF/RICE) | Priority |
 |---|---|---|---|---|---|
-| (ex.) Assistant interne RH/SI | Haute | Faible | Bonne | élevé | ⭐⭐⭐ |
-| (ex.) Prédiction (churn/demande) | Haute | Moyenne | Moyenne | moyen | ⭐⭐ |
-| (ex.) Vision / contrôle qualité | Moyenne | Élevée | Faible | faible | ⭐ |
+| (e.g.) Internal HR/IS assistant | High | Low | Good | high | ⭐⭐⭐ |
+| (e.g.) Prediction (churn/demand) | High | Medium | Medium | medium | ⭐⭐ |
+| (e.g.) Vision / quality control | Medium | High | Low | low | ⭐ |
 
-> Renseigner le score avec **une seule méthode cohérente** sur tout le portefeuille (ne pas mélanger WSJF et RICE dans la même grille).
+> Fill the score with **a single consistent method** across the whole portfolio (do not mix WSJF and RICE in the same grid).
 
-## Critères de sélection d'un cas d'usage IA
-- **Valeur métier** : impact sur le CA, les coûts ou la satisfaction (chiffré).
-- **Faisabilité technique** : données disponibles et de qualité, modèles existants.
-- **Maturité organisationnelle** : équipe capable de porter et d'exploiter le cas d'usage.
-- **Time-to-value** : délai avant les premiers résultats mesurables.
-- **Risque** : technique, éthique, et **réglementaire (classification AI Act)**.
+## AI use-case selection criteria
+- **Business value**: impact on revenue, costs, or satisfaction (quantified).
+- **Technical feasibility**: available, quality data, existing models.
+- **Organizational maturity**: a team able to carry and operate the use case.
+- **Time-to-value**: time to the first measurable results.
+- **Risk**: technical, ethical, and **regulatory (AI Act classification)**.
 
-## Intégrer les jalons réglementaires (AI Act) dans la roadmap
-La feuille de route doit porter les échéances de conformité comme des jalons à part entière :
-| Échéance | Obligation | Implication roadmap |
+## Integrating the regulatory milestones (AI Act) into the roadmap
+The roadmap must carry the compliance deadlines as milestones in their own right:
+| Deadline | Obligation | Roadmap implication |
 |---|---|---|
-| **02/02/2025** | Pratiques interdites + AI literacy | Retirer/écarter tout cas d'usage prohibé ; plan d'acculturation |
-| **02/08/2025** | Obligations GPAI (modèles à usage général / LLM) | Documenter l'usage des LLM, fournisseurs conformes |
-| **02/08/2026** | Systèmes à haut risque (Annexe III : emploi, crédit, etc.) | Conformité avant mise en prod des cas d'usage haut risque |
-| **02/08/2027** | Applicabilité pleine | Mise en conformité du parc existant (dont GPAI antérieurs) |
+| **Feb 2, 2025** | Prohibited practices + AI literacy | Remove/exclude any prohibited use case; awareness plan |
+| **Aug 2, 2025** | GPAI obligations (general-purpose models / LLMs) | Document LLM use, compliant providers |
+| **Aug 2, 2026** | High-risk systems (Annex III: employment, credit, etc.) | Compliance before production of high-risk use cases |
+| **Aug 2, 2027** | Full applicability | Compliance of the existing estate (incl. earlier GPAI) |
 
-## Format de la roadmap
+## Roadmap format
 ```
 Q1 2026   : [Initiative 1] — Quick win
             [Initiative 2] — Quick win
-Q2 2026   : [Initiative 3] — Structurante (lancement) + jalon conformité AI Act
-Q3-Q4 2026: [Initiative 3] — Structurante (déploiement)
+Q2 2026   : [Initiative 3] — Structuring (launch) + AI Act compliance milestone
+Q3-Q4 2026: [Initiative 3] — Structuring (deployment)
 2027      : [Initiative 4] — Transformation
 ```
 
-## KPIs de succès de la feuille de route
-- Nombre de cas d'usage **en production** à M+6, M+12, M+24 (vs PoC, pour éviter le PoC graveyard).
-- ROI cumulé des initiatives IA livrées.
-- Taux d'adoption par les utilisateurs.
-- Niveau de maturité IA atteint vs cible (couplage diagnostic de maturité).
-- Taux de conformité AI Act des cas d'usage en prod.
+## Roadmap success KPIs
+- Number of use cases **in production** at M+6, M+12, M+24 (vs PoC, to avoid the PoC graveyard).
+- Cumulative ROI of delivered AI initiatives.
+- User adoption rate.
+- AI maturity level reached vs target (coupling with the maturity diagnostic).
+- AI Act compliance rate of use cases in production.
 
-## Exemple — Secteur public / collectivité territoriale (anonymisé)
-**Contexte** : collectivité (~6 500 agents, ~400 000 administrés). Contraintes : RGPD, AI Act (certains services = haut risque), commande publique, souveraineté/hébergement, défiance citoyenne.
-- **H1 (0-6 mois)** : assistant de recherche dans la base documentaire interne (GED), pré-réponse aux demandes usagers récurrentes — données disponibles, risque limité.
-- **H2 (6-18 mois)** : optimisation de la maintenance préventive du patrimoine (voirie, bâtiments) ; détection d'anomalies sur les flux financiers — jalon de conformité AI Act avant prod.
-- **H3 (18-36 mois)** : plateforme data territoriale + cas d'usage prédictifs transverses (mobilité, énergie).
-- **Garde-fous** : aucun usage de scoring social (interdit) ; transparence renforcée vis-à-vis des administrés ; clauses IA dans les marchés publics.
+## Example — Public sector / local authority (anonymized)
+**Context**: local authority (~6,500 staff, ~400,000 residents). Constraints: GDPR, AI Act (some services = high-risk), public procurement, sovereignty/hosting, citizen distrust.
+- **H1 (0-6 months)**: search assistant in the internal document base (DMS), pre-answering recurring resident requests — available data, limited risk.
+- **H2 (6-18 months)**: optimization of preventive asset maintenance (roads, buildings); anomaly detection on financial flows — AI Act compliance milestone before production.
+- **H3 (18-36 months)**: territorial data platform + cross-cutting predictive use cases (mobility, energy).
+- **Guardrails**: no social-scoring use (prohibited); reinforced transparency toward residents; AI clauses in public contracts.
 
-> Horizons et périmètres **illustratifs** : à recalibrer selon la maturité data réelle et le cadre d'achat public.
+> **Illustrative** horizons and scopes: to be recalibrated to the real data maturity and the public-procurement framework.
 
 ## Anti-patterns
-- **Roadmap = liste de jouets technos** : empiler des cas d'usage « cool » sans valeur métier priorisée.
-- **Tout en Horizon 3** : que des projets transformationnels, aucun quick win → perte de crédibilité et de budget.
-- **Priorisation à l'intuition** : pas de scoring partagé → arbitrages politiques opaques.
-- **Ignorer la maturité data** : roadmap ambitieuse sur des données inexploitables (1ʳᵉ cause d'échec).
-- **Conformité réglementaire en pièce rapportée** : AI Act traité après coup → blocage en fin de cycle.
-- **Roadmap figée en dates fermes** sur 36 mois : préférer Now-Next-Later au-delà de H1.
+- **Roadmap = a list of tech toys**: stacking "cool" use cases with no prioritized business value.
+- **Everything in Horizon 3**: only transformational projects, no quick win → loss of credibility and budget.
+- **Prioritization by intuition**: no shared scoring → opaque political trade-offs.
+- **Ignoring data maturity**: an ambitious roadmap on unusable data (the #1 cause of failure).
+- **Regulatory compliance bolted on**: AI Act handled after the fact → late-cycle blockage.
+- **Roadmap frozen in firm dates** over 36 months: prefer Now-Next-Later beyond H1.
 
-## Livrables
-- Feuille de route IA illustrée (PowerPoint / Miro), 3 horizons + jalons conformité
-- Fiche de cadrage par initiative prioritaire (couplée cadrage-poc)
-- Business case synthétique (H1)
-- Matrice de priorisation scorée (WSJF ou RICE)
-- Plan de gouvernance IA associé
+## Deliverables
+- Illustrated AI roadmap (PowerPoint / Miro), 3 horizons + compliance milestones
+- Scoping sheet per priority initiative (coupled with cadrage-poc)
+- Synthetic business case (H1)
+- Scored prioritization matrix (WSJF or RICE)
+- Associated AI governance plan
 
-## Format de sortie
-Précise : résultats du diagnostic de maturité · secteur · budget · horizon cible · contraintes réglementaires (AI Act niveau de risque, RGPD) · méthode de priorisation retenue (WSJF / RICE).
+## Output format
+Specify: maturity diagnostic results · sector · budget · target horizon · regulatory constraints (AI Act risk tier, GDPR) · chosen prioritization method (WSJF / RICE).
 
 ## Sources
-- **Baghai M., Coley S., White D.** — *The Alchemy of Growth* (1999) — McKinsey Three Horizons of Growth (allocation 70-20-10)
-- **Reinertsen D.** — *The Principles of Product Development Flow* (2009) — Cost of Delay, base du WSJF (SAFe)
-- **Scaled Agile (SAFe)** — *Weighted Shortest Job First (WSJF)* — priorisation par coût du retard
+- **Baghai M., Coley S., White D.** — *The Alchemy of Growth* (1999) — McKinsey Three Horizons of Growth (70-20-10 allocation)
+- **Reinertsen D.** — *The Principles of Product Development Flow* (2009) — Cost of Delay, basis of WSJF (SAFe)
+- **Scaled Agile (SAFe)** — *Weighted Shortest Job First (WSJF)* — prioritization by cost of delay
 - **Intercom** — *RICE scoring model* (Sean McBride, 2016) — Reach × Impact × Confidence / Effort
-- **Bastow J. (ProdPad)** — *Now-Next-Later roadmap* — roadmap par niveaux de confiance
-- **AI Act UE** — Règlement (UE) 2024/1689 — calendrier d'application : interdictions 02/02/2025, GPAI 02/08/2025, haut risque 02/08/2026, applicabilité pleine 02/08/2027
+- **Bastow J. (ProdPad)** — *Now-Next-Later roadmap* — roadmap by confidence levels
+- **EU AI Act** — Regulation (EU) 2024/1689 — application timeline: prohibitions Feb 2, 2025, GPAI Aug 2, 2025, high-risk Aug 2, 2026, full applicability Aug 2, 2027
 
-## Voir aussi
-- [diagnostic-maturite-ia.md](diagnostic-maturite-ia.md) — diagnostic en amont alimentant la roadmap
-- [cadrage-poc-ia.md](cadrage-poc-ia.md) — cadrage de chaque initiative prioritaire
-- [estimation-roi-rapide.md](estimation-roi-rapide.md) — business case par initiative (H1)
-- [transformation-digitale.md](transformation-digitale.md) — programme de transformation englobant
-- [presentation-executif.md](presentation-executif.md) — restitution de la roadmap au CODIR
-- [`../scrum/po-ai-product.md`](../scrum/po-ai-product.md) — déclinaison produit IA (vision, backlog)
-- [`../safe/program-backlog.md`](../safe/program-backlog.md) — priorisation WSJF au niveau programme
-- [`../juridique_ia/ai-act-conformite.md`](../juridique_ia/ai-act-conformite.md) — conformité AI Act opérationnelle
+## See also
+- [diagnostic-maturite-ia.md](diagnostic-maturite-ia.md) — upstream diagnostic feeding the roadmap
+- [cadrage-poc-ia.md](cadrage-poc-ia.md) — scoping of each priority initiative
+- [estimation-roi-rapide.md](estimation-roi-rapide.md) — business case per initiative (H1)
+- [transformation-digitale.md](transformation-digitale.md) — encompassing transformation program
+- [presentation-executif.md](presentation-executif.md) — roadmap read-out to the executive committee
+- [`../scrum/po-ai-product.md`](../scrum/po-ai-product.md) — AI product breakdown (vision, backlog)
+- [`../safe/program-backlog.md`](../safe/program-backlog.md) — WSJF prioritization at the program level
+- [`../juridique_ia/ai-act-conformite.md`](../juridique_ia/ai-act-conformite.md) — operational AI Act compliance

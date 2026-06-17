@@ -1,68 +1,68 @@
-# Skills — Consultant IA
+# Skills — AI Consultant
 
-> Dossier rattaché à `AGENT-CONSULTANT-IA.md`
-> Référentiels : CAP IABAC · PMI-ACP · AWS CCP · Google Cloud Digital Leader · Azure AI-900 / AZ-900 · PROSCI · **ISO/IEC 42001:2023 Lead Implementer** (PECB) · **NIST AI RMF 1.0 Architect** (CIS) · Anthropic Claude Code in Action
+> Folder attached to `AGENT-CONSULTANT-IA.md`
+> Frameworks: CAP IABAC · PMI-ACP · AWS CCP · Google Cloud Digital Leader · Azure AI-900 / AZ-900 · PROSCI · **ISO/IEC 42001:2023 Lead Implementer** (PECB) · **NIST AI RMF 1.0 Architect** (CIS) · Anthropic Claude Code in Action
 
 ---
 
-## Index des skills (9)
+## Skill index (9)
 
-| # | Skill | Quand l'invoquer | Certification |
+| # | Skill | When to invoke | Certification |
 |---|---|---|---|
-| 1 | [`proposition-commerciale.md`](proposition-commerciale.md) | Rédiger une proposition commerciale (RFP response) | PMI-ACP · CAP IABAC · PROSCI |
-| 2 | [`offre-mission.md`](offre-mission.md) | Construire une offre de mission freelance | CAP IABAC · Anthropic Claude Code in Action |
-| 3 | [`diagnostic-maturite-ia.md`](diagnostic-maturite-ia.md) | Conduire un diagnostic de maturité IA (8 dimensions, triangulation Gartner + MIT Sloan/BCG + Cap Gemini + couplage NIST AI RMF/ISO 42001) | CAP IABAC · ISO 42001 LI (PECB) · NIST AI RMF Architect (CIS) |
-| 4 | [`feuille-route-ia.md`](feuille-route-ia.md) | Construire une feuille de route IA (Now/Next/Later) | CAP IABAC · Azure AI-900 · PMI-ACP |
-| 5 | [`benchmark-solutions-ia.md`](benchmark-solutions-ia.md) | Réaliser un benchmark de solutions IA (Gartner MQ + Forrester Wave + IDC MarketScape + G2 Grid + Constellation ShortList + Peer Insights + TEI + Kraljic + ISO 25010:2023 + RFI/RFP/POC + TCO 3-5 ans) | AWS CCP · Google GCDL · Azure AZ-900 · Gartner Subscriptions · Forrester Decisions |
-| 6 | [`presentation-executif.md`](presentation-executif.md) | Préparer une présentation C-level (CODIR/COMEX) | PROSCI · CAP IABAC |
-| 7 | [`estimation-roi-rapide.md`](estimation-roi-rapide.md) | Estimer rapidement le ROI d'un projet IA | PMI-ACP · CAP IABAC · AI+ Business |
-| 8 | [`cadrage-poc-ia.md`](cadrage-poc-ia.md) | Cadrer un PoC IA (objectifs, critères de succès, exit gate) | Anthropic · CAP IABAC · PMI-ACP |
-| 9 | [`transformation-digitale.md`](transformation-digitale.md) | Piloter une transformation digitale (modèle 4D) | PROSCI · CAP IABAC · PMI-ACP · AI+ Business |
+| 1 | [`proposition-commerciale.md`](proposition-commerciale.md) | Draft a commercial proposal (RFP response) | PMI-ACP · CAP IABAC · PROSCI |
+| 2 | [`offre-mission.md`](offre-mission.md) | Build a freelance engagement offer | CAP IABAC · Anthropic Claude Code in Action |
+| 3 | [`diagnostic-maturite-ia.md`](diagnostic-maturite-ia.md) | Run an AI maturity diagnostic (8 dimensions, Gartner + MIT Sloan/BCG + Cap Gemini triangulation + NIST AI RMF/ISO 42001 coupling) | CAP IABAC · ISO 42001 LI (PECB) · NIST AI RMF Architect (CIS) |
+| 4 | [`feuille-route-ia.md`](feuille-route-ia.md) | Build an AI roadmap (Now/Next/Later) | CAP IABAC · Azure AI-900 · PMI-ACP |
+| 5 | [`benchmark-solutions-ia.md`](benchmark-solutions-ia.md) | Run an AI solution benchmark (Gartner MQ + Forrester Wave + IDC MarketScape + G2 Grid + Constellation ShortList + Peer Insights + TEI + Kraljic + ISO 25010:2023 + RFI/RFP/POC + 3-5 year TCO) | AWS CCP · Google GCDL · Azure AZ-900 · Gartner Subscriptions · Forrester Decisions |
+| 6 | [`presentation-executif.md`](presentation-executif.md) | Prepare a C-level presentation (executive committee/COMEX) | PROSCI · CAP IABAC |
+| 7 | [`estimation-roi-rapide.md`](estimation-roi-rapide.md) | Quickly estimate an AI project's ROI | PMI-ACP · CAP IABAC · AI+ Business |
+| 8 | [`cadrage-poc-ia.md`](cadrage-poc-ia.md) | Scope an AI PoC (objectives, success criteria, exit gate) | Anthropic · CAP IABAC · PMI-ACP |
+| 9 | [`transformation-digitale.md`](transformation-digitale.md) | Lead a digital transformation (4D model) | PROSCI · CAP IABAC · PMI-ACP · AI+ Business |
 
 ---
 
-## Choisir le bon skill — Arbre de décision
+## Choosing the right skill — Decision tree
 
 ```
-Tu veux ...
+You want to ...
 
-  ... GAGNER UNE MISSION (avant-vente) ?
-    → proposition-commerciale.md (réponse à RFP)
-    → offre-mission.md (offre freelance)
-    → estimation-roi-rapide.md (premier chiffrage)
+  ... WIN AN ENGAGEMENT (pre-sales)?
+    → proposition-commerciale.md (RFP response)
+    → offre-mission.md (freelance offer)
+    → estimation-roi-rapide.md (first costing)
 
-  ... DIAGNOSTIQUER L'ÉTAT D'UN CLIENT ?
-    → diagnostic-maturite-ia.md (5 axes maturité)
-    → benchmark-solutions-ia.md (état du marché)
+  ... DIAGNOSE A CLIENT'S STATE?
+    → diagnostic-maturite-ia.md (5 maturity axes)
+    → benchmark-solutions-ia.md (market state)
 
-  ... CONSTRUIRE LA STRATÉGIE ?
+  ... BUILD THE STRATEGY?
     → feuille-route-ia.md (Now/Next/Later)
-    → transformation-digitale.md (transformation globale)
+    → transformation-digitale.md (global transformation)
 
-  ... CONVAINCRE LA GOUVERNANCE ?
-    → presentation-executif.md (CODIR/COMEX)
-    → cadrage-poc-ia.md (POC avant scale)
+  ... CONVINCE GOVERNANCE?
+    → presentation-executif.md (executive committee/COMEX)
+    → cadrage-poc-ia.md (PoC before scaling)
 ```
 
 ---
 
-## Frontières avec les autres agents
+## Boundaries with other agents
 
-| Sujet voisin | Agent concerné | Frontière |
+| Adjacent topic | Agent concerned | Boundary |
 |---|---|---|
-| Pilotage delivery du projet | `AGENT-CHEF-PROJET-IA.md` | CONSULTANT = stratégie amont ; CHEF-PROJET = delivery |
-| Stratégie data globale (CDO) | `AGENT-CDO-DIRECTEUR-IA.md` | CONSULTANT = mission ponctuelle ; CDO = stratégie pérenne |
-| Veille IA et signaux faibles | `AGENT-VEILLE-STRATEGIQUE.md` | CONSULTANT = mission ; VEILLE = continue |
-| Architecture IA technique | `AGENT-AI-ARCHITECT.md` | CONSULTANT = stratégique ; AI-ARCHITECT = technique |
-| Business case et ROI poussé | `AGENT-FINANCIAL-ANALYST.md` | CONSULTANT = ROI rapide ; FINANCIAL = analyse complète |
+| Project delivery management | `AGENT-CHEF-PROJET-IA.md` | CONSULTANT = upstream strategy; CHEF-PROJET = delivery |
+| Global data strategy (CDO) | `AGENT-CDO-DIRECTEUR-IA.md` | CONSULTANT = one-off engagement; CDO = lasting strategy |
+| AI monitoring and weak signals | `AGENT-VEILLE-STRATEGIQUE.md` | CONSULTANT = engagement; VEILLE = continuous |
+| Technical AI architecture | `AGENT-AI-ARCHITECT.md` | CONSULTANT = strategic; AI-ARCHITECT = technical |
+| Business case and deep ROI | `AGENT-FINANCIAL-ANALYST.md` | CONSULTANT = quick ROI; FINANCIAL = full analysis |
 
 ---
 
-## Référentiels et standards utilisés
+## Frameworks and standards used
 
-- **CAP IABAC** : certification consultant IA (IABAC)
-- **PROSCI ADKAR** : conduite du changement
-- **AWS CCP / Google GCDL / Azure AZ-900** : fundamentals cloud
-- **Lean Startup** (Eric Ries) : pour PoC et MVP
-- **Wardley Mapping** : pour stratégie et roadmap
-- **Anthropic Claude Code in Action** : pour vendre des missions IA agentiques
+- **CAP IABAC**: AI consultant certification (IABAC)
+- **PROSCI ADKAR**: change management
+- **AWS CCP / Google GCDL / Azure AZ-900**: cloud fundamentals
+- **Lean Startup** (Eric Ries): for PoC and MVP
+- **Wardley Mapping**: for strategy and roadmap
+- **Anthropic Claude Code in Action**: for selling agentic AI engagements

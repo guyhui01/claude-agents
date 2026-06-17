@@ -1,144 +1,144 @@
-# WF-006 — Avant-vente / Proposition commerciale
+# WF-006 — Pre-sales / Commercial proposal
 
-> RFP reçu → qualification → cadrage → architecture → planning → chiffrage → proposition commerciale
-> Certifications mobilisées : PMP · CBAP · TOGAF 10 · CFA · CAP IABAC · Anthropic Claude Code in Action
+> RFP received → qualification → scoping → architecture → schedule → costing → commercial proposal
+> Certifications mobilized: PMP · CBAP · TOGAF 10 · CFA · CAP IABAC · Anthropic Claude Code in Action
 
 ---
 
-## Carte d'identité
+## Identity card
 
 ```yaml
 id: "WF-006"
 nom: "Avant-vente / Proposition commerciale"
-domaine: "Management & Conseil"
-declencheur: "RFP / appel d'offre / demande de proposition reçu d'un prospect"
-resultat_final: "Proposition technico-commerciale complète : périmètre, architecture, planning, chiffrage J/H, prix, ROI prospect"
+domaine: "Management & Consulting"
+declencheur: "RFP / tender / request for proposal received from a prospect"
+resultat_final: "Complete technical-commercial proposal: scope, architecture, schedule, person-day costing, price, prospect ROI"
 duree_estimee: "75-120 min"
 modele_recommande: "claude-opus-4-8"
-modele_raison: "Workflow stratégique à fort enjeu commercial : qualification GO/NO-GO, architecture cible, chiffrage J/H, pricing, ROI prospect. La qualité du raisonnement et de la synthèse multi-dimensions conditionne le taux de conversion commerciale. Opus 4.8 recommandé pour les propositions à destination de clients CAC40 / GAFA / licornes."
-modele_alternatif: "claude-sonnet-4-6"  # pour des demandes simples de devis (forfait court, scope cadré, < 20 J/H)
+modele_raison: "Strategic workflow with high commercial stakes: GO/NO-GO qualification, target architecture, person-day costing, pricing, prospect ROI. The quality of the reasoning and of the multi-dimensional synthesis drives the commercial win rate. Opus 4.8 recommended for proposals aimed at CAC40 / GAFA / unicorn clients."
+modele_alternatif: "claude-sonnet-4-6"  # for simple quote requests (short fixed price, framed scope, < 20 person-days)
 agents_core:
-  - CONSULTANT-IA        # qualification du besoin client + grille GO/NO-GO
-  - BUSINESS-ANALYST     # cadrage fonctionnel, cas d'usage cibles, exigences
-  - AI-ARCHITECT         # architecture technique cible, stack, trade-offs
-  - CHEF-PROJET-IA       # planning, lotissement, ressources, jalons
-  - FINANCIAL-ANALYST    # chiffrage J/H, prix, ROI prospect, marge
-  - REDACTEUR-IA         # rédaction de la proposition commerciale finale
+  - CONSULTANT-IA        # client-need qualification + GO/NO-GO grid
+  - BUSINESS-ANALYST     # functional scoping, target use cases, requirements
+  - AI-ARCHITECT         # target technical architecture, stack, trade-offs
+  - CHEF-PROJET-IA       # schedule, work packaging, resources, milestones
+  - FINANCIAL-ANALYST    # person-day costing, price, prospect ROI, margin
+  - REDACTEUR-IA         # writing of the final commercial proposal
 agents_optionnels:
-  - JURIDIQUE-IA         # si clauses contractuelles IA Act / RGPD à intégrer
-  - VEILLE-STRATEGIQUE   # si positionnement concurrentiel requis
-  - PROMPT-ENGINEER      # si POC LLM / prompt-engineering à chiffrer dans la proposition
+  - JURIDIQUE-IA         # if AI Act / GDPR contractual clauses are to be included
+  - VEILLE-STRATEGIQUE   # if competitive positioning is required
+  - PROMPT-ENGINEER      # if an LLM PoC / prompt-engineering is to be costed in the proposal
 statut: "disponible"
 version: "1.0"
 ```
 
 ---
 
-## Agents mobilisés
+## Agents mobilized
 
-| Étape | Agent | Rôle dans le workflow | Output |
+| Step | Agent | Role in the workflow | Output |
 |---|---|---|---|
-| 1 | CONSULTANT-IA | Qualification du besoin + décision GO/NO-GO | Fiche qualification + verdict |
-| 2 | BUSINESS-ANALYST | Cadrage fonctionnel et exigences | Note de cadrage + cas d'usage |
-| 3 | AI-ARCHITECT | Architecture technique cible et stack | Schéma architecture + trade-offs |
-| 4 | CHEF-PROJET-IA | Planning, lotissement et ressources | Macro-planning + WBS |
-| 5 | FINANCIAL-ANALYST | Chiffrage J/H, prix, ROI prospect | Grille chiffrage + tableau prix |
-| 6 | REDACTEUR-IA | Rédaction proposition commerciale finale | Proposition PDF + executive summary |
-| opt | JURIDIQUE-IA | Clauses contractuelles IA Act / RGPD | Annexe juridique |
-| opt | VEILLE-STRATEGIQUE | Positionnement concurrentiel | Benchmark concurrents shortlistés |
-| opt | PROMPT-ENGINEER | POC LLM / chiffrage prompt-engineering | Estimation POC + livrables techniques |
+| 1 | CONSULTANT-IA | Need qualification + GO/NO-GO decision | Qualification sheet + verdict |
+| 2 | BUSINESS-ANALYST | Functional scoping and requirements | Scoping note + use cases |
+| 3 | AI-ARCHITECT | Target technical architecture and stack | Architecture diagram + trade-offs |
+| 4 | CHEF-PROJET-IA | Schedule, work packaging and resources | Macro-schedule + WBS |
+| 5 | FINANCIAL-ANALYST | Person-day costing, price, prospect ROI | Costing grid + price table |
+| 6 | REDACTEUR-IA | Writing of the final commercial proposal | Proposal PDF + executive summary |
+| opt | JURIDIQUE-IA | AI Act / GDPR contractual clauses | Legal appendix |
+| opt | VEILLE-STRATEGIQUE | Competitive positioning | Shortlisted-competitor benchmark |
+| opt | PROMPT-ENGINEER | LLM PoC / prompt-engineering costing | PoC estimate + technical deliverables |
 
 ---
 
-## Paramètres contextuels
+## Contextual parameters
 
 ```
-CONTEXTE AVANT-VENTE (à renseigner avant le démarrage)
+PRE-SALES CONTEXT (to fill in before starting)
 ──────────────────────────────────────────────────────
-Prospect            : [Nom / Secteur / Taille / Maturité IA]
-Type de demande     : [RFP formel / Sollicitation directe / Recommandation / Concours]
-Périmètre demandé   : [Cadrage / POC / Build / TMA / Mission conseil / Full]
-Budget indicatif    : [Range estimé / Non communiqué]
-Délai de réponse    : [Deadline RFP — ISO 8601]
-Concurrence         : [Cabinets en lice / Sole source]
-Décideurs           : [DSI / CDO / Métier / Achats]
-Critères de choix   : [Prix / Expertise / Référence / Délai / RSE]
-Contraintes         : [On-premise / Cloud souverain / SecNumCloud / HDS]
-Format proposition  : [PDF / Présentation orale / Démo / Q&A écrit]
-Risques connus      : [Concurrence agressive, prix plancher, exigences cachées]
+Prospect            : [Name / Sector / Size / AI maturity]
+Request type        : [Formal RFP / Direct solicitation / Referral / Competition]
+Requested scope     : [Scoping / PoC / Build / AMS / Consulting engagement / Full]
+Indicative budget   : [Estimated range / Not disclosed]
+Response deadline    : [RFP deadline — ISO 8601]
+Competition         : [Firms competing / Sole source]
+Decision-makers     : [CIO / CDO / Business / Procurement]
+Selection criteria  : [Price / Expertise / Reference / Deadline / CSR]
+Constraints         : [On-premise / Sovereign cloud / SecNumCloud / HDS]
+Proposal format     : [PDF / Oral presentation / Demo / Written Q&A]
+Known risks         : [Aggressive competition, floor price, hidden requirements]
 ```
 
 ---
 
-## Diagramme de flux BPMN
+## BPMN flow diagram
 
 ```
-(DÉBUT — RFP reçu / opportunité qualifiée)
+(START — RFP received / qualified opportunity)
         │
         ▼
 [STEP-01 — CONSULTANT-IA]
-  Qualification du besoin,
-  grille BANT (Budget/Authority/Need/Timeline),
-  décision GO/NO-GO argumentée
+  Need qualification,
+  BANT grid (Budget/Authority/Need/Timeline),
+  reasoned GO/NO-GO decision
         │
         ▼
-<GATEWAY — GO sur la proposition ?>
-  ├── NON ──▶ (FIN — Décision NO-BID documentée)
-  └── OUI ──▶ poursuite
+<GATEWAY — GO on the proposal?>
+  ├── NO ───▶ (END — Documented NO-BID decision)
+  └── YES ──▶ continue
         │
         ▼
 [STEP-02 — BUSINESS-ANALYST]
-  Cadrage fonctionnel,
-  cas d'usage cibles,
-  exigences fonctionnelles & non-fonctionnelles
+  Functional scoping,
+  target use cases,
+  functional & non-functional requirements
         │
         ▼
 ═══════════════════════════════════
-  FORK PARALLÈLE
+  PARALLEL FORK
 ═══════════════════════════════════
   ├── [STEP-03A — AI-ARCHITECT]
-  │    Architecture cible, stack,
-  │    trade-offs make vs. buy
+  │    Target architecture, stack,
+  │    make vs. buy trade-offs
   │
-  └── [STEP-03B — VEILLE-STRATEGIQUE] (optionnel)
-       Positionnement concurrentiel,
-       benchmark prix marché
+  └── [STEP-03B — VEILLE-STRATEGIQUE] (optional)
+       Competitive positioning,
+       market-price benchmark
 ═══════════════════════════════════
   JOIN
 ═══════════════════════════════════
         │
         ▼
 [STEP-04 — CHEF-PROJET-IA]
-  Macro-planning, lotissement,
-  WBS, ressources, jalons,
-  hypothèses & contraintes
+  Macro-schedule, work packaging,
+  WBS, resources, milestones,
+  assumptions & constraints
         │
         ▼
 [STEP-05 — FINANCIAL-ANALYST]
-  Chiffrage J/H par profil,
-  grille de prix,
-  ROI prospect,
-  scénarios commerciaux
+  Person-day costing per profile,
+  price grid,
+  prospect ROI,
+  commercial scenarios
         │
         ▼
-<GATEWAY — Clauses contractuelles IA Act / RGPD ?>
-  ├── OUI ──▶ [STEP-06 — JURIDIQUE-IA]
-  │            Annexe contractuelle conformité
-  └── NON ──▶ (bypass)
+<GATEWAY — AI Act / GDPR contractual clauses?>
+  ├── YES ──▶ [STEP-06 — JURIDIQUE-IA]
+  │            Compliance contractual appendix
+  └── NO ───▶ (bypass)
         │
         ▼
 [STEP-07 — REDACTEUR-IA]
-  Proposition commerciale finale,
-  executive summary 1 page,
-  pitch deck si oral
+  Final commercial proposal,
+  1-page executive summary,
+  pitch deck if oral
         │
         ▼
-(FIN — Proposition envoyée au prospect)
+(END — Proposal sent to the prospect)
 ```
 
 ---
 
-## Étapes détaillées
+## Detailed steps
 
 ### STEP-01 — CONSULTANT-IA
 
@@ -146,20 +146,20 @@ Risques connus      : [Concurrence agressive, prix plancher, exigences cachées]
 etape:
   id: "STEP-01"
   agent: "AGENT-CONSULTANT-IA"
-  role: "Qualification du besoin et décision GO/NO-GO"
+  role: "Need qualification and GO/NO-GO decision"
   input:
-    - "RFP / cahier des charges / brief commercial"
-    - "Contexte prospect : secteur, taille, maturité IA, historique"
-    - "Capacités internes disponibles (compétences, ressources, délais)"
+    - "RFP / requirements / commercial brief"
+    - "Prospect context: sector, size, AI maturity, history"
+    - "Available internal capabilities (skills, resources, timeline)"
   output_attendu:
-    - "Fiche qualification BANT (Budget / Authority / Need / Timeline)"
-    - "Scoring de l'opportunité (probabilité de gain 0-100%)"
-    - "Cartographie des risques commerciaux et techniques"
-    - "Identification du sponsor et du circuit de décision client"
-    - "Verdict argumenté : GO / NO-GO / GO conditionnel"
-  condition_passage: "GO validé par l'utilisateur avant cadrage"
+    - "BANT qualification sheet (Budget / Authority / Need / Timeline)"
+    - "Opportunity scoring (win probability 0-100%)"
+    - "Mapping of commercial and technical risks"
+    - "Identification of the sponsor and the client's decision path"
+    - "Reasoned verdict: GO / NO-GO / conditional GO"
+  condition_passage: "GO validated by the user before scoping"
   duree_estimee: "15 min"
-  execution: "séquentielle — ouvre le workflow"
+  execution: "sequential — opens the workflow"
 ```
 
 ### STEP-02 — BUSINESS-ANALYST
@@ -168,19 +168,19 @@ etape:
 etape:
   id: "STEP-02"
   agent: "AGENT-BUSINESS-ANALYST"
-  role: "Cadrage fonctionnel et exigences"
+  role: "Functional scoping and requirements"
   input:
-    - "RFP et fiche qualification (STEP-01)"
-    - "Cas d'usage métier ciblés"
-    - "Contraintes réglementaires et organisationnelles"
+    - "RFP and qualification sheet (STEP-01)"
+    - "Targeted business use cases"
+    - "Regulatory and organizational constraints"
   output_attendu:
-    - "Note de cadrage : périmètre IN / OUT clairement bornés"
-    - "Cartographie des cas d'usage prioritaires"
-    - "Exigences fonctionnelles structurées (MoSCoW)"
-    - "Exigences non-fonctionnelles (performance, sécurité, scalabilité)"
-    - "Liste des hypothèses et zones d'incertitude à lever"
+    - "Scoping note: clearly bounded IN / OUT scope"
+    - "Mapping of the priority use cases"
+    - "Structured functional requirements (MoSCoW)"
+    - "Non-functional requirements (performance, security, scalability)"
+    - "List of assumptions and uncertainty areas to clear"
   duree_estimee: "15 min"
-  execution: "séquentielle après STEP-01"
+  execution: "sequential after STEP-01"
 ```
 
 ### STEP-03A — AI-ARCHITECT
@@ -189,39 +189,39 @@ etape:
 etape:
   id: "STEP-03A"
   agent: "AGENT-AI-ARCHITECT"
-  role: "Architecture technique cible"
+  role: "Target technical architecture"
   input:
-    - "Note de cadrage et exigences (STEP-02)"
-    - "Contraintes infra prospect (cloud, on-premise, SecNumCloud, HDS)"
-    - "Existant SI prospect (à intégrer)"
+    - "Scoping note and requirements (STEP-02)"
+    - "Prospect infra constraints (cloud, on-premise, SecNumCloud, HDS)"
+    - "Prospect's existing IS (to integrate)"
   output_attendu:
-    - "Schéma d'architecture cible (Mermaid ou texte structuré)"
-    - "Stack recommandé : LLM, RAG, agents, MCP, observabilité"
-    - "Trade-offs make vs. buy par composant"
-    - "Estimation coût d'exploitation mensuel (LLM tokens, infra)"
-    - "Risques architecture et plan de mitigation"
+    - "Target architecture diagram (Mermaid or structured text)"
+    - "Recommended stack: LLM, RAG, agents, MCP, observability"
+    - "Make vs. buy trade-offs per component"
+    - "Monthly operating-cost estimate (LLM tokens, infra)"
+    - "Architecture risks and mitigation plan"
   duree_estimee: "20 min"
-  execution: "parallèle avec STEP-03B si benchmark requis"
+  execution: "parallel with STEP-03B if benchmark required"
 ```
 
-### STEP-03B — VEILLE-STRATEGIQUE (optionnel)
+### STEP-03B — VEILLE-STRATEGIQUE (optional)
 
 ```yaml
 etape:
   id: "STEP-03B"
   agent: "AGENT-VEILLE-STRATEGIQUE"
-  role: "Positionnement concurrentiel"
+  role: "Competitive positioning"
   input:
-    - "Liste des cabinets concurrents identifiés (STEP-01)"
-    - "Secteur d'activité du prospect"
-    - "Prix marché de référence pour le type de mission"
+    - "List of identified competing firms (STEP-01)"
+    - "Prospect's industry"
+    - "Reference market price for this type of engagement"
   output_attendu:
-    - "Benchmark concurrents : forces / faiblesses / positionnement prix"
-    - "Différentiateurs à mettre en avant dans la proposition"
-    - "Arguments anti-concurrence par cabinet"
-    - "Recommandation de pricing positionné vs. marché"
+    - "Competitor benchmark: strengths / weaknesses / price positioning"
+    - "Differentiators to highlight in the proposal"
+    - "Anti-competition arguments per firm"
+    - "Pricing recommendation positioned vs. the market"
   duree_estimee: "15 min"
-  execution: "parallèle avec STEP-03A si activé"
+  execution: "parallel with STEP-03A if enabled"
 ```
 
 ### STEP-04 — CHEF-PROJET-IA
@@ -230,19 +230,19 @@ etape:
 etape:
   id: "STEP-04"
   agent: "AGENT-CHEF-PROJET-IA"
-  role: "Planning, lotissement et ressources"
+  role: "Schedule, work packaging and resources"
   input:
-    - "Architecture cible (STEP-03A)"
-    - "Exigences MoSCoW (STEP-02)"
-    - "Délai prospect et disponibilité ressources"
+    - "Target architecture (STEP-03A)"
+    - "MoSCoW requirements (STEP-02)"
+    - "Prospect deadline and resource availability"
   output_attendu:
-    - "WBS détaillé (Work Breakdown Structure) par lot"
-    - "Macro-planning Gantt avec jalons clés"
-    - "Estimation J/H par lot et par profil (PO, AI Architect, Dev, Data, MLOps)"
-    - "Plan de charge ressources sur la durée projet"
-    - "Hypothèses, dépendances, contraintes calendaires"
+    - "Detailed WBS (Work Breakdown Structure) per work package"
+    - "Macro Gantt schedule with key milestones"
+    - "Person-day estimate per package and per profile (PO, AI Architect, Dev, Data, MLOps)"
+    - "Resource workload plan over the project duration"
+    - "Assumptions, dependencies, calendar constraints"
   duree_estimee: "15 min"
-  execution: "séquentielle après JOIN STEP-03"
+  execution: "sequential after STEP-03 JOIN"
 ```
 
 ### STEP-05 — FINANCIAL-ANALYST
@@ -251,40 +251,40 @@ etape:
 etape:
   id: "STEP-05"
   agent: "AGENT-FINANCIAL-ANALYST"
-  role: "Chiffrage et pricing commercial"
+  role: "Costing and commercial pricing"
   input:
-    - "Estimation J/H par profil (STEP-04)"
-    - "TJM par profil (référentiel interne)"
-    - "Cible de marge et stratégie commerciale (prix de pénétration / premium)"
-    - "Benchmark prix marché (STEP-03B si activé)"
+    - "Person-day estimate per profile (STEP-04)"
+    - "Day rate per profile (internal reference)"
+    - "Margin target and commercial strategy (penetration / premium price)"
+    - "Market-price benchmark (STEP-03B if enabled)"
   output_attendu:
-    - "Grille de chiffrage détaillée (J/H × TJM par profil)"
-    - "Prix de vente proposé + marge calculée"
-    - "Scénarios commerciaux : forfait / régie / résultat / hybride"
-    - "ROI prospect estimé (gain métier vs. coût mission)"
-    - "Conditions financières : modalités de facturation, échéancier"
+    - "Detailed costing grid (person-days × day rate per profile)"
+    - "Proposed selling price + computed margin"
+    - "Commercial scenarios: fixed price / time-and-materials / outcome / hybrid"
+    - "Estimated prospect ROI (business gain vs. engagement cost)"
+    - "Financial terms: billing arrangements, payment schedule"
   duree_estimee: "15 min"
-  execution: "séquentielle après STEP-04"
+  execution: "sequential after STEP-04"
 ```
 
-### STEP-06 — JURIDIQUE-IA (optionnel)
+### STEP-06 — JURIDIQUE-IA (optional)
 
 ```yaml
 etape:
   id: "STEP-06"
   agent: "AGENT-JURIDIQUE-IA"
-  role: "Annexe contractuelle conformité IA Act / RGPD"
+  role: "AI Act / GDPR compliance contractual appendix"
   input:
-    - "Architecture cible et données traitées (STEP-03A)"
-    - "Cas d'usage et tier AI Act applicable"
-    - "Contraintes contractuelles prospect (RGPD, sous-traitance, propriété intellectuelle)"
+    - "Target architecture and data processed (STEP-03A)"
+    - "Use cases and applicable AI Act tier"
+    - "Prospect contractual constraints (GDPR, processing, intellectual property)"
   output_attendu:
-    - "Annexe contractuelle clauses IA Act (tier risque, transparence, monitoring)"
-    - "Clauses RGPD : DPA, sous-traitance, transferts hors UE"
-    - "Clauses propriété intellectuelle (modèles fine-tunés, prompts, données)"
-    - "Engagements de niveau de service (SLA) et responsabilité"
+    - "Contractual appendix with AI Act clauses (risk tier, transparency, monitoring)"
+    - "GDPR clauses: DPA, processing, transfers outside the EU"
+    - "Intellectual-property clauses (fine-tuned models, prompts, data)"
+    - "Service-level commitments (SLA) and liability"
   duree_estimee: "15 min"
-  execution: "conditionnelle — si clauses IA Act / RGPD requises"
+  execution: "conditional — if AI Act / GDPR clauses are required"
 ```
 
 ### STEP-07 — REDACTEUR-IA
@@ -293,58 +293,58 @@ etape:
 etape:
   id: "STEP-07"
   agent: "AGENT-REDACTEUR-IA"
-  role: "Rédaction de la proposition commerciale finale"
+  role: "Writing of the final commercial proposal"
   input:
-    - "Tous les outputs des STEP-01 à STEP-06"
-    - "Charte graphique et template proposition (référentiel interne)"
-    - "Ton et niveau de formalisme attendus par le prospect"
+    - "All outputs from STEP-01 to STEP-06"
+    - "Brand guidelines and proposal template (internal reference)"
+    - "Tone and level of formality expected by the prospect"
   output_attendu:
-    - "Executive summary 1 page (contexte / valeur / prix / planning)"
-    - "Proposition commerciale complète (20-40 pages)"
-    - "Pitch deck (10-15 slides) si soutenance orale prévue"
-    - "Q&A anticipées et réponses préparées"
-    - "Annexes : références similaires, CV consultants, méthodologie"
+    - "1-page executive summary (context / value / price / schedule)"
+    - "Complete commercial proposal (20-40 pages)"
+    - "Pitch deck (10-15 slides) if an oral defense is planned"
+    - "Anticipated Q&A and prepared answers"
+    - "Appendices: similar references, consultant CVs, methodology"
   duree_estimee: "20 min"
-  execution: "séquentielle — clôture le workflow"
+  execution: "sequential — closes the workflow"
 ```
 
 ---
 
-## Livrables finaux
+## Final deliverables
 
 ```
-CHECKLIST WF-006
+WF-006 CHECKLIST
 ──────────────────────────────────────────────────────
-□ Fiche qualification BANT + verdict GO/NO-GO
-□ Note de cadrage avec périmètre IN / OUT
-□ Cas d'usage prioritaires + exigences MoSCoW
-□ Schéma d'architecture cible + stack recommandé
-□ [optionnel] Benchmark concurrentiel + positionnement prix
-□ WBS + macro-planning + estimation J/H par profil
-□ Grille de chiffrage + prix de vente + ROI prospect
-□ Scénarios commerciaux (forfait / régie / hybride)
-□ [optionnel] Annexe contractuelle IA Act / RGPD
-□ Executive summary 1 page
-□ Proposition commerciale complète (20-40 pages)
-□ Pitch deck si soutenance orale
-□ Q&A anticipées
+□ BANT qualification sheet + GO/NO-GO verdict
+□ Scoping note with IN / OUT scope
+□ Priority use cases + MoSCoW requirements
+□ Target architecture diagram + recommended stack
+□ [optional] Competitive benchmark + price positioning
+□ WBS + macro-schedule + person-day estimate per profile
+□ Costing grid + selling price + prospect ROI
+□ Commercial scenarios (fixed price / T&M / hybrid)
+□ [optional] AI Act / GDPR contractual appendix
+□ 1-page executive summary
+□ Complete commercial proposal (20-40 pages)
+□ Pitch deck if oral defense
+□ Anticipated Q&A
 ```
 
 ---
 
-## Commande de démarrage rapide
+## Quick-start command
 
 ```
-Lis le fichier AGENT-ORCHESTRATEUR-WORKFLOW.md et adopte le rôle d'orchestrateur.
-Confirme que tu es prêt, puis charge le workflow WF-006 depuis workflows/WF-006-avant-vente-proposition-commerciale.md.
+Read the file AGENT-ORCHESTRATEUR-WORKFLOW.md and take on the orchestrator role.
+Confirm you are ready, then load workflow WF-006 from workflows/WF-006-avant-vente-proposition-commerciale.md.
 
-Contexte avant-vente :
-- Prospect : [à renseigner]
-- Type de demande : [RFP / Sollicitation / Recommandation]
-- Périmètre : [à renseigner]
-- Budget indicatif : [à renseigner]
-- Délai de réponse : [à renseigner]
-- Décideurs : [à renseigner]
+Pre-sales context:
+- Prospect: [to fill in]
+- Request type: [RFP / Solicitation / Referral]
+- Scope: [to fill in]
+- Indicative budget: [to fill in]
+- Response deadline: [to fill in]
+- Decision-makers: [to fill in]
 
-Lance STEP-01 avec AGENT-CONSULTANT-IA.
+Launch STEP-01 with AGENT-CONSULTANT-IA.
 ```

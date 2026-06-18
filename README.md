@@ -258,4 +258,4 @@ Installation and configuration: [mcp-servers/README.md](mcp-servers/README.md)
 
 ## License
 
-[PolyForm Noncommercial 1.0.0](LICENSE) © 2026 Guy HUI-BON-HOA — Free for **non-commercial** use (study, research, personal projects, nonprofits). Commercial use reserved to the author (commercial license on request).
+[PolyForm Noncommercial 1.0.0](LICENSE) © 2026 Guy HUI-BON-HOA — Free for **non-commercial** use (study, research, personal projects, nonprofits). Commercial use reserved to the author — see [`COMMERCIAL.md`](COMMERCIAL.md) to request a commercial license.

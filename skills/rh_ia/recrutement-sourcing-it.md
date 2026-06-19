@@ -1,45 +1,45 @@
-# Skill — Recrutement & Sourcing Profils IT/IA
-> Certifications : SHRM-CP (SHRM) · PHR (HRCI) · LinkedIn Talent Solutions Certified Recruiter
+# Skill — IT/AI Recruitment & Sourcing
+> Certifications: SHRM-CP (SHRM) · PHR (HRCI) · LinkedIn Talent Solutions Certified Recruiter
 
-## Objectif
-Identifier, sourcer et qualifier des profils IT/IA (développeurs, data scientists, architectes, PO, consultants IA) pour des clients PME, fintech, scaleup, startup et CAC40. Produire un shortlist qualifié avec scoring et brief de présentation.
+## Objective
+Identify, source, and qualify IT/AI profiles (developers, data scientists, architects, POs, AI consultants) for SMB, fintech, scale-up, startup, and CAC40 clients. Produce a qualified shortlist with scoring and a presentation brief.
 
-## Stratégie de sourcing multi-canal
+## Multi-channel sourcing strategy
 
 ```
-CANAL 1 — LinkedIn Recruiter
+CHANNEL 1 — LinkedIn Recruiter
 ──────────────────────────────────────────────────────
-Boolean search : "Python" AND "LLM" AND ("RAG" OR "LangChain") NOT "junior"
-Filtres recommandés : localisation, disponibilité, taille entreprise actuelle
-InMail : un message personnalisé obtient un bien meilleur taux de réponse
-         qu'un générique — personnaliser TOUJOURS l'accroche (mesurer son propre taux)
+Boolean search: "Python" AND "LLM" AND ("RAG" OR "LangChain") NOT "junior"
+Recommended filters: location, availability, current company size
+InMail: a personalized message gets a far better response rate
+        than a generic one — ALWAYS personalize the opener (measure your own rate)
 
-CANAL 2 — GitHub / Stack Overflow
+CHANNEL 2 — GitHub / Stack Overflow
 ──────────────────────────────────────────────────────
-Recherche de contributeurs actifs sur des repos IA pertinents
-Profils avec portfolio public = signal fort de compétence réelle
+Search for active contributors on relevant AI repos
+Profiles with a public portfolio = strong signal of real skill
 
-CANAL 3 — Communautés & réseaux spécialisés
+CHANNEL 3 — Specialized communities & networks
 ──────────────────────────────────────────────────────
-Slack : MLOps Community, Hugging Face, LangChain
-Discord : EleutherAI, OpenAI developers
-Meetups : Paris AI, Data for Good, BDX I/O, Devoxx France
+Slack: MLOps Community, Hugging Face, LangChain
+Discord: EleutherAI, OpenAI developers
+Meetups: Paris AI, Data for Good, BDX I/O, Devoxx France
 
-CANAL 4 — Jobboards IT/IA
+CHANNEL 4 — IT/AI job boards
 ──────────────────────────────────────────────────────
 Welcome to the Jungle, Talent.io, Malt (freelance), Comet (freelance IT)
 Remotive, WeWorkRemotely (remote IT)
 
-CANAL 5 — Cooptation & réseau
+CHANNEL 5 — Referral & network
 ──────────────────────────────────────────────────────
-Demander systématiquement des recommandations aux candidats qualifiés
-Offrir une prime de cooptation si applicable côté client
+Systematically ask qualified candidates for recommendations
+Offer a referral bonus if applicable on the client side
 ```
 
-## Boolean Search — Templates par profil
+## Boolean Search — Templates by profile
 
 ```
-DÉVELOPPEUR IA / LLM
+AI / LLM DEVELOPER
 ("prompt engineer" OR "LLM" OR "RAG" OR "LangChain") AND ("Python" OR "TypeScript") AND ("Anthropic" OR "OpenAI" OR "Mistral")
 
 DATA SCIENTIST / ML ENGINEER
@@ -48,70 +48,70 @@ DATA SCIENTIST / ML ENGINEER
 AI ARCHITECT
 ("AI architecture" OR "solution architect") AND ("LLM" OR "GenAI") AND ("AWS" OR "GCP" OR "Azure")
 
-PRODUCT OWNER IA
+AI PRODUCT OWNER
 ("Product Owner" OR "PO") AND ("IA" OR "AI" OR "LLM" OR "GenAI") AND ("SAFe" OR "Scrum" OR "Agile")
 
-CONSULTANT IA
+AI CONSULTANT
 ("consultant" OR "senior advisor") AND ("transformation IA" OR "GenAI" OR "LLM") AND ("CAC40" OR "grands comptes" OR "ESN")
 ```
 
-## Grille de qualification — Premier contact (5 min)
+## Qualification grid — First contact (5 min)
 
 ```
-QUALIFICATION RAPIDE — Appel ou message LinkedIn
+QUICK QUALIFICATION — Call or LinkedIn message
 ──────────────────────────────────────────────────────
-1. Disponibilité : quelle est votre date de dispo ? (freelance : TJM cible ?)
-2. Mobilité : remote / hybride / sur site — quelle préférence ?
-3. Tech stack principale : sur quoi travaillez-vous actuellement ?
-4. Type de mission recherché : produit / conseil / ESN / startup ?
-5. Motivation : qu'est-ce qui vous attirerait dans cette opportunité ?
+1. Availability: what's your start date? (freelance: target day rate?)
+2. Mobility: remote / hybrid / on-site — what's your preference?
+3. Main tech stack: what are you currently working on?
+4. Engagement type sought: product / consulting / IT services firm / startup?
+5. Motivation: what would attract you to this opportunity?
 
-→ Si 3/5 critères matchent → passer à la qualification approfondie
-→ Sinon → garder en CVthèque avec tag et date de relance
+→ If 3/5 criteria match → move to in-depth qualification
+→ Otherwise → keep in the CV database with a tag and follow-up date
 ```
 
-## Scoring candidat — Grille 0-10
+## Candidate scoring — 0-10 grid
 
-| Critère | Poids | Score (0-10) | Commentaire |
+| Criterion | Weight | Score (0-10) | Comment |
 |---|---|---|---|
-| Adéquation technique (stack, niveau) | 35% | | |
-| Expérience secteur client | 20% | | |
-| Disponibilité & localisation | 15% | | |
-| Soft skills (communication, autonomie) | 15% | | |
-| Motivation pour le poste/mission | 15% | | |
-| **Score pondéré** | 100% | **/10** | |
+| Technical fit (stack, level) | 35% | | |
+| Client-sector experience | 20% | | |
+| Availability & location | 15% | | |
+| Soft skills (communication, autonomy) | 15% | | |
+| Motivation for the role/engagement | 15% | | |
+| **Weighted score** | 100% | **/10** | |
 
-Seuil retenu : **≥ 7/10** pour présentation client.
+Retained threshold: **≥ 7/10** for client presentation.
 
-## Livrables
-- Longlist sourcée (10-15 profils) avec scoring
-- Shortlist qualifiée (3-5 profils) avec fiche de présentation candidat
-- Brief synthétique par candidat : stack · expérience · dispo · prétentions · motivation
-- Rapport de sourcing : canaux utilisés, taux de réponse, délai
+## Deliverables
+- Sourced longlist (10-15 profiles) with scoring
+- Qualified shortlist (3-5 profiles) with a candidate presentation sheet
+- Concise brief per candidate: stack · experience · availability · expectations · motivation
+- Sourcing report: channels used, response rate, turnaround
 
-## Format de sortie
-Précise : intitulé du poste/mission, stack technique requise, localisation, budget (salaire ou TJM), date de démarrage, secteur client.
+## Output format
+Specify: role/engagement title, required technical stack, location, budget (salary or day rate), start date, client sector.
 
-## ⚖️ Conformité sourcing
-- Données collectées (LinkedIn, GitHub, CVthèque) = données personnelles : **finalité, minimisation, durée de conservation** (RGPD ; CNIL Guide du recrutement). Candidature non retenue conservée 2 ans max sauf accord.
-- Critères de sélection limités à ce qui a un **lien direct et nécessaire** avec le poste (Code du travail **L1221-6**) ; aucun critère discriminant (**L1132-1**).
-- Informer le candidat de la source de ses données et de ses droits (accès, opposition).
+## ⚖️ Sourcing compliance
+- Data collected (LinkedIn, GitHub, CV database) = personal data: **purpose, minimization, retention period** (GDPR; CNIL Recruitment guide). Unsuccessful applications kept 2 years max unless agreed.
+- Selection criteria limited to what has a **direct and necessary link** to the role (French Labor Code **L1221-6**); no discriminatory criterion (**L1132-1**).
+- Inform the candidate of the source of their data and their rights (access, objection).
 
 ## Anti-patterns
-- ❌ Sourcer sur des critères proxy discriminants (photo, nom, âge déduit du diplôme) — L1132-1.
-- ❌ Conserver indéfiniment les profils en CVthèque sans base légale ni durée définie (RGPD).
-- ❌ Boolean search trop restrictif (« 5 ans sur une techno de 3 ans ») → exclut de bons profils.
-- ❌ InMail générique non personnalisé → taux de réponse faible, image employeur dégradée.
-- ❌ Annoncer un chiffre de « taux de réponse marché » non mesuré sur sa propre activité.
+- ❌ Source on discriminatory proxy criteria (photo, name, age inferred from the degree) — L1132-1.
+- ❌ Keep profiles in the CV database indefinitely without a legal basis or a defined period (GDPR).
+- ❌ Overly restrictive Boolean search ("5 years on a 3-year-old tech") → excludes good profiles.
+- ❌ Generic, non-personalized InMail → low response rate, damaged employer brand.
+- ❌ Quote a "market response rate" figure not measured on your own activity.
 
 ## Sources
-- CNIL — Guide du recrutement (collecte et conservation des données candidats) — cnil.fr/fr/le-guide-du-recrutement
-- Code du travail — L1221-6 (lien direct/bonne foi), L1132-1 (non-discrimination) — legifrance.gouv.fr
-- RGPD UE 2016/679 — art. 5 (minimisation) — cnil.fr
-- LinkedIn Talent Solutions — bonnes pratiques de sourcing — business.linkedin.com
+- CNIL — Recruitment guide (collection and retention of candidate data) — cnil.fr/fr/le-guide-du-recrutement
+- French Labor Code — L1221-6 (direct link/good faith), L1132-1 (non-discrimination) — legifrance.gouv.fr
+- GDPR EU 2016/679 — art. 5 (minimization) — cnil.fr
+- LinkedIn Talent Solutions — sourcing best practices — business.linkedin.com
 
-## Voir aussi
-- `skills/rh_ia/evaluation-profils-techniques.md` — qualification approfondie post-sourcing
-- `skills/rh_ia/redaction-offre-emploi.md` — offre/brief à diffuser
-- `skills/rh_ia/benchmark-remuneration-it.md` — fourchettes pour la qualification TJM/salaire
-- `skills/rh_ia/cv-parsing-ats-scoring.md` — scoring ATS en amont
+## See also
+- `skills/rh_ia/evaluation-profils-techniques.md` — in-depth qualification after sourcing
+- `skills/rh_ia/redaction-offre-emploi.md` — posting/brief to distribute
+- `skills/rh_ia/benchmark-remuneration-it.md` — ranges for day-rate/salary qualification
+- `skills/rh_ia/cv-parsing-ats-scoring.md` — upstream ATS scoring

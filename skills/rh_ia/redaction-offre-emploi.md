@@ -1,150 +1,150 @@
-# Skill — Rédaction Offre d'Emploi & Brief Mission Freelance IT
-> Certifications : SHRM-CP (SHRM) · ATD CPTD (ATD) · CIPD Level 5 (CIPD)
+# Skill — IT Job Posting & Freelance Engagement Brief Writing
+> Certifications: SHRM-CP (SHRM) · ATD CPTD (ATD) · CIPD Level 5 (CIPD)
 
-## Objectif
-Rédiger des offres d'emploi IT/IA attractives et inclusives, ou des briefs de mission freelance clairs et précis, maximisant la qualité et la quantité des candidatures pertinentes reçues.
+## Objective
+Write attractive, inclusive IT/AI job postings, or clear and precise freelance engagement briefs, maximizing the quality and quantity of relevant applications received.
 
-## Structure d'une offre d'emploi IT — Template
+## IT job posting structure — Template
 
 ```
-TITRE DU POSTE
+JOB TITLE
 ──────────────────────────────────────────────────────
-✅ Bon : "Développeur IA / LLM Python — Remote First (H/F/X)"
-❌ Mauvais : "Expert Digital Innovation Data & AI (confirmé)"
+✅ Good: "AI / LLM Python Developer — Remote First (M/F/X)"
+❌ Bad: "Digital Innovation Data & AI Expert (mid-level)"
 
-Règles :
-- Titre indexable sur LinkedIn / WTTJ (mots-clés tech exacts)
-- Mention H/F/X obligatoire (égalité professionnelle)
-- Niveau si nécessaire : Senior, Lead, Staff (pas "expert", "guru", "ninja")
-- Remote / hybride / sur site dès le titre si c'est un critère fort
+Rules:
+- Title indexable on LinkedIn / WTTJ (exact tech keywords)
+- (M/F/X) mention mandatory (gender equality)
+- Level if needed: Senior, Lead, Staff (not "expert", "guru", "ninja")
+- Remote / hybrid / on-site in the title if it's a strong criterion
 ```
 
-## Template Offre d'Emploi CDI/CDD IT
+## Permanent/Fixed-term IT job posting template
 
 ```markdown
-# [TITRE] — [Ville / Remote] — [Type contrat]
+# [TITLE] — [City / Remote] — [Contract type]
 
-## Notre contexte
-[2-3 lignes : activité de l'entreprise, stade (startup Serie B, scale-up, CAC40),
-taille équipe tech, culture (remote-first, Agile, produit)]
+## Our context
+[2-3 lines: company activity, stage (Series B startup, scale-up, CAC40),
+tech team size, culture (remote-first, Agile, product)]
 
-## Le poste
-[Contexte du recrutement : création, remplacement, croissance]
-[Missions principales : 4-6 bullet points concrets]
-- Concevoir et déployer des pipelines RAG sur [stack]
-- Intégrer des modèles LLM frontier (Claude Opus 4.8, OpenAI GPT, Google Gemini) et de production (Claude Sonnet 4.6, Mistral…) via API
-- Collaborer avec les PM/PO pour affiner les critères d'acceptance
+## The role
+[Hiring context: new role, replacement, growth]
+[Main responsibilities: 4-6 concrete bullet points]
+- Design and deploy RAG pipelines on [stack]
+- Integrate frontier LLMs (Claude Opus 4.8, OpenAI GPT, Google Gemini) and production models (Claude Sonnet 4.6, Mistral…) via API
+- Collaborate with PMs/POs to refine acceptance criteria
 - [...]
 
-## Stack technique
-**Requis :** Python, LangChain, API REST, Git
-**Apprécié :** TypeScript, Docker, AWS/GCP, PostgreSQL/pgvector
-**Méthodes :** Agile/Scrum, CI/CD, TDD
+## Technical stack
+**Required:** Python, LangChain, REST API, Git
+**Nice to have:** TypeScript, Docker, AWS/GCP, PostgreSQL/pgvector
+**Methods:** Agile/Scrum, CI/CD, TDD
 
-## Profil recherché
-- [N] ans d'expérience en développement [domaine]
-- Expérience concrète en [compétence clé #1]
-- À l'aise pour [soft skill opérationnel]
-- [Critère différenciant optionnel — ne PAS en faire un bloquant]
+## Profile sought
+- [N] years of experience in [domain] development
+- Hands-on experience with [key skill #1]
+- Comfortable [operational soft skill]
+- [Optional differentiating criterion — do NOT make it a blocker]
 
-## Ce que nous offrons
-- Salaire : [fourchette] € brut annuel — [avantages]
-- Remote : [full remote / 2j présentiel / hybride]
-- Onboarding : [durée, buddy system, équipement]
-- Évolution : [perspectives réelles]
+## What we offer
+- Salary: [range] € gross annual — [benefits]
+- Remote: [full remote / 2 days on-site / hybrid]
+- Onboarding: [duration, buddy system, equipment]
+- Growth: [real prospects]
 
-## Process de recrutement
-1. Screening RH (30 min) — visio
-2. Entretien technique (60 min) — live coding ou cas pratique
-3. Entretien culture fit (45 min) — avec le manager
-Délai total : [2-3 semaines max]
+## Hiring process
+1. HR screening (30 min) — video
+2. Technical interview (60 min) — live coding or practical case
+3. Culture-fit interview (45 min) — with the manager
+Total timeline: [2-3 weeks max]
 ```
 
-## Template Brief Mission Freelance IT
+## Freelance IT engagement brief template
 
 ```markdown
-# Brief Mission Freelance — [Intitulé] — [Durée] — [TJM]
+# Freelance Engagement Brief — [Title] — [Duration] — [Day rate]
 
-## Contexte client
-[Secteur, taille, projet en cours, équipe]
+## Client context
+[Sector, size, ongoing project, team]
 
-## Mission
-[Objectif principal en 1 phrase]
+## Engagement
+[Main objective in 1 sentence]
 
-## Livrables attendus
-- [Livrable 1 — description courte]
-- [Livrable 2]
+## Expected deliverables
+- [Deliverable 1 — short description]
+- [Deliverable 2]
 - [...]
 
-## Stack & compétences requises
-**Impératif :** [stack #1], [stack #2]
-**Fort plus :** [stack #3]
+## Required stack & skills
+**Must have:** [stack #1], [stack #2]
+**Strong plus:** [stack #3]
 
-## Modalités
-- Durée : [X mois] renouvelable
-- TJM : [XXX-XXX] € selon profil
-- Démarrage : [date ou "dès que possible"]
-- Remote : [full / hybride — N jours/semaine sur site à [ville]]
+## Terms
+- Duration: [X months] renewable
+- Day rate: [XXX-XXX] € depending on profile
+- Start: [date or "as soon as possible"]
+- Remote: [full / hybrid — N days/week on-site in [city]]
 
-## Profil
-- [N]+ ans d'expérience en [domaine]
-- Références [secteur/type de mission] appréciées
-- Statut : freelance / SASU / portage salarial accepté
+## Profile
+- [N]+ years of experience in [domain]
+- References [sector/engagement type] appreciated
+- Status: freelance / SASU / portage salarial accepted
 
 ## Contact
-[Prénom NOM — prenom.nom@email.com]
+[First name LAST NAME — firstname.lastname@email.com]
 ```
 
-## Checklist inclusivité & biais
+## Inclusivity & bias checklist
 
 ```
-AVANT PUBLICATION — Anti-biais checklist
+BEFORE PUBLISHING — Anti-bias checklist
 ──────────────────────────────────────────────────────
-□ Titre avec mention H/F/X
-□ Pas de mots genrés (éviter "dynamique", "ambitieux" → utiliser "rigoureux/se", "autonome")
-□ Critères requis limités au strict nécessaire (≤ 5)
-□ Fourchette salariale mentionnée (Directive UE 2023/970 transparence salariale, applicable 07/06/2026)
-□ Pas de critères indirects discriminants (permis B si non requis, etc.)
-□ Flexibilité de travail précisée (remote, horaires)
-□ Process de recrutement détaillé (transparence pour le candidat)
-□ Mention accessibilité si applicable
+□ Title with (M/F/X) mention
+□ No gendered words (avoid "dynamic", "ambitious" → use "rigorous", "autonomous")
+□ Required criteria limited to the strict minimum (≤ 5)
+□ Salary range stated (EU Directive 2023/970 pay transparency, applicable 07/06/2026)
+□ No indirect discriminatory criteria (driving license if not required, etc.)
+□ Work flexibility specified (remote, hours)
+□ Detailed hiring process (transparency for the candidate)
+□ Accessibility mention if applicable
 ```
 
-## Canaux de diffusion recommandés par profil
+## Recommended distribution channels by profile
 
-| Profil | Canaux prioritaires | Canaux secondaires |
+| Profile | Priority channels | Secondary channels |
 |---|---|---|
-| Développeur IA / ML | LinkedIn · GitHub Jobs · Stack Overflow | Remotive · We Work Remotely |
+| AI / ML Developer | LinkedIn · GitHub Jobs · Stack Overflow | Remotive · We Work Remotely |
 | Data Scientist | LinkedIn · Kaggle · Talent.io | Remotive · DataJobs |
-| PO / PM IA | LinkedIn · WTTJ | ProductHunt Jobs · Agile Alliance |
-| Consultant IA | LinkedIn · Malt · Comet | WTTJ · Apec |
+| AI PO / PM | LinkedIn · WTTJ | ProductHunt Jobs · Agile Alliance |
+| AI Consultant | LinkedIn · Malt · Comet | WTTJ · Apec |
 | DevOps / Cloud | LinkedIn · Talent.io | Glassdoor · Indeed Tech |
 | Freelance IT | Malt · Comet · Kicklox | LinkedIn · Hopwork |
 
-## Livrables
-- Offre d'emploi ou brief mission prêt à publier (Markdown)
-- Version courte LinkedIn (1 200 caractères max)
-- Checklist anti-biais complétée
-- Recommandation canaux de diffusion
+## Deliverables
+- Job posting or engagement brief ready to publish (Markdown)
+- Short LinkedIn version (1,200 characters max)
+- Completed anti-bias checklist
+- Distribution-channel recommendation
 
-## Format de sortie
-Précise : type de contrat (CDI/freelance), intitulé exact, stack technique, niveau, budget, remote ou présentiel, secteur client, date de démarrage.
+## Output format
+Specify: contract type (permanent/freelance), exact title, technical stack, level, budget, remote or on-site, client sector, start date.
 
 ## Anti-patterns
-- ❌ Omettre la fourchette de rémunération (obligatoire dès 07/06/2026, Dir. UE 2023/970).
-- ❌ Multiplier les critères « requis » (>5) → effet d'auto-exclusion, notamment des candidates.
-- ❌ Vocabulaire genré ou exclusif (« ninja », « rockstar », « jeune et dynamique ») — biais + L1132-1.
-- ❌ Critères indirects discriminants (permis B non requis, mobilité, photo demandée).
-- ❌ Titre non indexable (jargon interne) → invisible dans les recherches candidats.
+- ❌ Omit the pay range (mandatory from 07/06/2026, EU Dir. 2023/970).
+- ❌ Pile up "required" criteria (>5) → self-exclusion effect, especially among women candidates.
+- ❌ Gendered or exclusionary vocabulary ("ninja", "rockstar", "young and dynamic") — bias + L1132-1.
+- ❌ Indirect discriminatory criteria (driving license not required, mobility, photo requested).
+- ❌ Non-indexable title (internal jargon) → invisible in candidate searches.
 
 ## Sources
-- Directive UE 2023/970 (transparence salariale) — fourchette en offre + interdiction historique de rémunération, transposition 07/06/2026 — eur-lex.europa.eu
-- Code du travail — L1132-1 (non-discrimination à l'embauche) — legifrance.gouv.fr
-- CNIL — Guide du recrutement (mentions et données dans l'offre) — cnil.fr/fr/le-guide-du-recrutement
-- Défenseur des droits — guides sur la non-discrimination à l'embauche — defenseurdesdroits.fr
+- EU Directive 2023/970 (pay transparency) — range in the posting + ban on pay history, transposition 07/06/2026 — eur-lex.europa.eu
+- French Labor Code — L1132-1 (non-discrimination in hiring) — legifrance.gouv.fr
+- CNIL — Recruitment guide (statements and data in the posting) — cnil.fr/fr/le-guide-du-recrutement
+- Défenseur des droits — guides on non-discrimination in hiring — defenseurdesdroits.fr
 
-## Voir aussi
-- `skills/rh_ia/benchmark-remuneration-it.md` — fixer la fourchette de rémunération
-- `skills/rh_ia/recrutement-sourcing-it.md` — diffusion et sourcing
-- `skills/rh_ia/cv-parsing-ats-scoring.md` — rendre l'offre lisible par les ATS
-- `skills/redacteur_ia/` — qualité rédactionnelle et storytelling employeur
+## See also
+- `skills/rh_ia/benchmark-remuneration-it.md` — setting the pay range
+- `skills/rh_ia/recrutement-sourcing-it.md` — distribution and sourcing
+- `skills/rh_ia/cv-parsing-ats-scoring.md` — making the posting ATS-readable
+- `skills/redacteur_ia/` — writing quality and employer storytelling

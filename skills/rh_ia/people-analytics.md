@@ -1,152 +1,151 @@
-# Skill — People Analytics & KPIs RH
-> Certifications : PHR (HRCI) · SHRM-CP (SHRM) · CIPD Level 5 (CIPD)
+# Skill — People Analytics & HR KPIs
+> Certifications: PHR (HRCI) · SHRM-CP (SHRM) · CIPD Level 5 (CIPD)
 
-## Objectif
-Construire des tableaux de bord RH orientés données pour piloter le recrutement IT/IA, mesurer la performance RH et produire des reportings CODIR actionnables.
+## Objective
+Build data-driven HR dashboards to steer IT/AI recruitment, measure HR performance, and produce actionable executive-committee reports.
 
-## KPIs Recrutement — Référentiel
+## Recruitment KPIs — Framework
 
-> ⚠️ **Ordres de grandeur indicatifs, à valider sur ton périmètre.** Les valeurs ci-dessous
-> ne sont **pas des benchmarks marché sourcés** : elles servent de repères de cadrage à
-> recalibrer. Pour des références chiffrées, s'appuyer sur des baromètres datés (ex. SHRM
-> Recruiting Benchmarking — données US ; APEC / Numeum pour la France) et **mesurer son
-> propre baseline**.
+> ⚠️ **Indicative orders of magnitude, to validate on your scope.** The values below
+> are **not sourced market benchmarks**: they serve as scoping reference points to
+> recalibrate. For quantified references, rely on dated benchmarks (e.g. SHRM Recruiting
+> Benchmarking — US data; APEC / Numeum for France) and **measure your own baseline**.
 
 ```
-EFFICACITÉ DU RECRUTEMENT
+RECRUITMENT EFFICIENCY
 ──────────────────────────────────────────────────────
-Time to Fill        : Nb jours entre ouverture du poste et signature offre
-                      Ordre de grandeur indicatif : ~45-60 j (senior plus long) — à valider
-Time to Hire        : Nb jours entre 1er contact candidat et offre acceptée
-                      Ordre de grandeur indicatif : ~20-30 j — à valider
-Cost per Hire       : (Coûts internes + externes) / Nb recrutements
-                      Coût complet par embauche — mesurer son propre baseline
-Offer Acceptance    : % d'offres acceptées / offres émises
-                      Cible interne usuelle : > 85% (à fixer selon contexte)
+Time to Fill        : # days between role opening and offer signature
+                      Indicative order of magnitude: ~45-60 days (senior longer) — to validate
+Time to Hire        : # days between first candidate contact and accepted offer
+                      Indicative order of magnitude: ~20-30 days — to validate
+Cost per Hire       : (Internal + external costs) / # hires
+                      Fully loaded cost per hire — measure your own baseline
+Offer Acceptance    : % offers accepted / offers issued
+                      Common internal target: > 85% (set per context)
 
-QUALITÉ DU RECRUTEMENT
+RECRUITMENT QUALITY
 ──────────────────────────────────────────────────────
-Quality of Hire     : Note manager à 3 mois + 6 mois (évaluation intégration)
-                      Score cible : ≥ 4/5
-Retention 12 mois   : % des recrutés encore présents à 12 mois
-                      Cible IT : > 80%
-Hiring Manager Sat. : Score satisfaction manager sur le profil recruté
-                      Cible : ≥ 4/5
+Quality of Hire     : Manager rating at 3 + 6 months (onboarding assessment)
+                      Target score: ≥ 4/5
+12-month Retention  : % of hires still present at 12 months
+                      IT target: > 80%
+Hiring Manager Sat. : Manager satisfaction score on the hired profile
+                      Target: ≥ 4/5
 
 SOURCING
 ──────────────────────────────────────────────────────
-Source of Hire      : % candidats par canal (LinkedIn / referral / jobboard)
-Pipeline conversion : Candidatures → shortlist → entretien → offre → embauche
-InMail Response Rate: % de réponses aux InMails LinkedIn
-                      Ordre de grandeur : messages personnalisés nettement > génériques
-                      (mesurer son propre taux ; ne pas figer un chiffre marché)
+Source of Hire      : % candidates per channel (LinkedIn / referral / job board)
+Pipeline conversion : Applications → shortlist → interview → offer → hire
+InMail Response Rate: % replies to LinkedIn InMails
+                      Order of magnitude: personalized messages clearly > generic
+                      (measure your own rate; don't freeze a market figure)
 ```
 
-## Dashboard Recrutement IT — Template
+## IT recruitment dashboard — Template
 
 ```
-DASHBOARD RECRUTEMENT — [Mois] [Année]
+RECRUITMENT DASHBOARD — [Month] [Year]
 ──────────────────────────────────────────────────────────────────
-PIPELINE EN COURS
-Postes ouverts       : [N]
-Candidats en process : [N]   (Sourcing: N · Qualif: N · Entretiens: N · Offre: N)
-Offres émises        : [N]   Acceptées : [N] ([%])
+CURRENT PIPELINE
+Open roles            : [N]
+Candidates in process : [N]   (Sourcing: N · Qualif: N · Interviews: N · Offer: N)
+Offers issued         : [N]   Accepted: [N] ([%])
 
-PERFORMANCE DU MOIS
-Time to Fill moyen   : [N] jours  (vs objectif : 60j)    [▲/▼ vs M-1]
-Time to Hire moyen   : [N] jours  (vs objectif : 25j)    [▲/▼ vs M-1]
-Cost per Hire moyen  : [N] €      (vs budget : X €)      [▲/▼ vs M-1]
-Quality of Hire (3m) : [N]/5      (cible : ≥ 4/5)        [▲/▼ vs M-1]
+MONTH PERFORMANCE
+Avg Time to Fill      : [N] days  (vs target: 60d)    [▲/▼ vs prev month]
+Avg Time to Hire      : [N] days  (vs target: 25d)    [▲/▼ vs prev month]
+Avg Cost per Hire     : [N] €     (vs budget: X €)     [▲/▼ vs prev month]
+Quality of Hire (3m)  : [N]/5     (target: ≥ 4/5)      [▲/▼ vs prev month]
 
 SOURCE OF HIRE
-LinkedIn Recruiter   : [N] %
-Referral/Cooptation  : [N] %
-Jobboards (WTTJ etc) : [N] %
-Approche directe     : [N] %
+LinkedIn Recruiter    : [N] %
+Referral              : [N] %
+Job boards (WTTJ etc) : [N] %
+Direct approach       : [N] %
 
-ACTIONS REQUISES
-⚠ [Poste X] : Time to Fill > 75j → revoir brief ou élargir sourcing
-⚠ [Poste Y] : 0 candidat qualifié → ajuster critères avec manager
+ACTIONS REQUIRED
+⚠ [Role X] : Time to Fill > 75d → revisit brief or widen sourcing
+⚠ [Role Y] : 0 qualified candidate → adjust criteria with manager
 ```
 
-## KPIs Workforce & Rétention
+## Workforce & Retention KPIs
 
 ```
-TURNOVER & RÉTENTION
+TURNOVER & RETENTION
 ──────────────────────────────────────────────────────
-Turnover global      : (Départs / Effectif moyen) × 100
-                       Ordre de grandeur indicatif (à valider) — varie fortement par secteur/zone
-Turnover volontaire  : Départs à l'initiative du salarié
-Turnover involontaire: Licenciements, fins de mission
-Early Attrition      : % départs < 12 mois (signal fort de mauvais recrutement)
-                       Cible : < 10%
+Overall turnover     : (Departures / Average headcount) × 100
+                       Indicative order of magnitude (to validate) — varies widely by sector/area
+Voluntary turnover   : Employee-initiated departures
+Involuntary turnover : Layoffs, end of assignments
+Early Attrition      : % departures < 12 months (strong signal of a bad hire)
+                       Target: < 10%
 
-ABSENTÉISME
+ABSENTEEISM
 ──────────────────────────────────────────────────────
-Taux d'absentéisme   : (Jours absents / Jours théoriques) × 100
-                       Comparer à son propre historique et à des sources sectorielles datées
+Absenteeism rate     : (Days absent / Theoretical days) × 100
+                       Compare to your own history and dated sector sources
 
 ENGAGEMENT
 ──────────────────────────────────────────────────────
-eNPS (Employee NPS)  : "Recommanderiez-vous cette entreprise ?" (0-10)
-                       Score > 30 = bon · > 50 = excellent
-Satisfaction Pulse   : Enquête mensuelle courte (3-5 questions, outil : Officevibe)
+eNPS (Employee NPS)  : "Would you recommend this company?" (0-10)
+                       Score > 30 = good · > 50 = excellent
+Pulse satisfaction   : Short monthly survey (3-5 questions, tool: Officevibe)
 ```
 
-## Rapport CODIR RH — Template mensuel
+## HR executive-committee report — Monthly template
 
 ```markdown
-# Rapport RH — [Mois AAAA]
-## Synthèse exécutive (3 lignes)
-[KPI principal : N recrutements finalisés / N postes ouverts / Time to fill moyen]
+# HR Report — [Month YYYY]
+## Executive summary (3 lines)
+[Key KPI: N hires finalized / N open roles / avg time to fill]
 
-## Recrutement IT/IA
-| Poste | Ouverture | Statut | TTH actuel | Risque |
+## IT/AI recruitment
+| Role | Opened | Status | Current TTH | Risk |
 |---|---|---|---|---|
-| Lead ML Engineer | J-45 | Entretiens (3) | 45j | Faible |
-| PO IA Senior | J-62 | Sourcing | 62j | ⚠ Élevé |
+| Lead ML Engineer | D-45 | Interviews (3) | 45d | Low |
+| Senior AI PO | D-62 | Sourcing | 62d | ⚠ High |
 
-## Indicateurs clés
-| KPI | Mois | Objectif | Tendance |
+## Key indicators
+| KPI | Month | Target | Trend |
 |---|---|---|---|
-| Time to Fill | 52j | 60j | ✅ |
+| Time to Fill | 52d | 60d | ✅ |
 | Offer Acceptance | 78% | 85% | ⚠ |
 | Quality of Hire | 4.1/5 | 4.0/5 | ✅ |
 | Turnover 12m | 18% | <20% | ✅ |
 
-## Points d'attention & décisions requises
-- [Action 1 : description + responsable + délai]
+## Watch points & decisions required
+- [Action 1: description + owner + deadline]
 - [Action 2]
 
-## Prévisions M+1
-[Postes à ouvrir, budget estimé, risques anticipés]
+## Next-month forecast
+[Roles to open, estimated budget, anticipated risks]
 ```
 
-## Livrables
-- Dashboard recrutement mensuel (Excel, Notion ou Power BI)
-- Rapport CODIR RH (1-2 pages)
-- Analyse source of hire avec recommandations de réallocation budget sourcing
-- Rapport de qualité de recrutement (Quality of Hire à 3 et 6 mois)
+## Deliverables
+- Monthly recruitment dashboard (Excel, Notion, or Power BI)
+- HR executive-committee report (1-2 pages)
+- Source-of-hire analysis with sourcing-budget reallocation recommendations
+- Recruitment quality report (Quality of Hire at 3 and 6 months)
 
-## Format de sortie
-Précise : volume de recrutements, outils RH disponibles (ATS, SIRH), périmètre (toute l'entreprise ou équipe IT), période analysée, audience du reporting (DRH, CODIR, managers).
+## Output format
+Specify: recruitment volume, available HR tools (ATS, HRIS), scope (whole company or IT team), period analyzed, reporting audience (CHRO, executive committee, managers).
 
 ## Anti-patterns
-- ❌ Afficher un « benchmark France » chiffré sans source datée ni baseline mesuré sur le périmètre.
-- ❌ Comparer des KPIs sans normaliser le périmètre (séniorité, zone, type de poste) → comparaisons trompeuses.
-- ❌ Traiter des données RH personnelles sans base légale, minimisation ni durée de conservation (RGPD).
-- ❌ Piloter sur un seul KPI (ex. Time to Fill) au détriment de la qualité (Quality of Hire, rétention).
-- ❌ People analytics prédictif (turnover) sans transparence ni supervision humaine (risque biais/discrimination).
+- ❌ Show a quantified "France benchmark" without a dated source or a baseline measured on the scope.
+- ❌ Compare KPIs without normalizing the scope (seniority, area, role type) → misleading comparisons.
+- ❌ Process personal HR data without a legal basis, minimization, or retention period (GDPR).
+- ❌ Steer on a single KPI (e.g. Time to Fill) at the expense of quality (Quality of Hire, retention).
+- ❌ Predictive people analytics (turnover) without transparency or human oversight (bias/discrimination risk).
 
 ## Sources
-- SHRM — Recruiting Benchmarking Report (données US, repère méthodologique) — shrm.org
-- APEC / Numeum (Syntec Numérique) — données emploi IT France — apec.fr · numeum.fr
-- DAMA-DMBOK 2 (2017) — gouvernance et qualité des données RH
-- RGPD UE 2016/679 — art. 5 (minimisation), art. 22 (décision automatisée) — cnil.fr
-- eNPS — interprétation d'échelle standard (Reichheld, *The Ultimate Question*, 2006)
+- SHRM — Recruiting Benchmarking Report (US data, methodological reference) — shrm.org
+- APEC / Numeum (Syntec Numérique) — France IT employment data — apec.fr · numeum.fr
+- DAMA-DMBOK 2 (2017) — HR data governance and quality
+- GDPR EU 2016/679 — art. 5 (minimization), art. 22 (automated decision) — cnil.fr
+- eNPS — standard scale interpretation (Reichheld, *The Ultimate Question*, 2006)
 
-## Voir aussi
-- `skills/rh_ia/recrutement-sourcing-it.md` — pipeline et sourcing (source of hire)
-- `skills/rh_ia/transformation-rh-ia.md` — automatisation et ROI du recrutement
-- `skills/rh_ia/benchmark-remuneration-it.md` — repères rémunération
-- `skills/juridique_ia/` — conformité RGPD du traitement de données RH
+## See also
+- `skills/rh_ia/recrutement-sourcing-it.md` — pipeline and sourcing (source of hire)
+- `skills/rh_ia/transformation-rh-ia.md` — recruitment automation and ROI
+- `skills/rh_ia/benchmark-remuneration-it.md` — compensation reference points
+- `skills/juridique_ia/` — GDPR compliance for HR data processing

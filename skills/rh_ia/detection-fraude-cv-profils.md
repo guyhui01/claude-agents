@@ -1,147 +1,147 @@
-# Skill — Détection Fraude CV & Faux Profils
-> Certifications : PHR (HRCI) · SHRM-CP (SHRM) · CIPD Level 5 (CIPD)
+# Skill — CV Fraud & Fake Profile Detection
+> Certifications: PHR (HRCI) · SHRM-CP (SHRM) · CIPD Level 5 (CIPD)
 
-## Objectif
-Identifier les CV frauduleux, les profils professionnels sur-optimisés ou générés par IA, et les incohérences de parcours afin de protéger le processus de recrutement et le client des embauches à risque.
+## Objective
+Identify fraudulent CVs, over-optimized or AI-generated professional profiles, and background inconsistencies to protect the recruitment process and the client from risky hires.
 
-## Typologies de fraude CV
+## CV fraud typologies
 
 ```
-TYPE 1 — EMBELLISSEMENT CLASSIQUE
+TYPE 1 — CLASSIC EMBELLISHMENT
 ──────────────────────────────────────────────────────
-· Titres de poste gonflés ("Lead" au lieu de "Dev junior")
-· Dates de mission étirées pour masquer des gaps
-· Entreprises réelles mais poste fictif ou exagéré
-· Diplômes partiels présentés comme complétés
+· Inflated job titles ("Lead" instead of "junior dev")
+· Stretched assignment dates to mask gaps
+· Real companies but a fictional or exaggerated role
+· Partial degrees presented as completed
 
-TYPE 2 — CV GÉNÉRÉ / RÉÉCRIT PAR IA
+TYPE 2 — AI-GENERATED / AI-REWRITTEN CV
 ──────────────────────────────────────────────────────
-· Style homogène et parfait sans aspérités humaines
-· Bullets points calibrés sur mots-clés ATS (keyword stuffing)
-· Absence de détails concrets (noms de projets, volumes, équipes)
-· Métriques vagues : "amélioration de X%" sans contexte
-· Détectable : GPTZero, Originality.ai, Copyleaks
+· Uniform, flawless style with no human rough edges
+· Bullet points tuned to ATS keywords (keyword stuffing)
+· No concrete details (project names, volumes, teams)
+· Vague metrics: "X% improvement" with no context
+· Detectable: GPTZero, Originality.ai, Copyleaks
 
-TYPE 3 — FAUX PROFILS LINKEDIN
+TYPE 3 — FAKE LINKEDIN PROFILES
 ──────────────────────────────────────────────────────
-· Photo de profil générée par IA (visage trop parfait, flou d'arrière-plan uniforme)
-· Réseau < 50 relations avec 5 ans d'ancienneté
-· Recommandations génériques sans détail opérationnel
-· Connexions toutes récentes ou concentrées sur 1 période
-· Aucune activité (likes, posts, commentaires) malgré ancienneté
+· AI-generated profile photo (too-perfect face, uniform background blur)
+· Network < 50 connections with 5 years of seniority
+· Generic recommendations with no operational detail
+· All connections recent or concentrated in one period
+· No activity (likes, posts, comments) despite seniority
 
-TYPE 4 — FAUX PROFILS GITHUB / STACK OVERFLOW
+TYPE 4 — FAKE GITHUB / STACK OVERFLOW PROFILES
 ──────────────────────────────────────────────────────
-· Commits regroupés sur 2-3 semaines (activité simulée)
-· Code commenté parfaitement en anglais par LLM
-· Repos sans issues, sans forks, sans collaborateurs
-· Contributions graph "trop régulier" ou vide puis soudain dense
-· Pas de réponses à des issues complexes de la communauté
+· Commits clustered over 2-3 weeks (simulated activity)
+· Code perfectly commented in English by an LLM
+· Repos with no issues, no forks, no collaborators
+· Contributions graph "too regular" or empty then suddenly dense
+· No answers to complex community issues
 ```
 
-## Grille d'analyse CV — Signaux d'alerte
+## CV analysis grid — Warning signals
 
-| Signal | Niveau de risque | Action |
+| Signal | Risk level | Action |
 |---|---|---|
-| Gaps d'emploi > 6 mois non expliqués | Moyen | Demander en entretien |
-| Titre poste ≠ niveau de responsabilités décrit | Élevé | Vérifier référence manager |
-| Écoles inconnues ou non vérifiables (hors grandes écoles) | Élevé | Vérifier sur RNCP / site école |
-| Missions trop courtes (< 3 mois) répétées | Moyen | Contexte freelance ? Vérifier |
-| Mots-clés ATS à haute densité, peu de contexte | Élevé | Test technique obligatoire |
-| Style ChatGPT (phrases calibrées, zéro fautes) | Moyen | Comparer avec lettre manuscrite |
-| Métriques sans contexte ("30% d'amélioration") | Moyen | Demander le détail en entretien |
-| Entreprises sans présence web vérifiable | Très élevé | Vérification SIREN / LinkedIn |
+| Unexplained employment gaps > 6 months | Medium | Ask in the interview |
+| Job title ≠ level of responsibilities described | High | Check manager reference |
+| Unknown or unverifiable schools (outside grandes écoles) | High | Check on RNCP / school site |
+| Repeated very short assignments (< 3 months) | Medium | Freelance context? Verify |
+| High-density ATS keywords, little context | High | Mandatory technical test |
+| ChatGPT style (tuned sentences, zero typos) | Medium | Compare with a handwritten letter |
+| Metrics without context ("30% improvement") | Medium | Ask for detail in the interview |
+| Companies with no verifiable web presence | Very high | SIREN / LinkedIn check |
 
-## Protocole de vérification CV — 3 niveaux
+## CV verification protocol — 3 levels
 
 ```
-NIVEAU 1 — VÉRIFICATION RAPIDE (5 min, tous candidats)
+LEVEL 1 — QUICK CHECK (5 min, all candidates)
 ──────────────────────────────────────────────────────
-□ Cohérence dates (pas de recoupements, gaps expliqués)
-□ Entreprises vérifiables (LinkedIn / Societe.com / SIREN)
-□ Diplôme vérifiable sur site école ou RNCP
-□ Scan IA : GPTZero ou Originality.ai (si suspicion style IA)
+□ Date consistency (no overlaps, gaps explained)
+□ Verifiable companies (LinkedIn / Societe.com / SIREN)
+□ Degree verifiable on the school site or RNCP
+□ AI scan: GPTZero or Originality.ai (if AI-style suspicion)
 
-NIVEAU 2 — VÉRIFICATION APPROFONDIE (shortlist)
+LEVEL 2 — IN-DEPTH CHECK (shortlist)
 ──────────────────────────────────────────────────────
-□ Appel de référence manager direct (cf. skill verification-references)
-□ Vérification LinkedIn : ancienneté profil, réseau, activité
-□ GitHub / Portfolio : analyse commits, qualité code, date création
-□ Croisement CV ↔ LinkedIn ↔ entretien (incohérences entre versions)
+□ Direct manager reference call (see verification-references skill)
+□ LinkedIn check: profile age, network, activity
+□ GitHub / Portfolio: commit analysis, code quality, creation date
+□ Cross-check CV ↔ LinkedIn ↔ interview (inconsistencies between versions)
 
-NIVEAU 3 — VÉRIFICATION FORMELLE (offre acceptée)
+LEVEL 3 — FORMAL CHECK (offer accepted)
 ──────────────────────────────────────────────────────
-□ Background check complet (cf. skill verification-references-background-check)
-□ Vérification diplôme auprès de l'établissement
-□ Vérification identité (Veriff ou Persona si enjeu fort)
+□ Full background check (see verification-references-background-check skill)
+□ Degree verification with the institution
+□ Identity verification (Veriff or Persona if high stakes)
 ```
 
-## Outils de détection IA dans les documents
+## AI-detection tools for documents
 
-| Outil | Usage | Prix |
+| Tool | Use | Price |
 |---|---|---|
-| **GPTZero** | Détection texte généré par LLM | Gratuit (limité) / abonnement |
-| **Originality.ai** | CV + lettres de motivation | abonnement / à l'usage |
-| **Copyleaks** | Plagiat + détection IA | abonnement |
-| **Winston AI** | Détection IA multilingue (FR/EN) | abonnement |
-| **HireEZ Signal** | Analyse profil LinkedIn + GitHub | Sur devis |
+| **GPTZero** | LLM-generated text detection | Free (limited) / subscription |
+| **Originality.ai** | CVs + cover letters | subscription / usage-based |
+| **Copyleaks** | Plagiarism + AI detection | subscription |
+| **Winston AI** | Multilingual AI detection (FR/EN) | subscription |
+| **HireEZ Signal** | LinkedIn + GitHub profile analysis | Custom quote |
 
-> ⚠️ **Fiabilité limitée** : les détecteurs de texte IA produisent des **faux positifs élevés**
-> (un CV soigné ou rédigé par un non-natif peut être faussement signalé). **Ne jamais rejeter un
-> candidat sur le seul score d'un détecteur** — c'est un signal à corroborer, pas une preuve.
-> Tarifs indicatifs en abonnement, à vérifier auprès de chaque éditeur.
+> ⚠️ **Limited reliability**: AI text detectors produce **high false positives** (a polished CV
+> or one written by a non-native speaker can be wrongly flagged). **Never reject a candidate on a
+> detector's score alone** — it's a signal to corroborate, not proof. Indicative subscription
+> pricing, to verify with each vendor.
 
-## Analyse profil LinkedIn — Checklist
+## LinkedIn profile analysis — Checklist
 
 ```
-PROFIL AUTHENTIQUE — signaux positifs
+AUTHENTIC PROFILE — positive signals
 ──────────────────────────────────────────────────────
-✓ Photo réelle (arrière-plan naturel, expression spontanée)
-✓ Recommandations nominatives avec détails opérationnels
-✓ Activité régulière (posts, commentaires, partages)
-✓ Réseau cohérent avec le secteur et l'ancienneté
-✓ Cohérence CV ↔ LinkedIn sur titres, dates, entreprises
-✓ Interactions avec anciens collègues sur le profil
+✓ Real photo (natural background, spontaneous expression)
+✓ Named recommendations with operational details
+✓ Regular activity (posts, comments, shares)
+✓ Network consistent with the sector and seniority
+✓ CV ↔ LinkedIn consistency on titles, dates, companies
+✓ Interactions with former colleagues on the profile
 
-PROFIL SUSPECT — signaux d'alerte
+SUSPICIOUS PROFILE — warning signals
 ──────────────────────────────────────────────────────
-⚠ Photo trop parfaite (tester : facecheck.id ou Google Image)
-⚠ Profil créé < 6 mois avec 10+ ans d'expérience revendiquée
-⚠ Toutes les recommandations le même mois (campagne?)
-⚠ Descriptions de postes copiées-collées d'offres d'emploi
-⚠ Aucune réaction / commentaire sur 2 ans d'activité déclarée
+⚠ Too-perfect photo (test: facecheck.id or Google Image)
+⚠ Profile created < 6 months ago with 10+ years of claimed experience
+⚠ All recommendations in the same month (campaign?)
+⚠ Job descriptions copy-pasted from job postings
+⚠ No reaction / comment over 2 years of declared activity
 ```
 
-## Livrables
-- Rapport d'analyse CV avec scoring de fiabilité (Faible / Moyen / Élevé)
-- Fiche de signaux d'alerte par candidat pour le client
-- Recommandation : Go / Go conditionnel (vérification complémentaire) / No-Go fraude
-- Checklist de vérification complétée (niveau 1-2-3 selon enjeu)
+## Deliverables
+- CV analysis report with a reliability score (Low / Medium / High)
+- Per-candidate warning-signal sheet for the client
+- Recommendation: Go / Conditional Go (further verification) / No-Go fraud
+- Completed verification checklist (level 1-2-3 per stakes)
 
-## Format de sortie
-Précise : CV du candidat (texte ou PDF), profil LinkedIn associé, poste visé, niveau de criticité du poste (accès données sensibles ? management ? etc.).
+## Output format
+Specify: candidate's CV (text or PDF), associated LinkedIn profile, target role, role criticality level (sensitive data access? management? etc.).
 
-## ⚖️ Conformité
-- **Présomption de bonne foi** du candidat (Code du travail **L1221-6**) : un signal d'alerte appelle une vérification, pas une accusation.
-- Consultation des **réseaux sociaux professionnels** liée au poste = admise ; réseaux **personnels** sans lien et sans information = exclue (CNIL, RGPD).
-- Tout contrôle doit être **proportionné** au poste et **porté à la connaissance** du candidat (L1221-8/9).
-- Aucune fraude « déduite » d'un accent, d'un nom ou d'une origine (**L1132-1**).
+## ⚖️ Compliance
+- **Presumption of good faith** of the candidate (French Labor Code **L1221-6**): a warning signal calls for verification, not an accusation.
+- Consulting **professional social networks** related to the role = allowed; **personal** networks with no link and no disclosure = excluded (CNIL, GDPR).
+- Any check must be **proportionate** to the role and **disclosed** to the candidate (L1221-8/9).
+- No fraud "inferred" from an accent, a name, or an origin (**L1132-1**).
 
 ## Anti-patterns
-- ❌ Rejeter un candidat sur le seul score d'un détecteur d'IA (faux positifs élevés).
-- ❌ Traiter un signal d'alerte comme une preuve de fraude sans vérification contradictoire.
-- ❌ Fouiller la vie privée / réseaux personnels sans lien avec le poste ni information.
-- ❌ Associer la suspicion de fraude à une origine ou une consonance de nom (L1132-1).
-- ❌ Ne pas documenter les signaux et la décision → process non auditable.
+- ❌ Reject a candidate on an AI detector's score alone (high false positives).
+- ❌ Treat a warning signal as proof of fraud without a contradictory check.
+- ❌ Dig into private life / personal networks unrelated to the role and without disclosure.
+- ❌ Associate fraud suspicion with an origin or a name's sound (L1132-1).
+- ❌ Fail to document the signals and the decision → non-auditable process.
 
 ## Sources
-- Code du travail — L1221-6 (bonne foi), L1221-8/9 (information préalable), L1132-1 (non-discrimination) — legifrance.gouv.fr
-- CNIL — Guide du recrutement (réseaux sociaux, proportionnalité) — cnil.fr/fr/le-guide-du-recrutement
-- Limites des détecteurs de texte IA — littérature sur les faux positifs (OpenAI a retiré son propre détecteur en 2023)
-- RNCP / France Compétences — vérification des certifications — francecompetences.fr
+- French Labor Code — L1221-6 (good faith), L1221-8/9 (prior disclosure), L1132-1 (non-discrimination) — legifrance.gouv.fr
+- CNIL — Recruitment guide (social media, proportionality) — cnil.fr/fr/le-guide-du-recrutement
+- Limits of AI text detectors — literature on false positives (OpenAI withdrew its own detector in 2023)
+- RNCP / France Compétences — certification verification — francecompetences.fr
 
-## Voir aussi
-- `skills/rh_ia/verification-references-background-check.md` — vérification formelle du parcours
-- `skills/rh_ia/detection-deepfake-entretien.md` — fraude en entretien distanciel
-- `skills/rh_ia/cv-parsing-ats-scoring.md` — keyword stuffing et scoring ATS
-- `skills/juridique_ia/` — cadre RGPD et non-discrimination
+## See also
+- `skills/rh_ia/verification-references-background-check.md` — formal background verification
+- `skills/rh_ia/detection-deepfake-entretien.md` — remote-interview fraud
+- `skills/rh_ia/cv-parsing-ats-scoring.md` — keyword stuffing and ATS scoring
+- `skills/juridique_ia/` — GDPR framework and non-discrimination

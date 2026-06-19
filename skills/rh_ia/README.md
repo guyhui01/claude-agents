@@ -1,82 +1,82 @@
-# Skills — RH IA & Talent Acquisition IT
+# Skills — AI HR & IT Talent Acquisition
 
-> Dossier rattaché à `AGENT-RH-IA.md`
-> Référentiels : SHRM-CP · PHR · ATD CPTD · LinkedIn Talent Solutions · CIPD Level 5 · PROSCI
-
----
-
-## Index des skills (11)
-
-### Recrutement & Sourcing
-| Skill | Quand l'invoquer | Certification |
-|---|---|---|
-| [`recrutement-sourcing-it.md`](recrutement-sourcing-it.md) | Sourcer et qualifier des profils IT/IA (Boolean, LinkedIn, GitHub) | SHRM-CP · PHR · LinkedIn Talent |
-| [`redaction-offre-emploi.md`](redaction-offre-emploi.md) | Rédiger une offre d'emploi ou brief freelance | SHRM-CP · ATD CPTD · CIPD L5 |
-| [`evaluation-profils-techniques.md`](evaluation-profils-techniques.md) | Évaluer un profil technique (grille + entretien) | PHR · SHRM-CP · ATD CPTD |
-| [`cv-parsing-ats-scoring.md`](cv-parsing-ats-scoring.md) | Optimiser le parsing et scoring ATS | SHRM-CP · PHR · ATD CPTD |
-
-### Anti-fraude & Vérification
-| Skill | Quand l'invoquer | Certification |
-|---|---|---|
-| [`detection-fraude-cv-profils.md`](detection-fraude-cv-profils.md) | Détecter les faux CV, profils LinkedIn/GitHub IA | PHR · SHRM-CP · CIPD L5 |
-| [`detection-deepfake-entretien.md`](detection-deepfake-entretien.md) | Détecter les deepfakes et voix IA en entretien | SHRM-CP · ATD CPTD · CIPD L5 |
-| [`verification-references-background-check.md`](verification-references-background-check.md) | Vérifier références et background check | PHR · SHRM-CP · CIPD L5 |
-
-### Pilotage & Transformation
-| Skill | Quand l'invoquer | Certification |
-|---|---|---|
-| [`gepp-competences-ia.md`](gepp-competences-ia.md) | Cartographier compétences et piloter la GEPP | CIPD L5 · SHRM-CP · PHR |
-| [`people-analytics.md`](people-analytics.md) | Produire KPIs et dashboards RH | PHR · SHRM-CP · CIPD L5 |
-| [`benchmark-remuneration-it.md`](benchmark-remuneration-it.md) | Benchmarker salaires IT/IA et TJM freelance | SHRM-CP · PHR · CIPD L5 |
-| [`transformation-rh-ia.md`](transformation-rh-ia.md) | Transformer les processus RH par l'IA | ATD CPTD · PROSCI · SHRM-CP |
+> Folder attached to `AGENT-RH-IA.md`
+> Frameworks: SHRM-CP · PHR · ATD CPTD · LinkedIn Talent Solutions · CIPD Level 5 · PROSCI
 
 ---
 
-## Choisir le bon skill — Arbre de décision
+## Skills index (11)
+
+### Recruitment & Sourcing
+| Skill | When to invoke it | Certification |
+|---|---|---|
+| [`recrutement-sourcing-it.md`](recrutement-sourcing-it.md) | Source and qualify IT/AI profiles (Boolean, LinkedIn, GitHub) | SHRM-CP · PHR · LinkedIn Talent |
+| [`redaction-offre-emploi.md`](redaction-offre-emploi.md) | Write a job posting or freelance brief | SHRM-CP · ATD CPTD · CIPD L5 |
+| [`evaluation-profils-techniques.md`](evaluation-profils-techniques.md) | Assess a technical profile (grid + interview) | PHR · SHRM-CP · ATD CPTD |
+| [`cv-parsing-ats-scoring.md`](cv-parsing-ats-scoring.md) | Optimize ATS parsing and scoring | SHRM-CP · PHR · ATD CPTD |
+
+### Anti-fraud & Verification
+| Skill | When to invoke it | Certification |
+|---|---|---|
+| [`detection-fraude-cv-profils.md`](detection-fraude-cv-profils.md) | Detect fake CVs, AI LinkedIn/GitHub profiles | PHR · SHRM-CP · CIPD L5 |
+| [`detection-deepfake-entretien.md`](detection-deepfake-entretien.md) | Detect deepfakes and AI voices in interviews | SHRM-CP · ATD CPTD · CIPD L5 |
+| [`verification-references-background-check.md`](verification-references-background-check.md) | Check references and background | PHR · SHRM-CP · CIPD L5 |
+
+### Steering & Transformation
+| Skill | When to invoke it | Certification |
+|---|---|---|
+| [`gepp-competences-ia.md`](gepp-competences-ia.md) | Map skills and steer strategic workforce planning (GEPP) | CIPD L5 · SHRM-CP · PHR |
+| [`people-analytics.md`](people-analytics.md) | Produce HR KPIs and dashboards | PHR · SHRM-CP · CIPD L5 |
+| [`benchmark-remuneration-it.md`](benchmark-remuneration-it.md) | Benchmark IT/AI salaries and freelance day rates | SHRM-CP · PHR · CIPD L5 |
+| [`transformation-rh-ia.md`](transformation-rh-ia.md) | Transform HR processes with AI | ATD CPTD · PROSCI · SHRM-CP |
+
+---
+
+## Choosing the right skill — Decision tree
 
 ```
-Tu veux ...
+You want to ...
 
-  ... RECRUTER UN PROFIL IT/IA ?
-    → redaction-offre-emploi.md (offre attractive)
+  ... RECRUIT AN IT/AI PROFILE?
+    → redaction-offre-emploi.md (attractive posting)
     → recrutement-sourcing-it.md (Boolean LinkedIn / GitHub)
-    → evaluation-profils-techniques.md (grille + entretien)
-    → cv-parsing-ats-scoring.md (industrialiser)
+    → evaluation-profils-techniques.md (grid + interview)
+    → cv-parsing-ats-scoring.md (industrialize)
 
-  ... LUTTER CONTRE LA FRAUDE ?
-    → detection-fraude-cv-profils.md (faux CV / IA)
-    → detection-deepfake-entretien.md (voix / vidéo deepfake)
-    → verification-references-background-check.md (background check RGPD)
+  ... FIGHT FRAUD?
+    → detection-fraude-cv-profils.md (fake CV / AI)
+    → detection-deepfake-entretien.md (voice / video deepfake)
+    → verification-references-background-check.md (GDPR background check)
 
-  ... PILOTER LES TALENTS DURABLEMENT ?
-    → gepp-competences-ia.md (cartographie compétences)
-    → people-analytics.md (KPIs RH)
-    → benchmark-remuneration-it.md (grilles salariales)
+  ... STEER TALENT SUSTAINABLY?
+    → gepp-competences-ia.md (skills mapping)
+    → people-analytics.md (HR KPIs)
+    → benchmark-remuneration-it.md (salary grids)
 
-  ... TRANSFORMER LE RH PAR L'IA ?
-    → transformation-rh-ia.md (cas d'usage + roadmap)
+  ... TRANSFORM HR WITH AI?
+    → transformation-rh-ia.md (use cases + roadmap)
 ```
 
 ---
 
-## Frontières avec les autres agents
+## Boundaries with other agents
 
-| Sujet voisin | Agent concerné | Frontière |
+| Adjacent topic | Agent concerned | Boundary |
 |---|---|---|
-| Conduite du changement (RH transversal) | `AGENT-CHANGE-MANAGER.md` | RH-IA = process RH ; CHANGE = adoption transverse |
-| Conformité RGPD / IA Act sur process RH | `AGENT-JURIDIQUE-IA.md` | RH-IA = implémentation ; JURIDIQUE = obligations légales |
-| Formation et upskilling IA | `AGENT-FORMATEUR-IA.md` | RH-IA = GEPP / sourcing ; FORMATEUR = ingénierie pédagogique |
-| Veille marché tech | `AGENT-VEILLE-STRATEGIQUE.md` | RH-IA = benchmark rémunération ; VEILLE = veille marché global |
+| Change management (cross-functional HR) | `AGENT-CHANGE-MANAGER.md` | RH-IA = HR processes; CHANGE = cross-functional adoption |
+| GDPR / AI Act compliance on HR processes | `AGENT-JURIDIQUE-IA.md` | RH-IA = implementation; JURIDIQUE = legal obligations |
+| AI training and upskilling | `AGENT-FORMATEUR-IA.md` | RH-IA = GEPP / sourcing; FORMATEUR = instructional design |
+| Tech market intelligence | `AGENT-VEILLE-STRATEGIQUE.md` | RH-IA = compensation benchmark; VEILLE = overall market intelligence |
 
 ---
 
-## Référentiels et standards utilisés
+## Frameworks and standards used
 
 - **SHRM-CP** (Society for Human Resource Management)
 - **PHR** (Professional in Human Resources, HRCI)
 - **CIPD Level 5** (UK Chartered Institute of Personnel and Development)
 - **ATD CPTD** (Certified Professional in Talent Development)
-- **PROSCI ADKAR** : conduite du changement RH
-- **RGPD** : pour anti-fraude et background check
-- **NIST AI RMF 1.0 (2023)** : pour IA dans le recrutement (biais, équité)
-- **EU AI Act** : Annexe III — IA à risque élevé dans le recrutement
+- **PROSCI ADKAR**: HR change management
+- **GDPR**: for anti-fraud and background checks
+- **NIST AI RMF 1.0 (2023)**: for AI in recruitment (bias, fairness)
+- **EU AI Act**: Annex III — high-risk AI in recruitment

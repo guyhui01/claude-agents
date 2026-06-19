@@ -1,209 +1,208 @@
-# Skill — Benchmark Rémunération IT/IA
-> Certifications : PHR (HRCI) · SHRM-CP (SHRM) · CIPD Level 5 (CIPD)
+# Skill — IT/AI Compensation Benchmark
+> Certifications: PHR (HRCI) · SHRM-CP (SHRM) · CIPD Level 5 (CIPD)
 
-## Objectif
-Fournir des grilles de rémunération IT/IA à jour (CDI, freelance/TJM) pour conseiller les clients sur leur positionnement salarial et aider les candidats à négocier au juste marché.
+## Objective
+Provide up-to-date IT/AI compensation grids (permanent contract, freelance/day rate) to advise clients on their pay positioning and help candidates negotiate at fair market value.
 
-> ⚠️ **Fourchettes indicatives France 2025, à recouper.** Ces grilles sont des **ordres de
-> grandeur de cadrage** issus d'une synthèse des baromètres listés en fin de skill — elles ne
-> remplacent pas une étude salariale datée sur le poste/la zone précis. À recalibrer chaque
-> année. Rappel **Directive UE 2023/970 (transparence salariale, applicable 07/06/2026)** :
-> fourchette de rémunération obligatoire dans l'offre + interdiction de demander l'historique
-> de rémunération du candidat.
+> ⚠️ **Indicative France 2025 ranges, to cross-check.** These grids are **scoping orders
+> of magnitude** drawn from a synthesis of the benchmarks listed at the end of this skill — they
+> don't replace a dated salary study on the specific role/area. Recalibrate every year.
+> Reminder **EU Directive 2023/970 (pay transparency, applicable 07/06/2026)**: mandatory pay
+> range in the job posting + ban on asking for the candidate's pay history.
 
-## Grilles salaires CDI — Profils IT/IA (France, 2025)
+## Permanent-contract salary grids — IT/AI profiles (France, 2025)
 
 ```
-DONNÉES & IA
+DATA & AI
 ──────────────────────────────────────────────────────
 Data Analyst
-  · Junior (0-2 ans)    : 35 000 – 42 000 € brut/an
-  · Confirmé (3-5 ans)  : 42 000 – 55 000 € brut/an
-  · Senior (6+ ans)     : 55 000 – 70 000 € brut/an
+  · Junior (0-2 yrs)    : €35,000 – 42,000 gross/yr
+  · Mid-level (3-5 yrs) : €42,000 – 55,000 gross/yr
+  · Senior (6+ yrs)     : €55,000 – 70,000 gross/yr
 
 Data Scientist / ML Engineer
-  · Junior (0-2 ans)    : 40 000 – 50 000 € brut/an
-  · Confirmé (3-5 ans)  : 50 000 – 70 000 € brut/an
-  · Senior (6+ ans)     : 70 000 – 90 000 € brut/an
+  · Junior (0-2 yrs)    : €40,000 – 50,000 gross/yr
+  · Mid-level (3-5 yrs) : €50,000 – 70,000 gross/yr
+  · Senior (6+ yrs)     : €70,000 – 90,000 gross/yr
 
-Développeur IA / LLM Engineer
-  · Confirmé (3-5 ans)  : 55 000 – 75 000 € brut/an
-  · Senior (6+ ans)     : 75 000 – 100 000 € brut/an
-  · Lead / Principal    : 90 000 – 120 000 € brut/an
+AI Developer / LLM Engineer
+  · Mid-level (3-5 yrs) : €55,000 – 75,000 gross/yr
+  · Senior (6+ yrs)     : €75,000 – 100,000 gross/yr
+  · Lead / Principal    : €90,000 – 120,000 gross/yr
 
-AI Architect / Solutions Architect IA
-  · Confirmé            : 70 000 – 90 000 € brut/an
-  · Senior / Lead       : 90 000 – 130 000 € brut/an
+AI Architect / AI Solutions Architect
+  · Mid-level           : €70,000 – 90,000 gross/yr
+  · Senior / Lead       : €90,000 – 130,000 gross/yr
 
 MLOps Engineer
-  · Confirmé (3-5 ans)  : 55 000 – 72 000 € brut/an
-  · Senior (6+ ans)     : 72 000 – 95 000 € brut/an
+  · Mid-level (3-5 yrs) : €55,000 – 72,000 gross/yr
+  · Senior (6+ yrs)     : €72,000 – 95,000 gross/yr
 
-DÉVELOPPEMENT LOGICIEL
+SOFTWARE DEVELOPMENT
 ──────────────────────────────────────────────────────
-Développeur Backend (Python / Java / Node.js)
-  · Junior              : 32 000 – 42 000 € brut/an
-  · Confirmé            : 42 000 – 58 000 € brut/an
-  · Senior              : 58 000 – 78 000 € brut/an
+Backend Developer (Python / Java / Node.js)
+  · Junior              : €32,000 – 42,000 gross/yr
+  · Mid-level           : €42,000 – 58,000 gross/yr
+  · Senior              : €58,000 – 78,000 gross/yr
 
-Développeur Full Stack
-  · Junior              : 34 000 – 44 000 € brut/an
-  · Confirmé            : 44 000 – 60 000 € brut/an
-  · Senior              : 60 000 – 80 000 € brut/an
+Full Stack Developer
+  · Junior              : €34,000 – 44,000 gross/yr
+  · Mid-level           : €44,000 – 60,000 gross/yr
+  · Senior              : €60,000 – 80,000 gross/yr
 
 DevOps / SRE / Cloud Engineer
-  · Confirmé            : 48 000 – 65 000 € brut/an
-  · Senior              : 65 000 – 85 000 € brut/an
-  · Lead / Architecte   : 80 000 – 110 000 € brut/an
+  · Mid-level           : €48,000 – 65,000 gross/yr
+  · Senior              : €65,000 – 85,000 gross/yr
+  · Lead / Architect    : €80,000 – 110,000 gross/yr
 
-PRODUIT & MANAGEMENT
+PRODUCT & MANAGEMENT
 ──────────────────────────────────────────────────────
 Product Owner / Product Manager
-  · Confirmé (3-5 ans)  : 45 000 – 60 000 € brut/an
-  · Senior (6+ ans)     : 60 000 – 80 000 € brut/an
-  · PO IA / GenAI       : +10-15% vs PO classique
+  · Mid-level (3-5 yrs) : €45,000 – 60,000 gross/yr
+  · Senior (6+ yrs)     : €60,000 – 80,000 gross/yr
+  · AI / GenAI PO       : +10-15% vs classic PO
 
 Tech Lead / Engineering Manager
-  · Tech Lead           : 65 000 – 90 000 € brut/an
-  · Engineering Manager : 80 000 – 110 000 € brut/an
+  · Tech Lead           : €65,000 – 90,000 gross/yr
+  · Engineering Manager : €80,000 – 110,000 gross/yr
 
-CTO (scaleup / startup Série A-B)
-                        : 100 000 – 160 000 € brut/an + equity
+CTO (scale-up / Series A-B startup)
+                        : €100,000 – 160,000 gross/yr + equity
 
-CONSEIL & TRANSFORMATION
+CONSULTING & TRANSFORMATION
 ──────────────────────────────────────────────────────
-Consultant IA (ESN / cabinet)
-  · Confirmé            : 45 000 – 60 000 € brut/an
-  · Senior              : 60 000 – 85 000 € brut/an
-  · Manager / Principal : 80 000 – 110 000 € brut/an
+AI Consultant (IT services firm / consultancy)
+  · Mid-level           : €45,000 – 60,000 gross/yr
+  · Senior              : €60,000 – 85,000 gross/yr
+  · Manager / Principal : €80,000 – 110,000 gross/yr
 
-Responsable IA / Head of AI
-                        : 90 000 – 130 000 € brut/an
+AI Lead / Head of AI
+                        : €90,000 – 130,000 gross/yr
 ```
 
-## Grilles TJM Freelance — Profils IT/IA (France, 2025)
+## Freelance day-rate grids — IT/AI profiles (France, 2025)
 
 ```
-DONNÉES & IA
+DATA & AI
 ──────────────────────────────────────────────────────
-Data Analyst                      : 400 – 550 €/j
-Data Scientist (confirmé)         : 500 – 700 €/j
-Data Scientist (senior)           : 650 – 900 €/j
-ML Engineer (confirmé)            : 550 – 750 €/j
-ML Engineer (senior)              : 700 – 950 €/j
-LLM / IA Générative Engineer      : 650 – 950 €/j
-AI Architect                      : 800 – 1 200 €/j
-MLOps Engineer                    : 600 – 850 €/j
+Data Analyst                      : €400 – 550/day
+Data Scientist (mid-level)        : €500 – 700/day
+Data Scientist (senior)           : €650 – 900/day
+ML Engineer (mid-level)           : €550 – 750/day
+ML Engineer (senior)              : €700 – 950/day
+LLM / Generative AI Engineer      : €650 – 950/day
+AI Architect                      : €800 – 1,200/day
+MLOps Engineer                    : €600 – 850/day
 
-DÉVELOPPEMENT LOGICIEL
+SOFTWARE DEVELOPMENT
 ──────────────────────────────────────────────────────
-Développeur Backend confirmé      : 400 – 600 €/j
-Développeur Backend senior        : 550 – 750 €/j
-Développeur Full Stack senior     : 550 – 750 €/j
-DevOps / Cloud Engineer           : 550 – 800 €/j
-Architecte technique senior       : 700 – 1 000 €/j
+Backend Developer (mid-level)     : €400 – 600/day
+Backend Developer (senior)        : €550 – 750/day
+Full Stack Developer (senior)     : €550 – 750/day
+DevOps / Cloud Engineer           : €550 – 800/day
+Senior technical architect        : €700 – 1,000/day
 
-PRODUIT & MANAGEMENT
+PRODUCT & MANAGEMENT
 ──────────────────────────────────────────────────────
-Product Owner (confirmé)          : 450 – 650 €/j
-Product Owner IA / GenAI          : 550 – 800 €/j
-Product Manager senior            : 600 – 850 €/j
-Scrum Master / Coach Agile        : 400 – 650 €/j
-Chef de projet IT / MOA           : 400 – 650 €/j
+Product Owner (mid-level)         : €450 – 650/day
+AI / GenAI Product Owner          : €550 – 800/day
+Product Manager (senior)          : €600 – 850/day
+Scrum Master / Agile Coach        : €400 – 650/day
+IT Project Manager / MOA          : €400 – 650/day
 
-CONSEIL & TRANSFORMATION
+CONSULTING & TRANSFORMATION
 ──────────────────────────────────────────────────────
-Consultant IA (mission conseil)   : 700 – 1 000 €/j
-Consultant transformation digital : 600 – 900 €/j
-Directeur de projet senior        : 700 – 1 000 €/j
-AMOA / Functional Architect       : 500 – 750 €/j
+AI Consultant (consulting engagement) : €700 – 1,000/day
+Digital transformation consultant : €600 – 900/day
+Senior project director           : €700 – 1,000/day
+Business analysis (AMOA) / Functional Architect : €500 – 750/day
 ```
 
-## Facteurs de modulation salariale
+## Pay modulation factors
 
 ```
-FACTEURS HAUSSIERS (+10 à +30%)
+UPWARD FACTORS (+10 to +30%)
 ──────────────────────────────────────────────────────
-+ Stack IA récente maîtrisée (LLM, RAG, Agents IA)
-+ Certifications reconnues (AWS Certified, Google ML, Anthropic)
-+ Expérience grands comptes (CAC40, GAFA, licornes)
-+ Bilinguisme FR/EN opérationnel en contexte international
-+ Paris / Île-de-France (vs régions : -10 à -20%)
-+ Startup bien financée / scale-up à forte croissance
-+ Rareté du profil sur le marché
++ Mastery of a recent AI stack (LLM, RAG, AI Agents)
++ Recognized certifications (AWS Certified, Google ML, Anthropic)
++ Large-account experience (CAC40, GAFA, unicorns)
++ Operational FR/EN bilingualism in an international context
++ Paris / Île-de-France (vs other regions: -10 to -20%)
++ Well-funded startup / high-growth scale-up
++ Profile scarcity on the market
 
-FACTEURS BAISSIERS (-5 à -20%)
+DOWNWARD FACTORS (-5 to -20%)
 ──────────────────────────────────────────────────────
-- Stack vieillissante sans mise à jour récente
-- Écart d'emploi > 12 mois non justifié
-- Remote total (certains clients appliquent -5%)
-- PME / associations / secteur public
-- Marché local saturé (ex : profils junior en région)
+- Aging stack with no recent update
+- Unexplained employment gap > 12 months
+- Fully remote (some clients apply -5%)
+- SMBs / nonprofits / public sector
+- Saturated local market (e.g. junior profiles in the regions)
 ```
 
-## Positionnement par type de client
+## Positioning by client type
 
-| Type de client | Niveau de rémunération | Remarque |
+| Client type | Compensation level | Note |
 |---|---|---|
-| GAFAM / Big Tech | +25-40% vs marché | Full remote fréquent · processus recrutement long (6-8 tours) |
-| Licorne (valorisation > 1 Md€) | +15-30% vs marché | Package equity fort (BSPCE/AGA) · rythme scale-up intensif |
-| CAC40 / Grands groupes | Marché à +5-10% | Négociation longue · avantages (CE, retraite, intéressement) |
-| Scale-up (Série B/C, < licorne) | Marché + equity | BSPCE si senior · évolution rapide possible |
-| Startup Série A | -5-10% vs marché | Equity significatif · forte prise de risque · rôle large |
-| Startup early (pre-seed / seed) | -15-25% vs marché | Equity élevé · instabilité · profils très autonomes requis |
-| PME tech / ETI | -5-10% vs marché | Stabilité · rôles élargis · process RH légers |
-| ESN / Cabinets conseil | En dessous marché | Progression rapide · variable selon facturation client |
-| Secteur public / EPIC | -15-25% vs marché | Stabilité · 35h · télétravail limité |
+| GAFAM / Big Tech | +25-40% vs market | Full remote common · long hiring process (6-8 rounds) |
+| Unicorn (valuation > €1B) | +15-30% vs market | Strong equity package (BSPCE/AGA) · intensive scale-up pace |
+| CAC40 / Large groups | Market +5-10% | Long negotiation · benefits (works council, pension, profit-sharing) |
+| Scale-up (Series B/C, < unicorn) | Market + equity | BSPCE if senior · fast progression possible |
+| Startup Series A | -5-10% vs market | Significant equity · high risk-taking · broad role |
+| Early startup (pre-seed / seed) | -15-25% vs market | High equity · instability · highly autonomous profiles required |
+| Tech SMB / mid-cap (ETI) | -5-10% vs market | Stability · broadened roles · lightweight HR processes |
+| IT services firm / consultancies | Below market | Fast progression · variable tied to client billing |
+| Public sector / EPIC | -15-25% vs market | Stability · 35-hour week · limited remote work |
 
-## Outil d'analyse rémunération — Template
+## Compensation analysis tool — Template
 
 ```
-ANALYSE POSITIONNEMENT SALARIAL — [Candidat]
+PAY POSITIONING ANALYSIS — [Candidate]
 ──────────────────────────────────────────────────────
-Profil            : [Intitulé] — [N] ans d'exp — [Stack principale]
-Prétention annoncée : [X] €/an CDI  ou  [X] €/j TJM
-Benchmark marché  : [fourchette selon grille]
-Positionnement    : ◼ En dessous / ◼ Dans la fourchette / ◼ Au-dessus
+Profile           : [Title] — [N] yrs exp — [Main stack]
+Stated expectation: [X] €/yr permanent  or  [X] €/day rate
+Market benchmark  : [range per grid]
+Positioning       : ◼ Below / ◼ Within range / ◼ Above
 
-Écart             : [+/- N% vs médiane marché]
-Recommandation    : [Acceptable / Négociable / Hors marché]
+Gap               : [+/- N% vs market median]
+Recommendation    : [Acceptable / Negotiable / Off-market]
 
-Argument candidat si > marché :
-[Stack rare / certif / expérience GAFA / bilingue / etc.]
+Candidate argument if > market:
+[Rare stack / certification / GAFA experience / bilingual / etc.]
 
-Contre-proposition suggérée au client :
-[Fourchette CDI : X-Y € · TJM : X-Y €]
+Suggested counter-offer to the client:
+[Permanent range: X-Y € · Day rate: X-Y €]
 ```
 
-## Livrables
-- Grille de rémunération personnalisée par profil (PDF ou Excel)
-- Benchmark compétitif pour le client (3-5 profils comparables)
-- Conseil de positionnement pour l'offre (CDI) ou brief (freelance)
-- Analyse d'écart candidat vs marché avec recommandation
+## Deliverables
+- Custom compensation grid per profile (PDF or Excel)
+- Competitive benchmark for the client (3-5 comparable profiles)
+- Positioning advice for the job posting (permanent) or brief (freelance)
+- Candidate-vs-market gap analysis with a recommendation
 
-## Format de sortie
-Précise : intitulé exact, localisation (Paris / région / full remote), niveau (junior/confirmé/senior/lead), stack principale, type de contrat (CDI/freelance), secteur client.
+## Output format
+Specify: exact job title, location (Paris / regions / full remote), level (junior/mid-level/senior/lead), main stack, contract type (permanent/freelance), client sector.
 
 ## Anti-patterns
-- ❌ Présenter ces fourchettes comme un benchmark certifié sans dater ni recouper les sources.
-- ❌ Attribuer un niveau de rémunération à une entreprise nommée sans donnée publique vérifiable.
-- ❌ Demander au candidat son historique de salaire (interdit par la Dir. UE 2023/970, dès 07/06/2026).
-- ❌ Omettre la fourchette de rémunération dans l'offre (obligation 2023/970) ou la rendre trop large pour être informative.
-- ❌ Ignorer les écarts F/H (index égalité professionnelle) dans le positionnement salarial.
+- ❌ Present these ranges as a certified benchmark without dating or cross-checking the sources.
+- ❌ Attribute a compensation level to a named company without verifiable public data.
+- ❌ Ask the candidate for their salary history (banned by EU Dir. 2023/970, from 07/06/2026).
+- ❌ Omit the pay range from the job posting (2023/970 obligation) or make it too wide to be informative.
+- ❌ Ignore the gender pay gap (gender equality index) in pay positioning.
 
-## Sources de référence
-> Baromètres à consulter **dans leur édition datée la plus récente** (les chiffres ci-dessus en sont une synthèse indicative, non une citation directe).
-- Baromètre Talent.io (édition annuelle) — talent.io
-- Études Malt Freelance / Observatoire du freelancing (annuel) — malt.fr
+## Reference sources
+> Consult the benchmarks **in their most recent dated edition** (the figures above are an indicative synthesis, not a direct quote).
+- Talent.io barometer (annual edition) — talent.io
+- Malt Freelance studies / freelancing observatory (annual) — malt.fr
 - Glassdoor France IT — glassdoor.fr
 - LinkedIn Salary Insights — linkedin.com
-- Robert Half Technology Salary Guide (annuel) — roberthalf.fr
-- Hays IT Salary Guide France (annuel) — hays.fr
-- APEC — baromètre des salaires cadres / Numeum (Syntec Numérique) — apec.fr · numeum.fr
-- Directive UE 2023/970 transparence salariale — eur-lex.europa.eu
+- Robert Half Technology Salary Guide (annual) — roberthalf.fr
+- Hays IT Salary Guide France (annual) — hays.fr
+- APEC — executive salary barometer / Numeum (Syntec Numérique) — apec.fr · numeum.fr
+- EU Directive 2023/970 pay transparency — eur-lex.europa.eu
 
-## Voir aussi
-- `skills/rh_ia/redaction-offre-emploi.md` — mention de la fourchette dans l'offre (2023/970)
-- `skills/rh_ia/recrutement-sourcing-it.md` — argumentaire de négociation candidat
-- `skills/rh_ia/people-analytics.md` — pilotage Cost per Hire
-- `skills/juridique_ia/` — conformité transparence salariale & non-discrimination
+## See also
+- `skills/rh_ia/redaction-offre-emploi.md` — stating the range in the job posting (2023/970)
+- `skills/rh_ia/recrutement-sourcing-it.md` — candidate negotiation talking points
+- `skills/rh_ia/people-analytics.md` — Cost per Hire tracking
+- `skills/juridique_ia/` — pay-transparency & non-discrimination compliance

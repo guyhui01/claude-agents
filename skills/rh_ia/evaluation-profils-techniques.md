@@ -1,158 +1,158 @@
-# Skill — Évaluation Profils Techniques IT/IA
-> Certifications : PHR (HRCI) · SHRM-CP (SHRM) · ATD CPTD (ATD)
+# Skill — IT/AI Technical Profile Assessment
+> Certifications: PHR (HRCI) · SHRM-CP (SHRM) · ATD CPTD (ATD)
 
-## Objectif
-Évaluer objectivement des profils techniques IT/IA via des grilles d'entretien structurées, des cas pratiques et des scorecards, afin de produire une recommandation Go/No-Go documentée pour le client.
+## Objective
+Objectively assess IT/AI technical profiles via structured interview grids, practical cases, and scorecards, to produce a documented Go/No-Go recommendation for the client.
 
-## Structure d'entretien structuré (STAR + technique)
+## Structured interview format (STAR + technical)
 
 ```
-ENTRETIEN TYPE — 60 minutes
+TYPICAL INTERVIEW — 60 minutes
 ──────────────────────────────────────────────────────
-0-5 min    : Accueil, présentation du process
-5-20 min   : Parcours et motivations (méthode STAR)
-20-45 min  : Évaluation technique (questions + cas pratique)
-45-55 min  : Questions comportementales & culture fit
-55-60 min  : Questions du candidat + next steps
+0-5 min    : Welcome, process overview
+5-20 min   : Background and motivations (STAR method)
+20-45 min  : Technical assessment (questions + practical case)
+45-55 min  : Behavioral questions & culture fit
+55-60 min  : Candidate questions + next steps
 ```
 
-## Grille d'entretien — Développeur IA / LLM
+## Interview grid — AI Developer / LLM
 
-### Compétences techniques (45 min)
+### Technical skills (45 min)
 
 ```
-NIVEAU 1 — Fondamentaux (tous profils IA)
+LEVEL 1 — Fundamentals (all AI profiles)
 ──────────────────────────────────────────────────────
-Q : Expliquez la différence entre fine-tuning et RAG. Dans quel cas choisiriez-vous l'un ou l'autre ?
-Réponse attendue : fine-tuning = adapter le modèle, RAG = enrichir le contexte. RAG préféré si données évoluent souvent, fine-tuning si comportement spécifique stable requis.
-Score : 0 (hors sujet) · 1 (partiel) · 2 (correct) · 3 (maîtrise + nuances)
+Q: Explain the difference between fine-tuning and RAG. When would you choose one over the other?
+Expected answer: fine-tuning = adapt the model, RAG = enrich the context. RAG preferred if data changes often, fine-tuning if a stable, specific behavior is required.
+Score: 0 (off-topic) · 1 (partial) · 2 (correct) · 3 (mastery + nuances)
 
-Q : Comment gérez-vous la gestion des tokens et les coûts d'inférence en production ?
-Réponse attendue : prompt caching, chunking intelligent, modèle adapté à la complexité, monitoring des coûts (Langfuse, etc.)
-Score : 0-3
+Q: How do you handle token management and inference costs in production?
+Expected answer: prompt caching, smart chunking, model matched to complexity, cost monitoring (Langfuse, etc.)
+Score: 0-3
 
-NIVEAU 2 — Architecture & Production
+LEVEL 2 — Architecture & Production
 ──────────────────────────────────────────────────────
-Q : Décrivez une architecture RAG que vous avez construite en production. Quels problèmes avez-vous rencontrés ?
-Réponse attendue : vector DB (Pinecone, Qdrant, pgvector), chunking strategy, embedding model, reranking, hallucination mitigation
-Score : 0-3
+Q: Describe a RAG architecture you built in production. What problems did you run into?
+Expected answer: vector DB (Pinecone, Qdrant, pgvector), chunking strategy, embedding model, reranking, hallucination mitigation
+Score: 0-3
 
-Q : Comment testez-vous et évaluez-vous un pipeline LLM ?
-Réponse attendue : evals (RAGAS, LangSmith), golden dataset, métriques (faithfulness, relevancy), A/B testing prompts
-Score : 0-3
+Q: How do you test and evaluate an LLM pipeline?
+Expected answer: evals (RAGAS, LangSmith), golden dataset, metrics (faithfulness, relevancy), A/B testing prompts
+Score: 0-3
 
-NIVEAU 3 — Leadership & Design (seniors)
+LEVEL 3 — Leadership & Design (seniors)
 ──────────────────────────────────────────────────────
-Q : Comment choisissez-vous entre les LLM du marché pour un use case donné ?
-Réponse attendue (le paysage évolue très vite → la MÉTHODE prime sur un « top du moment » figé) :
+Q: How do you choose among the market's LLMs for a given use case?
+Expected answer (the landscape moves very fast → the METHOD matters more than a frozen "current top"):
 
-  Raisonner par TIER et par CRITÈRES, pas par classement instantané :
-  · FRONTIER (raisonnement complexe, agents, code avancé) :
-    Claude Opus 4.8 · familles concurrentes frontier (OpenAI GPT, Google Gemini, xAI Grok, DeepSeek)
-  · PRODUCTION (équilibre qualité/coût, gros volumes) :
-    Claude Sonnet 4.6 · alternatives multimodales/économiques selon le besoin
-  · RAPIDE / SIMPLE (latence, scripts) :
-    Claude Haiku 4.5 · modèles « flash/mini » concurrents
-  · SOUVERAINETÉ / ON-PREMISE :
-    Mistral (déployable, RGPD FR/EU) · Llama (open-source, self-hosted)
+  Reason by TIER and by CRITERIA, not by instant ranking:
+  · FRONTIER (complex reasoning, agents, advanced code):
+    Claude Opus 4.8 · competing frontier families (OpenAI GPT, Google Gemini, xAI Grok, DeepSeek)
+  · PRODUCTION (quality/cost balance, high volumes):
+    Claude Sonnet 4.6 · multimodal/economical alternatives as needed
+  · FAST / SIMPLE (latency, scripts):
+    Claude Haiku 4.5 · competing "flash/mini" models
+  · SOVEREIGNTY / ON-PREMISE:
+    Mistral (deployable, GDPR FR/EU) · Llama (open-source, self-hosted)
 
-  Critères de choix (le cœur de la réponse) : qualité sur la tâche (evals maison) ·
-  coût/token · latence · context window · multimodal · souveraineté / résidence data (EU) ·
-  disponibilité API régionale · réversibilité (anti lock-in)
+  Selection criteria (the core of the answer): task quality (in-house evals) ·
+  cost/token · latency · context window · multimodal · sovereignty / data residency (EU) ·
+  regional API availability · reversibility (anti lock-in)
 
-  ⚠️ Benchmarks (SWE-bench, GPQA, LMArena Elo) : se référer aux CLASSEMENTS PUBLICS À JOUR
-  (lmarena.ai · swebench.com · llm-stats.com) — ils changent en continu ; ne jamais figer
-  un score ou un « #1 » dans un support (il sera faux le mois suivant).
+  ⚠️ Benchmarks (SWE-bench, GPQA, LMArena Elo): refer to UP-TO-DATE PUBLIC LEADERBOARDS
+  (lmarena.ai · swebench.com · llm-stats.com) — they change constantly; never freeze
+  a score or a "#1" in a deck (it'll be wrong the next month).
 
-Score : 0-3 (0 = cite 1 modèle sans critère · 2 = tier + critères · 3 = grille multicritère
-         + evals sur tâche + contraintes RGPD + renvoi aux leaderboards à jour)
+Score: 0-3 (0 = names 1 model with no criteria · 2 = tier + criteria · 3 = multi-criteria grid
+         + task evals + GDPR constraints + pointer to up-to-date leaderboards)
 ```
 
-### Questions comportementales STAR
+### STAR behavioral questions
 
 ```
-AUTONOMIE & OWNERSHIP
-Q : Décrivez une situation où vous avez dû prendre une décision technique importante sans votre manager.
-Attendu : STAR complet — Situation claire, action proactive, résultat mesuré
+AUTONOMY & OWNERSHIP
+Q: Describe a situation where you had to make an important technical decision without your manager.
+Expected: full STAR — clear Situation, proactive action, measured result
 
 COLLABORATION
-Q : Racontez un désaccord technique avec un collègue. Comment l'avez-vous résolu ?
-Attendu : écoute, compromis technique, focus sur l'objectif produit
+Q: Tell me about a technical disagreement with a colleague. How did you resolve it?
+Expected: listening, technical compromise, focus on the product goal
 
 LEARNING AGILITY
-Q : Quelle technologie IA avez-vous apprise seul(e) ces 6 derniers mois ? Comment ?
-Attendu : curiosité, auto-formation, application concrète
+Q: Which AI technology did you learn on your own in the last 6 months? How?
+Expected: curiosity, self-teaching, concrete application
 ```
 
-## Scorecard — Évaluation complète
+## Scorecard — Full assessment
 
-| Dimension | Poids | Score (0-3) | Score pondéré |
+| Dimension | Weight | Score (0-3) | Weighted score |
 |---|---|---|---|
-| Maîtrise technique (fondamentaux) | 25% | | |
-| Expérience production & architecture | 25% | | |
-| Qualité du code / bonnes pratiques | 15% | | |
-| Compétences communication | 15% | | |
-| Autonomie & ownership | 10% | | |
-| Adéquation culture client | 10% | | |
+| Technical mastery (fundamentals) | 25% | | |
+| Production & architecture experience | 25% | | |
+| Code quality / best practices | 15% | | |
+| Communication skills | 15% | | |
+| Autonomy & ownership | 10% | | |
+| Client-culture fit | 10% | | |
 | **Total** | 100% | | **/3** |
 
 ```
-INTERPRÉTATION
+INTERPRETATION
 ──────────────────────────────────────────────────────
-≥ 2.5 / 3   → Recommandation forte — à présenter en priorité
-2.0 - 2.4   → Recommandation conditionnelle — à valider avec client
-1.5 - 1.9   → Profil en développement — mission junior seulement
-< 1.5       → Non retenu — CVthèque avec date de relance +6 mois
+≥ 2.5 / 3   → Strong recommendation — present as a priority
+2.0 - 2.4   → Conditional recommendation — to validate with the client
+1.5 - 1.9   → Developing profile — junior engagement only
+< 1.5       → Not retained — CV database with +6-month follow-up date
 ```
 
-## Cas pratique — Exemples par profil
+## Practical case — Examples by profile
 
 ```
-DÉVELOPPEUR IA (45 min — asynchrone ou live)
+AI DEVELOPER (45 min — async or live)
 ──────────────────────────────────────────────────────
-"Vous devez construire un mini-assistant RAG sur une base documentaire
-de 500 PDF. Décrivez votre architecture, choisissez votre stack, estimez
-les coûts d'inférence pour 1 000 requêtes/jour, et identifiez les 3
-principaux risques."
-Attendu : pipeline complet, justification des choix, sens du coût
+"You must build a mini RAG assistant over a document base
+of 500 PDFs. Describe your architecture, choose your stack, estimate
+the inference costs for 1,000 requests/day, and identify the 3
+main risks."
+Expected: full pipeline, justified choices, cost awareness
 
-PRODUCT OWNER IA (30 min — discussion)
+AI PRODUCT OWNER (30 min — discussion)
 ──────────────────────────────────────────────────────
-"Un CODIR vous demande d'identifier 3 cas d'usage IA prioritaires pour
-une DSI bancaire de 200 personnes. Comment vous y prenez-vous ?"
-Attendu : méthode (valeur/effort, maturité IA), stakeholders, critères
+"An executive committee asks you to identify 3 priority AI use cases for
+a 200-person banking IT department. How do you go about it?"
+Expected: method (value/effort, AI maturity), stakeholders, criteria
 
-CONSULTANT IA (45 min — mise en situation)
+AI CONSULTANT (45 min — role-play)
 ──────────────────────────────────────────────────────
-"Votre client (retail, 5 000 employés) veut déployer un ChatBot RH
-intelligent. Faites un diagnostic rapide et proposez une roadmap 6 mois."
-Attendu : audit maturité, architecture, change management, budget
+"Your client (retail, 5,000 employees) wants to deploy an intelligent
+HR chatbot. Run a quick diagnosis and propose a 6-month roadmap."
+Expected: maturity audit, architecture, change management, budget
 ```
 
-## Livrables
-- Grille d'entretien personnalisée par profil et niveau
-- Scorecard complétée avec commentaires par dimension
-- Recommandation Go/No-Go documentée (1 page)
-- Compte-rendu d'entretien structuré pour le client
+## Deliverables
+- Custom interview grid per profile and level
+- Completed scorecard with comments per dimension
+- Documented Go/No-Go recommendation (1 page)
+- Structured interview write-up for the client
 
-## Format de sortie
-Précise : intitulé du poste, niveau requis (junior/confirmé/senior/lead), stack technique clé, type de mission (produit / conseil / ESN), secteur client.
+## Output format
+Specify: job title, level required (junior/mid-level/senior/lead), key technical stack, engagement type (product / consulting / IT services firm), client sector.
 
 ## Anti-patterns
-- ❌ Entretien non structuré (questions improvisées) → faible validité prédictive et risque de biais.
-- ❌ Évaluer sur des critères sans lien direct avec le poste (Code du travail L1221-6).
-- ❌ Utiliser un test de personnalité sans information préalable du candidat (L1221-8) ni validité scientifique.
-- ❌ Figer un classement de modèles LLM dans une question d'évaluation (renvoyer aux leaderboards à jour — déjà intégré).
-- ❌ Décision Go/No-Go sans trace écrite des scores → non auditable, non défendable.
+- ❌ Unstructured interview (improvised questions) → low predictive validity and bias risk.
+- ❌ Assess on criteria with no direct link to the role (French Labor Code L1221-6).
+- ❌ Use a personality test without prior disclosure to the candidate (L1221-8) or scientific validity.
+- ❌ Freeze an LLM ranking in an assessment question (point to up-to-date leaderboards — already built in).
+- ❌ Go/No-Go decision with no written record of scores → not auditable, not defensible.
 
 ## Sources
-- Entretien structuré — meilleure validité prédictive que l'entretien libre (littérature RH / SHRM) — shrm.org
-- Méthode STAR (Situation-Tâche-Action-Résultat) — standard d'entretien comportemental
-- Big Five / OCEAN — McCrae & Costa (1987), *Journal of Personality and Social Psychology*, 52(1), 81-90 — **si** une évaluation de personnalité est utilisée (encadrée par L1221-8)
-- Code du travail — L1221-6 (lien direct/nécessaire), L1221-8 (information préalable, confidentialité des résultats) — legifrance.gouv.fr
+- Structured interview — better predictive validity than the free-form interview (HR literature / SHRM) — shrm.org
+- STAR method (Situation-Task-Action-Result) — standard behavioral-interview format
+- Big Five / OCEAN — McCrae & Costa (1987), *Journal of Personality and Social Psychology*, 52(1), 81-90 — **if** a personality assessment is used (governed by L1221-8)
+- French Labor Code — L1221-6 (direct/necessary link), L1221-8 (prior disclosure, confidentiality of results) — legifrance.gouv.fr
 
-## Voir aussi
-- `skills/rh_ia/recrutement-sourcing-it.md` — qualification amont
-- `skills/rh_ia/detection-deepfake-entretien.md` — authenticité de l'entretien distanciel
-- `skills/rh_ia/verification-references-background-check.md` — confirmation du parcours
-- `skills/rh_ia/cv-parsing-ats-scoring.md` — pré-sélection ATS
+## See also
+- `skills/rh_ia/recrutement-sourcing-it.md` — upstream qualification
+- `skills/rh_ia/detection-deepfake-entretien.md` — remote-interview authenticity
+- `skills/rh_ia/verification-references-background-check.md` — background confirmation
+- `skills/rh_ia/cv-parsing-ats-scoring.md` — ATS pre-selection

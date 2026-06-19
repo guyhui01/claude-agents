@@ -1,247 +1,246 @@
-# Skill — Transformation RH par l'IA
-> Certifications : ATD CPTD (ATD) · CIPD Level 5 (CIPD) · PROSCI Change Management
+# Skill — AI-Driven HR Transformation
+> Certifications: ATD CPTD (ATD) · CIPD Level 5 (CIPD) · PROSCI Change Management
 
-## Objectif
-Accompagner les équipes RH dans l'intégration de l'IA dans leurs processus : choix et déploiement d'ATS IA, automatisation du recrutement, qualification automatique de CV, entretiens assistés — tout en intégrant les enjeux éthiques et réglementaires (RGPD, biais algorithmiques).
+## Objective
+Support HR teams in embedding AI into their processes: selecting and deploying AI-powered ATS, recruitment automation, automated CV screening, AI-assisted interviews — while addressing the ethical and regulatory stakes (GDPR, algorithmic bias).
 
-## Cartographie des processus RH automatisables par l'IA
+## Map of HR processes automatable with AI
 
 ```
-RECRUTEMENT
+RECRUITMENT
 ──────────────────────────────────────────────────────
-Rédaction d'offres       → LLM (Claude Sonnet 4.6 ou équivalent marché) sur brief RH structuré
-Sourcing booléen         → LinkedIn Recruiter, Seek Out, Hireez
-Screening CV             → ATS IA : Greenhouse, Lever, SmartRecruiters
-Qualification initiale   → Chatbot RH : MYA, Paradox (Olivia), Eightfold AI
-Scheduling entretiens    → Calendly IA, GoodTime.io, Cronofy
-Notes d'entretien        → Transcription IA : Fireflies, Otter.ai, Notion AI
-Scorecard automatisée    → Structuration via LLM post-entretien
-Onboarding digital       → Workflows automatisés : Workday, BambooHR, Rippling
+Job posting writing      → LLM (Claude Sonnet 4.6 or market equivalent) from a structured HR brief
+Boolean sourcing         → LinkedIn Recruiter, Seek Out, Hireez
+CV screening             → AI ATS: Greenhouse, Lever, SmartRecruiters
+Initial qualification    → HR chatbot: MYA, Paradox (Olivia), Eightfold AI
+Interview scheduling     → Calendly AI, GoodTime.io, Cronofy
+Interview notes          → AI transcription: Fireflies, Otter.ai, Notion AI
+Automated scorecard      → Structured via LLM after the interview
+Digital onboarding       → Automated workflows: Workday, BambooHR, Rippling
 
-FORMATION & DÉVELOPPEMENT
+TRAINING & DEVELOPMENT
 ──────────────────────────────────────────────────────
-Détection gaps compétences → Analyse SIRH + LLM
-Recommandations parcours  → LMS IA : 360Learning, Cornerstone, Docebo AI
-Génération contenu formation → Claude Opus 4.8 / Sonnet 4.6 (ou équivalent marché) + LMS
-Évaluation post-formation  → Quiz génératif + analyse résultats
+Skills-gap detection      → HRIS analysis + LLM
+Learning-path suggestions → AI LMS: 360Learning, Cornerstone, Docebo AI
+Training-content generation → Claude Opus 4.8 / Sonnet 4.6 (or market equivalent) + LMS
+Post-training assessment   → Generative quiz + results analysis
 
 PEOPLE ANALYTICS
 ──────────────────────────────────────────────────────
-Prédiction turnover       → Modèles ML sur données SIRH
-Analyse engagement        → NLP sur enquêtes pulse
-Reporting automatisé      → Power BI + Copilot, Tableau AI
+Turnover prediction       → ML models on HRIS data
+Engagement analysis       → NLP on pulse surveys
+Automated reporting       → Power BI + Copilot, Tableau AI
 ```
 
-## ATS IA — Comparatif Fonctionnel
+## AI ATS — Feature comparison
 
-| ATS | Points forts | Idéal pour | Prix indicatif |
+| ATS | Strengths | Best for | Indicative price |
 |---|---|---|---|
-| **Greenhouse** | Pipeline structuré, intégrations riches, scorecard | Scale-up, PME tech | ~6 000-15 000 €/an |
-| **Lever** | UX candidat, CRM recrutement, nurturing | Croissance rapide | ~5 000-12 000 €/an |
-| **SmartRecruiters** | Marketplace d'apps RH, volume | Grands groupes | ~15 000-40 000 €/an |
-| **Workable** | Rapport qualité/prix, IA sourcing intégrée | PME < 200 salariés | ~3 000-8 000 €/an |
-| **Eightfold AI** | Matching IA avancé, mobilité interne | > 500 salariés | Sur devis |
-| **Paradox (Olivia)** | Chatbot recrutement, scheduling | Volume, retail, call center | Sur devis |
-| **Recruitee** | Simple, collaboratif, prix abordable | Startups | ~2 000-5 000 €/an |
+| **Greenhouse** | Structured pipeline, rich integrations, scorecard | Scale-ups, tech SMBs | ~€6,000-15,000/yr |
+| **Lever** | Candidate UX, recruitment CRM, nurturing | Fast growth | ~€5,000-12,000/yr |
+| **SmartRecruiters** | HR app marketplace, volume | Large enterprises | ~€15,000-40,000/yr |
+| **Workable** | Value for money, built-in AI sourcing | SMBs < 200 employees | ~€3,000-8,000/yr |
+| **Eightfold AI** | Advanced AI matching, internal mobility | > 500 employees | Custom quote |
+| **Paradox (Olivia)** | Recruitment chatbot, scheduling | Volume, retail, call center | Custom quote |
+| **Recruitee** | Simple, collaborative, affordable | Startups | ~€2,000-5,000/yr |
 
-> ⚠️ **Prix indicatifs, ordres de grandeur non contractuels** (tarification souvent sur devis,
-> au siège/volume). À vérifier auprès de chaque éditeur au moment du cadrage.
+> ⚠️ **Indicative prices, non-contractual orders of magnitude** (pricing is often custom-quoted,
+> based on headcount/volume). Verify with each vendor at scoping time.
 
-## Workflow de recrutement augmenté par l'IA
+## AI-augmented recruitment workflow
 
 ```
-WORKFLOW RECRUTEMENT IA — 6 ÉTAPES
+AI RECRUITMENT WORKFLOW — 6 STEPS
 ──────────────────────────────────────────────────────
-ÉTAPE 1 — BRIEF & OFFRE (IA générative)
-  Input : Brief manager (poste, stack, contexte)
-  Outil : Claude Sonnet 4.6 / Opus 4.8 (ou équivalent frontier du marché) + template structuré
-  Output: Offre rédigée, vérifiée, publiée automatiquement
+STEP 1 — BRIEF & JOB POSTING (generative AI)
+  Input : Manager brief (role, stack, context)
+  Tool  : Claude Sonnet 4.6 / Opus 4.8 (or market frontier equivalent) + structured template
+  Output: Job posting written, reviewed, auto-published
 
-ÉTAPE 2 — SOURCING (IA de matching)
-  Input : Offre + critères ATS
-  Outil : LinkedIn Recruiter IA, Eightfold, Seek Out
-  Output: Longlist 15-20 profils qualifiés
+STEP 2 — SOURCING (matching AI)
+  Input : Job posting + ATS criteria
+  Tool  : LinkedIn Recruiter AI, Eightfold, Seek Out
+  Output: Longlist of 15-20 qualified profiles
 
-ÉTAPE 3 — SCREENING (ATS IA)
-  Input : CVs + lettre de motivation
-  Outil : SmartRecruiters / Greenhouse scoring
-  Output: Score 0-100, shortlist automatique, alertes biais
+STEP 3 — SCREENING (AI ATS)
+  Input : CVs + cover letter
+  Tool  : SmartRecruiters / Greenhouse scoring
+  Output: Score 0-100, automatic shortlist, bias alerts
 
-ÉTAPE 4 — QUALIFICATION (chatbot + planning)
-  Input : Shortlist validée par le RH
-  Outil : Paradox Olivia (Q&A) + GoodTime (scheduling)
-  Output: Entretien planifié, fiche pré-qualif complète
+STEP 4 — QUALIFICATION (chatbot + scheduling)
+  Input : Shortlist validated by HR
+  Tool  : Paradox Olivia (Q&A) + GoodTime (scheduling)
+  Output: Interview scheduled, complete pre-qualification sheet
 
-ÉTAPE 5 — ENTRETIEN (IA assistée)
-  Input : Entretien visio/présentiel
-  Outil : Fireflies / Notion AI (transcription + résumé)
-  Output: Compte-rendu structuré, scorecard pré-remplie
+STEP 5 — INTERVIEW (AI-assisted)
+  Input : Video/in-person interview
+  Tool  : Fireflies / Notion AI (transcription + summary)
+  Output: Structured write-up, pre-filled scorecard
 
-ÉTAPE 6 — DÉCISION & OFFRE
-  Input : Scorecards + recommandation IA
-  Outil : ATS dashboard + LLM pour synthèse Go/No-Go
-  Output: Lettre d'offre générée, onboarding déclenché
+STEP 6 — DECISION & OFFER
+  Input : Scorecards + AI recommendation
+  Tool  : ATS dashboard + LLM for Go/No-Go synthesis
+  Output: Offer letter generated, onboarding triggered
 ```
 
-## Éthique IA en RH — Cadre & Risques
+## AI ethics in HR — Framework & risks
 
 ```
-RISQUES ÉTHIQUES & RÉGLEMENTAIRES
+ETHICAL & REGULATORY RISKS
 ──────────────────────────────────────────────────────
-BIAIS ALGORITHMIQUES
-  Risque   : Discrimination indirecte (genre, âge, origine)
-  Exemples : Amazon (outil de tri CV) · HireVue (analyse vidéo)
-  Mitigation :
-    · Audit régulier des modèles (métriques de biais)
-    · Maintien d'une décision humaine finale (RGPD Art. 22)
-    · Entraînement sur données diversifiées et équilibrées
+ALGORITHMIC BIAS
+  Risk     : Indirect discrimination (gender, age, origin)
+  Examples : Amazon (CV-ranking tool) · HireVue (video analysis)
+  Mitigation:
+    · Regular model audits (bias metrics)
+    · Keep a final human decision (GDPR Art. 22)
+    · Train on diverse, balanced data
 
-RGPD & DONNÉES CANDIDATS
-  Obligations :
-    · Consentement explicite pour traitement automatisé
-    · Droit d'opposition à la décision automatisée
-    · Durée de conservation : 2 ans max (candidature non retenue)
-    · Registre des traitements à jour (CNIL)
+GDPR & CANDIDATE DATA
+  Obligations:
+    · Explicit consent for automated processing
+    · Right to object to automated decisions
+    · Retention period: 2 years max (unsuccessful application)
+    · Up-to-date records of processing (CNIL)
 
-IA ACT EUROPÉEN (Règlement UE 2024/1689)
-  Classification : recrutement / sélection / évaluation de candidats =
-    SYSTÈME À HAUT RISQUE (art. 6 §2 + Annexe III, pt 4 « Emploi »)
-  Échéance déployeur : obligations haut risque applicables au 2 août 2026
-  Sanctions : jusqu'à 15 M€ ou 3 % du CA mondial
-  Obligations :
-    · Transparence sur l'utilisation de l'IA (informer candidats)
-    · Supervision humaine obligatoire (human-in-the-loop)
-    · Documentation technique + gestion des risques du système IA
-    · Évaluation de conformité avant mise en service
+EUROPEAN AI ACT (EU Regulation 2024/1689)
+  Classification: recruiting / selection / candidate evaluation =
+    HIGH-RISK SYSTEM (art. 6 §2 + Annex III, pt 4 "Employment")
+  Deployer deadline: high-risk obligations apply from 2 August 2026
+  Penalties: up to €15M or 3% of global turnover
+  Obligations:
+    · Transparency about AI use (inform candidates)
+    · Mandatory human oversight (human-in-the-loop)
+    · Technical documentation + risk management of the AI system
+    · Conformity assessment before putting into service
 
-BONNES PRATIQUES
-  □ Politique IA RH documentée et partagée
-  □ Formation des recruteurs à la lecture critique des scores IA
-  □ Clause contractuelle prestataires ATS (sous-traitance RGPD)
-  □ Bilan annuel biais algorithmiques avec DPO
-  □ Charte usage IA en recrutement accessible aux candidats
+BEST PRACTICES
+  □ Documented and shared HR AI policy
+  □ Train recruiters to critically read AI scores
+  □ Contractual clause for ATS vendors (GDPR subprocessing)
+  □ Annual algorithmic-bias review with the DPO
+  □ AI-in-recruitment charter accessible to candidates
 ```
 
-## Matrice de maturité RH IA
+## HR AI maturity matrix
 
 ```
-NIVEAU 1 — INITIALE
-  Processus manuels, pas d'ATS, tableurs Excel
-  → Action : ATS basique (Recruitee/Workable) + LLM pour offres
+LEVEL 1 — INITIAL
+  Manual processes, no ATS, Excel spreadsheets
+  → Action: Basic ATS (Recruitee/Workable) + LLM for job postings
 
-NIVEAU 2 — STRUCTURÉE
-  ATS en place, pas de scoring IA, peu d'automatisation
-  → Action : Activer scoring IA ATS + chatbot pré-qualification
+LEVEL 2 — STRUCTURED
+  ATS in place, no AI scoring, little automation
+  → Action: Enable ATS AI scoring + pre-qualification chatbot
 
-NIVEAU 3 — AUGMENTÉE
-  IA sur sourcing et screening, reporting manuel
-  → Action : People analytics, prédiction turnover, LMS IA
+LEVEL 3 — AUGMENTED
+  AI on sourcing and screening, manual reporting
+  → Action: People analytics, turnover prediction, AI LMS
 
-NIVEAU 4 — INTELLIGENTE
-  Pipeline full IA avec supervision humaine, analytics prédictif
-  → Action : Optimisation continue, audit biais, formation équipes
+LEVEL 4 — INTELLIGENT
+  Full-AI pipeline with human oversight, predictive analytics
+  → Action: Continuous optimization, bias audits, team training
 ```
 
-## Plan de transformation RH IA — Structure 6 mois
+## HR AI transformation plan — 6-month structure
 
 ```
-PHASE 1 — DIAGNOSTIC (M1)
-  · Cartographie des processus RH actuels
-  · Audit des outils (ATS, SIRH, LMS existants)
-  · Évaluation maturité IA (niveau 1-4)
-  · Identification des quick wins
+PHASE 1 — DIAGNOSIS (M1)
+  · Map current HR processes
+  · Audit tools (existing ATS, HRIS, LMS)
+  · Assess AI maturity (level 1-4)
+  · Identify quick wins
 
-PHASE 2 — CHOIX & CADRAGE (M2)
-  · Sélection ATS IA (RFP si > 500 salariés)
-  · Validation juridique RGPD / IA Act
-  · Plan de conduite du changement (ADKAR)
-  · Budget et ROI prévisionnel
+PHASE 2 — SELECTION & SCOPING (M2)
+  · Select AI ATS (RFP if > 500 employees)
+  · Legal validation GDPR / AI Act
+  · Change-management plan (ADKAR)
+  · Budget and projected ROI
 
-PHASE 3 — DÉPLOIEMENT PILOTE (M3-M4)
-  · Déploiement sur 1-2 postes pilotes
-  · Formation équipe RH (outil + éthique)
-  · Ajustements sur retours terrain
-  · Mesure KPIs baseline
+PHASE 3 — PILOT DEPLOYMENT (M3-M4)
+  · Deploy on 1-2 pilot roles
+  · Train HR team (tool + ethics)
+  · Adjust based on field feedback
+  · Measure baseline KPIs
 
-PHASE 4 — GÉNÉRALISATION (M5-M6)
-  · Déploiement complet
-  · Tableau de bord IA RH opérationnel
-  · Rapport ROI : Time to Fill, Cost per Hire
-  · Audit biais post-déploiement (DPO)
+PHASE 4 — ROLLOUT (M5-M6)
+  · Full deployment
+  · Operational HR AI dashboard
+  · ROI report: Time to Fill, Cost per Hire
+  · Post-deployment bias audit (DPO)
 ```
 
-## ROI de l'IA en recrutement — Cadre de mesure
+## ROI of AI in recruitment — Measurement framework
 
-> ⚠️ **Pas de benchmark figé.** Les gains varient fortement selon le contexte (volume,
-> maturité de départ, qualité des données). Mesure **ton propre baseline avant déploiement**,
-> puis compare. Le tableau ci-dessous est un **exemple illustratif de structuration** d'un
-> dashboard avant/après — **les valeurs ne sont pas des références de marché, à recalibrer
-> sur ton périmètre**.
+> ⚠️ **No fixed benchmark.** Gains vary widely by context (volume, starting maturity,
+> data quality). Measure **your own baseline before deployment**, then compare. The
+> table below is an **illustrative example of how to structure** a before/after
+> dashboard — **the values are not market references; recalibrate them to your scope**.
 
-**Indicateurs à suivre** (avant IA → après IA, sur ton propre périmètre) :
-- **Time to Fill** (jours médians entre ouverture et acceptation)
-- **Cost per Hire** (coût complet par embauche : sourcing + temps recruteur + outils)
-- **Taux de réponse sourcing** (InMail/messages personnalisés)
-- **Temps de screening CV** (heures par poste)
-- **Satisfaction manager** (enquête post-recrutement, échelle 1-5)
+**Metrics to track** (before AI → after AI, on your own scope):
+- **Time to Fill** (median days between opening and acceptance)
+- **Cost per Hire** (fully loaded cost per hire: sourcing + recruiter time + tools)
+- **Sourcing response rate** (InMail/personalized messages)
+- **CV screening time** (hours per role)
+- **Manager satisfaction** (post-hire survey, 1-5 scale)
 
-*Exemple illustratif de présentation (valeurs fictives, non benchmark) :*
+*Illustrative presentation example (fictional values, not a benchmark):*
 
-| Indicateur | Avant IA | Après IA | Variation |
+| Metric | Before AI | After AI | Change |
 |---|---|---|---|
-| Time to Fill | *baseline* | *mesuré* | *à calculer* |
-| Cost per Hire | *baseline* | *mesuré* | *à calculer* |
+| Time to Fill | *baseline* | *measured* | *to compute* |
+| Cost per Hire | *baseline* | *measured* | *to compute* |
 
-> Pour des **repères de marché sourcés**, consulter des baromètres datés (ex. SHRM Recruiting
-> Benchmarking — données US ; APEC / Numeum pour la France) plutôt que des chiffres non tracés.
+> For **sourced market references**, consult dated benchmarks (e.g. SHRM Recruiting
+> Benchmarking — US data; APEC / Numeum for France) rather than untraced figures.
 
-## Référentiel LLM par tier
+## LLM reference by tier
 
-> ⚠️ Le paysage LLM évolue en continu — **aucun score figé ici**. Pour les benchmarks
-> (SWE-bench, GPQA, LMArena Elo), se référer aux **classements publics à jour** :
-> lmarena.ai · swebench.com · llm-stats.com. Un « #1 » écrit dans un support est faux le mois suivant.
+> ⚠️ The LLM landscape changes constantly — **no fixed score here**. For benchmarks
+> (SWE-bench, GPQA, LMArena Elo), refer to **up-to-date public leaderboards**:
+> lmarena.ai · swebench.com · llm-stats.com. A "#1" written in a deck is wrong the next month.
 
-| Tier | Modèles (familles) | Usage RH typique |
+| Tier | Models (families) | Typical HR use |
 |---|---|---|
-| **Frontier / Premium** | Claude **Opus 4.8** · OpenAI GPT · Google Gemini · xAI Grok · DeepSeek | Analyse CV complexe, offres premium, évaluation senior, agents de sourcing |
-| **Production** | Claude **Sonnet 4.6** · équivalents multimodaux | Qualification initiale, scoring ATS, people analytics, chatbots RH |
-| **Éco / rapide** | Claude **Haiku 4.5** · modèles « flash/mini » concurrents | Tâches simples à fort volume, latence faible |
-| **Souverain / on-premise** | Mistral (RGPD FR/EU) · Llama (open-source, self-hosted) | Données sensibles, contraintes de résidence data EU |
+| **Frontier / Premium** | Claude **Opus 4.8** · OpenAI GPT · Google Gemini · xAI Grok · DeepSeek | Complex CV analysis, premium job postings, senior evaluation, sourcing agents |
+| **Production** | Claude **Sonnet 4.6** · multimodal equivalents | Initial qualification, ATS scoring, people analytics, HR chatbots |
+| **Eco / fast** | Claude **Haiku 4.5** · competing "flash/mini" models | Simple high-volume tasks, low latency |
+| **Sovereign / on-premise** | Mistral (GDPR FR/EU) · Llama (open-source, self-hosted) | Sensitive data, EU data-residency constraints |
 
-> Critères de sélection : qualité sur la tâche (evals maison) · coût/token · latence · context window · multimodal · souveraineté/résidence data · réversibilité (anti lock-in).
+> Selection criteria: task quality (in-house evals) · cost/token · latency · context window · multimodal · sovereignty/data residency · reversibility (anti lock-in).
 
-**Usage RH recommandé par tier :**
-- **Premium** → analyse CV complexe, génération d'offres premium, questions d'évaluation senior, agents de sourcing autonomes
-- **Production** → qualification initiale, scoring ATS IA, dashboards people analytics, chatbots RH
-- **Éco/Rapide** → volume élevé, screening de masse, réponses auto candidats
-- **Souverain/Open-source** → données RH sensibles, contexte RGPD strict, déploiement on-premise client
+**Recommended HR use by tier:**
+- **Premium** → complex CV analysis, premium job-posting generation, senior evaluation questions, autonomous sourcing agents
+- **Production** → initial qualification, AI ATS scoring, people-analytics dashboards, HR chatbots
+- **Eco/Fast** → high volume, mass screening, automated candidate replies
+- **Sovereign/Open-source** → sensitive HR data, strict GDPR context, on-premise client deployment
 
-## Livrables
-- Audit de maturité RH IA (niveau 1-4) avec recommandations
-- Comparatif ATS IA personnalisé selon contexte client
-- Roadmap transformation RH IA (6-12 mois)
-- Politique IA RH + charte éthique candidats
-- Formation équipe RH : usage IA + lecture critique des scores
+## Deliverables
+- HR AI maturity audit (level 1-4) with recommendations
+- AI ATS comparison tailored to the client context
+- HR AI transformation roadmap (6-12 months)
+- HR AI policy + candidate ethics charter
+- HR team training: AI use + critical reading of scores
 
-## Format de sortie
-Précise : taille de l'équipe RH, volume de recrutements annuels, ATS actuel (si existant), budget transformation, enjeux prioritaires (rapidité / qualité / coût / conformité).
+## Output format
+Specify: HR team size, annual recruitment volume, current ATS (if any), transformation budget, priority drivers (speed / quality / cost / compliance).
 
 ## Anti-patterns
-- ❌ Déployer un scoring/filtrage IA de CV sans qualification AI Act haut risque (art. 6 + Annexe III) ni supervision humaine.
-- ❌ Présenter des gains de ROI chiffrés sans baseline mesuré sur le périmètre client (chiffres « marché » non sourcés).
-- ❌ Automatiser une décision de rejet sans droit à l'intervention humaine (RGPD art. 22).
-- ❌ Choisir un ATS IA sans clause de sous-traitance RGPD ni audit de biais contractualisé.
-- ❌ Confondre « assistance IA » et « décision IA » : la décision finale reste humaine et traçable.
+- ❌ Deploy AI CV scoring/filtering without an AI Act high-risk classification (art. 6 + Annex III) or human oversight.
+- ❌ Present quantified ROI gains without a baseline measured on the client scope (unsourced "market" figures).
+- ❌ Automate a rejection decision without a right to human intervention (GDPR art. 22).
+- ❌ Choose an AI ATS without a GDPR subprocessing clause or a contractually agreed bias audit.
+- ❌ Confuse "AI assistance" with "AI decision": the final decision stays human and traceable.
 
 ## Sources
-- Règlement UE 2024/1689 (AI Act) — art. 6 §2 + Annexe III pt 4 (emploi, haut risque) — eur-lex.europa.eu · artificialintelligenceact.eu
-- RGPD UE 2016/679 — art. 22 (décision automatisée), art. 5 (minimisation) — cnil.fr
-- CNIL — Guide du recrutement (19 fiches, dont nouvelles technologies & discrimination) — cnil.fr/fr/le-guide-du-recrutement
-- PROSCI ADKAR — modèle de conduite du changement — prosci.com
-- NIST AI RMF 1.0 (2023) · ISO/IEC 42001:2023 (AIMS) — gouvernance IA
+- EU Regulation 2024/1689 (AI Act) — art. 6 §2 + Annex III pt 4 (employment, high-risk) — eur-lex.europa.eu · artificialintelligenceact.eu
+- GDPR EU 2016/679 — art. 22 (automated decision), art. 5 (minimization) — cnil.fr
+- CNIL — Recruitment guide (19 sheets, incl. new technologies & discrimination) — cnil.fr/fr/le-guide-du-recrutement
+- PROSCI ADKAR — change-management model — prosci.com
+- NIST AI RMF 1.0 (2023) · ISO/IEC 42001:2023 (AIMS) — AI governance
 
-## Voir aussi
-- `skills/rh_ia/cv-parsing-ats-scoring.md` — scoring ATS (haut risque AI Act)
-- `skills/rh_ia/people-analytics.md` — KPIs et dashboards RH
-- `skills/juridique_ia/` — conformité RGPD / AI Act / non-discrimination
-- `skills/formateur_ia/` — montée en compétences des équipes RH sur l'IA
+## See also
+- `skills/rh_ia/cv-parsing-ats-scoring.md` — ATS scoring (AI Act high-risk)
+- `skills/rh_ia/people-analytics.md` — HR KPIs and dashboards
+- `skills/juridique_ia/` — GDPR / AI Act / non-discrimination compliance
+- `skills/formateur_ia/` — upskilling HR teams on AI

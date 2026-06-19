@@ -6,25 +6,45 @@
 
 ---
 
-## [Unreleased] — Documentation internationalization (FR → US English) — Category A
+## [Unreleased]
+> Nothing yet.
+
+---
+
+## [3.27.0] — 2026-06-19 — Documentation internationalization (FR → US English) — Categories A + B complete 🌐
 > Model: Claude Opus 4.8
 
 ### 🎯 Context
-First batch (Category A) of the FR → US English internationalization for the public showcase: translate all human-facing documentation. Goal is display, so validation is **static only** (no live runs, no token cost). Category C is never touched (IDs, file names, paths, schema keys, MCP tool names, commands).
+Milestone: the **entire public catalog is now in US English** — the FR → US English internationalization is complete for Category A (human-facing docs) and Category B (agent system prompts, skill bodies, workflow bodies). Goal is display ("US showcase"), so validation is **static only** (no live runs, no token cost). Category C is never touched (IDs, file names, paths, schema keys, `enum` values, MCP tool names, commands, model IDs).
 
-### 📝 Changed
-- Translated to US English: `README.md`, `docs/i18n_glossary.md`, `START.md`, `workflows/README.md`, `mcp-servers/README.md`, and the human-readable values of `mcp-servers/claude_code_settings.json`.
+### 📝 Changed — Category A (human-facing docs)
+- Translated to US English: `README.md`, `docs/i18n_glossary.md`, `START.md`, `workflows/README.md`, `mcp-servers/README.md`, project `CLAUDE.md`, and the human-readable values of `mcp-servers/claude_code_settings.json`.
 - **CHANGELOG language policy**: new entries are written in US English from this entry onward; earlier entries remain in French (frozen historical record).
 - Fixed stale install paths `claude-catalogue` → `claude-agents`; corrected agent count `32` → `38` in `workflows/README.md`; aligned WF-005 display name to "Strategic Watch & Growth" across files.
 - Fixed reversed `.gitignore` guidance for sensitive data (`mcp-servers/README.md`).
+
+### 📝 Changed — Category B (agent prompts · skills · workflows)
+- **All 38 agents + 37 skill folders + 10 workflow bodies translated to US English**, merged by cluster:
+  - **B1 — Development & Engineering** (16 agents + skills) — PR #4 (`1e09d42`).
+  - **B2 — Agile, Product & Quality** (11 agents + skills; 7 backbone sidecar descriptions in EN) — PR #5 (`072f233`).
+  - **B3 — Orchestration** (ORCHESTRATEUR-WORKFLOW + 16 skills) — PR #6 (`a3abf80`).
+  - **B4 — Management, Consulting & Content** (9 agents + skills; FINANCIAL-ANALYST & CHEF-PROJET-IA backbone descriptions in EN) — PR #7 (`54bd48f`).
+  - **B6 — Workflows** (10 WF bodies WF-001…010 + use_cases / briefs / outputs) — PR #8 (`59eb58c`).
+  - **B5 — HR & Talent** (AGENT-RH-IA + `skills/rh_ia/`, last French agent) — PR #9 (`fd3f684`).
+- **Agent language directive** `Toujours répondre en français` → **`Always respond in English`** across all agents.
+- Sidecar generator (`tools/generate-sidecar.mjs`) accepts both `**Domaine**` and `**Domain**` blockquote labels; agent blockquotes now use `> **Domain:**`.
+- Glossary applied consistently (`RGPD`→`GDPR`, `AIPD`→`DPIA`, `CODIR`→executive committee, `CDI/CDD`→permanent/fixed-term, `GEPP`→strategic workforce planning, …); French standards/laws kept as glossed proper nouns; legal article refs, EU regulation numbers, OWASP LLM IDs, model IDs (`claude-*`) preserved.
 
 ### 🔒 Privacy / hygiene
 - Redacted PII: replaced the personal email in `mcp-servers/claude_code_settings.json` with `<your-email>`.
 - Removed all mentions of the former company (default report author in `mcp-servers/mcp-confluence/server.ts`; `audits/CARTOGRAPHIE-SKILLS-CORE-MISSION.md`).
 
+### 🔧 Maintenance
+- Synced the vendored `schema/sidecar.schema.json` with the runtime SSOT (pre-existing description-only drift) — PR #10 (`816bb43`); `check:schema-drift` passes.
+
 ### Notes
-- Catalog counters unchanged (38 agents / 37 skills / 10 workflows / 3 MCP servers).
-- Out of scope (later lots): repo `CLAUDE.md` (Category A); Category B (agent prompts, workflow bodies). CHANGELOG history kept frozen.
+- Catalog counters unchanged (38 agents / 37 skills / 10 workflows / 3 MCP servers); per-file fence parity held; zero French residue (only legitimate category-C tokens and French proper nouns kept).
+- `sidecar.json` regenerated for the version bump (`v3.26.2` → `v3.27.0`); 14 backbone assets, schema + integrity valid. CHANGELOG history before this entry kept frozen in French.
 
 ---
 

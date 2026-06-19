@@ -1,189 +1,189 @@
-# Skill — CV Parsing & Scoring ATS
-> Certifications : SHRM-CP (SHRM) · PHR (HRCI) · ATD CPTD (ATD)
+# Skill — CV Parsing & ATS Scoring
+> Certifications: SHRM-CP (SHRM) · PHR (HRCI) · ATD CPTD (ATD)
 
-## Objectif
-Comprendre et optimiser la façon dont les ATS parsent, scorent et classent les CV — tant du côté recruteur (configuration des critères) que du côté candidat (optimisation du CV) — pour maximiser la qualité des matchings et éviter les faux positifs/négatifs.
+## Objective
+Understand and optimize how ATS parse, score, and rank CVs — both on the recruiter side (criteria configuration) and the candidate side (CV optimization) — to maximize matching quality and avoid false positives/negatives.
 
-## ⚖️ Conformité — Scoring ATS = système à HAUT RISQUE
+## ⚖️ Compliance — ATS scoring = HIGH-RISK system
 
-> Le scoring/filtrage automatisé de candidatures est **explicitement classé à haut risque**
-> par l'**AI Act (Règlement UE 2024/1689, art. 6 §2 + Annexe III pt 4 « Emploi »)**.
-> Obligations déployeur applicables au **2 août 2026**.
+> Automated scoring/filtering of applications is **explicitly classified high-risk**
+> by the **AI Act (EU Regulation 2024/1689, art. 6 §2 + Annex III pt 4 "Employment")**.
+> Deployer obligations apply from **2 August 2026**.
 
-- **Transparence** : informer le candidat de l'usage d'un outil automatisé (RGPD art. 22 + Code du travail **L1221-8** : information préalable des méthodes/techniques de recrutement, résultats confidentiels).
-- **Supervision humaine** : aucune décision de rejet purement automatisée — un recruteur valide (human-in-the-loop) ; droit du candidat à une intervention humaine (RGPD art. 22).
-- **Non-discrimination** : auditer les critères et les rejets pour biais indirect (Code du travail **L1132-1**) ; documenter.
-- **Minimisation & lien direct** : ne scorer que des critères ayant un **lien direct et nécessaire** avec le poste (Code du travail **L1221-6**).
-- **CNIL** : suivre le Guide du recrutement (information candidats, AIPD si traitement à risque).
+- **Transparency**: inform the candidate that an automated tool is used (GDPR art. 22 + French Labor Code **L1221-8**: prior disclosure of recruitment methods/techniques, results kept confidential).
+- **Human oversight**: no purely automated rejection decision — a recruiter validates (human-in-the-loop); candidate's right to human intervention (GDPR art. 22).
+- **Non-discrimination**: audit criteria and rejections for indirect bias (French Labor Code **L1132-1**); document it.
+- **Minimization & direct relevance**: only score criteria with a **direct and necessary link** to the role (French Labor Code **L1221-6**).
+- **CNIL**: follow the Recruitment guide (candidate disclosure, DPIA if high-risk processing).
 
-## Comment fonctionne le parsing ATS
+## How ATS parsing works
 
 ```
-PIPELINE DE TRAITEMENT D'UN CV PAR UN ATS
+CV PROCESSING PIPELINE IN AN ATS
 ──────────────────────────────────────────────────────
-ÉTAPE 1 — PARSING (extraction de données)
-  · Extraction structurée : nom, contact, dates, entreprises,
-    titres de postes, compétences, diplômes, langues
-  · Moteurs courants : Textkernel, Sovren/Affinda, RChilli
-  · Limites : PDF graphique (colonnes, tableaux) mal parsé
-              Infographies = données perdues
-              Polices non-standards = caractères corrompus
+STEP 1 — PARSING (data extraction)
+  · Structured extraction: name, contact, dates, companies,
+    job titles, skills, degrees, languages
+  · Common engines: Textkernel, Sovren/Affinda, RChilli
+  · Limits: graphical PDF (columns, tables) poorly parsed
+            Infographics = lost data
+            Non-standard fonts = corrupted characters
 
-ÉTAPE 2 — NORMALISATION
-  · "Dév. logiciel" → "Développeur logiciel" (stemming)
-  · "LLM" → lié à "Large Language Model", "IA générative"
-  · Dates normalisées : "depuis 2022" → 2022-présent
-  · Titres de postes mappés sur un référentiel standard
+STEP 2 — NORMALIZATION
+  · "Sw. dev." → "Software Developer" (stemming)
+  · "LLM" → linked to "Large Language Model", "generative AI"
+  · Dates normalized: "since 2022" → 2022-present
+  · Job titles mapped to a standard taxonomy
 
-ÉTAPE 3 — SCORING / MATCHING
-  · Comparaison avec les critères de l'offre (mots-clés, niveau, expérience)
-  · Score de 0-100% selon algorithme propre à chaque ATS
-  · Pondération possible : critères "must have" vs "nice to have"
-  · Certains ATS utilisent des modèles ML (Eightfold, Beamery)
+STEP 3 — SCORING / MATCHING
+  · Comparison with the job criteria (keywords, level, experience)
+  · Score of 0-100% per each ATS's own algorithm
+  · Possible weighting: "must have" vs "nice to have" criteria
+  · Some ATS use ML models (Eightfold, Beamery)
 
-ÉTAPE 4 — CLASSEMENT
-  · Tri automatique par score décroissant
-  · Filtres d'exclusion (ex : localisation, niveau d'expérience)
-  · Résultat : shortlist automatique visible par le recruteur
+STEP 4 — RANKING
+  · Automatic sort by descending score
+  · Exclusion filters (e.g. location, experience level)
+  · Result: automatic shortlist visible to the recruiter
 ```
 
-## Critères de scoring — Ce que l'ATS évalue
+## Scoring criteria — What the ATS evaluates
 
-> ⚠️ **Poids paramétrables, exemple de configuration** — chaque ATS et chaque offre définit
-> ses propres pondérations. Les valeurs ci-dessous sont un **point de départ illustratif**, pas
-> un standard de marché. Veiller à ce que chaque critère ait un lien direct avec le poste (L1221-6).
+> ⚠️ **Configurable weights, example configuration** — each ATS and each job sets its own
+> weightings. The values below are an **illustrative starting point**, not a market standard.
+> Make sure each criterion has a direct link to the role (L1221-6).
 
-| Critère ATS | Poids exemple | Optimisation |
+| ATS criterion | Example weight | Optimization |
 |---|---|---|
-| Mots-clés techniques (stack) | 30-40% | Utiliser les termes exacts de l'offre |
-| Intitulé de poste | 20-25% | Aligner avec le titre cible |
-| Années d'expérience | 15-20% | Indiquer clairement les durées |
-| Diplôme / niveau d'études | 10-15% | Orthographe officielle de l'école |
-| Localisation | 5-10% | Ville précise ou mention "Remote" |
-| Certifications | 5-10% | Nom exact de la certification |
+| Technical keywords (stack) | 30-40% | Use the exact terms from the posting |
+| Job title | 20-25% | Align with the target title |
+| Years of experience | 15-20% | State durations clearly |
+| Degree / education level | 10-15% | Official spelling of the school |
+| Location | 5-10% | Precise city or "Remote" mention |
+| Certifications | 5-10% | Exact certification name |
 
-## Formats CV compatibles ATS
+## ATS-compatible CV formats
 
 ```
-FORMATS RECOMMANDÉS (parsing optimal)
+RECOMMENDED FORMATS (optimal parsing)
 ──────────────────────────────────────────────────────
-✓ PDF texte natif (généré depuis Word/Google Docs → Enregistrer PDF)
+✓ Native-text PDF (generated from Word/Google Docs → Save as PDF)
 ✓ DOCX / DOC (Microsoft Word)
-✓ Structure linéaire : une colonne, sans tableau
-✓ Polices standards : Arial, Calibri, Times New Roman, Helvetica
-✓ Sections clairement nommées : "Expériences", "Compétences", "Formation"
-✓ Dates au format cohérent : MM/AAAA ou AAAA
+✓ Linear structure: single column, no tables
+✓ Standard fonts: Arial, Calibri, Times New Roman, Helvetica
+✓ Clearly named sections: "Experience", "Skills", "Education"
+✓ Consistent date format: MM/YYYY or YYYY
 
-FORMATS À ÉVITER
+FORMATS TO AVOID
 ──────────────────────────────────────────────────────
-✗ PDF image (scan) → texte non lisible par ATS
-✗ CV en colonnes multiples ou tableaux complexes → parsing aléatoire
-✗ Infographies / icônes pour compétences → données perdues
-✗ En-têtes / pieds de page pour informations clés → souvent ignorés
-✗ Polices décoratives, logos intégrés
-✗ Fichiers JPEG, PNG, PowerPoint
+✗ Image PDF (scan) → text not readable by ATS
+✗ Multi-column CVs or complex tables → erratic parsing
+✗ Infographics / icons for skills → lost data
+✗ Headers / footers for key information → often ignored
+✗ Decorative fonts, embedded logos
+✗ JPEG, PNG, PowerPoint files
 ```
 
-## Optimisation CV pour ATS — Checklist recruteur
+## CV optimization for ATS — Recruiter checklist
 
 ```
-CONFIGURATION CÔTÉ RECRUTEUR (paramétrage ATS)
+RECRUITER-SIDE CONFIGURATION (ATS setup)
 ──────────────────────────────────────────────────────
-□ Définir les mots-clés "must have" (éliminatoires) séparément
-  des "nice to have" (valorisants)
-□ Éviter les critères trop restrictifs (ex : "5 ans d'expérience sur X"
-  pour une techno récente de 3 ans)
-□ Prévoir des synonymes : "React" / "ReactJS" / "React.js"
-□ Pondérer l'expérience sectorielle vs compétence pure
-□ Tester le scoring sur 5 CV "modèles" avant activation
-□ Revoir les seuils d'exclusion (risque de discrimination indirecte)
-□ Auditer mensuellement les CV rejetés automatiquement (biais ATS)
+□ Define "must have" keywords (knockout) separately
+  from "nice to have" (bonus)
+□ Avoid overly restrictive criteria (e.g. "5 years on X"
+  for a tech only 3 years old)
+□ Plan for synonyms: "React" / "ReactJS" / "React.js"
+□ Weight sector experience vs pure skill
+□ Test scoring on 5 "model" CVs before activation
+□ Review exclusion thresholds (indirect-discrimination risk)
+□ Monthly audit of automatically rejected CVs (ATS bias)
 
-OPTIMISATION CÔTÉ CANDIDAT (conseil aux candidats sourcés)
+CANDIDATE-SIDE OPTIMIZATION (advice to sourced candidates)
 ──────────────────────────────────────────────────────
-□ Reprendre les mots-clés exacts de l'offre dans le CV
-□ Section "Compétences techniques" dédiée et lisible (pas d'icônes)
-□ Titre de CV = intitulé du poste visé ou proche
-□ Chaque mission : titre exact + dates + entreprise + 3-5 bullets
-□ Certifications : nom complet + organisme + année
-□ Sauvegarder en PDF texte natif (pas de scan)
+□ Reuse the exact keywords from the posting in the CV
+□ Dedicated, readable "Technical skills" section (no icons)
+□ CV title = target job title or close to it
+□ Each role: exact title + dates + company + 3-5 bullets
+□ Certifications: full name + issuing body + year
+□ Save as native-text PDF (no scan)
 ```
 
-## Diagnostic ATS — Taux de parsing par ATS populaires
+## ATS diagnostics — Parsing rate by popular ATS
 
-| ATS | Parsing FR | Score IA | Points faibles |
+| ATS | FR parsing | AI score | Weaknesses |
 |---|---|---|---|
-| **Greenhouse** | ★★★★☆ | Basique | CV complexes mal parsés |
-| **Lever** | ★★★★☆ | Moyen | Titres de postes non-standards |
-| **SmartRecruiters** | ★★★★★ | Avancé | Configuration requiert du temps |
-| **Workable** | ★★★☆☆ | Basique | Limites sur PDF graphiques |
-| **Eightfold AI** | ★★★★★ | ML avancé | Coût élevé |
-| **Recruitee** | ★★★☆☆ | Basique | Peu adapté aux profils tech pointus |
-| **Talentsoft (CSOD)** | ★★★☆☆ | Moyen | ATS legacy, parsing daté |
+| **Greenhouse** | ★★★★☆ | Basic | Complex CVs poorly parsed |
+| **Lever** | ★★★★☆ | Medium | Non-standard job titles |
+| **SmartRecruiters** | ★★★★★ | Advanced | Configuration takes time |
+| **Workable** | ★★★☆☆ | Basic | Limits on graphical PDFs |
+| **Eightfold AI** | ★★★★★ | Advanced ML | High cost |
+| **Recruitee** | ★★★☆☆ | Basic | Not well-suited to highly specialized tech profiles |
+| **Talentsoft (CSOD)** | ★★★☆☆ | Medium | Legacy ATS, dated parsing |
 
-## Outils de test ATS
+## ATS testing tools
 
-| Outil | Usage | Prix |
+| Tool | Use | Price |
 |---|---|---|
-| **Jobscan** | Scanner un CV vs une offre, score ATS simulé | abonnement mensuel |
-| **Resume Worded** | Analyse CV + score ATS + recommandations | abonnement mensuel |
-| **SkillSyncer** | Matching CV ↔ offre (mots-clés manquants) | Gratuit (limité) + payant |
-| **Rezi.ai** | Rédaction CV optimisé ATS par IA | abonnement mensuel |
-| **EnhanCV** | Analyse compatibilité ATS + score | abonnement mensuel |
+| **Jobscan** | Scan a CV vs a posting, simulated ATS score | monthly subscription |
+| **Resume Worded** | CV analysis + ATS score + recommendations | monthly subscription |
+| **SkillSyncer** | CV ↔ posting matching (missing keywords) | Free (limited) + paid |
+| **Rezi.ai** | AI-optimized ATS CV writing | monthly subscription |
+| **EnhanCV** | ATS compatibility analysis + score | monthly subscription |
 
-> Tarifs indicatifs en abonnement (ordre de grandeur ~15-30 $/mois) — à vérifier sur le site de chaque éditeur.
+> Indicative subscription pricing (order of magnitude ~$15-30/month) — verify on each vendor's site.
 
-## Détection CV sur-optimisés pour ATS (fraude keyword stuffing)
+## Detecting CVs over-optimized for ATS (keyword-stuffing fraud)
 
 ```
-SIGNAUX D'UN CV KEYWORD-STUFFED
+SIGNALS OF A KEYWORD-STUFFED CV
 ──────────────────────────────────────────────────────
-· Section "Compétences" avec 30+ technologies listées sans contexte
-· Mots-clés en police blanche sur fond blanc (technique old-school)
-· Répétition des mots-clés de l'offre dans chaque bullet sans nuance
-· Expériences très génériques : "Travail sur Python, SQL, AWS, Docker..."
-  sans projet concret ni résultat mesurable
-· Score ATS élevé (90%) mais entretien très faible
+· "Skills" section with 30+ technologies listed without context
+· Keywords in white font on white background (old-school trick)
+· Repetition of the posting's keywords in every bullet without nuance
+· Very generic experience: "Worked on Python, SQL, AWS, Docker..."
+  with no concrete project or measurable result
+· High ATS score (90%) but very weak interview
 
-ACTION : Toujours compléter le score ATS par un test technique
-         avant de valider un profil en shortlist
+ACTION: Always complement the ATS score with a technical test
+        before validating a profile into the shortlist
 ```
 
-## Workflow ATS recommandé — Recrutement IT/IA
+## Recommended ATS workflow — IT/AI recruitment
 
 ```
-J0   → Ouverture poste : saisie critères ATS (must have / nice to have)
-J1-5 → Réception candidatures : parsing automatique, scoring ATS
-J5   → Revue humaine : valider/invalider top 20% du scoring
-J6-8 → Qualification RH : appel 15 min (grille cf. recrutement-sourcing-it)
-J8+  → Shortlist 3-5 profils : entretien technique + scorecard
-→ Feedback ATS : ajuster critères si shortlist insuffisante ou non qualitative
+D0   → Role opening: enter ATS criteria (must have / nice to have)
+D1-5 → Incoming applications: automatic parsing, ATS scoring
+D5   → Human review: validate/reject top 20% of the scoring
+D6-8 → HR qualification: 15-min call (grid: see recrutement-sourcing-it)
+D8+  → Shortlist 3-5 profiles: technical interview + scorecard
+→ ATS feedback: adjust criteria if the shortlist is insufficient or low-quality
 ```
 
-## Livrables
-- Audit configuration ATS actuelle du client (scoring, filtres, mots-clés)
-- Recommandations d'optimisation des critères de matching
-- Guide candidats : 1 page "Comment optimiser votre CV pour notre ATS"
-- Rapport mensuel : taux de faux positifs/négatifs ATS détectés
+## Deliverables
+- Audit of the client's current ATS configuration (scoring, filters, keywords)
+- Recommendations to optimize matching criteria
+- Candidate guide: 1-page "How to optimize your CV for our ATS"
+- Monthly report: ATS false positive/negative rates detected
 
-## Format de sortie
-Précise : ATS utilisé (ou à sélectionner), volume de candidatures mensuel, profils tech principaux recrutés, problème identifié (trop de CV rejetés / trop de CV non pertinents passent / scoring incohérent).
+## Output format
+Specify: ATS used (or to select), monthly application volume, main tech profiles recruited, problem identified (too many CVs rejected / too many irrelevant CVs passing / inconsistent scoring).
 
 ## Anti-patterns
-- ❌ Rejet automatique de candidatures sans revue humaine (interdit pour un système haut risque + RGPD art. 22).
-- ❌ Critères de scoring sans lien direct avec le poste (L1221-6) ou potentiellement discriminants (L1132-1).
-- ❌ Ne pas informer le candidat de l'usage d'un outil automatisé (L1221-8, transparence AI Act).
-- ❌ Ne jamais auditer les CV rejetés → biais ATS invisibles qui s'accumulent.
-- ❌ Présenter les poids de critères comme un standard de marché chiffré et figé.
+- ❌ Automatic rejection of applications without human review (forbidden for a high-risk system + GDPR art. 22).
+- ❌ Scoring criteria with no direct link to the role (L1221-6) or potentially discriminatory (L1132-1).
+- ❌ Failing to inform the candidate that an automated tool is used (L1221-8, AI Act transparency).
+- ❌ Never auditing rejected CVs → invisible ATS biases that accumulate.
+- ❌ Presenting criterion weights as a fixed, quantified market standard.
 
 ## Sources
-- Règlement UE 2024/1689 (AI Act) — art. 6 §2 + Annexe III pt 4 (emploi, haut risque) — artificialintelligenceact.eu
-- RGPD UE 2016/679 — art. 22 (décision automatisée) — cnil.fr
-- Code du travail — L1132-1 (non-discrimination), L1221-6 (lien direct/bonne foi), L1221-8 (information préalable) — legifrance.gouv.fr
-- CNIL — Guide du recrutement (information candidats, AIPD) — cnil.fr/fr/le-guide-du-recrutement
+- EU Regulation 2024/1689 (AI Act) — art. 6 §2 + Annex III pt 4 (employment, high-risk) — artificialintelligenceact.eu
+- GDPR EU 2016/679 — art. 22 (automated decision) — cnil.fr
+- French Labor Code — L1132-1 (non-discrimination), L1221-6 (direct link/good faith), L1221-8 (prior disclosure) — legifrance.gouv.fr
+- CNIL — Recruitment guide (candidate disclosure, DPIA) — cnil.fr/fr/le-guide-du-recrutement
 
-## Voir aussi
-- `skills/rh_ia/detection-fraude-cv-profils.md` — détection keyword stuffing / CV générés par IA
-- `skills/rh_ia/recrutement-sourcing-it.md` — qualification humaine post-scoring
-- `skills/rh_ia/transformation-rh-ia.md` — cadre éthique et conformité ATS IA
-- `skills/juridique_ia/` — conformité AI Act / RGPD / non-discrimination
+## See also
+- `skills/rh_ia/detection-fraude-cv-profils.md` — detecting keyword stuffing / AI-generated CVs
+- `skills/rh_ia/recrutement-sourcing-it.md` — human qualification after scoring
+- `skills/rh_ia/transformation-rh-ia.md` — ethics framework and AI ATS compliance
+- `skills/juridique_ia/` — AI Act / GDPR / non-discrimination compliance

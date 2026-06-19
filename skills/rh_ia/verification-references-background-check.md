@@ -1,181 +1,181 @@
-# Skill — Vérification de Références & Background Check
-> Certifications : PHR (HRCI) · SHRM-CP (SHRM) · CIPD Level 5 (CIPD)
+# Skill — Reference Checks & Background Check
+> Certifications: PHR (HRCI) · SHRM-CP (SHRM) · CIPD Level 5 (CIPD)
 
-## Objectif
-Structurer et exécuter la vérification des références professionnelles et les background checks dans le cadre légal français, pour confirmer l'authenticité du parcours candidat avant l'embauche ou le démarrage d'une mission.
+## Objective
+Structure and run professional reference checks and background checks within the French legal framework, to confirm the authenticity of a candidate's background before hiring or starting an engagement.
 
-## Cadre légal France — Background Check
+## French legal framework — Background Check
 
 ```
-CE QUI EST LÉGAL (avec accord candidat)
+WHAT IS LEGAL (with candidate consent)
 ──────────────────────────────────────────────────────
-✓ Vérification des diplômes (auprès des établissements)
-✓ Vérification de l'identité (pièce d'identité)
-✓ Appels de références professionnelles (avec accord préalable)
-✓ Casier judiciaire B3 (uniquement si poste l'exige légalement :
-   éducation, sécurité, finance réglementée — article L133-6 CASF)
-✓ Vérification d'existence d'entreprise (SIREN/SIRET public)
-✓ Vérification habilitation / certification (ex : AWS, Anthropic)
+✓ Degree verification (with the institutions)
+✓ Identity verification (ID document)
+✓ Professional reference calls (with prior consent)
+✓ B3 criminal record (only if the role legally requires it:
+   education, security, regulated finance — article L133-6 CASF)
+✓ Company-existence check (public SIREN/SIRET)
+✓ Credential / certification check (e.g. AWS, Anthropic)
 
-CE QUI EST ILLÉGAL
+WHAT IS ILLEGAL
 ──────────────────────────────────────────────────────
-✗ Consultation des réseaux sociaux personnels sans accord
-✗ Demande de casier B2 (réservé à la justice)
-✗ Questions sur vie privée, état de santé, situation familiale
-✗ Vérification de solvabilité sauf postes financiers spécifiques
-✗ Références sans accord écrit préalable du candidat
-✗ Vérification antécédents judiciaires non liés au poste
+✗ Checking personal social media without consent
+✗ Requesting the B2 record (reserved for the judiciary)
+✗ Questions about private life, health, family situation
+✗ Creditworthiness checks except specific finance roles
+✗ References without the candidate's prior written consent
+✗ Criminal-history checks unrelated to the role
 
-BASE RGPD & CODE DU TRAVAIL
+GDPR & LABOR CODE BASIS
 ──────────────────────────────────────────────────────
-· Consentement explicite requis avant tout background check
-· Données collectées = strictement nécessaires au poste (lien direct, L1221-6)
-· Information préalable du candidat sur les méthodes de vérification (L1221-8) ;
-  résultats confidentiels et non communiqués à des tiers non autorisés
-· Pas de collecte par un dispositif non porté à sa connaissance (L1221-9)
-· Durée de conservation : 2 ans max (candidature non retenue)
-· Droit d'accès et de rectification du candidat garanti
+· Explicit consent required before any background check
+· Data collected = strictly necessary for the role (direct link, L1221-6)
+· Prior disclosure to the candidate of verification methods (L1221-8);
+  results confidential and not shared with unauthorized third parties
+· No collection via a device not disclosed to them (L1221-9)
+· Retention period: 2 years max (unsuccessful application)
+· Candidate's right of access and rectification guaranteed
 ```
 
-## Script d'appel de référence — Structure 15 min
+## Reference-call script — 15-min structure
 
 ```
 INTRODUCTION (2 min)
 ──────────────────────────────────────────────────────
-"Bonjour [Prénom], je suis [Nom] de [Cabinet/Entreprise].
-[Candidat X] nous a donné vos coordonnées comme référence pour
-un poste de [intitulé]. Avez-vous 10-15 minutes pour répondre
-à quelques questions ? Vos réponses resteront confidentielles."
+"Hello [First name], I'm [Name] from [Firm/Company].
+[Candidate X] gave us your details as a reference for
+a [title] role. Do you have 10-15 minutes to answer
+a few questions? Your answers will remain confidential."
 
-QUESTIONS DE CONTEXTE (3 min)
+CONTEXT QUESTIONS (3 min)
 ──────────────────────────────────────────────────────
-1. "Quelle était votre relation avec [candidat] ? Manager direct ?"
-2. "Sur quelle période avez-vous travaillé ensemble ?"
-3. "Quel était son rôle exact dans votre équipe ?"
+1. "What was your relationship with [candidate]? Direct manager?"
+2. "Over what period did you work together?"
+3. "What was their exact role in your team?"
 
-QUESTIONS DE FOND (8 min)
+SUBSTANTIVE QUESTIONS (8 min)
 ──────────────────────────────────────────────────────
-4. "Comment décririez-vous ses compétences techniques sur [stack] ?"
-5. "Sur quels projets l'avez-vous vu performer ? Résultats concrets ?"
-6. "Comment gérait-il/elle les situations de pression ou d'imprévus ?"
-7. "Quelle est sa plus grande force ? Son principal axe de progression ?"
-8. "Le/La réembaucheriez-vous si l'occasion se présentait ? Pourquoi ?"
+4. "How would you describe their technical skills on [stack]?"
+5. "On which projects did you see them perform? Concrete results?"
+6. "How did they handle pressure or unexpected situations?"
+7. "What is their greatest strength? Their main area for growth?"
+8. "Would you rehire them if the chance arose? Why?"
 
-QUESTION CLÔTURE (2 min)
+CLOSING QUESTION (2 min)
 ──────────────────────────────────────────────────────
-9. "Y a-t-il quelque chose d'important que je devrais savoir
-    sur sa façon de travailler que nous n'avons pas abordé ?"
+9. "Is there anything important I should know
+    about how they work that we haven't covered?"
 ```
 
-## Grille de notation référence
+## Reference scoring grid
 
-| Critère | Score (1-5) | Commentaire |
+| Criterion | Score (1-5) | Comment |
 |---|---|---|
-| Confirmation du poste et des dates | | |
-| Niveau de compétence technique décrit | | |
-| Qualité de la collaboration / travail d'équipe | | |
-| Fiabilité et autonomie | | |
-| Ferait-il/elle la même embauche ? | | |
-| **Moyenne** | **/5** | |
+| Confirmation of role and dates | | |
+| Level of technical skill described | | |
+| Quality of collaboration / teamwork | | |
+| Reliability and autonomy | | |
+| Would they make the same hire again? | | |
+| **Average** | **/5** | |
 
 ```
-INTERPRÉTATION
+INTERPRETATION
 ──────────────────────────────────────────────────────
-≥ 4.0 / 5  → Référence très positive — renforce le Go
-3.0 - 3.9  → Référence neutre — creuser avec une 2e référence
-< 3.0      → Signal négatif — escalader au client avant décision
-Refus de référence → signal d'alerte à documenter
+≥ 4.0 / 5  → Very positive reference — strengthens the Go
+3.0 - 3.9  → Neutral reference — dig deeper with a 2nd reference
+< 3.0      → Negative signal — escalate to the client before deciding
+Reference declined → warning signal to document
 ```
 
-## Vérification des diplômes
+## Degree verification
 
 ```
-MÉTHODES DE VÉRIFICATION
+VERIFICATION METHODS
 ──────────────────────────────────────────────────────
 FRANCE
-  · Grandes écoles / universités : contacter la scolarité directement
-  · RNCP : recherche sur France Compétences (francecompetences.fr)
-  · Certifications pro : vérification sur site émetteur
-    (AWS : aws.amazon.com/verification, Google : skillshop, Anthropic...)
-  · BAC + diplômes natifs : vérification AIFE (espace sécurisé)
+  · Grandes écoles / universities: contact the registrar directly
+  · RNCP: search on France Compétences (francecompetences.fr)
+  · Professional certifications: verify on the issuer's site
+    (AWS: aws.amazon.com/verification, Google: skillshop, Anthropic...)
+  · Baccalauréat + national diplomas: AIFE verification (secure portal)
 
 INTERNATIONAL
-  · Diplômes étrangers : ENIC-NARIC France (reconnaissance)
-  · Vérification via prestataires : Veriff, Kroll, HireRight
+  · Foreign diplomas: ENIC-NARIC France (recognition)
+  · Verification via providers: Veriff, Kroll, HireRight
 
-CERTIFICATIONS IT/IA (vérification directe)
-  · AWS Certified : verify.aws.training
-  · Google Cloud : partner.cloudskillsboost.google
-  · Anthropic (Claude) : certificat PDF vérifiable
-  · PMI (PMP, CAPM) : ccrs.pmi.org
-  · Scrum (PSM, PSPO) : scrum.org/user/verify
-  · SAFe : scaledagile.com/verify-certificate
+IT/AI CERTIFICATIONS (direct verification)
+  · AWS Certified: verify.aws.training
+  · Google Cloud: partner.cloudskillsboost.google
+  · Anthropic (Claude): verifiable PDF certificate
+  · PMI (PMP, CAPM): ccrs.pmi.org
+  · Scrum (PSM, PSPO): scrum.org/user/verify
+  · SAFe: scaledagile.com/verify-certificate
 ```
 
-## Background Check — Prestataires
+## Background Check — Providers
 
-| Prestataire | Périmètre | Prix indicatif | Délai |
+| Provider | Scope | Indicative price | Turnaround |
 |---|---|---|---|
-| **Veriff** | Identité + liveness check | au check (faible coût unitaire) | Immédiat |
-| **Persona** | Identité + documents | au check (faible coût unitaire) | Immédiat |
-| **Kroll** | Full background (diplômes, références, casier) | au dossier (sur devis) | 5-10j |
-| **HireRight** | International background check | au dossier (sur devis) | 3-7j |
-| **Preventeo** | France : casier B3, diplômes, références | au dossier (sur devis) | 3-5j |
-| **Certn** | Europe + international | au dossier (sur devis) | 2-5j |
+| **Veriff** | Identity + liveness check | per check (low unit cost) | Immediate |
+| **Persona** | Identity + documents | per check (low unit cost) | Immediate |
+| **Kroll** | Full background (degrees, references, criminal record) | per case (custom quote) | 5-10 days |
+| **HireRight** | International background check | per case (custom quote) | 3-7 days |
+| **Preventeo** | France: B3 record, degrees, references | per case (custom quote) | 3-5 days |
+| **Certn** | Europe + international | per case (custom quote) | 2-5 days |
 
-> Tarifs et délais indicatifs (ordres de grandeur), à confirmer auprès de chaque prestataire au moment du cadrage.
+> Indicative pricing and turnaround (orders of magnitude), to confirm with each provider at scoping time.
 
-## Checklist background check — Par niveau de poste
+## Background-check checklist — By role level
 
 ```
-POSTE STANDARD (développeur, analyste, PO)
+STANDARD ROLE (developer, analyst, PO)
 ──────────────────────────────────────────────────────
-□ Vérification identité (pièce d'identité)
-□ 2 références professionnelles (managers directs)
-□ Vérification diplôme principal
-□ Cohérence CV ↔ LinkedIn ↔ déclarations entretien
+□ Identity verification (ID document)
+□ 2 professional references (direct managers)
+□ Main degree verification
+□ Consistency CV ↔ LinkedIn ↔ interview statements
 
-POSTE SENSIBLE (accès données clients, finance, RH)
+SENSITIVE ROLE (client data access, finance, HR)
 ──────────────────────────────────────────────────────
-□ Tout niveau standard +
-□ Vérification casier B3 (si légalement applicable)
-□ Vérification identité niveau 2 (Veriff/Persona)
-□ 3 références + appel employeur précédent
-□ Vérification certifications critiques
+□ Everything in standard +
+□ B3 record check (if legally applicable)
+□ Level-2 identity verification (Veriff/Persona)
+□ 3 references + call to previous employer
+□ Verification of critical certifications
 
-POSTE DIRECTION / LEAD / CTO
+DIRECTOR / LEAD / CTO ROLE
 ──────────────────────────────────────────────────────
-□ Tout niveau sensible +
-□ Background check complet (Kroll / HireRight)
-□ Vérification mandats sociaux (Infogreffe)
-□ Vérification publications / prise de parole publique
-□ Référence C-level si disponible
+□ Everything in sensitive +
+□ Full background check (Kroll / HireRight)
+□ Verification of corporate offices held (Infogreffe)
+□ Verification of publications / public speaking
+□ C-level reference if available
 ```
 
-## Livrables
-- Compte-rendu d'appel de référence (structuré, horodaté)
-- Rapport de vérification diplômes et certifications
-- Rapport background check complet (si applicable)
-- Synthèse Go / Go conditionnel / No-Go avec justification documentée
+## Deliverables
+- Reference-call write-up (structured, timestamped)
+- Degree and certification verification report
+- Full background-check report (if applicable)
+- Go / Conditional Go / No-Go summary with documented justification
 
-## Format de sortie
-Précise : nom du candidat, poste visé, niveau de poste (standard / sensible / direction), coordonnées des référents fournis, diplômes à vérifier, certifications déclarées, délai requis pour la décision.
+## Output format
+Specify: candidate name, target role, role level (standard / sensitive / director), contact details of the references provided, degrees to verify, declared certifications, deadline required for the decision.
 
 ## Anti-patterns
-- ❌ Lancer un background check sans consentement explicite préalable du candidat.
-- ❌ Appeler une référence non fournie/non autorisée par le candidat (ex. employeur actuel à son insu).
-- ❌ Vérifier des éléments sans lien direct avec le poste (L1221-6) ou relevant de la vie privée.
-- ❌ Demander un casier B2 (réservé à la justice) ou B3 hors cas légalement prévu (L133-6 CASF).
-- ❌ Communiquer les résultats de vérification à des tiers non autorisés (confidentialité, L1221-8).
+- ❌ Launch a background check without the candidate's explicit prior consent.
+- ❌ Call a reference not provided/authorized by the candidate (e.g. current employer without their knowledge).
+- ❌ Verify items with no direct link to the role (L1221-6) or pertaining to private life.
+- ❌ Request a B2 record (reserved for the judiciary) or B3 outside the legally provided cases (L133-6 CASF).
+- ❌ Share verification results with unauthorized third parties (confidentiality, L1221-8).
 
 ## Sources
-- Code du travail — L1221-6 (lien direct/bonne foi), L1221-8 (information préalable, confidentialité), L1221-9 (dispositif porté à connaissance) — legifrance.gouv.fr
-- Code de l'action sociale et des familles — L133-6 (casier B3, postes au contact de mineurs/publics vulnérables) — legifrance.gouv.fr
-- CNIL — Guide du recrutement (proportionnalité, consentement, conservation) — cnil.fr/fr/le-guide-du-recrutement
-- ENIC-NARIC France — reconnaissance des diplômes étrangers — enic-naric.fr · France Compétences (RNCP) — francecompetences.fr
+- French Labor Code — L1221-6 (direct link/good faith), L1221-8 (prior disclosure, confidentiality), L1221-9 (disclosed device) — legifrance.gouv.fr
+- French Social Action and Families Code — L133-6 (B3 record, roles in contact with minors/vulnerable groups) — legifrance.gouv.fr
+- CNIL — Recruitment guide (proportionality, consent, retention) — cnil.fr/fr/le-guide-du-recrutement
+- ENIC-NARIC France — recognition of foreign diplomas — enic-naric.fr · France Compétences (RNCP) — francecompetences.fr
 
-## Voir aussi
-- `skills/rh_ia/detection-fraude-cv-profils.md` — détection des incohérences en amont
-- `skills/rh_ia/detection-deepfake-entretien.md` — vérification d'identité en entretien
-- `skills/rh_ia/evaluation-profils-techniques.md` — évaluation des compétences
-- `skills/juridique_ia/` — cadre légal RGPD / vie privée du candidat
+## See also
+- `skills/rh_ia/detection-fraude-cv-profils.md` — detecting inconsistencies upstream
+- `skills/rh_ia/detection-deepfake-entretien.md` — identity verification during the interview
+- `skills/rh_ia/evaluation-profils-techniques.md` — skills assessment
+- `skills/juridique_ia/` — GDPR legal framework / candidate privacy

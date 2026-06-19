@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:claude-agents:sidecar:1.0.0",
   "title": "claude-agents sidecar manifest",
-  "description": "Index machine-lisible du catalogue claude-agents (ADR-0003). Encode de façon EXÉCUTABLE 5 caractéristiques ISO/IEC 25012 (ADR-0006) : complétude, cohérence, crédibilité, actualité + exactitude/accessibilité bien-formées. L'exactitude référentielle (dependsOn -> id existants) et l'accessibilité réelle (joignabilité de path) sont vérifiées par tests complémentaires, hors portée d'un JSON Schema.",
+  "description": "Index machine-lisible du catalogue claude-agents (ADR-0003). Encode de façon EXÉCUTABLE les 7 caractéristiques ISO/IEC 25012 retenues (ADR-0006) : 5 portées PLEINEMENT par ce schéma — complétude, cohérence, crédibilité, actualité, conformité (enum `type`) — plus 2 AMORCÉES ici par bien-formation (exactitude via `id` bien-formé, accessibilité via `path`/`source.file` anti-traversal) puis COMPLÉTÉES par des contrôles d'intégrité hors portée d'un JSON Schema (exactitude : référentielle dependsOn -> id existants + unicité des id ; accessibilité : joignabilité réelle de path). Cf. src/sidecar/integrity.ts. NB : la décomposition « 5 schéma + 2 intégrité » antérieure était inexacte (conformité omise, exactitude/accessibilité réparties) — corrigée suite à l'audit qualité ISO v1.",
   "type": "object",
   "additionalProperties": false,
   "required": ["schemaVersion", "catalog", "generatedAt", "assets"],

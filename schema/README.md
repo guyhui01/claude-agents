@@ -1,22 +1,22 @@
-# schema/ — contrat du sidecar (miroir vendoré)
+# schema/ — sidecar contract (vendored mirror)
 
-`sidecar.schema.json` est une **copie épinglée** (schemaVersion `1.0.0`) du schéma de
-référence dont la **source de vérité (SSOT) est le runtime** :
+`sidecar.schema.json` is a **pinned copy** (schemaVersion `1.0.0`) of the reference
+schema whose **single source of truth (SSOT) is the runtime**:
 `claude-agentic-runtime/schema/sidecar.schema.json`.
 
-## Pourquoi une copie ?
+## Why a copy?
 
-- **ADR-0003** : le générateur de sidecar et sa **validation en CI appartiennent au
-  catalogue** ; le runtime ne fait que **lire** le sidecar. Pour valider en CI côté
-  catalogue sans dépendre d'un checkout du runtime, le contrat est vendoré ici.
-- **Invariant** : ce fichier ne doit **jamais** être modifié indépendamment du runtime.
-  Il est le contrat, pas une variante. Toute évolution part du runtime, puis est
-  répercutée ici.
+- **ADR-0003**: the sidecar generator and its **CI validation belong to the
+  catalog**; the runtime only **reads** the sidecar. To validate in the catalog's CI
+  without depending on a runtime checkout, the contract is vendored here.
+- **Invariant**: this file must **never** be modified independently of the runtime.
+  It is the contract, not a variant. Any change starts in the runtime, then is
+  propagated here.
 
-## Garde anti-dérive
+## Drift guard
 
-`npm run check:schema-drift` compare cette copie au schéma du runtime (résolu en
-sibling `../claude-agentic-runtime/` ou via `RUNTIME_SCHEMA_PATH`). Si les deux
-divergent, la commande échoue. Si le runtime est introuvable (repos non côte à côte,
-ex. CI isolée du catalogue), la vérification est **ignorée proprement** (exit 0) et
-signalée — la validation du sidecar lui-même reste, elle, toujours active.
+`npm run check:schema-drift` compares this copy to the runtime schema (resolved as
+the sibling `../claude-agentic-runtime/` or via `RUNTIME_SCHEMA_PATH`). If the two
+diverge, the command fails. If the runtime is not found (repos not side by side,
+e.g. CI isolated from the catalog), the check is **cleanly skipped** (exit 0) and
+reported — the sidecar's own validation, however, stays always active.

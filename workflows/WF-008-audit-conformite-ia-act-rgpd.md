@@ -9,7 +9,7 @@
 
 ```yaml
 id: "WF-008"
-nom: "Audit conformité IA Act / RGPD"
+nom: "AI Act / GDPR Compliance Audit"
 domaine: "Compliance & Governance"
 declencheur: "Request for a compliance audit of an AI system (production or project) — regulatory pressure, CNIL/AI Office inspection, M&A due diligence"
 resultat_final: "Compliance audit report + risk mapping + prioritized remediation plan + target governance"

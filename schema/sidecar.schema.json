@@ -2,13 +2,13 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:claude-agents:sidecar:1.0.0",
   "title": "claude-agents sidecar manifest",
-  "description": "Index machine-lisible du catalogue claude-agents (ADR-0003). Encode de façon EXÉCUTABLE les 7 caractéristiques ISO/IEC 25012 retenues (ADR-0006) : 5 portées PLEINEMENT par ce schéma — complétude, cohérence, crédibilité, actualité, conformité (enum `type`) — plus 2 AMORCÉES ici par bien-formation (exactitude via `id` bien-formé, accessibilité via `path`/`source.file` anti-traversal) puis COMPLÉTÉES par des contrôles d'intégrité hors portée d'un JSON Schema (exactitude : référentielle dependsOn -> id existants + unicité des id ; accessibilité : joignabilité réelle de path). Cf. src/sidecar/integrity.ts. NB : la décomposition « 5 schéma + 2 intégrité » antérieure était inexacte (conformité omise, exactitude/accessibilité réparties) — corrigée suite à l'audit qualité ISO v1.",
+  "description": "Machine-readable index of the claude-agents catalog (ADR-0003). EXECUTABLY encodes the 7 retained ISO/IEC 25012 characteristics (ADR-0006): 5 FULLY covered by this schema — completeness, consistency, credibility, currency, compliance (enum `type`) — plus 2 SEEDED here through well-formedness (accuracy via a well-formed `id`, accessibility via anti-traversal `path`/`source.file`) then COMPLETED by integrity checks out of a JSON Schema's reach (accuracy: referential dependsOn -> existing ids + id uniqueness; accessibility: real reachability of path). See src/sidecar/integrity.ts. NB: the earlier '5 schema + 2 integrity' breakdown was inaccurate (compliance omitted, accuracy/accessibility split apart) — corrected following the ISO v1 quality audit.",
   "type": "object",
   "additionalProperties": false,
   "required": ["schemaVersion", "catalog", "generatedAt", "assets"],
   "properties": {
     "schemaVersion": {
-      "description": "Version SemVer du format sidecar lui-même.",
+      "description": "SemVer version of the sidecar format itself.",
       "type": "string",
       "pattern": "^\\d+\\.\\d+\\.\\d+$"
     },
@@ -19,19 +19,19 @@
       "properties": {
         "name": { "type": "string", "minLength": 1 },
         "version": {
-          "description": "Tag épinglé du catalogue (ADR-0002). ISO 25012 : actualité.",
+          "description": "Pinned catalog tag (ADR-0002). ISO 25012: currency.",
           "type": "string",
           "pattern": "^v\\d+\\.\\d+\\.\\d+$"
         }
       }
     },
     "generatedAt": {
-      "description": "Horodatage ISO 8601 UTC de génération. ISO 25012 : actualité.",
+      "description": "ISO 8601 UTC generation timestamp. ISO 25012: currency.",
       "type": "string",
       "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:\\d{2})$"
     },
     "assets": {
-      "description": "Liste des assets du catalogue (au moins un). ISO 25012 : complétude.",
+      "description": "List of catalog assets (at least one). ISO 25012: completeness.",
       "type": "array",
       "minItems": 1,
       "items": { "$ref": "#/$defs/asset" }
@@ -44,17 +44,17 @@
       "required": ["id", "type", "path", "title", "description", "catalogVersion", "source"],
       "properties": {
         "id": {
-          "description": "Identifiant unique de l'asset. ISO 25012 : exactitude (bien-formé). L'unicité globale relève d'un test complémentaire.",
+          "description": "Unique asset identifier. ISO 25012: accuracy (well-formed). Global uniqueness is covered by a complementary test.",
           "type": "string",
           "pattern": "^[A-Za-z0-9][A-Za-z0-9._/-]*$"
         },
         "type": {
-          "description": "Format ouvert de l'asset. ISO 25012 : conformité.",
+          "description": "Open asset format. ISO 25012: compliance.",
           "type": "string",
           "enum": ["agent", "skill", "workflow"]
         },
         "path": {
-          "description": "Chemin relatif vers le fichier prose source (sans '/' initial ni '..'). ISO 25012 : accessibilité (bien-formé). La joignabilité réelle relève d'un test complémentaire.",
+          "description": "Relative path to the source prose file (no leading '/' or '..'). ISO 25012: accessibility (well-formed). Real reachability is covered by a complementary test.",
           "type": "string",
           "minLength": 1,
           "pattern": "^(?!/)(?!.*\\.\\.).+$"
@@ -62,12 +62,12 @@
         "title": { "type": "string", "minLength": 1 },
         "description": { "type": "string", "minLength": 1 },
         "catalogVersion": {
-          "description": "Tag du catalogue dont l'entrée est issue. ISO 25012 : actualité.",
+          "description": "Catalog tag the entry originates from. ISO 25012: currency.",
           "type": "string",
           "pattern": "^v\\d+\\.\\d+\\.\\d+$"
         },
         "source": {
-          "description": "Provenance auditée. ISO 25012 : crédibilité — toute entrée machine trace vers une source prose + un tag.",
+          "description": "Audited provenance. ISO 25012: credibility — every machine entry traces back to a prose source + a tag.",
           "type": "object",
           "additionalProperties": false,
           "required": ["file", "catalogTag"],
@@ -84,7 +84,7 @@
           }
         },
         "dependsOn": {
-          "description": "Arêtes de dépendance (ids d'autres assets). ISO 25012 : cohérence. L'existence des cibles relève d'un test complémentaire (exactitude référentielle).",
+          "description": "Dependency edges (ids of other assets). ISO 25012: consistency. The existence of targets is covered by a complementary test (referential accuracy).",
           "type": "array",
           "items": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._/-]*$" }
         }

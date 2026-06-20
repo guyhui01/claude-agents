@@ -9,7 +9,7 @@
 
 ```yaml
 id: "WF-005"
-nom: "Veille Stratégique & Growth"
+nom: "Strategic Intelligence & Growth"
 domaine: "Management & Consulting"
 declencheur: "Weekly / monthly cadence or detected market signal"
 resultat_final: "Qualified intelligence synthesis + thought-leadership content ready to publish"

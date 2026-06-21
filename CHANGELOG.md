@@ -7,7 +7,10 @@
 ---
 
 ## [Unreleased]
-> Nothing yet.
+> Model: Claude Opus 4.8
+
+### 📝 Documentation
+- **i18n scope clarification.** The v3.27.0 wording "the entire public catalog is now in US English" should be read as covering the catalog **docs, agent prompts, skill bodies, and workflow bodies**. The **MCP server source files** (`mcp-servers/*/server.ts`) are intentionally **out of the i18n scope**: they are integration code (not showcase content) and remain in French — inline comments, tool `description` fields, error messages, and the status enums (`en_cours`/`terminé` persisted in `workflow_log.json`; `Brouillon`/`En révision`/`Validé`/`Livré` sent to the Confluence API). Translating those enums would change a data/API contract, so it is deliberately deferred to a dedicated task. Surfaced by an internal review of the 3 MCP servers + the sidecar generator (the generator itself is clean).
 
 ---
 

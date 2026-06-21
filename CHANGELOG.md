@@ -11,6 +11,19 @@
 
 ---
 
+## [3.27.1] — 2026-06-21 — Internationalization follow-ups (schema + residual titles)
+> Model: Claude Opus 4.8
+
+### 📝 Changed
+- **`schema/` translated to US English** (PR #12, `a2360e6`): the vendored `schema/sidecar.schema.json` `description` fields resynced canonically identical to the runtime SSOT (both English), plus `schema/README.md`. `check:schema-drift` green (`$id` pin + level-2 identity to SSOT). Category-C kept intact (`$id` `urn:claude-agents:sidecar:1.0.0`, keys, patterns, enums, `schemaVersion`/`1.0.0`, paths).
+- **Residual French workflow titles fixed** (PR #13, `45a92c0`, closing-audit leg 1): the `nom:` frontmatter values of WF-005 and WF-008 aligned to their already-English H1 titles (`Strategic Intelligence & Growth`, `AI Act / GDPR Compliance Audit`). YAML keys unchanged.
+
+### Notes
+- Catalog counters unchanged (38 agents / 37 skills / 10 workflows / 3 MCP servers).
+- `sidecar.json` regenerated for the version bump (`v3.27.0` → `v3.27.1`); version/timestamp only, 14 backbone assets, `validate:sidecar` valid. No GitHub Release (minor polish follow-up).
+
+---
+
 ## [3.27.0] — 2026-06-19 — Documentation internationalization (FR → US English) — Categories A + B complete 🌐
 > Model: Claude Opus 4.8
 

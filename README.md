@@ -145,14 +145,14 @@
 
 | ID | Workflow | Domain | Agents | Duration |
 |---|---|---|---|---|
-| [WF-001](workflows/WF-001-cadrage-produit-ia.md) | AI Product Scoping | Agile & Product | 4-6 | 45-90 min |
-| [WF-002](workflows/WF-002-delivery-safe.md) | SAFe Agile Delivery | Agile & Product | 6 | 60-120 min |
-| [WF-003](workflows/WF-003-lancement-app-ia.md) | AI Application Launch | Dev & Engineering | 5-6 | 90-180 min |
-| [WF-004](workflows/WF-004-mission-conseil-ia.md) | AI Consulting Engagement | Management & Consulting | 6 | 60-90 min |
-| [WF-005](workflows/WF-005-veille-growth.md) | Strategic Intelligence & Growth | Management & Consulting | 3-4 | 30-60 min |
+| [WF-001](workflows/WF-001-cadrage-produit-ia.md) | AI Product Scoping | Agile & Product | 4-10 | 45-90 min |
+| [WF-002](workflows/WF-002-delivery-safe.md) | SAFe Agile Delivery | Agile & Product | 6-8 | 60-120 min |
+| [WF-003](workflows/WF-003-lancement-app-ia.md) | AI Application Launch | Dev & Engineering | 7-12 | 90-180 min |
+| [WF-004](workflows/WF-004-mission-conseil-ia.md) | AI Consulting Engagement | Management & Consulting | 6-9 | 60-90 min |
+| [WF-005](workflows/WF-005-veille-growth.md) | Strategic Intelligence & Growth | Management & Consulting | 3-6 | 30-60 min |
 | [WF-006](workflows/WF-006-avant-vente-proposition-commerciale.md) | Pre-sales / Commercial Proposal | Management & Consulting | 6-9 | 75-120 min |
-| [WF-007](workflows/WF-007-onboarding-mission-j1.md) | Day-1 Engagement Onboarding | Management & Consulting | 4 | 45-75 min |
-| [WF-008](workflows/WF-008-audit-conformite-ia-act-rgpd.md) | AI Act / GDPR Compliance Audit | Compliance & Governance | 7-9 | 90-150 min |
+| [WF-007](workflows/WF-007-onboarding-mission-j1.md) | Day-1 Engagement Onboarding | Management & Consulting | 4-6 | 45-75 min |
+| [WF-008](workflows/WF-008-audit-conformite-ia-act-rgpd.md) | AI Act / GDPR Compliance Audit | Compliance & Governance | 7-10 | 90-150 min |
 | [WF-009](workflows/WF-009-recrutement-it-ia.md) | IT / AI Recruitment | HR & Talent | 4-7 | 60-90 min |
 | [WF-010](workflows/WF-010-post-mortem-projet.md) | Project Post-mortem | Management & Consulting | 4-8 | 45-75 min |
 

@@ -37,7 +37,7 @@ What is your main goal?
 | [WF-007](WF-007-onboarding-mission-j1.md) | Mission Onboarding — Day 1 | Management & Consulting | 4 | 45-75 min |
 | [WF-008](WF-008-audit-conformite-ia-act-rgpd.md) | AI Act / GDPR Compliance Audit | Compliance & Governance | 7-9 | 90-150 min |
 | [WF-009](WF-009-recrutement-it-ia.md) | IT / AI Recruitment | HR & Talent | 4-7 | 60-90 min |
-| [WF-010](WF-010-post-mortem-projet.md) | Project Post-mortem | Management & Consulting | 4-7 | 45-75 min |
+| [WF-010](WF-010-post-mortem-projet.md) | Project Post-mortem | Management & Consulting | 4-8 | 45-75 min |
 
 ---
 

@@ -26,6 +26,7 @@ agents_optionnels:
   - CONSULTANT-IA     # if lessons learned with strategic stakes or CAC40 client
   - SECURITE-IA       # if a security incident or LLM flaw to analyze
   - DATA-SCIENTIST    # if ML/AI project with model drift or metrics to analyze
+  - AUDIT-METHODO-IA  # independent challenge of root causes + improvement-plan validation gate (high-stakes / disputed REX)
 statut: "disponible"
 version: "1.0"
 ```
@@ -42,6 +43,7 @@ version: "1.0"
 | 4 | REDACTEUR-IA | Final lessons-learned report + capitalization memo | Lessons-learned report + executive summary |
 | opt | CONSULTANT-IA | Strategic angle and business impact | Actual vs forecast ROI analysis |
 | opt | SECURITE-IA | AI security incident analysis | Security report + fixes |
+| opt | AUDIT-METHODO-IA | Independent challenge of the root-cause analysis and gate on the improvement plan | Counter-analysis + bias report + validation gate |
 
 ---
 
@@ -99,6 +101,14 @@ HR sensitivities     : [Team tensions to manage / Social context]
 <GATEWAY — AI security incident involved?>
   ├── YES ──▶ [STEP-05 — SECURITE-IA]
   │            Incident analysis + fixes
+  └── NO ───▶ (bypass)
+        │
+        ▼
+<GATEWAY — High-stakes / disputed post-mortem? (critical incident, dispute, exec board, HR tensions)>
+  ├── YES ──▶ [STEP-05B — AUDIT-METHODO-IA]
+  │            Independent challenge: red-team the 5 Whys,
+  │            attribution / self-serving / hindsight bias,
+  │            validation gate on the improvement plan
   └── NO ───▶ (bypass)
         │
         ▼
@@ -179,6 +189,28 @@ etape:
   execution: "parallel with STEP-02 and STEP-04"
 ```
 
+### STEP-05B — AUDIT-METHODO-IA (optional)
+
+```yaml
+etape:
+  id: "STEP-05B"
+  agent: "AGENT-AUDIT-METHODO-IA"
+  role: "Independent challenge of the analysis and gate on the improvement plan"
+  input:
+    - "Root-cause analysis and improvement plan (STEP-01)"
+    - "Quality, human and ROI reviews (STEP-02 to STEP-05)"
+    - "Post-mortem stakes and HR sensitivities"
+  output_attendu:
+    - "Red-team of the 5 Whys: stopping too early, single-cause bias, confusing symptom and cause"
+    - "Cognitive-bias report: attribution, self-serving, hindsight, scapegoating"
+    - "Blind spots and unasked questions (counter-thesis, Devil's Advocate)"
+    - "Validation gate on the improvement plan: actionable, measurable, owned actions (SMART)"
+    - "Verdict: plan validated / returned with documented reservations — never validated by default"
+  condition_passage: "Improvement plan validated, or returned with documented reservations, before the final report"
+  duree_estimee: "15 min"
+  execution: "conditional — after the JOIN, before STEP-06, if the post-mortem is high-stakes/disputed"
+```
+
 ### STEP-06 — REDACTEUR-IA
 
 ```yaml
@@ -187,7 +219,7 @@ etape:
   agent: "AGENT-REDACTEUR-IA"
   role: "Final lessons-learned report and capitalization"
   input:
-    - "All outputs STEP-01 to STEP-05"
+    - "All outputs STEP-01 to STEP-05B"
     - "Report audience (team / steering committee / client / public)"
     - "Expected format"
   output_attendu:
@@ -214,6 +246,7 @@ WF-010 CHECKLIST
 □ Human review (team, adoption, friction)
 □ [optional] Actual vs objectives ROI
 □ [optional] AI security incident report
+□ [optional] Independent challenge + bias report + validated improvement plan (high-stakes REX)
 □ Prioritized improvement plan (5-10 actions)
 □ Complete lessons-learned report (10-20 pages)
 □ 1-page executive summary

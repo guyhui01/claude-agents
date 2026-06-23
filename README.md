@@ -154,7 +154,7 @@
 | [WF-007](workflows/WF-007-onboarding-mission-j1.md) | Day-1 Engagement Onboarding | Management & Consulting | 4 | 45-75 min |
 | [WF-008](workflows/WF-008-audit-conformite-ia-act-rgpd.md) | AI Act / GDPR Compliance Audit | Compliance & Governance | 7-9 | 90-150 min |
 | [WF-009](workflows/WF-009-recrutement-it-ia.md) | IT / AI Recruitment | HR & Talent | 4-7 | 60-90 min |
-| [WF-010](workflows/WF-010-post-mortem-projet.md) | Project Post-mortem | Management & Consulting | 4-7 | 45-75 min |
+| [WF-010](workflows/WF-010-post-mortem-projet.md) | Project Post-mortem | Management & Consulting | 4-8 | 45-75 min |
 
 See `workflows/README.md` for the full selection guide.
 

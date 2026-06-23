@@ -9,6 +9,9 @@
 ## [Unreleased]
 > Model: Claude Opus 4.8
 
+### ✨ Added
+- **`AGENT-AUDIT-METHODO-IA` wired into WF-010 (Project Post-mortem).** Added as an **optional** step `STEP-05B`, gated by a "high-stakes / disputed post-mortem" decision (critical incident, dispute, executive board, HR tensions) and placed after the JOIN, before the final report (`STEP-06 REDACTEUR-IA`). It performs an independent challenge — red-teaming the 5 Whys, flagging cognitive biases (attribution, self-serving, hindsight, scapegoating) — and acts as a validation gate on the improvement plan (SMART, owned actions), never validating by default. Frontier preserved: it challenges, it does not rewrite the analysis (`CHEF-PROJET-IA` remains the producer). This is the agent's first integration into a workflow; until now it had only been used manually for the v2.8 catalog-quality audit. Updated in `workflows/WF-010-post-mortem-projet.md` (identity card, agents table, BPMN, detailed step, checklist) and the agent-count column `4-7 → 4-8` in `README.md` and `workflows/README.md`. `sidecar.json` unaffected (workflows are not indexed; `validate:sidecar` green).
+
 ### 📝 Documentation
 - **i18n scope clarification.** The v3.27.0 wording "the entire public catalog is now in US English" should be read as covering the catalog **docs, agent prompts, skill bodies, and workflow bodies**. The **MCP server source files** (`mcp-servers/*/server.ts`) are intentionally **out of the i18n scope**: they are integration code (not showcase content) and remain in French — inline comments, tool `description` fields, error messages, and the status enums (`en_cours`/`terminé` persisted in `workflow_log.json`; `Brouillon`/`En révision`/`Validé`/`Livré` sent to the Confluence API). Translating those enums would change a data/API contract, so it is deliberately deferred to a dedicated task. Surfaced by an internal review of the 3 MCP servers + the sidecar generator (the generator itself is clean).
 

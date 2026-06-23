@@ -8,6 +8,7 @@
   "scripts": {
     "generate:sidecar": "node tools/generate-sidecar.mjs",
     "validate:sidecar": "node tools/generate-sidecar.mjs --check",
+    "validate:wf-agents": "node tools/check-workflow-agent-counts.mjs",
     "check:schema-drift": "node tools/check-schema-drift.mjs"
   },
   "devDependencies": {

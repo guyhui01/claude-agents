@@ -27,5 +27,7 @@ jobs:
       - run: npm ci
       # sidecar.json committé : valide (schéma ajv + intégrité) ET à jour vs la prose
       - run: npm run validate:sidecar
+      # colonne « Agents » des README cohérente avec les cartes d'identité des WF
+      - run: npm run validate:wf-agents
       # drift-check : ignoré proprement en CI (runtime non checkout) ; actif en local
       - run: npm run check:schema-drift

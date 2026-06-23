@@ -29,6 +29,7 @@ agents_optionnels:
   - CONSULTANT-IA          # if a strategic / business-impact angle is to be assessed
   - FINANCIAL-ANALYST      # if remediation-cost estimation is required
   - DATA-SCIENTIST         # if an in-depth model audit (bias, fairness, drift) is required
+  - AUDIT-METHODO-IA       # independent methodology counter-review of the audit (high-stakes: inspection, M&A, high-risk tier) — challenges rigor, not the legal substance
 statut: "disponible"
 version: "1.0"
 ```
@@ -48,6 +49,7 @@ version: "1.0"
 | 7 | REDACTEUR-IA | Final audit report + remediation plan | Audit report + prioritized plan |
 | opt | DATA-SCIENTIST | Model audit (bias, fairness, drift) | ML model audit report |
 | opt | FINANCIAL-ANALYST | Remediation-cost estimation | Compliance business case |
+| opt | AUDIT-METHODO-IA | Independent methodology counter-review of the audit (rigor, biases, exit criteria) | Counter-review report + bias log + validation gate |
 
 ---
 
@@ -137,6 +139,16 @@ Expected deliverables: [Audit report / Remediation plan / Executive-board presen
 <GATEWAY — Remediation-cost estimation required?>
   ├── YES ──▶ [STEP-06B — FINANCIAL-ANALYST]
   │            Compliance business case
+  └── NO ───▶ (bypass)
+        │
+        ▼
+<GATEWAY — High-stakes audit? (CNIL / AI Office inspection, M&A due diligence, high-risk tier)>
+  ├── YES ──▶ [STEP-06C — AUDIT-METHODO-IA]
+  │            Independent methodology counter-review:
+  │            tier → obligations → measures consistency,
+  │            cognitive biases, ISTQB exit criteria,
+  │            validation gate before the report
+  │            (challenges rigor, NOT the legal substance)
   └── NO ───▶ (bypass)
         │
         ▼
@@ -327,6 +339,29 @@ etape:
   execution: "conditional — if costing is required"
 ```
 
+### STEP-06C — AUDIT-METHODO-IA (optional)
+
+```yaml
+etape:
+  id: "STEP-06C"
+  agent: "AGENT-AUDIT-METHODO-IA"
+  role: "Independent methodology counter-review of the audit (rigor, not legal substance)"
+  input:
+    - "All audit outputs (STEP-01 to STEP-06B)"
+    - "Audit origin and stakes (inspection / M&A due diligence / high-risk tier)"
+    - "Penalties summary and AI Act tier qualification (STEP-01)"
+  output_attendu:
+    - "Consistency review of the reasoning chain: tier → obligations → architecture/security/data measures (gaps, logical shortcuts)"
+    - "Completeness check against the audit scope (no impacted framework or article silently dropped)"
+    - "Cognitive-bias log: overconfidence, blind spots, tier minimized to avoid client friction (anti-theater)"
+    - "ISTQB exit criteria applied to the audit deliverable (traceability, evidence, reproducibility)"
+    - "Verdict: report cleared for delivery / returned with documented reservations — never cleared by default"
+  condition_passage: "Audit cleared, or returned with documented reservations, before the final report (STEP-07)"
+  perimetre: "Challenges the methodological rigor of the audit; does NOT re-qualify the legal substance — AI Act / GDPR qualification remains AGENT-JURIDIQUE-IA (STEP-01)"
+  duree_estimee: "20 min"
+  execution: "conditional — after STEP-06B, before STEP-07, if the audit is high-stakes"
+```
+
 ### STEP-07 — REDACTEUR-IA
 
 ```yaml
@@ -335,7 +370,7 @@ etape:
   agent: "AGENT-REDACTEUR-IA"
   role: "Final audit report and remediation plan"
   input:
-    - "All outputs from STEP-01 to STEP-06B"
+    - "All outputs from STEP-01 to STEP-06C"
     - "Expected format (internal report / regulator filing / executive-board presentation)"
     - "Confidentiality level"
   output_attendu:
@@ -365,6 +400,7 @@ WF-008 CHECKLIST
 □ Target AI governance framework + compliance RACI
 □ Compliance ADKAR plan + training program
 □ [optional] Compliance business case (CAPEX/OPEX)
+□ [optional] Independent methodology counter-review + bias log + cleared audit (high-stakes)
 □ 2-page executive summary
 □ Full audit report (40-80 pages)
 □ Prioritized remediation plan + milestone roadmap

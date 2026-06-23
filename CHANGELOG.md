@@ -6,6 +6,14 @@
 
 ---
 
+## [Unreleased]
+> Model: Claude Opus 4.8
+
+### ✨ Added
+- **`AGENT-AUDIT-METHODO-IA` wired into WF-008 (AI Act / GDPR Compliance Audit).** Added as an **optional** step `STEP-06C`, gated by a "high-stakes audit" decision (CNIL / AI Office inspection, M&A due diligence, high-risk tier) and placed after `STEP-06B`, before the final report (`STEP-07 REDACTEUR-IA`). It runs an independent methodology counter-review: consistency of the `tier → obligations → measures` reasoning chain, completeness vs. the audit scope, cognitive-bias log (overconfidence, blind spots, tier minimized to avoid client friction), ISTQB exit criteria on the audit deliverable, and a validation gate (never cleared by default). **Frontier explicitly bounded** (new `perimetre` field on the step): it challenges the *methodological rigor* of the audit and does **not** re-qualify the legal substance — AI Act / GDPR qualification remains `AGENT-JURIDIQUE-IA` (STEP-01). Updated in `workflows/WF-008-audit-conformite-ia-act-rgpd.md` (identity card, agents table, BPMN, detailed step, checklist) and the agent-count column `7-10 → 7-11` in `README.md` and `workflows/README.md` (caught live by the `validate:wf-agents` CI guard before the README update). Second workflow integration of the agent after WF-010.
+
+---
+
 ## [3.27.2] — 2026-06-23 — AUDIT-METHODO-IA wired into WF-010 + Agents-column hygiene
 > Model: Claude Opus 4.8
 

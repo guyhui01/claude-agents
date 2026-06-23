@@ -6,7 +6,7 @@
 
 ---
 
-## [Unreleased]
+## [3.27.3] — 2026-06-23 — AUDIT-METHODO-IA wired into WF-008 (compliance audit counter-review)
 > Model: Claude Opus 4.8
 
 ### ✨ Added

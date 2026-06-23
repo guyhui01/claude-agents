@@ -64,6 +64,20 @@ and start the workflow with the following context: [describe the client context]
 
 ---
 
+## Optional counter-review gate (reusable pattern)
+
+`AGENT-AUDIT-METHODO-IA` can be wired into a workflow as an **optional** step that gates a deliverable before it is finalized — without ever doing the producing agents' work. Convention:
+
+- **Placement**: a `STEP-NN[B/C]` inserted after the analysis / JOIN, **before the final-report step**, without renumbering existing steps.
+- **Trigger**: a BPMN gateway scoped to *high-stakes* contexts (critical incident, dispute, inspection, M&A due diligence, high-risk tier); routine runs bypass it.
+- **Listing**: declared in `agents_optionnels` (never `agents_core`).
+- **Role**: independent challenge — red-team the reasoning, cognitive-bias log, exit criteria, validation gate (never cleared by default).
+- **Frontier**: it challenges *methodological rigor*, it does **not** redo the domain work. State the boundary explicitly (e.g. a `perimetre` field) — in WF-008 the AI Act / GDPR qualification stays with `AGENT-JURIDIQUE-IA`.
+
+Live examples: **WF-010** (`STEP-05B`, post-mortem) and **WF-008** (`STEP-06C`, compliance audit).
+
+---
+
 ## Structure of the workflows/ folder
 
 ```

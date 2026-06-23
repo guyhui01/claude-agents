@@ -6,6 +6,14 @@
 
 ---
 
+## [Unreleased]
+> Model: Claude Opus 4.8
+
+### 📝 Documentation
+- **Reusable "optional counter-review gate" pattern documented** in `workflows/README.md`: how to wire `AGENT-AUDIT-METHODO-IA` into a workflow as an optional, gateway-triggered step before the final deliverable (placement, `agents_optionnels` listing, role, and the explicit `perimetre` frontier — it challenges methodological rigor, it does not redo the domain work). Live examples: WF-010 (`STEP-05B`) and WF-008 (`STEP-06C`).
+
+---
+
 ## [3.27.3] — 2026-06-23 — AUDIT-METHODO-IA wired into WF-008 (compliance audit counter-review)
 > Model: Claude Opus 4.8
 

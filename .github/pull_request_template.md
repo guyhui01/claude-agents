@@ -1,32 +1,32 @@
-## Type de modification
+## Type of change
 
-- [ ] Nouvel agent / skill / workflow
-- [ ] Modification d'un agent / skill / workflow existant
-- [ ] Refactoring / réorganisation structurelle
+- [ ] New agent / skill / workflow
+- [ ] Change to an existing agent / skill / workflow
+- [ ] Refactoring / structural reorganization
 - [ ] Documentation (README, CHANGELOG, CLAUDE.md)
-- [ ] Fix mineur (typo, lien cassé)
-- [ ] Audit + recommandations
+- [ ] Minor fix (typo, broken link)
+- [ ] Audit + recommendations
 
 ## Description
 
-<!-- Quoi et pourquoi. Référence l'audit ou la demande à l'origine. -->
+<!-- What and why. Reference the audit or the request behind this change. -->
 
-## Checklist avant merge
+## Pre-merge checklist
 
-- [ ] Compteurs cohérents (README, START.md, AGENT-ORCHESTRATEUR-WORKFLOW.md)
-- [ ] Aucune référence orpheline (grep des anciens chemins skills/*)
-- [ ] AGENT files mis à jour si skills ajoutés/déplacés/supprimés
-- [ ] CHANGELOG.md mis à jour avec entrée datée
-- [ ] Backup local créé si refactor majeur (`backup/claudecode_backup_<date>.zip`)
-- [ ] Tag git créé si jalon (Major / Minor — voir CLAUDE.md)
-- [ ] GitHub Release publiée si Major
+- [ ] Counters consistent (README, START.md, AGENT-ORCHESTRATEUR-WORKFLOW.md)
+- [ ] No orphan references (grep the old skills/* paths)
+- [ ] AGENT files updated if skills were added/moved/removed
+- [ ] CHANGELOG.md updated with a dated entry
+- [ ] Local backup created if major refactor (`backup/claudecode_backup_<date>.zip`)
+- [ ] Git tag created if milestone (Major / Minor — see CLAUDE.md)
+- [ ] GitHub Release published if Major
 
 ## Tests
 
-- [ ] `git status` propre après modifs
-- [ ] Pas de fichier `.tmp`, `.bak` ou personnel commité
-- [ ] Tous les renames détectés à 100% par git (historique préservé)
+- [ ] `git status` clean after the changes
+- [ ] No `.tmp`, `.bak`, or personal file committed
+- [ ] All renames detected at 100% by git (history preserved)
 
-## Lien CHANGELOG
+## CHANGELOG link
 
-<!-- Ex : voir [v2.0.0](CHANGELOG.md#200--2026-05-22) -->
+<!-- E.g.: see [v2.0.0](CHANGELOG.md#200--2026-05-22) -->

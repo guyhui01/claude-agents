@@ -6,6 +6,15 @@
 
 ---
 
+## [Unreleased]
+> Model: Claude Fable 5
+
+### 📝 Documentation
+- **i18n follow-up lot (post-audit O-4 sibling debt)**: CLI guard tools `tools/check-workflow-agent-counts.mjs` + `tools/check-schema-drift.mjs` (comments + human-facing messages), CI workflow comments (`.github/workflows/sidecar.yml`), PR template, and the maintenance-reminder workflow translated to US English. Maintenance workflow: `workflow_dispatch` input options + their script comparisons renamed in sync (`quarterly`/`semiannual`/`annual`, self-contained), issue-date locale switched to `en-US`. Non-regression: all 3 guard scripts re-run green; both workflow YAMLs parse.
+- **Stale counters fixed** in the maintenance checklists along the way: "5 workflows" → 10, "30 agents" → 38.
+
+---
+
 ## [4.0.0] — 2026-07-02 — Catalog-wide convention audit (38 agents × 4 axes)
 > Model: Claude Fable 5 (audit sweep) · Claude Opus 4.8 (session lead)
 

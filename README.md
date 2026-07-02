@@ -6,6 +6,8 @@
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/license-PolyForm%20Noncommercial%201.0.0-blue)](LICENSE)
 
+> **Persona disclaimer** — Each `AGENT-*.md` file defines a **simulated expert persona** used for prompting purposes. The certifications listed in the agent identity blocks (PMP, CBAP, ISTQB, TOGAF, …) describe the persona's knowledge frame; **they are not claims that the author, the software, or the model actually holds these certifications**, and agent outputs are not professional, legal, financial, or medical advice.
+
 ---
 
 ## Available agents (38)

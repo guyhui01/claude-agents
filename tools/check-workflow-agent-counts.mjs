@@ -1,18 +1,18 @@
 #!/usr/bin/env node
 /**
- * Garde-fou de cohérence : colonne « Agents » des tableaux de workflows.
+ * Consistency guardrail: the "Agents" column of the workflow tables.
  *
- * La colonne « Agents » de `README.md` et `workflows/README.md` était saisie à la
- * main et a dérivé (cf. CHANGELOG « normalize the workflow "Agents" column »). Ce
- * contrôle la dérive désormais de la SEULE source factuelle : les blocs YAML
- * `agents_core` / `agents_optionnels` de chaque carte d'identité `workflows/WF-*.md`.
+ * The "Agents" column of `README.md` and `workflows/README.md` used to be typed by
+ * hand and drifted (see CHANGELOG "normalize the workflow "Agents" column"). This
+ * now checks the drift against the ONLY factual source: the YAML blocks
+ * `agents_core` / `agents_optionnels` of each `workflows/WF-*.md` identity card.
  *
- * Convention (reproductible) :
- *   - 0 optionnel        → "<core>"
- *   - ≥1 optionnel       → "<core>-<core+opt>"   (mobilisables au minimum → au maximum)
+ * Convention (reproducible):
+ *   - 0 optional         → "<core>"
+ *   - ≥1 optional        → "<core>-<core+opt>"   (mobilizable at minimum → at maximum)
  *
- * Sort 0 si les deux README affichent la valeur attendue pour chaque WF ; sinon
- * affiche chaque écart et sort 1. Aucun effet de bord (lecture seule). Usage CI.
+ * Exits 0 if both READMEs show the expected value for every WF; otherwise
+ * prints each mismatch and exits 1. No side effects (read-only). CI usage.
  */
 
 import { readFileSync, readdirSync } from "node:fs";
@@ -23,7 +23,7 @@ const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const WORKFLOWS_DIR = join(REPO_ROOT, "workflows");
 const README_FILES = ["README.md", join("workflows", "README.md")];
 
-/** Compte les entrées « - … » d'un bloc YAML borné par deux clés de la carte d'identité. */
+/** Counts the "- …" entries of a YAML block bounded by two identity-card keys. */
 function countBlock(text, startKey, endKeys) {
   const lines = text.split(/\r?\n/);
   const start = lines.findIndex((l) => new RegExp(`^${startKey}:`).test(l));
@@ -36,12 +36,12 @@ function countBlock(text, startKey, endKeys) {
   return count;
 }
 
-/** Valeur attendue de la colonne « Agents » pour un workflow donné. */
+/** Expected value of the "Agents" column for a given workflow. */
 function expectedCount(core, opt) {
   return opt > 0 ? `${core}-${core + opt}` : `${core}`;
 }
 
-/** Map id → valeur attendue, dérivée des cartes d'identité des workflows. */
+/** Map id → expected value, derived from the workflows' identity cards. */
 function deriveExpected() {
   const expected = new Map();
   const files = readdirSync(WORKFLOWS_DIR)
@@ -53,7 +53,7 @@ function deriveExpected() {
     const core = countBlock(text, "agents_core", ["agents_optionnels", "statut"]);
     const opt = countBlock(text, "agents_optionnels", ["statut"]);
     if (core === null || core === 0) {
-      console.error(`✗ ${id} : bloc \`agents_core\` introuvable ou vide dans ${f}`);
+      console.error(`✗ ${id}: \`agents_core\` block not found or empty in ${f}`);
       process.exit(1);
     }
     expected.set(id, expectedCount(core, opt ?? 0));
@@ -61,14 +61,14 @@ function deriveExpected() {
   return expected;
 }
 
-/** Valeur affichée dans la colonne « Agents » (avant-avant-dernière cellule) d'un README. */
+/** Value shown in the "Agents" column (third-to-last cell) of a README. */
 function shownCount(readmeText, id) {
   const row = readmeText
     .split(/\r?\n/)
     .find((l) => l.includes(`[${id}]`) && l.trim().startsWith("|"));
   if (!row) return undefined;
   const cells = row.split("|").map((c) => c.trim());
-  // … | <Agents> | <Duration> |  → l'avant-avant-dernière cellule non vide
+  // … | <Agents> | <Duration> |  → the third-to-last non-empty cell
   return cells[cells.length - 3];
 }
 
@@ -80,19 +80,19 @@ for (const rel of README_FILES) {
   for (const [id, want] of expected) {
     const got = shownCount(text, id);
     if (got === undefined) {
-      issues.push(`${rel} : ligne du workflow ${id} introuvable`);
+      issues.push(`${rel}: workflow ${id} row not found`);
     } else if (got !== want) {
-      issues.push(`${id} : ${rel} affiche "${got}", attendu "${want}"`);
+      issues.push(`${id}: ${rel} shows "${got}", expected "${want}"`);
     }
   }
 }
 
 if (issues.length > 0) {
-  console.error(`✗ colonne « Agents » : ${issues.length} écart(s)`);
+  console.error(`✗ "Agents" column: ${issues.length} mismatch(es)`);
   for (const i of issues) console.error(`  - ${i}`);
   process.exit(1);
 }
 
 console.log(
-  `✓ colonne « Agents » cohérente : ${expected.size} workflow(s) × ${README_FILES.length} fichier(s)`,
+  `✓ "Agents" column consistent: ${expected.size} workflow(s) × ${README_FILES.length} file(s)`,
 );

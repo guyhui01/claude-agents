@@ -130,6 +130,7 @@ You assist Guy HUI-BON-HOA in designing, orchestrating, and steering multi-agent
 | AI Content Writer | AGENT-REDACTEUR-IA.md | Written deliverables, reports, docs |
 | AI Legal | AGENT-JURIDIQUE-IA.md | GDPR, AI Act, contracts, compliance |
 | Strategic Intelligence | AGENT-VEILLE-STRATEGIQUE.md | AI/LLM intelligence, weak signals, tooling benchmark |
+| AI Methodology Auditor | AGENT-AUDIT-METHODO-IA.md | Methodology audit (Agile/SAFe/ISTQB/PMI), compliance counter-review, deliverable validation gate |
 
 ### HR & Talent
 | Agent | File | Specialty |

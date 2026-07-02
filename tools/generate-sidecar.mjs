@@ -1,26 +1,26 @@
 #!/usr/bin/env node
 /**
- * Générateur de sidecar du catalogue claude-agents (ADR-0003).
+ * Sidecar generator for the claude-agents catalog (ADR-0003).
  *
- * Émet `sidecar.json` : index machine-lisible du catalogue, CONFORME au schéma de
- * référence du runtime (vendoré en `schema/sidecar.schema.json`, SSOT = runtime).
- * Le runtime ne fait que LIRE ce fichier (ADR-0001) ; la génération ET la validation
- * vivent ici, côté catalogue (ADR-0003).
+ * Emits `sidecar.json`: the machine-readable catalog index, CONFORMANT to the
+ * runtime's reference schema (vendored as `schema/sidecar.schema.json`, SSOT = runtime).
+ * The runtime only READS this file (ADR-0001); generation AND validation
+ * live here, on the catalog side (ADR-0003).
  *
- * Périmètre : les backbones de WF-001/002/003 (14 agents, union dédupliquée —
- * AGENT-QA-AGILE est partagé WF-001/003). Extensible : ajouter un backbone dans
- * WORKFLOW_BACKBONES (puis d'autres workflows) — la mécanique est générique.
+ * Scope: the WF-001/002/003 backbones (14 agents, deduplicated union —
+ * AGENT-QA-AGILE is shared by WF-001/003). Extensible: add a backbone to
+ * WORKFLOW_BACKBONES (then more workflows) — the mechanics are generic.
  *
- * Chaque asset porte les 7 champs requis (id, type, path, title, description,
- * catalogVersion, source{file, catalogTag}) + `dependsOn` (requis par le schéma pour
- * type "agent"). Tant que les skills ne sont pas indexées, `dependsOn` reste `[]`
- * (un dependsOn vers une skill absente déclencherait DANGLING_REFERENCE à l'intégrité).
+ * Each asset carries the 7 required fields (id, type, path, title, description,
+ * catalogVersion, source{file, catalogTag}) + `dependsOn` (required by the schema for
+ * type "agent"). As long as skills are not indexed, `dependsOn` stays `[]`
+ * (a dependsOn pointing to an absent skill would trigger DANGLING_REFERENCE at integrity).
  *
- * Modes :
- *   (défaut)   génère + valide (schéma ajv + intégrité) + ÉCRIT sidecar.json.
- *   --check    génère en mémoire + valide ; vérifie que le sidecar.json SUR DISQUE
- *              est valide ET à jour vs la prose (hors `generatedAt`). N'écrit rien.
- *              Sort 1 si absent / invalide / désynchronisé. Usage CI.
+ * Modes:
+ *   (default)  generates + validates (ajv schema + integrity) + WRITES sidecar.json.
+ *   --check    generates in memory + validates; verifies that the ON-DISK sidecar.json
+ *              is valid AND up to date vs the prose (excluding `generatedAt`). Writes nothing.
+ *              Exits 1 if absent / invalid / out of sync. CI usage.
  */
 
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
@@ -34,8 +34,8 @@ const SIDECAR_PATH = join(REPO_ROOT, "sidecar.json");
 const SIDECAR_SCHEMA_VERSION = "1.0.0";
 
 /**
- * Backbones des workflows réels (cf. claude-agentic-runtime/src/spines/wf-00{1,2,3}-*.ts).
- * Les `id` DOIVENT matcher les `assetId` des spines pour que `loadSpine` résolve.
+ * Backbones of the real workflows (see claude-agentic-runtime/src/spines/wf-00{1,2,3}-*.ts).
+ * The `id`s MUST match the spines' `assetId`s so that `loadSpine` resolves.
  */
 const WORKFLOW_BACKBONES = {
   "WF-001": ["AGENT-BUSINESS-ANALYST", "AGENT-PO-SCRUM", "AGENT-QA-AGILE"],
@@ -58,50 +58,50 @@ const WORKFLOW_BACKBONES = {
 };
 
 /**
- * Union dédupliquée des ids de tous les backbones (AGENT-QA-AGILE est partagé
- * WF-001/003) — le `Set` évite un id dupliqué, qui ferait échouer l'intégrité.
+ * Deduplicated union of all backbone ids (AGENT-QA-AGILE is shared by
+ * WF-001/003) — the `Set` avoids a duplicated id, which would fail integrity.
  */
 const CATALOG_AGENT_IDS = [...new Set(Object.values(WORKFLOW_BACKBONES).flat())];
 
-/** Tag épinglé du catalogue = `v` + version du package (source unique). */
+/** Pinned catalog tag = `v` + package version (single source). */
 function catalogTag() {
   const pkg = JSON.parse(readFileSync(join(REPO_ROOT, "package.json"), "utf-8"));
   return `v${pkg.version}`;
 }
 
 /**
- * Extrait titre + description d'une carte d'agent `AGENT-*.md`.
- *   - titre       : H1 « # AGENT — <titre> » → <titre> (préfixe « AGENT — » retiré)
- *   - description : 1re ligne blockquote « > **Domain :** <desc> » → <desc>
- *                   (libellé FR « Domaine » encore accepté pendant la migration i18n)
+ * Extracts title + description from an `AGENT-*.md` agent card.
+ *   - title       : H1 "# AGENT — <title>" → <title> ("AGENT — " prefix removed)
+ *   - description : first blockquote line "> **Domain:** <desc>" → <desc>
+ *                   (FR label "Domaine" still accepted during the i18n migration)
  */
 function parseAgentCard(absFile, id) {
   const lines = readFileSync(absFile, "utf-8").split(/\r?\n/);
 
   const h1 = lines.find((l) => /^#\s+/.test(l));
-  if (!h1) throw new Error(`${id} : titre H1 introuvable`);
+  if (!h1) throw new Error(`${id}: H1 title not found`);
   const title = h1
     .replace(/^#\s+/, "")
     .replace(/^AGENT\s*[—–-]\s*/u, "")
     .trim();
 
   const quote = lines.find((l) => /^>\s/.test(l));
-  if (!quote) throw new Error(`${id} : ligne « > **Domaine :** … » introuvable`);
+  if (!quote) throw new Error(`${id}: "> **Domain:** …" line not found`);
   const description = quote
     .replace(/^>\s*/, "")
     .replace(/\*\*(?:Domaine|Domain)\s*:?\*\*\s*:?\s*/u, "")
     .trim();
 
-  if (!title) throw new Error(`${id} : titre vide après extraction`);
-  if (!description) throw new Error(`${id} : description vide après extraction`);
+  if (!title) throw new Error(`${id}: empty title after extraction`);
+  if (!description) throw new Error(`${id}: empty description after extraction`);
   return { title, description };
 }
 
-/** Construit l'asset « agent » d'un id donné. */
+/** Builds the "agent" asset for a given id. */
 function buildAgentAsset(id, tag) {
   const file = `${id}.md`;
   const abs = join(REPO_ROOT, file);
-  if (!existsSync(abs)) throw new Error(`${id} : fichier source absent (${file})`);
+  if (!existsSync(abs)) throw new Error(`${id}: source file missing (${file})`);
   const { title, description } = parseAgentCard(abs, id);
   return {
     id,
@@ -115,7 +115,7 @@ function buildAgentAsset(id, tag) {
   };
 }
 
-/** Construit le sidecar complet (assets triés par id pour un diff stable). */
+/** Builds the full sidecar (assets sorted by id for a stable diff). */
 function buildSidecar(generatedAt) {
   const tag = catalogTag();
   const assets = CATALOG_AGENT_IDS.map((id) => buildAgentAsset(id, tag)).sort((a, b) =>
@@ -129,7 +129,7 @@ function buildSidecar(generatedAt) {
   };
 }
 
-// --- Validation : schéma ajv + intégrité (miroir des contrôles du runtime) ---
+// --- Validation: ajv schema + integrity (mirror of the runtime's checks) ---
 
 let cachedValidate;
 function getValidator() {
@@ -139,34 +139,34 @@ function getValidator() {
   return cachedValidate;
 }
 
-/** Validation schéma (ajv) → liste de messages (vide = conforme). */
+/** Schema validation (ajv) → list of messages (empty = conformant). */
 function schemaIssues(sidecar) {
   const validate = getValidator();
   if (validate(sidecar)) return [];
   return (validate.errors ?? []).map(
-    (e) => `[schéma] ${e.instancePath || "(racine)"} ${e.message ?? ""}`.trim(),
+    (e) => `[schema] ${e.instancePath || "(root)"} ${e.message ?? ""}`.trim(),
   );
 }
 
 /**
- * Intégrité (les 2 caractéristiques ISO 25012 hors-schéma + unicité) — mêmes règles
- * que `src/sidecar/integrity.ts` du runtime, pour échouer ici plutôt qu'au chargement.
+ * Integrity (the 2 off-schema ISO 25012 characteristics + uniqueness) — same rules
+ * as the runtime's `src/sidecar/integrity.ts`, to fail here rather than at load time.
  */
 function integrityIssues(sidecar) {
   const issues = [];
   const ids = new Set();
   for (const a of sidecar.assets) {
-    if (ids.has(a.id)) issues.push(`[intégrité] id dupliqué : "${a.id}"`);
+    if (ids.has(a.id)) issues.push(`[integrity] duplicated id: "${a.id}"`);
     ids.add(a.id);
   }
   for (const a of sidecar.assets) {
     for (const dep of a.dependsOn ?? []) {
-      if (!ids.has(dep)) issues.push(`[intégrité] "${a.id}" dépend d'un id inexistant : "${dep}"`);
+      if (!ids.has(dep)) issues.push(`[integrity] "${a.id}" depends on a nonexistent id: "${dep}"`);
     }
     for (const rel of [a.path, a.source.file]) {
       const n = normalize(rel);
       const unreachable = isAbsolute(n) || n.startsWith("..") || !existsSync(join(REPO_ROOT, n));
-      if (unreachable) issues.push(`[intégrité] "${a.id}" : fichier introuvable « ${rel} »`);
+      if (unreachable) issues.push(`[integrity] "${a.id}": file not found "${rel}"`);
     }
   }
   return issues;
@@ -175,44 +175,44 @@ function integrityIssues(sidecar) {
 function validateOrThrow(sidecar, label) {
   const issues = [...schemaIssues(sidecar), ...integrityIssues(sidecar)];
   if (issues.length > 0) {
-    console.error(`✗ ${label} : ${issues.length} problème(s)`);
+    console.error(`✗ ${label}: ${issues.length} issue(s)`);
     for (const i of issues) console.error(`  - ${i}`);
     process.exit(1);
   }
 }
 
-/** Égalité hors `generatedAt` (le seul champ volatil). */
+/** Equality excluding `generatedAt` (the only volatile field). */
 function equalIgnoringTimestamp(a, b) {
   const strip = (s) => JSON.stringify({ ...s, generatedAt: null });
   return strip(a) === strip(b);
 }
 
-// --- Entrée ------------------------------------------------------------------
+// --- Entry point ---------------------------------------------------------------
 
 const isCheck = process.argv.includes("--check");
 
 if (isCheck) {
-  // Le sidecar fraîchement dérivé de la prose doit être valide…
+  // The sidecar freshly derived from the prose must be valid…
   const fresh = buildSidecar("1970-01-01T00:00:00Z");
-  validateOrThrow(fresh, "sidecar dérivé de la prose");
+  validateOrThrow(fresh, "sidecar derived from the prose");
 
-  // …et le fichier committé doit exister, être valide, et à jour vs la prose.
+  // …and the committed file must exist, be valid, and be up to date vs the prose.
   if (!existsSync(SIDECAR_PATH)) {
-    console.error("✗ sidecar.json absent — lance `npm run generate:sidecar`");
+    console.error("✗ sidecar.json missing — run `npm run generate:sidecar`");
     process.exit(1);
   }
   const onDisk = JSON.parse(readFileSync(SIDECAR_PATH, "utf-8"));
-  validateOrThrow(onDisk, "sidecar.json (sur disque)");
+  validateOrThrow(onDisk, "sidecar.json (on disk)");
 
   if (!equalIgnoringTimestamp(onDisk, fresh)) {
-    console.error("✗ sidecar.json désynchronisé de la prose — régénère (`npm run generate:sidecar`)");
+    console.error("✗ sidecar.json out of sync with the prose — regenerate (`npm run generate:sidecar`)");
     process.exit(1);
   }
-  console.log(`✓ sidecar.json valide et à jour (${onDisk.assets.length} asset(s), catalog ${onDisk.catalog.version})`);
+  console.log(`✓ sidecar.json valid and up to date (${onDisk.assets.length} asset(s), catalog ${onDisk.catalog.version})`);
 } else {
   const sidecar = buildSidecar(new Date().toISOString());
-  validateOrThrow(sidecar, "sidecar généré");
+  validateOrThrow(sidecar, "sidecar generated");
   writeFileSync(SIDECAR_PATH, JSON.stringify(sidecar, null, 2) + "\n", "utf-8");
-  console.log(`✓ sidecar.json généré et validé : ${sidecar.assets.length} asset(s), catalog ${sidecar.catalog.version}`);
+  console.log(`✓ sidecar.json generated and validated: ${sidecar.assets.length} asset(s), catalog ${sidecar.catalog.version}`);
   for (const a of sidecar.assets) console.log(`  - ${a.id} (${a.type})`);
 }

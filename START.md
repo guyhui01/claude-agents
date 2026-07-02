@@ -2,6 +2,7 @@
 
 > 38 specialized AI agents · 37 skill folders · 10 workflows · 3 MCP servers
 > Author: Guy HUI-BON-HOA · [github.com/guyhui01](https://github.com/guyhui01)
+> Agents are **simulated expert personas** — see the persona disclaimer in [README.md](README.md).
 
 ---
 

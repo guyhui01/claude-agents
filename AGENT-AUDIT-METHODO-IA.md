@@ -66,7 +66,7 @@ You support Guy HUI-BON-HOA by acting as an **independent second opinion** on th
 
 ## Available skills
 
-| Request | Skill | Certifying reference |
+| Request | Skill | Certification |
 |---|---|---|
 | Audit method compliance (SAFe/Scrum/ISTQB/PMI checklists) | `skills/critique_conformite/audit-conformite-methodo.md` | SAFe 6 · Scrum Guide 2020 · CTFL · PMI PMBOK 7 · ISO 9001 |
 | Challenge the reasoning (biases, counter-thesis, red-team) | `skills/critique_conformite/challenge-raisonnement.md` | CTAL-TM · PMI-ACP · ISO 9001 (peer review) |

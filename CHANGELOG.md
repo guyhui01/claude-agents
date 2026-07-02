@@ -6,10 +6,20 @@
 
 ---
 
-## [Unreleased]
-> Model: Claude Opus 4.8
+## [4.0.0] — 2026-07-02 — Catalog-wide convention audit (38 agents × 4 axes)
+> Model: Claude Fable 5 (audit sweep) · Claude Opus 4.8 (session lead)
+
+### 🔍 Audit
+- **Full convention-conformance audit** of the 38 `AGENT-*.md` files on 4 axes (canonical structure · EN i18n · metadata & skills · cross-cutting coherence), ISO 19011 posture (criterion → evidence → verdict): **zero Gap**; 428 skill references 100% resolved on disk; catalog counters (38/37/10/3) consistent across CLAUDE/START/README. Report: `audits/audit-conventions-catalogue-2026-07-02.md` (frozen snapshot).
+
+### 🛠 Fixed (audit findings)
+- **F-1** — `AGENT-AUDIT-METHODO-IA` added to the orchestrator's orchestrable catalog (it is invoked by WF-008/WF-010 but was missing from the list).
+- **F-3** — skills-table header aligned on the canonical `Certification` wording in `AGENT-AUDIT-METHODO-IA.md`.
+- **F-4** — `Growth IA scope` → `Growth AI scope` in `AGENT-GROWTH-IA.md` (last franglais residue).
 
 ### 📝 Documentation
+- **F-2** — catalog-level **persona disclaimer** added to `README.md` (front door) + `START.md`: agents are simulated expert personas; listed certifications frame the persona's knowledge, they are not credential claims, and outputs are not professional advice.
+- **O-4** — `tools/generate-sidecar.mjs` comments and human-facing CLI messages translated to US English (logic untouched; non-regression proven by `--check`).
 - **Reusable "optional counter-review gate" pattern documented** in `workflows/README.md`: how to wire `AGENT-AUDIT-METHODO-IA` into a workflow as an optional, gateway-triggered step before the final deliverable (placement, `agents_optionnels` listing, role, and the explicit `perimetre` frontier — it challenges methodological rigor, it does not redo the domain work). Live examples: WF-010 (`STEP-05B`) and WF-008 (`STEP-06C`).
 
 ---

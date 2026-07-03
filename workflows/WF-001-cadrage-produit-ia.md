@@ -14,8 +14,8 @@ domaine: "Agile & Product"
 declencheur: "Client brief received / product idea to scope"
 resultat_final: "Prioritized initial backlog + Gherkin acceptance criteria"
 duree_estimee: "45-90 min"
-modele_recommande: "claude-sonnet-4-6"
-modele_raison: "Structured, sequential workflow — well-bounded outputs (US, Gherkin, wireframes). Sonnet 4.6 offers the best quality/speed/cost ratio for this kind of production."
+modele_recommande: "claude-sonnet-5"
+modele_raison: "Structured, sequential workflow — well-bounded outputs (US, Gherkin, wireframes). Sonnet 5 offers the best quality/speed/cost ratio for this kind of production."
 modele_alternatif: "claude-opus-4-8"  # if the client brief is very ambiguous or the business context complex (e.g. regulatory, sector niche)
 agents_core:
   - BUSINESS-ANALYST     # business-needs analysis, AS-IS BPMN

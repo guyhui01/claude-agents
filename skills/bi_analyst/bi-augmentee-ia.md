@@ -102,7 +102,7 @@ def analyze_bi_data(csv_data: str, context: str) -> str:
 # Generate DAX from a business description
 def generate_dax(metric_description: str, model_context: str) -> str:
     message = client.messages.create(
-        model="claude-sonnet-4-6",
+        model="claude-sonnet-5",
         max_tokens=1024,
         messages=[{
             "role": "user",

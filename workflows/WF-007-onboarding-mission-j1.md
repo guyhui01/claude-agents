@@ -14,8 +14,8 @@ domaine: "Management & Consulting"
 declencheur: "Start of a new engagement at a client (D1 = first day)"
 resultat_final: "Validated kickoff plan + D1 kit delivered + D5 scoping completed + key relationships established"
 duree_estimee: "45-75 min"
-modele_recommande: "claude-sonnet-4-6"
-modele_raison: "Structured, operational workflow: production of documentary deliverables (plan, D1 kit, client sheet). Sonnet 4.6 is enough to generate and format these standard contents."
+modele_recommande: "claude-sonnet-5"
+modele_raison: "Structured, operational workflow: production of documentary deliverables (plan, D1 kit, client sheet). Sonnet 5 is enough to generate and format these standard contents."
 modele_alternatif: "claude-opus-4-8"  # if the engagement is particularly complex (transformation, politically tense context)
 agents_core:
   - CHEF-PROJET-IA      # kickoff plan, D1-D5 schedule, stakeholder management

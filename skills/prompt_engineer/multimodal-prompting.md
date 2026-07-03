@@ -95,7 +95,7 @@ const imageBuffer = fs.readFileSync("./screenshot.png");
 const base64Image = imageBuffer.toString("base64");
 
 const response = await client.messages.create({
-  model: "claude-sonnet-4-6",
+  model: "claude-sonnet-5",
   max_tokens: 2048,
   messages: [
     {

@@ -50,7 +50,7 @@ Expected answer (the landscape moves very fast → the METHOD matters more than 
   · FRONTIER (complex reasoning, agents, advanced code):
     Claude Opus 4.8 · competing frontier families (OpenAI GPT, Google Gemini, xAI Grok, DeepSeek)
   · PRODUCTION (quality/cost balance, high volumes):
-    Claude Sonnet 4.6 · multimodal/economical alternatives as needed
+    Claude Sonnet 5 · multimodal/economical alternatives as needed
   · FAST / SIMPLE (latency, scripts):
     Claude Haiku 4.5 · competing "flash/mini" models
   · SOVEREIGNTY / ON-PREMISE:

@@ -77,7 +77,7 @@ logger = logging.getLogger(__name__)
 
 MAX_ATTEMPTS: Final = 3
 MAX_TOKENS: Final = 1024
-DEFAULT_MODEL: Final = "claude-sonnet-4-6"
+DEFAULT_MODEL: Final = "claude-sonnet-5"
 
 # Transient Anthropic errors: rate limit, server overload, timeout
 TRANSIENT_ERRORS = (

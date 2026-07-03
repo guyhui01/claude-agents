@@ -14,8 +14,8 @@ domaine: "Management & Consulting"
 declencheur: "Weekly / monthly cadence or detected market signal"
 resultat_final: "Qualified intelligence synthesis + thought-leadership content ready to publish"
 duree_estimee: "30-60 min"
-modele_recommande: "claude-sonnet-4-6"
-modele_raison: "Light workflow: 3 agents, collection, qualification, and editorial writing tasks. Sonnet 4.6 is sufficient and optimal — speed and controlled cost for a weekly cadence."
+modele_recommande: "claude-sonnet-5"
+modele_raison: "Light workflow: 3 agents, collection, qualification, and editorial writing tasks. Sonnet 5 is sufficient and optimal — speed and controlled cost for a weekly cadence."
 modele_alternatif: "claude-opus-4-8"  # if an in-depth monthly strategic synthesis with PESTEL trend analysis
 agents_core:
   - VEILLE-STRATEGIQUE   # collection, qualification, intelligence synthesis

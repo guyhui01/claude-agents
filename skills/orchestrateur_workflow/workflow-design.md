@@ -14,7 +14,7 @@ BUSINESS GOAL   : [expected result in 1 sentence]
 TRIGGER         : [event that starts the workflow — e.g. client brief received]
 FINAL RESULT    : [deliverable or target state — e.g. prioritized backlog + acceptance criteria]
 ESTIMATED TIME  : [e.g. 45 min / 2h / async]
-LLM MODEL       : [e.g. Claude Sonnet 4.6 (steps) / Opus 4.8 for the orchestrator]
+LLM MODEL       : [e.g. Claude Sonnet 5 (steps) / Opus 4.8 for the orchestrator]
 ```
 
 ### 2. BPMN mapping — Standard structure

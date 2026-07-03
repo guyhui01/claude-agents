@@ -53,7 +53,7 @@ claude-agents/
 - **Commits OK without asking**, but push only on explicit approval
 - **Concise responses**, in French (chat)
 - For destructive or irreversible actions (`rm -rf`, `git reset --hard`, force push) → ask first
-- Mechanical edits (Sonnet 4.6 is enough); architecture trade-offs (Opus 4.8)
+- Mechanical edits (Sonnet 5 is enough); architecture trade-offs (Opus 4.8; Fable 5 for the most demanding reasoning / long-horizon agentic work)
 
 ---
 
@@ -61,8 +61,9 @@ claude-agents/
 
 | Task | Recommended model |
 |---|---|
+| Most demanding reasoning, long-horizon agentic work | **Fable 5** |
 | Audit, complex reasoning, architecture trade-offs | **Opus 4.8** |
-| Targeted edits, mechanical refactoring, skill generation | **Sonnet 4.6** |
+| Targeted edits, mechanical refactoring, skill generation | **Sonnet 5** |
 | Bulk boilerplate generation, simple scripts | **Haiku 4.5** |
 
 ---

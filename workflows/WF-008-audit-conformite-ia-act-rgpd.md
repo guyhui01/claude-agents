@@ -16,7 +16,7 @@ resultat_final: "Compliance audit report + risk mapping + prioritized remediatio
 duree_estimee: "90-150 min"
 modele_recommande: "claude-opus-4-8"
 modele_raison: "Very high-stakes regulatory workflow: AI Act risk-tier qualification, multi-article GDPR analysis, threat modeling, AI governance. A qualification error = exposure to penalties (up to 7% of worldwide turnover under the AI Act). Opus 4.8 is essential for the reliability of multi-framework legal-technical reasoning."
-modele_alternatif: "claude-sonnet-4-6"  # only for express pre-audits (limited-risk AI system, scope < 1 use case)
+modele_alternatif: "claude-sonnet-5"  # only for express pre-audits (limited-risk AI system, scope < 1 use case)
 agents_core:
   - JURIDIQUE-IA           # AI Act / GDPR / NIS2 obligations mapping
   - AI-ARCHITECT           # architecture review (transparency, explainability, monitoring)

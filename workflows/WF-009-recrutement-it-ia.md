@@ -14,8 +14,8 @@ domaine: "HR & Talent"
 declencheur: "Identified IT/AI recruitment need (permanent, fixed-term, freelance, internship)"
 resultat_final: "Selected candidate + offer issued + complete recruitment file"
 duree_estimee: "60-90 min"
-modele_recommande: "claude-sonnet-4-6"
-modele_raison: "Operational HR workflow: offer writing, assessment grids, CV scoring. Sonnet 4.6 ensures sufficient quality for these standard deliverables."
+modele_recommande: "claude-sonnet-5"
+modele_raison: "Operational HR workflow: offer writing, assessment grids, CV scoring. Sonnet 5 ensures sufficient quality for these standard deliverables."
 modele_alternatif: "claude-opus-4-8"  # if recruiting very senior profiles (CDO, AI Architect, CISO) or a politically tense context
 agents_core:
   - RH-IA               # sourcing, profile assessment, ATS scoring, anti-fraud

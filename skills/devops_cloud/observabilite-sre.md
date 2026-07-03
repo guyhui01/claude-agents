@@ -194,7 +194,7 @@ agent_iter_gauge = meter.create_gauge(
 )
 
 @tracer.start_as_current_span("llm.call")
-def call_llm(prompt: str, model: str = "claude-sonnet-4-6") -> str:
+def call_llm(prompt: str, model: str = "claude-sonnet-5") -> str:
     response = client.messages.create(model=model, max_tokens=1024,
         messages=[{"role": "user", "content": prompt}])
     # Cost = input × input_price + output × output_price (Anthropic pricing)

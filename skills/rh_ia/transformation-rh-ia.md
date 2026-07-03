@@ -9,7 +9,7 @@ Support HR teams in embedding AI into their processes: selecting and deploying A
 ```
 RECRUITMENT
 ──────────────────────────────────────────────────────
-Job posting writing      → LLM (Claude Sonnet 4.6 or market equivalent) from a structured HR brief
+Job posting writing      → LLM (Claude Sonnet 5 or market equivalent) from a structured HR brief
 Boolean sourcing         → LinkedIn Recruiter, Seek Out, Hireez
 CV screening             → AI ATS: Greenhouse, Lever, SmartRecruiters
 Initial qualification    → HR chatbot: MYA, Paradox (Olivia), Eightfold AI
@@ -22,7 +22,7 @@ TRAINING & DEVELOPMENT
 ──────────────────────────────────────────────────────
 Skills-gap detection      → HRIS analysis + LLM
 Learning-path suggestions → AI LMS: 360Learning, Cornerstone, Docebo AI
-Training-content generation → Claude Opus 4.8 / Sonnet 4.6 (or market equivalent) + LMS
+Training-content generation → Claude Opus 4.8 / Sonnet 5 (or market equivalent) + LMS
 Post-training assessment   → Generative quiz + results analysis
 
 PEOPLE ANALYTICS
@@ -54,7 +54,7 @@ AI RECRUITMENT WORKFLOW — 6 STEPS
 ──────────────────────────────────────────────────────
 STEP 1 — BRIEF & JOB POSTING (generative AI)
   Input : Manager brief (role, stack, context)
-  Tool  : Claude Sonnet 4.6 / Opus 4.8 (or market frontier equivalent) + structured template
+  Tool  : Claude Sonnet 5 / Opus 4.8 (or market frontier equivalent) + structured template
   Output: Job posting written, reviewed, auto-published
 
 STEP 2 — SOURCING (matching AI)
@@ -203,7 +203,7 @@ PHASE 4 — ROLLOUT (M5-M6)
 | Tier | Models (families) | Typical HR use |
 |---|---|---|
 | **Frontier / Premium** | Claude **Opus 4.8** · OpenAI GPT · Google Gemini · xAI Grok · DeepSeek | Complex CV analysis, premium job postings, senior evaluation, sourcing agents |
-| **Production** | Claude **Sonnet 4.6** · multimodal equivalents | Initial qualification, ATS scoring, people analytics, HR chatbots |
+| **Production** | Claude **Sonnet 5** · multimodal equivalents | Initial qualification, ATS scoring, people analytics, HR chatbots |
 | **Eco / fast** | Claude **Haiku 4.5** · competing "flash/mini" models | Simple high-volume tasks, low latency |
 | **Sovereign / on-premise** | Mistral (GDPR FR/EU) · Llama (open-source, self-hosted) | Sensitive data, EU data-residency constraints |
 

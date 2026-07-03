@@ -16,7 +16,7 @@ resultat_final: "Complete technical-commercial proposal: scope, architecture, sc
 duree_estimee: "75-120 min"
 modele_recommande: "claude-opus-4-8"
 modele_raison: "Strategic workflow with high commercial stakes: GO/NO-GO qualification, target architecture, person-day costing, pricing, prospect ROI. The quality of the reasoning and of the multi-dimensional synthesis drives the commercial win rate. Opus 4.8 recommended for proposals aimed at CAC40 / GAFA / unicorn clients."
-modele_alternatif: "claude-sonnet-4-6"  # for simple quote requests (short fixed price, framed scope, < 20 person-days)
+modele_alternatif: "claude-sonnet-5"  # for simple quote requests (short fixed price, framed scope, < 20 person-days)
 agents_core:
   - CONSULTANT-IA        # client-need qualification + GO/NO-GO grid
   - BUSINESS-ANALYST     # functional scoping, target use cases, requirements

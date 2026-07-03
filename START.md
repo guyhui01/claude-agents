@@ -131,7 +131,7 @@ Each agent references its skills in its file (the "Available skills" table). Ski
 ## 5. Useful commands
 
 ```
-/model              # Switch model (Opus 4.8, Sonnet 4.6, Haiku 4.5)
+/model              # Switch model (Opus 4.8, Sonnet 5, Haiku 4.5)
 /clear              # Clear the conversation context
 /help               # Claude Code help
 ! <command>         # Run a shell command directly
@@ -139,5 +139,5 @@ Each agent references its skills in its file (the "Available skills" table). Ski
 
 ---
 
-> 💡 **Tip**: for mechanical tasks (edits, refactors), stay on Sonnet 4.6.
+> 💡 **Tip**: for mechanical tasks (edits, refactors), stay on Sonnet 5.
 > Switch to Opus 4.8 for genuine architecture trade-offs, audits, and complex reasoning.

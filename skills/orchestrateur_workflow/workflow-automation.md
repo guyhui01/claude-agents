@@ -112,7 +112,7 @@ async function main() {
 
     console.log(`[ORCHESTRATOR] → ${step.agent}`);
     const result = await client.messages.create({
-      model: "claude-sonnet-4-6",
+      model: "claude-sonnet-5",
       max_tokens: 4096,
       system: [{ type: "text", text: systemPrompt, cache_control: { type: "ephemeral" } }],
       messages: [{ role: "user", content: userMessage }],
@@ -155,7 +155,7 @@ main().catch(console.error);
           "content-type": "application/json"
         },
         "body": {
-          "model": "claude-sonnet-4-6",
+          "model": "claude-sonnet-5",
           "max_tokens": 4096,
           "system": "You are an expert Business Analyst...",
           "messages": [
@@ -172,7 +172,7 @@ main().catch(console.error);
       "type": "n8n-nodes-base.httpRequest",
       "parameters": {
         "body": {
-          "model": "claude-sonnet-4-6",
+          "model": "claude-sonnet-5",
           "max_tokens": 4096,
           "system": "You are a Product Owner Scrum Expert...",
           "messages": [
@@ -277,7 +277,7 @@ SLACK_BOT_TOKEN=xoxb-...
 SLACK_CHANNEL_ID=C...
 
 # Workflow config
-DEFAULT_MODEL=claude-sonnet-4-6
+DEFAULT_MODEL=claude-sonnet-5
 MAX_TOKENS=4096
 LOG_LEVEL=info
 ```
@@ -302,7 +302,7 @@ Specify: the target automation tool (GitHub Actions / n8n / Make / webhook), the
 
 ## Sources
 - **GitHub Actions** — docs.github.com/actions · **n8n** — docs.n8n.io · **Make** — make.com
-- **Anthropic SDK / Messages API** — docs.anthropic.com (header `anthropic-version: 2023-06-01`, current) · model `claude-sonnet-4-6` for high-volume runtime
+- **Anthropic SDK / Messages API** — docs.anthropic.com (header `anthropic-version: 2023-06-01`, current) · model `claude-sonnet-5` for high-volume runtime
 
 ## See also
 - [`trigger-management.md`](trigger-management.md) — triggers and events

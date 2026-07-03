@@ -14,8 +14,8 @@ domaine: "Management & Consulting"
 declencheur: "Project closeout, end of PI, or major production incident"
 resultat_final: "Complete lessons-learned report + prioritized improvement plan + learning capitalization"
 duree_estimee: "45-75 min"
-modele_recommande: "claude-sonnet-4-6"
-modele_raison: "Documentary and analytical workflow: fact collection, root-cause analysis, report writing. Sonnet 4.6 produces professional-quality lessons-learned reports."
+modele_recommande: "claude-sonnet-5"
+modele_raison: "Documentary and analytical workflow: fact collection, root-cause analysis, report writing. Sonnet 5 produces professional-quality lessons-learned reports."
 modele_alternatif: "claude-opus-4-8"  # if a high-stakes post-mortem (critical incident, dispute, executive board)
 agents_core:
   - CHEF-PROJET-IA    # lessons-learned facilitation, timeline, root-cause analysis, improvement plan

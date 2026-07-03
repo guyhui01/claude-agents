@@ -28,7 +28,7 @@ Evaluate and compare AI tools on objective criteria — performance, cost, compl
 | API quality (SDK, docs) | … | … | … | … |
 | Multimodal | … | … | … | … |
 
-> **Reference anchor (to refresh)**: Anthropic family at the time of writing — Claude **Opus 4.8** (reasoning/agents), **Sonnet 4.6** (high-volume/vision), **Haiku 4.5** (fast/eco). For other vendors, cite the version + its release date (avoid labeling an older model as "2026").
+> **Reference anchor (to refresh)**: Anthropic family at the time of writing — Claude **Fable 5** (most capable / long-horizon), **Opus 4.8** (reasoning/agents), **Sonnet 5** (high-volume/vision), **Haiku 4.5** (fast/eco). For other vendors, cite the version + its release date (avoid labeling an older model as "2026").
 
 ## Workflow / Automation benchmark
 
@@ -91,4 +91,4 @@ Specify: the tool category (LLM / workflow / RAG / agents), the priority use cas
 - **Market evaluation methods**: Gartner Magic Quadrant + Hype Cycle (1995) · Forrester Wave · IDC MarketScape · ISO/IEC 25010:2023 (software quality)
 - **Public leaderboards**: LMArena / Chatbot Arena · Papers With Code · Artificial Analysis · *Open LLM Leaderboard (HuggingFace) — archived June 2024, no longer use as a live source*
 - **Pricing & specs**: vendors' official pages (anthropic.com, openai.com, ai.google.dev, mistral.ai)
-- **Anthropic models at the time of writing**: Opus 4.8 / Sonnet 4.6 / Haiku 4.5 (to refresh)
+- **Anthropic models at the time of writing**: Fable 5 / Opus 4.8 / Sonnet 5 / Haiku 4.5 (to refresh)

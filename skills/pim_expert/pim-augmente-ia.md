@@ -52,7 +52,7 @@ Rules: no unverifiable superlatives (best, revolutionary), no needless capitals,
 professional factual tone, include certifications if present."""
 
     message = client.messages.create(
-        model="claude-sonnet-4-6",
+        model="claude-sonnet-5",
         max_tokens=1024,
         messages=[{"role": "user", "content": prompt}]
     )
@@ -118,7 +118,7 @@ Specify: **target PIM** (Akeneo, Pimcore…), **volume of records** to enrich, *
 - **McKinsey** — *The Economic Potential of Generative AI* (June 2023): marketing/content among the 4 highest-potential functions — mckinsey.com
 - **ISO/IEC 42001:2023** (AIMS) · **NIST AI RMF 1.0** (Jan. 2023) — governance and measurement of AI systems — iso.org / nist.gov
 - **EU AI Act** — Regulation (EU) 2024/1689, **art. 50** transparency for AI-generated content (applicable Aug 2, 2026) — artificialintelligenceact.eu
-- **Anthropic Claude** (model `claude-sonnet-4-6`, vision + text) — docs.anthropic.com · **BLEU** (Papineni 2002) / chrF / COMET — MT evaluation
+- **Anthropic Claude** (model `claude-sonnet-5`, vision + text) — docs.anthropic.com · **BLEU** (Papineni 2002) / chrF / COMET — MT evaluation
 
 ## See also
 - [`enrichissement-produit.md`](enrichissement-produit.md) — enrichment workflow accelerated by AI

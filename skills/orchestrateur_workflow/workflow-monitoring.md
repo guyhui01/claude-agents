@@ -87,7 +87,7 @@ workflow_metrics:
 
 ```
 EXECUTION REPORT — WORKFLOW [NAME]
-Date : [DATE] | Duration : [X min] | Model : Claude Sonnet 4.6
+Date : [DATE] | Duration : [X min] | Model : Claude Sonnet 5
 ══════════════════════════════════════════════════════════════
 
 RESULT    : ✅ Completed successfully

@@ -46,12 +46,12 @@ LinkedIn : #GenAI #LLM #ArtificialIntelligence
 | Model | Vendor | Release | Context | Tier | Relevance |
 |---|---|---|---|---|---|
 | Claude Opus 4.8 | Anthropic | [YYYY-MM] | [doc] | frontier | ⭐⭐⭐ |
-| Claude Sonnet 4.6 | Anthropic | [YYYY-MM] | [doc] | standard | ⭐⭐⭐ |
+| Claude Sonnet 5 | Anthropic | [YYYY-MM] | [doc] | standard | ⭐⭐⭐ |
 | [current version] | OpenAI | [YYYY-MM] | [doc] | … | … |
 | [current version] | Google | [YYYY-MM] | [doc] | … | … |
 | [open version] | Meta / Mistral | [YYYY-MM] | [doc] | eco/open | … |
 
-> *Anthropic anchor at the time of writing (to refresh)*: Opus 4.8 · Sonnet 4.6 · Haiku 4.5.
+> *Anthropic anchor at the time of writing (to refresh)*: Opus 4.8 · Sonnet 5 · Haiku 4.5.
 
 ## Monthly AI digest — Template
 

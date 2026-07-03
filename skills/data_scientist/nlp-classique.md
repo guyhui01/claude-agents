@@ -83,7 +83,7 @@ vectorstore = FAISS.from_texts(chunks, embeddings)
 retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
 
 # 4. LLM
-llm = ChatAnthropic(model="claude-sonnet-4-6")
+llm = ChatAnthropic(model="claude-sonnet-5")
 
 # 5. RAG chain
 qa_chain = RetrievalQA.from_chain_type(llm=llm, retriever=retriever)

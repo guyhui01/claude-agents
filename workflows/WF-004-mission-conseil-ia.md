@@ -16,7 +16,7 @@ resultat_final: "Maturity audit report + strategic roadmap + training plan + exe
 duree_estimee: "60-90 min"
 modele_recommande: "claude-opus-4-8"
 modele_raison: "High-value strategic workflow: maturity audit, ROI, 12-24 month roadmap, ADKAR, training plan, and executive summary. Requires deep strategic reasoning and multi-source synthesis ability. Opus 4.8 recommended for the quality of CAC40 client deliverables."
-modele_alternatif: "claude-sonnet-4-6"  # for short diagnostic-only engagements (no roadmap or full report)
+modele_alternatif: "claude-sonnet-5"  # for short diagnostic-only engagements (no roadmap or full report)
 agents_core:
   - CONSULTANT-IA        # AI maturity diagnostic, recommendations
   - FINANCIAL-ANALYST    # transformation ROI, recommendation business cases

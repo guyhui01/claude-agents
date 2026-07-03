@@ -30,7 +30,7 @@ DIMENSION 4 — SECURITY
 eval_plan:
   prompt_name: "PO-SCRUM system prompt v2.1"
   date: "2026-05-22"
-  model: "claude-sonnet-4-6"
+  model: "claude-sonnet-5"
   
   test_cases:
     - id: "TEST-01"

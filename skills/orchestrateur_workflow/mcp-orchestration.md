@@ -134,7 +134,7 @@ const anthropic = new Anthropic(); // reads ANTHROPIC_API_KEY from process.env
 
 async function generateUserStories(business_context: string, story_count: number = 8): Promise<string> {
   const response = await anthropic.messages.create({
-    model: "claude-sonnet-4-6",
+    model: "claude-sonnet-5",
     max_tokens: 4096,
     system: `You are an expert Product Owner Scrum. You write User Stories in INVEST format with Gherkin criteria (Given/When/Then). Format: "As a [role], I want [action] so that [benefit]".`,
     messages: [{
@@ -147,7 +147,7 @@ async function generateUserStories(business_context: string, story_count: number
 
 async function prioritizeBacklog(backlog: string[], method: "wsjf" | "moscow" = "wsjf"): Promise<string> {
   const response = await anthropic.messages.create({
-    model: "claude-sonnet-4-6",
+    model: "claude-sonnet-5",
     max_tokens: 4096,
     system: method === "wsjf"
       ? `You prioritize by SAFe POPM 6 WSJF (relative scoring per column, smallest = 1, independent columns: Business Value, Time Criticality, Risk Reduction, Job Size).`

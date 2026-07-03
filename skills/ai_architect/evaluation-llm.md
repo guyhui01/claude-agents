@@ -91,7 +91,7 @@ samples:
 ```
 EVAL REPORT — [System] — [Month]
 ====================================
-Model       : claude-sonnet-4-6
+Model       : claude-sonnet-5
 Dataset     : golden_v2026.05 (N=247)
 
 SCORES:

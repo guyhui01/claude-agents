@@ -167,7 +167,7 @@ YOUR CAPABILITIES:
 
 def analyze_document(document_text: str, question: str) -> str:
     response = client.messages.create(
-        model="claude-sonnet-4-6",
+        model="claude-sonnet-5",
         max_tokens=2000,
         system=SYSTEM_PROMPT,
         messages=[
@@ -202,7 +202,7 @@ Then generate an improved version, fixing the identified gaps."
 
 | Aspect | Claude (Anthropic) | ChatGPT (OpenAI) | Gemini (Google) |
 |--------|-------------------|-----------------|----------------|
-| Context length | 200K tokens | 128K tokens | 1M tokens |
+| Context length | 1M tokens | 128K tokens | 1M tokens |
 | Instruction following | Very precise | Very good | Good |
 | Ethical reasoning | Natively built-in | Moderate | Moderate |
 | Code | Excellent | Excellent | Very good |

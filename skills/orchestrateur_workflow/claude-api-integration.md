@@ -30,7 +30,7 @@ async function callAgent(
   agentRole: string,
   agentInstructions: string,
   userMessage: string,
-  model = "claude-sonnet-4-6"
+  model = "claude-sonnet-5"
 ): Promise<string> {
   const response = await client.messages.create({
     model,
@@ -111,7 +111,7 @@ const results = await runSequentialChain(wf001Steps, clientBrief);
 // Saving: up to 90% on repeated input tokens
 
 const response = await client.messages.create({
-  model: "claude-sonnet-4-6",
+  model: "claude-sonnet-5",
   max_tokens: 4096,
   system: [
     {
@@ -158,7 +158,7 @@ async function callAgentWithTools(systemPrompt: string, userMessage: string) {
   // Agentic loop — continue until stop_reason = "end_turn"
   while (true) {
     const response = await client.messages.create({
-      model: "claude-sonnet-4-6",
+      model: "claude-sonnet-5",
       max_tokens: 4096,
       system: systemPrompt,
       tools,
@@ -196,7 +196,7 @@ async function callAgentWithTools(systemPrompt: string, userMessage: string) {
 ```typescript
 async function streamAgent(systemPrompt: string, userMessage: string) {
   const stream = await client.messages.stream({
-    model: "claude-sonnet-4-6",
+    model: "claude-sonnet-5",
     max_tokens: 4096,
     system: systemPrompt,
     messages: [{ role: "user", content: userMessage }],
@@ -226,9 +226,8 @@ function estimateTokens(text: string): number {
 }
 
 // Guardrails for long workflows
-// Claude Sonnet 4.6 / Opus 4.8 = 200K context window (2026)
-// For extended context (if enabled), increase to 1M tokens
-const MAX_CONTEXT_TOKENS = 200_000;
+// Claude Sonnet 5 / Opus 4.8 = 1M context window (2026)
+const MAX_CONTEXT_TOKENS = 1_000_000;
 const SAFETY_MARGIN_TOKENS = 8_192; // Safety margin for response + tools
 
 // Anthropic Batch API: for asynchronous non-interactive workflows
@@ -274,14 +273,14 @@ Specify: the language (TypeScript / Python), the target model, the number of age
 
 ## Anti-patterns
 - ❌ **API key exposed client-side**: leak → server-side calls only
-- ❌ **Hardcoded model** scattered around: maintenance → centralize the ID (Opus 4.8 for reasoning / Sonnet 4.6 for runtime)
+- ❌ **Hardcoded model** scattered around: maintenance → centralize the ID (Opus 4.8 for reasoning / Sonnet 5 for runtime)
 - ❌ **No retry/backoff** on `RateLimitError`: failures at peak → exponential backoff + jitter
 - ❌ **Ignoring prompt caching** on large system prompts (> 1024 tokens): extra cost → ephemeral `cache_control`
 - ❌ **Estimating tokens loosely with no margin**: window overflow → safety margin (8K) + real counting
 
 ## Sources
 - **Anthropic API** — docs.anthropic.com (Messages, **prompt caching** read ≈0.1× input, **Batch API** −50%, tool use, streaming) · header `anthropic-version: 2023-06-01` (current)
-- Models: **`claude-opus-4-8`** (reasoning) · **`claude-sonnet-4-6`** (runtime, 200K context)
+- Models: **`claude-opus-4-8`** (reasoning) · **`claude-sonnet-5`** (runtime, 1M context)
 
 ## See also
 - [`langgraph-crewai-patterns.md`](langgraph-crewai-patterns.md) — orchestration patterns on this SDK

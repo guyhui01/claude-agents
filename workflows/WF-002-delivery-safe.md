@@ -16,7 +16,7 @@ resultat_final: "Validated PI Objectives + WSJF Program Backlog + Sprint plan + 
 duree_estimee: "60-120 min"
 modele_recommande: "claude-opus-4-8"
 modele_raison: "Dense workflow: 6 agents, multi-team ART orchestration, WSJF, PI Planning, cross dependencies, and executive-committee reporting. Opus 4.8 is required for the depth of SAFe reasoning and the consistency of outputs across the whole chain."
-modele_alternatif: "claude-sonnet-4-6"  # acceptable for simple ART contexts (1-2 teams, known PI)
+modele_alternatif: "claude-sonnet-5"  # acceptable for simple ART contexts (1-2 teams, known PI)
 agents_core:
   - PRODUCT-MANAGER-SAFE  # Program vision, ART roadmap
   - RELEASE-TRAIN-ENGINEER # PI Planning facilitation, ART coordination

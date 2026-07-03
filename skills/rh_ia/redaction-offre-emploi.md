@@ -32,7 +32,7 @@ tech team size, culture (remote-first, Agile, product)]
 [Hiring context: new role, replacement, growth]
 [Main responsibilities: 4-6 concrete bullet points]
 - Design and deploy RAG pipelines on [stack]
-- Integrate frontier LLMs (Claude Opus 4.8, OpenAI GPT, Google Gemini) and production models (Claude Sonnet 4.6, Mistral…) via API
+- Integrate frontier LLMs (Claude Opus 4.8, OpenAI GPT, Google Gemini) and production models (Claude Sonnet 5, Mistral…) via API
 - Collaborate with PMs/POs to refine acceptance criteria
 - [...]
 

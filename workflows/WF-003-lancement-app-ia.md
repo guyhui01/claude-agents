@@ -16,7 +16,7 @@ resultat_final: "AI application deployed, operational CI/CD pipeline, security a
 duree_estimee: "90-180 min"
 modele_recommande: "claude-opus-4-8"
 modele_raison: "The densest workflow in the catalog: 6 agents covering business case, architecture, code, CI/CD, and security audit over 90-180 min. Requires deep architectural reasoning and end-to-end technical consistency. Opus 4.8 mandatory."
-modele_alternatif: "claude-sonnet-4-6"  # only for very simple apps with no RAG or agents (basic CRUD)
+modele_alternatif: "claude-sonnet-5"  # only for very simple apps with no RAG or agents (basic CRUD)
 agents_core:
   - FINANCIAL-ANALYST    # business case and ROI before development
   - PROMPT-ENGINEER      # design of the application's LLM prompts
@@ -60,7 +60,7 @@ TECHNICAL CONTEXT (to fill in before starting)
 ──────────────────────────────────────────────────────
 AI app type        : [RAG chatbot / Autonomous agent / Generation app / Classification]
 Cloud provider     : [AWS / GCP / Azure / On-premise / Vercel]
-Target LLM         : [Claude Sonnet 4.6 / Claude Opus 4.8 / Mistral Large 2 / Llama 3.1 local / On-premise model]
+Target LLM         : [Claude Sonnet 5 / Claude Opus 4.8 / Mistral Large 2 / Llama 3.1 local / On-premise model]
 Tech stack         : [Python FastAPI / Next.js / LangChain / n8n / other]
 Database           : [PostgreSQL / MongoDB / Pinecone / Qdrant / other]
 GDPR constraints   : [Personal data: YES/NO — Data location: EU/US]
@@ -177,7 +177,7 @@ etape:
   role: "Design of the application's LLM prompts"
   input:
     - "Main use cases of the app"
-    - "Target LLM (Claude Sonnet 4.6 / Opus 4.8 / Mistral Large 2 / local model)"
+    - "Target LLM (Claude Sonnet 5 / Opus 4.8 / Mistral Large 2 / local model)"
     - "Constraints: tone, response length, language, security"
     - "Envisaged architecture (RAG / agents / simple chain)"
   output_attendu:

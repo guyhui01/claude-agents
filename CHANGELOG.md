@@ -7,7 +7,20 @@
 ---
 
 ## [Unreleased]
-> Model: Claude Fable 5
+
+---
+
+## [4.0.1] — 2026-07-03 — Q3 model review (#16) + i18n follow-up
+> Model: Claude Opus 4.8 (session lead) · Claude Fable 5 (i18n follow-up)
+
+### 🔄 Changed (model review — issue #16)
+- **Quarterly model review (Q3 2026)**: refreshed Sonnet 4.6 → **Sonnet 5** across all live content (39 files: skills, workflows, `START.md`, benchmark, repo `CLAUDE.md`). Added **Fable 5** to the reasoning tier in the model-routing tables (`CLAUDE.md`) and the benchmark anchor. Opus 4.8 / Haiku 4.5 already current; **no obsolete Anthropic model IDs remain in live content**. Dated execution traces (`workflows/{outputs,use_cases}` WF-002, run 2026-05-27 on Opus 4.7) preserved as historical records rather than rewritten.
+
+### 🛠 Fixed
+- **Context-window inaccuracy** 200K → **1M** for Sonnet 5 / Opus 4.8 (`claude-api-integration.md` header comment + `MAX_CONTEXT_TOKENS`; Claude column of the comparison table in `prompt-engineering-formation.md`). Haiku 4.5's genuine 200K left intact.
+
+### 🔧 CI
+- Bumped `actions/checkout` **v4 → v7** (`.github/workflows/sidecar.yml`).
 
 ### 📝 Documentation
 - **i18n follow-up lot (post-audit O-4 sibling debt)**: CLI guard tools `tools/check-workflow-agent-counts.mjs` + `tools/check-schema-drift.mjs` (comments + human-facing messages), CI workflow comments (`.github/workflows/sidecar.yml`), PR template, and the maintenance-reminder workflow translated to US English. Maintenance workflow: `workflow_dispatch` input options + their script comparisons renamed in sync (`quarterly`/`semiannual`/`annual`, self-contained), issue-date locale switched to `en-US`. Non-regression: all 3 guard scripts re-run green; both workflow YAMLs parse.

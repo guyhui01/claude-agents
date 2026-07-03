@@ -12,7 +12,7 @@ id: "WF-001"
 name: "AI Product Scoping"
 domain: "Agile & Product"
 estimated_duration: "45-90 min"
-recommended_model: "Sonnet 4.6"
+recommended_model: "Sonnet 5"
 certifications: ["PSPO1", "SAFe 6", "PMI-ACP"]
 usage_context: "Client brief → prioritized backlog + acceptance criteria"
 agents:
@@ -34,7 +34,7 @@ id: "WF-002"
 name: "Agile SAFe Delivery"
 domain: "Agile & Product"
 estimated_duration: "60-120 min"
-recommended_model: "Sonnet 4.6"
+recommended_model: "Sonnet 5"
 certifications: ["SAFe6 POPM", "SAFe6 Agilist", "SAFe LPM"]
 usage_context: "PI Planning → sprint backlog → progress reporting"
 agents:
@@ -56,7 +56,7 @@ id: "WF-003"
 name: "AI Application Launch"
 domain: "Dev & Technical"
 estimated_duration: "90-180 min"
-recommended_model: "Sonnet 4.6"
+recommended_model: "Sonnet 5"
 certifications: ["AWS SA", "TOGAF 10", "PMP"]
 usage_context: "Idea → architecture → code → deployment → security audit"
 agents:
@@ -78,7 +78,7 @@ id: "WF-004"
 name: "AI Consulting Engagement"
 domain: "Management & Consulting"
 estimated_duration: "60-90 min"
-recommended_model: "Sonnet 4.6"
+recommended_model: "Sonnet 5"
 certifications: ["PMP", "PROSCI", "CAP IABAC"]
 usage_context: "AI maturity audit → strategy → training plan → deliverables"
 agents:
@@ -100,7 +100,7 @@ id: "WF-005"
 name: "Strategic Intelligence & Growth"
 domain: "Management & Consulting"
 estimated_duration: "30-60 min"
-recommended_model: "Sonnet 4.6"
+recommended_model: "Sonnet 5"
 certifications: ["PMI-ACP", "SAFe LPM"]
 usage_context: "AI/tech intelligence → thought-leadership content → contractual review"
 agents:
@@ -147,7 +147,7 @@ id: "WF-007"
 name: "Client Engagement Onboarding D1-D5"
 domain: "Management & Consulting"
 estimated_duration: "45-75 min"
-recommended_model: "Sonnet 4.6"
+recommended_model: "Sonnet 5"
 certifications: ["PMP", "CBAP", "PROSCI"]
 usage_context: "Engagement signed → client context → kickoff plan → D1 deliverables → D5 scoping"
 agents:
@@ -197,7 +197,7 @@ id: "WF-009"
 name: "IT/AI Recruitment"
 domain: "HR & Talent"
 estimated_duration: "60-90 min"
-recommended_model: "Sonnet 4.6"
+recommended_model: "Sonnet 5"
 certifications: ["SHRM-CP", "CBAP", "PHR", "CIPD L5", "CAP IABAC"]
 usage_context: "Need identified → job description → sourcing → assessment → selection → offer"
 agents:
@@ -220,7 +220,7 @@ id: "WF-010"
 name: "Project Post-mortem / Lessons Learned"
 domain: "Management & Consulting"
 estimated_duration: "45-75 min"
-recommended_model: "Sonnet 4.6"
+recommended_model: "Sonnet 5"
 certifications: ["PMP", "PRINCE2", "PROSCI", "ISTQB"]
 usage_context: "Project closed or major incident → collection → root-cause analysis → lessons-learned report → improvement plan"
 agents:
@@ -272,7 +272,7 @@ id: "WF-00X"
 name: "[WORKFLOW NAME]"
 domain: "[Dev & Technical / Agile & Product / Management & Consulting]"
 estimated_duration: "[X-Y min]"
-recommended_model: "Sonnet 4.6"
+recommended_model: "Sonnet 5"
 certifications: []
 usage_context: "[Trigger → final result in 1 line]"
 agents: []

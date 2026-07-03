@@ -18,7 +18,7 @@ Design, train and deploy deep learning models for high-complexity tasks (vision,
 | Task | Architecture | Framework |
 |---|---|---|
 | Text classification | BERT, RoBERTa, CamemBERT | HuggingFace |
-| Text generation | GPT-4o, Claude Sonnet 4.6, Mistral | API / vLLM |
+| Text generation | GPT-4o, Claude Sonnet 5, Mistral | API / vLLM |
 | RAG | Embeddings + Vector DB | LangChain / LlamaIndex |
 | Fine-tuning | LoRA / QLoRA | PEFT / Unsloth |
 

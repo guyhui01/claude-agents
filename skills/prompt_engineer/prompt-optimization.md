@@ -14,7 +14,7 @@ LEVER 1 — PROMPT CACHING (savings up to 90%)
 
 LEVER 2 — MODEL SELECTION
   Opus 4.8   : complex / nuanced / critical tasks
-  Sonnet 4.6 : quality / cost balance (80% of cases)
+  Sonnet 5 : quality / cost balance (80% of cases)
   Haiku 4.5  : simple / repetitive / high-volume tasks
 
 LEVER 3 — TOKEN REDUCTION
@@ -36,7 +36,7 @@ LEVER 5 — STREAMING
 ```typescript
 // Enable caching on the long system prompt
 const response = await client.messages.create({
-  model: "claude-sonnet-4-6",
+  model: "claude-sonnet-5",
   max_tokens: 4096,
   system: [
     {
@@ -63,10 +63,10 @@ const savings = response.usage.cache_read_input_tokens * 0.9; // 90% cheaper
 | Task type | Recommended model | Rationale |
 |---|---|---|
 | Complex workflow orchestration | Opus 4.8 | Multi-step reasoning |
-| US / feature writing | Sonnet 4.6 | Sufficient quality, fast |
+| US / feature writing | Sonnet 5 | Sufficient quality, fast |
 | Extraction / classification | Haiku 4.5 | Simple task, high volume |
 | Complex code analysis | Opus 4.8 | Nuance and precision |
-| Document summarization | Sonnet 4.6 | Good balance |
+| Document summarization | Sonnet 5 | Good balance |
 | Format validation | Haiku 4.5 | Explicit rules, fast |
 
 ## Context compression
@@ -89,7 +89,7 @@ CONVERSATION:
 ## Cost calculator
 
 ```python
-# Claude Sonnet 4.6 pricing (indicative — check anthropic.com)
+# Claude Sonnet 5 pricing (indicative — check anthropic.com)
 PRICE_INPUT  = 3.0   # $/MTok
 PRICE_CACHE_READ  = 0.3   # $/MTok (90% cheaper)
 PRICE_CACHE_WRITE = 3.75  # $/MTok (+25% first write)
@@ -116,14 +116,14 @@ Specify: request volume (monthly), system prompt length, task type, target budge
 
 ## Anti-patterns
 - ❌ **"90% savings" taken as an overall gain**: it is ~90% on the **cached (read) tokens** → real gain = f(cache hit ratio), to be measured
-- ❌ **Opus everywhere**: overspending → choose the tier (Opus 4.8 reasoning / Sonnet 4.6 routine / Haiku 4.5 simple)
+- ❌ **Opus everywhere**: overspending → choose the tier (Opus 4.8 reasoning / Sonnet 5 routine / Haiku 4.5 simple)
 - ❌ **Hard-coded pricing** with no source or date: stale → point to anthropic.com/pricing
 - ❌ **Context compression without loss control**: degrades quality → verify the output after compression
 - ❌ **Batch for interactive use**: latency (up to 24h) → batch reserved for asynchronous work
 
 ## Sources
 - **Anthropic — Prompt caching / Message Batches API** (docs.anthropic.com): cache read ≈ 0.1× input (TTL 5 min), batch −50%
-- **Anthropic — Pricing & Models** (anthropic.com/pricing): Opus 4.8 / Sonnet 4.6 / Haiku 4.5 (check current pricing before estimating)
+- **Anthropic — Pricing & Models** (anthropic.com/pricing): Opus 4.8 / Sonnet 5 / Haiku 4.5 (check current pricing before estimating)
 
 ## See also
 - [`system-prompt-design.md`](system-prompt-design.md) — concise prompts (fewer tokens)

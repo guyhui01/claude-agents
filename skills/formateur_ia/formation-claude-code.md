@@ -91,7 +91,7 @@ Data             Managed by Anthropic      Configurable (no-logging opt)
 ├─────────────────────────────────────────────────────┤
 │  AVAILABLE MODELS                                   │
 │  claude-opus-4-8    → Complex reasoning             │
-│  claude-sonnet-4-6  → Everyday tasks                │
+│  claude-sonnet-5  → Everyday tasks                │
 │  claude-haiku-4-5   → Simple scripts                │
 └─────────────────────────────────────────────────────┘
 ```
@@ -134,7 +134,7 @@ Specify: **profile** (dev / PO / consultant / mixed), **desired module** (A / B 
 - **Anthropic** — *Claude Code* documentation (CLAUDE.md, MCP, hooks) & *Messages API* — [docs.anthropic.com](https://docs.anthropic.com/)
 - **Anthropic** — *Prompt Engineering Guide*
 - **Anthropic** — *Model Context Protocol (MCP)* (2024)
-- Up-to-date models: **Claude Opus 4.8 / Sonnet 4.6 / Haiku 4.5** (tier policy)
+- Up-to-date models: **Claude Opus 4.8 / Sonnet 5 / Haiku 4.5** (tier policy)
 
 ## Anti-patterns
 - Training on the tool with no data-governance and security framing

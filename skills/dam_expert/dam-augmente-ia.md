@@ -43,7 +43,7 @@ def auto_tag_asset(image_path: str, asset_context: dict) -> dict:
     media_type = ext_to_media.get(Path(image_path).suffix.lower(), "image/jpeg")
 
     message = client.messages.create(
-        model="claude-sonnet-4-6",
+        model="claude-sonnet-5",
         max_tokens=1024,
         messages=[{
             "role": "user",
@@ -137,7 +137,7 @@ Specify: **target DAM** (Bynder, AEM Assets, Cloudinary…), **asset types** to 
 - **McKinsey** — *The Economic Potential of Generative AI* (June 2023) — GenAI potential on content functions — mckinsey.com
 - **ISO/IEC 42001:2023** (AIMS) · **NIST AI RMF 1.0** (Jan. 2023) — AI governance and measurement — iso.org / nist.gov
 - **EU AI Act** — Regulation (EU) 2024/1689, **art. 50** transparency for AI-generated/manipulated content (applicable Aug 2, 2026) — artificialintelligenceact.eu
-- **Anthropic Claude** (`claude-sonnet-4-6`, vision) — docs.anthropic.com · **GDPR** (EU 2016/679) + **French Civil Code art. 9** (image rights) — cf. `gestion-droits-licences.md`
+- **Anthropic Claude** (`claude-sonnet-5`, vision) — docs.anthropic.com · **GDPR** (EU 2016/679) + **French Civil Code art. 9** (image rights) — cf. `gestion-droits-licences.md`
 
 ## See also
 - [`taxonomie-assets.md`](taxonomie-assets.md) — controlled vocabularies fed by auto-tagging

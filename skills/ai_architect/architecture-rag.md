@@ -18,7 +18,7 @@ flowchart LR
         QE --> R[Hybrid Retrieval<br/>vector + BM25]
         VS --> R
         R --> RR[Reranking<br/>Cohere rerank-v3]
-        RR --> L[LLM<br/>Claude Sonnet 4.6]
+        RR --> L[LLM<br/>Claude Sonnet 5]
         L --> A[Answer + cited sources]
     end
 ```

@@ -157,7 +157,7 @@ ${task.expectedOutput}
     `.trim();
 
     const response = await this.client.messages.create({
-      model: "claude-sonnet-4-6",
+      model: "claude-sonnet-5",
       max_tokens: 4096,
       system: [{ type: "text", text: agent.systemPrompt, cache_control: { type: "ephemeral" } }],
       messages: [{ role: "user", content: userMessage }],
@@ -218,7 +218,7 @@ class ClaudeMultiAgentConversation {
       : trigger;
 
     const response = await this.client.messages.create({
-      model: "claude-sonnet-4-6",
+      model: "claude-sonnet-5",
       max_tokens: 2048,
       system: systemPrompt,
       messages: [{ role: "user", content: userMessage }],

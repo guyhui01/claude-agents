@@ -97,6 +97,8 @@
 | `skills/bi_analyst/` | Dimensional modeling, Power BI/Fabric, Tableau, Looker, analytical SQL, KPIs, self-service BI |
 | `skills/pim_expert/` | Catalog modeling, product enrichment, MDM governance, channel syndication, localization, ERP→PIM ETL, quality scoring, PIM migration, supplier portal, AI PIM |
 | `skills/dam_expert/` | Asset taxonomy, validation workflow, rights & licensing, multichannel distribution, renditions, DAM-CMS integration, brand portal, DAM governance, DAM migration, AI DAM, asset analytics, naming conventions |
+| `skills/solutions_architect/` | TOGAF ADM, ArchiMate 3, enterprise IT architecture, BDAT architecture, integration patterns, cloud migration, ARB governance, IS transformation roadmap |
+| `skills/prompt_engineer/` | System prompt design, few-shot, CoT, RAG prompts, multimodal, evaluation, cost optimization |
 
 ### Agile, Product & Quality
 
@@ -132,14 +134,12 @@
 | `skills/juridique_ia/` | GDPR, AI Act, compliance, AI contracts, algorithmic accountability |
 | `skills/financial_analyst/` | AI business case, transformation ROI, TCO, EVM, project budget, executive reporting |
 | `skills/veille_strategique/` | AI/LLM intelligence, trend analysis, weak signals, tool benchmarking, periodic briefings |
-| `skills/prompt_engineer/` | System prompt design, few-shot, CoT, RAG prompts, multimodal, evaluation, cost optimization |
 
 ### HR & Talent
 
 | Folder | Contents |
 |---|---|
 | `skills/rh_ia/` | IT/AI sourcing, job posting writing, candidate evaluation, workforce planning (GEPP), people analytics, compensation benchmarking, AI HR transformation, CV/deepfake fraud prevention, reference checks, ATS parsing |
-| `skills/solutions_architect/` | TOGAF ADM, ArchiMate 3, enterprise IT architecture, BDAT architecture, integration patterns, cloud migration, ARB governance, IS transformation roadmap |
 
 ---
 

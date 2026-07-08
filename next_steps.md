@@ -13,51 +13,44 @@ Applique le rituel de démarrage. CHECK FACTUEL D'ABORD, jamais de mémoire :
   git -C /Users/guyhui/CLAUDE/claude-agents status -sb   (attendu : main EN SYNC, working tree propre)
   git describe --tags   ·   consulter next_steps.md à la racine
 
-TÂCHE = corriger une dette de cohérence dans le README (docs-only, classe « README sync ») :
-- PROBLÈME : dans README.md, section « ## Available skills (37 folders) », les dossiers
-  `skills/prompt_engineer/` et `skills/solutions_architect/` sont groupés sous
-  « ### Management, Consulting & Content (10) » et « ### HR & Talent (2) »,
-  alors que leurs AGENTS (AGENT-PROMPT-ENGINEER, AGENT-SOLUTIONS-ARCHITECT) sont
-  sous « ### Development & Engineering (16) » dans la section « ## Available agents ».
-  → skill ≠ domaine de l'agent (mapping 1:1 attendu, cf. CLAUDE.md « one folder per agent »).
-- VÉRIFIÉ (2026-07-08) : incohérence CONFINÉE au README. Le sidecar.json n'a pas de champ
-  catégorie pour ces skills ; START.md ne groupe pas les skills (seulement les agents). Rien à corriger ailleurs.
+TÂCHE B = compléter le sidecar.json (index machine-readable du catalogue), aujourd'hui INCOMPLET.
+- CONSTAT VÉRIFIÉ (2026-07-08) : sidecar.json = { schemaVersion, catalog{name, version}, generatedAt, assets[] }.
+  * assets = 14 entrées SEULEMENT, toutes de type "agent" → 14/38 agents indexés, 0/37 skills.
+  * catalog.version = "v4.0.0" (PÉRIMÉ : le repo est à v4.0.1).
+  * Conséquence produit : le claim « 38 agents + 37 skills indexed in a CI-validated sidecar »
+    (README + ex-vitrine) était FAUX → assaini côté vitrine (showcase v0.4.1). Le régénérer ici
+    rendra ce claim VRAI et permettra de restaurer la formule forte sur la vitrine.
+- OBJECTIF : sidecar.json couvrant les 38 agents + 37 skills, catalog.version = "v4.0.1",
+  validé par le schéma/CI. Source de vérité = les fichiers AGENT-*.md et skills/*/ réels.
+- MÉTHODE (factuel d'abord) : inspecter le générateur `tools/` (ADR-0003) et `schema/` ;
+  comprendre pourquoi seuls 14 agents + 0 skill sont émis (générateur partiel ? liste en dur ?
+  filtre ?) ; corriger le générateur (PAS d'édition manuelle du JSON généré) ; régénérer ;
+  vérifier assets = 75 (38 agents + 37 skills) et validation CI verte.
+- VERSIONING : bump du catalogue selon l'ampleur (probable patch/minor — décider en session,
+  cf. CLAUDE.md tableau git). Ordre release si tag : CHANGELOG → commit → tag annoté → push → gh release.
+- ⛔ push/tag/release SUR ORDRE de Guy uniquement.
 
-CORRECTION (README.md, section « Available skills » uniquement) :
-1. Déplacer la ligne `| skills/prompt_engineer/ | … |` de « Management, Consulting & Content »
-   vers « Development & Engineering ».
-2. Déplacer la ligne `| skills/solutions_architect/ | … |` de « HR & Talent »
-   vers « Development & Engineering ».
-3. Corriger les 3 sous-compteurs de titres : Development & Engineering 14 → 16 ;
-   Management, Consulting & Content 10 → 9 ; HR & Talent 2 → 1. (Total inchangé = 37.)
-   Résultat cohérent : par domaine, skills = agents, sauf Agile (11 agents → 10 dossiers,
-   QA Agile + QA V-model partagent `qa_testing/`).
-
-CONTRÔLES avant commit :
-- Total skills toujours 37 ; total agents inchangé (38) ; compteurs README/START.md/AGENT-ORCHESTRATEUR cohérents.
-- Parité des fences vérifiée par fichier (nombre de lignes de fence pair) ; pas de sed -i bricolé.
-
-CLÔTURE : classe « README sync » → main direct, PAS de tag, PAS de Release (docs-only).
-Commit local `docs(readme): align skill grouping with agent domains`. ⛔ push SUR ORDRE de Guy uniquement.
-
-APRÈS ce fix : reprendre la vitrine (/Users/guyhui/CLAUDE/guyhui-showcase) pour réaligner
-l'inventaire skills de docs/catalog.md sur 16/10/1/9/1 (mirroir fidèle du README corrigé),
-revérif live, puis release showcase v0.4.0. Détail : guyhui-showcase/next_steps.md.
+APRÈS ce fix : revenir sur la vitrine (/Users/guyhui/CLAUDE/guyhui-showcase) restaurer,
+si voulu, la formule « indexed in a CI-validated sidecar » (désormais vraie) dans l'intro
+Catalog + la carte Home, en patch. Détail : guyhui-showcase/next_steps.md.
 ```
 
 ---
 
 ## Contexte
 
-Dette repérée le 2026-07-08 pendant la rédaction de la page Catalog de la vitrine
-`guyhui-showcase` (qui mirrore ce README). La vitrine reste volontairement en
-**mirroir fidèle** du README actuel (skills groupés 14/10/1/10/2) tant que cette
-dette n'est pas corrigée ici. Décision de Guy : corriger la source dans une
-session dédiée claude-agents, puis revenir clore le showcase.
+- **Dette README (groupement skills) — RÉSOLUE le 2026-07-08.** `prompt_engineer/` et
+  `solutions_architect/` déplacés sous Development & Engineering (commit `5c2ba3e`, poussé ;
+  CHANGELOG `4f12c7c`). La vitrine `guyhui-showcase` a été réalignée puis releasée `v0.4.0`.
+- **Dette sidecar (Tâche B) — OUVERTE.** Repérée le 2026-07-08 pendant un audit non-complaisant
+  de la page Catalog de la vitrine : `sidecar.json` n'indexe que 14 agents (0 skill, version
+  périmée `v4.0.0`). Le générateur `tools/` (ADR-0003) est à corriger pour couvrir tout le
+  catalogue. Voir le prompt de reprise ci-dessus.
 
 ## Journal des jalons
 
-- **2026-07-08** — Dette de cohérence README documentée (groupement skills
-  `prompt_engineer/` + `solutions_architect/` ≠ domaine de leurs agents). Confinée
-  au README (absente du sidecar et de START.md). Correction à appliquer : voir le
-  prompt de reprise ci-dessus. Non encore corrigée.
+- **2026-07-08** — (1) Dette de cohérence README **corrigée** (`5c2ba3e` : `prompt_engineer/` +
+  `solutions_architect/` → Development & Engineering ; sous-comptes README alignés). (2) Nouvelle
+  dette **sidecar** documentée (Tâche B) : `sidecar.json` incomplet (14/38 agents, 0/37 skills,
+  `catalog.version` = `v4.0.0`) → générateur à corriger pour couvrir 38 agents + 37 skills et
+  bumper la version. Non encore corrigée.

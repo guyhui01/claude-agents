@@ -8,6 +8,9 @@
 
 ## [Unreleased]
 
+### 📝 Documentation
+- **README skill-grouping fix** (README sync): moved `skills/prompt_engineer/` and `skills/solutions_architect/` under *Development & Engineering* in the "Available skills" section, matching their agents' domain (`AGENT-PROMPT-ENGINEER`, `AGENT-SOLUTIONS-ARCHITECT`). Per-domain skill counts now mirror the agents (16/10/1/9/1, total 37 unchanged; Agile keeps 10 skills for 11 agents since QA Agile + QA V-model share `qa_testing/`). Incoherence was confined to `README.md` (sidecar / `START.md` unaffected).
+
 ---
 
 ## [4.0.1] — 2026-07-03 — Q3 model review (#16) + i18n follow-up

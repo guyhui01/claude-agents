@@ -46,16 +46,14 @@ Catalog + la carte Home, en patch. Détail : guyhui-showcase/next_steps.md.
   de la page Catalog de la vitrine : `sidecar.json` n'indexe que 14 agents (0 skill, version
   périmée `v4.0.0`). Le générateur `tools/` (ADR-0003) est à corriger pour couvrir tout le
   catalogue. Voir le prompt de reprise ci-dessus.
-- **Dette README (titres WF overview) — OUVERTE (Tâche C).** Repérée le 2026-07-08 pendant
-  l'audit non-complaisant de la page Workflows de la vitrine. La table « Overview of the 10
-  workflows » de `workflows/README.md` **diverge des fichiers WF eux-mêmes** :
-  * **WF-005** : README = « Strategic **Watch** & Growth » ; fichier `WF-005-*.md` (H1 +
-    `nom:`) = « Strategic **Intelligence** & Growth ». « Intelligence » est correct (l'agent
-    core s'appelle *Strategic Intelligence* ; « Watch » = calque de « veille »).
-  * **WF-007** : README = « Mission Onboarding — **Day 1** » (tronqué) ; fichier = couverture
-    réelle **D1→D5** (`resultat_final` = « D5 scoping completed »).
-  → Corriger la table du README pour l'aligner sur les titres canoniques des fichiers WF.
-  La vitrine `guyhui-showcase` utilise déjà les titres corrects (pas de répercussion à faire).
+- **Dette README (titres WF overview) — RÉSOLUE le 2026-07-09** (commit local `7216488`,
+  non poussé). WF-005 → « Strategic Intelligence & Growth » ; WF-007 → « Client Engagement
+  Onboarding D1-D5 » (H1 canonique). **Le constat initial sous-estimait la dette** : elle
+  n'était PAS confinée à `workflows/README.md`. `START.md` portait les deux mêmes libellés
+  périmés, et le `README.md` racine une **troisième** variante pour WF-007 (« Day-1 Engagement
+  Onboarding », tronquée elle aussi). Les 3 fichiers mirrorent désormais le H1 des fichiers WF.
+  Entrées `CHANGELOG` datées laissées intactes (record figé). Vitrine : rien à répercuter,
+  elle utilise déjà les titres corrects.
 
 ## Journal des jalons
 
@@ -66,3 +64,7 @@ Catalog + la carte Home, en patch. Détail : guyhui-showcase/next_steps.md.
   bumper la version. Non encore corrigée. (3) Nouvelle **dette README titres WF** documentée
   (Tâche C) : la table overview de `workflows/README.md` diverge des fichiers WF (WF-005
   « Watch » vs « Intelligence » ; WF-007 « Day 1 » vs « Day 1–5 »). Non encore corrigée.
+- **2026-07-09** — Tâche C **corrigée** (`7216488`, docs-only, main direct, pas de tag). Périmètre
+  élargi en séance : la dette touchait aussi `START.md` (2 libellés) et le `README.md` racine
+  (3ᵉ variante de WF-007), pas seulement `workflows/README.md`. Reste ouvert : **Tâche B (sidecar)**,
+  volontairement reportée à une session à budget frais (générateur `tools/` + schéma + CI).

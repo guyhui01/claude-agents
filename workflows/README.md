@@ -32,9 +32,9 @@ What is your main goal?
 | [WF-002](WF-002-delivery-safe.md) | SAFe Agile Delivery | Agile & Product | 6-8 | 60-120 min |
 | [WF-003](WF-003-lancement-app-ia.md) | AI Application Launch | Dev & Technical | 7-12 | 90-180 min |
 | [WF-004](WF-004-mission-conseil-ia.md) | AI Consulting Engagement | Management & Consulting | 6-9 | 60-90 min |
-| [WF-005](WF-005-veille-growth.md) | Strategic Watch & Growth | Management & Consulting | 3-6 | 30-60 min |
+| [WF-005](WF-005-veille-growth.md) | Strategic Intelligence & Growth | Management & Consulting | 3-6 | 30-60 min |
 | [WF-006](WF-006-avant-vente-proposition-commerciale.md) | Pre-sales / Commercial Proposal | Management & Consulting | 6-9 | 75-120 min |
-| [WF-007](WF-007-onboarding-mission-j1.md) | Mission Onboarding — Day 1 | Management & Consulting | 4-6 | 45-75 min |
+| [WF-007](WF-007-onboarding-mission-j1.md) | Client Engagement Onboarding D1-D5 | Management & Consulting | 4-6 | 45-75 min |
 | [WF-008](WF-008-audit-conformite-ia-act-rgpd.md) | AI Act / GDPR Compliance Audit | Compliance & Governance | 7-11 | 90-150 min |
 | [WF-009](WF-009-recrutement-it-ia.md) | IT / AI Recruitment | HR & Talent | 4-7 | 60-90 min |
 | [WF-010](WF-010-post-mortem-projet.md) | Project Post-mortem | Management & Consulting | 4-8 | 45-75 min |

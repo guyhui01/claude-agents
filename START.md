@@ -31,9 +31,9 @@ Then load workflows/WF-001-cadrage-produit-ia.md and start the workflow.
 | [WF-002](workflows/WF-002-delivery-safe.md) | SAFe Agile Delivery | PI Planning to delivery | 60-120 min |
 | [WF-003](workflows/WF-003-lancement-app-ia.md) | AI Application Launch | Design → deployment | 90-180 min |
 | [WF-004](workflows/WF-004-mission-conseil-ia.md) | AI Consulting Engagement | Client audit + roadmap | 60-90 min |
-| [WF-005](workflows/WF-005-veille-growth.md) | Strategic Watch & Growth | Market intelligence + action plan | 30-60 min |
+| [WF-005](workflows/WF-005-veille-growth.md) | Strategic Intelligence & Growth | Market intelligence + action plan | 30-60 min |
 | [WF-006](workflows/WF-006-avant-vente-proposition-commerciale.md) | Pre-sales / Commercial Proposal | RFP → technical & commercial proposal | 75-120 min |
-| [WF-007](workflows/WF-007-onboarding-mission-j1.md) | Mission Onboarding — Day 1 | Onboarding → mission integration kit | 45-75 min |
+| [WF-007](workflows/WF-007-onboarding-mission-j1.md) | Client Engagement Onboarding D1-D5 | Onboarding → mission integration kit | 45-75 min |
 | [WF-008](workflows/WF-008-audit-conformite-ia-act-rgpd.md) | AI Act / GDPR Compliance Audit | AI system audit + remediation plan | 90-150 min |
 | [WF-009](workflows/WF-009-recrutement-it-ia.md) | IT / AI Recruitment | Role brief → profiled shortlist | 60-90 min |
 | [WF-010](workflows/WF-010-post-mortem-projet.md) | Project Post-mortem | Closure → lessons-learned report + actions | 45-75 min |

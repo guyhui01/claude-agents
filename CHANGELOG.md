@@ -10,6 +10,7 @@
 
 ### 📝 Documentation
 - **README skill-grouping fix** (README sync): moved `skills/prompt_engineer/` and `skills/solutions_architect/` under *Development & Engineering* in the "Available skills" section, matching their agents' domain (`AGENT-PROMPT-ENGINEER`, `AGENT-SOLUTIONS-ARCHITECT`). Per-domain skill counts now mirror the agents (16/10/1/9/1, total 37 unchanged; Agile keeps 10 skills for 11 agents since QA Agile + QA V-model share `qa_testing/`). Incoherence was confined to `README.md` (sidecar / `START.md` unaffected).
+- **Workflow display names aligned with the canonical WF files** (README sync): WF-005 is *Strategic Intelligence & Growth* (not "Strategic Watch" — a calque of the French *veille*; the core agent is `AGENT-VEILLE-STRATEGIQUE`, rendered *Strategic Intelligence*), and WF-007 is *Client Engagement Onboarding D1-D5* (its coverage runs through D5, `resultat_final` = "D5 scoping completed"; the previous names truncated it to Day 1). Fixed in `workflows/README.md`, `START.md`, and the root `README.md`, which had drifted into three different labels for WF-007. Historical `CHANGELOG` entries left untouched as a frozen record.
 
 ---
 

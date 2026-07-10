@@ -13,33 +13,32 @@ Applique le rituel de démarrage. CHECK FACTUEL D'ABORD, jamais de mémoire :
   git -C /Users/guyhui/CLAUDE/claude-agents status -sb   ·   git describe --tags
   npm run validate:sidecar   (attendu : ✓ 75 asset(s), catalog v4.1.0)
 
-TÂCHE B (sidecar élargi) = CLOSE. Le sidecar indexe désormais 38 agents + 37 skills = 75 assets,
-`dependsOn` agent→skill peuplé, package.json bumpé 4.1.0. Commit local, RIEN POUSSÉ.
+TÂCHE B (sidecar élargi) = CLOSE, RELEASÉE, POUSSÉE. v4.1.0 publiée le 2026-07-10 (tag annoté +
+GitHub Release, ni draft ni prerelease). Le sidecar indexe 38 agents + 37 skills = 75 assets,
+`dependsOn` agent→skill peuplé, package.json à 4.1.0. `[Unreleased]` du CHANGELOG est VIDE.
 
-ÉTAT — 3 gates vertes en local : validate:sidecar · validate:wf-agents · check:schema-drift.
+ÉTAT — 3 gates vertes : validate:sidecar · validate:wf-agents · check:schema-drift.
 Les 4 gardes du générateur ont été exercées pour de vrai (exit 1 à chaque fois), pas seulement
 supposées : skill sans ligne README · skill citant un agent inconnu · agent sans skill folder ·
 id de backbone WF dont l'AGENT-*.md a disparu.
 
 PROCHAINE UNITÉ (au choix, mener avec une reco) :
-  1. RELEASE v4.1.0 — minor (nouveau contenu indexé, non-breaking). Le bump absorbe la dette
-     package.json (resté à 4.0.0 alors que le repo était tagué v4.0.1).
-     Ordre : CHANGELOG (déjà rédigé sous [Unreleased], à basculer en [4.1.0]) → commit → tag
-     annoté → push → gh release.  ⛔ push/tag/release SUR ORDRE de Guy uniquement.
-  2. VITRINE — /Users/guyhui/CLAUDE/guyhui-showcase : la formule « indexed in a CI-validated
+  1. VITRINE — /Users/guyhui/CLAUDE/guyhui-showcase : la formule « indexed in a CI-validated
      sidecar » est désormais VRAIE pour agents + skills. Patch intro Catalog + carte Home.
      Détail : guyhui-showcase/next_steps.md. (Repo distinct ⟹ session distincte.)
-  3. INDEXER LES 10 WORKFLOWS dans le sidecar (85 assets). Différé volontairement : ce n'est pas
+  2. INDEXER LES 10 WORKFLOWS dans le sidecar (85 assets). Différé volontairement : ce n'est pas
      mécanique — il faut trancher d'où vient la `description` d'un workflow, et le schéma impose
      `dependsOn` minItems 1 (source disponible : le bloc YAML `agents_core` de chaque fichier WF,
-     déjà parsé par tools/check-workflow-agent-counts.mjs).
+     déjà parsé par tools/check-workflow-agent-counts.mjs). Tant que ce lot n'est pas fait, le
+     README ne doit PAS reprétendre que les workflows sont indexés.
 ```
 
 ---
 
 ## Contexte
 
-- **Tâche B (sidecar) — CLOSE.** Le générateur scanne le filesystem (`AGENT-*.md` à la racine,
+- **Tâche B (sidecar) — CLOSE et RELEASÉE en `v4.1.0`** (tag annoté + GitHub Release publiée le
+  2026-07-10, vérifiés sur le distant). Le générateur scanne le filesystem (`AGENT-*.md` à la racine,
   `skills/<nom>/`) au lieu de dériver la liste des assets de `WORKFLOW_BACKBONES`. Décision de
   conception tranchée : la `description` d'un skill vient de la **colonne « Contents » de la table
   du README racine** (déjà rédigée, 37 lignes) — le README reste ainsi la source de vérité unique,
@@ -84,4 +83,6 @@ Correction de forme : le tracker qualifiait `7216488` de « commit local non pou
   4 gardes de génération exercées (exit 1 vérifié), 3 gates CI vertes. Deux erreurs du diagnostic
   du 2026-07-09 démasquées (cf. ci-dessus). Effet de bord acquis : le check d'intégrité
   `DANGLING_REFERENCE` cesse d'être vacant, puisque `dependsOn` n'est plus vide partout.
-  Commit local — **rien poussé, pas de tag**.
+  Puis **release `v4.1.0`** sur ordre de Guy : CHANGELOG basculé `[Unreleased]` → `[4.1.0]`, commit,
+  tag annoté, push `main` + tag, GitHub Release créée depuis les notes extraites du CHANGELOG
+  (pas réécrites à la main). Distant vérifié après coup : `main`, tag et Release en place.

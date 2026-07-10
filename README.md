@@ -1,7 +1,7 @@
 # Claude Agents — Agentic catalog
 
 > **Product-delivery agentic catalog for Claude Code**  
-> 38 specialized agents, 37 skills, and 10 orchestrated (BPMN) workflows, indexed in a machine-readable *sidecar* (CI-validated) and executable through the [`claude-agentic-runtime`](https://github.com/guyhui01/claude-agentic-runtime) runtime. Built on enterprise frameworks (Scrum, SAFe, ISTQB, TOGAF), with MCP integrations (Jira, Confluence).  
+> 38 specialized agents and 37 skills, indexed in a machine-readable *sidecar* (CI-validated), driving 10 orchestrated (BPMN) workflows executable through the [`claude-agentic-runtime`](https://github.com/guyhui01/claude-agentic-runtime) runtime. Built on enterprise frameworks (Scrum, SAFe, ISTQB, TOGAF), with MCP integrations (Jira, Confluence).  
 > Author: [guyhui01](https://github.com/guyhui01) · License: [PolyForm Noncommercial 1.0.0](LICENSE) © 2026 Guy HUI-BON-HOA
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/license-PolyForm%20Noncommercial%201.0.0-blue)](LICENSE)

@@ -8,6 +8,19 @@
 
 ## [Unreleased]
 
+### ✨ Added
+- **Sidecar now indexes the whole catalog**: 75 assets (38 agents + 37 skills) instead of 14 agents. `tools/generate-sidecar.mjs` discovers `AGENT-*.md` and `skills/<name>/` on the filesystem rather than deriving assets from a hard-coded list of workflow backbones, so a new agent or skill is indexed without editing the generator.
+- **Skill assets** (`type: "skill"`): `id` mirrors the folder (`skills/<name>`), `path` points at `skills/<name>/README.md`, `title` comes from that file's H1, and `description` from the "Contents" column of the root README's skill tables — keeping the README the single source of truth for skill prose.
+- **`dependsOn` edges populated** (agent → the skill folders it draws from), read from each skill README's blockquote. `qa_testing/` is correctly shared by `AGENT-QA-AGILE` and `AGENT-QA-CYCLEV` (38 edges → 37 distinct skills). Skills are leaves and carry no `dependsOn`. This also gives the integrity `DANGLING_REFERENCE` check real coverage, which it lacked while every `dependsOn` was empty.
+- **Generation guards** (all exercised, exit 1): a skill with no README row, a skill citing an unknown agent, an agent with no skill folder, and a workflow backbone id whose `AGENT-*.md` no longer exists — the last one protects the runtime contract, since the spines address those agents by `assetId` and `loadSpine` would fail at run time.
+
+### 🔄 Changed
+- **`WORKFLOW_BACKBONES` repurposed**: no longer the source of the asset list, it is kept as an invariant guard over the WF-001/002/003 backbone ids.
+
+### 🐛 Fixed
+- **`package.json` version bumped to 4.1.0.** It had been left at `4.0.0` when the repo was tagged `v4.0.1`, so `catalog.version` in the sidecar reported a stale tag. CI never caught it: `validate:sidecar` compares the artifact to the prose, and both read the same stale `package.json`.
+- **README over-promise corrected**: the sidecar indexes agents and skills, not the 10 workflows. The intro previously claimed all three were indexed. (Indexing workflows remains a candidate for a later lot; it needs a design call on where a workflow's `description` comes from.)
+
 ### 📝 Documentation
 - **README skill-grouping fix** (README sync): moved `skills/prompt_engineer/` and `skills/solutions_architect/` under *Development & Engineering* in the "Available skills" section, matching their agents' domain (`AGENT-PROMPT-ENGINEER`, `AGENT-SOLUTIONS-ARCHITECT`). Per-domain skill counts now mirror the agents (16/10/1/9/1, total 37 unchanged; Agile keeps 10 skills for 11 agents since QA Agile + QA V-model share `qa_testing/`). Incoherence was confined to `README.md` (sidecar / `START.md` unaffected).
 - **Workflow display names aligned with the canonical WF files** (README sync): WF-005 is *Strategic Intelligence & Growth* (not "Strategic Watch" — a calque of the French *veille*; the core agent is `AGENT-VEILLE-STRATEGIQUE`, rendered *Strategic Intelligence*), and WF-007 is *Client Engagement Onboarding D1-D5* (its coverage runs through D5, `resultat_final` = "D5 scoping completed"; the previous names truncated it to Day 1). Fixed in `workflows/README.md`, `START.md`, and the root `README.md`, which had drifted into three different labels for WF-007. Historical `CHANGELOG` entries left untouched as a frozen record.

@@ -8,6 +8,11 @@
 
 ## [Unreleased]
 
+---
+
+## [4.1.0] — 2026-07-10 — Catalog-wide sidecar (38 agents + 37 skills, 75 assets)
+> Model: Claude Opus 4.8
+
 ### ✨ Added
 - **Sidecar now indexes the whole catalog**: 75 assets (38 agents + 37 skills) instead of 14 agents. `tools/generate-sidecar.mjs` discovers `AGENT-*.md` and `skills/<name>/` on the filesystem rather than deriving assets from a hard-coded list of workflow backbones, so a new agent or skill is indexed without editing the generator.
 - **Skill assets** (`type: "skill"`): `id` mirrors the folder (`skills/<name>`), `path` points at `skills/<name>/README.md`, `title` comes from that file's H1, and `description` from the "Contents" column of the root README's skill tables — keeping the README the single source of truth for skill prose.

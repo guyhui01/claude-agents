@@ -13,24 +13,23 @@ Applique le rituel de démarrage. CHECK FACTUEL D'ABORD, jamais de mémoire :
   git -C /Users/guyhui/CLAUDE/claude-agents status -sb   ·   git describe --tags
   npm run validate:sidecar   (attendu : ✓ 75 asset(s), catalog v4.1.0)
 
-TÂCHE B (sidecar élargi) = CLOSE, RELEASÉE, POUSSÉE. v4.1.0 publiée le 2026-07-10 (tag annoté +
-GitHub Release, ni draft ni prerelease). Le sidecar indexe 38 agents + 37 skills = 75 assets,
-`dependsOn` agent→skill peuplé, package.json à 4.1.0. `[Unreleased]` du CHANGELOG est VIDE.
+SIDECAR COMPLET = les 10 WORKFLOWS SONT INDEXÉS (2026-07-18) : 85 assets (38 agents + 37 skills
++ 10 workflows), commits LOCAUX sur main — PUSH NON FAIT, release NON coupée ([Unreleased] rempli,
+package.json toujours 4.1.0). Décisions tranchées : description ⟵ 1ʳᵉ ligne de blockquote du
+fichier WF (le README n'a pas de colonne prose) ; dependsOn ⟵ agents_core UNIQUEMENT (arêtes
+dures ; agents_optionnels exclus car conditionnels) ; schéma INTACT (branche workflow déjà
+prévue). 4 gardes workflow exercées pour de vrai (exit 1 + message vérifiés) : blockquote absent ·
+agent inconnu · agents_core vide · clé agents_core absente. Claim README reformulé (85 assets).
 
-ÉTAT — 3 gates vertes : validate:sidecar · validate:wf-agents · check:schema-drift.
-Les 4 gardes du générateur ont été exercées pour de vrai (exit 1 à chaque fois), pas seulement
-supposées : skill sans ligne README · skill citant un agent inconnu · agent sans skill folder ·
-id de backbone WF dont l'AGENT-*.md a disparu.
+ÉTAT — 3 gates vertes : validate:sidecar (85) · validate:wf-agents · check:schema-drift.
 
-PROCHAINE UNITÉ (au choix, mener avec une reco) :
-  1. VITRINE — /Users/guyhui/CLAUDE/guyhui-showcase : la formule « indexed in a CI-validated
-     sidecar » est désormais VRAIE pour agents + skills. Patch intro Catalog + carte Home.
-     Détail : guyhui-showcase/next_steps.md. (Repo distinct ⟹ session distincte.)
-  2. INDEXER LES 10 WORKFLOWS dans le sidecar (85 assets). Différé volontairement : ce n'est pas
-     mécanique — il faut trancher d'où vient la `description` d'un workflow, et le schéma impose
-     `dependsOn` minItems 1 (source disponible : le bloc YAML `agents_core` de chaque fichier WF,
-     déjà parsé par tools/check-workflow-agent-counts.mjs). Tant que ce lot n'est pas fait, le
-     README ne doit PAS reprétendre que les workflows sont indexés.
+PROCHAINE UNITÉ (mener avec une reco) :
+  1. Sur ordre de Guy : PUSH des commits locaux, puis (à son choix) release v4.2.0
+     (CHANGELOG → bump → commit → tag → push → gh release, cf. feedback-release-tag-et-github-release).
+  2. VITRINE — /Users/guyhui/CLAUDE/guyhui-showcase : la formule « indexed in a CI-validated
+     sidecar » est désormais VRAIE pour la totalité du catalogue (85 assets, workflows compris).
+     Patch intro Catalog + carte Home. Détail : guyhui-showcase/next_steps.md.
+     (Repo distinct ⟹ session distincte.)
 ```
 
 ---
@@ -86,3 +85,11 @@ Correction de forme : le tracker qualifiait `7216488` de « commit local non pou
   Puis **release `v4.1.0`** sur ordre de Guy : CHANGELOG basculé `[Unreleased]` → `[4.1.0]`, commit,
   tag annoté, push `main` + tag, GitHub Release créée depuis les notes extraites du CHANGELOG
   (pas réécrites à la main). Distant vérifié après coup : `main`, tag et Release en place.
+- **2026-07-18** — **Workflows indexés dans le sidecar** : 75 → **85 assets** (+ 10 `type:"workflow"`).
+  Générateur étendu (`parseWorkflowCard` : H1 → title, blockquote → description, `agents_core` →
+  `dependsOn` mappé `NAME` → `AGENT-NAME` ; optionnels exclus, sémantique « dépendance dure »).
+  Schéma intact (branche `workflow` déjà présente, `dependsOn` minItems 1). 4 nouvelles gardes
+  exercées (exit 1 + message exact vérifiés sur WF-005, restauration `git restore` prouvée diff
+  vide). Les 25 agents distincts cités en `agents_core` se résolvent tous. Claim README mis à jour
+  (« 85 assets, all indexed »). `WORKFLOW_BACKBONES` inchangé (garde spines runtime, sous-ensemble
+  du core). Commits locaux, push/release en attente d'ordre.

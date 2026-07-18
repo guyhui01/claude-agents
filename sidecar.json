@@ -4,7 +4,7 @@
     "name": "claude-agents",
     "version": "v4.1.0"
   },
-  "generatedAt": "2026-07-10T12:49:31.189Z",
+  "generatedAt": "2026-07-18T21:08:46.393Z",
   "assets": [
     {
       "id": "AGENT-AI-ARCHITECT",
@@ -1019,6 +1019,197 @@
         "file": "skills/veille_strategique/README.md",
         "catalogTag": "v4.1.0"
       }
+    },
+    {
+      "id": "WF-001",
+      "type": "workflow",
+      "path": "workflows/WF-001-cadrage-produit-ia.md",
+      "title": "AI Product Scoping",
+      "description": "Client brief → prioritized backlog + acceptance criteria",
+      "catalogVersion": "v4.1.0",
+      "source": {
+        "file": "workflows/WF-001-cadrage-produit-ia.md",
+        "catalogTag": "v4.1.0"
+      },
+      "dependsOn": [
+        "AGENT-BUSINESS-ANALYST",
+        "AGENT-PO-SCRUM",
+        "AGENT-QA-AGILE",
+        "AGENT-UX-DESIGNER"
+      ]
+    },
+    {
+      "id": "WF-002",
+      "type": "workflow",
+      "path": "workflows/WF-002-delivery-safe.md",
+      "title": "Delivery Agile SAFe",
+      "description": "PI Planning → sprint backlog → executive-committee progress reporting",
+      "catalogVersion": "v4.1.0",
+      "source": {
+        "file": "workflows/WF-002-delivery-safe.md",
+        "catalogTag": "v4.1.0"
+      },
+      "dependsOn": [
+        "AGENT-CHEF-PROJET-IA",
+        "AGENT-PO-SAFE",
+        "AGENT-PRODUCT-MANAGER-SAFE",
+        "AGENT-QA-AGILE",
+        "AGENT-RELEASE-TRAIN-ENGINEER",
+        "AGENT-SCRUM-MASTER"
+      ]
+    },
+    {
+      "id": "WF-003",
+      "type": "workflow",
+      "path": "workflows/WF-003-lancement-app-ia.md",
+      "title": "AI Application Launch",
+      "description": "Validated idea → architecture → code → deployment → security audit",
+      "catalogVersion": "v4.1.0",
+      "source": {
+        "file": "workflows/WF-003-lancement-app-ia.md",
+        "catalogTag": "v4.1.0"
+      },
+      "dependsOn": [
+        "AGENT-AI-ARCHITECT",
+        "AGENT-DEV-PYTHON-IA",
+        "AGENT-DEVOPS-CLOUD",
+        "AGENT-FINANCIAL-ANALYST",
+        "AGENT-PROMPT-ENGINEER",
+        "AGENT-QA-AGILE",
+        "AGENT-SECURITE-IA"
+      ]
+    },
+    {
+      "id": "WF-004",
+      "type": "workflow",
+      "path": "workflows/WF-004-mission-conseil-ia.md",
+      "title": "AI Consulting Engagement",
+      "description": "Engagement signed → maturity audit → strategy → training plan → executive deliverables",
+      "catalogVersion": "v4.1.0",
+      "source": {
+        "file": "workflows/WF-004-mission-conseil-ia.md",
+        "catalogTag": "v4.1.0"
+      },
+      "dependsOn": [
+        "AGENT-CDO-DIRECTEUR-IA",
+        "AGENT-CHANGE-MANAGER",
+        "AGENT-CONSULTANT-IA",
+        "AGENT-FINANCIAL-ANALYST",
+        "AGENT-FORMATEUR-IA",
+        "AGENT-REDACTEUR-IA"
+      ]
+    },
+    {
+      "id": "WF-005",
+      "type": "workflow",
+      "path": "workflows/WF-005-veille-growth.md",
+      "title": "Strategic Intelligence & Growth",
+      "description": "Market signal / weekly cadence → qualified synthesis → thought-leadership content → publication",
+      "catalogVersion": "v4.1.0",
+      "source": {
+        "file": "workflows/WF-005-veille-growth.md",
+        "catalogTag": "v4.1.0"
+      },
+      "dependsOn": [
+        "AGENT-GROWTH-IA",
+        "AGENT-REDACTEUR-IA",
+        "AGENT-VEILLE-STRATEGIQUE"
+      ]
+    },
+    {
+      "id": "WF-006",
+      "type": "workflow",
+      "path": "workflows/WF-006-avant-vente-proposition-commerciale.md",
+      "title": "Pre-sales / Commercial proposal",
+      "description": "RFP received → qualification → scoping → architecture → schedule → costing → commercial proposal",
+      "catalogVersion": "v4.1.0",
+      "source": {
+        "file": "workflows/WF-006-avant-vente-proposition-commerciale.md",
+        "catalogTag": "v4.1.0"
+      },
+      "dependsOn": [
+        "AGENT-AI-ARCHITECT",
+        "AGENT-BUSINESS-ANALYST",
+        "AGENT-CHEF-PROJET-IA",
+        "AGENT-CONSULTANT-IA",
+        "AGENT-FINANCIAL-ANALYST",
+        "AGENT-REDACTEUR-IA"
+      ]
+    },
+    {
+      "id": "WF-007",
+      "type": "workflow",
+      "path": "workflows/WF-007-onboarding-mission-j1.md",
+      "title": "Client Engagement Onboarding D1-D5",
+      "description": "Engagement signed → client context → kickoff plan → D1 deliverables → D5 scoping",
+      "catalogVersion": "v4.1.0",
+      "source": {
+        "file": "workflows/WF-007-onboarding-mission-j1.md",
+        "catalogTag": "v4.1.0"
+      },
+      "dependsOn": [
+        "AGENT-BUSINESS-ANALYST",
+        "AGENT-CHANGE-MANAGER",
+        "AGENT-CHEF-PROJET-IA",
+        "AGENT-REDACTEUR-IA"
+      ]
+    },
+    {
+      "id": "WF-008",
+      "type": "workflow",
+      "path": "workflows/WF-008-audit-conformite-ia-act-rgpd.md",
+      "title": "AI Act / GDPR Compliance Audit",
+      "description": "AI system to audit → obligations mapping → architecture review → security → data → governance → report + remediation plan",
+      "catalogVersion": "v4.1.0",
+      "source": {
+        "file": "workflows/WF-008-audit-conformite-ia-act-rgpd.md",
+        "catalogTag": "v4.1.0"
+      },
+      "dependsOn": [
+        "AGENT-AI-ARCHITECT",
+        "AGENT-CDO-DIRECTEUR-IA",
+        "AGENT-CHANGE-MANAGER",
+        "AGENT-DATA-ENGINEER",
+        "AGENT-JURIDIQUE-IA",
+        "AGENT-REDACTEUR-IA",
+        "AGENT-SECURITE-IA"
+      ]
+    },
+    {
+      "id": "WF-009",
+      "type": "workflow",
+      "path": "workflows/WF-009-recrutement-it-ia.md",
+      "title": "IT/AI Recruitment",
+      "description": "Identified need → job description → sourcing → assessment → selection → offer",
+      "catalogVersion": "v4.1.0",
+      "source": {
+        "file": "workflows/WF-009-recrutement-it-ia.md",
+        "catalogTag": "v4.1.0"
+      },
+      "dependsOn": [
+        "AGENT-BUSINESS-ANALYST",
+        "AGENT-CONSULTANT-IA",
+        "AGENT-REDACTEUR-IA",
+        "AGENT-RH-IA"
+      ]
+    },
+    {
+      "id": "WF-010",
+      "type": "workflow",
+      "path": "workflows/WF-010-post-mortem-projet.md",
+      "title": "Project Post-mortem / Lessons Learned",
+      "description": "Project closed (or major incident) → collection → analysis → lessons-learned report → improvement plan",
+      "catalogVersion": "v4.1.0",
+      "source": {
+        "file": "workflows/WF-010-post-mortem-projet.md",
+        "catalogTag": "v4.1.0"
+      },
+      "dependsOn": [
+        "AGENT-CHANGE-MANAGER",
+        "AGENT-CHEF-PROJET-IA",
+        "AGENT-QA-AGILE",
+        "AGENT-REDACTEUR-IA"
+      ]
     }
   ]
 }

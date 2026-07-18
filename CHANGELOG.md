@@ -8,6 +8,13 @@
 
 ## [Unreleased]
 
+### ✨ Added
+- **Sidecar now indexes the 10 workflows**: 85 assets (38 agents + 37 skills + 10 workflows). Each `workflows/WF-*.md` identity card yields a `type: "workflow"` asset: `title` from the H1 ("WF-NNN — " prefix removed), `description` from the first blockquote (the "input → output" pipeline summary, same parsing pattern as the agent cards), `dependsOn` from the `agents_core` YAML block mapped to `AGENT-*` ids. `agents_optionnels` are deliberately excluded: they are conditional ("if SAFe context", …) and indexing them would overstate the dependency — the hard edges only. No schema change: the `workflow` branch (`dependsOn` required, `minItems` 1) already existed in the vendored contract.
+- **Workflow generation guards** (all exercised for real, exit 1 verified): identity card with no description blockquote · `agents_core` citing an unknown agent · empty `agents_core` block · missing `agents_core` key.
+
+### 🔄 Changed
+- **README intro claim updated**: the sidecar now indexes agents, skills *and* workflows (the previous phrasing, accurate at the time, kept workflows out of the indexed set).
+
 ---
 
 ## [4.1.0] — 2026-07-10 — Catalog-wide sidecar (38 agents + 37 skills, 75 assets)

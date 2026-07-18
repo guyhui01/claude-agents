@@ -7,14 +7,17 @@
  * The runtime only READS this file (ADR-0001); generation AND validation
  * live here, on the catalog side (ADR-0003).
  *
- * Scope: the whole catalog — every `AGENT-*.md` at the root and every `skills/<name>/`
- * folder is discovered on the filesystem, so a new agent or skill is indexed without
- * touching this file.
+ * Scope: the whole catalog — every `AGENT-*.md` at the root, every `skills/<name>/`
+ * folder and every `workflows/WF-*.md` identity card is discovered on the filesystem,
+ * so a new agent, skill or workflow is indexed without touching this file.
  *
  * Each asset carries the 7 required fields (id, type, path, title, description,
  * catalogVersion, source{file, catalogTag}). `dependsOn` is additionally required by
  * the schema for type "agent" (see the `allOf` clause): it lists the skill folders the
- * agent draws from. Skills are leaves and carry no `dependsOn` at all.
+ * agent draws from. For type "workflow" the schema requires a NON-EMPTY `dependsOn`
+ * (minItems 1): the `agents_core` of its identity card — the hard edges only, since
+ * `agents_optionnels` are conditional and would overstate the dependency. Skills are
+ * leaves and carry no `dependsOn` at all.
  *
  * Modes:
  *   (default)  generates + validates (ajv schema + integrity) + WRITES sidecar.json.
@@ -32,6 +35,7 @@ const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SCHEMA_PATH = join(REPO_ROOT, "schema", "sidecar.schema.json");
 const SIDECAR_PATH = join(REPO_ROOT, "sidecar.json");
 const SKILLS_DIR = join(REPO_ROOT, "skills");
+const WORKFLOWS_DIR = join(REPO_ROOT, "workflows");
 const README_PATH = join(REPO_ROOT, "README.md");
 const SIDECAR_SCHEMA_VERSION = "1.0.0";
 
@@ -83,6 +87,13 @@ function listSkillNames() {
 
 /** A skill's id mirrors its folder, so it can never collide with an `AGENT-*` id. */
 const skillId = (name) => `skills/${name}`;
+
+/** Workflow identity cards discovered under `workflows/` (top level only). */
+function listWorkflowFiles() {
+  return readdirSync(WORKFLOWS_DIR)
+    .filter((f) => /^WF-\d+.*\.md$/.test(f))
+    .sort();
+}
 
 /**
  * Every backbone id must still resolve to an agent file: the runtime's spines address
@@ -168,6 +179,43 @@ function parseSkillCard(absFile, id) {
   return { title, agents };
 }
 
+/**
+ * Extracts title + description + core agent ids from a `workflows/WF-*.md` identity card.
+ *   - title       : H1 "# WF-NNN — <title>" → <title> ("WF-NNN — " prefix removed)
+ *   - description : first blockquote line (the "input → output" pipeline summary)
+ *   - agents      : `agents_core` YAML block entries, "NAME" → "AGENT-NAME".
+ * `agents_optionnels` are deliberately NOT read: they are conditional ("if SAFe
+ * context", …), so indexing them as `dependsOn` would overstate the dependency.
+ */
+function parseWorkflowCard(absFile, id) {
+  const lines = readFileSync(absFile, "utf-8").split(/\r?\n/);
+
+  const h1 = lines.find((l) => /^#\s+/.test(l));
+  if (!h1) throw new Error(`${id}: H1 title not found`);
+  const title = h1
+    .replace(/^#\s+/, "")
+    .replace(/^WF-\d+\s*[—–-]\s*/u, "")
+    .trim();
+  if (!title) throw new Error(`${id}: empty title after extraction`);
+
+  const quote = lines.find((l) => /^>\s/.test(l));
+  if (!quote) throw new Error(`${id}: description blockquote not found`);
+  const description = quote.replace(/^>\s*/, "").trim();
+  if (!description) throw new Error(`${id}: empty description after extraction`);
+
+  const start = lines.findIndex((l) => /^agents_core:/.test(l));
+  if (start === -1) throw new Error(`${id}: \`agents_core\` block not found`);
+  const agents = [];
+  for (let i = start + 1; i < lines.length; i++) {
+    if (/^(agents_optionnels|statut):/.test(lines[i])) break;
+    const m = /^\s+-\s+([A-Z0-9-]+)/.exec(lines[i]);
+    if (m) agents.push(`AGENT-${m[1]}`);
+  }
+  if (agents.length === 0) throw new Error(`${id}: empty \`agents_core\` block`);
+
+  return { title, description, agents };
+}
+
 /** Builds the "agent" asset for a given id. `dependsOn` = the skill folders it draws from. */
 function buildAgentAsset(id, tag, dependsOn) {
   const file = `${id}.md`;
@@ -183,6 +231,26 @@ function buildAgentAsset(id, tag, dependsOn) {
     catalogVersion: tag,
     source: { file, catalogTag: tag },
     dependsOn,
+  };
+}
+
+/** Builds the "workflow" asset for an identity card. `dependsOn` = its core agents. */
+function buildWorkflowAsset(file, tag, knownAgents) {
+  const id = file.match(/^WF-\d+/)[0];
+  const rel = `workflows/${file}`;
+  const { title, description, agents } = parseWorkflowCard(join(WORKFLOWS_DIR, file), id);
+  for (const agent of agents) {
+    if (!knownAgents.has(agent)) throw new Error(`${id}: cites an unknown agent "${agent}"`);
+  }
+  return {
+    id,
+    type: "workflow",
+    path: rel,
+    title,
+    description,
+    catalogVersion: tag,
+    source: { file: rel, catalogTag: tag },
+    dependsOn: [...agents].sort(),
   };
 }
 
@@ -238,7 +306,13 @@ function buildSidecar(generatedAt) {
     buildAgentAsset(id, tag, skillsByAgent.get(id).sort()),
   );
 
-  const assets = [...agentAssets, ...skillAssets].sort((a, b) => a.id.localeCompare(b.id));
+  const workflowAssets = listWorkflowFiles().map((f) =>
+    buildWorkflowAsset(f, tag, knownAgents),
+  );
+
+  const assets = [...agentAssets, ...skillAssets, ...workflowAssets].sort((a, b) =>
+    a.id.localeCompare(b.id),
+  );
   return {
     schemaVersion: SIDECAR_SCHEMA_VERSION,
     catalog: { name: "claude-agents", version: tag },

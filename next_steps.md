@@ -29,7 +29,35 @@ PROCHAINE UNITÉ :
   sidecar » est désormais VRAIE pour la totalité du catalogue (85 assets, workflows compris,
   catalogue v4.2.0). Patch intro Catalog + carte Home. Détail : guyhui-showcase/next_steps.md.
   (Repo distinct ⟹ session distincte.)
+
+  SÉCURITÉ — 3 alertes Dependabot HIGH ouvertes sur `fast-uri`, à traiter ICI dans une
+  session dédiée. Détail + critère de clôture : section « ⚠ Sécurité » plus bas.
 ```
+
+---
+
+## ⚠ Sécurité — 3 alertes Dependabot ouvertes (consigné le 2026-08-06)
+
+> **Dependabot était DÉSACTIVÉ sur ce repo jusqu'au 2026-08-06** — donc l'absence
+> d'alerte n'avait jamais rien prouvé. Activé ce jour-là sur ordre de Guy ; l'analyse
+> initiale a immédiatement remonté 3 alertes. ⚠️ Ne pas lire un « 0 alerte » historique
+> comme un contrôle passé.
+
+- **Fait mesuré** : 3 alertes **HIGH** sur **`fast-uri`**, toutes en `package-lock.json`,
+  **`scope=development`** — `GHSA-7p8r-x3mc-p8w7` (< 3.1.5), `GHSA-v2hh-gcrm-f6hx` (≤ 3.1.3),
+  `GHSA-4c8g-83qw-93j6` (< 3.1.3). **Le seuil qui les couvre toutes est `3.1.5`.**
+- **Non diagnostiqué, à faire en ouverture** : `fast-uri` est **transitive** — remonter le
+  parent (`npm ls fast-uri`) avant toute action. ⛔ Ne pas présumer la voie : sur le runtime
+  le 2026-08-06, le parent épinglait une plage qu'aucune mise à jour interne ne pouvait
+  franchir, et la voie propre a été un `overrides` **respectant la plage déclarée du parent**,
+  pas un `audit fix --force`.
+- **Critère de clôture** : `npm audit` = **0 vulnérabilité** · `npm run validate:sidecar` vert
+  (attendu 85 assets) · les 3 gates du repo vertes (`validate:sidecar`, `validate:wf-agents`,
+  `check:schema-drift`) · alertes passées à `fixed` **vérifiées sur le distant après push**,
+  jamais déduites du lock local.
+- **Portée honnête** : `scope=development` ⟹ ces paquets ne sont pas embarqués dans un
+  artefact publié ; ils servent au build et aux contrôles. C'est une raison de **ne pas
+  paniquer**, pas une raison de ne pas corriger.
 
 ---
 

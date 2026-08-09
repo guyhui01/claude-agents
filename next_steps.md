@@ -27,22 +27,20 @@ clé agents_core absente. Claim README reformulé (85 assets).
 ÉTAT — 4 gates vertes : validate:sidecar (85) · validate:wf-agents ·
 validate:skill-mapping (425↔428) · check:schema-drift. `npm audit` = 0.
 
-SESSION 2026-08-09 — deux unités faites EN LOCAL, commits en attente de push :
-  (1) fast-uri 3.1.2 → 3.1.5 (npm audit fix, dans la plage ^3.0.1 d'ajv, pas d'overrides).
-  (2) NOUVEAU GARDE validate:skill-mapping + ligne CI : la propriété publiée par la vitrine
-      (« 425 skill files … none referenced but absent ») n'était gardée par RIEN.
+SESSION 2026-08-09 — deux unités POUSSÉES et VÉRIFIÉES SUR LE DISTANT :
+  (1) fast-uri 3.1.2 → 3.1.5 (npm audit fix, dans la plage ^3.0.1 d'ajv, pas d'overrides)
+      ⟹ 3 alertes Dependabot `fixed`, constatées via l'API.
+  (2) NOUVEAU GARDE validate:skill-mapping, 4ᵉ gate, EXÉCUTÉ ET VERT EN CI (run 31320524827,
+      étape 7) : la propriété publiée par la vitrine n'était gardée par RIEN jusque-là.
 
 PROCHAINE UNITÉ :
-  PUSH — les deux unités ci-dessus ne se clôturent pas sans lui : le critère sécurité exige
-  les alertes Dependabot passées à `fixed` VÉRIFIÉES SUR LE DISTANT, et la CI n'exécutera le
-  nouveau garde qu'une fois `sidecar.yml` poussé. Sur ordre explicite de Guy.
-
-  VITRINE — /Users/guyhui/CLAUDE/guyhui-showcase : DEUX patchs, plus un seul.
+  VITRINE — /Users/guyhui/CLAUDE/guyhui-showcase : DEUX patchs, plus un seul, tous deux
+  DÉBLOQUÉS (le blocage était le push, il est fait).
   (a) la formule « indexed in a CI-validated sidecar » est VRAIE pour tout le catalogue
       (85 assets, workflows compris, catalogue v4.2.0) — patch intro Catalog + carte Home.
-  (b) ⚠ APRÈS PUSH SEULEMENT : la phrase « 425 skill files … verified at catalog v4.2.0 »
-      tient aujourd'hui par sa PROVENANCE (date) faute de garde. Le garde existe désormais ;
-      une fois en CI, elle peut emprunter la garantie CI. Ne pas réécrire avant le push.
+  (b) la phrase « 425 skill files … verified at catalog v4.2.0 » tenait par sa PROVENANCE
+      faute de garde. Le garde tourne désormais EN CI ⟹ elle peut emprunter la garantie CI.
+      ⚠ Re-mesurer avant de réécrire : 425 compte des FICHIERS, 428 des LIGNES de demande.
   Détail : guyhui-showcase/next_steps.md. (Repo distinct ⟹ session distincte.)
 ```
 
@@ -60,8 +58,10 @@ PROCHAINE UNITÉ :
   tranche reste la plage déclarée du parent, jamais le remède de la fois d'avant.
 - **Chiffre à ne pas confondre** : `npm audit` comptait **1 vulnérabilité** (un paquet),
   Dependabot **3 alertes** (trois advisories sur ce paquet). Même réalité, deux dénominateurs.
-- ⛔ **RESTE À FAIRE — le critère de clôture n'est PAS rempli** : les alertes doivent être
-  vues `fixed` **sur le distant après push**, jamais déduites du lock local.
+- ✅ **CLÔTURÉE le 2026-08-09.** Poussé (`c014795..6e2629a`), puis alertes vérifiées **via
+  l'API** (`gh api …/dependabot/alerts`) : les **3** sont `fixed`. ⚠ Le bandeau `remote:` du
+  push annonçait encore « 3 vulnerabilities (3 high) » — instantané **pré-scan**, à ne jamais
+  lire comme un verdict, exactement comme prévu par la mémoire advisory.
 
 <details>
 <summary>Constat d'origine (consigné le 2026-08-06) — conservé comme trace</summary>
@@ -117,9 +117,11 @@ PROCHAINE UNITÉ :
   propre) : référence morte · fichier orphelin · titre `## Available skills` renommé ·
   **corpus vide**. Ce dernier est le plus important : sans lui, « rien à mesurer » et
   « passé » auraient imprimé le même vert.
-- ⛔ **Le garde ne tourne pas encore EN CI** — `sidecar.yml` n'est pas poussé. Tant que
-  le push n'est pas fait, la phrase de la vitrine tient toujours par sa **provenance**,
-  pas par un garde : ne pas la réécrire d'ici là.
+- ✅ **LE GARDE TOURNE EN CI depuis le 2026-08-09.** Run `31320524827` sur `6e2629a`, **étape 7
+  `npm run validate:skill-mapping` exécutée et verte** (vérifiée à l'étape, pas au verdict
+  global du run) : « 425 skill file(s) ↔ 428 request row(s) across 38 agent card(s) ».
+  ⟹ La phrase de la vitrine ne tient plus par sa seule provenance : elle peut désormais
+  emprunter la garantie CI. C'est ce qui débloque le patch (b) côté `guyhui-showcase`.
 
 ---
 
@@ -195,5 +197,10 @@ Correction de forme : le tracker qualifiait `7216488` de « commit local non pou
   none referenced but absent ») n'était gardée par **rien**, et la dette était consignée dans
   le repo qui l'AFFICHE au lieu de celui qui la PRODUIT. Garde écrit, câblé en CI, **rouge
   observé sur ses 4 causes** dont le corpus vide. Mesure : 425 fichiers ↔ 428 lignes × 38
-  agents, 0 absent, 0 orphelin. ⚠ Reste dû : **push**, puis alertes Dependabot `fixed`
-  vérifiées sur le distant, puis seulement la réécriture de la phrase côté vitrine.
+  agents, 0 absent, 0 orphelin. **Poussé le jour même** (`c014795..6e2629a`) : 3 alertes
+  Dependabot `fixed` à l'API, run CI `31320524827` vert avec l'étape 7 du garde **exécutée**
+  (vérifiée à l'étape, pas au verdict du run). Reste dû : la réécriture côté vitrine.
+  ▫ Effet de bord de la session, dans `claude-config` : la formule de parité des fences était
+  recopiée à **3 endroits** (hook, mémoire, `scripts/audit_memory.py`) ; la mémoire avait été
+  corrigée le 2026-08-06, les deux copies non — et c'est une copie périmée qui a été appliquée.
+  Corrigé, calibré sur 667 fichiers, et le hook ne recopie plus aucun opérateur.

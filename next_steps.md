@@ -34,14 +34,17 @@ SESSION 2026-08-09 — deux unités POUSSÉES et VÉRIFIÉES SUR LE DISTANT :
       étape 7) : la propriété publiée par la vitrine n'était gardée par RIEN jusque-là.
 
 PROCHAINE UNITÉ :
-  VITRINE — /Users/guyhui/CLAUDE/guyhui-showcase : DEUX patchs, plus un seul, tous deux
-  DÉBLOQUÉS (le blocage était le push, il est fait).
-  (a) la formule « indexed in a CI-validated sidecar » est VRAIE pour tout le catalogue
-      (85 assets, workflows compris, catalogue v4.2.0) — patch intro Catalog + carte Home.
-  (b) la phrase « 425 skill files … verified at catalog v4.2.0 » tenait par sa PROVENANCE
-      faute de garde. Le garde tourne désormais EN CI ⟹ elle peut emprunter la garantie CI.
+  VITRINE — /Users/guyhui/CLAUDE/guyhui-showcase : UN SEUL patch, pas deux.
+  ⚠ Le patch (a) annoncé ici le 2026-08-09 était SANS OBJET, écrit sans regarder la page :
+      docs/method.md:63 publie déjà « all 85 assets indexed in a CI-validated sidecar »
+      (vrai depuis v4.2.0), et la carte Home ne porte aucun claim à corriger.
+  (b) SEUL LOT RÉEL — docs/catalog.md dit encore que l'appariement a été vérifié
+      « once, by hand, at catalog v4.2.0 ». Faux depuis que validate:skill-mapping tourne
+      en CI, et faux dans le sens RARE : la page promet MOINS que la réalité.
       ⚠ Re-mesurer avant de réécrire : 425 compte des FICHIERS, 428 des LIGNES de demande.
-  Détail : guyhui-showcase/next_steps.md. (Repo distinct ⟹ session distincte.)
+  Le next_steps.md de la vitrine porte déjà ce lot en tête de son RESTE (corrigé le
+  2026-08-09 depuis ici, règle « la tâche amont porte la MAJ aval »).
+  (Repo distinct ⟹ session distincte : build --strict, release, vérif prod.)
 ```
 
 ---

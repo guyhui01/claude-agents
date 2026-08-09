@@ -29,5 +29,7 @@ jobs:
       - run: npm run validate:sidecar
       # "Agents" column of both READMEs consistent with the WF identity cards
       - run: npm run validate:wf-agents
+      # every skill file offered by a request row, every request row resolving to a file
+      - run: npm run validate:skill-mapping
       # drift-check: cleanly skipped in CI (runtime not checked out); active locally
       - run: npm run check:schema-drift

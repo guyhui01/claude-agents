@@ -7,6 +7,17 @@
 ---
 
 ## [Unreleased]
+> Model: Claude Opus 5
+
+### ✨ Added
+- **`validate:skill-mapping` — the per-file skill mapping is now guarded** (`tools/check-skill-mapping.mjs`, wired into the `sidecar` CI job). The sidecar indexes the catalog at **folder** level — a `skill` asset is `skills/<name>/README.md` — so the 37 files it validates were exactly the 37 that carry no per-file mapping. Everything below that line was checked **once, by hand**: a request row pointing at a renamed or deleted skill file, or a skill file no agent ever offers, was visible to nobody. The guard closes both directions against the filesystem — `ABSENT` (a `## Available skills` row cites a `skills/….md` that does not exist) and `UNMAPPED` (a skill file exists but no request row offers it). Folder `README.md` files are excluded (they are the sidecar's own skill assets, not request targets), and bare folder paths cited in prose are excluded too (only `.md` references are request rows).
+- **Guard exercised red on all four of its causes before adoption**, exit 1 and exact message verified each time, working tree proven clean afterwards (`git status --porcelain` empty): dead reference · orphan file · renamed `## Available skills` heading · **empty corpus**. That last one matters most: with no agent card, no request row or no skill file, the guard exits 1 rather than reporting a green over nothing — "did not run" and "passed" must not print the same thing.
+
+### 🔒 Security
+- **`fast-uri` 3.1.2 → 3.1.5** in `package-lock.json`, clearing 3 HIGH advisories (`GHSA-7p8r-x3mc-p8w7`, `GHSA-v2hh-gcrm-f6hx`, `GHSA-4c8g-83qw-93j6` — host confusion via backslash authority delimiter / introducer / failed IDN canonicalization). `npm audit` goes from 1 HIGH vulnerability to **0**. The package is transitive (`ajv@8.20.0` → `fast-uri`) and `scope=development`, so it never shipped in a published artifact; it serves the build and the guards. The parent declares `fast-uri: ^3.0.1` and 3.1.5 is the last 3.x, so the fix lands **inside the declared range**: plain `npm audit fix`, no `overrides` and no `--force`, and `ajv` itself does not move. Dependabot had been **disabled on this repo until 2026-08-06** — the absence of alerts before that date proved nothing.
+
+### 📝 Documentation
+- **`next_steps.md` recorded the debt in the wrong repo.** The unguarded published claim was logged in `guyhui-showcase/next_steps.md` while the fix belonged here, and this tracker's resume block never mentioned it — the repo that owed the proof had no record of owing it. The debt is now stated where it is paid.
 
 ---
 

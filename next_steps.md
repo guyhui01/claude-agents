@@ -12,6 +12,8 @@ Reprise session — catalogue /Users/guyhui/CLAUDE/claude-agents (repo guyhui01/
 Applique le rituel de démarrage. CHECK FACTUEL D'ABORD, jamais de mémoire :
   git -C /Users/guyhui/CLAUDE/claude-agents status -sb   ·   git describe --tags
   npm run validate:sidecar   (attendu : ✓ 85 asset(s), catalog v4.2.0)
+  npm run validate:skill-mapping  (attendu : ✓ 425 fichiers ↔ 428 lignes × 38 agents)
+  npm audit                  (attendu : found 0 vulnerabilities)
 
 SIDECAR COMPLET = les 10 WORKFLOWS SONT INDEXÉS, RELEASÉ v4.2.0 le 2026-07-18 (tag annoté +
 GitHub Release publiée, ni draft ni prerelease, distant vérifié après coup). 85 assets
@@ -22,21 +24,49 @@ car conditionnels) ; schéma INTACT (branche workflow déjà prévue). 4 gardes 
 pour de vrai (exit 1 + message vérifiés) : blockquote absent · agent inconnu · agents_core vide ·
 clé agents_core absente. Claim README reformulé (85 assets).
 
-ÉTAT — 3 gates vertes : validate:sidecar (85) · validate:wf-agents · check:schema-drift.
+ÉTAT — 4 gates vertes : validate:sidecar (85) · validate:wf-agents ·
+validate:skill-mapping (425↔428) · check:schema-drift. `npm audit` = 0.
+
+SESSION 2026-08-09 — deux unités faites EN LOCAL, commits en attente de push :
+  (1) fast-uri 3.1.2 → 3.1.5 (npm audit fix, dans la plage ^3.0.1 d'ajv, pas d'overrides).
+  (2) NOUVEAU GARDE validate:skill-mapping + ligne CI : la propriété publiée par la vitrine
+      (« 425 skill files … none referenced but absent ») n'était gardée par RIEN.
 
 PROCHAINE UNITÉ :
-  VITRINE — /Users/guyhui/CLAUDE/guyhui-showcase : la formule « indexed in a CI-validated
-  sidecar » est désormais VRAIE pour la totalité du catalogue (85 assets, workflows compris,
-  catalogue v4.2.0). Patch intro Catalog + carte Home. Détail : guyhui-showcase/next_steps.md.
-  (Repo distinct ⟹ session distincte.)
+  PUSH — les deux unités ci-dessus ne se clôturent pas sans lui : le critère sécurité exige
+  les alertes Dependabot passées à `fixed` VÉRIFIÉES SUR LE DISTANT, et la CI n'exécutera le
+  nouveau garde qu'une fois `sidecar.yml` poussé. Sur ordre explicite de Guy.
 
-  SÉCURITÉ — 3 alertes Dependabot HIGH ouvertes sur `fast-uri`, à traiter ICI dans une
-  session dédiée. Détail + critère de clôture : section « ⚠ Sécurité » plus bas.
+  VITRINE — /Users/guyhui/CLAUDE/guyhui-showcase : DEUX patchs, plus un seul.
+  (a) la formule « indexed in a CI-validated sidecar » est VRAIE pour tout le catalogue
+      (85 assets, workflows compris, catalogue v4.2.0) — patch intro Catalog + carte Home.
+  (b) ⚠ APRÈS PUSH SEULEMENT : la phrase « 425 skill files … verified at catalog v4.2.0 »
+      tient aujourd'hui par sa PROVENANCE (date) faute de garde. Le garde existe désormais ;
+      une fois en CI, elle peut emprunter la garantie CI. Ne pas réécrire avant le push.
+  Détail : guyhui-showcase/next_steps.md. (Repo distinct ⟹ session distincte.)
 ```
 
 ---
 
-## ⚠ Sécurité — 3 alertes Dependabot ouvertes (consigné le 2026-08-06)
+## ⚠ Sécurité — corrigée en local le 2026-08-09, clôture SUSPENDUE au push
+
+- **Fait le 2026-08-09** : `npm audit fix` (sans `--force`) → `fast-uri` **3.1.2 → 3.1.5**,
+  `npm audit` = **0 vulnérabilité**, 4 gates vertes. Diff : **3 lignes de `package-lock.json`**,
+  `ajv` reste `8.20.0`, aucune dépendance déclarée ne bouge.
+- **Le pronostic du 2026-08-06 était le bon RÉFLEXE mais le mauvais CAS.** Il fallait remonter
+  le parent — c'était juste ; il ne fallait pas présumer la voie — c'était juste aussi, et c'est
+  la voie **inverse** du runtime qui s'est appliquée : `ajv` déclare `fast-uri: ^3.0.1`, et
+  `3.1.5` (dernière 3.x) tombe **dans** cette plage ⟹ **aucun `overrides` nécessaire**. Ce qui
+  tranche reste la plage déclarée du parent, jamais le remède de la fois d'avant.
+- **Chiffre à ne pas confondre** : `npm audit` comptait **1 vulnérabilité** (un paquet),
+  Dependabot **3 alertes** (trois advisories sur ce paquet). Même réalité, deux dénominateurs.
+- ⛔ **RESTE À FAIRE — le critère de clôture n'est PAS rempli** : les alertes doivent être
+  vues `fixed` **sur le distant après push**, jamais déduites du lock local.
+
+<details>
+<summary>Constat d'origine (consigné le 2026-08-06) — conservé comme trace</summary>
+
+**⚠ Sécurité — 3 alertes Dependabot ouvertes (état du 2026-08-06, figé)**
 
 > **Dependabot était DÉSACTIVÉ sur ce repo jusqu'au 2026-08-06** — donc l'absence
 > d'alerte n'avait jamais rien prouvé. Activé ce jour-là sur ordre de Guy ; l'analyse
@@ -58,6 +88,38 @@ PROCHAINE UNITÉ :
 - **Portée honnête** : `scope=development` ⟹ ces paquets ne sont pas embarqués dans un
   artefact publié ; ils servent au build et aux contrôles. C'est une raison de **ne pas
   paniquer**, pas une raison de ne pas corriger.
+
+*(Snapshot figé — annoté, non réécrit : son « les 3 gates du repo vertes » date d'avant
+`validate:skill-mapping`. Le critère courant en compte 4.)*
+
+</details>
+
+---
+
+## ⚠ Propriété publiée non gardée — RÉSOLUE le 2026-08-09
+
+> Cette dette était consignée **dans le mauvais repo** : `guyhui-showcase/next_steps.md`
+> la portait alors que le correctif se paie **ici**, et le bloc de reprise de ce tracker
+> ne la mentionnait pas. Le repo qui devait la preuve ignorait qu'il la devait.
+
+- **Ce qui n'était gardé par rien** : la vitrine publie « *425 skill files … every one
+  reachable from a request line, none referenced but absent, verified at catalog `v4.2.0`* ».
+  Le sidecar indexe au niveau **DOSSIER** (un asset `skill` = `skills/<name>/README.md`) ⟹
+  les 37 fichiers qu'il valide sont **exactement** les 37 qui ne portent aucun appariement.
+  Un chemin cassé dans une table `## Available skills` n'aurait été vu par personne.
+- **Correctif** : `tools/check-skill-mapping.mjs` + `npm run validate:skill-mapping`, ajouté
+  à `.github/workflows/sidecar.yml`. Ferme les deux sens : `ABSENT` (ligne de demande vers un
+  fichier inexistant) et `UNMAPPED` (fichier de skill que personne n'offre).
+- **Mesure au moment de l'ajout** : 38 agents · **428 lignes de demande** · **425 fichiers
+  distincts** · 425 sur disque · 0 absent · 0 orphelin. Fermeture `425 + 37 = 462` fichiers
+  `.md` sous `skills/`. ⚠ **425 ≠ 428** : 425 compte des fichiers, 428 des lignes.
+- **Rouge observé sur les 4 causes avant adoption** (exit 1 + message exact, arbre reprouvé
+  propre) : référence morte · fichier orphelin · titre `## Available skills` renommé ·
+  **corpus vide**. Ce dernier est le plus important : sans lui, « rien à mesurer » et
+  « passé » auraient imprimé le même vert.
+- ⛔ **Le garde ne tourne pas encore EN CI** — `sidecar.yml` n'est pas poussé. Tant que
+  le push n'est pas fait, la phrase de la vitrine tient toujours par sa **provenance**,
+  pas par un garde : ne pas la réécrire d'ici là.
 
 ---
 
@@ -124,3 +186,14 @@ Correction de forme : le tracker qualifiait `7216488` de « commit local non pou
   package.json 4.2.0, sidecar régénéré (`catalogVersion` = v4.2.0 sur les 85 assets), 3 gates
   re-vertes, commit, tag annoté, push `main` + tag, GitHub Release créée depuis les notes
   extraites du CHANGELOG. Distant vérifié après coup : `main`, tag et Release en place.
+- **2026-08-09** — Deux unités, **commits locaux, rien de poussé**. (1) **`fast-uri` 3.1.2 →
+  3.1.5** par `npm audit fix` seul : `ajv` déclare `^3.0.1`, le correctif tombe dans la plage,
+  donc ni `overrides` ni `--force` — la voie **inverse** du cas runtime du 2026-08-06, ce qui
+  confirme la règle (« ce qui tranche est la plage du parent ») en invalidant le remède.
+  `npm audit` 1 HIGH → **0** ; diff = 3 lignes de lock, `ajv` inchangé. (2) **4ᵉ gate
+  `validate:skill-mapping`** : la propriété la plus commerciale du site (« 425 skill files …
+  none referenced but absent ») n'était gardée par **rien**, et la dette était consignée dans
+  le repo qui l'AFFICHE au lieu de celui qui la PRODUIT. Garde écrit, câblé en CI, **rouge
+  observé sur ses 4 causes** dont le corpus vide. Mesure : 425 fichiers ↔ 428 lignes × 38
+  agents, 0 absent, 0 orphelin. ⚠ Reste dû : **push**, puis alertes Dependabot `fixed`
+  vérifiées sur le distant, puis seulement la réécriture de la phrase côté vitrine.

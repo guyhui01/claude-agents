@@ -51,19 +51,34 @@ VÉRIFIÉES UNE À UNE, pas au verdict du run. 3 alertes Dependabot `fixed` à l
 réel en CI — voir la section « ⏭ À prévoir » plus bas. Décidé le 2026-08-11, non planifié.
 
 PROCHAINE UNITÉ — une seule, à froid, session distincte :
-  1. VITRINE — /Users/guyhui/CLAUDE/guyhui-showcase : UN SEUL patch, pas deux.
-     ⚠ Le patch (a) annoncé le 2026-08-09 était SANS OBJET, écrit sans regarder la page :
-        docs/method.md:63 publie déjà « all 85 assets indexed in a CI-validated sidecar »
-        (vrai depuis v4.2.0), et la carte Home ne porte aucun claim à corriger.
-     (b) SEUL LOT RÉEL — docs/catalog.md dit encore que l'appariement a été vérifié
-        « once, by hand, at catalog v4.2.0 ». Faux depuis que validate:skill-mapping tourne
-        en CI, et faux dans le sens RARE : la page promet MOINS que la réalité.
-        ⚠ Re-mesurer avant de réécrire : 425 compte des FICHIERS, 428 des LIGNES de demande.
-     Le next_steps.md de la vitrine porte déjà ce lot en tête de son RESTE (corrigé le
-     2026-08-09 depuis ici, règle « la tâche amont porte la MAJ aval »).
-     ✅ Le préalable est levé : v4.3.0 est poussée et releasée, donc le « CI-validated »
-        que la vitrine publie ne peut plus passer au vert sur un catalogue amputé.
-     (Repo distinct ⟹ session distincte : build --strict, release, vérif prod.)
+  1. VITRINE — /Users/guyhui/CLAUDE/guyhui-showcase.
+     ⛔ NE PAS REJOUER les patchs (a) et (b) des versions précédentes de ce bloc : les DEUX
+        sont sans objet. (a) était faux dès l'écriture (method.md publie déjà le bon claim).
+        (b) — « once, by hand » — a été FAIT le 2026-08-10 côté vitrine ; vérifié à la source
+        le 2026-08-11 : la phrase n'existe dans AUCUN fichier de docs/, la page dit désormais
+        « the same automated run … checks that mapping too, on every change », et le
+        next_steps.md de la vitrine le marque « ✅ FAIT ICI le 2026-08-10 ».
+        ⚠ Ce bloc a re-prescrit (b) le 2026-08-11 en le RECOPIANT d'ici sans ouvrir la page —
+        le tracker aval disait « fait » depuis la veille. Un lot prescrit est une hypothèse
+        datée : la tester à la source AVANT de la réécrire, jamais l'inverse.
+
+     ▸ SEUL LOT RÉEL, et c'est v4.3.0 qui vient de le créer — la vitrine publie une version
+       de catalogue périmée, en DEUX endroits (mesuré le 2026-08-11) :
+         docs/catalog.md:153  « *Catalog currently at `v4.2.0` — versioned…* »
+         docs/index.md:134    « *Catalog currently at `v4.2.0` · Agentic Runtime at `v0.11.0`…* »
+       ⟹ v4.2.0 → v4.3.0. Le runtime v0.11.0 est JUSTE, ne pas y toucher.
+       Règle appliquée : le repo qui PRODUIT la release porte la MAJ de celui qui l'AFFICHE.
+
+     ⛔ GARDE-FOU DE PÉRIMÈTRE — ne PAS faire un rechercher/remplacer sur « v4.2.0 ».
+        Toutes les autres occurrences v4.0.0 / v4.1.0 / v4.2.0 (live_proofs.md, workflows.md,
+        index.md l.18-19 et l.63-64) sont des RELEVÉS FIGÉS : la version du catalogue AU
+        MOMENT du run live. Les « mettre à jour » détruirait la preuve. Seules les lignes
+        « Catalog currently at » décrivent le présent.
+
+     ▸ Rien d'autre repéré : method.md « 85 assets » reste vrai à v4.3.0, et le claim
+       d'appariement est désormais adossé à une gate PLUS forte qu'au moment où il a été écrit.
+     (Repo distinct ⟹ session distincte : build --strict, release, vérif prod avec
+      hard-refresh.)
 ```
 
 ---

@@ -12,10 +12,13 @@
  *   - ≥1 optional        → "<core>-<core+opt>"   (mobilizable at minimum → at maximum)
  *
  * Exits 0 if both READMEs show the expected value for every WF; otherwise
- * prints each mismatch and exits 1. No side effects (read-only). CI usage.
+ * prints each mismatch and exits 1. It also exits 1 when there is nothing to
+ * measure: with no identity card there is no expectation to compare against, and
+ * every README row would pass by vacuity — "did not run" and "passed" must not
+ * print the same green. No side effects (read-only). CI usage.
  */
 
-import { readFileSync, readdirSync } from "node:fs";
+import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -44,6 +47,10 @@ function expectedCount(core, opt) {
 /** Map id → expected value, derived from the workflows' identity cards. */
 function deriveExpected() {
   const expected = new Map();
+  if (!existsSync(WORKFLOWS_DIR)) {
+    console.error(`✗ workflows/ directory not found (${WORKFLOWS_DIR}) — check the checkout`);
+    process.exit(1);
+  }
   const files = readdirSync(WORKFLOWS_DIR)
     .filter((f) => /^WF-\d+.*\.md$/.test(f))
     .sort();
@@ -73,6 +80,17 @@ function shownCount(readmeText, id) {
 }
 
 const expected = deriveExpected();
+
+// An empty corpus is a broken run, not a clean one: with no identity card the
+// comparison below iterates over nothing and reports a green over zero workflow.
+if (expected.size === 0) {
+  console.error(
+    `✗ nothing to measure: 0 workflow identity card(s) under workflows/ — ` +
+      `the corpus cannot be empty, check the paths`,
+  );
+  process.exit(1);
+}
+
 const issues = [];
 
 for (const rel of README_FILES) {

@@ -18,11 +18,12 @@
  *
  * Exits 0 when both sets are empty; otherwise prints every offender and exits 1.
  * It also exits 1 when there is nothing to measure (no agent card, no request
- * row, no skill file): an empty corpus must never look like a passing check.
+ * row, no skill file) or when `skills/` is absent altogether: an empty corpus
+ * must never look like a passing check, and a missing one must say so.
  * No side effects (read-only). CI usage.
  */
 
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { readFileSync, readdirSync, statSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -92,6 +93,13 @@ function isFile(rel) {
 
 const agents = agentFiles();
 const { referenced, rows } = collectReferences();
+
+// A missing corpus directory must be named as such: without this, `readdirSync`
+// throws a raw ENOENT stack and the empty-corpus report below is never reached.
+if (!existsSync(SKILLS_DIR)) {
+  console.error(`✗ skills/ directory not found (${SKILLS_DIR}) — check the checkout`);
+  process.exit(1);
+}
 const onDisk = collectSkillFiles();
 
 // An empty corpus is a broken run, not a clean one.

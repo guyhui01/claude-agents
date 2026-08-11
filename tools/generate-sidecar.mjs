@@ -78,9 +78,21 @@ function listAgentIds() {
     .map((f) => f.replace(/\.md$/, ""));
 }
 
+/**
+ * `readdirSync` for a corpus directory: a missing one fails with our own message
+ * rather than a raw ENOENT stack, so the checkout is named as the cause.
+ */
+function readCorpusDir(dir, options) {
+  if (!existsSync(dir)) {
+    const rel = dir.slice(REPO_ROOT.length + 1);
+    throw new Error(`corpus directory not found: ${rel}/ — check the checkout`);
+  }
+  return readdirSync(dir, options);
+}
+
 /** Skill folder names discovered under `skills/`. */
 function listSkillNames() {
-  return readdirSync(SKILLS_DIR, { withFileTypes: true })
+  return readCorpusDir(SKILLS_DIR, { withFileTypes: true })
     .filter((e) => e.isDirectory())
     .map((e) => e.name);
 }
@@ -90,9 +102,27 @@ const skillId = (name) => `skills/${name}`;
 
 /** Workflow identity cards discovered under `workflows/` (top level only). */
 function listWorkflowFiles() {
-  return readdirSync(WORKFLOWS_DIR)
+  return readCorpusDir(WORKFLOWS_DIR)
     .filter((f) => /^WF-\d+.*\.md$/.test(f))
     .sort();
+}
+
+/**
+ * Losing a whole asset type must fail generation, never shrink the sidecar in silence.
+ * `validate:sidecar` only compares the committed file to the tree it was generated from,
+ * so a regeneration over an amputated corpus would report the loss as "up to date" —
+ * measured: with the 10 `WF-*.md` removed and the sidecar regenerated, all four gates
+ * went green on 75 assets.
+ */
+function assertCorpusNonEmpty(counts) {
+  const empty = Object.entries(counts)
+    .filter(([, n]) => n === 0)
+    .map(([kind]) => kind);
+  if (empty.length > 0) {
+    throw new Error(
+      `empty corpus for: ${empty.join(", ")} — refusing to generate a sidecar that drops a whole asset type`,
+    );
+  }
 }
 
 /**
@@ -276,10 +306,18 @@ function buildSidecar(generatedAt) {
   assertBackbonesResolvable(agentIds);
   const knownAgents = new Set(agentIds);
 
+  const skillNames = listSkillNames();
+  const workflowFiles = listWorkflowFiles();
+  assertCorpusNonEmpty({
+    agents: agentIds.length,
+    skills: skillNames.length,
+    workflows: workflowFiles.length,
+  });
+
   const descriptions = readSkillDescriptions();
   const skillsByAgent = new Map(agentIds.map((id) => [id, []]));
 
-  const skillAssets = listSkillNames().map((name) => {
+  const skillAssets = skillNames.map((name) => {
     const abs = join(SKILLS_DIR, name, "README.md");
     const id = skillId(name);
     if (!existsSync(abs)) throw new Error(`${id}: source file missing (skills/${name}/README.md)`);
@@ -306,7 +344,7 @@ function buildSidecar(generatedAt) {
     buildAgentAsset(id, tag, skillsByAgent.get(id).sort()),
   );
 
-  const workflowAssets = listWorkflowFiles().map((f) =>
+  const workflowAssets = workflowFiles.map((f) =>
     buildWorkflowAsset(f, tag, knownAgents),
   );
 

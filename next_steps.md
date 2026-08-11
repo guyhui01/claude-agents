@@ -47,6 +47,9 @@ VÉRIFIÉES UNE À UNE, pas au verdict du run. 3 alertes Dependabot `fixed` à l
   mais il rendait INATTEIGNABLE le rapport corpus-vide de check-skill-mapping — dont le
   rouge du 2026-08-09 n'avait donc couvert que la forme « présent-mais-vide ».
 
+À PRÉVOIR (chantier distinct, PAS dans la session vitrine) : rendre check:schema-drift
+réel en CI — voir la section « ⏭ À prévoir » plus bas. Décidé le 2026-08-11, non planifié.
+
 PROCHAINE UNITÉ — une seule, à froid, session distincte :
   1. VITRINE — /Users/guyhui/CLAUDE/guyhui-showcase : UN SEUL patch, pas deux.
      ⚠ Le patch (a) annoncé le 2026-08-09 était SANS OBJET, écrit sans regarder la page :
@@ -62,6 +65,53 @@ PROCHAINE UNITÉ — une seule, à froid, session distincte :
         que la vitrine publie ne peut plus passer au vert sur un catalogue amputé.
      (Repo distinct ⟹ session distincte : build --strict, release, vérif prod.)
 ```
+
+---
+
+## ⏭ À prévoir — rendre `check:schema-drift` réel en CI (chantier distinct)
+
+> Décidé le **2026-08-11** à la clôture de v4.3.0. **Non planifié, non commencé.**
+> Ne pas l'ouvrir dans la session vitrine (`feedback-un-chantier-par-session`).
+
+**Le constat qui l'ouvre.** La gate a deux niveaux (`tools/check-schema-drift.mjs`) :
+niveau 1 = pin d'identité `$id`, **toujours actif** ; niveau 2 = comparaison au contrat du
+runtime (SSOT), **sauté quand le runtime est injoignable**. En CI le runtime n'est pas
+checkouté ⟹ l'étape imprime `⚠ drift-check skipped` et **sort 0**. En CI, **3 gates
+mesurent le catalogue, la 4ᵉ ne vérifie que le pin**.
+
+**Ce qui est déjà mesuré (2026-08-11, ancrage absolu, chemins distincts vérifiés) :**
+
+- `claude-agentic-runtime` est **PUBLIC** ⟹ `actions/checkout` avec `repository:` + `path:`
+  suffit, **aucun token** à provisionner.
+- Le point d'entrée existe déjà : **`RUNTIME_SCHEMA_PATH`**. Testé ancré ⟹ `exit 0` avec
+  `✓ vendored schema identical to the runtime contract`. **Activer la comparaison ne demande
+  aucun changement de code**, seulement du YAML.
+- Les deux schémas sont **IDENTIQUES aujourd'hui** (comparaison réelle, pas circulaire :
+  la 1ʳᵉ tentative a comparé le runtime à lui-même par dérive de `cwd`, redite en absolu).
+
+**⚠ Le vrai travail n'est PAS le checkout — c'est le mode strict.** Falsifié le même jour :
+`RUNTIME_SCHEMA_PATH=/nexiste/pas.json` ⟹ **`skip` + exit 0**. Donc un chemin faux, un
+`path:` renommé ou un déplacement du fichier côté runtime feraient **retomber la gate en
+vacante sans que rien ne rougisse** — on croirait l'avoir rendue réelle. Il faut un
+`--strict` (ou `RUNTIME_SCHEMA_REQUIRED=1`) qui **échoue quand le runtime est attendu mais
+introuvable**, et le job CI doit l'employer. Sans ça, le chantier produit une gate qui a
+l'air gardée. C'est littéralement la leçon de v4.3.0 :
+« n'a pas tourné » et « passé » ne doivent pas rendre le même vert.
+
+**Décision à TRANCHER, pas à présumer — quelle réf du runtime comparer ?**
+
+- `main` : toujours à jour, mais **couple la CI de ce repo à des commits d'un autre repo**
+  (un push côté runtime peut faire rougir ici, sans rapport avec le changement testé).
+- **Tag épinglé** (runtime à `v0.11.0` au 2026-08-11) : découplé et reproductible, mais
+  périme en silence — il faut alors savoir *qui* le fait avancer, et quand.
+
+Ne pas trancher de tête : mesurer d'abord la fréquence réelle de changement de
+`schema/sidecar.schema.json` côté runtime (il date du **20 juin**, donc probablement très
+stable — à confirmer par `git log` sur ce fichier, pas par cette phrase).
+
+**Critère de clôture** : le job CI montre l'étape drift-check **exécutée avec la comparaison
+active** (message `✓ vendored schema identical…`, jamais `⚠ skipped`), vérifiée **à l'étape**
+et non au verdict du run ; et le mode strict prouvé **rouge** sur runtime absent avant adoption.
 
 ---
 

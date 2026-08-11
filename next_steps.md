@@ -32,7 +32,9 @@ SESSION 2026-08-09 — POUSSÉE et VÉRIFIÉE SUR LE DISTANT : fast-uri 3.1.2 �
 (3 alertes Dependabot `fixed` à l'API) + 4ᵉ gate validate:skill-mapping verte en CI
 (run 31320524827, étape 7).
 
-SESSION 2026-08-11 — v4.3.0 COUPÉE EN LOCAL (commits + tag annoté), RIEN DE POUSSÉ.
+SESSION 2026-08-11 — v4.3.0 POUSSÉE ET RELEASÉE (dcd27f5, tag annoté + GitHub Release,
+ni draft ni prerelease). CI run 31496493536 sur dcd27f5 : les 4 étapes de gate (5→8)
+VÉRIFIÉES UNE À UNE, pas au verdict du run. 3 alertes Dependabot `fixed` à l'API.
   FAUX VERT TROUVÉ ET FERMÉ : validate:wf-agents n'avait aucun garde de corpus vide.
   Les 10 WF-*.md supprimés puis `npm run generate:sidecar` ⟹ le sidecar retombait à
   75 assets et LES 4 GATES PASSAIENT AU VERT pendant que 10 workflows quittaient le
@@ -45,9 +47,7 @@ SESSION 2026-08-11 — v4.3.0 COUPÉE EN LOCAL (commits + tag annoté), RIEN DE 
   mais il rendait INATTEIGNABLE le rapport corpus-vide de check-skill-mapping — dont le
   rouge du 2026-08-09 n'avait donc couvert que la forme « présent-mais-vide ».
 
-PROCHAINE UNITÉ (dans l'ordre) :
-  0. PUSH + GitHub Release v4.3.0 — commits et tag annoté sont LOCAUX, en attente
-     d'accord explicite. Le correctif sécurité fast-uri (a7ecd5a) est publié par ce tag.
+PROCHAINE UNITÉ — une seule, à froid, session distincte :
   1. VITRINE — /Users/guyhui/CLAUDE/guyhui-showcase : UN SEUL patch, pas deux.
      ⚠ Le patch (a) annoncé le 2026-08-09 était SANS OBJET, écrit sans regarder la page :
         docs/method.md:63 publie déjà « all 85 assets indexed in a CI-validated sidecar »
@@ -58,8 +58,8 @@ PROCHAINE UNITÉ (dans l'ordre) :
         ⚠ Re-mesurer avant de réécrire : 425 compte des FICHIERS, 428 des LIGNES de demande.
      Le next_steps.md de la vitrine porte déjà ce lot en tête de son RESTE (corrigé le
      2026-08-09 depuis ici, règle « la tâche amont porte la MAJ aval »).
-     ⚠ Ne réécrire la page qu'APRÈS le push de v4.3.0 : jusqu'à ce tag, le « CI-validated »
-        que la vitrine publie pouvait passer au vert sur un catalogue amputé.
+     ✅ Le préalable est levé : v4.3.0 est poussée et releasée, donc le « CI-validated »
+        que la vitrine publie ne peut plus passer au vert sur un catalogue amputé.
      (Repo distinct ⟹ session distincte : build --strict, release, vérif prod.)
 ```
 

@@ -26,10 +26,10 @@ validate:skill-mapping (425↔428) · check:schema-drift. `npm audit` = 0.
 ⚠ « 4 gates » était exact EN LOCAL seulement : en CI, check:schema-drift ne mesurait PAS
 le catalogue (runtime non checkouté ⟹ « ⚠ drift-check skipped » + exit 0), donc 3 gates
 mesuraient et la 4ᵉ ne vérifiait que le pin d'identité.
-⟹ CORRIGÉ EN LOCAL le 2026-08-11 (commits non poussés) : le job checkoute le runtime et
-lance la comparaison en mode STRICT. ⚠ Tant que ce lot n'est pas poussé, la CI du distant
-se comporte encore comme la phrase précédente le décrit — le critère de clôture est une
-étape CI observée, pas ce paragraphe.
+⟹ CORRIGÉ, POUSSÉ ET PROUVÉ EN CI le 2026-08-11 : le job checkoute le runtime et lance la
+comparaison en mode STRICT. Étape 9 du run 31511269771 (sur d9e12c4) : « ✓ vendored schema
+identical to the runtime contract (no drift) », aucun « skipped » dans le log.
+⟹ EN CI, LES 4 GATES MESURENT LE CATALOGUE. Lu à l'étape, pas au verdict du run.
 
 SESSION 2026-08-09 — POUSSÉE et VÉRIFIÉE SUR LE DISTANT : fast-uri 3.1.2 → 3.1.5
 (3 alertes Dependabot `fixed` à l'API) + 4ᵉ gate validate:skill-mapping verte en CI
@@ -50,12 +50,16 @@ VÉRIFIÉES UNE À UNE, pas au verdict du run. 3 alertes Dependabot `fixed` à l
   mais il rendait INATTEIGNABLE le rapport corpus-vide de check-skill-mapping — dont le
   rouge du 2026-08-09 n'avait donc couvert que la forme « présent-mais-vide ».
 
-✅ FAIT EN LOCAL le 2026-08-11 (commits non poussés) : check:schema-drift est réel en CI
-— mode strict + checkout du runtime. Voir la section « ⏭ À prévoir » plus bas, mise à jour :
-son critère de clôture (étape CI observée) reste OUVERT jusqu'au push.
+✅ FAIT, POUSSÉ, CLÔTURÉ le 2026-08-11 : check:schema-drift est réel en CI — mode strict +
+checkout du runtime, comparaison observée à l'étape (run 31511269771). Voir la section
+« ⏭ ✅ FAIT » plus bas pour la falsification et la décision `ref: main`.
 
-PROCHAINE UNITÉ — une seule, à froid, session distincte :
-  1. VITRINE — /Users/guyhui/CLAUDE/guyhui-showcase.
+PROCHAINE UNITÉ — ✅ AUCUNE EN ATTENTE : le lot vitrine ci-dessous est FAIT le 2026-08-11.
+  Bumpée (catalog.md:153 + index.md:134 → v4.3.0, les relevés figés intacts), releasée
+  v1.17.1, poussée, PROD-VÉRIFIÉE 8/8 sur deux tirs. Détail dans le next_steps de la vitrine.
+  Bloc conservé ci-dessous pour son GARDE-FOU DE PÉRIMÈTRE, qui a servi et resservira.
+
+  [FAIT] 1. VITRINE — /Users/guyhui/CLAUDE/guyhui-showcase.
      ⛔ NE PAS REJOUER les patchs (a) et (b) des versions précédentes de ce bloc : les DEUX
         sont sans objet. (a) était faux dès l'écriture (method.md publie déjà le bon claim).
         (b) — « once, by hand » — a été FAIT le 2026-08-10 côté vitrine ; vérifié à la source
@@ -87,13 +91,20 @@ PROCHAINE UNITÉ — une seule, à froid, session distincte :
 
 ---
 
-## ⏭ ✅ FAIT EN LOCAL — rendre `check:schema-drift` réel en CI
+## ⏭ ✅ FAIT ET CLÔTURÉ — `check:schema-drift` est réel en CI
 
 > Décidé le **2026-08-11** à la clôture de v4.3.0, **implémenté le même jour**, sur demande
 > explicite de Guy et dans la même session que le lot vitrine (dérogation assumée à
 > `feedback-un-chantier-par-session`, deux repos en écriture).
-> **Commits LOCAUX, NON POUSSÉS. Le critère de clôture ci-dessous reste OUVERT** : il exige
-> une étape CI observée, et aucune CI n'a tourné.
+> **✅ CLÔTURÉ le 2026-08-11 — POUSSÉ (`4da35c6..d9e12c4`) ET PROUVÉ EN CI À L'ÉTAPE.**
+> Run **`31511269771`** sur **`d9e12c4`**, job `sidecar`, **étape 9 « Drift-check against the
+> runtime contract (strict) »** : `RUNTIME_SCHEMA_PATH` résolu à
+> `/home/runner/work/claude-agents/claude-agents/.runtime-ssot/schema/sidecar.schema.json`,
+> commande `node tools/check-schema-drift.mjs --strict`, sortie
+> `✓ identity pin OK` puis **`✓ vendored schema identical to the runtime contract (no drift).`**
+> ⟹ la comparaison a bel et bien TOURNÉ. **Aucun `⚠ skipped` nulle part dans le log du run.**
+> Lu **au log de l'étape**, jamais au verdict du run — un run vert ne dit pas laquelle de ses
+> étapes a mesuré quoi. **En CI, les 4 gates mesurent désormais le catalogue.**
 >
 > **Ce qui a été fait**, exactement : `tools/check-schema-drift.mjs` accepte `--strict` /
 > `RUNTIME_SCHEMA_REQUIRED=1` ⟹ runtime **attendu mais introuvable = exit 1** au lieu du skip

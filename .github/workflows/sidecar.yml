@@ -31,5 +31,23 @@ jobs:
       - run: npm run validate:wf-agents
       # every skill file offered by a request row, every request row resolving to a file
       - run: npm run validate:skill-mapping
-      # drift-check: cleanly skipped in CI (runtime not checked out); active locally
-      - run: npm run check:schema-drift
+      # The runtime is checked out LAST, and into a path of its own, so that none
+      # of the catalog gates above can ever see its files in their corpus.
+      # Public repo: no token. `ref: main` is deliberate — the guard compares the
+      # vendored copy to the CONTRACT, and a pinned tag would compare it to a
+      # photograph of the contract instead, staying green while the copy really
+      # drifted. A red here means "propagate the runtime schema", which is the
+      # signal we want.
+      - name: Check out the runtime contract (SSOT)
+        uses: actions/checkout@v7
+        with:
+          repository: guyhui01/claude-agentic-runtime
+          ref: main
+          path: .runtime-ssot
+          fetch-depth: 1
+      # vendored schema identical to the runtime contract — strict: an unreachable
+      # runtime fails here instead of skipping green
+      - name: Drift-check against the runtime contract (strict)
+        env:
+          RUNTIME_SCHEMA_PATH: ${{ github.workspace }}/.runtime-ssot/schema/sidecar.schema.json
+        run: npm run check:schema-drift:strict

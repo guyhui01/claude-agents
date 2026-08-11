@@ -6,6 +6,39 @@
 
 ---
 
+## [Unreleased]
+
+### ✨ Added
+- **`check:schema-drift` now measures the catalog in CI instead of only checking
+  its own pin.** The guard has two levels: an identity pin on the vendored
+  schema's `$id`, always active, and a comparison against the runtime contract
+  (SSOT) when the runtime is reachable. The `sidecar` job never checked the
+  runtime out, so level 2 printed `⚠ drift-check skipped` and exited **0** — in
+  CI, three gates measured the catalog and the fourth verified only the pin.
+  The job now checks the runtime out and runs the comparison for real.
+- **A strict mode, which is where the actual work was** (`--strict`, or
+  `RUNTIME_SCHEMA_REQUIRED=1`). Checking the runtime out is not enough: with the
+  lenient behavior, a wrong path, a renamed checkout `path:` or a file moved
+  upstream would drop level 2 back to vacant while the step still printed green
+  — the gate would *look* guarded. In strict mode a runtime that is **expected
+  but unreachable fails**. Falsified before adoption, each red observed with its
+  own message and exit code: runtime missing under `--strict` (exit 1) ·
+  runtime missing under `RUNTIME_SCHEMA_REQUIRED=1` (exit 1) · schema diverged
+  (exit 1) · vendored `$id` altered (exit 1) · and the two greens checked for
+  what they say, not just their exit code — the lenient skip still exits 0, and
+  the strict green prints *identical to the runtime contract*, never *skipped*.
+  Run on a copy of the working tree; the repo was verified unmodified after.
+- **The comparison is against the runtime's `main`, deliberately.** A pinned tag
+  would compare the vendored copy to a *photograph* of the contract: were the
+  runtime to change it, the gate would stay green while the copy had really
+  drifted — the exact failure this release closes elsewhere. A red here means
+  "propagate the runtime schema", which is the intended signal. Cost measured
+  before choosing: `schema/sidecar.schema.json` has **3 commits in total**
+  upstream, the last on **2026-06-20**, and it is identical between `v0.11.0`
+  and `main` — so coupling to a moving ref is close to free today. The runtime
+  is public, so `actions/checkout` needs no token, and it is checked out **last,
+  into a path of its own**, so no catalog gate can ever see its files.
+
 ## [4.3.0] — 2026-08-11 — Guards that cannot green over an empty corpus
 > Model: Claude Opus 5
 

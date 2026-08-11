@@ -10,7 +10,8 @@
     "validate:sidecar": "node tools/generate-sidecar.mjs --check",
     "validate:wf-agents": "node tools/check-workflow-agent-counts.mjs",
     "validate:skill-mapping": "node tools/check-skill-mapping.mjs",
-    "check:schema-drift": "node tools/check-schema-drift.mjs"
+    "check:schema-drift": "node tools/check-schema-drift.mjs",
+    "check:schema-drift:strict": "node tools/check-schema-drift.mjs --strict"
   },
   "devDependencies": {
     "ajv": "^8.17.1"

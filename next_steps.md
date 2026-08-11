@@ -11,40 +11,56 @@
 Reprise session — catalogue /Users/guyhui/CLAUDE/claude-agents (repo guyhui01/claude-agents, checkout canonique unique).
 Applique le rituel de démarrage. CHECK FACTUEL D'ABORD, jamais de mémoire :
   git -C /Users/guyhui/CLAUDE/claude-agents status -sb   ·   git describe --tags
-  npm run validate:sidecar   (attendu : ✓ 85 asset(s), catalog v4.2.0)
+  npm run validate:sidecar   (attendu : ✓ 85 asset(s), catalog v4.3.0)
   npm run validate:skill-mapping  (attendu : ✓ 425 fichiers ↔ 428 lignes × 38 agents)
   npm audit                  (attendu : found 0 vulnerabilities)
 
-SIDECAR COMPLET = les 10 WORKFLOWS SONT INDEXÉS, RELEASÉ v4.2.0 le 2026-07-18 (tag annoté +
-GitHub Release publiée, ni draft ni prerelease, distant vérifié après coup). 85 assets
-(38 agents + 37 skills + 10 workflows), package.json à 4.2.0, `[Unreleased]` du CHANGELOG VIDE.
-Décisions tranchées : description ⟵ 1ʳᵉ ligne de blockquote du fichier WF (le README n'a pas
-de colonne prose) ; dependsOn ⟵ agents_core UNIQUEMENT (arêtes dures ; agents_optionnels exclus
-car conditionnels) ; schéma INTACT (branche workflow déjà prévue). 4 gardes workflow exercées
-pour de vrai (exit 1 + message vérifiés) : blockquote absent · agent inconnu · agents_core vide ·
-clé agents_core absente. Claim README reformulé (85 assets).
+SIDECAR COMPLET = les 10 WORKFLOWS SONT INDEXÉS depuis v4.2.0 (2026-07-18). 85 assets
+(38 agents + 37 skills + 10 workflows). Décisions tranchées : description ⟵ 1ʳᵉ ligne de
+blockquote du fichier WF (le README n'a pas de colonne prose) ; dependsOn ⟵ agents_core
+UNIQUEMENT (arêtes dures ; agents_optionnels exclus car conditionnels) ; schéma INTACT
+(branche workflow déjà prévue).
 
 ÉTAT — 4 gates vertes : validate:sidecar (85) · validate:wf-agents ·
 validate:skill-mapping (425↔428) · check:schema-drift. `npm audit` = 0.
+⚠ « 4 gates » est exact EN LOCAL. En CI, check:schema-drift ne mesure PAS le catalogue :
+le runtime n'est pas checkouté, l'étape imprime « ⚠ drift-check skipped » et sort 0 —
+volontaire, écrit dans .github/workflows/sidecar.yml. En CI : 3 gates mesurent, la 4ᵉ ne
+vérifie que le pin d'identité.
 
-SESSION 2026-08-09 — deux unités POUSSÉES et VÉRIFIÉES SUR LE DISTANT :
-  (1) fast-uri 3.1.2 → 3.1.5 (npm audit fix, dans la plage ^3.0.1 d'ajv, pas d'overrides)
-      ⟹ 3 alertes Dependabot `fixed`, constatées via l'API.
-  (2) NOUVEAU GARDE validate:skill-mapping, 4ᵉ gate, EXÉCUTÉ ET VERT EN CI (run 31320524827,
-      étape 7) : la propriété publiée par la vitrine n'était gardée par RIEN jusque-là.
+SESSION 2026-08-09 — POUSSÉE et VÉRIFIÉE SUR LE DISTANT : fast-uri 3.1.2 → 3.1.5
+(3 alertes Dependabot `fixed` à l'API) + 4ᵉ gate validate:skill-mapping verte en CI
+(run 31320524827, étape 7).
 
-PROCHAINE UNITÉ :
-  VITRINE — /Users/guyhui/CLAUDE/guyhui-showcase : UN SEUL patch, pas deux.
-  ⚠ Le patch (a) annoncé ici le 2026-08-09 était SANS OBJET, écrit sans regarder la page :
-      docs/method.md:63 publie déjà « all 85 assets indexed in a CI-validated sidecar »
-      (vrai depuis v4.2.0), et la carte Home ne porte aucun claim à corriger.
-  (b) SEUL LOT RÉEL — docs/catalog.md dit encore que l'appariement a été vérifié
-      « once, by hand, at catalog v4.2.0 ». Faux depuis que validate:skill-mapping tourne
-      en CI, et faux dans le sens RARE : la page promet MOINS que la réalité.
-      ⚠ Re-mesurer avant de réécrire : 425 compte des FICHIERS, 428 des LIGNES de demande.
-  Le next_steps.md de la vitrine porte déjà ce lot en tête de son RESTE (corrigé le
-  2026-08-09 depuis ici, règle « la tâche amont porte la MAJ aval »).
-  (Repo distinct ⟹ session distincte : build --strict, release, vérif prod.)
+SESSION 2026-08-11 — v4.3.0 COUPÉE EN LOCAL (commits + tag annoté), RIEN DE POUSSÉ.
+  FAUX VERT TROUVÉ ET FERMÉ : validate:wf-agents n'avait aucun garde de corpus vide.
+  Les 10 WF-*.md supprimés puis `npm run generate:sidecar` ⟹ le sidecar retombait à
+  75 assets et LES 4 GATES PASSAIENT AU VERT pendant que 10 workflows quittaient le
+  catalogue (claim publié « 85 assets » devenu faux). Mesuré de bout en bout.
+  Deux causes composées : le garde sans plancher de corpus + le générateur sans plancher.
+  Corrigés ; re-mesuré : 2 gates sur 4 rougissent désormais sur ce scénario.
+  ⚠ Plancher à 1 : attrape 10 → 0, PAS 10 → 3 (un compte figé casserait tout ajout
+  légitime — écarté à dessein). Limite assumée, pas un oubli.
+  Le readdirSync ENOENT était le cousin cosmétique : verdict déjà correct (exit 1),
+  mais il rendait INATTEIGNABLE le rapport corpus-vide de check-skill-mapping — dont le
+  rouge du 2026-08-09 n'avait donc couvert que la forme « présent-mais-vide ».
+
+PROCHAINE UNITÉ (dans l'ordre) :
+  0. PUSH + GitHub Release v4.3.0 — commits et tag annoté sont LOCAUX, en attente
+     d'accord explicite. Le correctif sécurité fast-uri (a7ecd5a) est publié par ce tag.
+  1. VITRINE — /Users/guyhui/CLAUDE/guyhui-showcase : UN SEUL patch, pas deux.
+     ⚠ Le patch (a) annoncé le 2026-08-09 était SANS OBJET, écrit sans regarder la page :
+        docs/method.md:63 publie déjà « all 85 assets indexed in a CI-validated sidecar »
+        (vrai depuis v4.2.0), et la carte Home ne porte aucun claim à corriger.
+     (b) SEUL LOT RÉEL — docs/catalog.md dit encore que l'appariement a été vérifié
+        « once, by hand, at catalog v4.2.0 ». Faux depuis que validate:skill-mapping tourne
+        en CI, et faux dans le sens RARE : la page promet MOINS que la réalité.
+        ⚠ Re-mesurer avant de réécrire : 425 compte des FICHIERS, 428 des LIGNES de demande.
+     Le next_steps.md de la vitrine porte déjà ce lot en tête de son RESTE (corrigé le
+     2026-08-09 depuis ici, règle « la tâche amont porte la MAJ aval »).
+     ⚠ Ne réécrire la page qu'APRÈS le push de v4.3.0 : jusqu'à ce tag, le « CI-validated »
+        que la vitrine publie pouvait passer au vert sur un catalogue amputé.
+     (Repo distinct ⟹ session distincte : build --strict, release, vérif prod.)
 ```
 
 ---
@@ -207,3 +223,33 @@ Correction de forme : le tracker qualifiait `7216488` de « commit local non pou
   recopiée à **3 endroits** (hook, mémoire, `scripts/audit_memory.py`) ; la mémoire avait été
   corrigée le 2026-08-06, les deux copies non — et c'est une copie périmée qui a été appliquée.
   Corrigé, calibré sur 667 fichiers, et le hook ne recopie plus aucun opérateur.
+- **2026-08-11** — **Faux vert fermé, puis `v4.3.0` coupée en local (rien de poussé).**
+  Le point d'entrée était le `readdirSync` sur un `skills/` absent. En attaquant l'espace
+  d'entrée `{absent, vide, peuplé} × {skills/, workflows/}` — et non en ajoutant une sonde —
+  le vrai défaut est apparu ailleurs : **`validate:wf-agents` n'avait aucun garde de corpus
+  vide**, là où son frère `validate:skill-mapping` en portait un depuis le 2026-08-09.
+  Deux gardes frères tranchaient la même politique en sens opposés, chacun vert sur sa fixture.
+  **Scénario mesuré de bout en bout** : les 10 `WF-*.md` supprimés, `npm run generate:sidecar`
+  lancé (le geste normal quand le catalogue bouge) ⟹ `sidecar.json` réécrit **85 → 75 assets**
+  et **les 4 gates au vert** — 10 workflows hors catalogue, claim publié « 85 assets » devenu
+  faux, CI intégralement verte. Le générateur était l'activateur : aucun plancher de corpus.
+  Corrigés tous les deux ; re-mesuré sur le même scénario : **2 gates sur 4 rougissent**
+  (générateur qui refuse d'écrire + `wf-agents`). Plancher à **1 par type** — attrape 10 → 0,
+  **pas** 10 → 3 ; un compte figé casserait tout ajout légitime, écarté à dessein.
+  Le `readdirSync` s'est révélé **cosmétique quant au verdict** (exit 1 déjà correct, mesuré)
+  mais il rendait **inatteignable** le rapport corpus-vide de `check-skill-mapping` : le rouge
+  du 2026-08-09 n'avait donc jamais couvert la forme *absente*, seulement *présent-mais-vide*.
+  Falsification avant adoption : chaque garde **rouge sur sa cause**, et *absent* / *vide* /
+  *peuplé* rendent désormais **trois sorties distinctes** dans les trois outils.
+  ▫ Constat annexe, vérifié dans `.github/workflows/sidecar.yml` lui-même : `check:schema-drift`
+  est un **no-op assumé en CI** (runtime non checkouté → « ⚠ drift-check skipped » + exit 0).
+  « 4 gates vertes » est exact en local ; en CI **3 mesurent**. Précision portée au tracker
+  et au CHANGELOG.
+  ▫ Hygiène d'instrument : mes **deux premiers harnais de mesure étaient faux** (argument
+  `--check` non splitté, et un cas « workflows vide » qui supprimait aussi `workflows/README.md`,
+  confondant deux mutations). Refaits avec **contrôle positif baseline vert** avant lecture —
+  aucune ligne des grilles v1 n'a été retenue.
+  ▫ Puis `v4.3.0` : CHANGELOG basculé `[Unreleased]` → `[4.3.0]`, bump package.json,
+  sidecar régénéré (`catalogVersion` = v4.3.0, 85 assets), 4 gates re-vertes, `npm audit` = 0,
+  commit + tag annoté. **Push et GitHub Release en attente d'accord explicite** — c'est ce tag
+  qui publiera le correctif sécurité `fast-uri` (`a7ecd5a`, déjà sur `main` mais hors tag).

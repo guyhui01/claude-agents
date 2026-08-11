@@ -249,7 +249,16 @@ Correction de forme : le tracker qualifiait `7216488` de « commit local non pou
   `--check` non splitté, et un cas « workflows vide » qui supprimait aussi `workflows/README.md`,
   confondant deux mutations). Refaits avec **contrôle positif baseline vert** avant lecture —
   aucune ligne des grilles v1 n'a été retenue.
-  ▫ Puis `v4.3.0` : CHANGELOG basculé `[Unreleased]` → `[4.3.0]`, bump package.json,
+  ▫ **6ᵉ propriété non gardée, trouvée sur la question « reste-t-il des dettes ? »** :
+  `package-lock.json` restait à 4.2.0 face à un `package.json` à 4.3.0. `npm ci` passe malgré
+  la dérive (mesuré, exit 0) ⟹ rien ne la mesurait, et elle a récidivé : **5 tags sur les 9**
+  qui portent les deux fichiers ont été publiés avec un lock périmé (v3.27.0, v3.27.2,
+  v3.27.3, v4.1.0, v4.3.0-avant-correctif). Garde ajouté dans `catalogTag()` — compare
+  `package.json` aux DEUX champs du lock (`version` et `packages[""].version`), donc porté
+  par la 1ʳᵉ gate, sans nouvelle gate ni câblage CI. Rouge prouvé sur 4 causes.
+  ⚠ Sa 1ʳᵉ version relivrait le défaut ENOENT que cette même release corrige (lock absent →
+  stack brute) : rattrapé par la falsification, pas par la relecture.
+  ▫ Puis `v4.3.0` : CHANGELOG basculé `[Unreleased]` → `[4.3.0]`, bump package.json + lock,
   sidecar régénéré (`catalogVersion` = v4.3.0, 85 assets), 4 gates re-vertes, `npm audit` = 0,
   commit + tag annoté. **Push et GitHub Release en attente d'accord explicite** — c'est ce tag
   qui publiera le correctif sécurité `fast-uri` (`a7ecd5a`, déjà sur `main` mais hors tag).

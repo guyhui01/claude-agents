@@ -34,6 +34,8 @@ import { Ajv2020 } from "ajv/dist/2020.js";
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SCHEMA_PATH = join(REPO_ROOT, "schema", "sidecar.schema.json");
 const SIDECAR_PATH = join(REPO_ROOT, "sidecar.json");
+const PACKAGE_PATH = join(REPO_ROOT, "package.json");
+const LOCK_PATH = join(REPO_ROOT, "package-lock.json");
 const SKILLS_DIR = join(REPO_ROOT, "skills");
 const WORKFLOWS_DIR = join(REPO_ROOT, "workflows");
 const README_PATH = join(REPO_ROOT, "README.md");
@@ -65,9 +67,39 @@ const WORKFLOW_BACKBONES = {
   ],
 };
 
-/** Pinned catalog tag = `v` + package version (single source). */
+/** `JSON.parse(readFileSync(…))`, but a missing file is named rather than raw ENOENT. */
+function readJsonOrFail(path) {
+  if (!existsSync(path)) {
+    const rel = path.slice(REPO_ROOT.length + 1);
+    throw new Error(`${rel} not found — check the checkout`);
+  }
+  return JSON.parse(readFileSync(path, "utf-8"));
+}
+
+/**
+ * Pinned catalog tag = `v` + package version (single source).
+ *
+ * The lock has to agree. `npm ci` accepts a stale root version (measured: exit 0), so
+ * nothing ever caught the drift, and it recurred: of the 9 tags carrying both files,
+ * 5 shipped with a lock still naming the previous version (v3.27.0, v3.27.2, v3.27.3,
+ * v4.1.0, v4.3.0). Every asset is stamped with this tag, so a disagreement publishes a
+ * `catalogVersion` that contradicts the package identity it was derived from.
+ */
 function catalogTag() {
-  const pkg = JSON.parse(readFileSync(join(REPO_ROOT, "package.json"), "utf-8"));
+  const pkg = readJsonOrFail(PACKAGE_PATH);
+  const lock = readJsonOrFail(LOCK_PATH);
+  const lockVersions = [
+    ["package-lock.json", lock.version],
+    ['package-lock.json packages[""]', lock.packages?.[""]?.version],
+  ];
+  for (const [where, version] of lockVersions) {
+    if (version !== pkg.version) {
+      throw new Error(
+        `version drift: package.json is ${pkg.version} but ${where} is ${version} — ` +
+          "run `npm install --package-lock-only`",
+      );
+    }
+  }
   return `v${pkg.version}`;
 }
 

@@ -23,10 +23,13 @@ UNIQUEMENT (arêtes dures ; agents_optionnels exclus car conditionnels) ; schém
 
 ÉTAT — 4 gates vertes : validate:sidecar (85) · validate:wf-agents ·
 validate:skill-mapping (425↔428) · check:schema-drift. `npm audit` = 0.
-⚠ « 4 gates » est exact EN LOCAL. En CI, check:schema-drift ne mesure PAS le catalogue :
-le runtime n'est pas checkouté, l'étape imprime « ⚠ drift-check skipped » et sort 0 —
-volontaire, écrit dans .github/workflows/sidecar.yml. En CI : 3 gates mesurent, la 4ᵉ ne
-vérifie que le pin d'identité.
+⚠ « 4 gates » était exact EN LOCAL seulement : en CI, check:schema-drift ne mesurait PAS
+le catalogue (runtime non checkouté ⟹ « ⚠ drift-check skipped » + exit 0), donc 3 gates
+mesuraient et la 4ᵉ ne vérifiait que le pin d'identité.
+⟹ CORRIGÉ EN LOCAL le 2026-08-11 (commits non poussés) : le job checkoute le runtime et
+lance la comparaison en mode STRICT. ⚠ Tant que ce lot n'est pas poussé, la CI du distant
+se comporte encore comme la phrase précédente le décrit — le critère de clôture est une
+étape CI observée, pas ce paragraphe.
 
 SESSION 2026-08-09 — POUSSÉE et VÉRIFIÉE SUR LE DISTANT : fast-uri 3.1.2 → 3.1.5
 (3 alertes Dependabot `fixed` à l'API) + 4ᵉ gate validate:skill-mapping verte en CI
@@ -47,8 +50,9 @@ VÉRIFIÉES UNE À UNE, pas au verdict du run. 3 alertes Dependabot `fixed` à l
   mais il rendait INATTEIGNABLE le rapport corpus-vide de check-skill-mapping — dont le
   rouge du 2026-08-09 n'avait donc couvert que la forme « présent-mais-vide ».
 
-À PRÉVOIR (chantier distinct, PAS dans la session vitrine) : rendre check:schema-drift
-réel en CI — voir la section « ⏭ À prévoir » plus bas. Décidé le 2026-08-11, non planifié.
+✅ FAIT EN LOCAL le 2026-08-11 (commits non poussés) : check:schema-drift est réel en CI
+— mode strict + checkout du runtime. Voir la section « ⏭ À prévoir » plus bas, mise à jour :
+son critère de clôture (étape CI observée) reste OUVERT jusqu'au push.
 
 PROCHAINE UNITÉ — une seule, à froid, session distincte :
   1. VITRINE — /Users/guyhui/CLAUDE/guyhui-showcase.
@@ -83,10 +87,47 @@ PROCHAINE UNITÉ — une seule, à froid, session distincte :
 
 ---
 
-## ⏭ À prévoir — rendre `check:schema-drift` réel en CI (chantier distinct)
+## ⏭ ✅ FAIT EN LOCAL — rendre `check:schema-drift` réel en CI
 
-> Décidé le **2026-08-11** à la clôture de v4.3.0. **Non planifié, non commencé.**
-> Ne pas l'ouvrir dans la session vitrine (`feedback-un-chantier-par-session`).
+> Décidé le **2026-08-11** à la clôture de v4.3.0, **implémenté le même jour**, sur demande
+> explicite de Guy et dans la même session que le lot vitrine (dérogation assumée à
+> `feedback-un-chantier-par-session`, deux repos en écriture).
+> **Commits LOCAUX, NON POUSSÉS. Le critère de clôture ci-dessous reste OUVERT** : il exige
+> une étape CI observée, et aucune CI n'a tourné.
+>
+> **Ce qui a été fait**, exactement : `tools/check-schema-drift.mjs` accepte `--strict` /
+> `RUNTIME_SCHEMA_REQUIRED=1` ⟹ runtime **attendu mais introuvable = exit 1** au lieu du skip
+> (comportement indulgent conservé hors strict, pour un run local sans le repo voisin) ;
+> `package.json` porte `check:schema-drift:strict` ; `.github/workflows/sidecar.yml` checkoute
+> `guyhui01/claude-agentic-runtime` (**public, sans token**) **en dernier et dans son propre
+> `path:` `.runtime-ssot`**, pour qu'aucune gate de catalogue ne puisse voir ses fichiers dans
+> son corpus, puis lance l'étape en strict via `RUNTIME_SCHEMA_PATH`.
+>
+> **Décision tranchée par Guy le 2026-08-11 : `ref: main`**, pas un tag épinglé. La raison
+> n'est pas le confort : un tag compare la copie vendored à une **photographie** du contrat —
+> si le runtime fait évoluer son schéma, la gate **reste verte pendant que la copie a
+> réellement dérivé**, exactement le « vert sans avoir gardé » que ce chantier combat. Le
+> coût du couplage est le **signal voulu** (rouge = propager), et il est mesuré comme
+> quasi nul : `schema/sidecar.schema.json` côté runtime a **3 commits au total**, le dernier
+> le **2026-06-20**, et il est **identique entre `v0.11.0` et `main`**.
+>
+> **Falsification faite AVANT adoption, sur une COPIE de l'arbre** (repo réel vérifié
+> non muté après) — **6 cas, chacun contrôlé sur son code de sortie ET son message**, parce
+> qu'un exit code seul ne distingue pas « a comparé » de « a sauté » : runtime absent en
+> `--strict` ⟹ **exit 1** · runtime absent via `RUNTIME_SCHEMA_REQUIRED=1` ⟹ **exit 1** ·
+> schéma divergent ⟹ **exit 1** (`drift detected`) · `$id` vendored altéré ⟹ **exit 1**
+> (niveau 1, avant même le niveau 2) · runtime absent **hors** strict ⟹ **exit 0** avec
+> `drift-check skipped` (non-régression du mode local) · runtime présent et identique en
+> strict ⟹ **exit 0** disant `identical to the runtime contract`, **jamais** `skipped`.
+> ▫ Contrôle qui ferme le risque propre au choix `main` : le schéma vendored est
+> **IDENTIQUE au `origin/main` distant du runtime** (comparaison canonique, pas au clone
+> local seul) ⟹ la CI ne rougira pas au premier run pour une dérive préexistante.
+> ▫ Les 4 gates locales re-vertes après modification, YAML relu et re-parsé (8 étapes).
+
+*[Ci-dessous, le PLAN D'ORIGINE conservé tel quel pour mémoire. Il est rédigé au présent et
+décrit l'état d'AVANT le lot : lire le chapeau ci-dessus pour l'état courant. Ce qu'il garde
+d'utile est son raisonnement — notamment que le vrai travail était le mode strict, ce que le
+lot confirme.]*
 
 **Le constat qui l'ouvre.** La gate a deux niveaux (`tools/check-schema-drift.mjs`) :
 niveau 1 = pin d'identité `$id`, **toujours actif** ; niveau 2 = comparaison au contrat du
@@ -113,7 +154,10 @@ introuvable**, et le job CI doit l'employer. Sans ça, le chantier produit une g
 l'air gardée. C'est littéralement la leçon de v4.3.0 :
 « n'a pas tourné » et « passé » ne doivent pas rendre le même vert.
 
-**Décision à TRANCHER, pas à présumer — quelle réf du runtime comparer ?**
+**Décision à TRANCHER, pas à présumer — quelle réf du runtime comparer ?** *[TRANCHÉE par Guy
+le 2026-08-11 : `main`. La mesure demandée en fin de paragraphe a bien été prise avant de
+choisir — 3 commits, dernier le 2026-06-20, `v0.11.0` == `main` — donc le pronostic « très
+stable » écrit ici était juste, et il a été VÉRIFIÉ, pas cru.]*
 
 - `main` : toujours à jour, mais **couple la CI de ce repo à des commits d'un autre repo**
   (un push côté runtime peut faire rougir ici, sans rapport avec le changement testé).
@@ -309,7 +353,9 @@ Correction de forme : le tracker qualifiait `7216488` de « commit local non pou
   ▫ Constat annexe, vérifié dans `.github/workflows/sidecar.yml` lui-même : `check:schema-drift`
   est un **no-op assumé en CI** (runtime non checkouté → « ⚠ drift-check skipped » + exit 0).
   « 4 gates vertes » est exact en local ; en CI **3 mesurent**. Précision portée au tracker
-  et au CHANGELOG.
+  et au CHANGELOG. **[Annotation 2026-08-11 — ce constat n'est plus l'état courant :
+  corrigé en local le même jour, voir la section « ⏭ ✅ FAIT EN LOCAL ». Journal daté
+  annoté, non réécrit.]**
   ▫ Hygiène d'instrument : mes **deux premiers harnais de mesure étaient faux** (argument
   `--check` non splitté, et un cas « workflows vide » qui supprimait aussi `workflows/README.md`,
   confondant deux mutations). Refaits avec **contrôle positif baseline vert** avant lecture —

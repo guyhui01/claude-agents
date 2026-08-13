@@ -8,6 +8,12 @@
 
 ## [Unreleased]
 
+_Nothing yet._
+
+---
+
+## [4.4.0] — 2026-08-13 — The drift check measures the catalog in CI, instead of only checking its own pin
+
 ### ✨ Added
 - **`check:schema-drift` now measures the catalog in CI instead of only checking
   its own pin.** The guard has two levels: an identity pin on the vendored

@@ -55,6 +55,7 @@ checkout du runtime, comparaison observée à l'étape (run 31511269771). Voir l
 « ⏭ ✅ FAIT » plus bas pour la falsification et la décision `ref: main`.
 
 PROCHAINE UNITÉ — ✅ AUCUNE EN ATTENTE : le lot vitrine ci-dessous est FAIT le 2026-08-11.
+✅ **`v4.4.0` RELEASÉE le 2026-08-13** (tag annoté + GitHub Release non-draft, CI `sidecar` verte) — elle publie `check:schema-drift` mesurant réellement le catalogue en CI, au lieu de ne vérifier que son propre pin. Sidecar régénéré par le bump : **re-tamponnage NOMINAL**, assets identiques une fois les deux champs de version neutralisés. ⚠️ **Un garde a rougi sans être un défaut** : `validate:sidecar` échoue si on le lance AVANT `generate:sidecar` après un bump — `package.json` en 4.4.0 face à un sidecar encore en v4.3.0. C'est le garde de cohérence de version faisant son travail ; l'ordre est **bump → generate → validate**. ▫ **Aval** : le runtime épingle encore `v4.3.0` (dérive de fraîcheur par conception, ADR-0002) ; sa CI reste verte, mais toute suite LOCALE ouverte sur un checkout `claude-agents` à jour rougira sur le garde de dérive — c'est attendu et documenté côté runtime.
   Bumpée (catalog.md:153 + index.md:134 → v4.3.0, les relevés figés intacts), releasée
   v1.17.1, poussée, PROD-VÉRIFIÉE 8/8 sur deux tirs. Détail dans le next_steps de la vitrine.
   Bloc conservé ci-dessous pour son GARDE-FOU DE PÉRIMÈTRE, qui a servi et resservira.

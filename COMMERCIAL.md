@@ -32,6 +32,6 @@ applies to all versions.
 
 To obtain a commercial license or discuss a specific arrangement:
 
-**Guy HUI-BON-HOA** — guy.hui@proton.me
+**Guy HUI-BON-HOA** — guyhui@proton.me
 
 Please indicate: your organization, the intended use case, and the deployment volume / scope.

@@ -385,3 +385,22 @@ Correction de forme : le tracker qualifiait `7216488` de « commit local non pou
   sidecar régénéré (`catalogVersion` = v4.3.0, 85 assets), 4 gates re-vertes, `npm audit` = 0,
   commit + tag annoté. **Push et GitHub Release en attente d'accord explicite** — c'est ce tag
   qui publiera le correctif sécurité `fast-uri` (`a7ecd5a`, déjà sur `main` mais hors tag).
+- **2026-08-13** — **`v4.4.0` poussée et releasée** (tag annoté + GitHub Release non-draft,
+  CI `sidecar` verte) : publie `check:schema-drift` mesurant réellement le catalogue en CI.
+  Sidecar re-tamponné v4.4.0 (85 assets, re-tamponnage nominal). Puis 2 commits docs le même
+  jour (`2c795ee` tracker, `94024df` changelog empty-Unreleased). Détail dans le bloc ▶ de reprise.
+- **2026-08-16** — **`32e8ff3`** (poussé) : `fix` d'un typo d'email de contact licensing
+  (`guy.hui@` → `guyhui@`). Docs/config, pas de bump.
+- **2026-08-18** — **Catalog versioning policy documentée** (commits LOCAUX, docs-only, rien
+  de poussé). Item porté depuis la session `agentic-strategy` du 2026-08-18. Constat vérifié à
+  la source AVANT d'écrire : l'invariant « snapshot cohérent » **existe déjà** (`catalog.version`
+  unique + `catalogVersion` uniforme sur les 85 assets, 0 divergence) et est **déjà gardé** par
+  `validate:sidecar` ; aucun SemVer par-asset. La policy **documente** cet invariant, elle
+  n'ajoute aucun mécanisme ni script (les 4 gates couvrent déjà cohérence de version, deps
+  agent↔skill, wf-agents, schema-drift — vérifié dans `tools/` + `.github/workflows/`).
+  Livrables : **`CONTRIBUTING.md` neuf** (section « Catalog versioning policy » : snapshot
+  unique, pas de SemVer par-asset, exception conditionnelle liée à un futur moteur de
+  régression, « breaking → éval régression » = but pas règle tant qu'il n'y a pas de corpus —
+  ~25 traces live au 2026-08-18, pas une suite ; cross-ref runtime **ADR-0002** import vs
+  granularité interne, ADR-0002 NON modifié) + une section « Contributing » de renvoi dans
+  `README.md`. Gates re-vertes après édition. **En attente d'accord pour commit/push.**

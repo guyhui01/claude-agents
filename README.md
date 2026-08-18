@@ -258,6 +258,14 @@ Installation and configuration: [mcp-servers/README.md](mcp-servers/README.md)
 
 ---
 
+## Contributing
+
+Authoring rules, local checks, and the **catalog versioning policy** (single coherent
+snapshot, no per-asset SemVer — cross-referenced with runtime ADR-0002) live in
+[`CONTRIBUTING.md`](CONTRIBUTING.md).
+
+---
+
 ## License
 
 [PolyForm Noncommercial 1.0.0](LICENSE) © 2026 Guy HUI-BON-HOA — Free for **non-commercial** use (study, research, personal projects, nonprofits). Commercial use reserved to the author — see [`COMMERCIAL.md`](COMMERCIAL.md) to request a commercial license.

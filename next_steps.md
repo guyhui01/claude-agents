@@ -28,14 +28,9 @@ Applique le rituel de démarrage. CHECK FACTUEL D'ABORD, jamais de mémoire :
   écrit ici plus tôt était FAUX) et n'adresse AUCUN id de skill dans `src/` (ses « skills » sont
   des champs métier ; tests sur fixture hermétique). v5.0.0 ne modifie AUCUNE fiche de workflow
   ⟹ ré-épingler est sans risque pour ses manifestes.
-  ⏭ AVAL DÛ — vitrine `guyhui-showcase` (session distincte ; inscrit comme Live item de SON tracker le 2026-09-25) : « Catalog currently at `v4.4.0` »
-  en DEUX endroits (docs/index.md:153, docs/catalog.md:276, mesuré le 2026-09-25) ⟹ v5.0.0.
-  ⛔ Même garde-fou que v4.3.0 : ne toucher QUE les lignes « Catalog currently at », jamais les
-  relevés figés des runs live. La vitrine ne mentionne pas encore le format Agent Skills.
-  ⚠ ET `docs/catalog.md:214-232` publie les 37 NOMS DE DOSSIERS en snake_case (`qa_testing/`…)
-  ⟹ à passer en kebab-case. Un 1ᵉʳ contrôle avait conclu « 0 chemin de skill » : son grep
-  exigeait le préfixe `skills/` et ratait cette liste de noms nus. Aucun lien cassé (la vitrine
-  ne lie que la racine du repo), mais un contenu publié périmé.
+  ✅ Vitrine `guyhui-showcase` — FAIT en v1.31.0 (2026-09-25, vérifié en prod) : « Catalog currently at »
+  → v5.0.0 aux deux endroits (relevés figés des runs live intacts), 37 noms de dossiers en kebab-case,
+  et une phrase sur le format Agent Skills adossée à la release v5.0.0.
   ✅ Repo de planification : report du 2026-09-25 marqué fait (2026-09-25).
   ✅ LIENS EXTERNES vers les anciens chemins — CLOS le 2026-09-25, sans mesure différée.
   Preuves : trafic 14 j = aucun chemin de skill visité ; `gh search code` = 0 référence publique ;

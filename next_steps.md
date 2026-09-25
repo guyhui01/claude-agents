@@ -37,6 +37,22 @@ Applique le rituel de démarrage. CHECK FACTUEL D'ABORD, jamais de mémoire :
   exigeait le préfixe `skills/` et ratait cette liste de noms nus. Aucun lien cassé (la vitrine
   ne lie que la racine du repo), mais un contenu publié périmé.
   ⏭ AVAL DÛ — repo de planification : marquer le report du 2026-09-25 comme fait.
+  ⏭ LIENS EXTERNES vers les anciens chemins (`…/blob|tree/main/skills/<snake>/…` ⟹ 404, GitHub
+  ne redirige pas un chemin renommé). Mesuré le 2026-09-25 : trafic 14 j = AUCUN chemin de skill
+  visité (racine, CHANGELOG, README, START, next_steps seulement ; référents guyhui.com + github) ;
+  `gh search code` = 0 référence publique ; repos locaux = 0.
+    1. [Guy] Chercher dans ses supports publiés (posts, CV/portfolio) les liens profonds vers
+       `skills/`. Réparation retenue : pointer un point d'entrée STABLE (page catalogue de la
+       vitrine ou release v5.0.0) ; le nouveau chemin (`_`→`-`, README.md→SKILL.md) seulement si
+       viser un skill précis est l'objet du lien. PAS de lien figé sur v4.4.0 (montre l'ancienne
+       version). Supports déjà envoyés (e-mails, propositions) : non modifiables, ignorer.
+    2. [Claude] **Le 2026-10-09 ou après** — UNE mesure, fenêtre 14 j alors entièrement
+       postérieure au renommage :
+         gh api repos/guyhui01/claude-agents/traffic/popular/paths
+         gh api repos/guyhui01/claude-agents/traffic/popular/referrers
+       Critère : aucun chemin `skills/<nom_avec_underscore>/` ⟹ sujet CLOS. Sinon, remonter le
+       référent et réparer selon 1. Pas de relance récurrente.
+       ⚠ Limite : 14 j et seulement les chemins les plus vus ; un lien rarement suivi échappe.
   ▫ HORS PÉRIMÈTRE, décision à part : les 10 workflows portent `claude-opus-4-8` en
   `modele_recommande` / `modele_alternatif` — champ LU par le runtime (`dispatch/plan.ts`) et
   adossé à des preuves live ⟹ ne pas le changer ici.

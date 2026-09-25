@@ -11,6 +11,7 @@
 ---
 
 ## [5.0.0] — 2026-09-25 — Every skill folder is a natively loadable Agent Skill
+> Model: Claude Opus 5.5
 
 ### 🔒 Security
 - **`fast-uri` 3.1.5 → 3.1.8** (transitive, via `ajv` 8.20.0, dev scope): closes
@@ -76,6 +77,7 @@
 ---
 
 ## [4.4.0] — 2026-08-13 — The drift check measures the catalog in CI, instead of only checking its own pin
+> Model: Claude Opus 5
 
 ### ✨ Added
 - **`check:schema-drift` now measures the catalog in CI instead of only checking

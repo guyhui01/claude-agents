@@ -8,6 +8,13 @@
 
 ## [Unreleased]
 
+### 🔒 Security
+- **`fast-uri` 3.1.5 → 3.1.8** (transitive, via `ajv` 8.20.0, dev scope): closes
+  four high-severity advisories — GHSA-5jgf-p345-68v8, GHSA-f65p-4m7j-42xc,
+  GHSA-fph4-wmhf-6fwf, GHSA-jqff-g426-hqxp — all fixed from 3.1.6. `ajv`
+  declares `fast-uri: ^3.0.1`, so `npm audit fix` resolves it inside the declared
+  range: no `overrides`, no `--force`, `ajv` unchanged. `npm audit` = 0.
+
 ---
 
 ## [4.4.0] — 2026-08-13 — The drift check measures the catalog in CI, instead of only checking its own pin

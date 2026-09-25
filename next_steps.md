@@ -39,6 +39,16 @@ Applique le rituel de démarrage. CHECK FACTUEL D'ABORD, jamais de mémoire :
   ▫ HORS PÉRIMÈTRE, décision à part : les 10 workflows portent `claude-opus-4-8` en
   `modele_recommande` / `modele_alternatif` — champ LU par le runtime (`dispatch/plan.ts`) et
   adossé à des preuves live ⟹ ne pas le changer ici.
+  ▫ CONDITIONNEL (consigné 2026-09-26) — preuve de PORTABILITÉ des skills hors Claude Code. À
+  déclencher UNIQUEMENT si une affirmation de portabilité est envisagée (« portable d'un agent à
+  l'autre », « votre agent, quel qu'il soit ») ; aucune phrase publiée n'en dépend aujourd'hui
+  (vitrine = « Claude Code loads natively », prouvé ; « natively loadable » = conformité, prouvée
+  par `skills-ref validate`). Protocole : la phrase publiée fixe le périmètre du test — ne nommer
+  que les agents testés, jamais « tous ». UN SEUL agent tiers, d'un AUTRE éditeur (critère des deux
+  implémentations indépendantes), choisi sur SA doc au moment du test (support Agent Skills annoncé)
+  ET exécutable sur abonnement, sans clé API payante. Même preuve que Claude Code : 37 skills
+  listées, 2 invoquées sur demandes réelles, fichier de référence cité. Preuve DATÉE (date + version
+  de l'agent) ; rejouée seulement à une majeure du catalogue ou de l'agent.
 
 SIDECAR COMPLET = les 10 WORKFLOWS SONT INDEXÉS depuis v4.2.0 (2026-07-18). 85 assets
 (38 agents + 37 skills + 10 workflows). Décisions tranchées : description ⟵ 1ʳᵉ ligne de

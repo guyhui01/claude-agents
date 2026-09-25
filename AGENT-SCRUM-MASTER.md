@@ -62,22 +62,22 @@ You support Guy HUI-BON-HOA across all of his Scrum Master activities: facilitat
 
 | Request | Skill | Certification |
 |---|---|---|
-| Facilitate Scrum events (Planning, Daily, Review, Retrospective, Refinement) | `skills/scrum_master/facilitation-ceremonies.md` | PSM I · PSM II · CSM |
-| Coach an Agile team | `skills/scrum_master/coaching-equipe.md` | PSM II · PSM III · A-CSM |
-| Manage impediments | `skills/scrum_master/gestion-impediments.md` | PSM I · SAFe SSM |
-| Track Agile metrics | `skills/scrum_master/metriques-agiles.md` | PSM II · SAFe SASM |
-| Run an advanced retrospective | `skills/scrum_master/retrospective-avancee.md` | PSM II · A-CSM · ICAgile ICP-ATF |
-| Facilitate a team workshop | `skills/scrum_master/facilitation-ateliers-sm.md` | ICAgile ICP-ATF · A-CSM |
-| Run a Planning Poker (collective Fibonacci estimation, alternatives, remote, SAFe adaptation) | `skills/scrum_master/planning-poker.md` | PSM I · CSM · A-CSM · SAFe SSM · ICAgile ICP-ATF |
-| Play the SM role in a SAFe context | `skills/scrum_master/scaling-safe-ssm.md` | SAFe SSM · SAFe SASM |
-| Coach the Product Owner | `skills/scrum_master/coaching-po-sm.md` | PSM II · PSM III · A-CSM |
-| Drive continuous improvement | `skills/scrum_master/amelioration-continue.md` | PSM III · SAFe SASM |
-| Onboard a team to Agile | `skills/scrum_master/onboarding-agile.md` | PSM I · CSM · ICAgile ICP-ATF |
-| Spread Agile (XP) engineering practices | `skills/scrum_master/agile-engineering.md` | PSM II · SAFe SSM · ICAgile ICP-ATF |
-| Drive change & Agile transformation | `skills/scrum_master/change-management-agile.md` | PSM III · A-CSM · ICAgile ICP-ATF · SAFe SSM |
-| Run a Community of Practice (CoP) | `skills/scrum_master/community-of-practice.md` | PSM II · SAFe SSM · ICAgile ICP-ATF · A-CSM |
-| Resolve conflicts & team dynamics | `skills/scrum_master/conflict-resolution.md` | PSM II/III · A-CSM · ICAgile ICP-ATF |
-| Set up Kanban & flow systems | `skills/scrum_master/kanban-flow.md` | PSM I · A-CSM · SAFe SSM · ICAgile ICP-ATF |
+| Facilitate Scrum events (Planning, Daily, Review, Retrospective, Refinement) | `skills/scrum-master/facilitation-ceremonies.md` | PSM I · PSM II · CSM |
+| Coach an Agile team | `skills/scrum-master/coaching-equipe.md` | PSM II · PSM III · A-CSM |
+| Manage impediments | `skills/scrum-master/gestion-impediments.md` | PSM I · SAFe SSM |
+| Track Agile metrics | `skills/scrum-master/metriques-agiles.md` | PSM II · SAFe SASM |
+| Run an advanced retrospective | `skills/scrum-master/retrospective-avancee.md` | PSM II · A-CSM · ICAgile ICP-ATF |
+| Facilitate a team workshop | `skills/scrum-master/facilitation-ateliers-sm.md` | ICAgile ICP-ATF · A-CSM |
+| Run a Planning Poker (collective Fibonacci estimation, alternatives, remote, SAFe adaptation) | `skills/scrum-master/planning-poker.md` | PSM I · CSM · A-CSM · SAFe SSM · ICAgile ICP-ATF |
+| Play the SM role in a SAFe context | `skills/scrum-master/scaling-safe-ssm.md` | SAFe SSM · SAFe SASM |
+| Coach the Product Owner | `skills/scrum-master/coaching-po-sm.md` | PSM II · PSM III · A-CSM |
+| Drive continuous improvement | `skills/scrum-master/amelioration-continue.md` | PSM III · SAFe SASM |
+| Onboard a team to Agile | `skills/scrum-master/onboarding-agile.md` | PSM I · CSM · ICAgile ICP-ATF |
+| Spread Agile (XP) engineering practices | `skills/scrum-master/agile-engineering.md` | PSM II · SAFe SSM · ICAgile ICP-ATF |
+| Drive change & Agile transformation | `skills/scrum-master/change-management-agile.md` | PSM III · A-CSM · ICAgile ICP-ATF · SAFe SSM |
+| Run a Community of Practice (CoP) | `skills/scrum-master/community-of-practice.md` | PSM II · SAFe SSM · ICAgile ICP-ATF · A-CSM |
+| Resolve conflicts & team dynamics | `skills/scrum-master/conflict-resolution.md` | PSM II/III · A-CSM · ICAgile ICP-ATF |
+| Set up Kanban & flow systems | `skills/scrum-master/kanban-flow.md` | PSM I · A-CSM · SAFe SSM · ICAgile ICP-ATF |
 
 ---
 

@@ -65,26 +65,26 @@ You support Guy HUI-BON-HOA across all of his UX/UI activities: user research, i
 
 | Request | Skill | Certification |
 |---|---|---|
-| Conduct user research | `skills/ux_design/user-research.md` | NN/g, CPUX-UR |
-| Create personas and JTBD | `skills/ux_design/personas-jtbd.md` | IDF, Google UX |
-| Map a user journey | `skills/ux_design/journey-mapping.md` | NN/g, IDF |
-| Structure the information architecture | `skills/ux_design/architecture-information.md` | CPUX-F |
-| WCAG 2.2 / RGAA accessibility audit | `skills/ux_design/accessibilite-wcag.md` | IAAP CPACC, IAAP WAS |
-| Create wireframes (lo-fi → hi-fi) | `skills/ux_design/wireframing.md` | Google UX, IDF |
-| Interactive prototyping in Figma | `skills/ux_design/prototypage-figma.md` | Figma Certification |
-| Build a Design System | `skills/ux_design/design-system.md` | Figma Certification |
-| Motion design & micro-interactions | `skills/ux_design/motion-design-ui.md` | IDF |
-| Responsive design / Mobile-first | `skills/ux_design/responsive-mobile-first.md` | Google UX |
-| Design for AI (LLM, chat UI, voice) | `skills/ux_design/design-for-ai.md` | NN/g |
-| Plan and run user tests | `skills/ux_design/tests-utilisateurs.md` | CPUX-UT, NN/g |
-| Set up an A/B test | `skills/ux_design/ab-testing.md` | IDF |
-| Measure UX quality (SUS, HEART, NPS) | `skills/ux_design/metriques-ux.md` | NN/g, CPUX-UT |
-| Run a heuristic UX audit | `skills/ux_design/audit-ux-heuristiques.md` | NN/g |
-| Prepare a Figma design handoff | `skills/ux_design/design-handoff.md` | Figma Certification |
-| Embed UX into an Agile / SAFe sprint | `skills/ux_design/design-agile-safe.md` | IDF, NN/g |
-| Facilitate a Design Sprint or Co-design | `skills/ux_design/facilitation-ateliers.md` | IDF, NN/g |
-| Present a design to stakeholders | `skills/ux_design/storytelling-stakeholders.md` | NN/g |
-| Run a competitive benchmark | `skills/ux_design/benchmark-concurrent.md` | CPUX-F |
+| Conduct user research | `skills/ux-design/user-research.md` | NN/g, CPUX-UR |
+| Create personas and JTBD | `skills/ux-design/personas-jtbd.md` | IDF, Google UX |
+| Map a user journey | `skills/ux-design/journey-mapping.md` | NN/g, IDF |
+| Structure the information architecture | `skills/ux-design/architecture-information.md` | CPUX-F |
+| WCAG 2.2 / RGAA accessibility audit | `skills/ux-design/accessibilite-wcag.md` | IAAP CPACC, IAAP WAS |
+| Create wireframes (lo-fi → hi-fi) | `skills/ux-design/wireframing.md` | Google UX, IDF |
+| Interactive prototyping in Figma | `skills/ux-design/prototypage-figma.md` | Figma Certification |
+| Build a Design System | `skills/ux-design/design-system.md` | Figma Certification |
+| Motion design & micro-interactions | `skills/ux-design/motion-design-ui.md` | IDF |
+| Responsive design / Mobile-first | `skills/ux-design/responsive-mobile-first.md` | Google UX |
+| Design for AI (LLM, chat UI, voice) | `skills/ux-design/design-for-ai.md` | NN/g |
+| Plan and run user tests | `skills/ux-design/tests-utilisateurs.md` | CPUX-UT, NN/g |
+| Set up an A/B test | `skills/ux-design/ab-testing.md` | IDF |
+| Measure UX quality (SUS, HEART, NPS) | `skills/ux-design/metriques-ux.md` | NN/g, CPUX-UT |
+| Run a heuristic UX audit | `skills/ux-design/audit-ux-heuristiques.md` | NN/g |
+| Prepare a Figma design handoff | `skills/ux-design/design-handoff.md` | Figma Certification |
+| Embed UX into an Agile / SAFe sprint | `skills/ux-design/design-agile-safe.md` | IDF, NN/g |
+| Facilitate a Design Sprint or Co-design | `skills/ux-design/facilitation-ateliers.md` | IDF, NN/g |
+| Present a design to stakeholders | `skills/ux-design/storytelling-stakeholders.md` | NN/g |
+| Run a competitive benchmark | `skills/ux-design/benchmark-concurrent.md` | CPUX-F |
 
 ---
 

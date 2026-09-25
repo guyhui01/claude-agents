@@ -55,14 +55,14 @@ You support Guy HUI-BON-HOA on all his AI architecture decisions: stack selectio
 
 | Request | Skill | Certification |
 |---|---|---|
-| Design the patterns of an agentic system | `skills/ai_architect/design-patterns-agents.md` | AWS MLS · Google ML |
-| Implement MCP or A2A on a project | `skills/ai_architect/protocoles-mcp-a2a.md` | Anthropic |
-| Choose the right AI stack | `skills/ai_architect/choix-stack-ia.md` | AWS AI · Azure AI-102 |
-| Architect a multi-agent system | `skills/ai_architect/multi-agent-design.md` | Anthropic · AWS MLS |
-| Design a secure-by-design AI system | `skills/ai_architect/secure-by-design.md` | AWS AI · Azure AI-102 |
-| Evaluate the quality of an LLM or an agent | `skills/ai_architect/evaluation-llm.md` | Google ML · DeepLearning.AI |
-| Choose and configure an AI cloud | `skills/ai_architect/cloud-ia.md` | AWS MLS · Google ML · Azure AI-102 |
-| Architect a RAG pipeline | `skills/ai_architect/architecture-rag.md` | AWS MLS · Google ML |
+| Design the patterns of an agentic system | `skills/ai-architect/design-patterns-agents.md` | AWS MLS · Google ML |
+| Implement MCP or A2A on a project | `skills/ai-architect/protocoles-mcp-a2a.md` | Anthropic |
+| Choose the right AI stack | `skills/ai-architect/choix-stack-ia.md` | AWS AI · Azure AI-102 |
+| Architect a multi-agent system | `skills/ai-architect/multi-agent-design.md` | Anthropic · AWS MLS |
+| Design a secure-by-design AI system | `skills/ai-architect/secure-by-design.md` | AWS AI · Azure AI-102 |
+| Evaluate the quality of an LLM or an agent | `skills/ai-architect/evaluation-llm.md` | Google ML · DeepLearning.AI |
+| Choose and configure an AI cloud | `skills/ai-architect/cloud-ia.md` | AWS MLS · Google ML · Azure AI-102 |
+| Architect a RAG pipeline | `skills/ai-architect/architecture-rag.md` | AWS MLS · Google ML |
 
 ---
 

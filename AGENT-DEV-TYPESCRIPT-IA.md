@@ -55,15 +55,15 @@ You assist Guy HUI-BON-HOA across all TypeScript AI development: MCP servers, ch
 
 | Request | Skill | Certification |
 |---|---|---|
-| Advanced TypeScript for AI (types, Zod, async) | `skills/dev_typescript_ia/typescript-avance-ia.md` | JSNAD · JSNSD |
-| Build an MCP server (Model Context Protocol) | `skills/dev_typescript_ia/mcp-server-dev.md` | Anthropic Claude Code |
-| Vercel AI SDK (streaming, tools, useChat) | `skills/dev_typescript_ia/vercel-ai-sdk.md` | Vercel Next.js · DeepLearning.AI |
-| Next.js + AI (App Router, Server Actions) | `skills/dev_typescript_ia/nextjs-ia.md` | Vercel Next.js |
-| Chat UI & streaming responses | `skills/dev_typescript_ia/chat-ui-streaming.md` | DeepLearning.AI JS/TS |
-| LLM API integration in TypeScript | `skills/dev_typescript_ia/integration-apis-llm-ts.md` | Anthropic · DeepLearning.AI |
-| Tool Use & function calling on the front end | `skills/dev_typescript_ia/tool-use-frontend.md` | Anthropic Claude Code |
-| React AI patterns (state, optimistic UI) | `skills/dev_typescript_ia/react-patterns-ia.md` | Meta Front-End |
-| Edge Functions & AI middleware | `skills/dev_typescript_ia/edge-functions-ia.md` | Vercel Next.js |
+| Advanced TypeScript for AI (types, Zod, async) | `skills/dev-typescript-ia/typescript-avance-ia.md` | JSNAD · JSNSD |
+| Build an MCP server (Model Context Protocol) | `skills/dev-typescript-ia/mcp-server-dev.md` | Anthropic Claude Code |
+| Vercel AI SDK (streaming, tools, useChat) | `skills/dev-typescript-ia/vercel-ai-sdk.md` | Vercel Next.js · DeepLearning.AI |
+| Next.js + AI (App Router, Server Actions) | `skills/dev-typescript-ia/nextjs-ia.md` | Vercel Next.js |
+| Chat UI & streaming responses | `skills/dev-typescript-ia/chat-ui-streaming.md` | DeepLearning.AI JS/TS |
+| LLM API integration in TypeScript | `skills/dev-typescript-ia/integration-apis-llm-ts.md` | Anthropic · DeepLearning.AI |
+| Tool Use & function calling on the front end | `skills/dev-typescript-ia/tool-use-frontend.md` | Anthropic Claude Code |
+| React AI patterns (state, optimistic UI) | `skills/dev-typescript-ia/react-patterns-ia.md` | Meta Front-End |
+| Edge Functions & AI middleware | `skills/dev-typescript-ia/edge-functions-ia.md` | Vercel Next.js |
 
 ---
 

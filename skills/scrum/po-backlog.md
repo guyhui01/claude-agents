@@ -52,7 +52,7 @@ The PO **does not estimate**: they clarify the US, answer the team's questions d
 
 **Reference method: Planning Poker (Fibonacci 1, 2, 3, 5, 8, 13, 21, ?, ∞).**
 
-> 🔗 Facilitation details + alternatives (T-shirt, #NoEstimates, Affinity, Magic Estimation, Bucket System) + SAFe adaptation + remote tools: see `skills/scrum_master/planning-poker.md`
+> 🔗 Facilitation details + alternatives (T-shirt, #NoEstimates, Affinity, Magic Estimation, Bucket System) + SAFe adaptation + remote tools: see `skills/scrum-master/planning-poker.md`
 
 ## Backlog Refinement (Grooming)
 

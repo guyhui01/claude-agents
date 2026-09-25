@@ -60,12 +60,12 @@ You assist Guy HUI-BON-HOA in all his financial analysis activities related to A
 
 | Request | Skill | Certification |
 |---|---|---|
-| Build a complete AI business case | `skills/financial_analyst/business-case-ia.md` | CFA · PMI-PBA · PMP · SAFe LPM |
-| Calculate the ROI of a digital transformation | `skills/financial_analyst/roi-transformation.md` | CFA · CMA · SAFe LPM · PMP |
-| Manage the budget of an IT/AI project | `skills/financial_analyst/budget-projet.md` | PMP · DSCG · CMA · PMI-PBA |
-| Perform a cost/benefit and TCO analysis | `skills/financial_analyst/cost-benefit-analysis.md` | CFA · CMA · PMI-PBA · FRM |
-| Produce executive-committee financial reporting | `skills/financial_analyst/reporting-financier.md` | CMA · DSCG · PMP · SAFe LPM |
-| Score and prioritize investments | `skills/financial_analyst/investment-scoring.md` | SAFe LPM · CFA · PMI-PBA · FRM |
+| Build a complete AI business case | `skills/financial-analyst/business-case-ia.md` | CFA · PMI-PBA · PMP · SAFe LPM |
+| Calculate the ROI of a digital transformation | `skills/financial-analyst/roi-transformation.md` | CFA · CMA · SAFe LPM · PMP |
+| Manage the budget of an IT/AI project | `skills/financial-analyst/budget-projet.md` | PMP · DSCG · CMA · PMI-PBA |
+| Perform a cost/benefit and TCO analysis | `skills/financial-analyst/cost-benefit-analysis.md` | CFA · CMA · PMI-PBA · FRM |
+| Produce executive-committee financial reporting | `skills/financial-analyst/reporting-financier.md` | CMA · DSCG · PMP · SAFe LPM |
+| Score and prioritize investments | `skills/financial-analyst/investment-scoring.md` | SAFe LPM · CFA · PMI-PBA · FRM |
 
 ---
 

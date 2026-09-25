@@ -62,15 +62,15 @@ You assist Guy HUI-BON-HOA across all his freelance AI consulting activities: co
 
 | Request | Skill | Certification |
 |---|---|---|
-| Draft a commercial proposal | `skills/consultant_ia/proposition-commerciale.md` | PMI-ACP · CAP IABAC · PROSCI |
-| Build a freelance engagement offer | `skills/consultant_ia/offre-mission.md` | CAP IABAC · Anthropic Claude Code in Action |
-| Run an AI maturity diagnostic (8 dim. + Gartner/MIT Sloan/Cap Gemini triangulation + NIST AI RMF/ISO 42001 coupling) | `skills/consultant_ia/diagnostic-maturite-ia.md` | CAP IABAC · ISO 42001 LI (PECB) · NIST AI RMF Architect (CIS) · Google GCDL · Azure AI-900 |
-| Build an AI roadmap | `skills/consultant_ia/feuille-route-ia.md` | CAP IABAC · Azure AI-900 · PMI-ACP |
-| Run an AI solution benchmark (Gartner MQ + Forrester Wave + IDC MarketScape + G2 + Peer Insights + TEI + Kraljic + ISO 25010:2023 + RFI/RFP/POC + 3-5 year TCO) | `skills/consultant_ia/benchmark-solutions-ia.md` | AWS CCP · Google GCDL · Azure AZ-900 · Gartner Subscriptions · Forrester Decisions |
-| Prepare a C-level presentation | `skills/consultant_ia/presentation-executif.md` | PROSCI · CAP IABAC |
-| Quickly estimate an AI project's ROI | `skills/consultant_ia/estimation-roi-rapide.md` | CAP IABAC · AI+ Business · PMI-ACP |
-| Scope an AI PoC | `skills/consultant_ia/cadrage-poc-ia.md` | CAP IABAC · PMI-ACP · AWS CCP · Anthropic Claude Code in Action |
-| Lead a digital transformation | `skills/consultant_ia/transformation-digitale.md` | PROSCI · CAP IABAC · PMI-ACP · AI+ Business |
+| Draft a commercial proposal | `skills/consultant-ia/proposition-commerciale.md` | PMI-ACP · CAP IABAC · PROSCI |
+| Build a freelance engagement offer | `skills/consultant-ia/offre-mission.md` | CAP IABAC · Anthropic Claude Code in Action |
+| Run an AI maturity diagnostic (8 dim. + Gartner/MIT Sloan/Cap Gemini triangulation + NIST AI RMF/ISO 42001 coupling) | `skills/consultant-ia/diagnostic-maturite-ia.md` | CAP IABAC · ISO 42001 LI (PECB) · NIST AI RMF Architect (CIS) · Google GCDL · Azure AI-900 |
+| Build an AI roadmap | `skills/consultant-ia/feuille-route-ia.md` | CAP IABAC · Azure AI-900 · PMI-ACP |
+| Run an AI solution benchmark (Gartner MQ + Forrester Wave + IDC MarketScape + G2 + Peer Insights + TEI + Kraljic + ISO 25010:2023 + RFI/RFP/POC + 3-5 year TCO) | `skills/consultant-ia/benchmark-solutions-ia.md` | AWS CCP · Google GCDL · Azure AZ-900 · Gartner Subscriptions · Forrester Decisions |
+| Prepare a C-level presentation | `skills/consultant-ia/presentation-executif.md` | PROSCI · CAP IABAC |
+| Quickly estimate an AI project's ROI | `skills/consultant-ia/estimation-roi-rapide.md` | CAP IABAC · AI+ Business · PMI-ACP |
+| Scope an AI PoC | `skills/consultant-ia/cadrage-poc-ia.md` | CAP IABAC · PMI-ACP · AWS CCP · Anthropic Claude Code in Action |
+| Lead a digital transformation | `skills/consultant-ia/transformation-digitale.md` | PROSCI · CAP IABAC · PMI-ACP · AI+ Business |
 
 ---
 

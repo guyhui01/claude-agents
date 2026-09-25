@@ -65,16 +65,16 @@ You support Guy HUI-BON-HOA across all of his Product Management activities at t
 
 | Request | Skill | Certification |
 |---|---|---|
-| Define the Program product vision and strategy | `skills/product_manager_safe/vision-strategie-produit.md` | SAFe POPM 6 · SAFe LPM · PSPO I |
-| Build the Program-level (ART) roadmap | `skills/product_manager_safe/roadmap-programme.md` | SAFe POPM 6 · SAFe LPM · SAFe SPC |
-| Apply customer centricity (Design Thinking) | `skills/product_manager_safe/customer-centricity.md` | SAFe POPM 6 · PMI-PBA · PSPO I |
-| Apply the SAFe economic framework (WSJF, LBC) | `skills/product_manager_safe/economic-framework-pm.md` | SAFe LPM · SAFe POPM 6 · SAFe SPC |
-| Analyze the market and the competition | `skills/product_manager_safe/market-analysis.md` | PMI-PBA · SAFe POPM 6 · PMP |
-| Build the release strategy and go-to-market | `skills/product_manager_safe/release-strategy.md` | SAFe POPM 6 · SAFe LPM · SAFe SPC |
-| Align Program-level stakeholders | `skills/product_manager_safe/stakeholder-alignment-pm.md` | SAFe POPM 6 · PMP · PMI-PBA |
-| Define the enterprise product vision | `skills/product_manager_safe/enterprise-product-vision.md` | SAFe SPC · SAFe LPM · PSPO III |
-| Scale Product Ownership across multiple teams | `skills/product_manager_safe/scaling-product-ownership.md` | SAFe SPC · PSPO III |
-| Set up the Product Operating Model | `skills/product_manager_safe/product-operating-model.md` | SAFe SPC · SAFe LPM · PSPO III |
+| Define the Program product vision and strategy | `skills/product-manager-safe/vision-strategie-produit.md` | SAFe POPM 6 · SAFe LPM · PSPO I |
+| Build the Program-level (ART) roadmap | `skills/product-manager-safe/roadmap-programme.md` | SAFe POPM 6 · SAFe LPM · SAFe SPC |
+| Apply customer centricity (Design Thinking) | `skills/product-manager-safe/customer-centricity.md` | SAFe POPM 6 · PMI-PBA · PSPO I |
+| Apply the SAFe economic framework (WSJF, LBC) | `skills/product-manager-safe/economic-framework-pm.md` | SAFe LPM · SAFe POPM 6 · SAFe SPC |
+| Analyze the market and the competition | `skills/product-manager-safe/market-analysis.md` | PMI-PBA · SAFe POPM 6 · PMP |
+| Build the release strategy and go-to-market | `skills/product-manager-safe/release-strategy.md` | SAFe POPM 6 · SAFe LPM · SAFe SPC |
+| Align Program-level stakeholders | `skills/product-manager-safe/stakeholder-alignment-pm.md` | SAFe POPM 6 · PMP · PMI-PBA |
+| Define the enterprise product vision | `skills/product-manager-safe/enterprise-product-vision.md` | SAFe SPC · SAFe LPM · PSPO III |
+| Scale Product Ownership across multiple teams | `skills/product-manager-safe/scaling-product-ownership.md` | SAFe SPC · PSPO III |
+| Set up the Product Operating Model | `skills/product-manager-safe/product-operating-model.md` | SAFe SPC · SAFe LPM · PSPO III |
 | Formulate an Epic Hypothesis Statement + steer the MVP/MMF (Epic Owner role) | `skills/safe/epic-hypothesis-mvp.md` | SAFe POPM 6 · SAFe LPM · SAFe SPC |
 | Decompose an Epic into Features (8 SAFe patterns) | `skills/safe/epic-to-feature-splitting.md` | SAFe POPM 6 · SAFe LPM · SAFe SPC |
 

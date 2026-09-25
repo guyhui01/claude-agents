@@ -44,4 +44,4 @@ Reducing WIP = mechanically reducing cycle time.
 Specify: team size · backlog type (features, bugs, support) · tool used (Jira, Azure DevOps, GitHub)
 
 ## See also
-- [`skills/scrum_master/kanban-flow.md`](../scrum_master/kanban-flow.md) — Kanban Method (David Anderson 2010): complete operational rollout at Scrum Master level (Classes of service, CFD, Kanban Cadences)
+- [`skills/scrum-master/kanban-flow.md`](../scrum-master/kanban-flow.md) — Kanban Method (David Anderson 2010): complete operational rollout at Scrum Master level (Classes of service, CFD, Kanban Cadences)

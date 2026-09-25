@@ -61,17 +61,17 @@ You assist Guy HUI-BON-HOA across all his AI training activities: needs analysis
 
 | Request | Skill | Certification |
 |---|---|---|
-| Analyze training needs (TNA) | `skills/formateur_ia/analyse-besoins-formation.md` | CPTD · CPTM |
-| Design a learning path | `skills/formateur_ia/conception-parcours.md` | CPTD · APTD · IDF |
-| Prepare and facilitate a training session | `skills/formateur_ia/animation-formation.md` | CPTD · CCP · Google Educator |
-| Create an e-learning module (Rapid Learning) | `skills/formateur_ia/elearning-rapid-learning.md` | CPTD · Coursera Instructor |
-| Evaluate training effectiveness (Kirkpatrick) | `skills/formateur_ia/evaluation-formation.md` | CPTD · CPTM |
-| Raise team AI awareness (non-technical) | `skills/formateur_ia/formation-ia-sensibilisation.md` | CAP IABAC · DeepLearning.AI · Anthropic |
-| Train on prompt engineering | `skills/formateur_ia/prompt-engineering-formation.md` | Anthropic · CAP IABAC |
-| Build team data literacy | `skills/formateur_ia/data-literacy.md` | CPTD · CAP IABAC · DeepLearning.AI |
-| Train on AI agents and agentic architectures | `skills/formateur_ia/formation-agents-ia.md` | Anthropic Claude Code in Action · CAP IABAC · AWS AIF-C01 |
-| Train on Claude Code and professional LLM tools | `skills/formateur_ia/formation-claude-code.md` | Anthropic Claude Code in Action · Claude Code 101 · Claude 101 |
-| Design and run an AI certification track | `skills/formateur_ia/conception-parcours-certifiant-ia.md` | CPTD · CPTM · CAP IABAC · Anthropic Claude Code in Action |
+| Analyze training needs (TNA) | `skills/formateur-ia/analyse-besoins-formation.md` | CPTD · CPTM |
+| Design a learning path | `skills/formateur-ia/conception-parcours.md` | CPTD · APTD · IDF |
+| Prepare and facilitate a training session | `skills/formateur-ia/animation-formation.md` | CPTD · CCP · Google Educator |
+| Create an e-learning module (Rapid Learning) | `skills/formateur-ia/elearning-rapid-learning.md` | CPTD · Coursera Instructor |
+| Evaluate training effectiveness (Kirkpatrick) | `skills/formateur-ia/evaluation-formation.md` | CPTD · CPTM |
+| Raise team AI awareness (non-technical) | `skills/formateur-ia/formation-ia-sensibilisation.md` | CAP IABAC · DeepLearning.AI · Anthropic |
+| Train on prompt engineering | `skills/formateur-ia/prompt-engineering-formation.md` | Anthropic · CAP IABAC |
+| Build team data literacy | `skills/formateur-ia/data-literacy.md` | CPTD · CAP IABAC · DeepLearning.AI |
+| Train on AI agents and agentic architectures | `skills/formateur-ia/formation-agents-ia.md` | Anthropic Claude Code in Action · CAP IABAC · AWS AIF-C01 |
+| Train on Claude Code and professional LLM tools | `skills/formateur-ia/formation-claude-code.md` | Anthropic Claude Code in Action · Claude Code 101 · Claude 101 |
+| Design and run an AI certification track | `skills/formateur-ia/conception-parcours-certifiant-ia.md` | CPTD · CPTM · CAP IABAC · Anthropic Claude Code in Action |
 
 ---
 

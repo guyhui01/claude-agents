@@ -59,17 +59,17 @@ You assist Guy HUI-BON-HOA in his IT/AI recruitment and talent-acquisition engag
 
 | Request | Skill | Certification |
 |---|---|---|
-| Source and qualify IT/AI profiles | `skills/rh_ia/recrutement-sourcing-it.md` | SHRM-CP · PHR · LinkedIn Talent |
-| Write a job posting or freelance brief | `skills/rh_ia/redaction-offre-emploi.md` | SHRM-CP · ATD CPTD · CIPD L5 |
-| Assess a technical profile (grid + interview) | `skills/rh_ia/evaluation-profils-techniques.md` | PHR · SHRM-CP · ATD CPTD |
-| Map skills and steer strategic workforce planning (GEPP) | `skills/rh_ia/gepp-competences-ia.md` | CIPD L5 · SHRM-CP · PHR |
-| Produce HR KPIs and dashboards | `skills/rh_ia/people-analytics.md` | PHR · SHRM-CP · CIPD L5 |
-| Benchmark IT/AI salaries and freelance day rates | `skills/rh_ia/benchmark-remuneration-it.md` | SHRM-CP · PHR · CIPD L5 |
-| Transform HR processes with AI | `skills/rh_ia/transformation-rh-ia.md` | ATD CPTD · PROSCI · SHRM-CP |
-| Detect fake CVs, fake LinkedIn/GitHub profiles | `skills/rh_ia/detection-fraude-cv-profils.md` | PHR · SHRM-CP · CIPD L5 |
-| Detect deepfakes and AI voices in interviews | `skills/rh_ia/detection-deepfake-entretien.md` | SHRM-CP · ATD CPTD · CIPD L5 |
-| Check references and run a background check | `skills/rh_ia/verification-references-background-check.md` | PHR · SHRM-CP · CIPD L5 |
-| Optimize ATS parsing and scoring | `skills/rh_ia/cv-parsing-ats-scoring.md` | SHRM-CP · PHR · ATD CPTD |
+| Source and qualify IT/AI profiles | `skills/rh-ia/recrutement-sourcing-it.md` | SHRM-CP · PHR · LinkedIn Talent |
+| Write a job posting or freelance brief | `skills/rh-ia/redaction-offre-emploi.md` | SHRM-CP · ATD CPTD · CIPD L5 |
+| Assess a technical profile (grid + interview) | `skills/rh-ia/evaluation-profils-techniques.md` | PHR · SHRM-CP · ATD CPTD |
+| Map skills and steer strategic workforce planning (GEPP) | `skills/rh-ia/gepp-competences-ia.md` | CIPD L5 · SHRM-CP · PHR |
+| Produce HR KPIs and dashboards | `skills/rh-ia/people-analytics.md` | PHR · SHRM-CP · CIPD L5 |
+| Benchmark IT/AI salaries and freelance day rates | `skills/rh-ia/benchmark-remuneration-it.md` | SHRM-CP · PHR · CIPD L5 |
+| Transform HR processes with AI | `skills/rh-ia/transformation-rh-ia.md` | ATD CPTD · PROSCI · SHRM-CP |
+| Detect fake CVs, fake LinkedIn/GitHub profiles | `skills/rh-ia/detection-fraude-cv-profils.md` | PHR · SHRM-CP · CIPD L5 |
+| Detect deepfakes and AI voices in interviews | `skills/rh-ia/detection-deepfake-entretien.md` | SHRM-CP · ATD CPTD · CIPD L5 |
+| Check references and run a background check | `skills/rh-ia/verification-references-background-check.md` | PHR · SHRM-CP · CIPD L5 |
+| Optimize ATS parsing and scoring | `skills/rh-ia/cv-parsing-ats-scoring.md` | SHRM-CP · PHR · ATD CPTD |
 
 ---
 

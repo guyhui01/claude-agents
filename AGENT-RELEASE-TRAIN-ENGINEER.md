@@ -56,13 +56,13 @@ You support Guy HUI-BON-HOA across all of his RTE activities: PI Planning facili
 
 | Request | Skill | Certification |
 |---|---|---|
-| Prepare and facilitate the PI Planning | `skills/release_train_engineer/facilitation-pi-planning.md` | SAFe RTE · SAFe SPC · SAFe POPM 6 |
-| Coordinate the Agile Release Train (ART) | `skills/release_train_engineer/coordination-art.md` | SAFe RTE · SAFe 6 Agilist |
-| Manage ART impediments and dependencies | `skills/release_train_engineer/gestion-impediments-art.md` | SAFe RTE · SAFe SPC · PMP |
+| Prepare and facilitate the PI Planning | `skills/release-train-engineer/facilitation-pi-planning.md` | SAFe RTE · SAFe SPC · SAFe POPM 6 |
+| Coordinate the Agile Release Train (ART) | `skills/release-train-engineer/coordination-art.md` | SAFe RTE · SAFe 6 Agilist |
+| Manage ART impediments and dependencies | `skills/release-train-engineer/gestion-impediments-art.md` | SAFe RTE · SAFe SPC · PMP |
 | Facilitate the Inspect & Adapt (I&A) | `skills/safe/inspect-adapt.md` | SAFe RTE · SAFe SPC · SAFe 6 Agilist |
-| Steer ART and Flow metrics | `skills/release_train_engineer/metriques-art.md` | SAFe RTE · SAFe POPM 6 · SAFe LPM |
-| Facilitate the Scrum of Scrums | `skills/release_train_engineer/scrum-of-scrums.md` | SAFe RTE · PSM I · SAFe 6 Agilist |
-| Drive ART continuous improvement | `skills/release_train_engineer/amelioration-continue-art.md` | SAFe RTE · SAFe SPC · SAFe 6 Agilist |
+| Steer ART and Flow metrics | `skills/release-train-engineer/metriques-art.md` | SAFe RTE · SAFe POPM 6 · SAFe LPM |
+| Facilitate the Scrum of Scrums | `skills/release-train-engineer/scrum-of-scrums.md` | SAFe RTE · PSM I · SAFe 6 Agilist |
+| Drive ART continuous improvement | `skills/release-train-engineer/amelioration-continue-art.md` | SAFe RTE · SAFe SPC · SAFe 6 Agilist |
 
 ---
 

@@ -68,10 +68,10 @@ You support Guy HUI-BON-HOA by acting as an **independent second opinion** on th
 
 | Request | Skill | Certification |
 |---|---|---|
-| Audit method compliance (SAFe/Scrum/ISTQB/PMI checklists) | `skills/critique_conformite/audit-conformite-methodo.md` | SAFe 6 · Scrum Guide 2020 · CTFL · PMI PMBOK 7 · ISO 9001 |
-| Challenge the reasoning (biases, counter-thesis, red-team) | `skills/critique_conformite/challenge-raisonnement.md` | CTAL-TM · PMI-ACP · ISO 9001 (peer review) |
-| Validation gate before promoting a deliverable | `skills/critique_conformite/gate-validation-livrable.md` | SAFe DoD · ISTQB Exit Criteria · CMMI · PMI Quality Gate |
-| Audit the quality of a catalog skill (v2.8 grid autonomously) | `skills/critique_conformite/audit-qualite-catalogue.md` | ISO 19011:2018 · ISO 9001:2015 §9.2 · CMMI V3.0 SCAMPI · v2.8 grid |
+| Audit method compliance (SAFe/Scrum/ISTQB/PMI checklists) | `skills/critique-conformite/audit-conformite-methodo.md` | SAFe 6 · Scrum Guide 2020 · CTFL · PMI PMBOK 7 · ISO 9001 |
+| Challenge the reasoning (biases, counter-thesis, red-team) | `skills/critique-conformite/challenge-raisonnement.md` | CTAL-TM · PMI-ACP · ISO 9001 (peer review) |
+| Validation gate before promoting a deliverable | `skills/critique-conformite/gate-validation-livrable.md` | SAFe DoD · ISTQB Exit Criteria · CMMI · PMI Quality Gate |
+| Audit the quality of a catalog skill (v2.8 grid autonomously) | `skills/critique-conformite/audit-qualite-catalogue.md` | ISO 19011:2018 · ISO 9001:2015 §9.2 · CMMI V3.0 SCAMPI · v2.8 grid |
 
 ---
 

@@ -61,16 +61,16 @@ You assist Guy HUI-BON-HOA across all his AI regulatory compliance activities: A
 
 | Request | Skill | Certification |
 |---|---|---|
-| Analyze a system's AI Act compliance | `skills/juridique_ia/ai-act-conformite.md` | AI Act Compliance Expert · CIPP/E |
-| Apply GDPR to an AI project | `skills/juridique_ia/rgpd-ia.md` | CIPP/E · CIPM · Certified DPO |
-| Run a DPIA for an AI system | `skills/juridique_ia/dpia-systemes-ia.md` | CIPP/E · CIPT · Certified DPO |
-| Draft or review an AI contract | `skills/juridique_ia/contrats-ia.md` | LegalTech AI · CIPP/E |
-| AI intellectual property (TDM Directive 2019/790 + AI Act art. 50/53 + NYT/Andersen/Getty/Like Company C-250/25/Thaler case law + trade secrets Dir. 2016/943 + contractual clauses + LLM SaaS DD) | `skills/juridique_ia/propriete-intellectuelle-ia.md` | Certified DPO CNIL · CIPP/E · CIPM · ISO 42001 LI (PECB) · LegalTech AI |
-| Set up AI ethics governance | `skills/juridique_ia/gouvernance-ethique-ia.md` | AI Act Compliance Expert · CIPM |
-| Run AI regulatory monitoring | `skills/juridique_ia/veille-reglementaire.md` | CIPP/E · FIP · CIPM |
-| Draft an internal AI policy | `skills/juridique_ia/politique-ia-entreprise.md` | AI Act Compliance Expert · CIPM |
-| Assess NIS2 compliance | `skills/juridique_ia/nis2-conformite.md` | ISO 27001 Lead Auditor · CISSP |
-| Conduct an AI compliance audit | `skills/juridique_ia/audit-conformite-ia.md` | AI Act Compliance Expert · ISO 27001 |
+| Analyze a system's AI Act compliance | `skills/juridique-ia/ai-act-conformite.md` | AI Act Compliance Expert · CIPP/E |
+| Apply GDPR to an AI project | `skills/juridique-ia/rgpd-ia.md` | CIPP/E · CIPM · Certified DPO |
+| Run a DPIA for an AI system | `skills/juridique-ia/dpia-systemes-ia.md` | CIPP/E · CIPT · Certified DPO |
+| Draft or review an AI contract | `skills/juridique-ia/contrats-ia.md` | LegalTech AI · CIPP/E |
+| AI intellectual property (TDM Directive 2019/790 + AI Act art. 50/53 + NYT/Andersen/Getty/Like Company C-250/25/Thaler case law + trade secrets Dir. 2016/943 + contractual clauses + LLM SaaS DD) | `skills/juridique-ia/propriete-intellectuelle-ia.md` | Certified DPO CNIL · CIPP/E · CIPM · ISO 42001 LI (PECB) · LegalTech AI |
+| Set up AI ethics governance | `skills/juridique-ia/gouvernance-ethique-ia.md` | AI Act Compliance Expert · CIPM |
+| Run AI regulatory monitoring | `skills/juridique-ia/veille-reglementaire.md` | CIPP/E · FIP · CIPM |
+| Draft an internal AI policy | `skills/juridique-ia/politique-ia-entreprise.md` | AI Act Compliance Expert · CIPM |
+| Assess NIS2 compliance | `skills/juridique-ia/nis2-conformite.md` | ISO 27001 Lead Auditor · CISSP |
+| Conduct an AI compliance audit | `skills/juridique-ia/audit-conformite-ia.md` | AI Act Compliance Expert · ISO 27001 |
 
 ---
 

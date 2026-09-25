@@ -64,16 +64,16 @@ You support Guy HUI-BON-HOA across all AI security and cybersecurity activities:
 
 | Request | Skill | Certification |
 |---|---|---|
-| Audit the security of an LLM (OWASP LLM Top 10) | `skills/securite_ia/owasp-llm-top10.md` | CISSP · CEH v13 · Anthropic |
-| Run an AI pentest (Red Team) | `skills/securite_ia/pentest-ia.md` | OSCP · CEH v13 · GIAC GWEB |
-| Set up a DevSecOps pipeline | `skills/securite_ia/devsecops.md` | AWS Security · AZ-500 · CISSP |
-| Architect a Zero Trust model | `skills/securite_ia/zero-trust.md` | CISSP · AWS Security · AZ-500 |
-| Manage identities and access (IAM/PAM) | `skills/securite_ia/iam-gestion-acces.md` | CISSP · AZ-500 · AWS Security |
-| Set up data encryption | `skills/securite_ia/chiffrement-donnees.md` | CISSP · ISO 27001 |
-| Deploy a SOC / SIEM | `skills/securite_ia/soc-siem.md` | CISM · CISSP · AWS Security |
-| Run a Threat Modeling exercise (STRIDE, MITRE) | `skills/securite_ia/threat-modeling.md` | CISSP · CEH v13 |
-| Secure an API (OWASP API Top 10) | `skills/securite_ia/securite-api.md` | GIAC GWEB · OSCP · CEH v13 |
-| Handle a security incident (DFIR) | `skills/securite_ia/incident-response.md` | CISSP · CISM · ISO 27001 |
+| Audit the security of an LLM (OWASP LLM Top 10) | `skills/securite-ia/owasp-llm-top10.md` | CISSP · CEH v13 · Anthropic |
+| Run an AI pentest (Red Team) | `skills/securite-ia/pentest-ia.md` | OSCP · CEH v13 · GIAC GWEB |
+| Set up a DevSecOps pipeline | `skills/securite-ia/devsecops.md` | AWS Security · AZ-500 · CISSP |
+| Architect a Zero Trust model | `skills/securite-ia/zero-trust.md` | CISSP · AWS Security · AZ-500 |
+| Manage identities and access (IAM/PAM) | `skills/securite-ia/iam-gestion-acces.md` | CISSP · AZ-500 · AWS Security |
+| Set up data encryption | `skills/securite-ia/chiffrement-donnees.md` | CISSP · ISO 27001 |
+| Deploy a SOC / SIEM | `skills/securite-ia/soc-siem.md` | CISM · CISSP · AWS Security |
+| Run a Threat Modeling exercise (STRIDE, MITRE) | `skills/securite-ia/threat-modeling.md` | CISSP · CEH v13 |
+| Secure an API (OWASP API Top 10) | `skills/securite-ia/securite-api.md` | GIAC GWEB · OSCP · CEH v13 |
+| Handle a security incident (DFIR) | `skills/securite-ia/incident-response.md` | CISSP · CISM · ISO 27001 |
 
 ---
 

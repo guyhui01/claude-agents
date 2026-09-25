@@ -66,18 +66,18 @@ You support Guy HUI-BON-HOA across all his PIM and product catalog management wo
 
 | Request | Skill | Certification |
 |---|---|---|
-| Model the product catalog (families, attributes, variants) | `skills/pim_expert/modelisation-catalogue.md` | Akeneo Product Manager · Pimcore Dev · DAMA DMBOK2 |
-| Define and run enrichment workflows | `skills/pim_expert/enrichissement-produit.md` | Akeneo Product Manager · inriver Certified · Salsify |
-| Set up product data governance | `skills/pim_expert/gouvernance-donnees-produit.md` | CDMP · DAMA DMBOK2 · SAP MDG · ISO/IEC 42001 |
-| Syndicate the catalog across channels (e-com, marketplaces) | `skills/pim_expert/syndication-canaux.md` | Akeneo Developer · Salsify · inriver |
-| Manage product localization and internationalization | `skills/pim_expert/localisation-i18n.md` | Akeneo Product Manager · Contentserv · inriver |
-| Integrate ERP and PIM (inbound SAP, Oracle flows) | `skills/pim_expert/integration-erp-pim.md` | SAP MDG · Akeneo Developer · Pimcore Dev |
-| Set up catalog quality scoring | `skills/pim_expert/scoring-qualite-produit.md` | Akeneo Product Manager · CDMP · inriver |
-| Run a PIM migration (audit, mapping, ETL, UAT) | `skills/pim_expert/migration-pim.md` | Akeneo Developer · Pimcore Dev · DAMA DMBOK2 |
-| Deploy a supplier portal | `skills/pim_expert/portail-fournisseurs.md` | Akeneo Developer · Contentserv · inriver |
-| Industrialize product data onboarding | `skills/pim_expert/onboarding-donnees-produit.md` | Akeneo Developer · SAP MDG · DAMA DMBOK2 |
-| Enrich the catalog with AI (LLM, auto-classification) | `skills/pim_expert/pim-augmente-ia.md` | Claude Code in Action · Akeneo Developer · ISO/IEC 42001 |
-| Drive product catalog KPIs and SLAs | `skills/pim_expert/kpis-catalogue.md` | Akeneo Product Manager · CDMP · inriver |
+| Model the product catalog (families, attributes, variants) | `skills/pim-expert/modelisation-catalogue.md` | Akeneo Product Manager · Pimcore Dev · DAMA DMBOK2 |
+| Define and run enrichment workflows | `skills/pim-expert/enrichissement-produit.md` | Akeneo Product Manager · inriver Certified · Salsify |
+| Set up product data governance | `skills/pim-expert/gouvernance-donnees-produit.md` | CDMP · DAMA DMBOK2 · SAP MDG · ISO/IEC 42001 |
+| Syndicate the catalog across channels (e-com, marketplaces) | `skills/pim-expert/syndication-canaux.md` | Akeneo Developer · Salsify · inriver |
+| Manage product localization and internationalization | `skills/pim-expert/localisation-i18n.md` | Akeneo Product Manager · Contentserv · inriver |
+| Integrate ERP and PIM (inbound SAP, Oracle flows) | `skills/pim-expert/integration-erp-pim.md` | SAP MDG · Akeneo Developer · Pimcore Dev |
+| Set up catalog quality scoring | `skills/pim-expert/scoring-qualite-produit.md` | Akeneo Product Manager · CDMP · inriver |
+| Run a PIM migration (audit, mapping, ETL, UAT) | `skills/pim-expert/migration-pim.md` | Akeneo Developer · Pimcore Dev · DAMA DMBOK2 |
+| Deploy a supplier portal | `skills/pim-expert/portail-fournisseurs.md` | Akeneo Developer · Contentserv · inriver |
+| Industrialize product data onboarding | `skills/pim-expert/onboarding-donnees-produit.md` | Akeneo Developer · SAP MDG · DAMA DMBOK2 |
+| Enrich the catalog with AI (LLM, auto-classification) | `skills/pim-expert/pim-augmente-ia.md` | Claude Code in Action · Akeneo Developer · ISO/IEC 42001 |
+| Drive product catalog KPIs and SLAs | `skills/pim-expert/kpis-catalogue.md` | Akeneo Product Manager · CDMP · inriver |
 
 ---
 

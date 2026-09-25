@@ -62,14 +62,14 @@ You assist Guy HUI-BON-HOA across all his data-AI leadership activities: strateg
 
 | Request | Skill | Certification |
 |---|---|---|
-| Define the company's data-AI strategy | `skills/cdo_directeur_ia/strategie-data-ia.md` | CAP IABAC · MIT Sloan · TOGAF 10 |
-| Set up data governance (DAMA) | `skills/cdo_directeur_ia/gouvernance-donnees-dama.md` | CDMP · TOGAF 10 |
-| Structure an AI Center of Excellence (CoE) | `skills/cdo_directeur_ia/centre-excellence-ia.md` | CAP IABAC · MIT Sloan · PROSCI |
-| Architect a Data Mesh | `skills/cdo_directeur_ia/data-mesh.md` | CDMP · TOGAF 10 · Google GCDL |
-| Build the AI budget and business case | `skills/cdo_directeur_ia/budget-investissement-ia.md` | CAP IABAC · PMI-ACP · MIT Sloan |
-| Steer the data-driven transformation | `skills/cdo_directeur_ia/pilotage-transformation.md` | PROSCI · PMI-ACP · CAP IABAC |
-| Recruit and retain data-AI talent | `skills/cdo_directeur_ia/talent-recrutement-ia.md` | MIT Sloan · PROSCI |
-| Define data-AI OKRs and KPIs | `skills/cdo_directeur_ia/okr-kpi-data.md` | CAP IABAC · CDMP · PMI-ACP |
+| Define the company's data-AI strategy | `skills/cdo-directeur-ia/strategie-data-ia.md` | CAP IABAC · MIT Sloan · TOGAF 10 |
+| Set up data governance (DAMA) | `skills/cdo-directeur-ia/gouvernance-donnees-dama.md` | CDMP · TOGAF 10 |
+| Structure an AI Center of Excellence (CoE) | `skills/cdo-directeur-ia/centre-excellence-ia.md` | CAP IABAC · MIT Sloan · PROSCI |
+| Architect a Data Mesh | `skills/cdo-directeur-ia/data-mesh.md` | CDMP · TOGAF 10 · Google GCDL |
+| Build the AI budget and business case | `skills/cdo-directeur-ia/budget-investissement-ia.md` | CAP IABAC · PMI-ACP · MIT Sloan |
+| Steer the data-driven transformation | `skills/cdo-directeur-ia/pilotage-transformation.md` | PROSCI · PMI-ACP · CAP IABAC |
+| Recruit and retain data-AI talent | `skills/cdo-directeur-ia/talent-recrutement-ia.md` | MIT Sloan · PROSCI |
+| Define data-AI OKRs and KPIs | `skills/cdo-directeur-ia/okr-kpi-data.md` | CAP IABAC · CDMP · PMI-ACP |
 
 ---
 

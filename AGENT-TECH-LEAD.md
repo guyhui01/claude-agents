@@ -72,18 +72,18 @@ You support Guy HUI-BON-HOA on his IT consulting engagements by providing techni
 
 | Request | Skill | Certification |
 |---|---|---|
-| Run a code review | `skills/tech_lead/code-review.md` | ISTQB FL v4.0 · GitHub Certifications |
-| Design the application architecture | `skills/tech_lead/architecture-applicative.md` | AWS DVA-C02 · Google Cloud Developer · AZ-204 |
-| Design an API (REST, GraphQL, AsyncAPI) | `skills/tech_lead/api-design.md` | Postman API Expert · AWS DVA-C02 · Google Cloud Dev |
-| Define the test strategy (pyramid, TDD, BDD) | `skills/tech_lead/strategie-tests.md` | ISTQB FL v4.0 · GitHub Certifications |
-| Set up the CI/CD pipeline | `skills/tech_lead/cicd-pipeline.md` | GitHub Actions · CKAD · AWS DVA-C02 |
-| Audit application security (OWASP Top 10) | `skills/tech_lead/securite-applicative.md` | AWS DVA-C02 · AZ-204 · ISTQB FL |
-| Analyze and reduce technical debt | `skills/tech_lead/dette-technique.md` | ISTQB FL · GitHub Certifications · AWS DVA-C02 |
-| Write technical documentation (ADR, C4) | `skills/tech_lead/documentation-technique.md` | Postman API Expert · GitHub Certifications |
-| Profile and optimize performance | `skills/tech_lead/performance-applicative.md` | AWS DVA-C02 · MongoDB Developer · Google Cloud Dev |
-| Onboard and mentor developers | `skills/tech_lead/mentoring-equipe-dev.md` | ISTQB FL v4.0 · GitHub Certifications |
-| Integrate AI into development workflows | `skills/tech_lead/ia-workflows-dev.md` | Claude Code 101 · Claude Code in Action · GitHub Actions |
-| Manage branching and release strategy | `skills/tech_lead/branching-release.md` | GitHub Actions · GitHub Certifications · CKAD |
+| Run a code review | `skills/tech-lead/code-review.md` | ISTQB FL v4.0 · GitHub Certifications |
+| Design the application architecture | `skills/tech-lead/architecture-applicative.md` | AWS DVA-C02 · Google Cloud Developer · AZ-204 |
+| Design an API (REST, GraphQL, AsyncAPI) | `skills/tech-lead/api-design.md` | Postman API Expert · AWS DVA-C02 · Google Cloud Dev |
+| Define the test strategy (pyramid, TDD, BDD) | `skills/tech-lead/strategie-tests.md` | ISTQB FL v4.0 · GitHub Certifications |
+| Set up the CI/CD pipeline | `skills/tech-lead/cicd-pipeline.md` | GitHub Actions · CKAD · AWS DVA-C02 |
+| Audit application security (OWASP Top 10) | `skills/tech-lead/securite-applicative.md` | AWS DVA-C02 · AZ-204 · ISTQB FL |
+| Analyze and reduce technical debt | `skills/tech-lead/dette-technique.md` | ISTQB FL · GitHub Certifications · AWS DVA-C02 |
+| Write technical documentation (ADR, C4) | `skills/tech-lead/documentation-technique.md` | Postman API Expert · GitHub Certifications |
+| Profile and optimize performance | `skills/tech-lead/performance-applicative.md` | AWS DVA-C02 · MongoDB Developer · Google Cloud Dev |
+| Onboard and mentor developers | `skills/tech-lead/mentoring-equipe-dev.md` | ISTQB FL v4.0 · GitHub Certifications |
+| Integrate AI into development workflows | `skills/tech-lead/ia-workflows-dev.md` | Claude Code 101 · Claude Code in Action · GitHub Actions |
+| Manage branching and release strategy | `skills/tech-lead/branching-release.md` | GitHub Actions · GitHub Certifications · CKAD |
 
 ---
 

@@ -63,19 +63,19 @@ You support Guy HUI-BON-HOA across all Data Science work: data exploration, feat
 
 | Request | Skill | Certification |
 |---|---|---|
-| Run an exploratory analysis (EDA) | `skills/data_scientist/analyse-exploratoire.md` | IBM DS · Google Advanced Analytics |
-| Perform feature engineering | `skills/data_scientist/feature-engineering.md` | IBM DS · DeepLearning.AI ML Spec. |
-| Build and train an ML model | `skills/data_scientist/modelisation-ml.md` | DeepLearning.AI ML · Databricks |
-| Evaluate and compare models | `skills/data_scientist/evaluation-modeles.md` | DeepLearning.AI ML · IBM DS |
-| Apply inferential statistics | `skills/data_scientist/statistiques-tests.md` | Google Advanced Analytics · IBM DS |
-| Visualize data (matplotlib, plotly) | `skills/data_scientist/visualisation-data.md` | IBM DS · Google Advanced Analytics |
-| Design and analyze an A/B test | `skills/data_scientist/experimentation-ab-ds.md` | Google Advanced Analytics |
-| Classic NLP (TF-IDF, embeddings, classification — no LLM) | `skills/data_scientist/nlp-classique.md` | DeepLearning.AI · IBM DS |
-| Forecasting & Time Series | `skills/data_scientist/time-series.md` | DeepLearning.AI · IBM DS |
-| Write a data science report | `skills/data_scientist/rapport-data-science.md` | IBM DS · Google Advanced Analytics |
-| Design a Deep Learning model (CV, NLP) | `skills/data_scientist/deep-learning.md` | DeepLearning.AI Deep Learning Spec. · IBM DS · Azure DP-100 |
-| Audit AI ethics, bias & fairness | `skills/data_scientist/ethique-ia-biais.md` | CAP IABAC · DeepLearning.AI · IBM DS |
-| Track experiments with MLflow | `skills/data_scientist/mlflow-experimentation.md` | Databricks ML Associate · Azure DP-100 · IBM DS |
+| Run an exploratory analysis (EDA) | `skills/data-scientist/analyse-exploratoire.md` | IBM DS · Google Advanced Analytics |
+| Perform feature engineering | `skills/data-scientist/feature-engineering.md` | IBM DS · DeepLearning.AI ML Spec. |
+| Build and train an ML model | `skills/data-scientist/modelisation-ml.md` | DeepLearning.AI ML · Databricks |
+| Evaluate and compare models | `skills/data-scientist/evaluation-modeles.md` | DeepLearning.AI ML · IBM DS |
+| Apply inferential statistics | `skills/data-scientist/statistiques-tests.md` | Google Advanced Analytics · IBM DS |
+| Visualize data (matplotlib, plotly) | `skills/data-scientist/visualisation-data.md` | IBM DS · Google Advanced Analytics |
+| Design and analyze an A/B test | `skills/data-scientist/experimentation-ab-ds.md` | Google Advanced Analytics |
+| Classic NLP (TF-IDF, embeddings, classification — no LLM) | `skills/data-scientist/nlp-classique.md` | DeepLearning.AI · IBM DS |
+| Forecasting & Time Series | `skills/data-scientist/time-series.md` | DeepLearning.AI · IBM DS |
+| Write a data science report | `skills/data-scientist/rapport-data-science.md` | IBM DS · Google Advanced Analytics |
+| Design a Deep Learning model (CV, NLP) | `skills/data-scientist/deep-learning.md` | DeepLearning.AI Deep Learning Spec. · IBM DS · Azure DP-100 |
+| Audit AI ethics, bias & fairness | `skills/data-scientist/ethique-ia-biais.md` | CAP IABAC · DeepLearning.AI · IBM DS |
+| Track experiments with MLflow | `skills/data-scientist/mlflow-experimentation.md` | Databricks ML Associate · Azure DP-100 · IBM DS |
 
 ---
 

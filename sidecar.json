@@ -4,7 +4,7 @@
     "name": "claude-agents",
     "version": "v4.4.0"
   },
-  "generatedAt": "2026-08-13T00:07:46.505Z",
+  "generatedAt": "2026-09-25T18:57:35.539Z",
   "assets": [
     {
       "id": "AGENT-AI-ARCHITECT",
@@ -18,7 +18,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/ai_architect"
+        "skills/ai-architect"
       ]
     },
     {
@@ -33,7 +33,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/critique_conformite"
+        "skills/critique-conformite"
       ]
     },
     {
@@ -48,7 +48,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/bi_analyst"
+        "skills/bi-analyst"
       ]
     },
     {
@@ -63,7 +63,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/business_analyst"
+        "skills/business-analyst"
       ]
     },
     {
@@ -78,7 +78,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/cdo_directeur_ia"
+        "skills/cdo-directeur-ia"
       ]
     },
     {
@@ -93,7 +93,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/change_manager"
+        "skills/change-manager"
       ]
     },
     {
@@ -108,7 +108,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/chef_projet_ia"
+        "skills/chef-projet-ia"
       ]
     },
     {
@@ -123,7 +123,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/cms_digital"
+        "skills/cms-digital"
       ]
     },
     {
@@ -138,7 +138,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/consultant_ia"
+        "skills/consultant-ia"
       ]
     },
     {
@@ -153,7 +153,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/dam_expert"
+        "skills/dam-expert"
       ]
     },
     {
@@ -168,7 +168,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/data_engineer"
+        "skills/data-engineer"
       ]
     },
     {
@@ -183,7 +183,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/data_scientist"
+        "skills/data-scientist"
       ]
     },
     {
@@ -198,7 +198,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/dev_drupal"
+        "skills/dev-drupal"
       ]
     },
     {
@@ -213,7 +213,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/dev_python_ia"
+        "skills/dev-python-ia"
       ]
     },
     {
@@ -228,7 +228,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/dev_typescript_ia"
+        "skills/dev-typescript-ia"
       ]
     },
     {
@@ -243,7 +243,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/devops_cloud"
+        "skills/devops-cloud"
       ]
     },
     {
@@ -258,7 +258,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/financial_analyst"
+        "skills/financial-analyst"
       ]
     },
     {
@@ -273,7 +273,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/formateur_ia"
+        "skills/formateur-ia"
       ]
     },
     {
@@ -288,7 +288,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/growth_ia"
+        "skills/growth-ia"
       ]
     },
     {
@@ -303,7 +303,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/juridique_ia"
+        "skills/juridique-ia"
       ]
     },
     {
@@ -318,7 +318,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/mlops_engineer"
+        "skills/mlops-engineer"
       ]
     },
     {
@@ -333,7 +333,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/orchestrateur_workflow"
+        "skills/orchestrateur-workflow"
       ]
     },
     {
@@ -348,7 +348,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/pim_expert"
+        "skills/pim-expert"
       ]
     },
     {
@@ -393,7 +393,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/product_manager_safe"
+        "skills/product-manager-safe"
       ]
     },
     {
@@ -408,7 +408,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/prompt_engineer"
+        "skills/prompt-engineer"
       ]
     },
     {
@@ -423,7 +423,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/qa_testing"
+        "skills/qa-testing"
       ]
     },
     {
@@ -438,7 +438,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/qa_testing"
+        "skills/qa-testing"
       ]
     },
     {
@@ -453,7 +453,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/redacteur_ia"
+        "skills/redacteur-ia"
       ]
     },
     {
@@ -468,7 +468,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/release_train_engineer"
+        "skills/release-train-engineer"
       ]
     },
     {
@@ -483,7 +483,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/rh_ia"
+        "skills/rh-ia"
       ]
     },
     {
@@ -498,7 +498,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/scrum_master"
+        "skills/scrum-master"
       ]
     },
     {
@@ -513,7 +513,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/securite_ia"
+        "skills/securite-ia"
       ]
     },
     {
@@ -528,7 +528,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/solutions_architect"
+        "skills/solutions-architect"
       ]
     },
     {
@@ -543,7 +543,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/tech_lead"
+        "skills/tech-lead"
       ]
     },
     {
@@ -558,7 +558,7 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/ux_design"
+        "skills/ux-design"
       ]
     },
     {
@@ -573,450 +573,450 @@
         "catalogTag": "v4.4.0"
       },
       "dependsOn": [
-        "skills/veille_strategique"
+        "skills/veille-strategique"
       ]
     },
     {
-      "id": "skills/ai_architect",
+      "id": "skills/ai-architect",
       "type": "skill",
-      "path": "skills/ai_architect/README.md",
+      "path": "skills/ai-architect/SKILL.md",
       "title": "AI Architect",
       "description": "RAG architecture, multi-agent, MCP/A2A, LLM evaluation, AI stack selection",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/ai_architect/README.md",
+        "file": "skills/ai-architect/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/bi_analyst",
+      "id": "skills/bi-analyst",
       "type": "skill",
-      "path": "skills/bi_analyst/README.md",
+      "path": "skills/bi-analyst/SKILL.md",
       "title": "Business Intelligence Analyst",
       "description": "Dimensional modeling, Power BI/Fabric, Tableau, Looker, analytical SQL, KPIs, self-service BI",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/bi_analyst/README.md",
+        "file": "skills/bi-analyst/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/business_analyst",
+      "id": "skills/business-analyst",
       "type": "skill",
-      "path": "skills/business_analyst/README.md",
+      "path": "skills/business-analyst/SKILL.md",
       "title": "Business Analyst / MOA / AMOA",
       "description": "Elicitation, BPMN, UML, functional specifications, business UAT",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/business_analyst/README.md",
+        "file": "skills/business-analyst/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/cdo_directeur_ia",
+      "id": "skills/cdo-directeur-ia",
       "type": "skill",
-      "path": "skills/cdo_directeur_ia/README.md",
+      "path": "skills/cdo-directeur-ia/SKILL.md",
       "title": "CDO / Chief AI Officer & Data",
       "description": "Data strategy, DAMA governance, OKR, data mesh, AI talent",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/cdo_directeur_ia/README.md",
+        "file": "skills/cdo-directeur-ia/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/change_manager",
+      "id": "skills/change-manager",
       "type": "skill",
-      "path": "skills/change_manager/README.md",
+      "path": "skills/change-manager/SKILL.md",
       "title": "Change Manager",
       "description": "ADKAR, impact analysis, communication plan, resistance management, adoption measurement",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/change_manager/README.md",
+        "file": "skills/change-manager/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/chef_projet_ia",
+      "id": "skills/chef-projet-ia",
       "type": "skill",
-      "path": "skills/chef_projet_ia/README.md",
+      "path": "skills/chef-projet-ia/SKILL.md",
       "title": "AI Project Manager",
       "description": "Scoping, planning, risk management, EVM, steering committee, change management",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/chef_projet_ia/README.md",
+        "file": "skills/chef-projet-ia/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/cms_digital",
+      "id": "skills/cms-digital",
       "type": "skill",
-      "path": "skills/cms_digital/README.md",
+      "path": "skills/cms-digital/SKILL.md",
       "title": "CMS & Digital Platform",
       "description": "AEM, Drupal 10, Headless CMS, migration, editorial governance, PIM/DAM, RGAA accessibility, SEO",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/cms_digital/README.md",
+        "file": "skills/cms-digital/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/consultant_ia",
+      "id": "skills/consultant-ia",
       "type": "skill",
-      "path": "skills/consultant_ia/README.md",
+      "path": "skills/consultant-ia/SKILL.md",
       "title": "AI Consultant",
       "description": "AI maturity assessment, roadmap, ROI, benchmark, PoC",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/consultant_ia/README.md",
+        "file": "skills/consultant-ia/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/critique_conformite",
+      "id": "skills/critique-conformite",
       "type": "skill",
-      "path": "skills/critique_conformite/README.md",
+      "path": "skills/critique-conformite/SKILL.md",
       "title": "Control & Challenge of AI deliverables",
       "description": "Methodology compliance audit (SAFe/Scrum/ISTQB/PMI), reasoning challenge, deliverable validation gate, catalog skill quality audit (standalone v2.8 rubric)",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/critique_conformite/README.md",
+        "file": "skills/critique-conformite/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/dam_expert",
+      "id": "skills/dam-expert",
       "type": "skill",
-      "path": "skills/dam_expert/README.md",
+      "path": "skills/dam-expert/SKILL.md",
       "title": "DAM & Digital Assets",
       "description": "Asset taxonomy, validation workflow, rights & licensing, multichannel distribution, renditions, DAM-CMS integration, brand portal, DAM governance, DAM migration, AI DAM, asset analytics, naming conventions",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/dam_expert/README.md",
+        "file": "skills/dam-expert/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/data_engineer",
+      "id": "skills/data-engineer",
       "type": "skill",
-      "path": "skills/data_engineer/README.md",
+      "path": "skills/data-engineer/SKILL.md",
       "title": "Data Engineer",
       "description": "ETL/ELT pipelines, Spark, dbt, Airflow, Kafka, Databricks, lakehouse",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/data_engineer/README.md",
+        "file": "skills/data-engineer/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/data_scientist",
+      "id": "skills/data-scientist",
       "type": "skill",
-      "path": "skills/data_scientist/README.md",
+      "path": "skills/data-scientist/SKILL.md",
       "title": "Data Scientist",
       "description": "Supervised/unsupervised ML, stats, modeling, MLflow, Python, SQL",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/data_scientist/README.md",
+        "file": "skills/data-scientist/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/dev_drupal",
+      "id": "skills/dev-drupal",
       "type": "skill",
-      "path": "skills/dev_drupal/README.md",
+      "path": "skills/dev-drupal/SKILL.md",
       "title": "Drupal PHP Development",
       "description": "Drupal 10 modules, Commerce 2.x, Twig, CMI config, REST APIs, PHPUnit",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/dev_drupal/README.md",
+        "file": "skills/dev-drupal/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/dev_python_ia",
+      "id": "skills/dev-python-ia",
       "type": "skill",
-      "path": "skills/dev_python_ia/README.md",
+      "path": "skills/dev-python-ia/SKILL.md",
       "title": "Python AI Development",
       "description": "Advanced Python, LangChain, RAG, Hugging Face, PyTorch, fine-tuning, agents",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/dev_python_ia/README.md",
+        "file": "skills/dev-python-ia/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/dev_typescript_ia",
+      "id": "skills/dev-typescript-ia",
       "type": "skill",
-      "path": "skills/dev_typescript_ia/README.md",
+      "path": "skills/dev-typescript-ia/SKILL.md",
       "title": "TypeScript AI Development",
       "description": "AI TypeScript, Next.js, Vercel AI SDK, MCP server, streaming, Edge Functions",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/dev_typescript_ia/README.md",
+        "file": "skills/dev-typescript-ia/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/devops_cloud",
+      "id": "skills/devops-cloud",
       "type": "skill",
-      "path": "skills/devops_cloud/README.md",
+      "path": "skills/devops-cloud/SKILL.md",
       "title": "DevOps & Cloud",
       "description": "CI/CD GitHub Actions, Kubernetes, Terraform, Docker, AWS, GCP, Azure",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/devops_cloud/README.md",
+        "file": "skills/devops-cloud/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/financial_analyst",
+      "id": "skills/financial-analyst",
       "type": "skill",
-      "path": "skills/financial_analyst/README.md",
+      "path": "skills/financial-analyst/SKILL.md",
       "title": "Financial Analyst",
       "description": "AI business case, transformation ROI, TCO, EVM, project budget, executive reporting",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/financial_analyst/README.md",
+        "file": "skills/financial-analyst/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/formateur_ia",
+      "id": "skills/formateur-ia",
       "type": "skill",
-      "path": "skills/formateur_ia/README.md",
+      "path": "skills/formateur-ia/SKILL.md",
       "title": "AI Trainer & Learning Designer",
       "description": "Needs analysis, curriculum design, facilitation, e-learning, data literacy",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/formateur_ia/README.md",
+        "file": "skills/formateur-ia/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/growth_ia",
+      "id": "skills/growth-ia",
       "type": "skill",
-      "path": "skills/growth_ia/README.md",
+      "path": "skills/growth-ia/SKILL.md",
       "title": "Growth Hacker & AI Marketing",
       "description": "Acquisition, marketing automation, AI SEO, analytics, A/B testing",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/growth_ia/README.md",
+        "file": "skills/growth-ia/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/juridique_ia",
+      "id": "skills/juridique-ia",
       "type": "skill",
-      "path": "skills/juridique_ia/README.md",
+      "path": "skills/juridique-ia/SKILL.md",
       "title": "AI Legal",
       "description": "GDPR, AI Act, compliance, AI contracts, algorithmic accountability",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/juridique_ia/README.md",
+        "file": "skills/juridique-ia/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/mlops_engineer",
+      "id": "skills/mlops-engineer",
       "type": "skill",
-      "path": "skills/mlops_engineer/README.md",
+      "path": "skills/mlops-engineer/SKILL.md",
       "title": "MLOps Engineer",
       "description": "MLflow, Kubeflow, DVC, drift monitoring, ML CI/CD, Feature Store",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/mlops_engineer/README.md",
+        "file": "skills/mlops-engineer/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/orchestrateur_workflow",
+      "id": "skills/orchestrateur-workflow",
       "type": "skill",
-      "path": "skills/orchestrateur_workflow/README.md",
+      "path": "skills/orchestrateur-workflow/SKILL.md",
       "title": "Agentic Workflow Orchestrator",
       "description": "Workflow design, agent routing, context handoff, error recovery, dependency mapping, parallel orchestration, output validation, catalog, triggers, monitoring",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/orchestrateur_workflow/README.md",
+        "file": "skills/orchestrateur-workflow/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/pim_expert",
+      "id": "skills/pim-expert",
       "type": "skill",
-      "path": "skills/pim_expert/README.md",
+      "path": "skills/pim-expert/SKILL.md",
       "title": "PIM & Product Catalog Management",
       "description": "Catalog modeling, product enrichment, MDM governance, channel syndication, localization, ERP→PIM ETL, quality scoring, PIM migration, supplier portal, AI PIM",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/pim_expert/README.md",
+        "file": "skills/pim-expert/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/product_manager_safe",
+      "id": "skills/product-manager-safe",
       "type": "skill",
-      "path": "skills/product_manager_safe/README.md",
+      "path": "skills/product-manager-safe/SKILL.md",
       "title": "Product Manager SAFe",
       "description": "Program product vision, ART roadmap, customer-centricity, Lean Business Case, go-to-market",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/product_manager_safe/README.md",
+        "file": "skills/product-manager-safe/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/prompt_engineer",
+      "id": "skills/prompt-engineer",
       "type": "skill",
-      "path": "skills/prompt_engineer/README.md",
+      "path": "skills/prompt-engineer/SKILL.md",
       "title": "Prompt Engineer",
       "description": "System prompt design, few-shot, CoT, RAG prompts, multimodal, evaluation, cost optimization",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/prompt_engineer/README.md",
+        "file": "skills/prompt-engineer/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/qa_testing",
+      "id": "skills/qa-testing",
       "type": "skill",
-      "path": "skills/qa_testing/README.md",
+      "path": "skills/qa-testing/SKILL.md",
       "title": "QA & Testing (shared folder)",
       "description": "BDD/Gherkin, ATDD, test plans, UAT, performance, security, CI/CD",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/qa_testing/README.md",
+        "file": "skills/qa-testing/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/redacteur_ia",
+      "id": "skills/redacteur-ia",
       "type": "skill",
-      "path": "skills/redacteur_ia/README.md",
+      "path": "skills/redacteur-ia/SKILL.md",
       "title": "AI Content Writer",
       "description": "Copywriting, SEO, editorial prompting, multi-format content",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/redacteur_ia/README.md",
+        "file": "skills/redacteur-ia/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/release_train_engineer",
+      "id": "skills/release-train-engineer",
       "type": "skill",
-      "path": "skills/release_train_engineer/README.md",
+      "path": "skills/release-train-engineer/SKILL.md",
       "title": "Release Train Engineer (RTE)",
       "description": "PI Planning facilitation, ART coordination, Flow metrics, Inspect & Adapt, Scrum of Scrums",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/release_train_engineer/README.md",
+        "file": "skills/release-train-engineer/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/rh_ia",
+      "id": "skills/rh-ia",
       "type": "skill",
-      "path": "skills/rh_ia/README.md",
+      "path": "skills/rh-ia/SKILL.md",
       "title": "AI HR & IT Talent Acquisition",
       "description": "IT/AI sourcing, job posting writing, candidate evaluation, workforce planning (GEPP), people analytics, compensation benchmarking, AI HR transformation, CV/deepfake fraud prevention, reference checks, ATS parsing",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/rh_ia/README.md",
+        "file": "skills/rh-ia/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
       "id": "skills/safe",
       "type": "skill",
-      "path": "skills/safe/README.md",
+      "path": "skills/safe/SKILL.md",
       "title": "Product Owner SAFe",
       "description": "PI Planning, WSJF, features, ART, portfolio epics, SAFe OKR",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/safe/README.md",
+        "file": "skills/safe/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
       "id": "skills/scrum",
       "type": "skill",
-      "path": "skills/scrum/README.md",
+      "path": "skills/scrum/SKILL.md",
       "title": "Product Owner Scrum",
       "description": "User stories, backlog, prioritization (MoSCoW/RICE/Kano), story mapping, DoR/DoD, KPI, EBM",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/scrum/README.md",
+        "file": "skills/scrum/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/scrum_master",
+      "id": "skills/scrum-master",
       "type": "skill",
-      "path": "skills/scrum_master/README.md",
+      "path": "skills/scrum-master/SKILL.md",
       "title": "Scrum Master",
       "description": "Event facilitation, team coaching, agile metrics, scaling",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/scrum_master/README.md",
+        "file": "skills/scrum-master/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/securite_ia",
+      "id": "skills/securite-ia",
       "type": "skill",
-      "path": "skills/securite_ia/README.md",
+      "path": "skills/securite-ia/SKILL.md",
       "title": "AI Security & Cybersecurity",
       "description": "AI cybersecurity, OWASP LLM Top 10, red teaming, CISSP, Zero Trust",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/securite_ia/README.md",
+        "file": "skills/securite-ia/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/solutions_architect",
+      "id": "skills/solutions-architect",
       "type": "skill",
-      "path": "skills/solutions_architect/README.md",
+      "path": "skills/solutions-architect/SKILL.md",
       "title": "Solutions Architect (TOGAF EA)",
       "description": "TOGAF ADM, ArchiMate 3, enterprise IT architecture, BDAT architecture, integration patterns, cloud migration, ARB governance, IS transformation roadmap",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/solutions_architect/README.md",
+        "file": "skills/solutions-architect/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/tech_lead",
+      "id": "skills/tech-lead",
       "type": "skill",
-      "path": "skills/tech_lead/README.md",
+      "path": "skills/tech-lead/SKILL.md",
       "title": "Tech Lead / Lead Developer",
       "description": "Code review, application architecture, API design, CI/CD, OWASP security, technical debt, mentoring",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/tech_lead/README.md",
+        "file": "skills/tech-lead/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/ux_design",
+      "id": "skills/ux-design",
       "type": "skill",
-      "path": "skills/ux_design/README.md",
+      "path": "skills/ux-design/SKILL.md",
       "title": "UX / UI Designer",
       "description": "User research, personas, wireframing, Figma, design system, WCAG, A/B",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/ux_design/README.md",
+        "file": "skills/ux-design/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },
     {
-      "id": "skills/veille_strategique",
+      "id": "skills/veille-strategique",
       "type": "skill",
-      "path": "skills/veille_strategique/README.md",
+      "path": "skills/veille-strategique/SKILL.md",
       "title": "Strategic Intelligence & Competitive Intelligence",
       "description": "AI/LLM intelligence, trend analysis, weak signals, tool benchmarking, periodic briefings",
       "catalogVersion": "v4.4.0",
       "source": {
-        "file": "skills/veille_strategique/README.md",
+        "file": "skills/veille-strategique/SKILL.md",
         "catalogTag": "v4.4.0"
       }
     },

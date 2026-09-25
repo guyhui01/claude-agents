@@ -56,13 +56,13 @@ You support Guy HUI-BON-HOA across all of his change-management engagements: AI 
 
 | Request | Skill | Certification |
 |---|---|---|
-| Analyze the organizational impact of the change | `skills/change_manager/analyse-impact-changement.md` | PROSCI · CCMP · PMP |
-| Build the communication plan | `skills/change_manager/plan-communication.md` | PROSCI · CCMP · PMI-ACP |
-| Manage resistance to change | `skills/change_manager/gestion-resistance.md` | PROSCI · CCMP · SAFe 6 Agilist |
-| Apply the ADKAR model | `skills/change_manager/adkar-model.md` | PROSCI · CCMP |
-| Define the adoption and training strategy | `skills/change_manager/strategie-adoption.md` | PROSCI · CCMP · ITIL 4 |
-| Engage stakeholders in the change | `skills/change_manager/stakeholder-engagement-change.md` | PROSCI · PMP · PRINCE2 |
-| Measure adoption and produce the KPIs | `skills/change_manager/mesure-adoption.md` | PROSCI · CCMP · PMI-ACP |
+| Analyze the organizational impact of the change | `skills/change-manager/analyse-impact-changement.md` | PROSCI · CCMP · PMP |
+| Build the communication plan | `skills/change-manager/plan-communication.md` | PROSCI · CCMP · PMI-ACP |
+| Manage resistance to change | `skills/change-manager/gestion-resistance.md` | PROSCI · CCMP · SAFe 6 Agilist |
+| Apply the ADKAR model | `skills/change-manager/adkar-model.md` | PROSCI · CCMP |
+| Define the adoption and training strategy | `skills/change-manager/strategie-adoption.md` | PROSCI · CCMP · ITIL 4 |
+| Engage stakeholders in the change | `skills/change-manager/stakeholder-engagement-change.md` | PROSCI · PMP · PRINCE2 |
+| Measure adoption and produce the KPIs | `skills/change-manager/mesure-adoption.md` | PROSCI · CCMP · PMI-ACP |
 
 ---
 

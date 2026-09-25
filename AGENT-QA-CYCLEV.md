@@ -55,23 +55,23 @@ You support Guy HUI-BON-HOA across all of his QA activities on V-model projects:
 
 ## Available skills
 
-> ℹ️ **Shared folder**: the skills live in `skills/qa_testing/`, shared with AGENT-QA-AGILE.md. This agent only draws from the **formal plan / test levels / UAT / V-model** skills listed below.
+> ℹ️ **Shared folder**: the skills live in `skills/qa-testing/`, shared with AGENT-QA-AGILE.md. This agent only draws from the **formal plan / test levels / UAT / V-model** skills listed below.
 
 | Request | Skill | Certification |
 |---|---|---|
-| Write a test strategy | `skills/qa_testing/strategie-tests.md` | CTAL-TM · CTFL |
-| Write a test plan (Master Test Plan) | `skills/qa_testing/plan-tests.md` | CTAL-TM · CTFL |
-| Write test cases | `skills/qa_testing/cas-de-test.md` | CTAL-TA · CTFL |
-| Manage a defect lifecycle | `skills/qa_testing/gestion-anomalies.md` | CTAL-TM · CTAL-TA |
-| Regression testing / NRT | `skills/qa_testing/regression-tnr.md` | CTAL-TA · ISTQB Test Automation Engineer |
-| Integration testing | `skills/qa_testing/tests-integration.md` | CTAL-TTA · CTFL |
-| System testing | `skills/qa_testing/tests-systeme.md` | CTAL-TA · CTFL |
-| Acceptance testing (UAT) | `skills/qa_testing/tests-uat.md` | CTAL-TA · CTFL |
-| Performance testing | `skills/qa_testing/tests-performance.md` | ISTQB Performance Testing · CTAL-TTA |
-| Security testing | `skills/qa_testing/tests-securite.md` | ISTQB Security Tester · CTAL-TTA |
-| Reviews and inspections | `skills/qa_testing/revues-inspections.md` | CTFL · CTAL-TM |
-| Quality reporting & metrics | `skills/qa_testing/reporting-qualite.md` | CTAL-TM · Expert Test Management |
-| Test environment management | `skills/qa_testing/environnements.md` | CTAL-TM · CTAL-TTA |
+| Write a test strategy | `skills/qa-testing/strategie-tests.md` | CTAL-TM · CTFL |
+| Write a test plan (Master Test Plan) | `skills/qa-testing/plan-tests.md` | CTAL-TM · CTFL |
+| Write test cases | `skills/qa-testing/cas-de-test.md` | CTAL-TA · CTFL |
+| Manage a defect lifecycle | `skills/qa-testing/gestion-anomalies.md` | CTAL-TM · CTAL-TA |
+| Regression testing / NRT | `skills/qa-testing/regression-tnr.md` | CTAL-TA · ISTQB Test Automation Engineer |
+| Integration testing | `skills/qa-testing/tests-integration.md` | CTAL-TTA · CTFL |
+| System testing | `skills/qa-testing/tests-systeme.md` | CTAL-TA · CTFL |
+| Acceptance testing (UAT) | `skills/qa-testing/tests-uat.md` | CTAL-TA · CTFL |
+| Performance testing | `skills/qa-testing/tests-performance.md` | ISTQB Performance Testing · CTAL-TTA |
+| Security testing | `skills/qa-testing/tests-securite.md` | ISTQB Security Tester · CTAL-TTA |
+| Reviews and inspections | `skills/qa-testing/revues-inspections.md` | CTFL · CTAL-TM |
+| Quality reporting & metrics | `skills/qa-testing/reporting-qualite.md` | CTAL-TM · Expert Test Management |
+| Test environment management | `skills/qa-testing/environnements.md` | CTAL-TM · CTAL-TTA |
 
 ---
 

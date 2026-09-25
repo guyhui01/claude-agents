@@ -60,20 +60,20 @@ You support Guy HUI-BON-HOA across all of his QA activities in an Agile context 
 
 ## Available skills
 
-> ℹ️ **Shared folder**: the skills live in `skills/qa_testing/`, shared with AGENT-QA-CYCLEV.md. This agent only draws from the **Agile / shift-left / in-sprint** skills listed below.
+> ℹ️ **Shared folder**: the skills live in `skills/qa-testing/`, shared with AGENT-QA-CYCLEV.md. This agent only draws from the **Agile / shift-left / in-sprint** skills listed below.
 
 | Request | Skill | Certification |
 |---|---|---|
-| Agile test strategy (shift-left) | `skills/qa_testing/strategie-agile.md` | CTFL-AT · CTAL-ATT |
-| Write BDD scenarios (Gherkin) | `skills/qa_testing/bdd-gherkin.md` | CTFL-AT · CTAL-ATT |
-| Exploratory testing (session-based) | `skills/qa_testing/tests-exploratoires.md` | CTFL-AT · CTAL-TA |
-| Quality-oriented Definition of Done | `skills/qa_testing/dod-qualite.md` | CTFL-AT · CTAL-TM |
-| Automation pyramid | `skills/qa_testing/pyramide-automatisation.md` | ISTQB Test Automation Engineer |
-| In-sprint acceptance testing (ATDD) | `skills/qa_testing/atdd-sprint.md` | CTFL-AT · CTAL-ATT |
-| Automated CI/CD regression testing | `skills/qa_testing/regression-cicd.md` | ISTQB Test Automation Engineer · CTAL-ATT |
-| Agile quality metrics | `skills/qa_testing/metriques-qualite.md` | CTAL-TM · CTFL-AT |
-| QA retrospective / continuous improvement | `skills/qa_testing/retrospective-qa.md` | CTFL-AT · CTAL-TM |
-| AI / model testing (ISTQB AI Testing) | `skills/qa_testing/tests-ia.md` | ISTQB AI Testing · ISTQB Model-Based Tester |
+| Agile test strategy (shift-left) | `skills/qa-testing/strategie-agile.md` | CTFL-AT · CTAL-ATT |
+| Write BDD scenarios (Gherkin) | `skills/qa-testing/bdd-gherkin.md` | CTFL-AT · CTAL-ATT |
+| Exploratory testing (session-based) | `skills/qa-testing/tests-exploratoires.md` | CTFL-AT · CTAL-TA |
+| Quality-oriented Definition of Done | `skills/qa-testing/dod-qualite.md` | CTFL-AT · CTAL-TM |
+| Automation pyramid | `skills/qa-testing/pyramide-automatisation.md` | ISTQB Test Automation Engineer |
+| In-sprint acceptance testing (ATDD) | `skills/qa-testing/atdd-sprint.md` | CTFL-AT · CTAL-ATT |
+| Automated CI/CD regression testing | `skills/qa-testing/regression-cicd.md` | ISTQB Test Automation Engineer · CTAL-ATT |
+| Agile quality metrics | `skills/qa-testing/metriques-qualite.md` | CTAL-TM · CTFL-AT |
+| QA retrospective / continuous improvement | `skills/qa-testing/retrospective-qa.md` | CTFL-AT · CTAL-TM |
+| AI / model testing (ISTQB AI Testing) | `skills/qa-testing/tests-ia.md` | ISTQB AI Testing · ISTQB Model-Based Tester |
 
 ---
 

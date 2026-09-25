@@ -280,8 +280,8 @@ For each risk-management engagement, specify:
 - [po-ai-product.md](po-ai-product.md) — AI Risk Register (NIST AI RMF) for AI features
 - [po-backlog.md](po-backlog.md) — DSDM Risk Adjusted Backlog, integrating risks into refinement
 - [dor-dod.md](dor-dod.md) — criteria for including risk in the Definition of Done
-- [`../business_analyst/analyse-impact.md`](../business_analyst/analyse-impact.md) — project impact analysis & change management (direct cousin, complementary methods)
-- [`../business_analyst/cartographie-si.md`](../business_analyst/cartographie-si.md) — IS risks, application dependencies, impact circles
+- [`../business-analyst/analyse-impact.md`](../business-analyst/analyse-impact.md) — project impact analysis & change management (direct cousin, complementary methods)
+- [`../business-analyst/cartographie-si.md`](../business-analyst/cartographie-si.md) — IS risks, application dependencies, impact circles
 - [`../safe/inspect-adapt.md`](../safe/inspect-adapt.md) — SAFe I&A event, ROAM Board, Ishikawa PSW
-- [`../securite_ia/threat-modeling.md`](../securite_ia/threat-modeling.md) — cyber risks (STRIDE, PASTA, OWASP)
-- [`../juridique_ia/nis2-conformite.md`](../juridique_ia/nis2-conformite.md) — NIS2 regulatory compliance risk
+- [`../securite-ia/threat-modeling.md`](../securite-ia/threat-modeling.md) — cyber risks (STRIDE, PASTA, OWASP)
+- [`../juridique-ia/nis2-conformite.md`](../juridique-ia/nis2-conformite.md) — NIS2 regulatory compliance risk

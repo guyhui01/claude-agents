@@ -56,12 +56,12 @@ You assist Guy HUI-BON-HOA in all his strategic intelligence activities: monitor
 
 | Request | Skill | Certification |
 |---|---|---|
-| Monitor the AI and LLM ecosystem | `skills/veille_strategique/veille-ia-llm.md` | Anthropic Claude Code in Action · SIC (SCIP) |
-| Analyze competition and the market | `skills/veille_strategique/veille-concurrentielle.md` | SIC (SCIP) · PMI-PBA |
-| Analyze tech and sector trends | `skills/veille_strategique/analyse-tendances.md` | SIC (SCIP) · SAFe LPM |
-| Produce a periodic intelligence digest | `skills/veille_strategique/synthese-periodique.md` | SIC (SCIP) · HubSpot · Google Analytics |
-| Benchmark AI tools | `skills/veille_strategique/benchmark-outils-ia.md` | Anthropic Claude Code in Action · SIC (SCIP) · PMI-PBA |
-| Detect weak signals and opportunities | `skills/veille_strategique/detection-signaux-faibles.md` | SIC (SCIP) · SAFe LPM |
+| Monitor the AI and LLM ecosystem | `skills/veille-strategique/veille-ia-llm.md` | Anthropic Claude Code in Action · SIC (SCIP) |
+| Analyze competition and the market | `skills/veille-strategique/veille-concurrentielle.md` | SIC (SCIP) · PMI-PBA |
+| Analyze tech and sector trends | `skills/veille-strategique/analyse-tendances.md` | SIC (SCIP) · SAFe LPM |
+| Produce a periodic intelligence digest | `skills/veille-strategique/synthese-periodique.md` | SIC (SCIP) · HubSpot · Google Analytics |
+| Benchmark AI tools | `skills/veille-strategique/benchmark-outils-ia.md` | Anthropic Claude Code in Action · SIC (SCIP) · PMI-PBA |
+| Detect weak signals and opportunities | `skills/veille-strategique/detection-signaux-faibles.md` | SIC (SCIP) · SAFe LPM |
 
 ---
 

@@ -72,18 +72,18 @@ You assist Guy HUI-BON-HOA across all his CMS and digital platform work: headles
 
 | Request | Skill | Certification |
 |---|---|---|
-| Design the target CMS architecture (headless / hybrid) | `skills/cms_digital/architecture-cms.md` | TOGAF 10 · Contentful Certified · AEM Developer |
-| Configure and develop on Adobe AEM | `skills/cms_digital/aem-sites-assets.md` | Adobe AEM Sites Developer · AEM Business Practitioner |
-| Develop on Drupal 10 (modules, API, Commerce) | `skills/cms_digital/drupal-developpement.md` | Acquia Certified Developer · Acquia Site Builder |
-| Implement a Headless CMS (Contentful, Strapi…) | `skills/cms_digital/cms-headless.md` | Contentful Certified · AEM Developer |
-| Lead a CMS migration (carve-out, replatform) | `skills/cms_digital/migration-cms.md` | Acquia Developer · AEM Developer · TOGAF 10 |
-| Define editorial governance and workflows | `skills/cms_digital/gouvernance-editoriale.md` | AEM Business Practitioner · Acquia Site Builder |
-| Integrate a PIM or DAM with the CMS | `skills/cms_digital/integration-pim-dam.md` | AEM Developer · Acquia Developer · Contentful |
-| Audit and improve web performance (CWV) | `skills/cms_digital/performance-web.md` | AEM Developer · Acquia Developer |
-| Audit digital accessibility (RGAA 4.1 / WCAG 2.2) | `skills/cms_digital/accessibilite-numerique.md` | WCAG 2.2 / RGAA 4.1 (W3C · DINUM) |
-| Optimize a CMS platform's technical SEO | `skills/cms_digital/seo-technique-cms.md` | AEM Business Practitioner · Acquia Site Builder |
-| Manage a multisite digital rebranding | `skills/cms_digital/rebranding-digital.md` | AEM Business Practitioner · TOGAF 10 · Acquia |
-| Design personalization and segmentation | `skills/cms_digital/personnalisation-segmentation.md` | Adobe AEM Sites Developer · Sitecore XP 10 |
+| Design the target CMS architecture (headless / hybrid) | `skills/cms-digital/architecture-cms.md` | TOGAF 10 · Contentful Certified · AEM Developer |
+| Configure and develop on Adobe AEM | `skills/cms-digital/aem-sites-assets.md` | Adobe AEM Sites Developer · AEM Business Practitioner |
+| Develop on Drupal 10 (modules, API, Commerce) | `skills/cms-digital/drupal-developpement.md` | Acquia Certified Developer · Acquia Site Builder |
+| Implement a Headless CMS (Contentful, Strapi…) | `skills/cms-digital/cms-headless.md` | Contentful Certified · AEM Developer |
+| Lead a CMS migration (carve-out, replatform) | `skills/cms-digital/migration-cms.md` | Acquia Developer · AEM Developer · TOGAF 10 |
+| Define editorial governance and workflows | `skills/cms-digital/gouvernance-editoriale.md` | AEM Business Practitioner · Acquia Site Builder |
+| Integrate a PIM or DAM with the CMS | `skills/cms-digital/integration-pim-dam.md` | AEM Developer · Acquia Developer · Contentful |
+| Audit and improve web performance (CWV) | `skills/cms-digital/performance-web.md` | AEM Developer · Acquia Developer |
+| Audit digital accessibility (RGAA 4.1 / WCAG 2.2) | `skills/cms-digital/accessibilite-numerique.md` | WCAG 2.2 / RGAA 4.1 (W3C · DINUM) |
+| Optimize a CMS platform's technical SEO | `skills/cms-digital/seo-technique-cms.md` | AEM Business Practitioner · Acquia Site Builder |
+| Manage a multisite digital rebranding | `skills/cms-digital/rebranding-digital.md` | AEM Business Practitioner · TOGAF 10 · Acquia |
+| Design personalization and segmentation | `skills/cms-digital/personnalisation-segmentation.md` | Adobe AEM Sites Developer · Sitecore XP 10 |
 
 ---
 

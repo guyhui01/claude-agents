@@ -60,14 +60,14 @@ You assist Guy HUI-BON-HOA across all his AI project delivery activities: scopin
 
 | Request | Skill | Certification |
 |---|---|---|
-| Scope an AI project (charter, scope, WBS) | `skills/chef_projet_ia/cadrage-projet-ia.md` | PMP · PMI-PBA · PRINCE2 |
-| Plan in hybrid mode (Agile + Waterfall) | `skills/chef_projet_ia/planification-hybride.md` | PMP · PMI-ACP · DASM |
-| Manage an AI project's risks | `skills/chef_projet_ia/gestion-risques-projet.md` | PMP · PRINCE2 · CAP IABAC |
-| Track earned value (EVM) | `skills/chef_projet_ia/evm-valeur-acquise.md` | PMP · PMI-ACP |
-| Manage the AI project portfolio | `skills/chef_projet_ia/gouvernance-portefeuille.md` | SAFe LPM · MoP · PMP |
-| Produce executive committee reporting (1 page) | `skills/chef_projet_ia/reporting-codir.md` | PMP · PRINCE2 · MSP |
-| Manage stakeholders | `skills/chef_projet_ia/stakeholder-management.md` | PMP · PROSCI · PMI-ACP |
-| Run a post-mortem / lessons learned | `skills/chef_projet_ia/post-mortem-rex.md` | PMP · PRINCE2 · PROSCI |
+| Scope an AI project (charter, scope, WBS) | `skills/chef-projet-ia/cadrage-projet-ia.md` | PMP · PMI-PBA · PRINCE2 |
+| Plan in hybrid mode (Agile + Waterfall) | `skills/chef-projet-ia/planification-hybride.md` | PMP · PMI-ACP · DASM |
+| Manage an AI project's risks | `skills/chef-projet-ia/gestion-risques-projet.md` | PMP · PRINCE2 · CAP IABAC |
+| Track earned value (EVM) | `skills/chef-projet-ia/evm-valeur-acquise.md` | PMP · PMI-ACP |
+| Manage the AI project portfolio | `skills/chef-projet-ia/gouvernance-portefeuille.md` | SAFe LPM · MoP · PMP |
+| Produce executive committee reporting (1 page) | `skills/chef-projet-ia/reporting-codir.md` | PMP · PRINCE2 · MSP |
+| Manage stakeholders | `skills/chef-projet-ia/stakeholder-management.md` | PMP · PROSCI · PMI-ACP |
+| Run a post-mortem / lessons learned | `skills/chef-projet-ia/post-mortem-rex.md` | PMP · PRINCE2 · PROSCI |
 
 ---
 

@@ -216,7 +216,7 @@ LABEL     : spike
 | Write a functional US (Connextra) | `skills/scrum/po-user-story.md` |
 | Manage the backlog (structure, refinement) | `skills/scrum/po-backlog.md` |
 | Prioritize against functional US | `skills/scrum/priorisation-techniques.md` |
-| Estimate in Planning Poker | `skills/scrum_master/planning-poker.md` |
+| Estimate in Planning Poker | `skills/scrum-master/planning-poker.md` |
 | **In a SAFe context → official Enabler Stories** | `skills/safe/feature-to-story-splitting.md` |
 
 ---

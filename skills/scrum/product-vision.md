@@ -390,4 +390,4 @@ For each product-vision engagement, specify:
 - [lean-ux.md](lean-ux.md) — Lean UX discovery paired with Continuous Discovery
 - [po-ai-product.md](po-ai-product.md) — AI product vision (Vision Board extension + Cagan's 4 risks adapted to AI)
 - [coaching-pos.md](coaching-pos.md) — coaching other POs on vision framing (PSPO III)
-- [`../business_analyst/cadrage-projet.md`](../business_analyst/cadrage-projet.md) — bridge with V-model project scoping (agile Vision ↔ PMBOK Business Case)
+- [`../business-analyst/cadrage-projet.md`](../business-analyst/cadrage-projet.md) — bridge with V-model project scoping (agile Vision ↔ PMBOK Business Case)

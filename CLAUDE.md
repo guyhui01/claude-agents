@@ -35,7 +35,7 @@ claude-agents/
 
 ## Conventions
 
-- **File naming**: `snake_case.md` for skills, `AGENT-NAME-UPPERCASE.md` for agents
+- **File naming**: `AGENT-NAME-UPPERCASE.md` for agents; skill folders and files in `kebab-case`, each folder holding a `SKILL.md` card ([Agent Skills](https://agentskills.io/specification) packaging: frontmatter `name` = folder name, plus `description` — enforced by `generate:sidecar`)
 - **Working language**: French in chat; all written artifacts (files, commits, PRs, docs) in US English
 - **Encoding**: UTF-8
 - **Date format**: ISO 8601 (`YYYY-MM-DD`) in memories
@@ -53,7 +53,7 @@ claude-agents/
 - **Commits OK without asking**, but push only on explicit approval
 - **Concise responses**, in French (chat)
 - For destructive or irreversible actions (`rm -rf`, `git reset --hard`, force push) → ask first
-- Mechanical edits (Sonnet 5 is enough); architecture trade-offs (Opus 4.8; Fable 5 for the most demanding reasoning / long-horizon agentic work)
+- Mechanical edits (Sonnet 5 is enough); architecture trade-offs (Opus 5.5; Fable 5 for the most demanding reasoning / long-horizon agentic work)
 
 ---
 
@@ -62,7 +62,7 @@ claude-agents/
 | Task | Recommended model |
 |---|---|
 | Most demanding reasoning, long-horizon agentic work | **Fable 5** |
-| Audit, complex reasoning, architecture trade-offs | **Opus 4.8** |
+| Audit, complex reasoning, architecture trade-offs | **Opus 5.5** |
 | Targeted edits, mechanical refactoring, skill generation | **Sonnet 5** |
 | Bulk boilerplate generation, simple scripts | **Haiku 4.5** |
 

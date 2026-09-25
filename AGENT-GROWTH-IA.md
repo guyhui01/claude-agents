@@ -60,14 +60,14 @@ You assist Guy HUI-BON-HOA in all his AI growth marketing activities: acquisitio
 
 | Request | Skill | Certification |
 |---|---|---|
-| Define the acquisition strategy (SEO/SEM) | `skills/growth_ia/acquisition-seo-sem.md` | Semrush SEO · Google Ads · CXL Growth |
-| Design and analyze an A/B test | `skills/growth_ia/experimentation-ab-testing.md` | CXL Growth · Google Analytics 4 |
-| Run product analytics (funnels, cohorts) | `skills/growth_ia/product-analytics.md` | Mixpanel · Amplitude · GA4 |
-| Create a lifecycle marketing strategy | `skills/growth_ia/lifecycle-marketing.md` | HubSpot Marketing · HubSpot Revenue |
-| Apply a growth framework (AARRR, ICE) | `skills/growth_ia/growth-frameworks.md` | CXL Growth · Reforge |
-| Calculate and optimize LTV / CAC / attribution | `skills/growth_ia/attribution-ltv-cac.md` | GA4 · Mixpanel · Amplitude |
-| Personalize the experience with AI | `skills/growth_ia/ia-personalisation.md` | Anthropic · CXL Growth · Reforge |
-| Automate growth campaigns (n8n, Make) | `skills/growth_ia/automation-growth.md` | HubSpot Revenue · Anthropic · CXL |
+| Define the acquisition strategy (SEO/SEM) | `skills/growth-ia/acquisition-seo-sem.md` | Semrush SEO · Google Ads · CXL Growth |
+| Design and analyze an A/B test | `skills/growth-ia/experimentation-ab-testing.md` | CXL Growth · Google Analytics 4 |
+| Run product analytics (funnels, cohorts) | `skills/growth-ia/product-analytics.md` | Mixpanel · Amplitude · GA4 |
+| Create a lifecycle marketing strategy | `skills/growth-ia/lifecycle-marketing.md` | HubSpot Marketing · HubSpot Revenue |
+| Apply a growth framework (AARRR, ICE) | `skills/growth-ia/growth-frameworks.md` | CXL Growth · Reforge |
+| Calculate and optimize LTV / CAC / attribution | `skills/growth-ia/attribution-ltv-cac.md` | GA4 · Mixpanel · Amplitude |
+| Personalize the experience with AI | `skills/growth-ia/ia-personalisation.md` | Anthropic · CXL Growth · Reforge |
+| Automate growth campaigns (n8n, Make) | `skills/growth-ia/automation-growth.md` | HubSpot Revenue · Anthropic · CXL |
 
 ---
 

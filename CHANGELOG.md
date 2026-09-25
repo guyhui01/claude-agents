@@ -15,6 +15,60 @@
   declares `fast-uri: ^3.0.1`, so `npm audit fix` resolves it inside the declared
   range: no `overrides`, no `--force`, `ajv` unchanged. `npm audit` = 0.
 
+### ⚠ Breaking
+- **All 37 skill folders are now [Agent Skills](https://agentskills.io/specification)
+  packages, and 35 of them are renamed.** The spec requires the frontmatter `name`
+  to equal the folder name, in lowercase letters, digits and hyphens only — an
+  underscored folder cannot be a conformant skill. Every underscore became a
+  hyphen (`skills/qa_testing/` → `skills/qa-testing/`, …); `safe` and `scrum`
+  keep their names. Sidecar ids follow (`skills/qa_testing` → `skills/qa-testing`)
+  and every skill asset path moves from `…/README.md` to `…/SKILL.md`. Any
+  consumer addressing a skill by its old id or path must follow. Titles,
+  descriptions and dependency edges are unchanged: once ids and paths are
+  normalized, the sidecar is identical to 4.4.0's (85/85 assets).
+
+### ✨ Added
+- **One `SKILL.md` per folder.** The folder card moved from `README.md` to
+  `SKILL.md` (no duplicate) and gained a `name` / `description` frontmatter; the
+  description says what the skill covers and when to use it, the part a
+  skills-capable agent reads to decide on activation. The 425 skill files stay in
+  their folders as on-demand references, so every request row keeps resolving.
+- **Proven loadable, not only valid.** `skills-ref validate` accepts all 37
+  folders, and rejects a folder under its old underscored name. A Claude Code
+  session with the 37 folders under `.claude/skills/` listed all 37 names, and
+  on matching requests invoked `ai-architect` and `qa-testing` and read the
+  referenced file (quoting a line that exists only in this revision, and the
+  file's exact H1).
+- **`generate:sidecar` enforces the frontmatter's hard rules** — `name` format,
+  `name` equal to the folder, non-empty `description` of at most 1024 characters,
+  a closed `key: value` block — and refuses a leftover `README.md` card. A
+  skills-capable agent silently ignores a non-conformant skill while every
+  catalog gate would stay green; generation now fails instead. Falsified on a
+  copy of the tree: 12 mutations, each red with its own message, against a green
+  baseline; a stray `README.md` is also reported `UNMAPPED` by
+  `validate:skill-mapping`.
+
+### 🔧 Fixed
+- **Stale model versions in the skills.** `claude-opus-4-8` → `claude-opus-5-5`
+  (32 occurrences, 14 files — code samples and "current model" notes);
+  `ai-architect/cloud-ia.md` and `choix-stack-ia.md` listed "Claude 3/4",
+  "GPT-4o", "Gemini 2.0", "Llama 3": rewritten as model families with a pointer
+  to each provider's catalog, so the pages no longer age with every release.
+  `claude-haiku-4-5` is current and unchanged. Workflow cards are out of this
+  scope: their `modele_recommande` / `modele_alternatif` fields are read by the
+  runtime.
+- **Dead path in the maintenance reminder**: `skills/dev_ia/` never existed; it
+  now names `skills/dev-python-ia/` and `skills/dev-typescript-ia/`.
+- **A link to a skill card** (`redacteur-ia/documentation-technique.md`) pointed
+  at `README.md`; it now targets `SKILL.md`. Relative Markdown links checked
+  across the catalog: 1301, the same 2 unresolved as on 4.4.0 and none added.
+- **Naming convention** (`CLAUDE.md`, `CONTRIBUTING.md`): "`snake_case.md` for
+  skills" was already false for the files, which were all kebab-case; now states
+  kebab-case folders and files with a `SKILL.md` card. `CLAUDE.md` recommended
+  Opus version 4.8 → 5.5.
+- Dated audits under `audits/` and earlier CHANGELOG entries keep the old paths:
+  they are frozen records of the catalog at their date.
+
 ---
 
 ## [4.4.0] — 2026-08-13 — The drift check measures the catalog in CI, instead of only checking its own pin

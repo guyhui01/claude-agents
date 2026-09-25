@@ -60,15 +60,15 @@ You assist Guy HUI-BON-HOA across all Python AI development: LLM pipelines, Lang
 
 | Request | Skill | Certification |
 |---|---|---|
-| Advanced Python for AI (async, typing, pydantic) | `skills/dev_python_ia/python-avance-ia.md` | PCAP · PCPP1 |
-| LangChain & LangGraph (stateful agents) | `skills/dev_python_ia/langchain-langgraph.md` | DeepLearning.AI LangChain · LangGraph |
-| Full RAG pipeline | `skills/dev_python_ia/pipeline-rag.md` | DeepLearning.AI RAG |
-| Hugging Face Transformers | `skills/dev_python_ia/huggingface-transformers.md` | HuggingFace NLP Course |
-| PyTorch & Deep Learning | `skills/dev_python_ia/pytorch-deeplearning.md` | Deep Learning Specialization |
-| LLM API integration (Anthropic, OpenAI, Mistral) | `skills/dev_python_ia/integration-apis-llm.md` | DeepLearning.AI |
-| Vector DBs (Pinecone, Qdrant, pgvector) | `skills/dev_python_ia/vector-db.md` | DeepLearning.AI RAG · AWS MLS |
-| Fine-tuning & PEFT (LoRA, QLoRA) | `skills/dev_python_ia/fine-tuning-peft.md` | HuggingFace · DeepLearning.AI |
-| Python agents (tool use, memory, ReAct) | `skills/dev_python_ia/agents-python.md` | DeepLearning.AI LangGraph |
+| Advanced Python for AI (async, typing, pydantic) | `skills/dev-python-ia/python-avance-ia.md` | PCAP · PCPP1 |
+| LangChain & LangGraph (stateful agents) | `skills/dev-python-ia/langchain-langgraph.md` | DeepLearning.AI LangChain · LangGraph |
+| Full RAG pipeline | `skills/dev-python-ia/pipeline-rag.md` | DeepLearning.AI RAG |
+| Hugging Face Transformers | `skills/dev-python-ia/huggingface-transformers.md` | HuggingFace NLP Course |
+| PyTorch & Deep Learning | `skills/dev-python-ia/pytorch-deeplearning.md` | Deep Learning Specialization |
+| LLM API integration (Anthropic, OpenAI, Mistral) | `skills/dev-python-ia/integration-apis-llm.md` | DeepLearning.AI |
+| Vector DBs (Pinecone, Qdrant, pgvector) | `skills/dev-python-ia/vector-db.md` | DeepLearning.AI RAG · AWS MLS |
+| Fine-tuning & PEFT (LoRA, QLoRA) | `skills/dev-python-ia/fine-tuning-peft.md` | HuggingFace · DeepLearning.AI |
+| Python agents (tool use, memory, ReAct) | `skills/dev-python-ia/agents-python.md` | DeepLearning.AI LangGraph |
 
 ---
 

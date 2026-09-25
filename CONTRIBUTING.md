@@ -77,8 +77,9 @@ breaking-change → regression-eval as a hard gate before that corpus is built.
 
 All written artifacts — files, commits, PRs, docs — are in **professional US English**.
 Commits follow Conventional Commits (`feat` · `fix` · `refactor` · `chore` · `docs` ·
-`test` · `ci`). File naming: `snake_case.md` for skills, `AGENT-NAME-UPPERCASE.md` for
-agents. Encoding: UTF-8. Dates: ISO 8601 (`YYYY-MM-DD`).
+`test` · `ci`). File naming: `AGENT-NAME-UPPERCASE.md` for agents; skills in `kebab-case`, one folder per
+skill with a `SKILL.md` card ([Agent Skills](https://agentskills.io/specification) format,
+enforced by `generate:sidecar`). Encoding: UTF-8. Dates: ISO 8601 (`YYYY-MM-DD`).
 
 See [`CLAUDE.md`](CLAUDE.md) for the full Git workflow, SemVer table, tag/release
 conventions, and branch-protection rules.

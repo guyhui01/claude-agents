@@ -11,9 +11,34 @@
 Reprise session — catalogue /Users/guyhui/CLAUDE/claude-agents (repo guyhui01/claude-agents, checkout canonique unique).
 Applique le rituel de démarrage. CHECK FACTUEL D'ABORD, jamais de mémoire :
   git -C /Users/guyhui/CLAUDE/claude-agents status -sb   ·   git describe --tags
-  npm run validate:sidecar   (attendu : ✓ 85 asset(s), catalog v4.3.0)
+  npm run validate:sidecar   (attendu : ✓ 85 asset(s), catalog v4.4.0)
   npm run validate:skill-mapping  (attendu : ✓ 425 fichiers ↔ 428 lignes × 38 agents)
-  npm audit                  (attendu : found 0 vulnerabilities)
+  npm audit                  (attendu : found 0 vulnerabilities — fast-uri 3.1.5 → 3.1.8 le
+                              2026-09-25, commit `fix(deps)` sur main LOCAL, NON POUSSÉ ⟹ les
+                              4 alertes Dependabot #4-#7 restent ouvertes côté distant tant que
+                              ce n'est pas poussé ; vérifier `fixed` à l'API APRÈS push)
+
+▶ CHANTIER EN COURS (2026-09-25) — packaging Agent Skills (https://agentskills.io/specification).
+  Branche LOCALE `refactor/agent-skills-packaging` (2 commits), RIEN de poussé, RIEN de mergé.
+  ✅ MIGRATION COMPLÈTE : les 37 dossiers portent un `SKILL.md` (frontmatter name/description) ;
+  35 renommés `_` → `-` (`safe`, `scrum` inchangés). Repli README.md RETIRÉ du générateur.
+  Le renommage était OBLIGATOIRE : la spec exige name == nom du dossier, [a-z0-9-] seulement.
+  Sidecar : ids + chemins seulement — identique à v4.4.0 une fois normalisé (85/85).
+  Preuves : 4 gates vertes · falsification 12 mutations + 1 sur skill-mapping, chacune rouge
+  sur SA cause · `skills-ref validate` 37/37 · session Claude Code live (souscription) : 37/37
+  listés, `ai-architect` et `qa-testing` invoqués et lus · 1301 liens relatifs, mêmes 2 casses
+  préexistantes que `main` · parité des fences inchangée sur 575 fichiers.
+  Versions périmées : `claude-opus-4-8` → `claude-opus-5-5` dans les skills (32 occ., 14 fichiers).
+  ⏭ PROCHAINE UNITÉ, SUR ACCORD EXPLICITE : squash-merge sur `main`, bump 5.0.0 (ordre
+  bump → generate → validate), CHANGELOG `[Unreleased]` → `[5.0.0]`, tag annoté, push,
+  GitHub Release. Changement CASSANT (ids des skills).
+  ▫ Aval après release : le runtime épingle v4.3.0 et n'adresse AUCUN id de skill dans `src/`
+  (vérifié le 2026-09-25 : seules des fixtures synthétiques) ⟹ rien à réparer, seulement à
+  ré-épingler quand il avancera. Vitrine : 0 chemin de skill hors CHANGELOG figé ; ses
+  chiffres (37 dossiers, 425 fichiers) restent vrais.
+  ▫ HORS PÉRIMÈTRE, décision à part : les 10 workflows portent `claude-opus-4-8` en
+  `modele_recommande` / `modele_alternatif` — champ LU par le runtime (`dispatch/plan.ts`) et
+  adossé à des preuves live ⟹ ne pas le changer ici.
 
 SIDECAR COMPLET = les 10 WORKFLOWS SONT INDEXÉS depuis v4.2.0 (2026-07-18). 85 assets
 (38 agents + 37 skills + 10 workflows). Décisions tranchées : description ⟵ 1ʳᵉ ligne de
@@ -392,7 +417,7 @@ Correction de forme : le tracker qualifiait `7216488` de « commit local non pou
 - **2026-08-16** — **`32e8ff3`** (poussé) : `fix` d'un typo d'email de contact licensing
   (`guy.hui@` → `guyhui@`). Docs/config, pas de bump.
 - **2026-08-18** — **Catalog versioning policy documentée** (commits LOCAUX, docs-only, rien
-  de poussé). Item porté depuis la session `agentic-strategy` du 2026-08-18. Constat vérifié à
+  de poussé). Item porté depuis une session de planification du 2026-08-18. Constat vérifié à
   la source AVANT d'écrire : l'invariant « snapshot cohérent » **existe déjà** (`catalog.version`
   unique + `catalogVersion` uniforme sur les 85 assets, 0 divergence) et est **déjà gardé** par
   `validate:sidecar` ; aucun SemVer par-asset. La policy **documente** cet invariant, elle
@@ -404,3 +429,16 @@ Correction de forme : le tracker qualifiait `7216488` de « commit local non pou
   ~25 traces live au 2026-08-18, pas une suite ; cross-ref runtime **ADR-0002** import vs
   granularité interne, ADR-0002 NON modifié) + une section « Contributing » de renvoi dans
   `README.md`. Gates re-vertes après édition. **En attente d'accord pour commit/push.**
+- **2026-09-25** — **Packaging Agent Skills : pilote `ai-architect`** (branche locale
+  `refactor/agent-skills-packaging`, rien de poussé). Dossier renommé en kebab-case, carte
+  `SKILL.md` avec frontmatter, garde de frontmatter dans le générateur (falsifié 10/10), contenu
+  périmé corrigé (versions de modèles). Chargement natif prouvé en session Claude Code live.
+  Détail dans le bloc ▶ de reprise et le CHANGELOG `[Unreleased]`. ▫ Hygiène d'instrument :
+  1ᵉʳ harnais de falsification faux (`read` avalait les `\n` ⟹ 3 mutations non appliquées,
+  lues vertes) — refait en Python avec assertion « la mutation a bien modifié le fichier ».
+  ▫ Mention d'un repo privé neutralisée dans l'entrée du 2026-08-18 (ce fichier est public).
+  ▫ **Même jour — migration complète** des 36 autres dossiers, repli README.md retiré.
+  2ᵉ bug de harnais attrapé par le message et non par le verdict : `open(q,"w")` vidait le
+  fichier avant de le lire ⟹ rouge « pas de frontmatter » au lieu de « nom invalide ».
+  Et un « aucun skill » renvoyé par la session live était une erreur de classement du modèle,
+  pas un défaut de chargement : relancé en demandant la liste brute ⟹ 37/37.

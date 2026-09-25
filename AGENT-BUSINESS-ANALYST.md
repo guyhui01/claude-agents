@@ -67,17 +67,17 @@ You support the PO/MOA/AMOA profile across all of its business-analysis AND proj
 
 | Request | Skill | Certification |
 |---|---|---|
-| Elicit and analyze business needs | `skills/business_analyst/elicitation-besoins.md` | IIBA CBAP · CCBA |
-| Model processes (BPMN, UML) | `skills/business_analyst/modelisation-processus.md` | IIBA CBAP · BCS Diploma |
-| Write functional specifications | `skills/business_analyst/specification-fonctionnelle.md` | IIBA CBAP · PMI-PBA |
-| Prepare and run MOA UAT | `skills/business_analyst/recette-moa.md` | IIBA CBAP · BCS Diploma |
-| Scope a project (PMBOK charter, Business Case, TELOS feasibility) | `skills/business_analyst/cadrage-projet.md` | PMI-PBA · PRINCE2 · IIBA CBAP |
-| Steer the project (WBS, Gantt/CPM, PRINCE2 tolerances, EVM, closure, lessons learned) | `skills/business_analyst/pilotage-projet.md` | PMI-PBA · PMP · PRINCE2 · ISO 21500 |
-| Map the existing IS (TOGAF 10, ArchiMate 3.2, C4) | `skills/business_analyst/cartographie-si.md` | TOGAF 10 · IIBA CBAP |
-| Manage requirements (traceability, matrix) | `skills/business_analyst/gestion-exigences.md` | IIBA CBAP · PMI-PBA |
-| Analyze impacts and manage change (Kotter, ADKAR, McKinsey 7S) | `skills/business_analyst/analyse-impact.md` | PROSCI · ACMP CCMP · IIBA AAC |
-| Facilitate a business workshop | `skills/business_analyst/animation-atelier-metier.md` | IIBA AAC · ICAgile |
-| MOA reporting + committee governance (COMEX/COSTRAT/COPIL/COTECH/CCB/CDP) | `skills/business_analyst/reporting-moa.md` | IIBA CBAP · PMI-PBA · PRINCE2 |
+| Elicit and analyze business needs | `skills/business-analyst/elicitation-besoins.md` | IIBA CBAP · CCBA |
+| Model processes (BPMN, UML) | `skills/business-analyst/modelisation-processus.md` | IIBA CBAP · BCS Diploma |
+| Write functional specifications | `skills/business-analyst/specification-fonctionnelle.md` | IIBA CBAP · PMI-PBA |
+| Prepare and run MOA UAT | `skills/business-analyst/recette-moa.md` | IIBA CBAP · BCS Diploma |
+| Scope a project (PMBOK charter, Business Case, TELOS feasibility) | `skills/business-analyst/cadrage-projet.md` | PMI-PBA · PRINCE2 · IIBA CBAP |
+| Steer the project (WBS, Gantt/CPM, PRINCE2 tolerances, EVM, closure, lessons learned) | `skills/business-analyst/pilotage-projet.md` | PMI-PBA · PMP · PRINCE2 · ISO 21500 |
+| Map the existing IS (TOGAF 10, ArchiMate 3.2, C4) | `skills/business-analyst/cartographie-si.md` | TOGAF 10 · IIBA CBAP |
+| Manage requirements (traceability, matrix) | `skills/business-analyst/gestion-exigences.md` | IIBA CBAP · PMI-PBA |
+| Analyze impacts and manage change (Kotter, ADKAR, McKinsey 7S) | `skills/business-analyst/analyse-impact.md` | PROSCI · ACMP CCMP · IIBA AAC |
+| Facilitate a business workshop | `skills/business-analyst/animation-atelier-metier.md` | IIBA AAC · ICAgile |
+| MOA reporting + committee governance (COMEX/COSTRAT/COPIL/COTECH/CCB/CDP) | `skills/business-analyst/reporting-moa.md` | IIBA CBAP · PMI-PBA · PRINCE2 |
 
 ---
 

@@ -62,14 +62,14 @@ You support Guy HUI-BON-HOA across all his enterprise- and solution-architecture
 
 | Request | Skill | Certification |
 |---|---|---|
-| Run a TOGAF ADM cycle | `skills/solutions_architect/togaf-adm.md` | TOGAF 10 Foundation & Practitioner |
-| Model with ArchiMate 3 | `skills/solutions_architect/archimate-modeling.md` | ArchiMate 3 Practitioner · TOGAF 10 |
-| Map the IS (urbanization) | `skills/solutions_architect/urbanisme-si.md` | TOGAF 10 · CITA-A · IASA |
-| Design the target BDAT architecture | `skills/solutions_architect/architecture-bdat.md` | TOGAF 10 Practitioner · CITA-A |
-| Select integration patterns | `skills/solutions_architect/integration-patterns.md` | AWS SAP-C02 · Google Cloud Architect · AZ-305 |
-| Define the cloud migration strategy | `skills/solutions_architect/migration-cloud.md` | AWS SAP-C02 · Google Cloud Architect · AZ-305 |
-| Set up architecture governance | `skills/solutions_architect/gouvernance-architecturale.md` | TOGAF 10 · CITA-A · IASA |
-| Build the IS transformation roadmap | `skills/solutions_architect/roadmap-transformation-si.md` | TOGAF 10 · PMP · IASA |
+| Run a TOGAF ADM cycle | `skills/solutions-architect/togaf-adm.md` | TOGAF 10 Foundation & Practitioner |
+| Model with ArchiMate 3 | `skills/solutions-architect/archimate-modeling.md` | ArchiMate 3 Practitioner · TOGAF 10 |
+| Map the IS (urbanization) | `skills/solutions-architect/urbanisme-si.md` | TOGAF 10 · CITA-A · IASA |
+| Design the target BDAT architecture | `skills/solutions-architect/architecture-bdat.md` | TOGAF 10 Practitioner · CITA-A |
+| Select integration patterns | `skills/solutions-architect/integration-patterns.md` | AWS SAP-C02 · Google Cloud Architect · AZ-305 |
+| Define the cloud migration strategy | `skills/solutions-architect/migration-cloud.md` | AWS SAP-C02 · Google Cloud Architect · AZ-305 |
+| Set up architecture governance | `skills/solutions-architect/gouvernance-architecturale.md` | TOGAF 10 · CITA-A · IASA |
+| Build the IS transformation roadmap | `skills/solutions-architect/roadmap-transformation-si.md` | TOGAF 10 · PMP · IASA |
 
 ---
 

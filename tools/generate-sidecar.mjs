@@ -208,22 +208,72 @@ function parseAgentCard(absFile, id) {
 function readSkillDescriptions() {
   const rows = new Map();
   for (const line of readFileSync(README_PATH, "utf-8").split(/\r?\n/)) {
-    const m = /^\|\s*`skills\/([A-Za-z0-9_]+)\/`\s*\|\s*(.+?)\s*\|\s*$/.exec(line);
+    const m = /^\|\s*`skills\/([A-Za-z0-9_-]+)\/`\s*\|\s*(.+?)\s*\|\s*$/.exec(line);
     if (m) rows.set(m[1], m[2]);
   }
   return rows;
 }
 
 /**
- * Extracts title + agent links from a `skills/<name>/README.md` card.
+ * The card of a skill folder: its Agent Skills `SKILL.md`. A leftover `README.md` is the
+ * pre-packaging card — refused by name, so it cannot sit next to `SKILL.md` as a second card.
+ */
+function skillCardPath(name) {
+  const dir = join(SKILLS_DIR, name);
+  const id = skillId(name);
+  if (existsSync(join(dir, "README.md"))) {
+    throw new Error(`${id}: legacy README.md card — the folder card is SKILL.md`);
+  }
+  const abs = join(dir, "SKILL.md");
+  if (!existsSync(abs)) throw new Error(`${id}: source file missing (skills/${name}/SKILL.md)`);
+  return abs;
+}
+
+/**
+ * Agent Skills frontmatter of a `SKILL.md` (https://agentskills.io/specification).
+ * A skills-capable agent silently ignores a skill whose frontmatter breaks the spec,
+ * while every catalog gate would stay green — so the spec's hard rules fail generation:
+ *   - `name` : 1-64 chars, [a-z0-9] and single hyphens, no leading/trailing hyphen,
+ *              and EQUAL to the folder name;
+ *   - `description` : non-empty, at most 1024 chars.
+ * Only single-line `key: value` scalars are read — the catalog's own style.
+ * Returns the body lines after the closing `---`.
+ */
+function checkSkillFrontmatter(lines, name, id) {
+  if (lines[0] !== "---") throw new Error(`${id}: SKILL.md must open with a YAML frontmatter ("---")`);
+  const end = lines.indexOf("---", 1);
+  if (end === -1) throw new Error(`${id}: SKILL.md frontmatter is not closed ("---")`);
+  const fields = new Map();
+  for (const line of lines.slice(1, end)) {
+    const m = /^([a-z-]+):\s*(.*)$/.exec(line);
+    if (!m) throw new Error(`${id}: SKILL.md frontmatter unclosed or not "key: value" at: ${line}`);
+    fields.set(m[1], m[2].trim());
+  }
+  const skillName = fields.get("name") ?? "";
+  if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(skillName) || skillName.length > 64) {
+    throw new Error(`${id}: frontmatter name "${skillName}" breaks the Agent Skills naming rules`);
+  }
+  if (skillName !== name) {
+    throw new Error(`${id}: frontmatter name "${skillName}" must equal the folder name "${name}"`);
+  }
+  const description = fields.get("description") ?? "";
+  if (!description) throw new Error(`${id}: frontmatter description is empty`);
+  if (description.length > 1024) {
+    throw new Error(`${id}: frontmatter description is ${description.length} chars (max 1024)`);
+  }
+  return lines.slice(end + 1);
+}
+
+/**
+ * Extracts title + agent links from a `skills/<name>/SKILL.md` card (frontmatter checked first).
  *   - title  : H1 "# Skills — <title>" → <title> ("Skills — " prefix removed)
  *   - agents : agent files cited in the first blockquote, either
  *              "> Folder attached to `AGENT-X.md`" or
- *              "> Folder shared between `AGENT-X.md` and `AGENT-Y.md`" (qa_testing).
+ *              "> Folder shared between `AGENT-X.md` and `AGENT-Y.md`" (qa-testing).
  * The description is NOT read here — it comes from the root README (see above).
  */
-function parseSkillCard(absFile, id) {
-  const lines = readFileSync(absFile, "utf-8").split(/\r?\n/);
+function parseSkillCard(absFile, name, id) {
+  const lines = checkSkillFrontmatter(readFileSync(absFile, "utf-8").split(/\r?\n/), name, id);
 
   const h1 = lines.find((l) => /^#\s+/.test(l));
   if (!h1) throw new Error(`${id}: H1 title not found`);
@@ -318,7 +368,7 @@ function buildWorkflowAsset(file, tag, knownAgents) {
 
 /** Builds the "skill" asset for a folder. Skills are leaves: no `dependsOn`. */
 function buildSkillAsset(name, tag, card, description) {
-  const file = `skills/${name}/README.md`;
+  const file = `skills/${name}/SKILL.md`;
   return {
     id: skillId(name),
     type: "skill",
@@ -350,11 +400,8 @@ function buildSidecar(generatedAt) {
   const skillsByAgent = new Map(agentIds.map((id) => [id, []]));
 
   const skillAssets = skillNames.map((name) => {
-    const abs = join(SKILLS_DIR, name, "README.md");
     const id = skillId(name);
-    if (!existsSync(abs)) throw new Error(`${id}: source file missing (skills/${name}/README.md)`);
-
-    const card = parseSkillCard(abs, id);
+    const card = parseSkillCard(skillCardPath(name), name, id);
     const description = descriptions.get(name);
     if (!description) throw new Error(`${id}: no "skills/${name}/" row in the root README table`);
 

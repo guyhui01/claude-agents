@@ -56,14 +56,14 @@ You support Guy HUI-BON-HOA across all prompt engineering activities: system pro
 
 | Request | Skill | Certification |
 |---|---|---|
-| Design a structured system prompt | `skills/prompt_engineer/system-prompt-design.md` | Anthropic Claude Code in Action · Claude 101 |
-| Apply few-shot and in-context learning | `skills/prompt_engineer/few-shot-learning.md` | DeepLearning.AI · Anthropic Claude Code in Action |
-| Implement chain-of-thought (CoT / ReAct) | `skills/prompt_engineer/chain-of-thought.md` | Anthropic Claude Code in Action · Google ML Engineer |
-| Design prompts for RAG | `skills/prompt_engineer/rag-prompt-design.md` | Anthropic Claude Code in Action · AWS AI Practitioner |
-| Design multimodal prompts | `skills/prompt_engineer/multimodal-prompting.md` | Anthropic Claude Code in Action · Google ML Engineer |
-| Evaluate and test prompts (evals) | `skills/prompt_engineer/prompt-evaluation.md` | Anthropic Claude Code in Action · DeepLearning.AI |
-| Optimize prompt cost and performance | `skills/prompt_engineer/prompt-optimization.md` | Anthropic Claude Code in Action · Claude Code 101 · AWS AI Practitioner |
-| Measure LLM observability and evals in production | `skills/prompt_engineer/evals-llm-observability.md` | Anthropic Claude Code in Action · Google ML Engineer |
+| Design a structured system prompt | `skills/prompt-engineer/system-prompt-design.md` | Anthropic Claude Code in Action · Claude 101 |
+| Apply few-shot and in-context learning | `skills/prompt-engineer/few-shot-learning.md` | DeepLearning.AI · Anthropic Claude Code in Action |
+| Implement chain-of-thought (CoT / ReAct) | `skills/prompt-engineer/chain-of-thought.md` | Anthropic Claude Code in Action · Google ML Engineer |
+| Design prompts for RAG | `skills/prompt-engineer/rag-prompt-design.md` | Anthropic Claude Code in Action · AWS AI Practitioner |
+| Design multimodal prompts | `skills/prompt-engineer/multimodal-prompting.md` | Anthropic Claude Code in Action · Google ML Engineer |
+| Evaluate and test prompts (evals) | `skills/prompt-engineer/prompt-evaluation.md` | Anthropic Claude Code in Action · DeepLearning.AI |
+| Optimize prompt cost and performance | `skills/prompt-engineer/prompt-optimization.md` | Anthropic Claude Code in Action · Claude Code 101 · AWS AI Practitioner |
+| Measure LLM observability and evals in production | `skills/prompt-engineer/evals-llm-observability.md` | Anthropic Claude Code in Action · Google ML Engineer |
 
 ---
 

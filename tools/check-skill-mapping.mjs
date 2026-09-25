@@ -3,7 +3,7 @@
  * Consistency guardrail: the agent "## Available skills" tables ↔ the skill files.
  *
  * The sidecar indexes the catalog at FOLDER level — a `skill` asset is the
- * `skills/<name>/README.md` card — so the 37 files it validates are exactly the
+ * `skills/<name>/SKILL.md` card — so the 37 files it validates are exactly the
  * 37 that carry no per-file mapping. Everything below that line was, until this
  * guard, checked once by hand: a request line pointing at a renamed or deleted
  * skill file, or a skill file no agent ever offers, was visible to nobody.
@@ -12,7 +12,7 @@
  *   - ABSENT   → a request row cites `skills/…/<file>.md` that does not exist
  *   - UNMAPPED → a `skills/…/<file>.md` exists but no request row cites it
  *
- * Folder READMEs are excluded on purpose: they are the sidecar's own skill
+ * Folder `SKILL.md` cards are excluded on purpose: they are the sidecar's own skill
  * assets, not request targets. Bare folder paths cited in prose are excluded
  * too — only `.md` file references are request lines.
  *
@@ -68,14 +68,14 @@ function collectReferences() {
   return { referenced, rows };
 }
 
-/** Every skill file on disk, folder READMEs excluded. */
+/** Every skill file on disk, folder `SKILL.md` cards excluded. */
 function collectSkillFiles(dir = SKILLS_DIR, found = []) {
   for (const entry of readdirSync(dir, { withFileTypes: true }).sort((a, b) =>
     a.name.localeCompare(b.name),
   )) {
     const abs = join(dir, entry.name);
     if (entry.isDirectory()) collectSkillFiles(abs, found);
-    else if (entry.isFile() && entry.name.endsWith(".md") && entry.name !== "README.md") {
+    else if (entry.isFile() && entry.name.endsWith(".md") && entry.name !== "SKILL.md") {
       found.push(abs.slice(REPO_ROOT.length + 1));
     }
   }

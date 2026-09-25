@@ -83,22 +83,22 @@
 
 | Folder | Contents |
 |---|---|
-| `skills/dev_python_ia/` | Advanced Python, LangChain, RAG, Hugging Face, PyTorch, fine-tuning, agents |
-| `skills/dev_typescript_ia/` | AI TypeScript, Next.js, Vercel AI SDK, MCP server, streaming, Edge Functions |
-| `skills/ai_architect/` | RAG architecture, multi-agent, MCP/A2A, LLM evaluation, AI stack selection |
-| `skills/mlops_engineer/` | MLflow, Kubeflow, DVC, drift monitoring, ML CI/CD, Feature Store |
-| `skills/dev_drupal/` | Drupal 10 modules, Commerce 2.x, Twig, CMI config, REST APIs, PHPUnit |
-| `skills/data_engineer/` | ETL/ELT pipelines, Spark, dbt, Airflow, Kafka, Databricks, lakehouse |
-| `skills/data_scientist/` | Supervised/unsupervised ML, stats, modeling, MLflow, Python, SQL |
-| `skills/devops_cloud/` | CI/CD GitHub Actions, Kubernetes, Terraform, Docker, AWS, GCP, Azure |
-| `skills/securite_ia/` | AI cybersecurity, OWASP LLM Top 10, red teaming, CISSP, Zero Trust |
-| `skills/cms_digital/` | AEM, Drupal 10, Headless CMS, migration, editorial governance, PIM/DAM, RGAA accessibility, SEO |
-| `skills/tech_lead/` | Code review, application architecture, API design, CI/CD, OWASP security, technical debt, mentoring |
-| `skills/bi_analyst/` | Dimensional modeling, Power BI/Fabric, Tableau, Looker, analytical SQL, KPIs, self-service BI |
-| `skills/pim_expert/` | Catalog modeling, product enrichment, MDM governance, channel syndication, localization, ERP→PIM ETL, quality scoring, PIM migration, supplier portal, AI PIM |
-| `skills/dam_expert/` | Asset taxonomy, validation workflow, rights & licensing, multichannel distribution, renditions, DAM-CMS integration, brand portal, DAM governance, DAM migration, AI DAM, asset analytics, naming conventions |
-| `skills/solutions_architect/` | TOGAF ADM, ArchiMate 3, enterprise IT architecture, BDAT architecture, integration patterns, cloud migration, ARB governance, IS transformation roadmap |
-| `skills/prompt_engineer/` | System prompt design, few-shot, CoT, RAG prompts, multimodal, evaluation, cost optimization |
+| `skills/dev-python-ia/` | Advanced Python, LangChain, RAG, Hugging Face, PyTorch, fine-tuning, agents |
+| `skills/dev-typescript-ia/` | AI TypeScript, Next.js, Vercel AI SDK, MCP server, streaming, Edge Functions |
+| `skills/ai-architect/` | RAG architecture, multi-agent, MCP/A2A, LLM evaluation, AI stack selection |
+| `skills/mlops-engineer/` | MLflow, Kubeflow, DVC, drift monitoring, ML CI/CD, Feature Store |
+| `skills/dev-drupal/` | Drupal 10 modules, Commerce 2.x, Twig, CMI config, REST APIs, PHPUnit |
+| `skills/data-engineer/` | ETL/ELT pipelines, Spark, dbt, Airflow, Kafka, Databricks, lakehouse |
+| `skills/data-scientist/` | Supervised/unsupervised ML, stats, modeling, MLflow, Python, SQL |
+| `skills/devops-cloud/` | CI/CD GitHub Actions, Kubernetes, Terraform, Docker, AWS, GCP, Azure |
+| `skills/securite-ia/` | AI cybersecurity, OWASP LLM Top 10, red teaming, CISSP, Zero Trust |
+| `skills/cms-digital/` | AEM, Drupal 10, Headless CMS, migration, editorial governance, PIM/DAM, RGAA accessibility, SEO |
+| `skills/tech-lead/` | Code review, application architecture, API design, CI/CD, OWASP security, technical debt, mentoring |
+| `skills/bi-analyst/` | Dimensional modeling, Power BI/Fabric, Tableau, Looker, analytical SQL, KPIs, self-service BI |
+| `skills/pim-expert/` | Catalog modeling, product enrichment, MDM governance, channel syndication, localization, ERP→PIM ETL, quality scoring, PIM migration, supplier portal, AI PIM |
+| `skills/dam-expert/` | Asset taxonomy, validation workflow, rights & licensing, multichannel distribution, renditions, DAM-CMS integration, brand portal, DAM governance, DAM migration, AI DAM, asset analytics, naming conventions |
+| `skills/solutions-architect/` | TOGAF ADM, ArchiMate 3, enterprise IT architecture, BDAT architecture, integration patterns, cloud migration, ARB governance, IS transformation roadmap |
+| `skills/prompt-engineer/` | System prompt design, few-shot, CoT, RAG prompts, multimodal, evaluation, cost optimization |
 
 ### Agile, Product & Quality
 
@@ -106,40 +106,40 @@
 |---|---|
 | `skills/scrum/` | User stories, backlog, prioritization (MoSCoW/RICE/Kano), story mapping, DoR/DoD, KPI, EBM |
 | `skills/safe/` | PI Planning, WSJF, features, ART, portfolio epics, SAFe OKR |
-| `skills/scrum_master/` | Event facilitation, team coaching, agile metrics, scaling |
-| `skills/qa_testing/` | BDD/Gherkin, ATDD, test plans, UAT, performance, security, CI/CD |
-| `skills/ux_design/` | User research, personas, wireframing, Figma, design system, WCAG, A/B |
-| `skills/business_analyst/` | Elicitation, BPMN, UML, functional specifications, business UAT |
-| `skills/product_manager_safe/` | Program product vision, ART roadmap, customer-centricity, Lean Business Case, go-to-market |
-| `skills/release_train_engineer/` | PI Planning facilitation, ART coordination, Flow metrics, Inspect & Adapt, Scrum of Scrums |
-| `skills/change_manager/` | ADKAR, impact analysis, communication plan, resistance management, adoption measurement |
-| `skills/critique_conformite/` | Methodology compliance audit (SAFe/Scrum/ISTQB/PMI), reasoning challenge, deliverable validation gate, catalog skill quality audit (standalone v2.8 rubric) |
+| `skills/scrum-master/` | Event facilitation, team coaching, agile metrics, scaling |
+| `skills/qa-testing/` | BDD/Gherkin, ATDD, test plans, UAT, performance, security, CI/CD |
+| `skills/ux-design/` | User research, personas, wireframing, Figma, design system, WCAG, A/B |
+| `skills/business-analyst/` | Elicitation, BPMN, UML, functional specifications, business UAT |
+| `skills/product-manager-safe/` | Program product vision, ART roadmap, customer-centricity, Lean Business Case, go-to-market |
+| `skills/release-train-engineer/` | PI Planning facilitation, ART coordination, Flow metrics, Inspect & Adapt, Scrum of Scrums |
+| `skills/change-manager/` | ADKAR, impact analysis, communication plan, resistance management, adoption measurement |
+| `skills/critique-conformite/` | Methodology compliance audit (SAFe/Scrum/ISTQB/PMI), reasoning challenge, deliverable validation gate, catalog skill quality audit (standalone v2.8 rubric) |
 
 ### Orchestration & Workflows
 
 | Folder | Contents |
 |---|---|
-| `skills/orchestrateur_workflow/` | Workflow design, agent routing, context handoff, error recovery, dependency mapping, parallel orchestration, output validation, catalog, triggers, monitoring |
+| `skills/orchestrateur-workflow/` | Workflow design, agent routing, context handoff, error recovery, dependency mapping, parallel orchestration, output validation, catalog, triggers, monitoring |
 
 ### Management, Consulting & Content
 
 | Folder | Contents |
 |---|---|
-| `skills/chef_projet_ia/` | Scoping, planning, risk management, EVM, steering committee, change management |
-| `skills/consultant_ia/` | AI maturity assessment, roadmap, ROI, benchmark, PoC |
-| `skills/cdo_directeur_ia/` | Data strategy, DAMA governance, OKR, data mesh, AI talent |
-| `skills/formateur_ia/` | Needs analysis, curriculum design, facilitation, e-learning, data literacy |
-| `skills/growth_ia/` | Acquisition, marketing automation, AI SEO, analytics, A/B testing |
-| `skills/redacteur_ia/` | Copywriting, SEO, editorial prompting, multi-format content |
-| `skills/juridique_ia/` | GDPR, AI Act, compliance, AI contracts, algorithmic accountability |
-| `skills/financial_analyst/` | AI business case, transformation ROI, TCO, EVM, project budget, executive reporting |
-| `skills/veille_strategique/` | AI/LLM intelligence, trend analysis, weak signals, tool benchmarking, periodic briefings |
+| `skills/chef-projet-ia/` | Scoping, planning, risk management, EVM, steering committee, change management |
+| `skills/consultant-ia/` | AI maturity assessment, roadmap, ROI, benchmark, PoC |
+| `skills/cdo-directeur-ia/` | Data strategy, DAMA governance, OKR, data mesh, AI talent |
+| `skills/formateur-ia/` | Needs analysis, curriculum design, facilitation, e-learning, data literacy |
+| `skills/growth-ia/` | Acquisition, marketing automation, AI SEO, analytics, A/B testing |
+| `skills/redacteur-ia/` | Copywriting, SEO, editorial prompting, multi-format content |
+| `skills/juridique-ia/` | GDPR, AI Act, compliance, AI contracts, algorithmic accountability |
+| `skills/financial-analyst/` | AI business case, transformation ROI, TCO, EVM, project budget, executive reporting |
+| `skills/veille-strategique/` | AI/LLM intelligence, trend analysis, weak signals, tool benchmarking, periodic briefings |
 
 ### HR & Talent
 
 | Folder | Contents |
 |---|---|
-| `skills/rh_ia/` | IT/AI sourcing, job posting writing, candidate evaluation, workforce planning (GEPP), people analytics, compensation benchmarking, AI HR transformation, CV/deepfake fraud prevention, reference checks, ATS parsing |
+| `skills/rh-ia/` | IT/AI sourcing, job posting writing, candidate evaluation, workforce planning (GEPP), people analytics, compensation benchmarking, AI HR transformation, CV/deepfake fraud prevention, reference checks, ATS parsing |
 
 ---
 
@@ -184,41 +184,41 @@ See `START.md` for all startup commands.
 claude-agents/
 ├── AGENT-*.md              # 38 specialized agents
 ├── skills/
-│   ├── ai_architect/       # AI architecture · RAG · multi-agent · MCP/A2A
-│   ├── dev_python_ia/      # AI Python · LangChain · RAG · agents
-│   ├── dev_typescript_ia/  # AI TypeScript · Next.js · Vercel AI SDK · MCP
-│   ├── mlops_engineer/     # Docker · K8s · MLflow · model serving
-│   ├── dev_drupal/         # Drupal / PHP
-│   ├── data_engineer/      # Data Engineering
-│   ├── data_scientist/     # Data Science & ML
-│   ├── devops_cloud/       # DevOps & Cloud
-│   ├── securite_ia/        # AI cybersecurity
-│   ├── prompt_engineer/    # Prompt Engineering · System prompts · CoT · RAG
+│   ├── ai-architect/       # AI architecture · RAG · multi-agent · MCP/A2A
+│   ├── dev-python-ia/      # AI Python · LangChain · RAG · agents
+│   ├── dev-typescript-ia/  # AI TypeScript · Next.js · Vercel AI SDK · MCP
+│   ├── mlops-engineer/     # Docker · K8s · MLflow · model serving
+│   ├── dev-drupal/         # Drupal / PHP
+│   ├── data-engineer/      # Data Engineering
+│   ├── data-scientist/     # Data Science & ML
+│   ├── devops-cloud/       # DevOps & Cloud
+│   ├── securite-ia/        # AI cybersecurity
+│   ├── prompt-engineer/    # Prompt Engineering · System prompts · CoT · RAG
 │   ├── scrum/              # Product Owner Scrum
 │   ├── safe/               # Product Owner SAFe
-│   ├── scrum_master/       # Scrum Master
-│   ├── qa_testing/         # QA Agile & Waterfall-Model
-│   ├── ux_design/          # UX / UI Design
-│   ├── business_analyst/   # Business Analysis & MOA
-│   ├── product_manager_safe/ # Product Manager SAFe Program
-│   ├── release_train_engineer/ # RTE · PI Planning · ART · I&A
-│   ├── change_manager/     # Change Management · ADKAR · AI adoption
-│   ├── chef_projet_ia/     # AI Project Management
-│   ├── consultant_ia/      # AI Consulting
-│   ├── cdo_directeur_ia/   # AI & Data Leadership
-│   ├── formateur_ia/       # AI Training
-│   ├── growth_ia/          # AI Growth & Marketing
-│   ├── redacteur_ia/       # AI Writing
-│   ├── juridique_ia/       # AI Legal
-│   ├── financial_analyst/  # Financial Analysis · Business Case · EVM
-│   ├── veille_strategique/ # AI Intelligence · Weak signals · Benchmark
-│   ├── rh_ia/              # IT/AI Recruitment · GEPP · fraud prevention · ATS
-│   ├── solutions_architect/ # TOGAF · ArchiMate · Enterprise IT architecture · BDAT · transformation roadmap
-│   ├── cms_digital/        # CMS & Digital Platform · AEM · Drupal · Headless · migration
-│   ├── tech_lead/          # Tech Lead · Code review · API design · CI/CD · mentoring
-│   ├── bi_analyst/         # BI & Reporting · Power BI/Fabric · Tableau · KPIs · self-service
-│   ├── critique_conformite/  # AI peer review · methodology audit · challenge · validation gate
-│   └── orchestrateur_workflow/ # Agentic workflow orchestration
+│   ├── scrum-master/       # Scrum Master
+│   ├── qa-testing/         # QA Agile & Waterfall-Model
+│   ├── ux-design/          # UX / UI Design
+│   ├── business-analyst/   # Business Analysis & MOA
+│   ├── product-manager-safe/ # Product Manager SAFe Program
+│   ├── release-train-engineer/ # RTE · PI Planning · ART · I&A
+│   ├── change-manager/     # Change Management · ADKAR · AI adoption
+│   ├── chef-projet-ia/     # AI Project Management
+│   ├── consultant-ia/      # AI Consulting
+│   ├── cdo-directeur-ia/   # AI & Data Leadership
+│   ├── formateur-ia/       # AI Training
+│   ├── growth-ia/          # AI Growth & Marketing
+│   ├── redacteur-ia/       # AI Writing
+│   ├── juridique-ia/       # AI Legal
+│   ├── financial-analyst/  # Financial Analysis · Business Case · EVM
+│   ├── veille-strategique/ # AI Intelligence · Weak signals · Benchmark
+│   ├── rh-ia/              # IT/AI Recruitment · GEPP · fraud prevention · ATS
+│   ├── solutions-architect/ # TOGAF · ArchiMate · Enterprise IT architecture · BDAT · transformation roadmap
+│   ├── cms-digital/        # CMS & Digital Platform · AEM · Drupal · Headless · migration
+│   ├── tech-lead/          # Tech Lead · Code review · API design · CI/CD · mentoring
+│   ├── bi-analyst/         # BI & Reporting · Power BI/Fabric · Tableau · KPIs · self-service
+│   ├── critique-conformite/  # AI peer review · methodology audit · challenge · validation gate
+│   └── orchestrateur-workflow/ # Agentic workflow orchestration
 ├── workflows/
 │   ├── README.md               # Index and selection guide
 │   ├── WF-001-cadrage-produit-ia.md

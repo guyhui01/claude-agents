@@ -8,6 +8,10 @@
 
 ## [Unreleased]
 
+---
+
+## [5.0.0] — 2026-09-25 — Every skill folder is a natively loadable Agent Skill
+
 ### 🔒 Security
 - **`fast-uri` 3.1.5 → 3.1.8** (transitive, via `ajv` 8.20.0, dev scope): closes
   four high-severity advisories — GHSA-5jgf-p345-68v8, GHSA-f65p-4m7j-42xc,

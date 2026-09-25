@@ -24,15 +24,19 @@ Applique le rituel de démarrage. CHECK FACTUEL D'ABORD, jamais de mémoire :
   normalisé (85/85). CASSANT pour tout consommateur adressant un skill par son ancien id.
   ✅ fast-uri 3.1.8 poussé (`315dc8b`, CI 36177461630 verte à l'étape) : alertes #4-#7 `fixed`
   À L'API, vérifié après push.
-  ▫ Aval après release : le runtime épingle v4.3.0 et n'adresse AUCUN id de skill dans `src/`
-  (vérifié le 2026-09-25 : seules des fixtures synthétiques) ⟹ rien à réparer, seulement à
-  ré-épingler quand il avancera. Vitrine : 0 chemin de skill hors CHANGELOG figé ; ses
-  chiffres (37 dossiers, 425 fichiers) restent vrais.
+  ▫ Aval après release : le runtime épingle **v4.4.0** (`catalogTag` de ses 10 manifestes ; « v4.3.0 »
+  écrit ici plus tôt était FAUX) et n'adresse AUCUN id de skill dans `src/` (ses « skills » sont
+  des champs métier ; tests sur fixture hermétique). v5.0.0 ne modifie AUCUNE fiche de workflow
+  ⟹ ré-épingler est sans risque pour ses manifestes.
   ⏭ AVAL DÛ — vitrine `guyhui-showcase` (session distincte) : « Catalog currently at `v4.4.0` »
   en DEUX endroits (docs/index.md:153, docs/catalog.md:276, mesuré le 2026-09-25) ⟹ v5.0.0.
   ⛔ Même garde-fou que v4.3.0 : ne toucher QUE les lignes « Catalog currently at », jamais les
   relevés figés des runs live. La vitrine ne mentionne pas encore le format Agent Skills.
-  ⏭ AVAL DÛ — `agentic-strategy` : marquer le report « claude-agents (2026-09-25) » comme fait.
+  ⚠ ET `docs/catalog.md:214-232` publie les 37 NOMS DE DOSSIERS en snake_case (`qa_testing/`…)
+  ⟹ à passer en kebab-case. Un 1ᵉʳ contrôle avait conclu « 0 chemin de skill » : son grep
+  exigeait le préfixe `skills/` et ratait cette liste de noms nus. Aucun lien cassé (la vitrine
+  ne lie que la racine du repo), mais un contenu publié périmé.
+  ⏭ AVAL DÛ — repo de planification : marquer le report du 2026-09-25 comme fait.
   ▫ HORS PÉRIMÈTRE, décision à part : les 10 workflows portent `claude-opus-4-8` en
   `modele_recommande` / `modele_alternatif` — champ LU par le runtime (`dispatch/plan.ts`) et
   adossé à des preuves live ⟹ ne pas le changer ici.

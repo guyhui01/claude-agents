@@ -11,31 +11,28 @@
 Reprise session — catalogue /Users/guyhui/CLAUDE/claude-agents (repo guyhui01/claude-agents, checkout canonique unique).
 Applique le rituel de démarrage. CHECK FACTUEL D'ABORD, jamais de mémoire :
   git -C /Users/guyhui/CLAUDE/claude-agents status -sb   ·   git describe --tags
-  npm run validate:sidecar   (attendu : ✓ 85 asset(s), catalog v4.4.0)
+  npm run validate:sidecar   (attendu : ✓ 85 asset(s), catalog v5.0.0)
   npm run validate:skill-mapping  (attendu : ✓ 425 fichiers ↔ 428 lignes × 38 agents)
-  npm audit                  (attendu : found 0 vulnerabilities — fast-uri 3.1.5 → 3.1.8 le
-                              2026-09-25, commit `fix(deps)` sur main LOCAL, NON POUSSÉ ⟹ les
-                              4 alertes Dependabot #4-#7 restent ouvertes côté distant tant que
-                              ce n'est pas poussé ; vérifier `fixed` à l'API APRÈS push)
+  npm audit                  (attendu : found 0 vulnerabilities)
 
-▶ CHANTIER EN COURS (2026-09-25) — packaging Agent Skills (https://agentskills.io/specification).
-  Branche LOCALE `refactor/agent-skills-packaging` (2 commits), RIEN de poussé, RIEN de mergé.
-  ✅ MIGRATION COMPLÈTE : les 37 dossiers portent un `SKILL.md` (frontmatter name/description) ;
-  35 renommés `_` → `-` (`safe`, `scrum` inchangés). Repli README.md RETIRÉ du générateur.
-  Le renommage était OBLIGATOIRE : la spec exige name == nom du dossier, [a-z0-9-] seulement.
-  Sidecar : ids + chemins seulement — identique à v4.4.0 une fois normalisé (85/85).
-  Preuves : 4 gates vertes · falsification 12 mutations + 1 sur skill-mapping, chacune rouge
-  sur SA cause · `skills-ref validate` 37/37 · session Claude Code live (souscription) : 37/37
-  listés, `ai-architect` et `qa-testing` invoqués et lus · 1301 liens relatifs, mêmes 2 casses
-  préexistantes que `main` · parité des fences inchangée sur 575 fichiers.
-  Versions périmées : `claude-opus-4-8` → `claude-opus-5-5` dans les skills (32 occ., 14 fichiers).
-  ⏭ PROCHAINE UNITÉ, SUR ACCORD EXPLICITE : squash-merge sur `main`, bump 5.0.0 (ordre
-  bump → generate → validate), CHANGELOG `[Unreleased]` → `[5.0.0]`, tag annoté, push,
-  GitHub Release. Changement CASSANT (ids des skills).
+✅ CHANTIER CLOS (2026-09-25) — packaging Agent Skills (https://agentskills.io/specification).
+  ✅ **v5.0.0 POUSSÉE ET RELEASÉE** : squash `72dab9e` + release `7ec6745`, tag annoté,
+  GitHub Release ni draft ni prerelease. CI run 36177609277 sur `7ec6745` : les 4 gates lues
+  AU LOG (catalog v5.0.0), aucun `skipped`. Branche `refactor/agent-skills-packaging` supprimée.
+  Les 37 dossiers portent un `SKILL.md` (frontmatter name/description) ; 35 renommés `_` → `-`
+  (`safe`, `scrum` inchangés). Sidecar : ids + chemins seulement — identique à v4.4.0 une fois
+  normalisé (85/85). CASSANT pour tout consommateur adressant un skill par son ancien id.
+  ✅ fast-uri 3.1.8 poussé (`315dc8b`, CI 36177461630 verte à l'étape) : alertes #4-#7 `fixed`
+  À L'API, vérifié après push.
   ▫ Aval après release : le runtime épingle v4.3.0 et n'adresse AUCUN id de skill dans `src/`
   (vérifié le 2026-09-25 : seules des fixtures synthétiques) ⟹ rien à réparer, seulement à
   ré-épingler quand il avancera. Vitrine : 0 chemin de skill hors CHANGELOG figé ; ses
   chiffres (37 dossiers, 425 fichiers) restent vrais.
+  ⏭ AVAL DÛ — vitrine `guyhui-showcase` (session distincte) : « Catalog currently at `v4.4.0` »
+  en DEUX endroits (docs/index.md:153, docs/catalog.md:276, mesuré le 2026-09-25) ⟹ v5.0.0.
+  ⛔ Même garde-fou que v4.3.0 : ne toucher QUE les lignes « Catalog currently at », jamais les
+  relevés figés des runs live. La vitrine ne mentionne pas encore le format Agent Skills.
+  ⏭ AVAL DÛ — `agentic-strategy` : marquer le report « claude-agents (2026-09-25) » comme fait.
   ▫ HORS PÉRIMÈTRE, décision à part : les 10 workflows portent `claude-opus-4-8` en
   `modele_recommande` / `modele_alternatif` — champ LU par le runtime (`dispatch/plan.ts`) et
   adossé à des preuves live ⟹ ne pas le changer ici.
@@ -442,3 +439,5 @@ Correction de forme : le tracker qualifiait `7216488` de « commit local non pou
   fichier avant de le lire ⟹ rouge « pas de frontmatter » au lieu de « nom invalide ».
   Et un « aucun skill » renvoyé par la session live était une erreur de classement du modèle,
   pas un défaut de chargement : relancé en demandant la liste brute ⟹ 37/37.
+  ▫ **Même jour — v5.0.0 poussée et releasée** sur accord explicite de Guy, avec fast-uri 3.1.8
+  (alertes `fixed` à l'API) et la mémoire `claude-config` (`7821968`, poussée).

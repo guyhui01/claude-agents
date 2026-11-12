@@ -8,6 +8,13 @@
 
 ## [Unreleased]
 
+### 📝 Documentation
+- **README header: "37 skills" → "37 skill folders (425 individual skills in all)".**
+  The header counted skill folders as skills. 425 = tracked files under `skills/`
+  other than each folder's `SKILL.md` entrypoint. "85 assets" now names its units
+  (agents, skill folders, workflows), matching the sidecar. Aligns with `START.md`,
+  `CLAUDE.md` and the showcase catalog page.
+
 ---
 
 ## [5.0.0] — 2026-09-25 — Every skill folder is a natively loadable Agent Skill

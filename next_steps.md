@@ -11,7 +11,7 @@
 Reprise session — catalogue /Users/guyhui/CLAUDE/claude-agents (repo guyhui01/claude-agents, checkout canonique unique).
 Applique le rituel de démarrage. CHECK FACTUEL D'ABORD, jamais de mémoire :
   git -C /Users/guyhui/CLAUDE/claude-agents status -sb   ·   git describe --tags
-  npm run validate:sidecar   (attendu : ✓ 85 asset(s), catalog v5.0.0)
+  npm run validate:sidecar   (attendu : ✓ 85 asset(s), catalog v5.0.1)
   npm run validate:skill-mapping  (attendu : ✓ 425 fichiers ↔ 428 lignes × 38 agents)
   npm audit                  (attendu : found 0 vulnerabilities)
   ⚠ 2026-11-23 : npm audit ROUGE — fast-uri 3.1.8 touché par 4 nouvelles advisories modérées
@@ -19,6 +19,11 @@ Applique le rituel de démarrage. CHECK FACTUEL D'ABORD, jamais de mémoire :
   ouverte. HORS chantier K1/K3 ⟹ prochain lot dédié (`gh pr list` d'abord, puis bump + 4 gates).
 
 ▶ CHANTIER EN COURS (ouvert 2026-11-23) — UNE PR catalogue, tranchée par Guy.
+  ✅ PR #18 MERGÉE en squash (`e8b76d2`) le 2026-11-23 ; CI main verte, 4 gates lues au log.
+  ▶ RESTE : release v5.0.1 (branche release/v5.0.1, préparée en local) — le runtime épingle par
+    TAG (`catalogTag`, selon ce tracker, non re-vérifié côté runtime) ⟹ v5.0.0 ne porte PAS K1/K3 ;
+    re-pin sur v5.0.1, jamais sur v5.0.0. Ordre : push → PR → merge → tag annoté → GitHub Release,
+    chacun sur ordre de Guy ; puis vérifier la Release à l'API (ni draft ni prerelease).
   Source : claude-agentic-runtime docs/audit/ko-matrix.md (K1, K3) + son next_steps.md.
   Branche : fix/wf-006-wf-008-card-consistency.
   K1 (WF-008) — condition_passage de STEP-06C admettait « returned with documented reservations »

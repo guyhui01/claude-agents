@@ -14,9 +14,10 @@ Applique le rituel de démarrage. CHECK FACTUEL D'ABORD, jamais de mémoire :
   npm run validate:sidecar   (attendu : ✓ 85 asset(s), catalog v5.0.1)
   npm run validate:skill-mapping  (attendu : ✓ 425 fichiers ↔ 428 lignes × 38 agents)
   npm audit                  (attendu : found 0 vulnerabilities)
-  ✅ 2026-11-23 : fast-uri 3.1.8 → 3.1.9 (branche fix/fast-uri-3.1.9) — alertes Dependabot #8-#11
-  (2 moderate, 2 low = les 4 advisories que npm audit regroupe sous 1 paquet). Après merge :
-  vérifier les 4 alertes `fixed` À L'API, pas au verdict de la PR.
+  ✅ 2026-11-23 : fast-uri 3.1.8 → 3.1.9 — PR #20 squash `fa94dc4`, CI main run 45265741011 verte
+  (gates lues au log). Alertes Dependabot #8-#11 (2 moderate, 2 low = les 4 advisories que npm
+  audit regroupe sous 1 paquet) `fixed` À L'API (2026-11-23T21:03:47Z). `npm audit` = 0.
+  Pas de release : dépendance dev, cartes et sidecar inchangés.
   ⚠ `main` exige une PR (ruleset `require-pr`) ; un push direct passe en « Bypassed rule
   violations » (admin). Même un commit de tracker passe par une PR — CLAUDE.md corrigé en ce sens.
 
@@ -28,7 +29,7 @@ Applique le rituel de démarrage. CHECK FACTUEL D'ABORD, jamais de mémoire :
   ▶ RESTE (session RUNTIME, pas ici) : re-pin sur **v5.0.1** — jamais v5.0.0, qui ne porte PAS
     K1/K3 (le runtime épingle par TAG, `catalogTag`, selon ce tracker, non re-vérifié côté
     runtime) — puis corpus live P11 (wf-000-p11-direct-solicitation) sur GO de Guy.
-  ▶ fast-uri : lot en cours, voir plus haut.
+  ✅ fast-uri : FAIT, voir plus haut. Plus aucun lot ouvert DANS ce repo.
   Source : claude-agentic-runtime docs/audit/ko-matrix.md (K1, K3) + son next_steps.md.
   Branche : fix/wf-006-wf-008-card-consistency.
   K1 (WF-008) — condition_passage de STEP-06C admettait « returned with documented reservations »

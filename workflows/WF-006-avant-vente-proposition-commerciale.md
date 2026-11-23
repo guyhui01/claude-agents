@@ -1,6 +1,6 @@
 # WF-006 — Pre-sales / Commercial proposal
 
-> RFP received → qualification → scoping → architecture → schedule → costing → commercial proposal
+> RFP received / qualified opportunity → qualification → scoping → architecture → schedule → costing → commercial proposal
 > Certifications mobilized: PMP · CBAP · TOGAF 10 · CFA · CAP IABAC · Anthropic Claude Code in Action
 
 ---

@@ -123,7 +123,7 @@ estimated_duration: "75-120 min"
 recommended_model: "Opus 4.8"
 model_rationale: "Strategic, high-commercial-stakes workflow (GO/NO-GO qualification, target architecture, person-day costing, pricing, prospect ROI) — Opus 4.8 recommended for CAC40/GAFA/unicorn clients"
 certifications: ["PMP", "CBAP", "TOGAF 10", "CFA", "CAP IABAC"]
-usage_context: "RFP received → qualification → scoping → architecture → planning → costing → commercial proposal"
+usage_context: "RFP received / qualified opportunity → qualification → scoping → architecture → schedule → costing → commercial proposal"
 agents:
   - CONSULTANT-IA
   - BUSINESS-ANALYST

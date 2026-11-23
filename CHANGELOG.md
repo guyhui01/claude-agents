@@ -8,6 +8,17 @@
 
 ## [Unreleased]
 
+### 🐛 Fixed
+- **WF-008: a `returned` methodology verdict now stops the workflow before STEP-07.**
+  The STEP-06C `condition_passage` let an audit "returned with documented reservations"
+  through to the final report, while the deliverables checklist requires a cleared audit.
+  The condition now matches the checklist and the runtime's strict gate.
+- **WF-006: the flow summary now covers every entry the card accepts.**
+  "RFP received → …" was narrower than the card's own START ("RFP received / qualified
+  opportunity") and its "Direct solicitation" request type. Aligned in the card, the
+  generated `sidecar.json` description and the orchestrator's `workflow-catalog.md`
+  (which also said "planning" where the card says "schedule").
+
 ### 📝 Documentation
 - **README header: "37 skills" → "37 skill folders (425 individual skills in all)".**
   The header counted skill folders as skills. 425 = tracked files under `skills/`

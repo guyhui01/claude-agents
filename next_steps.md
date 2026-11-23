@@ -14,9 +14,11 @@ Applique le rituel de démarrage. CHECK FACTUEL D'ABORD, jamais de mémoire :
   npm run validate:sidecar   (attendu : ✓ 85 asset(s), catalog v5.0.1)
   npm run validate:skill-mapping  (attendu : ✓ 425 fichiers ↔ 428 lignes × 38 agents)
   npm audit                  (attendu : found 0 vulnerabilities)
-  ⚠ 2026-11-23 : npm audit ROUGE — fast-uri 3.1.8 touché par 4 nouvelles advisories modérées
-  (GHSA-w74x-v6f9-j3xg, -xhq7-xmqj-769h, -wjr9-j795-jxcr, -333x-w4r6-6crp), aucune PR Dependabot
-  ouverte. HORS chantier K1/K3 ⟹ prochain lot dédié (`gh pr list` d'abord, puis bump + 4 gates).
+  ✅ 2026-11-23 : fast-uri 3.1.8 → 3.1.9 (branche fix/fast-uri-3.1.9) — alertes Dependabot #8-#11
+  (2 moderate, 2 low = les 4 advisories que npm audit regroupe sous 1 paquet). Après merge :
+  vérifier les 4 alertes `fixed` À L'API, pas au verdict de la PR.
+  ⚠ `main` exige une PR (ruleset `require-pr`) ; un push direct passe en « Bypassed rule
+  violations » (admin). Même un commit de tracker passe par une PR — CLAUDE.md corrigé en ce sens.
 
 ▶ CHANTIER EN COURS (ouvert 2026-11-23) — UNE PR catalogue, tranchée par Guy.
   ✅ PR #18 MERGÉE en squash (`e8b76d2`) le 2026-11-23 ; CI main verte, 4 gates lues au log.
@@ -26,7 +28,7 @@ Applique le rituel de démarrage. CHECK FACTUEL D'ABORD, jamais de mémoire :
   ▶ RESTE (session RUNTIME, pas ici) : re-pin sur **v5.0.1** — jamais v5.0.0, qui ne porte PAS
     K1/K3 (le runtime épingle par TAG, `catalogTag`, selon ce tracker, non re-vérifié côté
     runtime) — puis corpus live P11 (wf-000-p11-direct-solicitation) sur GO de Guy.
-  ▶ RESTE (ici, lot séparé) : fast-uri / `npm audit` rouge, voir plus haut.
+  ▶ fast-uri : lot en cours, voir plus haut.
   Source : claude-agentic-runtime docs/audit/ko-matrix.md (K1, K3) + son next_steps.md.
   Branche : fix/wf-006-wf-008-card-consistency.
   K1 (WF-008) — condition_passage de STEP-06C admettait « returned with documented reservations »

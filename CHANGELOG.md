@@ -8,6 +8,11 @@
 
 ## [Unreleased]
 
+---
+
+## [5.0.1] — 2026-11-23 — Two workflow cards no longer contradict themselves
+> Model: Claude Opus 5.5
+
 ### 🐛 Fixed
 - **WF-008: a `returned` methodology verdict now stops the workflow before STEP-07.**
   The STEP-06C `condition_passage` let an audit "returned with documented reservations"

@@ -20,10 +20,13 @@ Applique le rituel de démarrage. CHECK FACTUEL D'ABORD, jamais de mémoire :
 
 ▶ CHANTIER EN COURS (ouvert 2026-11-23) — UNE PR catalogue, tranchée par Guy.
   ✅ PR #18 MERGÉE en squash (`e8b76d2`) le 2026-11-23 ; CI main verte, 4 gates lues au log.
-  ▶ RESTE : release v5.0.1 (branche release/v5.0.1, préparée en local) — le runtime épingle par
-    TAG (`catalogTag`, selon ce tracker, non re-vérifié côté runtime) ⟹ v5.0.0 ne porte PAS K1/K3 ;
-    re-pin sur v5.0.1, jamais sur v5.0.0. Ordre : push → PR → merge → tag annoté → GitHub Release,
-    chacun sur ordre de Guy ; puis vérifier la Release à l'API (ni draft ni prerelease).
+  ✅ v5.0.1 RELEASÉE le 2026-11-23 : PR #19 squash `21dec9b`, tag annoté `v5.0.1` sur ce commit,
+    GitHub Release ni draft ni prerelease (vérifié à l'API). CI main run 45262852332 : 4 gates
+    lues au log, aucun `skipped`.
+  ▶ RESTE (session RUNTIME, pas ici) : re-pin sur **v5.0.1** — jamais v5.0.0, qui ne porte PAS
+    K1/K3 (le runtime épingle par TAG, `catalogTag`, selon ce tracker, non re-vérifié côté
+    runtime) — puis corpus live P11 (wf-000-p11-direct-solicitation) sur GO de Guy.
+  ▶ RESTE (ici, lot séparé) : fast-uri / `npm audit` rouge, voir plus haut.
   Source : claude-agentic-runtime docs/audit/ko-matrix.md (K1, K3) + son next_steps.md.
   Branche : fix/wf-006-wf-008-card-consistency.
   K1 (WF-008) — condition_passage de STEP-06C admettait « returned with documented reservations »

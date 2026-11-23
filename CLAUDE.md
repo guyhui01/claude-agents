@@ -93,8 +93,8 @@ claude-agents/
 
 | Type of work | Branch? | Tag? | GitHub Release? |
 |---|---|---|---|
-| Typo, minor fix, README sync | `main` directly | No | No |
-| 1 skill added or changed | `main` directly | No | No |
+| Typo, minor fix, README sync, tracker | short branch + PR | No | No |
+| 1 skill added or changed | short branch + PR | No | No |
 | New workflow (WF-006…) | `feature/wf-<id>-<topic>` | Patch (vX.Y.**Z**) | No |
 | New agent (AGENT-…) | `feature/agent-<name>` | Minor (vX.**Y**.0) | Optional |
 | Audit + recommendations | `audit/<topic>-<date>` | Major (v**X**.0.0) | **Yes** |
@@ -148,14 +148,15 @@ gh release create vX.Y.Z --title "vX.Y.Z — <title>" --notes-file <changelog-ex
 - Squash merge by default on feature branches (1 clean commit on main)
 - Local branch deleted after merge (`git branch -d feature/...`)
 
-### Branch protection (configured via API — 2026-05-26)
+### Branch protection (rulesets — read from the API on 2026-11-23)
 
-For the `main` repo:
-- ✅ Require linear history (squash only)
-- ✅ Do not allow force pushes
-- ✅ Do not allow deletions
-- ✅ Secret scanning + push protection enabled
-- ⚠️ Require pull request reviews → skipped in solo (self-review impossible)
+`main` carries two active rulesets:
+- `protect-main`: no force pushes, no deletions
+- `require-pr`: every change goes through a pull request (0 required approvals — solo).
+  Repository admins can bypass it; a direct push to `main` then succeeds with
+  "Bypassed rule violations". Do not rely on the bypass: open a PR, even for a tracker update.
+- Secret scanning + push protection enabled
+- Squash merge is the convention, not an enforced rule (merge, squash and rebase are all allowed)
 
 ### GitHub authentication — SSH
 

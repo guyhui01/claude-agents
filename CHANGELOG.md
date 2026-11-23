@@ -8,6 +8,18 @@
 
 ## [Unreleased]
 
+### 🔒 Security
+- **`fast-uri` 3.1.8 → 3.1.9** (transitive, via `ajv` 8.20.0, dev scope): closes
+  four advisories (two moderate, two low) — GHSA-w74x-v6f9-j3xg, GHSA-wjr9-j795-jxcr,
+  GHSA-xhq7-xmqj-769h, GHSA-333x-w4r6-6crp — all fixed in 3.1.9. `ajv` declares
+  `fast-uri: ^3.0.1`, so `npm audit fix` resolves it inside the declared range: no
+  `overrides`, no `--force`, `ajv` unchanged. `npm audit` = 0.
+
+### 📝 Documentation
+- **`CLAUDE.md` branch protection matched to the live rulesets.** It allowed direct
+  commits to `main` and listed "require linear history"; the `require-pr` ruleset in
+  fact requires a pull request (admins can bypass it), and no linear-history rule is set.
+
 ---
 
 ## [5.0.1] — 2026-11-23 — Two workflow cards no longer contradict themselves

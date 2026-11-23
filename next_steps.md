@@ -14,6 +14,24 @@ Applique le rituel de démarrage. CHECK FACTUEL D'ABORD, jamais de mémoire :
   npm run validate:sidecar   (attendu : ✓ 85 asset(s), catalog v5.0.0)
   npm run validate:skill-mapping  (attendu : ✓ 425 fichiers ↔ 428 lignes × 38 agents)
   npm audit                  (attendu : found 0 vulnerabilities)
+  ⚠ 2026-11-23 : npm audit ROUGE — fast-uri 3.1.8 touché par 4 nouvelles advisories modérées
+  (GHSA-w74x-v6f9-j3xg, -xhq7-xmqj-769h, -wjr9-j795-jxcr, -333x-w4r6-6crp), aucune PR Dependabot
+  ouverte. HORS chantier K1/K3 ⟹ prochain lot dédié (`gh pr list` d'abord, puis bump + 4 gates).
+
+▶ CHANTIER EN COURS (ouvert 2026-11-23) — UNE PR catalogue, tranchée par Guy.
+  Source : claude-agentic-runtime docs/audit/ko-matrix.md (K1, K3) + son next_steps.md.
+  Branche : fix/wf-006-wf-008-card-consistency.
+  K1 (WF-008) — condition_passage de STEP-06C admettait « returned with documented reservations »
+    avant STEP-07, la checklist exige un audit « cleared ». Décision : le runtime reste strict ⟹
+    la carte dit qu'un verdict `returned` arrête le workflow avant STEP-07.
+  K3 (WF-006) — la flèche « RFP received → … » était plus étroite que la carte (Request type
+    « Direct solicitation », START « RFP received / qualified opportunity »). Alignée sur le
+    libellé START aux 3 occurrences : carte l.3, sidecar.json (via `npm run generate:sidecar`,
+    le sidecar est GÉNÉRÉ), skills/orchestrateur-workflow/workflow-catalog.md (usage_context).
+  Hors périmètre : code runtime, toute autre carte (WF-004 l.72 « RFP received / engagement
+    signed » n'est pas une contradiction). CHANGELOG dans le lot.
+  PR + push UNIQUEMENT sur ordre de Guy. Après merge : re-pin côté runtime, puis corpus live P11
+  (wf-000-p11-direct-solicitation) relancé depuis le runtime, sur GO de Guy.
 
 ✅ CHANTIER CLOS (2026-09-25) — packaging Agent Skills (https://agentskills.io/specification).
   ✅ **v5.0.0 POUSSÉE ET RELEASÉE** : squash `72dab9e` + release `7ec6745`, tag annoté,

@@ -4,7 +4,7 @@
     "name": "claude-agents",
     "version": "v5.0.0"
   },
-  "generatedAt": "2026-09-25T19:05:33.183Z",
+  "generatedAt": "2026-11-23T20:16:03.336Z",
   "assets": [
     {
       "id": "AGENT-AI-ARCHITECT",
@@ -1121,7 +1121,7 @@
       "type": "workflow",
       "path": "workflows/WF-006-avant-vente-proposition-commerciale.md",
       "title": "Pre-sales / Commercial proposal",
-      "description": "RFP received → qualification → scoping → architecture → schedule → costing → commercial proposal",
+      "description": "RFP received / qualified opportunity → qualification → scoping → architecture → schedule → costing → commercial proposal",
       "catalogVersion": "v5.0.0",
       "source": {
         "file": "workflows/WF-006-avant-vente-proposition-commerciale.md",

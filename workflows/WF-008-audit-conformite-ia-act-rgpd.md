@@ -356,7 +356,7 @@ etape:
     - "Cognitive-bias log: overconfidence, blind spots, tier minimized to avoid client friction (anti-theater)"
     - "ISTQB exit criteria applied to the audit deliverable (traceability, evidence, reproducibility)"
     - "Verdict: report cleared for delivery / returned with documented reservations — never cleared by default"
-  condition_passage: "Audit cleared, or returned with documented reservations, before the final report (STEP-07)"
+  condition_passage: "Audit cleared before the final report (STEP-07); a returned verdict stops the workflow before STEP-07 — documented reservations go back for rework, never through"
   perimetre: "Challenges the methodological rigor of the audit; does NOT re-qualify the legal substance — AI Act / GDPR qualification remains AGENT-JURIDIQUE-IA (STEP-01)"
   duree_estimee: "20 min"
   execution: "conditional — after STEP-06B, before STEP-07, if the audit is high-stakes"
